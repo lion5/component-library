@@ -13,36 +13,33 @@
   </div>
 </template>
 
-<script>
-/**
+<script lang="ts" setup>/**
  * This is a wrapper to allow items to be dragged and dropped.
  * It displays the component differently when it is dragged and when another component is dragged over it.
  */
-export default {
-  name: 'DraggableItem',
-  emits: ['drag', 'drop'],
-  data () {
-    return {
-      dragged: false,
-      draggedOver: false
-    }
-  },
-  methods: {
-    onDrop () {
-      /**
-       * Is emitted when the item is dropped
-       */
-      this.$emit('drop')
-      this.draggedOver = false
-    },
-    onDragStart () {
-      /**
-       * Is emitted when the item is dragged
-       */
-      this.$emit('drag')
-      this.dragged = true
-    }
-  }
+import {ref} from "vue";
+
+const dragged = ref<boolean>(false)
+const draggedOver = ref<boolean>(false)
+
+const emit = defineEmits<{
+  /**
+   * Is emitted when the item is dragged
+   */
+  (e: 'drag'): void,
+  /**
+   * Is emitted when the item is dropped
+   */
+  (e: 'drop'): void
+}>()
+
+const onDrop = () => {
+  emit('drop')
+  draggedOver.value = false
+}
+const onDragStart = () => {
+  emit('drag')
+  dragged.value = true
 }
 </script>
 
