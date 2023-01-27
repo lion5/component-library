@@ -1,7 +1,6 @@
 {
   "name": "@lion5/component-library",
-  "version": "0.0.2",
-  "private": true,
+  "version": "0.0.3",
   "license": "MIT",
   "contributors": [
     "Michael Götz <michael.goetz@lion5.io> (https://github.com/michigg)"
