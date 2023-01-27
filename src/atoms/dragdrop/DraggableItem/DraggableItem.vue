@@ -13,14 +13,17 @@
   </div>
 </template>
 
-<script lang="ts" setup>/**
+<script lang="ts" setup>
+/**
  * This is a wrapper to allow items to be dragged and dropped.
  * It displays the component differently when it is dragged and when another component is dragged over it.
  */
-import {ref} from "vue";
+import { ref } from "vue";
 
 const dragged = ref<boolean>(false)
 const draggedOver = ref<boolean>(false)
+
+defineExpose({dragged, draggedOver})
 
 const emit = defineEmits<{
   /**

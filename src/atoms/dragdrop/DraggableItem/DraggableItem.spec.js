@@ -27,7 +27,7 @@ describe('DraggableItem', () => {
       expect(draggableItem.classes('dragged')).toBeFalsy()
     })
     it('dragged class is added on @dragstart', async () => {
-      await wrapper.setData({ dragged: false })
+      wrapper.vm.dragged = false
 
       const draggableItem = wrapper.find('.draggable-item')
       await draggableItem.trigger('dragstart')
@@ -35,7 +35,7 @@ describe('DraggableItem', () => {
       expect(draggableItem.classes('dragged')).toBeTruthy()
     })
     it('dragged class is removed on @dragend', async () => {
-      await wrapper.setData({ dragged: true })
+      wrapper.vm.dragged = true
 
       const draggableItem = wrapper.find('.draggable-item')
       await draggableItem.trigger('dragend')
@@ -47,7 +47,7 @@ describe('DraggableItem', () => {
       expect(draggableItem.classes('dragged-over')).toBeFalsy()
     })
     it('dragged-over class is added on @dragover', async () => {
-      await wrapper.setData({ draggedOver: false })
+      wrapper.vm.draggedOver = false
 
       const draggableItem = wrapper.find('.draggable-item')
       await draggableItem.trigger('dragover')
@@ -55,7 +55,7 @@ describe('DraggableItem', () => {
       expect(draggableItem.classes('dragged-over')).toBeTruthy()
     })
     it('dragged-over class is removed on @dragleave', async () => {
-      await wrapper.setData({ draggedOver: true })
+      wrapper.vm.draggedOver = true
 
       const draggableItem = wrapper.find('.draggable-item')
       await draggableItem.trigger('dragleave')
@@ -63,7 +63,7 @@ describe('DraggableItem', () => {
       expect(draggableItem.classes('dragged-over')).toBeFalsy()
     })
     it('dragged-over class is removed on @drop', async () => {
-      await wrapper.setData({ draggedOver: true })
+      wrapper.vm.draggedOver = true
 
       const draggableItem = wrapper.find('.draggable-item')
       await draggableItem.trigger('drop')
