@@ -1,4 +1,4 @@
-name: Portal - Build
+name: Build
 
 on:
   pull_request:
