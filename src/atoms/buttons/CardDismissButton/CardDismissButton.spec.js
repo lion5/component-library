@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { beforeEach, afterEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 import CardDismissButton from "@/atoms/buttons/CardDismissButton/CardDismissButton.vue";
 
 
