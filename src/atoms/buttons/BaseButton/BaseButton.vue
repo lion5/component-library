@@ -20,7 +20,6 @@ import { defineComponent } from 'vue'
 import IconLoading from "@/atoms/icons/IconLoading.vue";
 
 export default defineComponent({
-  name: 'PortalButton',
   components: {
     IconLoading
   },
