@@ -1,5 +1,5 @@
 import {ActionButton} from "@";
-import IconWallet from "@/atoms/icons/IconWallet.vue";
+import IconWallet from "@/icons/IconWallet.vue";
 import BaseModal from "@/atoms/modals/BaseModal/BaseModal.vue";
 
 export default {

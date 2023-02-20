@@ -17,10 +17,9 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import IconLoading from "@/atoms/icons/IconLoading.vue";
+import IconLoading from "@/icons/IconLoading.vue";
 
 export default defineComponent({
-  name: 'PortalButton',
   components: {
     IconLoading
   },
