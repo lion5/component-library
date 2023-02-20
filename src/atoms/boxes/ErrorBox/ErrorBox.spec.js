@@ -1,23 +1,12 @@
-import { createLocalVue, mount } from '@vue/test-utils'
-import { BootstrapVue, IconsPlugin } from 'bootstrap-vue'
-import PortalErrorBox from '@/base/components/PortalErrorBox.vue'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
-
-const localVue = createLocalVue()
-
-// install plugins as normal
-localVue.use(BootstrapVue)
-localVue.use(IconsPlugin)
+import { mount } from '@vue/test-utils'
+import { beforeEach, describe, expect, it } from 'vitest'
+import ErrorBox from "@/atoms/boxes/ErrorBox/ErrorBox.vue";
 
 describe('PortalErrorBox', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = mount(PortalErrorBox, { localVue })
-  })
-
-  afterEach(() => {
-    wrapper.destroy()
+    wrapper = mount(ErrorBox)
   })
 
   describe(':props', () => {
@@ -48,7 +37,7 @@ describe('PortalErrorBox', () => {
     it(':error - display error message when set', async () => {
       const error = new Error('New test error')
       await wrapper.setProps({ error })
-      const errorMessage = wrapper.find('li')
+      const errorMessage = wrapper.find('span')
       expect(errorMessage.text()).toBe(error.message)
     })
     it(':errors - displays all error messages when set', async () => {

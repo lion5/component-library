@@ -4,7 +4,7 @@
       class="error-box"
       data-cy="portal-error-box"
   >
-    <ul>
+    <ul v-if="localErrors.length > 1">
       <li
           v-for="localError in localErrors"
           :key="localError.message"
@@ -12,6 +12,9 @@
         {{ localError.message }}
       </li>
     </ul>
+    <span v-else>
+      {{ localErrors[0].message}}
+    </span>
   </div>
 </template>
 
@@ -33,7 +36,7 @@ const localErrors = computed(() => {
   return [...wrappedError, ...props.errors]
 })
 </script>
-<style scoped>
+<style lang="scss" scoped>
 .error-box {
   color: var(--color-danger-hover);
   background-color: var(--color-danger-surface-300);

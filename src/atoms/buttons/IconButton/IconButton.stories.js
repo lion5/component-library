@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import IconArrowRepeat from "@/atoms/icons/IconArrowRepeat.vue";
+import IconArrowRepeat from "@/icons/IconArrowRepeat.vue";
 import IconButton from "@/atoms/buttons/IconButton/IconButton.vue";
 
 export default {

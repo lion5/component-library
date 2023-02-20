@@ -11,10 +11,18 @@
 </template>
 
 <script lang="ts" setup>
+import InformationButton from "@/atoms/buttons/InformationButton/InformationButton.vue";
 
-import InformationButton from '@/components/InformationButton/InformationButton.vue'
-
-defineProps<{ title: string, infoModalTitle: string }>()
+defineProps<{
+  /**
+   * The headline text
+   */
+  title: string,
+  /**
+   * The modals headline text
+   */
+  infoModalTitle: string
+}>()
 </script>
 
 <style scoped>

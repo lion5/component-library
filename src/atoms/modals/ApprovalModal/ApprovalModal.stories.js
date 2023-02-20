@@ -1,7 +1,7 @@
 import {ActionButton} from "@";
-import IconWallet from "@/atoms/icons/IconWallet.vue";
+import IconWallet from "@/icons/IconWallet.vue";
 import ApprovalModal from "@/atoms/modals/ApprovalModal/ApprovalModal.vue";
-import IconTrash from "@/atoms/icons/IconTrash.vue";
+import IconTrash from "@/icons/IconTrash.vue";
 
 export default {
   components: {IconTrash, ApprovalModal, IconWallet},
