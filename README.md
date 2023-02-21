@@ -24,6 +24,6 @@ npm run build-storybook
 # How to Release
 - Merge all changes to the main branch
 - checkout main branch
-- run `npm version <vX.X.X|patch|...>` (see https://docs.npmjs.com/cli/v8/commands/npm-version) to update the `package.json version and auto tag commit`
+- run `npm version <vX.X.X|patch|...>` (see https://docs.npmjs.com/cli/v8/commands/npm-version) to update the `package.json` version and auto tag commit
 - push the new generated to to github
 - create a new release for the tag
