@@ -9,12 +9,14 @@ npm install @lion5/component-library
 ```
 
 ## How to develop
-We are using storybook to develop new components and to display the documentation for them.
-To start storybook run.
+We are using [Storybook](https://storybook.js.org/) to develop new components and to display the documentation for them.
+Please refer to the [Vue Styleguidist Docs](https://vue-styleguidist.github.io/docs/Documenting.html) for updating or writing new component documentations.
+
+To start storybook run:
 ```sh
 npm run storybook
 ```
-To build the library locally use
+To build the library locally use:
 ```sh
 npm run build-storybook
 ```
