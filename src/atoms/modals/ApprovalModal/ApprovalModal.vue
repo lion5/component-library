@@ -1,5 +1,5 @@
 <template>
-  <slot :open="openModal" name="trigger" />
+  <slot :open="show" name="trigger" />
   <DismissibleModal
       v-model:modal-displayed="modalDisplayed"
       class="approval-modal"
@@ -32,9 +32,17 @@ const emit = defineEmits<{
   (e: 'accept'): void
 }>()
 
-const openModal = () => {
+const show = () => {
   modalDisplayed.value = true
 }
+
+defineExpose({
+  /**
+   * FIXME: currently this documentation is not shown in Storybook
+   * Displays the modal. The modal can be hidden by the user via the built-in approval button.
+   */
+  show
+})
 
 const accept = () => {
   emit('accept')
