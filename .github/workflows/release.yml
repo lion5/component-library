@@ -56,18 +56,18 @@ jobs:
               issue_number: result.data.number,
               labels: ['release', 'automated pr']
             });
-            await github.rest.pulls.createReview({
-              owner,
-              repo,
-              pull_number: result.data.number,
-              event: 'APPROVE'
-            });
-            await github.rest.pulls.merge({
-              owner,
-              repo,
-              pull_number: result.data.number,
-              merge_method: 'merge'
-            });
+#            await github.rest.pulls.createReview({
+#              owner,
+#              repo,
+#              pull_number: result.data.number,
+#              event: 'APPROVE'
+#            });
+#            await github.rest.pulls.merge({
+#              owner,
+#              repo,
+#              pull_number: result.data.number,
+#              merge_method: 'merge'
+#            });
       - name: Approve Pull Request
         uses: juliangruber/approve-pull-request-action@v2.0.0
         with:
