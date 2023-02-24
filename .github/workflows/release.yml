@@ -20,7 +20,7 @@ permissions:
   pull-requests: write
 
 jobs:
-  release:
+  github-release:
     runs-on: ubuntu-latest
     outputs:
       NEW_VERSION: ${{ steps.releaseVersionUpdate.NEW_VERSION }}
@@ -82,14 +82,14 @@ jobs:
           generate_release_notes: true
 
   publish-package:
-    needs: [release]
+    needs: [github-release]
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     steps:
       - env:
-          NEW_VERSION: ${{needs.release.outputs.NEW_VERSION}}
+          NEW_VERSION: ${{needs.github-release.outputs.NEW_VERSION}}
       - uses: actions/checkout@v3
       - run: git checkout ${{ env.NEW_VERSION }}
       # Setup .npmrc file to publish to GitHub Packages
@@ -106,7 +106,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-documentation:
-    needs: [release]
+    needs: [github-release]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -117,7 +117,7 @@ jobs:
       id-token: write
     steps:
       - env:
-          NEW_VERSION: ${{needs.release.outputs.NEW_VERSION}}
+          NEW_VERSION: ${{needs.github-release.outputs.NEW_VERSION}}
       - name: Checkout
         uses: actions/checkout@v3
       - run: git checkout ${{ env.NEW_VERSION }}
