@@ -1,9 +1,6 @@
-# This is a basic workflow that is manually triggered
-
+# Template used https://superface.ai/blog/npm-publish-gh-actions-changelog
 name: Release
 
-# Controls when the action will run. Workflow runs when manually triggered using the UI
-# or API.
 on:
   workflow_dispatch:
     # Inputs the workflow accepts. See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs
@@ -18,7 +15,6 @@ on:
           - minor
           - patch
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
   create-release-tag:
     runs-on: ubuntu-latest
@@ -27,26 +23,11 @@ jobs:
         uses: actions/checkout@v3
       - name: Git configuration
         run: |
-          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git config --global user.name "GitHub Actions"
+          git config --global user.email "github-actions@github.com"
+          git config --global user.name "Github Actions on behalf of @${{ github.triggering_actor }}"
       - name: Bump Release Version
         run: echo "NEW_VERSION=$(npm version ${{ inputs.releaseType }})" >> $GITHUB_ENV
-      - name: Commit and Tag
-        run: |
-          git add "package.json"
-          git commit -m "chore: release ${{ env.NEW_VERSION }}
-          git tag ${{ env.NEW_VERSION }}
       - name: Push Changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: git push origin && git push --tags
-  # This workflow contains a single job called "greet"
-  create-release:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-    # Runs a single command using the runners shell
-    - name: Send greeting
-      run: echo "Hello ${{ github.event.inputs.name }}"
+        run: git push origin && git push origin ${{ env.NEW_VERSION }}
