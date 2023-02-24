@@ -91,7 +91,8 @@ jobs:
       NEW_VERSION: ${{needs.github-release.outputs.NEW_VERSION}}
     steps:
       - uses: actions/checkout@v3
-      - run: git checkout ${{ env.NEW_VERSION }}
+        with:
+          ref: ${{ env.NEW_VERSION }}
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v3
         with:
@@ -120,7 +121,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - run: git checkout ${{ env.NEW_VERSION }}
+        with:
+          ref: ${{ env.NEW_VERSION }}
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
