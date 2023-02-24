@@ -79,12 +79,14 @@ jobs:
           generate_release_notes: true
 
   publish-package:
+    needs: [create-release-tag]
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     steps:
       - uses: actions/checkout@v3
+      - run: git checkout ${{ env.NEW_VERSION }}
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v3
         with:
@@ -99,6 +101,7 @@ jobs:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-documentation:
+    needs: [create-release-tag]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -110,6 +113,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+      - run: git checkout ${{ env.NEW_VERSION }}
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
