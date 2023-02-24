@@ -22,9 +22,13 @@ npm run build-storybook
 ```
 
 # How to Release
-- Merge all changes to the main branch
-- checkout main branch
-- run `npm version <vX.X.X|patch|...>` (see https://docs.npmjs.com/cli/v8/commands/npm-version) to update the `package.json` version and auto tag commit
-- push the newly generated tag to GitHub (e.g. `git push origin vX.X.X`)
-- create a new release for the tag in GitHub
-- create a new PR with the new tag into `main`
+1. Run the release workflow using the Actions tab
+   - Select the release type (major, minor, patch) and run the release on main branch
+     ![grafik](https://user-images.githubusercontent.com/28068636/221237899-54cccd25-cd09-4758-a34c-d93d65785e98.png)
+3. After that the workflow creates a release PR after a while. This PR need to be approved, merged and the branch deleted.
+
+The workflow should have done the following things:
+- Create a new github release
+- Publish a new package to the Github Packages registry
+- Publish a new documentation on Github Pages
+
