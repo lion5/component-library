@@ -1,5 +1,5 @@
 <template>
-  <dialog ref="modal" class="basic-modal">
+  <dialog ref="modal" class="basic-modal" @cancel="closeModal">
     <slot :open-modal="openModal" :close-modal="closeModal"/>
   </dialog>
 </template>
@@ -12,7 +12,6 @@ const props = withDefaults(
       modalDisplayed: boolean
     }>(),
     {
-      id: 'portal-modal',
       modalDisplayed: false
     }
 )
