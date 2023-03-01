@@ -130,19 +130,17 @@ describe('SelectInput', () => {
       })
       expect(wrapper.emitted('input')[0]).toStrictEqual([expectedValue])
     })
-    it(':placeholderSuffix - is applied to the placeholder prop', async () => {
+    it(':placeholder - is applied to the placeholder prop', async () => {
       const label = 'label'
-      const placeholderSuffix = 'placeholderSuffix'
+      const placeholder = 'placeholder'
       await wrapper.setProps({
         label,
-        placeholderSuffix,
+        placeholder,
       })
       const multiselectComponent = wrapper.findComponent(Multiselect)
-      expect(multiselectComponent.attributes().placeholder).toBe(
-        `${label} ${placeholderSuffix}`
-      )
+      expect(multiselectComponent.attributes().placeholder).toBe(placeholder)
     })
-    it(':placeholderSuffix - default is "wählen"', async () => {
+    it(':placeholder - default is label + " wählen"', async () => {
       const label = 'label'
       await wrapper.setProps({ label })
       const multiselectComponent = wrapper.findComponent(Multiselect)

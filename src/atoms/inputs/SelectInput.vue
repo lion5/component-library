@@ -4,7 +4,7 @@
       :id="id"
       v-model="selectedOption"
       :options="options"
-      :placeholder="label + ' ' + placeholderSuffix"
+      :placeholder="placeholderText"
       :track-by="'value'"
       label="text"
       :multiple="false"
@@ -20,7 +20,7 @@
         <slot :name="name" />
       </template>
     </multiselect>
-    <label class="floating-label-active required-field-label" :for="id">
+    <label class="floating-label-active" :for="id">
       {{ label }}
     </label>
     <small v-if="error" class="error">
@@ -30,22 +30,45 @@
 </template>
 <script setup lang="ts">
 import Multiselect from 'vue-multiselect'
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { SelectOption } from '@/models/selectOption'
+
+const PLACEHOLDER_SUFFIX = 'wählen'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * The currently selected value as a `string`, initially `undefined`.
+     */
     value?: string
+    /**
+     * The options that should be available for selection. Contain a `value` (key to identify the option)
+     * and a text to be displayed.
+     */
     options: SelectOption[]
+    /**
+     * The option that should be pre-selected by default. If unset, no option is pre-selected.
+     */
     defaultOption?: SelectOption
+    /**
+     * The unique ID of the HTML element.
+     */
     id: string
+    /**
+     * The label text to be displayed next to the field.
+     */
     label: string
+    /**
+     * An error to be displayed below the field. Either string or an Error object.
+     */
     error?: string | Error
-    placeholderSuffix?: string
+    /**
+     * A placeholder to be displayed if no option is selected. By default, the label + ' wählen' is displayed.
+     */
+    placeholder?: string
   }>(),
   {
     error: '',
-    placeholderSuffix: 'wählen',
   }
 )
 
@@ -77,11 +100,20 @@ onMounted(() => {
   }
 })
 
+const placeholderText = computed(() => {
+  return props.placeholder || props.label + ' ' + PLACEHOLDER_SUFFIX
+})
+
 const emitKey = (selectedOption: SelectOption) => {
   emit('input', selectedOption.value)
 }
 </script>
+<style>
+@import 'vue-multiselect/dist/vue3-multiselect.css';
+</style>
 <style lang="scss" scoped>
+@import '@/assets/style/floating_labels.scss';
+
 .error {
   color: var(--color-danger);
 }
