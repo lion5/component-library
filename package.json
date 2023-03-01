@@ -42,7 +42,10 @@
     "./dist/style.css": "./dist/style.css"
   },
   "dependencies": {
-    "vue": "^3.2.47"
+    "vue": ">=3.2.0"
+  },
+  "peerDependencies": {
+    "vue-router": ">=4.0.0"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.2.0",

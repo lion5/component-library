@@ -9,10 +9,10 @@ import ItemCard from "@/atoms/cards/ItemCard/ItemCard.vue";
 import BaseButton from "@/atoms/buttons/BaseButton/BaseButton.vue";
 import ErrorBox from "@/atoms/boxes/ErrorBox/ErrorBox.vue";
 import InformationButton from "@/atoms/buttons/InformationButton/InformationButton.vue";
-import InformationHeadline from "@/atoms/InformationHeadline/InformationHeadline.vue";
+import InformationHeadline from "@/atoms/utils/InformationHeadline/InformationHeadline.vue";
 import EntityCard from "@/atoms/cards/EntityCard/EntityCard.vue";
-import EntityWrapper from "@/atoms/EntityWrapper/EntityWrapper.vue";
-import LoadingAnimation from "@/atoms/LoadingAnimation/LoadingAnimation.vue";
+import EntityWrapper from "@/atoms/utils/EntityWrapper/EntityWrapper.vue";
+import LoadingAnimation from "@/atoms/utils/LoadingAnimation/LoadingAnimation.vue";
 
 export {
     ErrorBox,
