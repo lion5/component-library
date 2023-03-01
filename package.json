@@ -45,6 +45,9 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
+    "prettier": "^2.8.4",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint-config-prettier": "^8.6.0",
     "@rushstack/eslint-patch": "^1.2.0",
     "@storybook/addon-essentials": "^7.0.0-beta.48",
     "@storybook/addon-interactions": "^7.0.0-beta.48",
