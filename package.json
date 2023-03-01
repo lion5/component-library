@@ -24,9 +24,10 @@
     "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "build": "vue-tsc && vite build",
     "test:unit": "vitest --environment jsdom --root src",
+    "test:unit:ui": "vitest --environment jsdom --root src --ui",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "docs": "storybook dev -p 6006",
+    "docs:build": "storybook build"
   },
   "files": [
     "dist"
@@ -42,9 +43,13 @@
     "./dist/style.css": "./dist/style.css"
   },
   "dependencies": {
-    "vue": "^3.2.47"
+    "vue": "^3.2.47",
+    "vue-multiselect": "^3.0.0-beta.1"
   },
   "devDependencies": {
+    "prettier": "^2.8.4",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint-config-prettier": "^8.6.0",
     "@rushstack/eslint-patch": "^1.2.0",
     "@storybook/addon-essentials": "^7.0.0-beta.48",
     "@storybook/addon-interactions": "^7.0.0-beta.48",

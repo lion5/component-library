@@ -49,7 +49,7 @@ jobs:
       - name: Install Packages
         run: npm ci
       - name: Build Library Documentation
-        run: npm run build-storybook
+        run: npm run docs:build
 
   build:
     needs: [ unit-testing ]
