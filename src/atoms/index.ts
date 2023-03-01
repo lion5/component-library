@@ -13,21 +13,23 @@ import InformationHeadline from "@/atoms/InformationHeadline/InformationHeadline
 import EntityCard from "@/atoms/cards/EntityCard/EntityCard.vue";
 import EntityWrapper from "@/atoms/EntityWrapper/EntityWrapper.vue";
 import LoadingAnimation from "@/atoms/LoadingAnimation/LoadingAnimation.vue";
+import SelectInput from "@/atoms/inputs/SelectInput.vue";
 
 export {
-    ErrorBox,
     ActionButton,
+    ApprovalModal,
     BaseButton,
+    BaseModal,
     CardDismissButton,
-    IconButton,
-    InformationButton,
-    EntityCard,
-    ItemCard,
+    DismissibleModal,
     DraggableItem,
     EntityWrapper,
+    EntityCard,
+    ErrorBox,
+    IconButton,
+    InformationButton,
     InformationHeadline,
+    ItemCard,
     LoadingAnimation,
-    BaseModal,
-    DismissibleModal,
-    ApprovalModal
+    SelectInput
 }
