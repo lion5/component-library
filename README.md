@@ -8,13 +8,13 @@ This is the Lion5 Component Library. It includes all shared vue3 ui components.
   - add the following line `@lion5:registry=https://npm.pkg.github.com` (this changes the registry to github for all packages under the @lion5 namespace)
 - Then you need to generate a PAT in github to be able to download the package locally
   1. Developer Settings > Personal Access Tokens (classic) and create a new one
-  2. Configuration as follows (only read:packages permission): 
+  2. Configuration as follows (only read:packages permission):
     ![image](https://user-images.githubusercontent.com/65423853/220298379-995b0051-fcb8-4875-a5a5-c48b5483da0b.png)
 - After that you need to login using the generated PAT `npm login --registry https://npm.pkg.github.com --scope @lion5`
   (might need `--auth-type=legacy`)
   - username is the github username
   - password is the PAT
-- Install the package: 
+- Install the package:
 ```shell
 npm install @lion5/component-library
 pnpm add "@lion5/component-library"
@@ -37,11 +37,11 @@ Please refer to the [Vue Styleguidist Docs](https://vue-styleguidist.github.io/d
 
 To start storybook run:
 ```sh
-npm run storybook
+npm run docs
 ```
 To build the library locally use:
 ```sh
-npm run build-storybook
+npm run docs:build
 ```
 
 # How to Release
