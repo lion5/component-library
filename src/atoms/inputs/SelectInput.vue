@@ -16,7 +16,7 @@
       v-bind="$attrs"
       @select="emitKey"
     >
-      <template v-for="name in $slots" #[name]>
+      <template v-for="(_, name) in $slots" #[name]>
         <slot :name="name" />
       </template>
     </multiselect>
@@ -24,7 +24,7 @@
       {{ label }}
     </label>
     <small v-if="error" class="error">
-      {{ error.message || error }}
+      {{ errorMessage }}
     </small>
   </div>
 </template>
@@ -103,6 +103,8 @@ onMounted(() => {
 const placeholderText = computed(() => {
   return props.placeholder || props.label + ' ' + PLACEHOLDER_SUFFIX
 })
+
+const errorMessage = computed(() => props.error instanceof Error ? props.error.message : props.error)
 
 const emitKey = (selectedOption: SelectOption) => {
   emit('input', selectedOption.value)
