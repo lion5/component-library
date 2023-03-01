@@ -1,0 +1,84 @@
+// This file defines the floating label design for input fields
+//
+// To implement this functionality see the following example
+// <div class="floating-input-group>"
+//   <b-input type="text" id="input"></b-input>
+//   <label for="input">Label Text</label>
+// </div>
+
+.floating-input-group .form-control,
+.floating-input-group-postfix {
+  height: var(--input-field-height);
+}
+
+.floating-input-group {
+  position: relative;
+
+  & > input,
+  & > label {
+    padding: var(--input-floating-label-padding-y) var(--input-floating-label-padding-x) !important;
+    height: var(--input-field-height);
+  }
+
+  & > label {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    margin-bottom: 0; /* Override default `<label>` margin */
+    color: var(--input-floating-label-color);
+    transition: all .1s ease-in-out;
+    cursor: text;
+    user-select: none;
+  }
+
+  /* override bootstrap placeholder definition */
+  input::placeholder,
+  input::-webkit-input-placeholder, /* Chrome/Opera/Safari */
+  textarea::placeholder,
+  textarea::-webkit-input-placeholder, /* Chrome/Opera/Safari */
+  {
+    color: transparent !important;
+    opacity: 0;
+  }
+
+  input:not(:placeholder-shown) ~ label,
+  textarea:not(:placeholder-shown) ~ label,
+  .floating-label-active {
+    padding: 0 2px !important;
+    margin-top: calc(var(--input-floating-label-active-font-size) * -0.5) !important;
+    margin-left: var(--input-floating-label-padding-x);
+    background-color: white;
+    font-size: var(--input-floating-label-active-font-size);
+    line-height: var(--input-floating-label-active-font-size);
+    height: var(--input-floating-label-active-font-size);
+    color: var(--color-neutral-600);
+  }
+
+  textarea {
+    display: block;
+    width: 100%;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    background-color: var(--color-white);
+    border: 1px solid var(--color-neutral-400);
+    border-radius: 0;
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+  }
+}
+
+textarea.failed:not(:focus),
+input.failed:not(:focus) {
+  border-color: var(--color-danger);
+}
+
+.required-field-label::after,
+input.required ~ label::after,
+textarea.required ~ label::after {
+  content: '*';
+  font-size: 1.2rem;
+  padding-left: .3rem;
+  color: var(--color-danger);
+}
