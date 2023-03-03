@@ -1,6 +1,6 @@
 <template>
   <dialog ref="modal" class="basic-modal" @cancel="closeModal">
-    <slot :open-modal="openModal" :close-modal="closeModal"/>
+    <slot :open-modal="openModal" :close-modal="closeModal" />
   </dialog>
 </template>
 
@@ -8,12 +8,12 @@
 import { ref, watch } from 'vue'
 
 const props = withDefaults(
-    defineProps<{
-      modalDisplayed: boolean
-    }>(),
-    {
-      modalDisplayed: false
-    }
+  defineProps<{
+    modalDisplayed: boolean
+  }>(),
+  {
+    modalDisplayed: false,
+  }
 )
 
 const emit = defineEmits<{
@@ -32,14 +32,18 @@ const closeModal = () => {
   emit('update:modalDisplayed', false)
 }
 
-watch(() => props.modalDisplayed, (newShowModal) => {
-  console.log('watch', newShowModal)
-  if (newShowModal) {
-    openModal()
-  } else {
-    closeModal()
-  }
-})
+watch(
+  () => props.modalDisplayed,
+  (newShowModal) => {
+    console.log('watch', newShowModal)
+    if (newShowModal) {
+      openModal()
+    } else {
+      closeModal()
+    }
+  },
+  { immediate: true }
+)
 </script>
 
 <style lang="scss" scoped>
