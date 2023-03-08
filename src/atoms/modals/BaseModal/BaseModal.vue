@@ -26,7 +26,7 @@ const emit = defineEmits<{
 
 const modal = ref<HTMLDialogElement>()
 onMounted(() => {
-  syncModal(props.modalDisplayed)
+  toggleModal(props.modalDisplayed)
 })
 
 const openModal = () => {
@@ -35,14 +35,21 @@ const openModal = () => {
 const closeModal = () => {
   emit('update:modalDisplayed', false)
 }
-const syncModal = (modalDisplayed: boolean) => {
+
+/**
+ * Toggles the visibility of the modal, depending on the given `modalDisplayed` value.
+ *
+ * @param modalDisplayed Whether the modal should be displayed or not.
+ * @private
+ */
+const toggleModal = (modalDisplayed: boolean) => {
   if (modalDisplayed) {
     modal.value?.showModal()
   } else {
     modal.value?.close()
   }
 }
-watch(() => props.modalDisplayed, syncModal)
+watch(() => props.modalDisplayed, toggleModal)
 </script>
 
 <style lang="scss" scoped>
