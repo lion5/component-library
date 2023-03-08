@@ -47,9 +47,17 @@ describe('DismissibleModal', () => {
     })
 
     describe('@events', () => {
-        it('@cancel - dialog cancel triggers @update:modalDisplayed', async () => {
-            const dialog = await wrapper.find('dialog')
-            await dialog.trigger('cancel')
+        it('@update:modalDisplayed(BaseModal) - triggers @update:modalDisplayed with value true', async () => {
+            const baseModal = await wrapper.findComponent(BaseModal)
+            await baseModal.vm.emit('update:modalDisplayed', true)
+
+            expect(wrapper.emitted('update:modalDisplayed').length).toBe(1)
+            expect(wrapper.emitted('update:modalDisplayed')[0]).toStrictEqual([true])
+        })
+        it('@dismiss - triggers @update:modalDisplayed with value false', async () => {
+            const cardDismissButton = await wrapper.findComponent(CardDismissButton)
+            await cardDismissButton.vm.$emit('dismiss')
+
             expect(wrapper.emitted('update:modalDisplayed').length).toBe(1)
             expect(wrapper.emitted('update:modalDisplayed')[0]).toStrictEqual([false])
         })
