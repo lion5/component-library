@@ -6,7 +6,7 @@ import { action } from '@storybook/addon-actions'
 
 export default {
   components: { IconTrash, ApprovalModal, IconWallet },
-  component: ApprovalModal,
+  component: ApprovalModal
 }
 
 const Template = (args, { argTypes }) => ({
@@ -14,7 +14,7 @@ const Template = (args, { argTypes }) => ({
   components: {
     ApprovalModal,
     ActionButton,
-    IconTrash,
+    IconTrash
   },
   setup() {
     const onApprove = action('approve')
@@ -34,11 +34,11 @@ const Template = (args, { argTypes }) => ({
       <template #content>
         <p>Content here...</p>
       </template>
-    </ApprovalModal>`,
+    </ApprovalModal>`
 })
 
 export const Default = Template.bind({})
 Default.args = {
   title: 'Approve deletion',
-  modalDisplayed: false,
+  modalDisplayed: false
 }

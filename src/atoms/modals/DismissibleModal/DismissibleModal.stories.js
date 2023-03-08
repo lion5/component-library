@@ -1,9 +1,9 @@
-import DismissibleModal from "@/atoms/modals/DismissibleModal/DismissibleModal.vue";
-import IconWallet from "@/icons/IconWallet.vue";
-import ActionButton from "@/atoms/buttons/ActionButton/ActionButton.vue";
+import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
+import IconWallet from '@/icons/IconWallet.vue'
+import ActionButton from '@/atoms/buttons/ActionButton/ActionButton.vue'
 
 export default {
-  components: {IconWallet},
+  components: { IconWallet },
   component: DismissibleModal
 }
 

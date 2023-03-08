@@ -5,12 +5,11 @@ import {
   describe,
   expect,
   it,
-  vi,
+  vi
 } from 'vitest'
 import { mount } from '@vue/test-utils'
 import ApprovalModal from '@/atoms/modals/ApprovalModal/ApprovalModal.vue'
 import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
-import BaseModal from '@/atoms/modals/BaseModal/BaseModal.vue'
 import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
 
 describe('ApprovalModal', () => {
@@ -25,8 +24,8 @@ describe('ApprovalModal', () => {
     wrapper = mount(ApprovalModal, {
       props: {
         title: 'Title',
-        buttonLabel: 'ButtonLabel',
-      },
+        buttonLabel: 'ButtonLabel'
+      }
     })
   })
 
@@ -48,7 +47,9 @@ describe('ApprovalModal', () => {
 
   describe('@events', () => {
     it('@accept - emitted when approval button is clicked', async () => {
-      const approvalButton = await wrapper.findComponent(BaseButton).find('button')
+      const approvalButton = await wrapper
+        .findComponent(BaseButton)
+        .find('button')
       await approvalButton.trigger('click')
 
       expect(wrapper.emitted('accept').length).toBe(1)
@@ -56,7 +57,9 @@ describe('ApprovalModal', () => {
       expect(wrapper.vm.modalDisplayed).toBe(false)
     })
     it('@approve - emitted when approval button is clicked', async () => {
-      const approvalButton = await wrapper.findComponent(BaseButton).find('button')
+      const approvalButton = await wrapper
+        .findComponent(BaseButton)
+        .find('button')
       await approvalButton.trigger('click')
 
       expect(wrapper.emitted('approve').length).toBe(1)
@@ -76,13 +79,13 @@ describe('ApprovalModal', () => {
     it('#trigger - sets modalDisplayed to true if openModal is called', async () => {
       let openModal
       const wrapper = mount(ApprovalModal, {
-        props: {title: 'Title'},
+        props: { title: 'Title' },
         slots: {
           trigger: (params) => {
             openModal = params.openModal
             return ''
-          },
-        },
+          }
+        }
       })
       await openModal()
       expect(wrapper.emitted('update:modalDisplayed').length).toBe(1)

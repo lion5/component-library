@@ -68,7 +68,7 @@ const props = withDefaults(
     placeholder?: string
   }>(),
   {
-    error: '',
+    error: ''
   }
 )
 
@@ -104,7 +104,9 @@ const placeholderText = computed(() => {
   return props.placeholder || props.label + ' ' + PLACEHOLDER_SUFFIX
 })
 
-const errorMessage = computed(() => props.error instanceof Error ? props.error.message : props.error)
+const errorMessage = computed(() =>
+  props.error instanceof Error ? props.error.message : props.error
+)
 
 const emitKey = (selectedOption: SelectOption) => {
   emit('input', selectedOption.value)

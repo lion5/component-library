@@ -1,14 +1,14 @@
 <template>
   <!--  TODO: remove Boostrap here. Do not miss the :to router prop feature-->
   <button
-      :class="['portal-button', oldStyle ? 'old-button-style' : '', localVariant]"
-      :disabled="disabled"
-      v-bind="$attrs"
+    :class="['portal-button', oldStyle ? 'old-button-style' : '', localVariant]"
+    :disabled="disabled"
+    v-bind="$attrs"
   >
     <IconLoading
-        v-if="loading"
-        :class="{'loading-icon': true, 'animate': loading}"
-        data-cy="button-loading"
+      v-if="loading"
+      :class="{ 'loading-icon': true, animate: loading }"
+      data-cy="button-loading"
     />
     <slot v-else name="icon-left" />
     <slot />
@@ -17,7 +17,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import IconLoading from "@/icons/IconLoading.vue";
+import IconLoading from '@/icons/IconLoading.vue'
 
 export default defineComponent({
   components: {
@@ -53,10 +53,10 @@ export default defineComponent({
     }
   },
   computed: {
-    success () {
+    success() {
       return this.variant === 'success'
     },
-    localVariant () {
+    localVariant() {
       if (this.variant === 'success-without-checkmark') {
         return 'success'
       }
@@ -98,18 +98,23 @@ export default defineComponent({
     --color-button-background-hover: var(--color-danger-hover);
   }
 
-  &.primary, &.success, &.warning, &.danger {
+  &.primary,
+  &.success,
+  &.warning,
+  &.danger {
     background-color: var(--color-button-background);
     border-color: var(--color-button-background);
     color: var(--color-button);
 
-    &:not([disabled]):hover, &:not([disabled]):active {
+    &:not([disabled]):hover,
+    &:not([disabled]):active {
       background-color: var(--color-button-background-hover) !important;
       border-color: var(--color-button-background-hover) !important;
-      box-shadow: inset .1rem .3rem .4rem rgba(0, 0, 0, 0.6) !important;
+      box-shadow: inset 0.1rem 0.3rem 0.4rem rgba(0, 0, 0, 0.6) !important;
     }
 
-    &:focus, &:focus-within {
+    &:focus,
+    &:focus-within {
       outline: 1px solid var(--color-button-background-hover) !important;
     }
 
@@ -121,25 +126,25 @@ export default defineComponent({
       line-height: 0;
 
       &.animate {
-        animation: scale .7s ease-in infinite;
+        animation: scale 0.7s ease-in infinite;
       }
     }
   }
 
   &[disabled] {
-    opacity: .6;
+    opacity: 0.6;
     cursor: default;
   }
 }
 
 @keyframes scale {
   0% {
-    scale: .3;
+    scale: 0.3;
     opacity: 1;
   }
   100% {
     scale: 1.1;
-    opacity: .1;
+    opacity: 0.1;
   }
 }
 
@@ -154,5 +159,4 @@ export default defineComponent({
 .old-button-style {
   border-radius: 0;
 }
-
 </style>

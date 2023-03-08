@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import InformationHeadline from "@/atoms/InformationHeadline/InformationHeadline.vue";
+import InformationHeadline from '@/atoms/InformationHeadline/InformationHeadline.vue'
 
 export default {
   component: InformationHeadline
@@ -16,12 +16,12 @@ const Template = (args, { argTypes }) => ({
     </InformationHeadline>
   `,
   methods: {
-    click: action('click'),
+    click: action('click')
   }
 })
 
 export const Default = Template.bind({})
 Default.args = {
-  title: "Topic",
-  infoModalTitle: "Information about Topic"
+  title: 'Topic',
+  infoModalTitle: 'Information about Topic'
 }

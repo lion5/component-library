@@ -1,9 +1,9 @@
 import { action } from '@storybook/addon-actions'
-import CardDismissButton from "@/atoms/buttons/CardDismissButton/CardDismissButton.vue";
-import ItemCard from "@/atoms/cards/ItemCard/ItemCard.vue";
+import CardDismissButton from '@/atoms/buttons/CardDismissButton/CardDismissButton.vue'
+import ItemCard from '@/atoms/cards/ItemCard/ItemCard.vue'
 
 export default {
-  components: {ItemCard},
+  components: { ItemCard },
   component: CardDismissButton
 }
 

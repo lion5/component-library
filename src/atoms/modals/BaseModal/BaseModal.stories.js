@@ -1,10 +1,10 @@
 import IconWallet from '@/icons/IconWallet.vue'
 import BaseModal from '@/atoms/modals/BaseModal/BaseModal.vue'
-import ActionButton from "@/atoms/buttons/ActionButton/ActionButton.vue";
+import ActionButton from '@/atoms/buttons/ActionButton/ActionButton.vue'
 
 export default {
   components: { IconWallet },
-  component: BaseModal,
+  component: BaseModal
 }
 
 const Template = (args, { argTypes }) => ({
@@ -12,7 +12,7 @@ const Template = (args, { argTypes }) => ({
   components: {
     BaseModal,
     ActionButton,
-    IconWallet,
+    IconWallet
   },
   setup() {
     return { args }
@@ -24,15 +24,15 @@ const Template = (args, { argTypes }) => ({
     <BaseModal v-model:modal-displayed='args.modalDisplayed'>
     <h1>Wallet</h1>
     <p>Content here...</p>
-    </BaseModal>`,
+    </BaseModal>`
 })
 
 export const Closed = Template.bind({})
 Closed.args = {
-  modalDisplayed: false,
+  modalDisplayed: false
 }
 
 export const Open = Template.bind({})
 Open.args = {
-  modalDisplayed: true,
+  modalDisplayed: true
 }

@@ -3,11 +3,7 @@
     triggered on button click
     @event remove
   -->
-  <button
-      type="button"
-      class="delete-badge"
-      @click.capture="$emit('dismiss')"
-  >
+  <button type="button" class="delete-badge" @click.capture="$emit('dismiss')">
     <slot name="icon">
       <IconX />
     </slot>
@@ -18,7 +14,7 @@
  * This is a card dismiss button to close or delete a card. It places automatically to the upper right corner when it is placed inside a grid container.
  */
 import { defineComponent } from 'vue'
-import IconX from "@/icons/IconX.vue";
+import IconX from '@/icons/IconX.vue'
 
 export default defineComponent({
   name: 'CardDismissButton',
@@ -39,7 +35,7 @@ export default defineComponent({
   width: 2rem;
   height: 2rem;
   padding: 0;
-  margin: .25rem;
+  margin: 0.25rem;
   border-color: transparent;
   border-radius: 50%;
   font-size: var(--font-size-3);
@@ -49,7 +45,10 @@ export default defineComponent({
 
   &:hover {
     mix-blend-mode: unset;
-    background-color: var(--dismiss-button-background-color, var(--color-danger));
+    background-color: var(
+      --dismiss-button-background-color,
+      var(--color-danger)
+    );
     color: var(--dismiss-button-color, var(--light));
   }
 }

@@ -1,19 +1,16 @@
 <template>
   <div
-      v-if="localErrors.length > 0"
-      class="error-box"
-      data-cy="portal-error-box"
+    v-if="localErrors.length > 0"
+    class="error-box"
+    data-cy="portal-error-box"
   >
     <ul v-if="localErrors.length > 1">
-      <li
-          v-for="localError in localErrors"
-          :key="localError.message"
-      >
+      <li v-for="localError in localErrors" :key="localError.message">
         {{ localError.message }}
       </li>
     </ul>
     <span v-else>
-      {{ localErrors[0].message}}
+      {{ localErrors[0].message }}
     </span>
   </div>
 </template>
@@ -22,13 +19,13 @@
 import { computed } from 'vue'
 
 const props = withDefaults(
-    defineProps<{
-      error?: Error,
-      errors?: Error[]
-    }>(),
-    {
-      errors: () => []
-    }
+  defineProps<{
+    error?: Error
+    errors?: Error[]
+  }>(),
+  {
+    errors: () => []
+  }
 )
 
 const localErrors = computed(() => {

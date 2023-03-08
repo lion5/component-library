@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
-import IconArrowRepeat from "@/icons/IconArrowRepeat.vue";
-import IconButton from "@/atoms/buttons/IconButton/IconButton.vue";
+import IconArrowRepeat from '@/icons/IconArrowRepeat.vue'
+import IconButton from '@/atoms/buttons/IconButton/IconButton.vue'
 
 export default {
   component: IconButton
@@ -18,7 +18,7 @@ const Template = (args, { argTypes }) => ({
     </IconButton>
   `,
   methods: {
-    click: action('click'),
+    click: action('click')
   }
 })
 

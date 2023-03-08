@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import InformationButton from "@/atoms/buttons/InformationButton/InformationButton.vue";
+import InformationButton from '@/atoms/buttons/InformationButton/InformationButton.vue'
 
 export default {
   component: InformationButton
@@ -16,11 +16,11 @@ const Template = (args, { argTypes }) => ({
     </InformationButton>
   `,
   methods: {
-    click: action('click'),
+    click: action('click')
   }
 })
 
 export const Default = Template.bind({})
 Default.args = {
-  title: "Information about Topic"
+  title: 'Information about Topic'
 }

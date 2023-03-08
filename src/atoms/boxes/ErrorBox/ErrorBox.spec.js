@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
-import ErrorBox from "@/atoms/boxes/ErrorBox/ErrorBox.vue";
+import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
 
 describe('PortalErrorBox', () => {
   let wrapper

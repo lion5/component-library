@@ -18,7 +18,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
+import { computed } from 'vue'
 import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
 import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
 
@@ -40,7 +40,7 @@ const props = withDefaults(
   }>(),
   {
     modalDisplayed: false,
-    buttonLabel: 'Bestätigen',
+    buttonLabel: 'Bestätigen'
   }
 )
 
@@ -69,7 +69,7 @@ const localModalDisplayed = computed({
   },
   set(newShowModal) {
     emit('update:modalDisplayed', newShowModal)
-  },
+  }
 })
 
 const openModal = () => {

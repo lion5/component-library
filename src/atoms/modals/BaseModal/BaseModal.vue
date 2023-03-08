@@ -5,19 +5,19 @@
 </template>
 
 <script lang="ts" setup>
-import {onMounted, ref, watch} from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const props = withDefaults(
-    defineProps<{
-      /**
-       * Open and closes modal (true => open, false => close)
-       * @model
-       */
-      modalDisplayed?: boolean
-    }>(),
-    {
-      modalDisplayed: false
-    }
+  defineProps<{
+    /**
+     * Open and closes modal (true => open, false => close)
+     * @model
+     */
+    modalDisplayed?: boolean
+  }>(),
+  {
+    modalDisplayed: false
+  }
 )
 
 const emit = defineEmits<{

@@ -1,32 +1,29 @@
 <template>
   <BaseModal
-      v-model:modal-displayed="localModalDisplayed"
-      v-slot="{openModal, closeModal}"
-      class="dismissible-modal"
+    v-model:modal-displayed="localModalDisplayed"
+    v-slot="{ openModal, closeModal }"
+    class="dismissible-modal"
   >
     <div class="content">
       <slot :open-modal="openModal" :close-modal="closeModal" />
     </div>
-    <CardDismissButton
-        class="hide-button"
-        @dismiss="closeModal"
-    />
+    <CardDismissButton class="hide-button" @dismiss="closeModal" />
   </BaseModal>
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue'
-import BaseModal from "@/atoms/modals/BaseModal/BaseModal.vue";
-import CardDismissButton from "@/atoms/buttons/CardDismissButton/CardDismissButton.vue";
+import BaseModal from '@/atoms/modals/BaseModal/BaseModal.vue'
+import CardDismissButton from '@/atoms/buttons/CardDismissButton/CardDismissButton.vue'
 
 const props = withDefaults(
-    defineProps<{
-      /**
-       * Open and closes modal (true => open, false => close)
-       * @model
-       */
-      modalDisplayed?: boolean
-    }>(),
-    { modalDisplayed: false }
+  defineProps<{
+    /**
+     * Open and closes modal (true => open, false => close)
+     * @model
+     */
+    modalDisplayed?: boolean
+  }>(),
+  { modalDisplayed: false }
 )
 
 const emit = defineEmits<{
@@ -39,10 +36,10 @@ const emit = defineEmits<{
 }>()
 
 const localModalDisplayed = computed({
-  get () {
+  get() {
     return props.modalDisplayed
   },
-  set (newShowModal) {
+  set(newShowModal) {
     emit('update:modalDisplayed', newShowModal)
   }
 })
