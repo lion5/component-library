@@ -1,5 +1,9 @@
 <template>
-  <slot :open="show" name="trigger" />
+  <!--
+    @slot place to define a trigger that opens the modal. Can be a button, icon, link, ...
+      @binding {function} openModal triggers open
+  -->
+  <slot :open-modal="openModal" name="trigger" />
   <DismissibleModal
     v-model:modal-displayed="localModalDisplayed"
     class="approval-modal"
@@ -65,6 +69,7 @@ const localModalDisplayed = computed({
 const accept = () => {
   emit('accept')
   modalDisplayed.value = false
+const openModal = () => {
   localModalDisplayed.value = true
 }
 
