@@ -1,11 +1,12 @@
-import {ActionButton} from "@";
-import IconWallet from "@/icons/IconWallet.vue";
-import ApprovalModal from "@/atoms/modals/ApprovalModal/ApprovalModal.vue";
-import IconTrash from "@/icons/IconTrash.vue";
+import { ActionButton } from '@'
+import IconWallet from '@/icons/IconWallet.vue'
+import ApprovalModal from '@/atoms/modals/ApprovalModal/ApprovalModal.vue'
+import IconTrash from '@/icons/IconTrash.vue'
+import { action } from '@storybook/addon-actions'
 
 export default {
-  components: {IconTrash, ApprovalModal, IconWallet},
-  component: ApprovalModal
+  components: { IconTrash, ApprovalModal, IconWallet },
+  component: ApprovalModal,
 }
 
 const Template = (args, { argTypes }) => ({
@@ -13,20 +14,31 @@ const Template = (args, { argTypes }) => ({
   components: {
     ApprovalModal,
     ActionButton,
-    IconTrash
+    IconTrash,
+  },
+  setup() {
+    const onApprove = action('approve')
+    return { args, onApprove }
   },
   template: `
-    <ApprovalModal title="Approve deletion" @accept="">
-      <template #trigger="{open}">
-        <ActionButton @click="open">
+    <ApprovalModal
+        v-model:modal-displayed='args.modalDisplayed'
+        :title="args.title" 
+        @approve="onApprove"
+    >
+      <template #trigger="{openModal}">
+        <ActionButton @click="openModal">
           <IconTrash/>
         </ActionButton>
       </template>
       <template #content>
         <p>Content here...</p>
       </template>
-    </ApprovalModal>`
+    </ApprovalModal>`,
 })
 
 export const Default = Template.bind({})
-Default.args = {}
+Default.args = {
+  title: 'Approve deletion',
+  modalDisplayed: false,
+}
