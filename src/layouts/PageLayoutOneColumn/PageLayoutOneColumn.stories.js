@@ -1,4 +1,4 @@
-import PageLayoutOneColumn from "@/layouts/PageLayoutOneColumn/PageLayoutOneColumn.vue";
+import PageLayoutOneColumn from '@/layouts/PageLayoutOneColumn/PageLayoutOneColumn.vue'
 
 export default {
   component: PageLayoutOneColumn
@@ -6,7 +6,7 @@ export default {
 
 const Template = (args) => ({
   setup() {
-    return {args}
+    return { args }
   },
   components: { PageLayoutOneColumn },
   template: `

@@ -1,19 +1,16 @@
 <script setup lang="ts">
-import IconButton from "@/atoms/buttons/IconButton/IconButton.vue";
+import IconButton from '@/atoms/buttons/IconButton/IconButton.vue'
 
-withDefaults(
-    defineProps<{ busy?: boolean, disabled?: boolean }>(),
-    {
-      busy: false,
-      disabled: false
-    }
-)
+withDefaults(defineProps<{ busy?: boolean; disabled?: boolean }>(), {
+  busy: false,
+  disabled: false
+})
 </script>
 <template>
   <IconButton
-      :class="{'action-button': true, 'busy': busy}"
-      v-bind="$attrs"
-      :disabled="disabled || busy"
+    :class="{ 'action-button': true, busy: busy }"
+    v-bind="$attrs"
+    :disabled="disabled || busy"
   >
     <!-- @slot the icon that shall be displayed -->
     <slot />
@@ -33,7 +30,8 @@ withDefaults(
   line-height: 1;
   cursor: pointer;
 
-  &:not([disabled]):hover, &:not([disabled]):active {
+  &:not([disabled]):hover,
+  &:not([disabled]):active {
     background-color: var(--color-primary-hover);
   }
 
@@ -43,7 +41,7 @@ withDefaults(
 
   &[disabled] {
     cursor: default;
-    opacity: .5;
+    opacity: 0.5;
   }
 }
 

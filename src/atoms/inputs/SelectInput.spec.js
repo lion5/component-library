@@ -10,7 +10,7 @@ describe('SelectInput', () => {
   beforeEach(() => {
     wrapper = shallowMount(SelectInput, {
       global: {
-        stubs: ['Multiselect'],
+        stubs: ['Multiselect']
       },
       props: {
         id: 'test-select-input',
@@ -18,9 +18,9 @@ describe('SelectInput', () => {
         options: [
           new SelectOption('1', 'One'),
           new SelectOption('2', 'Two'),
-          new SelectOption('3', 'Three'),
-        ],
-      },
+          new SelectOption('3', 'Three')
+        ]
+      }
     })
   })
 
@@ -33,10 +33,10 @@ describe('SelectInput', () => {
       const expectedOptions = [
         new SelectOption('a', 'Anton'),
         new SelectOption('b', 'Bert'),
-        new SelectOption('c', 'Chrissi'),
+        new SelectOption('c', 'Chrissi')
       ]
       await wrapper.setProps({
-        options: expectedOptions,
+        options: expectedOptions
       })
       const multiselect = wrapper.findComponent(Multiselect)
       // FIXME: snapshot creates weird file with local path to file?
@@ -59,7 +59,7 @@ describe('SelectInput', () => {
       const label = 'testLabel'
       await wrapper.setProps({
         id,
-        label,
+        label
       })
       const labelElement = wrapper.find('label')
       expect(labelElement.text()).toBe(label)
@@ -78,7 +78,7 @@ describe('SelectInput', () => {
       const expectedValue = '3'
       wrapper = mount(SelectInput, {
         global: {
-          stubs: ['Multiselect'],
+          stubs: ['Multiselect']
         },
         props: {
           id: 'test-select-input',
@@ -86,10 +86,10 @@ describe('SelectInput', () => {
           options: [
             new SelectOption('1', 'One'),
             new SelectOption('2', 'Two'),
-            new SelectOption('3', 'Three'),
+            new SelectOption('3', 'Three')
           ],
-          value: expectedValue,
-        },
+          value: expectedValue
+        }
       })
       expect(wrapper.emitted('input')[0]).toStrictEqual([expectedValue])
     })
@@ -102,13 +102,13 @@ describe('SelectInput', () => {
           options: [
             new SelectOption('1', 'One'),
             new SelectOption('2', 'Two'),
-            new SelectOption('0', 'Zero'),
+            new SelectOption('0', 'Zero')
           ],
-          value: expectedValue,
+          value: expectedValue
         },
         global: {
-          stubs: ['Multiselect'],
-        },
+          stubs: ['Multiselect']
+        }
       })
       expect(wrapper.emitted('input')[0]).toStrictEqual([expectedValue])
     })
@@ -121,13 +121,13 @@ describe('SelectInput', () => {
           options: [
             new SelectOption('1', 'One'),
             new SelectOption(expectedValue, 'Two'),
-            new SelectOption('3', 'Three'),
+            new SelectOption('3', 'Three')
           ],
-          defaultOption: new SelectOption(expectedValue, 'Two'),
+          defaultOption: new SelectOption(expectedValue, 'Two')
         },
         global: {
-          stubs: ['Multiselect'],
-        },
+          stubs: ['Multiselect']
+        }
       })
       expect(wrapper.emitted('input')[0]).toStrictEqual([expectedValue])
     })
@@ -136,7 +136,7 @@ describe('SelectInput', () => {
       const placeholder = 'placeholder'
       await wrapper.setProps({
         label,
-        placeholder,
+        placeholder
       })
       const multiselectComponent = wrapper.findComponent(Multiselect)
       expect(multiselectComponent.attributes().placeholder).toBe(placeholder)

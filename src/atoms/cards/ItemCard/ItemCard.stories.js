@@ -1,4 +1,4 @@
-import ItemCard from "@/atoms/cards/ItemCard/ItemCard.vue";
+import ItemCard from '@/atoms/cards/ItemCard/ItemCard.vue'
 
 export default {
   component: ItemCard
@@ -7,7 +7,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
-    ItemCard,
+    ItemCard
   },
   template: `
     <ItemCard

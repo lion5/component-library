@@ -1,4 +1,4 @@
-import LayoutOneColumn from "@/layouts/LayoutOneColumn/LayoutOneColumn.vue";
+import LayoutOneColumn from '@/layouts/LayoutOneColumn/LayoutOneColumn.vue'
 
 export default {
   component: LayoutOneColumn,
@@ -18,7 +18,9 @@ const Template = (args, { argTypes }) => ({
   components: { LayoutOneColumn },
   template: `
     <LayoutOneColumn style="--space: .5rem;">
-      <template v-if="${'default' in args}" v-slot:default>${args.default}</template>
+      <template v-if="${'default' in args}" v-slot:default>${
+    args.default
+  }</template>
     </LayoutOneColumn>`
 })
 

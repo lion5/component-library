@@ -34,6 +34,7 @@ export default defineConfig({
     coverage: {
       reporter: ['lcovonly', 'cobertura'],
       reportsDirectory: 'coverage'
-    }
+    },
+    environment: "jsdom"
   }
 })

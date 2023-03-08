@@ -3,18 +3,18 @@ import { SelectOption } from '@/models/selectOption'
 
 export default {
   components: { SelectInput },
-  component: SelectInput,
+  component: SelectInput
 }
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
-    SelectInput,
+    SelectInput
   },
   setup() {
     return { args }
   },
-  template: '<SelectInput v-bind="args" />',
+  template: '<SelectInput v-bind="args" />'
 })
 
 export const Default = Template.bind({})
@@ -24,6 +24,6 @@ Default.args = {
   placeholder: 'Choose option',
   options: [
     new SelectOption('option1', 'Option One'),
-    new SelectOption('option2', 'Option Two'),
-  ],
+    new SelectOption('option2', 'Option Two')
+  ]
 }

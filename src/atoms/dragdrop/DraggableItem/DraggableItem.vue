@@ -1,6 +1,10 @@
 <template>
   <div
-    :class="{'draggable-item': true, 'dragged': dragged, 'dragged-over': draggedOver}"
+    :class="{
+      'draggable-item': true,
+      dragged: dragged,
+      'dragged-over': draggedOver
+    }"
     draggable="true"
     @dragstart="onDragStart"
     @dragend="dragged = false"
@@ -18,18 +22,18 @@
  * This is a wrapper to allow items to be dragged and dropped.
  * It displays the component differently when it is dragged and when another component is dragged over it.
  */
-import { ref } from "vue";
+import { ref } from 'vue'
 
 const dragged = ref<boolean>(false)
 const draggedOver = ref<boolean>(false)
 
-defineExpose({dragged, draggedOver})
+defineExpose({ dragged, draggedOver })
 
 const emit = defineEmits<{
   /**
    * Is emitted when the item is dragged
    */
-  (e: 'drag'): void,
+  (e: 'drag'): void
   /**
    * Is emitted when the item is dropped
    */
@@ -52,11 +56,11 @@ const onDragStart = () => {
 }
 
 .draggable-item.dragged {
-  opacity: .4;
+  opacity: 0.4;
 }
 
 .draggable-item.dragged-over {
-  opacity: .4;
+  opacity: 0.4;
   outline: dotted;
 }
 </style>

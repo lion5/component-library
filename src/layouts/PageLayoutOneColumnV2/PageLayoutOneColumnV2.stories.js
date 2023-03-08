@@ -1,17 +1,17 @@
-import BasePageLayout from "@/layouts/PageLayoutOneColumnV2/PageLayoutOneColumnV2.vue";
+import BasePageLayout from '@/layouts/PageLayoutOneColumnV2/PageLayoutOneColumnV2.vue'
 
 export default {
-    component: BasePageLayout
+  component: BasePageLayout
 }
 
 const Template = (args) => ({
-    setup() {
-        return {args}
-    },
-    components: {
-        BasePageLayout
-    },
-    template: `
+  setup() {
+    return { args }
+  },
+  components: {
+    BasePageLayout
+  },
+  template: `
       <BasePageLayout v-bind="$props" style="background-color: antiquewhite">
       <template #headline>
         <div style="background-color: var(--color-primary-surface); padding: 1rem;">Headline - A very long Headline</div>
@@ -59,13 +59,13 @@ export const Default = Template.bind({})
 Default.args = {}
 
 export const WithMoreSpace = (args) => ({
-    setup() {
-        return {args}
-    },
-    components: {
-        BasePageLayout
-    },
-    template: `
+  setup() {
+    return { args }
+  },
+  components: {
+    BasePageLayout
+  },
+  template: `
       <BasePageLayout v-bind="$props" style="background-color: antiquewhite; --layout-space: 4rem; --layout-space-inline: 4rem; --layout-space-block-start: 4rem; --layout-space-block-end: 6rem;">
       <template #headline>
         <div style="background-color: var(--color-primary-surface); padding: 1rem;">Headline - A very long Headline</div>

@@ -1,8 +1,5 @@
 <template>
-  <button
-    class="icon-button"
-    v-bind="$attrs"
-  >
+  <button class="icon-button" v-bind="$attrs">
     <!-- @slot the icon that shall be displayed -->
     <slot />
   </button>

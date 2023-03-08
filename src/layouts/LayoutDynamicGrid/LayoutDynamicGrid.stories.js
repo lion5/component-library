@@ -1,4 +1,4 @@
-import LayoutDynamicGrid from "@/layouts/LayoutDynamicGrid/LayoutDynamicGrid.vue";
+import LayoutDynamicGrid from '@/layouts/LayoutDynamicGrid/LayoutDynamicGrid.vue'
 
 export default {
   component: LayoutDynamicGrid,
@@ -17,7 +17,9 @@ const Template = (args, { argTypes }) => ({
   components: { LayoutDynamicGrid },
   template: `
     <LayoutDynamicGrid>
-      <template v-if="${'default' in args}" v-slot:default>${args.default}</template>
+      <template v-if="${'default' in args}" v-slot:default>${
+    args.default
+  }</template>
     </LayoutDynamicGrid>`
 })
 

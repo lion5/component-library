@@ -1,4 +1,4 @@
-import EntityCard from "@/atoms/cards/EntityCard/EntityCard.vue";
+import EntityCard from '@/atoms/cards/EntityCard/EntityCard.vue'
 
 export default {
   component: EntityCard
@@ -18,8 +18,8 @@ const Template = (args, { argTypes }) => ({
 
 export const Default = Template.bind({})
 Default.args = {
-  title: "Topic",
-  busyMsg: "Please wait while we are loading the contents..."
+  title: 'Topic',
+  busyMsg: 'Please wait while we are loading the contents...'
 }
 
 export const BusyState = Template.bind({})

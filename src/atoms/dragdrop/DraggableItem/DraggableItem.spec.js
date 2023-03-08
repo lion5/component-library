@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
-import DraggableItem from "@/atoms/dragdrop/DraggableItem/DraggableItem.vue";
+import DraggableItem from '@/atoms/dragdrop/DraggableItem/DraggableItem.vue'
 
 describe('DraggableItem', () => {
   let wrapper

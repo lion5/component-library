@@ -25,7 +25,7 @@
     "build": "vue-tsc && vite build",
     "test:unit": "vitest --environment jsdom --root src",
     "test:unit:ui": "vitest --environment jsdom --root src --ui",
-    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
+    "type-check": "vue-tsc -p tsconfig.json --composite false",
     "docs": "storybook dev -p 6006",
     "docs:build": "storybook build"
   },

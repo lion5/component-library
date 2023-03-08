@@ -1,23 +1,20 @@
 <template>
   <div class="info-headline">
     <h1>{{ title }}</h1>
-    <InformationButton
-      v-if="infoModalTitle"
-      :title="infoModalTitle"
-    >
+    <InformationButton v-if="infoModalTitle" :title="infoModalTitle">
       <slot name="information" />
     </InformationButton>
   </div>
 </template>
 
 <script lang="ts" setup>
-import InformationButton from "@/atoms/buttons/InformationButton/InformationButton.vue";
+import InformationButton from '@/atoms/buttons/InformationButton/InformationButton.vue'
 
 defineProps<{
   /**
    * The headline text
    */
-  title: string,
+  title: string
   /**
    * The modals headline text
    */

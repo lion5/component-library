@@ -1,26 +1,21 @@
 <template>
   <div class="portal-entity-wrapper">
-    <LoadingAnimation
-        v-if="busy"
-        :msg="busyMsg"
-        data-cy="portal-entity-busy"
-    />
+    <LoadingAnimation v-if="busy" :msg="busyMsg" data-cy="portal-entity-busy" />
     <ErrorBox
-        v-else-if="error"
-        class="error-box"
-        :error="error"
-        data-cy="portal-entity-error"
+      v-else-if="error"
+      class="error-box"
+      :error="error"
+      data-cy="portal-entity-error"
     />
     <!-- @slot the entity content -->
-    <slot v-if="!busy && (showContentOnError || !error)"/>
+    <slot v-if="!busy && (showContentOnError || !error)" />
   </div>
 </template>
 
 <script lang="ts">
-
-import {defineComponent} from 'vue'
-import ErrorBox from "@/atoms/boxes/ErrorBox/ErrorBox.vue";
-import LoadingAnimation from "@/atoms/LoadingAnimation/LoadingAnimation.vue";
+import { defineComponent } from 'vue'
+import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
+import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
 
 export default defineComponent({
   components: {
