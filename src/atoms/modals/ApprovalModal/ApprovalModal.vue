@@ -9,11 +9,9 @@
     class="approval-modal"
   >
     <h2>{{ title }}</h2>
-    <slot name="content"/>
-    <BaseButton
-        class="approve-button"
-        @click="accept"
-    >
+    <!-- @slot place for why and/or what will be approved -->
+    <slot name="content" />
+    <BaseButton class="approve-button" @click="approve">
       {{ buttonLabel }}
     </BaseButton>
   </DismissibleModal>
@@ -66,13 +64,15 @@ const localModalDisplayed = computed({
   },
 })
 
-const accept = () => {
-  emit('accept')
-  modalDisplayed.value = false
 const openModal = () => {
   localModalDisplayed.value = true
 }
 
+const approve = () => {
+  emit('accept')
+  emit('approve')
+  localModalDisplayed.value = false
+}
 </script>
 <style lang="scss" scoped>
 .approval-modal :deep(.content) {
