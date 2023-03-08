@@ -18,9 +18,9 @@
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import DismissibleModal from "@/atoms/modals/DismissibleModal/DismissibleModal.vue";
-import BaseButton from "@/atoms/buttons/BaseButton/BaseButton.vue";
+import { computed, ref } from 'vue'
+import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
+import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -45,8 +45,16 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
+  /**
+   * @deprecated Use the [approve] event instead
+   *
+   * Is triggered when approve button is clicked
+   */
   (e: 'accept'): void
   /**
+   * Is triggered when approve button is clicked
+   */
+  (e: 'approve'): void
   /**
    * True if modal should be displayed false if modal should be hidden
    *
