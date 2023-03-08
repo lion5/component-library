@@ -10,6 +10,8 @@ import {
 import { mount } from '@vue/test-utils'
 import ApprovalModal from '@/atoms/modals/ApprovalModal/ApprovalModal.vue'
 import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
+import BaseModal from '@/atoms/modals/BaseModal/BaseModal.vue'
+import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
 
 describe('ApprovalModal', () => {
   let wrapper
@@ -53,22 +55,38 @@ describe('ApprovalModal', () => {
       expect(wrapper.emitted('accept')[0]).toStrictEqual([])
       expect(wrapper.vm.modalDisplayed).toBe(false)
     })
+    it('@approve - emitted when approval button is clicked', async () => {
+      const approvalButton = await wrapper.findComponent(BaseButton).find('button')
+      await approvalButton.trigger('click')
+
+      expect(wrapper.emitted('approve').length).toBe(1)
+      expect(wrapper.emitted('approve')[0]).toStrictEqual([])
+      expect(wrapper.vm.modalDisplayed).toBe(false)
+    })
+    it('@update:modalDisplayed(DismissibleModal) - triggers @update:modalDisplayed with value true', async () => {
+      const dismissModal = await wrapper.findComponent(DismissibleModal)
+      await dismissModal.vm.emit('update:modalDisplayed', true)
+
+      expect(wrapper.emitted('update:modalDisplayed').length).toBe(1)
+      expect(wrapper.emitted('update:modalDisplayed')[0]).toStrictEqual([true])
+    })
   })
 
   describe('#slots', () => {
-    it('#trigger - sets modalDisplayed to true if open is called', async () => {
-      let open
+    it('#trigger - sets modalDisplayed to true if openModal is called', async () => {
+      let openModal
       const wrapper = mount(ApprovalModal, {
         props: {title: 'Title'},
         slots: {
           trigger: (params) => {
-            open = params.open
+            openModal = params.openModal
             return ''
           },
         },
       })
-      await open()
-      expect(wrapper.vm.modalDisplayed).toBe(true)
+      await openModal()
+      expect(wrapper.emitted('update:modalDisplayed').length).toBe(1)
+      expect(wrapper.emitted('update:modalDisplayed')[0]).toStrictEqual([true])
     })
   })
 })
