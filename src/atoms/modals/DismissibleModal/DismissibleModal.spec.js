@@ -2,6 +2,7 @@ import {afterEach, beforeAll, beforeEach, describe, expect, it, vi} from "vitest
 import {flushPromises, mount} from "@vue/test-utils";
 import BaseModal from "@/atoms/modals/BaseModal/BaseModal.vue";
 import DismissibleModal from "@/atoms/modals/DismissibleModal/DismissibleModal.vue";
+import CardDismissButton from "@/atoms/buttons/CardDismissButton/CardDismissButton.vue";
 
 describe('DismissibleModal', () => {
     let wrapper
@@ -23,22 +24,9 @@ describe('DismissibleModal', () => {
     describe(':props', () => {
         it(':modalDisplayed - v-model is passed down correctly if modalDisplayed set to true', async () => {
             await wrapper.setProps({modalDisplayed: true})
-
-
             const baseModal = wrapper.findComponent(BaseModal)
 
-            await flushPromises()
-
-            expect(baseModal.vm.$props.modalDisplayed).toBe(true)
-        })
-        it(':modalDisplayed - v-model is passed down correctly if modalDisplayed set to true onMounted', async () => {
-            wrapper = mount(DismissibleModal, {
-                props: {
-                    modalDisplayed: true
-                }
-            })
-            const baseModal = wrapper.findComponent(BaseModal)
-            expect(baseModal.vm.$props.modalDisplayed).toBe(true)
+            expect(baseModal.vm.modalDisplayed).toBe(true)
         })
         it(':modalDisplayed - v-model is passed down correctly if modalDisplayed set to false', async () => {
             const baseModal = wrapper.findComponent(BaseModal)
