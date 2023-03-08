@@ -26,7 +26,7 @@ const emit = defineEmits<{
 
 const modal = ref<HTMLDialogElement>()
 onMounted(() => {
-  toggleModal(props.modalDisplayed)
+  setModalVisibility(props.modalDisplayed)
 })
 
 const openModal = () => {
@@ -37,19 +37,19 @@ const closeModal = () => {
 }
 
 /**
- * Toggles the visibility of the modal, depending on the given `modalDisplayed` value.
+ * Changes the visibility of the modal, depending on the given `modalDisplayed` value.
  *
  * @param modalDisplayed Whether the modal should be displayed or not.
  * @private
  */
-const toggleModal = (modalDisplayed: boolean) => {
+const setModalVisibility = (modalDisplayed: boolean) => {
   if (modalDisplayed) {
     modal.value?.showModal()
   } else {
     modal.value?.close()
   }
 }
-watch(() => props.modalDisplayed, toggleModal)
+watch(() => props.modalDisplayed, setModalVisibility)
 </script>
 
 <style lang="scss" scoped>
