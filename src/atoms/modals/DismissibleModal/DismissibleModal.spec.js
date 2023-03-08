@@ -7,7 +7,6 @@ describe('DismissibleModal', () => {
     let wrapper
 
     beforeAll(() => {
-        // FIX to be able to use dialog field in jsdom. See https://github.com/jsdom/jsdom/issues/3294
         HTMLDialogElement.prototype.showModal = vi.fn();
         HTMLDialogElement.prototype.close = vi.fn();
     })
@@ -57,7 +56,6 @@ describe('DismissibleModal', () => {
     })
 
     describe('#slots', () => {
-        // Source: https://github.com/vuejs/test-utils/blob/9d3c2a6526f3d8751d29b2f9112ad2a3332bbf52/tests/mountingOptions/slots.spec.ts
         it('#default - trigger @update:modalDisplayed(true) when using open function', async () => {
             let openModal
             const wrapper = mount(DismissibleModal, {
