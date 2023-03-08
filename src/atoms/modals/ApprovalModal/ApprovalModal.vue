@@ -30,18 +30,8 @@ withDefaults(
 
 const emit = defineEmits<{
   (e: 'accept'): void
-}>()
-
-const show = () => {
-  modalDisplayed.value = true
-}
-
-defineExpose({
   /**
-   * FIXME: currently this documentation is not shown in Storybook
-   * Displays the modal. The modal can be hidden by the user via the built-in approval button.
    */
-  show
 })
 
 const accept = () => {
