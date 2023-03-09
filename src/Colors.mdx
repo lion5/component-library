@@ -1,0 +1,111 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/addon-docs';
+import './Colors.css';
+// For more information about ColorPalette, ColorItem see https://storybook.js.org/docs/ember/writing-docs/doc-block-colorpalette
+
+<Meta title="Guide/Colors" />
+
+# Colors Overview
+The css color props are included into the library's style file. You can use and overwrite any of these custom props.
+
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    colors={['var(--color-primary-100)', 'var(--color-primary-200)', 'var(--color-primary-300)', 'var(--color-primary-400)', 'var(--color-primary-500)', 'var(--color-primary-600)', 'var(--color-primary-700)', 'var(--color-primary-800)', 'var(--color-primary-900)']}
+  />
+  <ColorItem
+    title="Success"
+    colors={['var(--color-success-100)', 'var(--color-success-200)', 'var(--color-success-300)', 'var(--color-success-400)', 'var(--color-success-500)', 'var(--color-success-600)', 'var(--color-success-700)', 'var(--color-success-800)', 'var(--color-success-900)']}
+  />
+  <ColorItem
+    title="Danger"
+    colors={['var(--color-danger-100)', 'var(--color-danger-200)', 'var(--color-danger-300)', 'var(--color-danger-400)', 'var(--color-danger-500)', 'var(--color-danger-600)', 'var(--color-danger-700)', 'var(--color-danger-800)', 'var(--color-danger-900)']}
+  />
+  <ColorItem
+    title="Neutral"
+    subtitle="Can be used for contrast color or "
+    colors={['var(--color-neutral-100)', 'var(--color-neutral-200)', 'var(--color-neutral-300)', 'var(--color-neutral-400)', 'var(--color-neutral-500)', 'var(--color-neutral-600)', 'var(--color-neutral-700)', 'var(--color-neutral-800)', 'var(--color-neutral-900)']}
+  />
+  <ColorItem
+    title="Neutral 2"
+    subtitle="Can be used for contrast color or "
+    colors={['var(--color-white)', 'var(--color-light)', 'var(--color-dark)', 'var(--color-black)']}
+  />
+</ColorPalette>
+
+#### Special Colors
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    colors={['var(--color-primary)', 'var(--color-primary-hover)', 'var(--color-primary-surface)']}
+  />
+  <ColorItem
+    title="Danger"
+    colors={['var(--color-danger)', 'var(--color-danger-hover)', 'var(--color-danger-surface)', 'var(--color-danger-surface-200)', 'var(--color-danger-surface-300)']}
+  />
+  <ColorItem
+    title="Success"
+    colors={['var(--color-success)', 'var(--color-success-hover)', 'var(--color-success-surface)']}
+  />
+  <ColorItem
+    title="Font"
+    subtitle="Is derived from primary color"
+    colors={['var(--color-font-1)', 'var(--color-font-2)', 'var(--color-font-inverted)']}
+  />
+  <ColorItem
+    title="Surface"
+    subtitle="Can be used for cards"
+    colors={['var(--color-surface-1)', 'var(--color-surface-2)']}
+  />
+  <ColorItem
+    title="Background"
+    subtitle="Background color"
+    colors={['var(--color-background)']}
+  />
+</ColorPalette>
+
+Available options to overwrite the default style. Must be placed after the library style import.
+```css
+:root {
+    /* Overwrite light and dark theme */
+    --primary-hue: 200;
+    --primary-saturation: 100%;
+    --primary-lightness: 50%;
+
+    --success-hue: 110;
+    --success-saturation: 100%;
+
+    --danger-hue: 5;
+    --danger-saturation: 100%;
+
+    /* Overwrite light theme */
+    --light-primary-hue: 230;
+    --light-primary-saturation: 50%;
+    --light-primary-lightness: 50%;
+
+    --light-success-hue: 120;
+    --light-success-saturation: 120%;
+
+    --light-danger-hue: 5;
+    --light-danger-saturation: 5%;
+
+    /* Overwrite dark theme */
+    --dark-primary-hue: 50;
+    --dark-primary-saturation: 50%;
+    --dark-primary-lightness: 50%;
+
+    --dark-success-hue: 120;
+    --dark-success-saturation: 100%;
+
+    --dark-danger-hue: 5;
+    --dark-danger-saturation: 100%;
+}
+
+```
+
+If the first approach is not sufficient for you. It is also possible to change any color just by redefining the prop.
+Example:
+```css
+.my-custom-scope {
+  --color-primary-100: hsl(var(--primary-hue) 94% var(--l-400));
+}
+```
