@@ -1,19 +1,16 @@
 <template>
-  <div :class="['portal-card', oldStyle ? 'old-card-style': '']">
+  <div :class="['portal-card', oldStyle ? 'old-card-style' : '']">
     <!-- @slot the cards title section. Overwrites the title set via the title prop -->
     <slot name="title">
-      <h2
-          v-if="title"
-          data-cy="portal-card-title"
-      >
+      <h2 v-if="title" data-cy="portal-card-title">
         {{ title }}
       </h2>
     </slot>
     <PortalEntityWrapper
-        :busy="busy"
-        :busy-msg="busyMsg"
-        :error="error"
-        :show-content-on-error="showContentOnError"
+      :busy="busy"
+      :busy-msg="busyMsg"
+      :error="error"
+      :show-content-on-error="showContentOnError"
     >
       <!-- @slot the cards content -->
       <slot v-if="!busy && (showContentOnError || !error)" />
@@ -23,7 +20,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import PortalEntityWrapper from "@/atoms/utils/EntityWrapper/EntityWrapper.vue";
+import PortalEntityWrapper from '@/atoms/utils/EntityWrapper/EntityWrapper.vue'
 
 export default defineComponent({
   components: {

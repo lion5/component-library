@@ -14,7 +14,10 @@
 
 @include grid.media-breakpoint-up(sm) {
   .grid {
-    grid-template-columns: repeat(var(--grid-repeat-strategy, auto-fit), minmax(var(--grid-min-width, 200px), 1fr));
+    grid-template-columns: repeat(
+      var(--grid-repeat-strategy, auto-fit),
+      minmax(var(--grid-min-width, 200px), 1fr)
+    );
   }
 }
 </style>

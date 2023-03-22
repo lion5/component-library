@@ -1,8 +1,12 @@
 <template>
   <div class="loading-animation">
     <IconLoading
-        :class="{spinner: true, grow: type === 'grow', 'rotate-hue': type === 'hueRotate'}"
-        label="Spinning"
+      :class="{
+        spinner: true,
+        grow: type === 'grow',
+        'rotate-hue': type === 'hueRotate'
+      }"
+      label="Spinning"
     />
     <p v-if="msg">
       {{ msg }}
@@ -10,26 +14,25 @@
   </div>
 </template>
 <script lang="ts" setup>
-import IconLoading from "@/icons/IconLoading.vue";
+import IconLoading from '@/icons/IconLoading.vue'
 type AnimationType = 'grow' | 'hueRotate'
 
 withDefaults(
-    defineProps<{
-      /**
-       * Additional loading information. Displayed below the loading animation.
-       */
-      msg?: string,
-      /**
-       * The used animation. Defaults to grow animation.
-       * @values grow, hueRotate
-       */
-      type: AnimationType
-    }>(),
-    {
-      type: 'grow'
-    }
+  defineProps<{
+    /**
+     * Additional loading information. Displayed below the loading animation.
+     */
+    msg?: string
+    /**
+     * The used animation. Defaults to grow animation.
+     * @values grow, hueRotate
+     */
+    type: AnimationType
+  }>(),
+  {
+    type: 'grow'
+  }
 )
-
 </script>
 <style scoped>
 .loading-animation {
@@ -53,7 +56,7 @@ withDefaults(
 }
 
 .grow {
-  animation: grow .8s infinite linear;
+  animation: grow 0.8s infinite linear;
 }
 
 @keyframes rotateHue {
@@ -67,15 +70,15 @@ withDefaults(
 
 @keyframes grow {
   0% {
-    scale: .3;
+    scale: 0.3;
     opacity: 1;
   }
   80% {
-    opacity: .3;
+    opacity: 0.3;
   }
   100% {
     scale: 1;
-    opacity: .1;
+    opacity: 0.1;
   }
 }
 </style>

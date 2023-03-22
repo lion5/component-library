@@ -1,6 +1,6 @@
 {
   "name": "@lion5/component-library",
-  "version": "0.2.13",
+  "version": "0.3.0",
   "license": "MIT",
   "contributors": [
     "Michael Götz <michael.goetz@lion5.io> (https://github.com/michigg)"
@@ -24,9 +24,10 @@
     "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "build": "vue-tsc && vite build",
     "test:unit": "vitest --environment jsdom --root src",
-    "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "test:unit:ui": "vitest --environment jsdom --root src --ui",
+    "type-check": "vue-tsc -p tsconfig.json --composite false",
+    "docs": "storybook dev -p 6006",
+    "docs:build": "storybook build"
   },
   "files": [
     "dist"
@@ -45,9 +46,13 @@
     "vue": ">=3.2.0"
   },
   "peerDependencies": {
-    "vue-router": ">=4.0.0"
+    "vue-router": ">=4.0.0",
+    "vue-multiselect": "^3.0.0-beta.1"
   },
   "devDependencies": {
+    "prettier": "^2.8.4",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "eslint-config-prettier": "^8.6.0",
     "@rushstack/eslint-patch": "^1.2.0",
     "@storybook/addon-essentials": "^7.0.0-rc.5",
     "@storybook/addon-interactions": "^7.0.0-rc.5",

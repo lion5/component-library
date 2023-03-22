@@ -1,13 +1,10 @@
 <template>
-  <IconButton
-      class="information-button"
-      @click="showModal = true"
-  >
+  <IconButton class="information-button" @click="showModal = true">
     <IconInfoCircle />
   </IconButton>
   <DismissibleModal
-      v-model:modal-displayed="showModal"
-      class="information-modal"
+    v-model:modal-displayed="showModal"
+    class="information-modal"
   >
     <h2>{{ title }}</h2>
     <!-- @slot the modals content -->
@@ -17,9 +14,9 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import IconButton from "@/atoms/buttons/IconButton/IconButton.vue";
-import IconInfoCircle from "@/icons/IconInfoCircle.vue";
-import DismissibleModal from "@/atoms/modals/DismissibleModal/DismissibleModal.vue";
+import IconButton from '@/atoms/buttons/IconButton/IconButton.vue'
+import IconInfoCircle from '@/icons/IconInfoCircle.vue'
+import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
 
 /**
  Additional information that are relevant for the first use but bloat the UI for advance users can be hidden behind a information button.

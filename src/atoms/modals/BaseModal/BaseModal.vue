@@ -1,20 +1,23 @@
 <template>
-  <dialog ref="modal" class="basic-modal">
-    <slot :open-modal="openModal" :close-modal="closeModal"/>
+  <dialog ref="modal" class="basic-modal" @cancel="closeModal">
+    <slot :open-modal="openModal" :close-modal="closeModal" />
   </dialog>
 </template>
 
 <script lang="ts" setup>
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 
 const props = withDefaults(
-    defineProps<{
-      modalDisplayed: boolean
-    }>(),
-    {
-      id: 'portal-modal',
-      modalDisplayed: false
-    }
+  defineProps<{
+    /**
+     * Open and closes modal (true => open, false => close)
+     * @model
+     */
+    modalDisplayed?: boolean
+  }>(),
+  {
+    modalDisplayed: false
+  }
 )
 
 const emit = defineEmits<{
@@ -22,25 +25,31 @@ const emit = defineEmits<{
 }>()
 
 const modal = ref<HTMLDialogElement>()
+onMounted(() => {
+  setModalVisibility(props.modalDisplayed)
+})
+
 const openModal = () => {
-  console.log('openModal')
-  modal.value?.showModal()
   emit('update:modalDisplayed', true)
 }
 const closeModal = () => {
-  console.log('closeModal')
-  modal.value?.close()
   emit('update:modalDisplayed', false)
 }
 
-watch(() => props.modalDisplayed, (newShowModal) => {
-  console.log('watch', newShowModal)
-  if (newShowModal) {
-    openModal()
+/**
+ * Changes the visibility of the modal, depending on the given `modalDisplayed` value.
+ *
+ * @param modalDisplayed Whether the modal should be displayed or not.
+ * @private
+ */
+const setModalVisibility = (modalDisplayed: boolean) => {
+  if (modalDisplayed) {
+    modal.value?.showModal()
   } else {
-    closeModal()
+    modal.value?.close()
   }
-})
+}
+watch(() => props.modalDisplayed, setModalVisibility)
 </script>
 
 <style lang="scss" scoped>

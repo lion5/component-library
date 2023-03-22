@@ -1,55 +1,86 @@
 <template>
-  <slot :open="show" name="trigger" />
+  <!--
+    @slot place to define a trigger that opens the modal. Can be a button, icon, link, ...
+      @binding {function} openModal triggers open
+  -->
+  <slot :open-modal="openModal" name="trigger" />
   <DismissibleModal
-      v-model:modal-displayed="modalDisplayed"
-      class="approval-modal"
+    v-model:modal-displayed="localModalDisplayed"
+    class="approval-modal"
   >
     <h2>{{ title }}</h2>
-    <slot name="content"/>
-    <BaseButton
-        class="approve-button"
-        @click="accept"
-    >
+    <!-- @slot place for why and/or what will be approved -->
+    <slot name="content" />
+    <BaseButton class="approve-button" @click="approve">
       {{ buttonLabel }}
     </BaseButton>
   </DismissibleModal>
 </template>
 
 <script lang="ts" setup>
-import { ref } from 'vue'
-import DismissibleModal from "@/atoms/modals/DismissibleModal/DismissibleModal.vue";
-import BaseButton from "@/atoms/buttons/BaseButton/BaseButton.vue";
+import { computed } from 'vue'
+import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
+import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
 
-withDefaults(
-    defineProps<{
-      title: string,
-      buttonLabel?: string
-    }>(),
-    { buttonLabel: 'Bestätigen' }
+const props = withDefaults(
+  defineProps<{
+    /**
+     * The title is displayed at the top of the modal
+     */
+    title: string
+    /**
+     * The button label of the approval button inside the modal
+     */
+    buttonLabel?: string
+    /**
+     * Open and closes modal (true => open, false => close)
+     * @model
+     */
+    modalDisplayed?: boolean
+  }>(),
+  {
+    modalDisplayed: false,
+    buttonLabel: 'Bestätigen'
+  }
 )
 
 const emit = defineEmits<{
+  /**
+   * @deprecated Use the [approve] event instead
+   *
+   * Is triggered when approve button is clicked
+   */
   (e: 'accept'): void
+  /**
+   * Is triggered when approve button is clicked
+   */
+  (e: 'approve'): void
+  /**
+   * True if modal should be displayed false if modal should be hidden
+   *
+   * @property {boolean} value the new modal state
+   */
+  (event: 'update:modalDisplayed', value: boolean): void
 }>()
 
-const show = () => {
-  modalDisplayed.value = true
-}
-
-defineExpose({
-  /**
-   * FIXME: currently this documentation is not shown in Storybook
-   * Displays the modal. The modal can be hidden by the user via the built-in approval button.
-   */
-  show
+const localModalDisplayed = computed({
+  get() {
+    return props.modalDisplayed
+  },
+  set(newShowModal) {
+    emit('update:modalDisplayed', newShowModal)
+  }
 })
 
-const accept = () => {
-  emit('accept')
-  modalDisplayed.value = false
+const openModal = () => {
+  localModalDisplayed.value = true
 }
 
-const modalDisplayed = ref<boolean>(false)
+const approve = () => {
+  emit('accept')
+  emit('approve')
+  localModalDisplayed.value = false
+}
 </script>
 <style lang="scss" scoped>
 .approval-modal :deep(.content) {
