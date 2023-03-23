@@ -1,11 +1,13 @@
 <template>
-  <div class="item-card">
+  <BaseCard class="item-card">
     <slot />
-  </div>
+  </BaseCard>
 </template>
 <style scoped>
 .item-card {
-  box-shadow: 0.125rem 0.125rem 0.5rem hsl(0, 0%, 75%);
-  border-radius: var(--border-radius-md);
+  --card-padding: var(--item-card-padding, 0);
 }
 </style>
+<script setup lang="ts">
+import BaseCard from '@/atoms/cards/BaseCard/BaseCard.vue'
+</script>

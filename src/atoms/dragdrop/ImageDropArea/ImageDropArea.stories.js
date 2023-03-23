@@ -1,8 +1,7 @@
-import ImageDropArea from '@/base/components/dragdrop/ImageDropArea/ImageDropArea.vue'
 import { action } from '@storybook/addon-actions'
+import ImageDropArea from '@/atoms/dragdrop/ImageDropArea/ImageDropArea.vue'
 
 export default {
-  title: 'atoms/ImageDropArea',
   component: ImageDropArea
 }
 

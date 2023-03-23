@@ -1,6 +1,6 @@
 <template>
   <div
-    :class="{'file-drop-area': true, 'dragged-over': draggedOver}"
+    :class="{ 'file-drop-area': true, 'dragged-over': draggedOver }"
     @[dragOver].prevent="setDraggedOver(true)"
     @[drop].prevent="onDrop"
   >
@@ -20,7 +20,7 @@
 </template>
 
 <script>
-import {PortalImage} from "@/atoms/image/models/image";
+import { PortalImage } from '@/atoms/image/models/image'
 
 /**
  * This is a wrapper component to allow users to drop images over the wrapped area.
@@ -51,27 +51,27 @@ export default {
       default: false
     }
   },
-  data () {
+  data() {
     return {
       draggedOver: false
     }
   },
   computed: {
-    dragOver () {
+    dragOver() {
       return !this.disable ? 'dragover' : null
     },
-    dragLeave () {
+    dragLeave() {
       return !this.disable ? 'dragleave' : null
     },
-    drop () {
+    drop() {
       return !this.disable ? 'drop' : null
     }
   },
   methods: {
-    setDraggedOver (draggedOver) {
+    setDraggedOver(draggedOver) {
       this.draggedOver = draggedOver
     },
-    async onDrop (event) {
+    async onDrop(event) {
       this.draggedOver = false
 
       const files = event.dataTransfer.files
@@ -100,7 +100,7 @@ export default {
   }
 
   .overlay {
-    transition: all .25s ease-in;
+    transition: all 0.25s ease-in;
   }
 }
 
@@ -130,7 +130,7 @@ export default {
     .background {
       background-color: var(--light);
       outline: 2px dashed var(--color-primary);
-      opacity: .4;
+      opacity: 0.4;
     }
   }
 }

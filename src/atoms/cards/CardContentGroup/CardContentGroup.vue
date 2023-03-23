@@ -1,13 +1,14 @@
 <template>
   <div class="content-group">
     <span>{{ label }}</span>
-    <slot />
+    <slot>{{ value }}</slot>
   </div>
 </template>
 
 <script lang="ts" setup>
 defineProps<{
   label: string
+  value: string | number
 }>()
 </script>
 

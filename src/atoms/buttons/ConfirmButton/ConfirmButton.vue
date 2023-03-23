@@ -1,15 +1,13 @@
 <template>
   <ApprovalModal
-      :class="'confirmation-modal '+ variant"
-      :title="modalTitle"
-      @accept="emit('accept')"
+    :class="'confirmation-modal ' + variant"
+    :title="modalTitle"
+    @accept="emit('confirm')"
   >
-    <template #trigger="{open}">
-      <slot :open="open" name="trigger">
-        <BaseButton @click="open" v-bind="$attrs">
-          {{ triggerButtonLabel }}
-        </BaseButton>
-      </slot>
+    <template #trigger="{ openModal }">
+      <BaseButton :variant="variant" @click="openModal">
+        <slot name="default">{{ triggerButtonLabel }}</slot>
+      </BaseButton>
     </template>
     <template #content>
       <slot name="content" />
@@ -18,21 +16,21 @@
 </template>
 
 <script lang="ts" setup>
-import ApprovalModal from "@/atoms/modals/ApprovalModal/ApprovalModal.vue";
-import BaseButton from "@/atoms/buttons/BaseButton/BaseButton.vue";
-import {ColorVariant} from "@/atoms/colorVariants";
+import ApprovalModal from '@/atoms/modals/ApprovalModal/ApprovalModal.vue'
+import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
+import { ColorVariant } from '@/atoms/colorVariants'
 
 withDefaults(
-    defineProps<{
-      modalTitle: string,
-      triggerButtonLabel: string,
-      confirmButtonLabel?: string,
-      variant: ColorVariant
-    }>(),
-    {
-      confirmButtonLabel: 'Bestätigen',
-      variant: 'danger'
-    }
+  defineProps<{
+    modalTitle: string
+    triggerButtonLabel: string
+    confirmButtonLabel?: string
+    variant: ColorVariant
+  }>(),
+  {
+    confirmButtonLabel: 'Bestätigen',
+    variant: 'danger'
+  }
 )
 
 const emit = defineEmits<{

@@ -1,11 +1,11 @@
 <template>
-  <BoxBase class="info-box">
+  <BaseBox class="info-box">
     <slot />
-  </BoxBase>
+  </BaseBox>
 </template>
 
 <script lang="ts" setup>
-import BoxBase from '@/base/components/BoxBase.vue'
+import BaseBox from '@/atoms/boxes/BaseBox/BaseBox.vue'
 </script>
 <style lang="scss" scoped>
 .info-box {

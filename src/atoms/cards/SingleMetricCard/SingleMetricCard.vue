@@ -1,18 +1,20 @@
 <template>
-  <div class="portal-single-metric-card">
+  <BaseCard class="single-metric-card">
     <h3 class="metric-name">
       {{ metricName }}
     </h3>
     <span class="value">{{ value }}</span>
-  </div>
+  </BaseCard>
 </template>
 
 <script lang="ts" setup>
-defineExpose<{
+import BaseCard from '@/atoms/cards/BaseCard/BaseCard.vue'
+
+defineProps<{
   /**
    * The name of the metric that shall be presented
    */
-  metricName: string,
+  metricName: string
   /**
    * The value of the metric that shall be presented
    */
@@ -21,12 +23,16 @@ defineExpose<{
 </script>
 
 <style lang="scss">
-.portal-single-metric-card {
+.single-metric-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: .5rem 1rem;
+  gap: var(--space-sm);
+
+  & > * {
+    margin: 0;
+  }
 
   .metric-name {
     font-size: 1.3rem;

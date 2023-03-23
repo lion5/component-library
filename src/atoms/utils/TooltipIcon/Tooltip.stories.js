@@ -1,5 +1,5 @@
 import TooltipIcon from '@/base/components/TooltipIcon/TooltipIcon.vue'
-import {BIconInfoCircle} from 'bootstrap-vue'
+import IconTrash from '@/icons/IconTrash.vue'
 
 export default {
   title: 'atoms/TooltipIcon',
@@ -9,7 +9,7 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
-  components: { TooltipIcon, BIconInfoCircle },
+  components: { TooltipIcon, IconTrash },
   template: `
     <TooltipIcon v-bind="$props">
       <template #tooltipIcon>

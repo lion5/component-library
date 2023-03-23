@@ -4,10 +4,7 @@
       <!-- @slot should contain the icon that is used as trigger for the tooltip -->
       <slot name="tooltipIcon" />
     </IconButton>
-    <CardBase
-      :id="id"
-      role="tooltip"
-    >
+    <CardBase :id="id" role="tooltip">
       <!-- @slot content displayed in the tooltip box -->
       <slot name="tooltipText">
         {{ tooltipText }}
@@ -16,33 +13,32 @@
   </div>
 </template>
 <script lang="ts" setup>
-
 /**
  * Creates an icon with a tooltip on hover and active.
  * The position can be changed by the css-custom-props --tooltip-left and --tooltip-right.
  * Please set only one of them at the time. The distance away from the icon should be described by the ch unit.
  */
 
-import CardBase from "@/atoms/cards/CardBase/CardBase.vue";
-import IconButton from "@/atoms/buttons/IconButton/IconButton.vue";
+import CardBase from '@/atoms/cards/BaseCard/BaseCard.vue'
+import IconButton from '@/atoms/buttons/IconButton/IconButton.vue'
 
 withDefaults(
   defineProps<{
     /**
      * Required to resolve the aria-label used by screen readers
      */
-    id: string,
+    id: string
     /**
      * Text that is displayed inside the tooltips box. The slot tooltipText will override this prop if set.
      */
     tooltipText: string
   }>(),
-  {tooltipText: ''}
+  { tooltipText: '' }
 )
 </script>
 
 <style lang="scss" scoped>
-[role="tooltip"] {
+[role='tooltip'] {
   display: none;
   position: absolute;
   left: var(--tooltip-left, unset);
@@ -56,8 +52,8 @@ withDefaults(
   position: relative;
 }
 
-button:hover + [role="tooltip"],
-button:focus + [role="tooltip"] {
+button:hover + [role='tooltip'],
+button:focus + [role='tooltip'] {
   display: block;
 }
 
@@ -68,5 +64,4 @@ button:focus + [role="tooltip"] {
 .tooltip-left {
   right: 0;
 }
-
 </style>
