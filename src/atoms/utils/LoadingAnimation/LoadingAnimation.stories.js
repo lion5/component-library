@@ -1,4 +1,4 @@
-import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
+import LoadingAnimation from '@/atoms/utils/LoadingAnimation/LoadingAnimation.vue'
 
 export default {
   component: LoadingAnimation,

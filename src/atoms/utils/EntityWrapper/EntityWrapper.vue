@@ -15,7 +15,7 @@
 <script lang="ts">
 import { defineComponent } from 'vue'
 import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
-import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
+import LoadingAnimation from '@/atoms/utils/LoadingAnimation/LoadingAnimation.vue'
 
 export default defineComponent({
   components: {

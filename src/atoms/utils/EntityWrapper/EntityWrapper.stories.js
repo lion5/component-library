@@ -1,4 +1,4 @@
-import EntityWrapper from '@/atoms/EntityWrapper/EntityWrapper.vue'
+import EntityWrapper from '@/atoms/utils/EntityWrapper/EntityWrapper.vue'
 
 export default {
   component: EntityWrapper

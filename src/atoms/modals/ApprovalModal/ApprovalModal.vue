@@ -68,11 +68,13 @@ const localModalDisplayed = computed({
     return props.modalDisplayed
   },
   set(newShowModal) {
+    console.log('emit OpenModal')
     emit('update:modalDisplayed', newShowModal)
   }
 })
 
 const openModal = () => {
+  console.log('OpenModal')
   localModalDisplayed.value = true
 }
 
