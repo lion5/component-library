@@ -73,7 +73,7 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  (e: 'input', value: string): void
+  (e: 'input', value: string | number | null): void
 }>()
 
 const selectedOption = ref<SelectOption>()
@@ -86,7 +86,7 @@ onMounted(() => {
         accumulator: { [key: string]: SelectOption },
         selectOption: SelectOption
       ) => {
-        accumulator[selectOption.value] = selectOption
+        accumulator[selectOption.key || ''] = selectOption
         return accumulator
       },
       {}
@@ -109,7 +109,7 @@ const errorMessage = computed(() =>
 )
 
 const emitKey = (selectedOption: SelectOption) => {
-  emit('input', selectedOption.value)
+  emit('input', selectedOption.key)
 }
 </script>
 <style>
