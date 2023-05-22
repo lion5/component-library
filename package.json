@@ -81,5 +81,8 @@
     "vite": "^4.3.8",
     "vitest": "^0.31.1",
     "vue-tsc": "^1.6.5"
+  },
+  "optionalDependencies": {
+    "vee-validate": "^4.9.5"
   }
 }
