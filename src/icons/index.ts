@@ -11,6 +11,7 @@ import IconWallet from '@/icons/IconWallet.vue'
 import IconX from '@/icons/IconX.vue'
 import IconError from '@/icons/IconError.vue'
 import IconCalendar from '@/icons/IconCalendar.vue'
+import IconCamera from '@/icons/IconCamera.vue'
 
 export {
   IconArrowRepeat,
@@ -25,5 +26,6 @@ export {
   IconWallet,
   IconX,
   IconError,
-  IconCalendar
+  IconCalendar,
+  IconCamera
 }

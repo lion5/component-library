@@ -3,7 +3,8 @@
     <template #label>
       <img v-if="selectedImage" :src="src" alt="Vorschau" />
       <div>
-        <CameraIcon /><span>{{ uploadImageLabel }}</span>
+        <IconCamera />
+        <span>{{ uploadImageLabel }}</span>
       </div>
       <span class="error" v-if="errorMessage">{{ errorMessage }}</span>
     </template>
@@ -12,9 +13,9 @@
 
 <script setup lang="ts">
 import { computed, toRef, watch } from 'vue'
-import ImageInputWrapper from '@/components/input/ImageInputWrapper.vue'
-import CameraIcon from '@/components/icons/CameraIcon.vue'
 import { useField } from 'vee-validate'
+import ImageInputWrapper from '@/atoms/inputs/ImpageInputWrapper/ImageInputWrapper.vue'
+import IconCamera from '@/icons/IconCamera.vue'
 
 const props = defineProps<{
   name: string

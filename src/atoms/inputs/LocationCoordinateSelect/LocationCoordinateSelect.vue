@@ -17,7 +17,7 @@
           :value="option.locationName"
         ></option>
       </datalist>
-      <LoadingAnimation v-if="locationsBusy" class="busy-icon" />
+      <LoadingAnimation v-if="locationsBusy" class="busy-icon" type="grow" />
     </BaseInputWrapper>
     <ErrorMessage class="error" :name="name" />
   </div>
@@ -27,10 +27,10 @@ import type { RuleExpression } from 'vee-validate'
 import { ErrorMessage, useField } from 'vee-validate'
 import { computed, ref } from 'vue'
 import { debounce } from 'lodash'
-import { NamedLocation } from '@/dashboard/models/namedLocation'
-import BaseInputWrapper from '@/components/input/BaseInputWrapper.vue'
-import { LoadingAnimation } from '@lion5/component-library'
-import { useNominatim } from '@/dashboard/composables/useNominatim'
+import { NamedLocation } from '@/models/namedLocation'
+import BaseInputWrapper from '@/atoms/inputs/BaseInputWrapper/BaseInputWrapper.vue'
+import { useNominatim } from '@/composables'
+import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
 
 type InputValue = string | number | null
 
@@ -50,7 +50,7 @@ const props = withDefaults(
     validationRules?: RuleExpression<InputValue>
   }>(),
   {
-    validationRules: '',
+    validationRules: ''
   }
 )
 
@@ -78,7 +78,6 @@ const getLocation = async () => {
 }
 
 const onKeyDown = (event: KeyboardEvent) => {
-  console.log('onKeyDown', event.key)
   // Fix to prevent getLocationDebounced execution if user just select an option.
   // Chrome fires also a keydown event if the user clicks on a datalist option.
   const key = event.key
@@ -100,13 +99,6 @@ const locationsMap = computed<Map<string, NamedLocation>>(
 )
 const onInput = () => {
   const currentValue = locationsMap.value.get(locationName.value)
-  console.log(
-    'input',
-    locationName.value,
-    locations.value,
-    locationsMap.value,
-    currentValue
-  )
   setValue(currentValue)
 }
 </script>

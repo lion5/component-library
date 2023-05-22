@@ -13,7 +13,7 @@ import BaseInput from '@/atoms/inputs/BaseInput/BaseInput.vue'
 const props = withDefaults(
   defineProps<{
     name: string
-    label?: string
+    label: string
     /**
      * Maximum date to be selected in the datetime picker. Note that this does
      * not validate the input. Instead, the input should be validated using

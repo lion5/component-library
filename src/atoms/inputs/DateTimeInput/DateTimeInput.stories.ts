@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
 import DateTimeInput from './DateTimeInput.vue'
+import { useDate } from '../../../composables'
 
 export default {
   component: DateTimeInput
@@ -10,23 +11,24 @@ type Story = StoryObj<typeof DateTimeInput>
 export const Empty: Story = {
   args: {
     name: 'date-input1',
-    label: 'This is an example checkbox'
+    label: 'This is an example date field'
   }
 }
 
-export const Checked: Story = {
-  render: (args) => ({
+export const Filled: Story = {
+  render: (args: any) => ({
     components: { DateTimeInput, Form },
     setup() {
-      return { args }
+      const { getDateTimeLocalInputValue } = useDate()
+      return { args, getDateTimeLocalInputValue }
     },
     template: `
-      <Form :initialValues='{checkbox2: true}'>
+      <Form :initialValues='{"date-input2": getDateTimeLocalInputValue(new Date())}'>
       <DateTimeInput v-bind='args' />
       </Form>`
   }),
   args: {
     ...Empty.args,
-    name: 'date-input1'
+    name: 'date-input2'
   }
 }

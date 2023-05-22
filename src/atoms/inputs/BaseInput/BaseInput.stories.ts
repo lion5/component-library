@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/vue3'
-import BaseInput from './BaseInput.vue'
+import BaseInput from '@/atoms/inputs/BaseInput/BaseInput.vue'
 import { Form } from 'vee-validate'
 
 export default {
