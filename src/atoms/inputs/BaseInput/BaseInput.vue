@@ -25,7 +25,7 @@ export default {
 import { useField } from 'vee-validate'
 import type { RuleExpression } from 'vee-validate'
 import { computed, toRef } from 'vue'
-import BaseInputWrapper from '@/components/input/BaseInputWrapper.vue'
+import BaseInputWrapper from '@/atoms/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 
 type InputValue = string | number | null
 

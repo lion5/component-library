@@ -1,18 +1,18 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import BaseInput from '@/dashboard/components/inputs/BaseInput.vue'
 import { ErrorMessage, Field } from 'vee-validate'
+import BaseInputV2 from './BaseInputV2.vue'
 
 describe('BaseInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
 
   beforeEach(() => {
-    wrapper = mount(BaseInput, {
+    wrapper = mount(BaseInputV2, {
       props: {
         name: 'name',
-        label: 'label',
-      },
+        label: 'label'
+      }
     })
   })
   describe(':props', () => {
