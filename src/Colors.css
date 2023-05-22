@@ -19,7 +19,7 @@
     --light-success-saturation: 120%;
 
     --light-danger-hue: 5;
-    --light-danger-saturation: 5%;
+    --light-danger-saturation: 90%;
 
     /* Overwrite dark theme */
     --dark-primary-hue: 50;
