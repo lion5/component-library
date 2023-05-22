@@ -113,7 +113,7 @@ const emitKey = (selectedOption: SelectOption) => {
 }
 </script>
 <style>
-@import 'vue-multiselect/dist/vue3-multiselect.css';
+@import 'vue-multiselect/dist/vue-multiselect.css';
 </style>
 <style lang="scss" scoped>
 @import '@/assets/style/floating_labels.scss';
