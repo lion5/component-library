@@ -12,8 +12,8 @@ describe('BaseSelect.vue', () => {
       props: {
         name: 'name',
         label: 'label',
-        options: [],
-      },
+        options: []
+      }
     })
   })
   describe(':props', () => {
@@ -44,7 +44,7 @@ describe('BaseSelect.vue', () => {
       const expectedOptions = [
         new SelectOption('key1', 'label1'),
         new SelectOption('key2', 'label2'),
-        new SelectOption('key3', 'label3'),
+        new SelectOption('key3', 'label3')
       ]
       await wrapper.setProps({ options: expectedOptions })
 

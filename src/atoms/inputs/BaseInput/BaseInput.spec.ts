@@ -15,8 +15,8 @@ describe('BaseInput', () => {
       props: {
         name: 'base-input',
         label: 'BaseInput',
-        validationRules: 'required',
-      },
+        validationRules: 'required'
+      }
     })
   }
 
@@ -82,7 +82,7 @@ describe('BaseInput', () => {
 
         expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
         expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([
-          'new value',
+          'new value'
         ])
       })
     })

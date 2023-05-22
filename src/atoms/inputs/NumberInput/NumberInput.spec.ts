@@ -12,8 +12,8 @@ vi.mock('vee-validate', async () => {
     ...actual,
     useField: vi.fn().mockReturnValue({
       setValue: vi.fn(),
-      value: vi.fn(),
-    }),
+      value: vi.fn()
+    })
   }
 })
 
@@ -24,8 +24,8 @@ describe('NumberInput.vue', () => {
     wrapper = mount(NumberInput, {
       props: {
         name: 'name',
-        label: 'label',
-      },
+        label: 'label'
+      }
     })
   })
   describe(':props', () => {
@@ -40,8 +40,8 @@ describe('NumberInput.vue', () => {
       wrapper = mount(NumberInput, {
         props: {
           name: expectedName,
-          label: 'label',
-        },
+          label: 'label'
+        }
       })
       expect(useField).toHaveBeenCalledWith(expectedName)
     })

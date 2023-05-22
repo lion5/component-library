@@ -8,7 +8,7 @@ import { NamedLocation } from '@/dashboard/models/namedLocation'
 import { GpsLocation } from '@/models/location/gpsLocation'
 
 vi.spyOn(useNominatimExports, 'useNominatim').mockReturnValue({
-  getLocations: vi.fn().mockResolvedValue({}),
+  getLocations: vi.fn().mockResolvedValue({})
 })
 
 vi.mock('vee-validate', async () => {
@@ -19,8 +19,8 @@ vi.mock('vee-validate', async () => {
     ...actual,
     useField: vi.fn().mockReturnValue({
       setValue: vi.fn(),
-      value: vi.fn(),
-    }),
+      value: vi.fn()
+    })
   }
 })
 
@@ -32,8 +32,8 @@ describe('LocationCoordinateSelect.vue', () => {
     wrapper = mount(LocationCoordinateSelect, {
       props: {
         name: 'name',
-        label: 'label',
-      },
+        label: 'label'
+      }
     })
   })
   afterEach(() => {
@@ -46,8 +46,8 @@ describe('LocationCoordinateSelect.vue', () => {
       wrapper = mount(LocationCoordinateSelect, {
         props: {
           name: expectedName,
-          label: 'label',
-        },
+          label: 'label'
+        }
       })
       expect(useField).toHaveBeenCalledWith(expectedName)
     })

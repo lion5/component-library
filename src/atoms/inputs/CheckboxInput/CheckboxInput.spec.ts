@@ -11,8 +11,8 @@ describe('CheckboxInput.vue', () => {
     wrapper = mount(CheckboxInput, {
       props: {
         name: 'name',
-        label: 'label',
-      },
+        label: 'label'
+      }
     })
   })
   describe(':props', () => {
