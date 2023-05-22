@@ -2,10 +2,6 @@ import type { LatLng, MapOptions } from 'leaflet'
 import { Control, Map, TileLayer } from 'leaflet'
 import type { Ref } from 'vue'
 import { shallowRef, watch } from 'vue'
-import 'leaflet.locatecontrol'
-import 'leaflet.locatecontrol/dist/L.Control.Locate.min.css'
-import 'leaflet-contextmenu'
-import 'leaflet-contextmenu/dist/leaflet.contextmenu.css'
 
 export function useLeafletMap(
   zoom: Ref<number | undefined>,
