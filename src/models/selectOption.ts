@@ -1,9 +1,9 @@
 export class SelectOption {
-  readonly value: string
-  readonly text: string
+  readonly key: string | number | null
+  readonly label: any
 
-  constructor(value: string, text: string) {
-    this.value = value
-    this.text = text
+  constructor(key: string | number | null, label: any) {
+    this.key = key
+    this.label = label
   }
 }

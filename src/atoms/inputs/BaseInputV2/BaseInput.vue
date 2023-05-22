@@ -19,7 +19,7 @@ import BaseInputWrapper from '@/components/input/BaseInputWrapper.vue'
 
 type InputValue = string | number | null
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     /**
      * Used to identify this field in a form (VeeValidate Form).

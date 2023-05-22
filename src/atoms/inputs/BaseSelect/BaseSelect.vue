@@ -21,9 +21,9 @@
 <script setup lang="ts">
 import type { RuleExpression } from 'vee-validate'
 import { useField } from 'vee-validate'
-import { SelectOption } from '@/models/selectOptions'
 import { toRef } from 'vue'
-import BaseInputWrapper from '@/components/input/BaseInputWrapper.vue'
+import BaseInputWrapper from '@/atoms/inputs/BaseInputWrapper/BaseInputWrapper.vue'
+import { SelectOption } from '@/models/selectOption'
 
 type InputValue = string | number | null
 
@@ -52,7 +52,7 @@ const props = withDefaults(
     optionsLabel?: string
   }>(),
   {
-    validationRules: '',
+    validationRules: ''
   }
 )
 

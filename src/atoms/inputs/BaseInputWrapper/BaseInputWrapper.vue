@@ -1,7 +1,7 @@
 <template>
   <div class="base-input-wrapper">
     <slot />
-    <ErrorIcon class="error-icon" />
+    <IconError class="error-icon" />
   </div>
 </template>
 <style scoped lang="scss">
@@ -9,6 +9,7 @@
   --_input-size: var(--input-font-size, 1.2rem);
   --_label-size: var(--input-label-font-size, 0.75rem);
   --_input-surface-color: var(--input-surface-color, var(--color-neutral-200));
+  --_input-border-radius: var(--input-border-radius, var(--border-radius-300));
   --_error-icon-size: var(--_input-size);
 
   display: grid;
@@ -43,7 +44,7 @@
     border: none;
     padding-block-end: var(--space-xs);
     padding-block-start: calc(var(--_label-size) + var(--space-sm));
-    border-radius: var(--input-border-radius);
+    border-radius: var(--_input-border-radius);
     background-color: var(--_input-surface-color);
 
     &[type='color'] {
@@ -58,7 +59,7 @@
 
       &::-webkit-color-swatch {
         border: none;
-        border-radius: 0.3rem;
+        border-radius: var(--_input-border-radius);
       }
     }
   }
@@ -126,6 +127,6 @@
   }
 }
 </style>
-<script setup lang="ts">
-import ErrorIcon from '@/components/icons/ErrorIcon.vue'
+<script lang="ts" setup>
+import IconError from '@/icons/IconError.vue'
 </script>

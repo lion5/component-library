@@ -1,14 +1,14 @@
 <template>
   <BaseInput type="datetime-local" :name="name" :label="label" :max="maxValue">
-    <CalendarIcon />
+    <IconCalendar />
   </BaseInput>
 </template>
 
 <script setup lang="ts">
-import BaseInput from '@/components/input/BaseInput/BaseInput.vue'
-import CalendarIcon from '@/components/icons/CalendarIcon.vue'
 import { computed } from 'vue'
 import { useDate } from '@/composables/useDate'
+import IconCalendar from '@/icons/IconCalendar.vue'
+import BaseInput from '@/atoms/inputs/BaseInput/BaseInput.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -22,7 +22,7 @@ const props = withDefaults(
     max?: Date
   }>(),
   {
-    label: 'Zeit',
+    label: 'Zeit'
   }
 )
 

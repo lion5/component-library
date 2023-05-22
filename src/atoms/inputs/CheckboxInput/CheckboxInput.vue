@@ -14,7 +14,7 @@
 </template>
 <script setup lang="ts">
 import type { RuleExpression } from 'vee-validate'
-import { Field, ErrorMessage } from 'vee-validate'
+import { ErrorMessage, Field } from 'vee-validate'
 
 type InputValue = string | number | null
 
@@ -34,7 +34,7 @@ withDefaults(
     validationRules?: RuleExpression<InputValue>
   }>(),
   {
-    validationRules: '',
+    validationRules: ''
   }
 )
 </script>

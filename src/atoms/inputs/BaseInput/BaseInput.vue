@@ -18,7 +18,7 @@
 </template>
 <script lang="ts">
 export default {
-  inheritAttrs: false,
+  inheritAttrs: false
 }
 </script>
 <script setup lang="ts">
@@ -62,7 +62,7 @@ const props = withDefaults(
     modelValue: undefined,
     type: 'text',
     dataCy: '',
-    validationRules: '',
+    validationRules: ''
   }
 )
 
@@ -72,7 +72,7 @@ const { value: inputValue, errorMessage } = useField<InputValue>(
   name,
   props.validationRules,
   {
-    initialValue: props.modelValue,
+    initialValue: props.modelValue
   }
 )
 
@@ -81,7 +81,7 @@ const emit = defineEmits<{
 }>()
 
 const classObject = computed(() => ({
-  failed: errorMessage.value,
+  failed: errorMessage.value
 }))
 
 const emitValue = (event: Event) => {
