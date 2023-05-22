@@ -113,10 +113,10 @@ const emitKey = (selectedOption: SelectOption) => {
 }
 </script>
 <style>
-@import 'vue-multiselect/dist/vue-multiselect.css';
+@import 'vue-multiselect.css';
 </style>
 <style lang="scss" scoped>
-@import '@/assets/style/floating_labels.scss';
+@import '@/assets/style/floating_labels';
 
 .error {
   color: var(--color-danger);

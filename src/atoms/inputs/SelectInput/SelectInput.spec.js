@@ -1,7 +1,7 @@
 import { mount, shallowMount } from '@vue/test-utils'
 import Multiselect from 'vue-multiselect'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import SelectInput from '@/atoms/inputs/SelectInput.vue'
+import SelectInput from '@/atoms/inputs/SelectInput/SelectInput.vue'
 import { SelectOption } from '@/models/selectOption'
 
 describe('SelectInput', () => {

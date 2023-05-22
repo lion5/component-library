@@ -13,7 +13,7 @@ import InformationHeadline from '@/atoms/InformationHeadline/InformationHeadline
 import EntityCard from '@/atoms/cards/EntityCard/EntityCard.vue'
 import EntityWrapper from '@/atoms/EntityWrapper/EntityWrapper.vue'
 import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
-import SelectInput from '@/atoms/inputs/SelectInput.vue'
+import SelectInput from '@/atoms/inputs/SelectInput/SelectInput.vue'
 
 export {
   ActionButton,
