@@ -1,8 +1,11 @@
-import type { NominatimResult } from '@/dashboard/models/nominatimResult'
-import { NamedLocation } from '@/dashboard/models/namedLocation'
-import { GpsLocation } from '@/models/location/gpsLocation'
 import { uniqBy } from 'lodash'
+import { NominatimResult } from '@/models/nominatimResult'
+import { NamedLocation } from '@/models/namedLocation'
+import { GpsLocation } from '@/models/gpsLocation'
 
+/**
+ * Defines function to resolve location names to coordinates
+ */
 export function useNominatim() {
   const _getUrl = (locationName: string) => {
     // See https://nominatim.org/release-docs/latest/api/Search/ for documentation
@@ -15,6 +18,12 @@ export function useNominatim() {
     return url.toString()
   }
 
+  /**
+   * Search for gps coordinates that match the locationName
+   *
+   * @param locationName the location name that is used to search for the location
+   * @return a list of found locations matching the locationName
+   */
   const getLocations = async (locationName: string) => {
     const url = _getUrl(locationName)
     const response = await fetch(url)

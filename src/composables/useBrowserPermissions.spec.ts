@@ -1,4 +1,4 @@
-import { afterEach, describe, expect, vi } from 'vitest'
+import { afterEach, describe, expect, it, vi } from 'vitest'
 import { useBrowserPermissions } from './useBrowserPermissions'
 
 type GeolocationPermissionState = 'granted' | 'prompt' | 'denied'
@@ -11,7 +11,7 @@ describe('useBrowserPermissions', () => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       navigator.permissions = {
-        query: vi.fn().mockResolvedValue({ state: state, onchange: vi.fn() }),
+        query: vi.fn().mockResolvedValue({ state: state, onchange: vi.fn() })
       }
     }
 
@@ -26,7 +26,7 @@ describe('useBrowserPermissions', () => {
         const stateValues: GeolocationPermissionState[] = [
           'granted',
           'denied',
-          'prompt',
+          'prompt'
         ]
 
         for (const stateValue of stateValues) {
@@ -50,7 +50,7 @@ describe('useBrowserPermissions', () => {
         const stateValues: GeolocationPermissionState[] = [
           'granted',
           'denied',
-          'prompt',
+          'prompt'
         ]
 
         for (const stateValue of stateValues) {
@@ -73,7 +73,7 @@ describe('useBrowserPermissions', () => {
         const stateValues: GeolocationPermissionState[] = [
           'granted',
           'denied',
-          'prompt',
+          'prompt'
         ]
 
         for (const stateValue of stateValues) {

@@ -4,7 +4,7 @@ export enum PermissionState {
   INITIAL = 'initial',
   PROMPT = 'prompt',
   GRANTED = 'granted',
-  DENIED = 'denied',
+  DENIED = 'denied'
 }
 
 const locationPermissionState = ref<string>(PermissionState.INITIAL)
@@ -13,7 +13,7 @@ export function useBrowserPermissions() {
   const queryLocationPermission = async () => {
     try {
       const status = await navigator.permissions.query({
-        name: 'geolocation',
+        name: 'geolocation'
       })
 
       // user might change the permission at any point in time, so we listen to changes
@@ -49,6 +49,6 @@ export function useBrowserPermissions() {
     locationGranted,
     locationDenied,
     locationModalVisible,
-    queryLocationPermission,
+    queryLocationPermission
   }
 }
