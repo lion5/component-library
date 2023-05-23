@@ -16,18 +16,15 @@
     <slot />
   </BaseInputWrapper>
 </template>
-<script lang="ts">
-export default {
-  inheritAttrs: false
-}
-</script>
 <script setup lang="ts">
-import { useField } from 'vee-validate'
 import type { RuleExpression } from 'vee-validate'
+import { useField } from 'vee-validate'
 import { computed, toRef } from 'vue'
 import BaseInputWrapper from '@/atoms/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 
 type InputValue = string | number | null
+
+defineOptions({ inheritAttrs: false })
 
 const props = withDefaults(
   defineProps<{

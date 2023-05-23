@@ -1,15 +1,12 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
-import BaseInput from '@/components/input/BaseInput/BaseInput.vue'
 import { defineRule } from 'vee-validate'
+import BaseInput from '@/atoms/inputs/BaseInput/BaseInput.vue'
 
 describe('BaseInput', () => {
   let wrapper: ReturnType<typeof mountComponent>
 
   const mountComponent = () => {
-    // FIXME: type-check fails for this mount, even though test works
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
     return mount(BaseInput, {
       attachTo: document.body,
       props: {

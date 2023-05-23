@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { ErrorMessage, useField } from 'vee-validate'
-import NumberInput from '@/dashboard/components/inputs/NumberInput.vue'
+import NumberInput from './NumberInput.vue'
 
 vi.mock('vee-validate', async () => {
   const actual = await vi.importActual('vee-validate')

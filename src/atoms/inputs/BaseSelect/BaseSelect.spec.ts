@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import BaseSelect from '@/dashboard/components/inputs/BaseSelect.vue'
-import { SelectOption } from '@/models/selectOptions'
+import BaseSelect from './BaseSelect.vue'
+import { SelectOption } from '../../../models/selectOption'
 
 describe('BaseSelect.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

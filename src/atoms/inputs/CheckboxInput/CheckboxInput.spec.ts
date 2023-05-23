@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { ErrorMessage, Field } from 'vee-validate'
-import CheckboxInput from '@/dashboard/components/inputs/CheckboxInput.vue'
+import CheckboxInput from './CheckboxInput.vue'
 
 describe('CheckboxInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
