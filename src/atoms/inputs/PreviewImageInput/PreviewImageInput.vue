@@ -29,9 +29,7 @@ const emit = defineEmits<{
 const localName = toRef(props, 'name')
 const { value: selectedImage, errorMessage } = useField<File>(localName)
 
-const src = computed(
-  () => props.modelValue && URL.createObjectURL(props.modelValue)
-)
+const src = computed(() => URL.createObjectURL(selectedImage.value))
 
 const uploadImageLabel = computed(() =>
   props.modelValue ? 'Bild ändern' : 'Bild aufnehmen'
