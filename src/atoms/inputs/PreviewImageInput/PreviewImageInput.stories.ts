@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import PreviewImageInput from './PreviewImageInput.vue'
 import { ref } from 'vue'
+import { Form } from 'vee-validate'
 
 export default {
   component: PreviewImageInput
@@ -9,13 +10,15 @@ type Story = StoryObj<typeof PreviewImageInput>
 
 export const Empty: Story = {
   render: (args: unknown) => ({
-    components: { PreviewImageInput },
+    components: { PreviewImageInput, Form },
     setup() {
       const image = ref<File | undefined>()
       return { args, image }
     },
     template: `
-      <PreviewImageInput v-bind='args' v-model='image' />`
+      <Form>
+      <PreviewImageInput v-bind='args' v-model='image' />
+      </Form>`
   }),
   args: {
     name: 'image-input1',
