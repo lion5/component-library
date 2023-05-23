@@ -35,7 +35,11 @@ const emit = defineEmits<{
 
 const zoom = ref<number>(props.initialZoom)
 const center = computed(() => props.initialCenter)
-const { map, initMap, hideControls } = useLeafletMap(
+const {
+  map,
+  initMap,
+  hideControls: doHideControls
+} = useLeafletMap(
   zoom,
   props.minZoom,
   props.maxZoom,
@@ -51,7 +55,7 @@ onMounted(async () => {
   }
   emit('map-created', map.value)
   if (props.hideControls) {
-    hideControls()
+    doHideControls()
   }
 })
 </script>
