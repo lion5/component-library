@@ -67,9 +67,9 @@ const props = withDefaults(
 )
 
 // required for VeeValidate to notice name changes
-const name = toRef(props, 'name')
+const localName = toRef(props, 'name')
 const { value: inputValue, errorMessage } = useField<InputValue>(
-  name,
+  localName,
   props.validationRules,
   {
     initialValue: props.modelValue

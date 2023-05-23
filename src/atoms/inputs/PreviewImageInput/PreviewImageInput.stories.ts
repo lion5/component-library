@@ -8,7 +8,7 @@ export default {
 type Story = StoryObj<typeof PreviewImageInput>
 
 export const Empty: Story = {
-  render: (args: any) => ({
+  render: (args: unknown) => ({
     components: { PreviewImageInput },
     setup() {
       const image = ref<File | undefined>()

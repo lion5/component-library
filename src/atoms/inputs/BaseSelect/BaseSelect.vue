@@ -18,7 +18,7 @@
     </span>
   </BaseInputWrapper>
 </template>
-<script setup lang="ts">
+<script setup lang="ts" generic="LabelType">
 import type { RuleExpression } from 'vee-validate'
 import { useField } from 'vee-validate'
 import { toRef } from 'vue'
@@ -44,7 +44,7 @@ const props = withDefaults(
     /**
      * Options that shall be shown in the select dropdown
      */
-    options: string[] | SelectOption[]
+    options: string[] | SelectOption<LabelType>[]
     /**
      * the label that shall be shown as default if nothing is selected.
      * An empty select box is displayed if it is not set.
@@ -56,17 +56,17 @@ const props = withDefaults(
   }
 )
 
-const name = toRef(props, 'name')
-const { value, errorMessage, meta, handleChange } = useField<string>(name)
+const localName = toRef(props, 'name')
+const { value, errorMessage, meta, handleChange } = useField<string>(localName)
 
-const getLabel = (option: string | SelectOption) => {
+const getLabel = (option: string | SelectOption<LabelType>) => {
   if (option instanceof SelectOption) {
     return option.label
   }
   return option
 }
 
-const getValue = (option: string | SelectOption) => {
+const getValue = (option: string | SelectOption<LabelType>) => {
   if (option instanceof SelectOption) {
     return option.key
   }

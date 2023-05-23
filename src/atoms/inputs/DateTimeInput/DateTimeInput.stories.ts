@@ -16,7 +16,7 @@ export const Empty: Story = {
 }
 
 export const Filled: Story = {
-  render: (args: any) => ({
+  render: (args: unknown) => ({
     components: { DateTimeInput, Form },
     setup() {
       const { getDateTimeLocalInputValue } = useDate()

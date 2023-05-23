@@ -22,8 +22,8 @@ const emit = defineEmits<{
   (e: 'update:modelValue', image: File): void
 }>()
 
-const name = toRef(props, 'name')
-const { value, handleChange } = useField<File>(name)
+const localName = toRef(props, 'name')
+const { value, handleChange } = useField<File>(localName)
 watch(value, (newValue: File) => {
   if (!newValue) {
     return
@@ -35,6 +35,7 @@ watch(value, (newValue: File) => {
 input[type='file'] {
   display: none;
 }
+
 label {
   cursor: pointer;
   -webkit-user-select: none;

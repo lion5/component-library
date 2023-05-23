@@ -1,8 +1,8 @@
-export class SelectOption {
+export class SelectOption<LabelType> {
   readonly key: string | number | null
-  readonly label: any
+  readonly label: LabelType
 
-  constructor(key: string | number | null, label: any) {
+  constructor(key: string | number | null, label: LabelType) {
     this.key = key
     this.label = label
   }

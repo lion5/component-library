@@ -15,7 +15,7 @@ export const Empty: Story = {
 }
 
 export const Filled: Story = {
-  render: (args: any) => ({
+  render: (args: unknown) => ({
     components: { NumberInput, Form },
     setup() {
       return { args }
