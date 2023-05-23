@@ -13,10 +13,14 @@ import InformationHeadline from '@/atoms/InformationHeadline/InformationHeadline
 import EntityCard from '@/atoms/cards/EntityCard/EntityCard.vue'
 import EntityWrapper from '@/atoms/EntityWrapper/EntityWrapper.vue'
 import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
+import BackLinkTopBar from '@/atoms/app-bars/BackLinkTopBar.vue'
+import NavBar from '@/atoms/app-bars/NavBar.vue'
+import TopBar from '@/atoms/app-bars/TopBar.vue'
 
 export {
   ActionButton,
   ApprovalModal,
+  BackLinkTopBar,
   BaseButton,
   BaseModal,
   CardDismissButton,
@@ -29,6 +33,8 @@ export {
   InformationButton,
   InformationHeadline,
   ItemCard,
-  LoadingAnimation
+  LoadingAnimation,
+  NavBar,
+  TopBar
 }
 export * from './inputs'

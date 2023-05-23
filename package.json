@@ -89,6 +89,7 @@
     "@types/leaflet": ">=1.9.3",
     "lodash": "^4.17.21",
     "vee-validate": "^4.9.5",
+    "vue-router": "^4.2.1",
     "yup": "^1.1.1"
   }
 }
