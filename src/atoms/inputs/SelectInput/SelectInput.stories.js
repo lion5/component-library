@@ -1,4 +1,4 @@
-import SelectInput from '@/atoms/inputs/SelectInput.vue'
+import SelectInput from '@/atoms/inputs/SelectInput/SelectInput.vue'
 import { SelectOption } from '@/models/selectOption'
 
 export default {

@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+import type { GeoJSON } from 'leaflet'
 import { Circle, LatLng, Marker } from 'leaflet'
 import { GeoJsonConvertible } from '@/models/geoJsonConvertibleType'
 
@@ -5,7 +8,9 @@ import { GeoJsonConvertible } from '@/models/geoJsonConvertibleType'
  * Helper function for leaflet geojson
  */
 export function useGeoJSON() {
-  const getGeoJson = (layer: GeoJsonConvertible): any => {
+  const getGeoJson = (
+    layer: GeoJsonConvertible
+  ): GeoJSON.Feature | GeoJSON.FeatureCollection => {
     const geoJSON = layer.toGeoJSON()
     if (layer instanceof Circle) {
       geoJSON.properties.radius = layer.getRadius()
@@ -21,8 +26,11 @@ export function useGeoJSON() {
    *
    * Returns a circle instead of a marker if a radius is set in properties
    */
-  const fixCircleMarkerCollision = (feature: any, latlng: LatLng) => {
-    if (feature.properties.radius) {
+  const fixCircleMarkerCollision = (
+    feature: GeoJSON.Feature,
+    latlng: LatLng
+  ) => {
+    if (feature.properties?.radius) {
       return new Circle(latlng, feature.properties.radius)
     } else {
       return new Marker(latlng)

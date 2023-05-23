@@ -36,7 +36,7 @@ export default defineConfig({
       reportsDirectory: 'coverage'
     },
     globals: true,
-    environment: "jsdom",
-    css: true,
+    environment: 'jsdom',
+    css: true
   }
 })
