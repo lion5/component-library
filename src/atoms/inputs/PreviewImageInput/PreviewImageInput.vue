@@ -27,7 +27,11 @@ const emit = defineEmits<{
 }>()
 
 const localName = toRef(props, 'name')
-const { value: selectedImage, errorMessage } = useField<File>(localName)
+const { value: selectedImage, errorMessage } = useField<File>(
+  localName,
+  undefined,
+  { initialValue: props.modelValue }
+)
 
 const src = computed(() => URL.createObjectURL(selectedImage.value))
 
