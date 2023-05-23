@@ -28,7 +28,7 @@
     </small>
   </div>
 </template>
-<script setup lang="ts">
+<script setup lang="ts" generic="LabelType">
 import Multiselect from 'vue-multiselect'
 import { computed, onMounted, ref } from 'vue'
 import { SelectOption } from '@/models/selectOption'
@@ -45,11 +45,11 @@ const props = withDefaults(
      * The options that should be available for selection. Contain a `value` (key to identify the option)
      * and a text to be displayed.
      */
-    options: SelectOption[]
+    options: SelectOption<LabelType>[]
     /**
      * The option that should be pre-selected by default. If unset, no option is pre-selected.
      */
-    defaultOption?: SelectOption
+    defaultOption?: SelectOption<LabelType>
     /**
      * The unique ID of the HTML element.
      */
@@ -76,15 +76,15 @@ const emit = defineEmits<{
   (e: 'input', value: string | number | null): void
 }>()
 
-const selectedOption = ref<SelectOption>()
+const selectedOption = ref<SelectOption<LabelType>>()
 
 onMounted(() => {
   const { value, options, defaultOption } = props
   if (value !== undefined) {
     const optionsMap = options.reduce(
       (
-        accumulator: { [key: string]: SelectOption },
-        selectOption: SelectOption
+        accumulator: { [key: string]: SelectOption<LabelType> },
+        selectOption: SelectOption<LabelType>
       ) => {
         accumulator[selectOption.key || ''] = selectOption
         return accumulator
@@ -108,7 +108,7 @@ const errorMessage = computed(() =>
   props.error instanceof Error ? props.error.message : props.error
 )
 
-const emitKey = (selectedOption: SelectOption) => {
+const emitKey = (selectedOption: SelectOption<LabelType>) => {
   emit('input', selectedOption.key)
 }
 </script>

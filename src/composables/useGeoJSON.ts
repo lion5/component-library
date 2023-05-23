@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
 import type { GeoJSON } from 'leaflet'
 import { Circle, LatLng, Marker } from 'leaflet'
 import { GeoJsonConvertible } from '@/models/geoJsonConvertibleType'
