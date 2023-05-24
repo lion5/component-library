@@ -1,6 +1,6 @@
-import type { WidgetProps } from '@/dashboard/models/widgetProps'
 import { computed } from 'vue'
-import type { WidgetSetting } from '@/dashboard/models/widgetConfiguration'
+import { WidgetSetting } from '@/atoms/dashboard/models/widgetConfiguration'
+import type { WidgetProps } from '@/atoms/dashboard/models/widgetProps'
 
 export function useWidget(props: Readonly<WidgetProps>) {
   const getSetting = (key: string) => {
@@ -14,7 +14,7 @@ export function useWidget(props: Readonly<WidgetProps>) {
   const getSettings = () => {
     return new Map<string, WidgetSetting>([
       ...props.defaultSettings,
-      ...props.settings,
+      ...props.settings
     ])
   }
 
