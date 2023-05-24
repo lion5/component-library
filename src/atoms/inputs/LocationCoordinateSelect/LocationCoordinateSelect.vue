@@ -29,8 +29,8 @@ import { computed, ref } from 'vue'
 import { debounce } from 'lodash'
 import { NamedLocation } from '@/models/namedLocation'
 import BaseInputWrapper from '@/atoms/inputs/BaseInputWrapper/BaseInputWrapper.vue'
-import { useNominatim } from '@/composables'
 import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
+import { useNominatim } from '@/composables/useNominatim'
 
 type InputValue = string | number | null
 
