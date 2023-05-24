@@ -6,7 +6,7 @@
       :options="options"
       :placeholder="placeholderText"
       :track-by="'value'"
-      label="text"
+      label="label"
       :multiple="false"
       :taggable="false"
       :close-on-select="true"
@@ -40,7 +40,7 @@ const props = withDefaults(
     /**
      * The currently selected value as a `string`, initially `undefined`.
      */
-    value?: string
+    modelValue?: string
     /**
      * The options that should be available for selection. Contain a `value` (key to identify the option)
      * and a text to be displayed.
@@ -73,14 +73,14 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  (e: 'input', value: string | number | null): void
+  (e: 'update:modelValue', value: string | number | null): void
 }>()
 
 const selectedOption = ref<SelectOption<LabelType>>()
 
 onMounted(() => {
-  const { value, options, defaultOption } = props
-  if (value !== undefined) {
+  const { modelValue, options, defaultOption } = props
+  if (modelValue !== undefined) {
     const optionsMap = options.reduce(
       (
         accumulator: { [key: string]: SelectOption<LabelType> },
@@ -91,7 +91,7 @@ onMounted(() => {
       },
       {}
     )
-    selectedOption.value = optionsMap[value]
+    selectedOption.value = optionsMap[modelValue]
   } else {
     selectedOption.value = defaultOption
   }
@@ -109,7 +109,7 @@ const errorMessage = computed(() =>
 )
 
 const emitKey = (selectedOption: SelectOption<LabelType>) => {
-  emit('input', selectedOption.key)
+  emit('update:modelValue', selectedOption.key)
 }
 </script>
 <style>

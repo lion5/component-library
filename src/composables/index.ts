@@ -1,4 +1,7 @@
-import { useBrowserPermissions } from '@/composables/useBrowserPermissions'
+import {
+  PermissionState,
+  useBrowserPermissions
+} from '@/composables/useBrowserPermissions'
 import { useDate } from '@/composables/useDate'
 import { useFetchState } from '@/composables/useFetchState'
 import { useFirebaseStorage } from '@/composables/useFirebaseStorage'
@@ -11,6 +14,7 @@ import { useShape } from '@/composables/useShape'
 
 export {
   useBrowserPermissions,
+  PermissionState,
   useDate,
   useFetchState,
   useFirebaseStorage,

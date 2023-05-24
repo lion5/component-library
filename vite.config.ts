@@ -15,7 +15,15 @@ export default defineConfig({
       fileName: (format) => `library.${format}.js`
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', 'vuex'],
+      external: [
+        'vue',
+        'vue-router',
+        'vuex',
+        'leaflet',
+        'firebase',
+        'firebase/storage',
+        'vee-validate'
+      ],
       output: {
         exports: 'named',
         globals: {
