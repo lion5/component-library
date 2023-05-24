@@ -3,7 +3,8 @@
   "version": "0.3.0",
   "license": "MIT",
   "contributors": [
-    "Michael Götz <michael.goetz@lion5.io> (https://github.com/michigg)"
+    "Michael Götz <michael.goetz@lion5.io> (https://github.com/michigg)",
+    "Christopher Nagy <christopher.nagy@lion5.io> (https://github.com/nagychris)"
   ],
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
