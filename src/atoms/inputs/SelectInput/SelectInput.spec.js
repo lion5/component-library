@@ -72,7 +72,7 @@ describe('SelectInput', () => {
       expect(labelElement.text()).toBe(error)
     })
     it(':defaultOption - nothing is emitted when value and default value not set', async () => {
-      expect(wrapper.emitted('input')).toBe(undefined)
+      expect(wrapper.emitted('update:modelValue')).toBe(undefined)
     })
     it(':defaultOption - value is emitted when not set', async () => {
       const expectedValue = '3'
@@ -88,10 +88,12 @@ describe('SelectInput', () => {
             new SelectOption('2', 'Two'),
             new SelectOption('3', 'Three')
           ],
-          value: expectedValue
+          modelValue: expectedValue
         }
       })
-      expect(wrapper.emitted('input')[0]).toStrictEqual([expectedValue])
+      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([
+        expectedValue
+      ])
     })
     it(':defaultOption - value of 0 is emitted when default value not set', async () => {
       const expectedValue = '0'
@@ -104,13 +106,15 @@ describe('SelectInput', () => {
             new SelectOption('2', 'Two'),
             new SelectOption('0', 'Zero')
           ],
-          value: expectedValue
+          modelValue: expectedValue
         },
         global: {
           stubs: ['Multiselect']
         }
       })
-      expect(wrapper.emitted('input')[0]).toStrictEqual([expectedValue])
+      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([
+        expectedValue
+      ])
     })
     it(':defaultOption - is emitted when default option value of "2" is set', async () => {
       const expectedValue = '2'
@@ -129,7 +133,9 @@ describe('SelectInput', () => {
           stubs: ['Multiselect']
         }
       })
-      expect(wrapper.emitted('input')[0]).toStrictEqual([expectedValue])
+      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([
+        expectedValue
+      ])
     })
     it(':placeholder - is applied to the placeholder prop', async () => {
       const label = 'label'
