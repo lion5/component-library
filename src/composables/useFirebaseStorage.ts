@@ -5,8 +5,6 @@ import type { FirebaseError } from 'firebase/app'
  * Provides firebase function to upload and display images
  */
 export function useFirebaseStorage() {
-  const storage = getStorage()
-
   /**
    * uploads a file to a given cloud storage file path
    *
@@ -14,6 +12,7 @@ export function useFirebaseStorage() {
    * @param filePath the location inside the cloud storage
    */
   const uploadFile = async (file: File, filePath: string): Promise<string> => {
+    const storage = getStorage()
     const storageRef = ref(storage, filePath)
 
     try {
@@ -45,6 +44,7 @@ export function useFirebaseStorage() {
    * @param storageURI the storageURI of a storage item that shall be downloaded
    */
   const getImageUrl = async (storageURI: string) => {
+    const storage = getStorage()
     // Create a reference from a Google Cloud Storage URI
     const gsReference = ref(storage, storageURI)
     return await getDownloadURL(gsReference)
