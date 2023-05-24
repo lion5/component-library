@@ -22,7 +22,8 @@ export default defineConfig({
         'leaflet',
         'firebase',
         'firebase/storage',
-        'vee-validate'
+        'vee-validate',
+        'gridstack'
       ],
       output: {
         exports: 'named',

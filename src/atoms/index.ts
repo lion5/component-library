@@ -17,6 +17,8 @@ import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
 import BackLinkTopBar from '@/atoms/app-bars/BackLinkTopBar/BackLinkTopBar.vue'
 import NavBar from '@/atoms/app-bars/NavBar/NavBar.vue'
 import TopBar from '@/atoms/app-bars/TopBar/TopBar.vue'
+import DropDown from '@/atoms/dropdown/DropDown/DropDown.vue'
+import DropDownItem from '@/atoms/dropdown/DropDownItem/DropDownItem.vue'
 
 export {
   ActionButton,
@@ -37,6 +39,9 @@ export {
   LeafletMap,
   LoadingAnimation,
   NavBar,
-  TopBar
+  TopBar,
+  DropDown,
+  DropDownItem
 }
 export * from './inputs'
+export * from './dashboard'

@@ -12,6 +12,8 @@ import IconX from '@/icons/IconX.vue'
 import IconError from '@/icons/IconError.vue'
 import IconCalendar from '@/icons/IconCalendar.vue'
 import IconCamera from '@/icons/IconCamera.vue'
+import IconThreeDotsMenu from '@/icons/IconThreeDotsMenu.vue'
+import IconEmojiDizzy from '@/icons/IconEmojiDizzy.vue'
 
 export {
   IconArrowRepeat,
@@ -27,5 +29,7 @@ export {
   IconX,
   IconError,
   IconCalendar,
-  IconCamera
+  IconCamera,
+  IconThreeDotsMenu,
+  IconEmojiDizzy
 }
