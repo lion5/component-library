@@ -10,6 +10,7 @@ import NumberInput from '@/atoms/inputs/NumberInput/NumberInput.vue'
 import PreviewImageInput from '@/atoms/inputs/PreviewImageInput/PreviewImageInput.vue'
 import SelectInput from '@/atoms/inputs/SelectInput/SelectInput.vue'
 import UploadImageFAB from '@/atoms/inputs/UploadImageFAB/UploadImageFAB.vue'
+import GeolocationInput from '@/atoms/inputs/GeolocationInput/GeolocationInput.vue'
 
 export {
   BaseInput,
@@ -18,6 +19,7 @@ export {
   BaseSelect,
   CheckboxInput,
   DateTimeInput,
+  GeolocationInput,
   ImageInputWrapper,
   LocationCoordinateSelect,
   NumberInput,

@@ -12,6 +12,7 @@ import InformationButton from '@/atoms/buttons/InformationButton/InformationButt
 import InformationHeadline from '@/atoms/InformationHeadline/InformationHeadline.vue'
 import EntityCard from '@/atoms/cards/EntityCard/EntityCard.vue'
 import EntityWrapper from '@/atoms/EntityWrapper/EntityWrapper.vue'
+import LeafletMap from '@/atoms/LeafletMap/LeafletMap.vue'
 import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
 import BackLinkTopBar from '@/atoms/app-bars/BackLinkTopBar.vue'
 import NavBar from '@/atoms/app-bars/NavBar.vue'
@@ -33,6 +34,7 @@ export {
   InformationButton,
   InformationHeadline,
   ItemCard,
+  LeafletMap,
   LoadingAnimation,
   NavBar,
   TopBar
