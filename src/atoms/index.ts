@@ -14,9 +14,9 @@ import EntityCard from '@/atoms/cards/EntityCard/EntityCard.vue'
 import EntityWrapper from '@/atoms/EntityWrapper/EntityWrapper.vue'
 import LeafletMap from '@/atoms/LeafletMap/LeafletMap.vue'
 import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
-import BackLinkTopBar from '@/atoms/app-bars/BackLinkTopBar.vue'
-import NavBar from '@/atoms/app-bars/NavBar.vue'
-import TopBar from '@/atoms/app-bars/TopBar.vue'
+import BackLinkTopBar from '@/atoms/app-bars/BackLinkTopBar/BackLinkTopBar.vue'
+import NavBar from '@/atoms/app-bars/NavBar/NavBar.vue'
+import TopBar from '@/atoms/app-bars/TopBar/TopBar.vue'
 
 export {
   ActionButton,
