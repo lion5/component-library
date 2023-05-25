@@ -23,7 +23,8 @@
       "@/*": ["src/*"],
     },
     "types": [
-      "vite/client"
+      "vite/client",
+      "dom-screen-wake-lock"
     ]
   },
   "exclude": [
@@ -31,7 +32,6 @@
     "dist",
     "src/**/*.stories.js",
     "src/**/*.stories.ts",
-//    "src/**/*.spec.ts"
   ],
   "include": [
     "src/**/*.js",

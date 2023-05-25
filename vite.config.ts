@@ -24,7 +24,8 @@ export default defineConfig({
         'firebase/storage',
         'vee-validate',
         'gridstack',
-        '@turf/boolean-point-in-polygon'
+        '@turf/boolean-point-in-polygon',
+        'pinia'
       ],
       output: {
         exports: 'named',
