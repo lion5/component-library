@@ -1,32 +1,66 @@
 import { Meta, StoryObj } from '@storybook/vue3'
-import { Form } from 'vee-validate'
 import SliderToggleInput from './SliderToggleInput.vue'
+import { ref } from 'vue'
 
 export default {
   component: SliderToggleInput
 } as Meta<typeof SliderToggleInput>
 type Story = StoryObj<typeof SliderToggleInput>
 
-export const Empty: Story = {
+export const Default: Story = {
+  render: (args: unknown) => ({
+    components: { SliderToggleInput },
+    setup() {
+      const toggled = ref(false)
+      return { args, toggled }
+    },
+    template: `<SliderToggleInput v-bind='args' v-model='toggled' />`
+  }),
   args: {
     name: 'sliderToggle',
-    label: 'This is a toggleable input'
+    label: 'Default (Not Toggled)'
   }
 }
 
-export const Checked: Story = {
+export const Toggled: Story = {
   render: (args: unknown) => ({
-    components: { SliderToggleInput, Form },
+    components: { SliderToggleInput },
+    setup() {
+      const toggled = ref(true)
+      return { args, toggled }
+    },
+    template: `<SliderToggleInput v-bind='args' v-model='toggled' />`
+  }),
+  args: {
+    ...Default.args,
+    label: 'Toggled'
+  }
+}
+
+export const Disabled: Story = {
+  render: (args: unknown) => ({
+    components: { SliderToggleInput },
     setup() {
       return { args }
     },
-    template: `
-      <Form :initialValues='{sliderToggle: true}'>
-      <SliderToggleInput v-bind='args' />
-      </Form>`
+    template: `<SliderToggleInput v-bind='args' disabled />`
   }),
   args: {
-    ...Empty.args,
-    name: 'sliderToggle'
+    ...Default.args,
+    label: 'Disabled'
+  }
+}
+
+export const DefaultWithInfo: Story = {
+  render: (args: unknown) => ({
+    components: { SliderToggleInput },
+    setup() {
+      return { args }
+    },
+    template: `<SliderToggleInput v-bind='args' info-title='Information Title' info-body='Information Body' />`
+  }),
+  args: {
+    ...Default.args,
+    label: 'Default with Information'
   }
 }

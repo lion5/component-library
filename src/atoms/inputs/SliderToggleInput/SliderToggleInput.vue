@@ -7,6 +7,7 @@
         :id="name"
         v-bind="$attrs"
         :value="props.modelValue"
+        :checked="props.modelValue"
         @change="emitValue"
       />
       <span class="slider round"></span>
@@ -22,7 +23,6 @@
 
 <script setup lang="ts">
 import InformationButton from '@/atoms/buttons/InformationButton/InformationButton.vue'
-import { toRef } from 'vue'
 
 defineOptions({ inheritAttrs: false })
 
@@ -34,7 +34,7 @@ const props = withDefaults(
      */
     modelValue?: boolean
     /**
-     * Used to identify this field in a form (VeeValidate Form).
+     * Used to identify this field via the HTML input.
      */
     name: string
     /**
@@ -67,8 +67,6 @@ const emitValue = (e: Event) => {
   const checked = (e.target as HTMLInputElement).checked
   emit('update:modelValue', checked)
 }
-
-// TODO: maybe use VeeValidate
 </script>
 <style scoped lang="scss">
 .toggle-container {
