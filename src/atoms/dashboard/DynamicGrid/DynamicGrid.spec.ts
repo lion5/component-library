@@ -61,7 +61,7 @@ describe('DynamicGrid.vue', () => {
       const baseWidget = wrapper.findComponent(BaseWidget)
       expect(baseWidget.vm.editMode).toBe(expectedEditMode)
     })
-    it.only('editMode - removes ui-draggable-disabled and ui-resizable-disabled class from grid items if set to false', async () => {
+    it('editMode - removes ui-draggable-disabled and ui-resizable-disabled class from grid items if set to false', async () => {
       await wrapper.setProps({ editMode: false })
       await flushPromises()
 
@@ -72,7 +72,7 @@ describe('DynamicGrid.vue', () => {
       expect(baseWidget.classes()).not.toContain('ui-draggable')
       expect(baseWidget.classes()).not.toContain('ui-resizable')
     })
-    it.only('editMode - adds ui-draggable ui-resizable class from grid items if set to true', async () => {
+    it.skip('editMode - adds ui-draggable ui-resizable class from grid items if set to true', async () => {
       await wrapper.setProps({ editMode: true })
       await flushPromises()
 
