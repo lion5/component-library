@@ -1,25 +1,22 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
-import { defineRule } from 'vee-validate'
-import SliderToggleInput from './SliderToggleInput.vue'
+import SliderToggleInput from '@/atoms/inputs/SliderToggleInput/SliderToggleInput.vue'
 
 describe('SliderToggleInput', () => {
   let wrapper: ReturnType<typeof mountComponent>
 
   const mountComponent = () => {
+    // @ts-ignore
     return mount(SliderToggleInput, {
       attachTo: document.body,
       props: {
         name: 'toggle',
-        label: 'SliderToggle',
-        validationRules: 'required'
+        label: 'SliderToggle'
       }
     })
   }
 
   beforeEach(() => {
-    // mock required validation rule
-    defineRule('required', () => 'error message')
     wrapper = mountComponent()
   })
 
