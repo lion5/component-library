@@ -18,11 +18,14 @@
       class="submit-login-button"
       type="submit"
       data-test="submit-login-button"
-      :loading="busy"
+      :loading="localBusy"
     >
       Einloggen
     </BaseButton>
-    <MessageBox :error-message="errorMessage" :info-message="infoMessage" />
+    <MessageBox
+      :error-message="localErrorMessage"
+      :info-message="localInfoMessage"
+    />
     <slot name="after" />
   </form>
 </template>
@@ -48,11 +51,11 @@ const props = defineProps<{
 
 const email = ref<string>()
 const password = ref<string>()
-const errorMessage = toRef(() => props.errorMessage)
-const infoMessage = toRef(() => props.infoMessage)
-const busy = toRef(() => props.busy)
+const localErrorMessage = toRef(() => props.errorMessage)
+const localInfoMessage = toRef(() => props.infoMessage)
+const localBusy = toRef(() => props.busy)
 
-const { handleSubmit, meta } = useForm<LoginForm>({
+const { handleSubmit } = useForm<LoginForm>({
   validationSchema: object({
     email: string()
       .email('Bitte geben Sie eine korrekte E-Mail-Adresse an')
