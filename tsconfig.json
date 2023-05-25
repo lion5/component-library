@@ -27,7 +27,6 @@
     ]
   },
   "exclude": [
-    "node_modules",
     "dist",
     "src/**/*.stories.js",
     "src/**/*.stories.ts",
@@ -38,6 +37,7 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "node_modules/@types/**/*.d.ts"
   ]
 }
