@@ -39,7 +39,7 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue'
 import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
-import { useFirebaseStorage } from '@/composables'
+import { useFirebaseStorage } from '@/composables/useFirebaseStorage'
 
 const props = defineProps<{
   storageUrls: string[]

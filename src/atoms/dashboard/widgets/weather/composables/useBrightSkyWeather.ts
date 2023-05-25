@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { BrightSkyCurrentWeather } from '@/atoms/dashboard/widgets/weather/models/brightSkyCurrentWeather'
-import { useFetchState } from '@/composables'
+import { useFetchState } from '@/composables/useFetchState'
 import { GpsLocation } from '@/models/gpsLocation'
 
 export function useBrightSkyWeather() {

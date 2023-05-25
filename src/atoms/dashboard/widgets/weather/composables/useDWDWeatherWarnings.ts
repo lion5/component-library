@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { WeatherWarning } from '@/atoms/dashboard/widgets/weather/models/weatherWarning'
-import { useFetchState } from '@/composables'
+import { useFetchState } from '@/composables/useFetchState'
 import { GpsLocation } from '@/models/gpsLocation'
 import { usePolygon } from '@/atoms/dashboard/widgets/weather/composables/usePolygon'
 

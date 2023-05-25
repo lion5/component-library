@@ -1,6 +1,6 @@
 import { computed, ref } from 'vue'
 import { groupBy } from 'lodash'
-import { useFetchState } from '@/composables'
+import { useFetchState } from '@/composables/useFetchState'
 import { GpsLocation } from '@/models/gpsLocation'
 import {
   BrightSkyForecastWeather,

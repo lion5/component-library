@@ -23,7 +23,7 @@
 
 <script lang="ts" setup>
 import { AggregatedWeather } from '@/atoms/dashboard/widgets/weather/models/aggregatedWeather'
-import { useDate } from '@/composables'
+import { useDate } from '@/composables/useDate'
 import { useBrightSkyWeatherIcon } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherIcon'
 
 defineProps<{

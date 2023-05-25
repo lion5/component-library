@@ -11,7 +11,7 @@ import IconSleet from '@/icons/weather/IconSleet.vue'
 import IconSnow from '@/icons/weather/IconSnow.vue'
 import IconHail from '@/icons/weather/IconHail.vue'
 import IconThunderstorm from '@/icons/weather/IconThunderstorm.vue'
-import { useNumber } from '@/composables'
+import { useNumber } from '@/composables/useNumber'
 
 const iconMap: { [key: string]: ReturnType<typeof defineComponent> } =
   Object.freeze({

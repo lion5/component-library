@@ -14,7 +14,8 @@
 
 <script lang="ts" setup>
 import { BrightSkyForecastWeatherItem } from '@/atoms/dashboard/widgets/weather/models/brightSkyForecastWeather'
-import { useDate, useNumber } from '@/composables'
+import { useDate } from '@/composables/useDate'
+import { useNumber } from '@/composables/useNumber'
 import { useBrightSkyWeatherIcon } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherIcon'
 
 defineProps<{
