@@ -6,6 +6,7 @@
 </template>
 <script lang="ts" setup>
 import { useWindDirection } from '@/atoms/dashboard/widgets/weather/composables/useWindDirection'
+import WindDirectionIcon from '@/atoms/dashboard/widgets/weather/components/WindDirectionIcon.vue'
 
 defineProps<{
   degree: number | null

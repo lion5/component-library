@@ -25,6 +25,8 @@
 import { AggregatedWeather } from '@/atoms/dashboard/widgets/weather/models/aggregatedWeather'
 import { useDate } from '@/composables/useDate'
 import { useBrightSkyWeatherIcon } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherIcon'
+import WeatherIcon from '@/atoms/dashboard/widgets/weather/components/WeatherIcon.vue'
+import WindDirection from '@/atoms/dashboard/widgets/weather/components/WindDirection.vue'
 
 defineProps<{
   forecasts: AggregatedWeather[]
