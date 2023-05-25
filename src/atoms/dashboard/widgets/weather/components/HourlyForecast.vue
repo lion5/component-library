@@ -17,6 +17,8 @@ import { BrightSkyForecastWeatherItem } from '@/atoms/dashboard/widgets/weather/
 import { useDate } from '@/composables/useDate'
 import { useNumber } from '@/composables/useNumber'
 import { useBrightSkyWeatherIcon } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherIcon'
+import WeatherIcon from '@/atoms/dashboard/widgets/weather/components/WeatherIcon.vue'
+import WindDirection from '@/atoms/dashboard/widgets/weather/components/WindDirection.vue'
 
 defineProps<{
   forecasts: BrightSkyForecastWeatherItem[]
