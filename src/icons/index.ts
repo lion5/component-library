@@ -14,6 +14,8 @@ import IconCalendar from '@/icons/IconCalendar.vue'
 import IconCamera from '@/icons/IconCamera.vue'
 import IconThreeDotsMenu from '@/icons/IconThreeDotsMenu.vue'
 import IconEmojiDizzy from '@/icons/IconEmojiDizzy.vue'
+import IconGeolocation from '@/icons/IconGeolocation.vue'
+import IconWarning from '@/icons/IconWarning.vue'
 
 export {
   IconArrowRepeat,
@@ -31,6 +33,8 @@ export {
   IconCalendar,
   IconCamera,
   IconThreeDotsMenu,
-  IconEmojiDizzy
+  IconEmojiDizzy,
+  IconGeolocation,
+  IconWarning
 }
 export * from './weather'

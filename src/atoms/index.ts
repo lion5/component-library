@@ -4,6 +4,7 @@ import IconButton from '@/atoms/buttons/IconButton/IconButton.vue'
 import BaseModal from '@/atoms/modals/BaseModal/BaseModal.vue'
 import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
 import ApprovalModal from '@/atoms/modals/ApprovalModal/ApprovalModal.vue'
+import LocationPermissionModal from '@/atoms/modals/LocationPermissionModal/LocationPermissionModal.vue'
 import CardDismissButton from '@/atoms/buttons/CardDismissButton/CardDismissButton.vue'
 import ItemCard from '@/atoms/cards/ItemCard/ItemCard.vue'
 import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
@@ -20,6 +21,8 @@ import TopBar from '@/atoms/app-bars/TopBar/TopBar.vue'
 import DropDown from '@/atoms/dropdown/DropDown/DropDown.vue'
 import DropDownItem from '@/atoms/dropdown/DropDownItem/DropDownItem.vue'
 import ImageGallery from '@/atoms/ImageGallery/ImageGallery.vue'
+import MessageBox from '@/atoms/boxes/MessageBox/MessageBox.vue'
+import WakeLockToggle from '@/atoms/WakeLockToggle/WakeLockToggle.vue'
 
 export {
   ActionButton,
@@ -29,6 +32,7 @@ export {
   BaseModal,
   CardDismissButton,
   DismissibleModal,
+  LocationPermissionModal,
   DraggableItem,
   EntityWrapper,
   EntityCard,
@@ -43,7 +47,9 @@ export {
   TopBar,
   DropDown,
   DropDownItem,
-  ImageGallery
+  ImageGallery,
+  MessageBox,
+  WakeLockToggle
 }
 export * from './inputs'
 export * from './dashboard'

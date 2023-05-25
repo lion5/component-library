@@ -11,6 +11,7 @@ import PreviewImageInput from '@/atoms/inputs/PreviewImageInput/PreviewImageInpu
 import SelectInput from '@/atoms/inputs/SelectInput/SelectInput.vue'
 import UploadImageFAB from '@/atoms/inputs/UploadImageFAB/UploadImageFAB.vue'
 import GeolocationInput from '@/atoms/inputs/GeolocationInput/GeolocationInput.vue'
+import SliderToggleInput from '@/atoms/inputs/SliderToggleInput/SliderToggleInput.vue'
 
 export {
   BaseInput,
@@ -25,5 +26,6 @@ export {
   NumberInput,
   PreviewImageInput,
   SelectInput,
-  UploadImageFAB
+  UploadImageFAB,
+  SliderToggleInput
 }
