@@ -71,3 +71,6 @@ The workflow should have done the following things:
 - Create a new GitHub release
 - Publish a new package to the GitHub Packages registry
 - Publish a new documentation on GitHub Pages
+
+## License
+component-library is Open Source software released under the [MIT License](License.txt).
