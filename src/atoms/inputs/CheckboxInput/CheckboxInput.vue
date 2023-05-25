@@ -39,14 +39,8 @@ withDefaults(
 )
 </script>
 <style scoped lang="scss">
-.base-input-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-
-  .error {
-    color: var(--color-danger);
-    font-size: var(--font-size-0);
-  }
+.error {
+  color: var(--color-danger);
+  font-size: var(--font-size-0);
 }
 </style>
