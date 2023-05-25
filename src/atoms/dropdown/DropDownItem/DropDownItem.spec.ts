@@ -6,7 +6,6 @@ import DropDownItem from '@/dashboard/components/DropDownItem.vue'
 describe('DropDownItem.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
   beforeEach(() => {
-    // @ts-ignore
     wrapper = mount(DropDownItem, { props: { label: 'defaultTestLabel' } })
   })
   describe(':props', () => {

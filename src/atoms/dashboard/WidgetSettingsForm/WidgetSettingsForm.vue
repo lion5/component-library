@@ -33,7 +33,7 @@ const emit = defineEmits<{
   (e: 'update:settings', widgetSettings: WidgetSettings): void
 }>()
 
-const onSubmit = (values: any) => {
+const onSubmit = (values: object) => {
   const settings = new Map(Object.entries(values)) as WidgetSettings
   emit('update:settings', settings)
 }

@@ -30,7 +30,7 @@ export function usePolygon() {
       }
     }
   }
-  const geoJsonPolygonFromDWDRegion = (dwdRegion: any) => {
+  const geoJsonPolygonFromDWDRegion = (dwdRegion: number[]) => {
     type Feature = 'Feature'
     return {
       type: 'Feature' as Feature,
@@ -42,7 +42,7 @@ export function usePolygon() {
     }
   }
 
-  const isPointInPolygon = (location: GpsLocation, dwdRegion: any) => {
+  const isPointInPolygon = (location: GpsLocation, dwdRegion: number[]) => {
     const point = geoJsonPointFromGpsLocation(location)
     const polygon = geoJsonPolygonFromDWDRegion(dwdRegion)
 

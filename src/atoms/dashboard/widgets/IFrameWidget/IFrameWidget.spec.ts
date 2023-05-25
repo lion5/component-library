@@ -2,8 +2,8 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import IFrameWidget from '@/dashboard/widgets/IFrameWidget/IFrameWidget.vue'
-import { IFRAME_WIDGET_WRAPPER } from '@/dashboard/widgets/IFrameWidget/config'
-import { IFrameSetting } from '@/dashboard/widgets/IFrameWidget/settings'
+import { IFRAME_WIDGET_WRAPPER } from '@/atoms'
+import { IFrameSetting } from '@/atoms/dashboard/widgets/IFrameWidget/settings'
 
 describe('IFrameWidget.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -12,8 +12,8 @@ describe('IFrameWidget.vue', () => {
     wrapper = mount(IFrameWidget, {
       props: {
         settings: new Map(),
-        defaultSettings: IFRAME_WIDGET_WRAPPER.defaultSettings,
-      },
+        defaultSettings: IFRAME_WIDGET_WRAPPER.defaultSettings
+      }
     })
   })
 

@@ -1,16 +1,14 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
-import DashboardBar from '@/dashboard/components/DashboardBar.vue'
-import EditButton from '@/dashboard/components/EditButton.vue'
 import type { defineComponent } from 'vue'
+import { DashboardBar, EditButton } from '@/atoms'
 
 describe('DashboardBar.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
-  vi.mock('@/dashboard/widgets/availableWidgets', () => ({
-    availableWidgets: new Map(),
-  }))
   beforeEach(() => {
-    wrapper = mount(DashboardBar, { props: { editMode: false } })
+    wrapper = mount(DashboardBar, {
+      props: { editMode: false, availableWidgets: new Map() }
+    })
   })
 
   describe(':props', () => {
@@ -45,8 +43,8 @@ describe('DashboardBar.vue', () => {
       await editButton.vm.$emit('update:editMode', expectedEditMode)
 
       expect(wrapper.emitted('update:editMode')).toBeDefined()
-      expect(wrapper.emitted('update:editMode')![0]).toStrictEqual([
-        expectedEditMode,
+      expect(wrapper.emitted('update:editMode')?.[0]).toStrictEqual([
+        expectedEditMode
       ])
     })
   })

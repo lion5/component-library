@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { useWindDirection } from '@/dashboard/widgets/weather/composables/useWindDirection'
+import { useWindDirection } from '@/atoms/dashboard/widgets/weather/composables/useWindDirection'
 
 describe('useWindDirection.ts', () => {
   it.each([
@@ -14,7 +14,7 @@ describe('useWindDirection.ts', () => {
     { degree: 270, expected: 'W' },
     { degree: 315, expected: 'NW' },
     { degree: 337, expected: 'NW' },
-    { degree: 338, expected: 'N' },
+    { degree: 338, expected: 'N' }
   ])(
     'getDirectionName - returns "$expected" if $degree° given',
     ({ degree, expected }) => {

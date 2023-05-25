@@ -1,3 +1,3 @@
 <template>
- <i class="bi bi-sun"></i>
+  <i class="bi bi-sun"></i>
 </template>

@@ -1,10 +1,10 @@
 import { describe, expect, it, vi } from 'vitest'
-import { usePolygon } from '@/dashboard/widgets/weather/composables/usePolygon'
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon'
-import { GpsLocation } from '@/models/location/gpsLocation'
+import { usePolygon } from '@/atoms/dashboard/widgets/weather/composables/usePolygon'
+import { GpsLocation } from '@/models/gpsLocation'
 
 vi.mock('@turf/boolean-point-in-polygon', () => ({
-  default: vi.fn(),
+  default: vi.fn()
 }))
 
 describe('usePolygon.ts', () => {
@@ -15,8 +15,8 @@ describe('usePolygon.ts', () => {
       geometry: {
         type: 'Point',
         // Note order: longitude, latitude.
-        coordinates: [12.34, 49.12],
-      },
+        coordinates: [12.34, 49.12]
+      }
     }
     const expectedPolygon = {
       type: 'Feature',
@@ -25,13 +25,14 @@ describe('usePolygon.ts', () => {
         coordinates: [
           [
             [12.34, 49.12],
-            [10.12, 51.13],
-          ],
+            [10.12, 51.13]
+          ]
         ],
-        type: 'Polygon',
-      },
+        type: 'Polygon'
+      }
     }
 
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     booleanPointInPolygon.mockReturnValue(true)
     const { isPointInPolygon } = usePolygon()

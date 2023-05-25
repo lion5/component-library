@@ -1,3 +1,3 @@
 <template>
- <i class="bi bi-cloud-moon"></i>
+  <i class="bi bi-cloud-moon"></i>
 </template>

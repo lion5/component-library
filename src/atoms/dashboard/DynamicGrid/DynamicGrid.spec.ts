@@ -5,18 +5,20 @@ import {
   describe,
   expect,
   it,
-  vi,
+  vi
 } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
-import DynamicGrid from '@/dashboard/components/DynamicGrid.vue'
-import { WidgetConfiguration } from '@/dashboard/models/widgetConfiguration'
-import { GridWidget } from '@/dashboard/models/gridWidget'
-import BaseWidget from '@/dashboard/components/BaseWidget.vue'
-import { WidgetComponentWrapper } from '@/dashboard/models/widgetComponentWrapper'
 import type { defineComponent } from 'vue'
 import { nextTick } from 'vue'
-import IFrameWidget from '@/dashboard/widgets/IFrameWidget/IFrameWidget.vue'
-import { FormSchema } from '@/dashboard/models/formSchema'
+import {
+  BaseWidget,
+  DynamicGrid,
+  FormSchema,
+  GridWidget,
+  WidgetComponentWrapper,
+  WidgetConfiguration
+} from '@/atoms'
+import IFrameWidget from '@/atoms/dashboard/widgets/IFrameWidget/IFrameWidget.vue'
 
 document.body.style.width = '1000px'
 
@@ -33,10 +35,10 @@ describe('DynamicGrid.vue', () => {
             'a',
             new GridWidget(0, 1, 4, 5),
             'unknownComponent'
-          ),
+          )
         ],
-        components: new Map(),
-      },
+        components: new Map()
+      }
     })
   })
 
@@ -83,7 +85,7 @@ describe('DynamicGrid.vue', () => {
     })
     it('widgetConfigs - are applied to BaseWidgets', async () => {
       const expectedWidgets = [
-        new WidgetConfiguration('test-1', new GridWidget(0, 0, 1, 2), 'key'),
+        new WidgetConfiguration('test-1', new GridWidget(0, 0, 1, 2), 'key')
       ]
       await wrapper.setProps({ widgetConfigs: expectedWidgets })
       const baseWidgets = wrapper.findAllComponents(BaseWidget)
@@ -101,8 +103,8 @@ describe('DynamicGrid.vue', () => {
             IFrameWidget,
             new Map(),
             new FormSchema([])
-          ),
-        ],
+          )
+        ]
       ])
       await wrapper.setProps({ components: expectedComponents })
 
@@ -114,7 +116,7 @@ describe('DynamicGrid.vue', () => {
     it('update:widgetConfigs - emitted if @change event was emitted', async () => {
       const expectedWidgetConfigs = [
         new WidgetConfiguration('test-1', new GridWidget(0, 0, 2, 2), 'key'),
-        new WidgetConfiguration('test-2', new GridWidget(2, 0, 2, 2), 'key'),
+        new WidgetConfiguration('test-2', new GridWidget(2, 0, 2, 2), 'key')
       ]
       await wrapper.setProps({ widgetConfigs: expectedWidgetConfigs })
       await nextTick()
@@ -124,13 +126,13 @@ describe('DynamicGrid.vue', () => {
 
       expect(wrapper.emitted('update:widgetConfigs')).toBeDefined()
       expect(wrapper.emitted('update:widgetConfigs')?.[0]).toStrictEqual([
-        expectedWidgetConfigs,
+        expectedWidgetConfigs
       ])
     })
     it('update:widgetConfigs - emitted if @deleteWidget event was emitted', async () => {
       const widgetConfigs = [
         new WidgetConfiguration('test-1', new GridWidget(0, 0, 2, 2), 'key'),
-        new WidgetConfiguration('test-2', new GridWidget(2, 0, 2, 2), 'key'),
+        new WidgetConfiguration('test-2', new GridWidget(2, 0, 2, 2), 'key')
       ]
       const expectedWidgetConfigs = [widgetConfigs[1]]
       await wrapper.setProps({ widgetConfigs })
@@ -141,7 +143,7 @@ describe('DynamicGrid.vue', () => {
 
       expect(wrapper.emitted('update:widgetConfigs')).toBeDefined()
       expect(wrapper.emitted('update:widgetConfigs')?.[0]).toStrictEqual([
-        expectedWidgetConfigs,
+        expectedWidgetConfigs
       ])
     })
   })

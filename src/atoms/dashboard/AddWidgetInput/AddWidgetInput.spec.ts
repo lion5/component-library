@@ -1,10 +1,12 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import AddWidgetInput from '@/dashboard/components/AddWidgetInput.vue'
-import { WidgetComponentWrapper } from '@/dashboard/models/widgetComponentWrapper'
-import NotFoundWidget from '@/dashboard/widgets/NotFoundWidget.vue'
-import { FormSchema } from '@/dashboard/models/formSchema'
+import {
+  AddWidgetInput,
+  FormSchema,
+  NotFoundWidget,
+  WidgetComponentWrapper
+} from '@/atoms'
 
 describe('AddWidgetInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -16,8 +18,8 @@ describe('AddWidgetInput.vue', () => {
           NotFoundWidget,
           new Map(),
           new FormSchema([])
-        ),
-      },
+        )
+      }
     })
   })
   describe(':props', () => {

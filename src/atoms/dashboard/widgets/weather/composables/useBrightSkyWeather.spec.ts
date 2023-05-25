@@ -17,6 +17,7 @@ describe('useBrightSkyWeather.ts', () => {
   })
   it('fetchCurrentWeather - set error if fetch fails', async () => {
     const location = new GpsLocation(47.32, 12.34)
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     global.fetch.mockRejectedValue(new Error())
     const { fetchCurrentWeather, error } = useBrightSkyWeather()

@@ -1,26 +1,25 @@
 import { describe, expect, it } from 'vitest'
-import { useWidget } from '@/dashboard/composables/useWidget'
-import { computed } from 'vue'
+import { useWidget } from '@/atoms'
 
 describe('useWidget.ts', () => {
   it('getSettings - returns merged settings', () => {
     const expectedMap = new Map([
       ['test1', 'testValue1'],
       ['test2', 'defaultTestValue2'],
-      ['test3', 'testValue3'],
+      ['test3', 'testValue3']
     ])
     const settings = new Map([
       ['test1', 'testValue1'],
-      ['test3', 'testValue3'],
+      ['test3', 'testValue3']
     ])
     const defaultSettings = new Map([
       ['test1', 'defaultTestValue1'],
       ['test2', 'defaultTestValue2'],
-      ['test3', 'defaultTestValue3'],
+      ['test3', 'defaultTestValue3']
     ])
     const props = {
       settings,
-      defaultSettings,
+      defaultSettings
     }
     const { getSettings } = useWidget(props)
     expect(getSettings()).toStrictEqual(expectedMap)
@@ -30,7 +29,7 @@ describe('useWidget.ts', () => {
     const defaultSettings = new Map([['test1', 'defaultTestValue1']])
     const props = {
       settings,
-      defaultSettings,
+      defaultSettings
     }
     const { getSetting } = useWidget(props)
     expect(getSetting('test1')).toBe('testValue1')
@@ -40,7 +39,7 @@ describe('useWidget.ts', () => {
     const defaultSettings = new Map([['test1', 'defaultTestValue1']])
     const props = {
       settings,
-      defaultSettings,
+      defaultSettings
     }
     const { getSetting } = useWidget(props)
     expect(getSetting('test1')).toBe('defaultTestValue1')
@@ -50,7 +49,7 @@ describe('useWidget.ts', () => {
     const defaultSettings = new Map([['test1', 'defaultTestValue1']])
     const props = {
       settings,
-      defaultSettings,
+      defaultSettings
     }
     const { getReactiveSetting } = useWidget(props)
     expect(getReactiveSetting('test1').value).toBe('testValue1')

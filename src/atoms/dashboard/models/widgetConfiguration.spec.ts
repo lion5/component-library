@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest'
-import { WidgetConfiguration } from '@/dashboard/models/widgetConfiguration'
-import { GridWidget } from '@/dashboard/models/gridWidget'
 import type { GridStackWidget } from 'gridstack'
+import { GridWidget, WidgetConfiguration } from '@/atoms'
 
 describe('widgetConfiguration.ts', () => {
   it('fromGridStackWidget - returns widgetConfig', () => {
@@ -17,7 +16,7 @@ describe('widgetConfiguration.ts', () => {
       x: expectedWidget.position.x,
       y: expectedWidget.position.y,
       w: expectedWidget.position.width,
-      h: expectedWidget.position.height,
+      h: expectedWidget.position.height
     }
 
     expect(

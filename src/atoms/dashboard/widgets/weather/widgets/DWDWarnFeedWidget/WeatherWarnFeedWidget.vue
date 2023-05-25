@@ -52,7 +52,9 @@ onMounted(async () => {
       () => fetchWeatherWarning(location.value.location),
       60
     )
-  } catch (e) {}
+  } catch (e) {
+    console.error('Cannot load weather warnings', e)
+  }
 })
 
 onUnmounted(() => removeInterval())

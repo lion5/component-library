@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import EditButton from '@/dashboard/components/EditButton.vue'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
+import { EditButton } from '@/atoms'
 
 describe('EditButton.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -53,7 +53,7 @@ describe('EditButton.vue', () => {
       await editButton.vm.$emit('click')
 
       expect(wrapper.emitted('update:editMode')).toBeDefined()
-      expect(wrapper.emitted('update:editMode')![0]).toStrictEqual([false])
+      expect(wrapper.emitted('update:editMode')?.[0]).toStrictEqual([false])
     })
   })
 })

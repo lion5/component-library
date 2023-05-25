@@ -1,3 +1,3 @@
 <template>
- <i class="bi bi-cloud-fog"></i>
+  <i class="bi bi-cloud-fog"></i>
 </template>

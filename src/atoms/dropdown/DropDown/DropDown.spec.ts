@@ -7,7 +7,7 @@ describe('DropDown.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
   beforeEach(() => {
     wrapper = mount(DropDown, {
-      attachTo: 'body',
+      attachTo: 'body'
     })
   })
   describe('<template>', () => {

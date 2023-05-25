@@ -1,11 +1,14 @@
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
-import BaseWidgetEditMode from '@/dashboard/components/BaseWidgetEditMode.vue'
 import type { defineComponent } from 'vue'
-import WidgetSettingsModal from '@/dashboard/components/WidgetSettingsModal.vue'
-import { FormField, FormSchema } from '@/dashboard/models/formSchema'
-import { BaseInputV2 } from '@lion5/component-library'
 import { boolean } from 'yup'
+import BaseWidgetEditMode from '@/atoms/dashboard/BaseWidgetEditMode/BaseWidgetEditMode.vue'
+import {
+  BaseInputV2,
+  FormField,
+  FormSchema,
+  WidgetSettingsModal
+} from '@/atoms'
 
 describe('BaseWidgetEditMode.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -17,9 +20,9 @@ describe('BaseWidgetEditMode.vue', () => {
         settings: new Map(),
         defaultSettings: new Map(),
         formSchema: new FormSchema([
-          new FormField(BaseInputV2, '', '', undefined),
-        ]),
-      },
+          new FormField(BaseInputV2, '', '', undefined)
+        ])
+      }
     })
   })
 
@@ -74,7 +77,7 @@ describe('BaseWidgetEditMode.vue', () => {
     })
     it(':formSchema - is applied to WidgetSettingsModal', async () => {
       const expectedFormSchema = new FormSchema([
-        new FormField(BaseInputV2, 'test', 'test', boolean()),
+        new FormField(BaseInputV2, 'test', 'test', boolean())
       ])
       await wrapper.setProps({ formSchema: expectedFormSchema })
       await openSettingsModal()
@@ -113,7 +116,7 @@ describe('BaseWidgetEditMode.vue', () => {
 
       expect(wrapper.emitted('updateSettings')).toBeDefined()
       expect(wrapper.emitted('updateSettings')[0]).toStrictEqual([
-        expectedSettings,
+        expectedSettings
       ])
     })
   })

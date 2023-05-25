@@ -1,38 +1,22 @@
-import { beforeEach, describe, expect, it, beforeAll, vi } from 'vitest'
+import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import AddWidgetButton from '@/dashboard/components/AddWidgetButton.vue'
-import { BaseButton, DismissibleModal } from '@lion5/component-library'
-import { createTestingPinia } from '@pinia/testing'
-import AddWidgetInput from '@/dashboard/components/AddWidgetInput.vue'
 import type WrapperLike from '@vue/test-utils/dist/interfaces/wrapperLike'
-import { availableWidgets } from '@/dashboard/widgets/availableWidgets'
+import AddWidgetButton from './AddWidgetButton.vue'
+import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
+import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
+import AddWidgetInput from '@/atoms/dashboard/AddWidgetInput/AddWidgetInput.vue'
+import { TEMPLATE_WIDGET_WRAPPER } from '@/atoms/dashboard/widgets/TemplateWidget/config'
+
+const availableWidgets = new Map([['test', TEMPLATE_WIDGET_WRAPPER]])
 
 describe('AddWidgetButton.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
-  beforeAll(() => {
-    vi.mock('@/dashboard/widgets/ClockWidget/getAvailableTimeZones', () => ({
-      getAvailableTimeZones: vi.fn(),
-    }))
-  })
-
   beforeEach(() => {
     wrapper = mount(AddWidgetButton, {
-      global: {
-        stubs: ['SituationMapWidget'],
-        plugins: [
-          createTestingPinia({
-            initialState: {
-              missions: {
-                busy: false,
-                missions: [],
-                currentMission: undefined,
-                hasCurrentMission: false,
-              },
-            },
-          }),
-        ],
-      },
+      props: {
+        availableWidgets
+      }
     })
   })
 
@@ -75,7 +59,7 @@ describe('AddWidgetButton.vue', () => {
 
       expect(wrapper.emitted('addWidget')).toBeDefined()
       expect(wrapper.emitted('addWidget')?.[0]).toStrictEqual([
-        availableWidgets.keys().next().value,
+        availableWidgets.keys().next().value
       ])
     })
   })

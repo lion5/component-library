@@ -1,15 +1,25 @@
-import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
+import {
+  afterEach,
+  beforeAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi
+} from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import BaseWidget from '@/dashboard/components/BaseWidget.vue'
-import { WidgetConfiguration } from '@/dashboard/models/widgetConfiguration'
-import { GridWidget } from '@/dashboard/models/gridWidget'
-import BaseWidgetEditMode from '@/dashboard/components/BaseWidgetEditMode.vue'
-import NotFoundWidget from '@/dashboard/widgets/NotFoundWidget.vue'
-import { WidgetComponentWrapper } from '@/dashboard/models/widgetComponentWrapper'
-import { IFRAME_WIDGET_WRAPPER } from '@/dashboard/widgets/IFrameWidget/config'
-import IFrameWidget from '@/dashboard/widgets/IFrameWidget/IFrameWidget.vue'
-import { IFrameSetting } from '@/dashboard/widgets/IFrameWidget/settings'
+import {
+  BaseWidget,
+  BaseWidgetEditMode,
+  GridWidget,
+  IFRAME_WIDGET_WRAPPER,
+  NotFoundWidget,
+  WidgetComponentWrapper,
+  WidgetConfiguration
+} from '@/atoms'
+import { IFrameSetting } from '@/atoms/dashboard/widgets/IFrameWidget/settings'
+import IFrameWidget from '@/atoms/dashboard/widgets/IFrameWidget/IFrameWidget.vue'
 
 export const availableTestWidgets: Map<string, WidgetComponentWrapper> =
   new Map([['iframe', IFRAME_WIDGET_WRAPPER]])
@@ -25,8 +35,8 @@ describe('BaseWidget.vue', () => {
           'iframe'
         ),
         editMode: false,
-        components: availableTestWidgets,
-      },
+        components: availableTestWidgets
+      }
     })
   })
   beforeAll(() => {

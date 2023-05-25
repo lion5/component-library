@@ -6,7 +6,7 @@ const WIND_DIRECTIONS: { [key: number]: string } = Object.freeze({
   180: 'S',
   225: 'SW',
   270: 'W',
-  315: 'NW',
+  315: 'NW'
 })
 
 export function useWindDirection() {
