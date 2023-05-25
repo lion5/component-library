@@ -22,7 +22,9 @@ export default defineConfig({
         'leaflet',
         'firebase',
         'firebase/storage',
-        'vee-validate'
+        'vee-validate',
+        'gridstack',
+        '@turf/boolean-point-in-polygon'
       ],
       output: {
         exports: 'named',
