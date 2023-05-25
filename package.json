@@ -23,7 +23,7 @@
   ],
   "scripts": {
     "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "build": "vue-tsc && vite build",
+    "build": "vite build",
     "test:unit": "cross-env TZ=UTC vitest --environment jsdom --root src",
     "test:unit:ui": "cross-env TZ=UTC vitest --environment jsdom --root src --ui",
     "type-check": "vue-tsc -p tsconfig.json --composite false",
@@ -48,9 +48,7 @@
     "vue-multiselect": "^3.0.0-beta.2"
   },
   "devDependencies": {
-    "prettier": "^2.8.8",
-    "@vue/eslint-config-prettier": "^7.1.0",
-    "eslint-config-prettier": "^8.8.0",
+    "vite-plugin-dts": "^2.3.0",
     "@rushstack/eslint-patch": "^1.3.0",
     "@storybook/addon-a11y": "^7.0.12",
     "@storybook/addon-essentials": "^7.0.12",
@@ -61,21 +59,24 @@
     "@storybook/testing-library": "^0.1.0",
     "@storybook/vue3": "^7.0.12",
     "@storybook/vue3-vite": "^7.0.12",
+    "@types/dom-screen-wake-lock": "^1.0.1",
     "@types/jsdom": "^21.1.1",
     "@types/node": "^18.16.14",
-    "@types/dom-screen-wake-lock": "^1.0.1",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitest/ui": "^0.31.1",
+    "@vue/eslint-config-prettier": "^7.1.0",
     "@vue/eslint-config-typescript": "^11.0.3",
     "@vue/test-utils": "^2.3.2",
     "@vue/tsconfig": "^0.4.0",
     "bootstrap-icons": "^1.10.5",
+    "cross-env": "^7.0.3",
     "eslint": "^8.41.0",
+    "eslint-config-prettier": "^8.8.0",
     "eslint-plugin-storybook": "^0.6.12",
     "eslint-plugin-vue": "^9.14.0",
     "jsdom": "^22.0.0",
-    "cross-env": "^7.0.3",
     "npm-run-all": "^4.1.5",
+    "prettier": "^2.8.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "sass": "^1.62.1",
@@ -86,15 +87,15 @@
     "vue-tsc": "^1.7.8"
   },
   "optionalDependencies": {
-    "firebase": ">=9.22.0",
-    "leaflet": ">=1.9.0",
+    "@turf/boolean-point-in-polygon": ">=6.5.0",
     "@types/leaflet": ">=1.9.3",
-    "pinia": ">=2.1.3",
+    "firebase": ">=9.22.0",
+    "gridstack": ">=8.1.2",
+    "leaflet": ">=1.9.0",
     "lodash": ">=4.17.21",
+    "pinia": ">=2.1.3",
     "vee-validate": ">=4.9.5",
     "vue-router": ">=4.2.1",
-    "yup": ">=1.1.1",
-    "gridstack": ">=8.1.2",
-    "@turf/boolean-point-in-polygon": ">=6.5.0"
+    "yup": ">=1.1.1"
   }
 }
