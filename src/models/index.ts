@@ -1,5 +1,6 @@
 import { SelectOption } from '@/models/selectOption'
 import type { GeoJsonConvertible } from '@/models/geoJsonConvertibleType'
+import type { ApiGpsLocation } from '@/models/gpsLocation'
 import { GpsLocation } from '@/models/gpsLocation'
 import { LocalResource, MarkerResource } from '@/models/localResource'
 import { NamedLocation } from '@/models/namedLocation'
@@ -13,4 +14,4 @@ export {
   NamedLocation
 }
 
-export type { GeoJsonConvertible, NominatimResult }
+export type { GeoJsonConvertible, NominatimResult, ApiGpsLocation }
