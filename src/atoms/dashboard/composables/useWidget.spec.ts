@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { useWidget } from '@/atoms'
+import { useWidget } from '@/atoms/dashboard/composables/useWidget'
 
 describe('useWidget.ts', () => {
   it('getSettings - returns merged settings', () => {

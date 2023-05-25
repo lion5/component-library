@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { GridStackWidget } from 'gridstack'
-import { GridWidget, WidgetConfiguration } from '@/atoms'
+import { WidgetConfiguration } from '@/atoms/dashboard/models/widgetConfiguration'
+import { GridWidget } from '@/atoms/dashboard/models/gridWidget'
 
 describe('widgetConfiguration.ts', () => {
   it('fromGridStackWidget - returns widgetConfig', () => {

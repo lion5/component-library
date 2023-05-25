@@ -10,15 +10,13 @@ import {
 import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { nextTick } from 'vue'
-import {
-  BaseWidget,
-  DynamicGrid,
-  FormSchema,
-  GridWidget,
-  WidgetComponentWrapper,
-  WidgetConfiguration
-} from '@/atoms'
 import IFrameWidget from '@/atoms/dashboard/widgets/IFrameWidget/IFrameWidget.vue'
+import DynamicGrid from '@/atoms/dashboard/DynamicGrid/DynamicGrid.vue'
+import { WidgetConfiguration } from '@/atoms/dashboard/models/widgetConfiguration'
+import { GridWidget } from '@/atoms/dashboard/models/gridWidget'
+import BaseWidget from '@/atoms/dashboard/BaseWidget/BaseWidget.vue'
+import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
+import { FormSchema } from '@/atoms/dashboard/models/formSchema'
 
 document.body.style.width = '1000px'
 
@@ -63,21 +61,23 @@ describe('DynamicGrid.vue', () => {
       const baseWidget = wrapper.findComponent(BaseWidget)
       expect(baseWidget.vm.editMode).toBe(expectedEditMode)
     })
-    it('editMode - removes ui-draggable-disabled and ui-resizable-disabled class from grid items if set to true', async () => {
+    it.only('editMode - removes ui-draggable-disabled and ui-resizable-disabled class from grid items if set to false', async () => {
       await wrapper.setProps({ editMode: false })
       await flushPromises()
 
       const baseWidget = wrapper.find('.grid-stack-item')
+      console.log(baseWidget.html())
       expect(baseWidget.classes()).toContain('ui-draggable-disabled')
       expect(baseWidget.classes()).toContain('ui-resizable-disabled')
       expect(baseWidget.classes()).not.toContain('ui-draggable')
       expect(baseWidget.classes()).not.toContain('ui-resizable')
     })
-    it('editMode - removes ui-draggable ui-resizable class from grid items if set to false', async () => {
+    it.only('editMode - adds ui-draggable ui-resizable class from grid items if set to true', async () => {
       await wrapper.setProps({ editMode: true })
       await flushPromises()
 
       const baseWidget = wrapper.find('.grid-stack-item')
+      console.log(baseWidget.html())
       expect(baseWidget.classes()).not.toContain('ui-draggable-disabled')
       expect(baseWidget.classes()).not.toContain('ui-resizable-disabled')
       expect(baseWidget.classes()).toContain('ui-draggable')

@@ -1,9 +1,9 @@
-import { WidgetComponentWrapper } from '@/atoms'
 import {
   WeatherForecastSetting,
   WeatherForecastSettingsFormSchema
 } from '@/atoms/dashboard/widgets/weather/widgets/WeatherForcastWidget/settings'
 import { NamedLocation } from '@/models/namedLocation'
+import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
 import { GpsLocation } from '@/models/gpsLocation'
 import WeatherForecastWidget from '@/atoms/dashboard/widgets/weather/widgets/WeatherForcastWidget/WeatherForecastWidget.vue'
 

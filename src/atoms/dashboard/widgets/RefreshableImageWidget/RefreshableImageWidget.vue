@@ -7,10 +7,10 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { computed, ref, watch } from 'vue'
-import type { WidgetSettings } from '@/atoms'
-import { useWidget } from '@/atoms'
+import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
+import { useWidget } from '@/atoms/dashboard/composables/useWidget'
 import { RefreshableImageSetting } from '@/atoms/dashboard/widgets/RefreshableImageWidget/settings'
-import { useInterval } from '@/composables'
+import { useInterval } from '@/composables/useInterval'
 
 const props = defineProps<{
   settings: WidgetSettings

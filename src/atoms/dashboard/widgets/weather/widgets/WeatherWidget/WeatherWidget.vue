@@ -33,10 +33,8 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
-import { useWidget, WidgetSettings } from '@/atoms'
 import { WeatherSetting } from '@/atoms/dashboard/widgets/weather/widgets/WeatherWidget/settings'
 import { NamedLocation } from '@/models/namedLocation'
-import { useDate, useInterval, useNumber } from '@/composables'
 import { useBrightSkyWeatherIcon } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherIcon'
 import { useBrightSkyWeather } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeather'
 import WidgetWrapper from '@/atoms/dashboard/WidgetWrapper/WidgetWrapper.vue'
@@ -44,6 +42,11 @@ import WidgetHeadline from '@/atoms/dashboard/WidgetHeadline/WidgetHeadline.vue'
 import WeatherIcon from '@/atoms/dashboard/widgets/weather/components/WeatherIcon.vue'
 import WindDirection from '@/atoms/dashboard/widgets/weather/components/WindDirection.vue'
 import BrightSkySources from '@/atoms/dashboard/widgets/weather/components/BrightSkySources.vue'
+import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
+import { useWidget } from '@/atoms/dashboard/composables/useWidget'
+import { useInterval } from '@/composables/useInterval'
+import { useDate } from '@/composables/useDate'
+import { useNumber } from '@/composables/useNumber'
 
 const props = defineProps<{
   settings: WidgetSettings

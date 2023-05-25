@@ -1,4 +1,4 @@
-import { FormField, FormSchema } from '@/atoms'
+import { FormField, FormSchema } from '@/atoms/dashboard/models/formSchema'
 import LocationCoordinateSelect from '@/atoms/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
 
 export enum WeatherWarnSetting {

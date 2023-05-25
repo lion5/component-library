@@ -1,4 +1,5 @@
-import { WidgetComponentWrapper, WidgetSetting } from '@/atoms'
+import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
+import { WidgetSetting } from '@/atoms/dashboard/models/widgetConfiguration'
 import RefreshableImageWidget from '@/atoms/dashboard/widgets/RefreshableImageWidget/RefreshableImageWidget.vue'
 import { RefreshableImageSetting } from '@/atoms/dashboard/widgets/RefreshableImageWidget/settings'
 

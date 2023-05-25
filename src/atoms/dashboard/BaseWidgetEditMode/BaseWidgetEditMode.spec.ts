@@ -3,12 +3,9 @@ import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { boolean } from 'yup'
 import BaseWidgetEditMode from '@/atoms/dashboard/BaseWidgetEditMode/BaseWidgetEditMode.vue'
-import {
-  BaseInputV2,
-  FormField,
-  FormSchema,
-  WidgetSettingsModal
-} from '@/atoms'
+import { FormField, FormSchema } from '@/atoms/dashboard/models/formSchema'
+import BaseInputV2 from '@/atoms/inputs/BaseInputV2/BaseInputV2.vue'
+import WidgetSettingsModal from '@/atoms/dashboard/WidgetSettingsModal/WidgetSettingsModal.vue'
 
 describe('BaseWidgetEditMode.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

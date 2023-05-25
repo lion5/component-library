@@ -19,16 +19,17 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
-import { useWidget, WidgetSettings } from '@/atoms'
 import { WeatherForecastSetting } from '@/atoms/dashboard/widgets/weather/widgets/WeatherForcastWidget/settings'
 import { NamedLocation } from '@/models/namedLocation'
 import { useBrightSkyWeatherForecast } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherForecast'
-import { useInterval } from '@/composables'
 import WidgetWrapper from '@/atoms/dashboard/WidgetWrapper/WidgetWrapper.vue'
 import WidgetHeadline from '@/atoms/dashboard/WidgetHeadline/WidgetHeadline.vue'
 import HourlyForecast from '@/atoms/dashboard/widgets/weather/components/HourlyForecast.vue'
 import SevenDayForecast from '@/atoms/dashboard/widgets/weather/components/SevenDayForecast.vue'
 import BrightSkySources from '@/atoms/dashboard/widgets/weather/components/BrightSkySources.vue'
+import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
+import { useWidget } from '@/atoms/dashboard/composables/useWidget'
+import { useInterval } from '@/composables/useInterval'
 
 const props = defineProps<{
   settings: WidgetSettings

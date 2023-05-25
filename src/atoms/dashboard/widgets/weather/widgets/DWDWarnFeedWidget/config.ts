@@ -1,4 +1,4 @@
-import { WidgetComponentWrapper } from '@/atoms'
+import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
 import {
   WeatherWarnSetting,
   WeatherWarnSettingsFormSchema

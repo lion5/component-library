@@ -4,10 +4,11 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { computed } from 'vue'
-import { useWidget, WidgetSettings } from '@/atoms'
 import { TwitterWidgetSetting } from '@/atoms/dashboard/widgets/TwitterWidget/settings'
 import { IFrameSetting } from '@/atoms/dashboard/widgets/IFrameWidget/settings'
 import IFrameWidget from '@/atoms/dashboard/widgets/IFrameWidget/IFrameWidget.vue'
+import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
+import { useWidget } from '@/atoms/dashboard/composables/useWidget'
 
 const props = defineProps<{
   settings: WidgetSettings

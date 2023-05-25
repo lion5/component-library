@@ -27,11 +27,15 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
-import { useWidget, WidgetSettings } from '@/atoms'
 import { WeatherForecastSetting } from '@/atoms/dashboard/widgets/weather/widgets/WeatherForcastWidget/settings'
 import { NamedLocation } from '@/models/namedLocation'
-import { useDate, useInterval } from '@/composables'
 import { useDWDWeatherWarnings } from '@/atoms/dashboard/widgets/weather/composables/useDWDWeatherWarnings'
+import WidgetWrapper from '@/atoms/dashboard/WidgetWrapper/WidgetWrapper.vue'
+import WidgetHeadline from '@/atoms/dashboard/WidgetHeadline/WidgetHeadline.vue'
+import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
+import { useWidget } from '@/atoms/dashboard/composables/useWidget'
+import { useInterval } from '@/composables/useInterval'
+import { useDate } from '@/composables/useDate'
 
 const props = defineProps<{
   settings: WidgetSettings

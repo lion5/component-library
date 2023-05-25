@@ -1,19 +1,19 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import {
-  ConfigurableDashboard,
-  DynamicGrid,
-  EditButton,
-  GridWidget,
-  WidgetConfiguration
-} from '@/atoms'
+import { WidgetConfiguration } from '@/atoms/dashboard/models/widgetConfiguration'
+import { GridWidget } from '@/atoms/dashboard/models/gridWidget'
+import ConfigurableDashboard from '@/atoms/dashboard/ConfigurableDashboard/ConfigurableDashboard.vue'
+import DynamicGrid from '@/atoms/dashboard/DynamicGrid/DynamicGrid.vue'
+import EditButton from '@/atoms/dashboard/EditButton/EditButton.vue'
 import { TEMPLATE_WIDGET_WRAPPER } from '@/atoms/dashboard/widgets/TemplateWidget/config'
 
 describe('ConfigurableDashboard.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
 
   beforeEach(() => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     wrapper = mount(ConfigurableDashboard, {
       attachTo: 'body',
       props: {

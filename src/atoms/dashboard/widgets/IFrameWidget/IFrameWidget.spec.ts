@@ -1,9 +1,9 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import IFrameWidget from '@/dashboard/widgets/IFrameWidget/IFrameWidget.vue'
-import { IFRAME_WIDGET_WRAPPER } from '@/atoms'
 import { IFrameSetting } from '@/atoms/dashboard/widgets/IFrameWidget/settings'
+import IFrameWidget from '@/atoms/dashboard/widgets/IFrameWidget/IFrameWidget.vue'
+import { IFRAME_WIDGET_WRAPPER } from '@/atoms/dashboard/widgets/IFrameWidget/config'
 
 describe('IFrameWidget.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

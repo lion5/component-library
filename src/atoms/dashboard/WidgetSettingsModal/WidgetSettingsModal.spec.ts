@@ -2,15 +2,12 @@ import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { boolean, string } from 'yup'
-import {
-  BaseInputV2,
-  CheckboxInput,
-  DismissibleModal,
-  FormField,
-  FormSchema,
-  WidgetSettingsForm,
-  WidgetSettingsModal
-} from '@/atoms'
+import { FormField, FormSchema } from '@/atoms/dashboard/models/formSchema'
+import BaseInputV2 from '@/atoms/inputs/BaseInputV2/BaseInputV2.vue'
+import WidgetSettingsModal from '@/atoms/dashboard/WidgetSettingsModal/WidgetSettingsModal.vue'
+import CheckboxInput from '@/atoms/inputs/CheckboxInput/CheckboxInput.vue'
+import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
+import WidgetSettingsForm from '@/atoms/dashboard/WidgetSettingsForm/WidgetSettingsForm.vue'
 
 describe('WidgetSettingsModal.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

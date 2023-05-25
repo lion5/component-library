@@ -9,17 +9,15 @@ import {
 } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import {
-  BaseWidget,
-  BaseWidgetEditMode,
-  GridWidget,
-  IFRAME_WIDGET_WRAPPER,
-  NotFoundWidget,
-  WidgetComponentWrapper,
-  WidgetConfiguration
-} from '@/atoms'
+import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
 import { IFrameSetting } from '@/atoms/dashboard/widgets/IFrameWidget/settings'
 import IFrameWidget from '@/atoms/dashboard/widgets/IFrameWidget/IFrameWidget.vue'
+import { IFRAME_WIDGET_WRAPPER } from '@/atoms/dashboard/widgets/IFrameWidget/config'
+import BaseWidget from '@/atoms/dashboard/BaseWidget/BaseWidget.vue'
+import { WidgetConfiguration } from '@/atoms/dashboard/models/widgetConfiguration'
+import { GridWidget } from '@/atoms/dashboard/models/gridWidget'
+import NotFoundWidget from '@/atoms/dashboard/widgets/NotFoundWidget/NotFoundWidget.vue'
+import BaseWidgetEditMode from '@/atoms/dashboard/BaseWidgetEditMode/BaseWidgetEditMode.vue'
 
 export const availableTestWidgets: Map<string, WidgetComponentWrapper> =
   new Map([['iframe', IFRAME_WIDGET_WRAPPER]])

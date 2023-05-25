@@ -8,7 +8,7 @@ export default {
 type Story = StoryObj<typeof BaseInputV2>
 
 export const TextInput: Story = {
-  render: (args) => ({
+  render: (args: unknown) => ({
     components: { BaseInputV2, Form },
     setup() {
       return { args }
@@ -26,7 +26,7 @@ export const TextInput: Story = {
 }
 
 export const EMailInput: Story = {
-  render: (args) => ({
+  render: (args: unknown) => ({
     components: { BaseInputV2, Form },
     setup() {
       return { args }
@@ -44,7 +44,7 @@ export const EMailInput: Story = {
 }
 
 export const PasswordInput: Story = {
-  render: (args) => ({
+  render: (args: unknown) => ({
     components: { BaseInputV2, Form },
     setup() {
       return { args }
@@ -78,7 +78,7 @@ export const Empty: Story = {
 }
 
 export const WithError: Story = {
-  render: (args) => ({
+  render: (args: unknown) => ({
     components: { BaseInputV2, Form },
     setup() {
       return { args }

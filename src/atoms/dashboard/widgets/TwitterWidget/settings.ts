@@ -1,5 +1,6 @@
 import { string } from 'yup'
-import { BaseInputV2, FormField } from '@/atoms'
+import { FormField } from '@/atoms/dashboard/models/formSchema'
+import BaseInputV2 from '@/atoms/inputs/BaseInputV2/BaseInputV2.vue'
 
 export enum TwitterWidgetSetting {
   TAG = 'TAG',
