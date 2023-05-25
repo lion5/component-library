@@ -12,6 +12,7 @@ import { useLeafletMarker } from '@/composables/useLeafletMarker'
 import { useNominatim } from '@/composables/useNominatim'
 import { useNumber } from '@/composables/useNumber'
 import { useShape } from '@/composables/useShape'
+import { useLeafletButtonControl } from '@/composables/useLeafletButtonControl'
 
 export {
   useBrowserPermissions,
@@ -25,5 +26,6 @@ export {
   useLeafletMarker,
   useNominatim,
   useNumber,
-  useShape
+  useShape,
+  useLeafletButtonControl
 }
