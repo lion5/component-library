@@ -23,21 +23,21 @@
       "@/*": ["src/*"],
     },
     "types": [
-      "vite/client"
+      "vite/client",
+      "dom-screen-wake-lock"
     ]
   },
   "exclude": [
+    "node_modules",
     "dist",
     "src/**/*.stories.js",
     "src/**/*.stories.ts",
-//    "src/**/*.spec.ts"
   ],
   "include": [
     "src/**/*.js",
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue",
-    "node_modules/@types/**/*.d.ts"
+    "src/**/*.vue"
   ]
 }
