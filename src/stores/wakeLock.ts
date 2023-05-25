@@ -1,19 +1,19 @@
-import { ref } from 'vue'
+import { ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 
 export const useWakeLockStore = defineStore('wakeLock', () => {
-  const _wakeLock = ref<WakeLockSentinel>()
-  const toggled = ref<boolean>(false)
-
   const isSupported = 'wakeLock' in navigator && 'request' in navigator.wakeLock
 
-  const onChange = async () => {
-    if (toggled.value) {
+  const toggled = ref<boolean>(false)
+  watch(toggled, async (isToggled) => {
+    if (isToggled) {
       await _requestWakeLock()
     } else {
       await _releaseWakeLock()
     }
-  }
+  })
+
+  const _wakeLock = ref<WakeLockSentinel>()
 
   const _requestWakeLock = async () => {
     try {
@@ -39,5 +39,5 @@ export const useWakeLockStore = defineStore('wakeLock', () => {
     }
   }
 
-  return { toggled, isSupported, onChange }
+  return { toggled, isSupported }
 })
