@@ -23,6 +23,7 @@ import DropDownItem from '@/atoms/dropdown/DropDownItem/DropDownItem.vue'
 import ImageGallery from '@/atoms/ImageGallery/ImageGallery.vue'
 import MessageBox from '@/atoms/boxes/MessageBox/MessageBox.vue'
 import WakeLockToggle from '@/atoms/WakeLockToggle/WakeLockToggle.vue'
+import LeafletLayer from '@/atoms/LeafletLayer/LeafletLayer.vue'
 
 export {
   ActionButton,
@@ -49,7 +50,8 @@ export {
   DropDownItem,
   ImageGallery,
   MessageBox,
-  WakeLockToggle
+  WakeLockToggle,
+  LeafletLayer
 }
 export * from './inputs'
 export * from './dashboard'
