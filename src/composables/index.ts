@@ -8,6 +8,7 @@ import { useFirebaseStorage } from '@/composables/useFirebaseStorage'
 import { useGeoJSON } from '@/composables/useGeoJSON'
 import { useInterval } from '@/composables/useInterval'
 import { useLeafletMap } from '@/composables/useLeafletMap'
+import { useLeafletMarker } from '@/composables/useLeafletMarker'
 import { useNominatim } from '@/composables/useNominatim'
 import { useNumber } from '@/composables/useNumber'
 import { useShape } from '@/composables/useShape'
@@ -21,6 +22,7 @@ export {
   useGeoJSON,
   useInterval,
   useLeafletMap,
+  useLeafletMarker,
   useNominatim,
   useNumber,
   useShape
