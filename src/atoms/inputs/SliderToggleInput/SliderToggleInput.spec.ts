@@ -6,6 +6,7 @@ describe('SliderToggleInput', () => {
   let wrapper: ReturnType<typeof mountComponent>
 
   const mountComponent = () => {
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     return mount(SliderToggleInput, {
       attachTo: document.body,
