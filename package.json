@@ -92,6 +92,7 @@
     "vee-validate": ">=4.9.5",
     "vue-router": ">=4.2.1",
     "yup": ">=1.1.1",
-    "gridstack": ">=8.1.2"
+    "gridstack": ">=8.1.2",
+    "@turf/boolean-point-in-polygon": ">=6.5.0"
   }
 }

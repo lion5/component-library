@@ -19,6 +19,7 @@ import NavBar from '@/atoms/app-bars/NavBar/NavBar.vue'
 import TopBar from '@/atoms/app-bars/TopBar/TopBar.vue'
 import DropDown from '@/atoms/dropdown/DropDown/DropDown.vue'
 import DropDownItem from '@/atoms/dropdown/DropDownItem/DropDownItem.vue'
+import ImageGallery from '@/atoms/ImageGallery/ImageGallery.vue'
 
 export {
   ActionButton,
@@ -41,7 +42,8 @@ export {
   NavBar,
   TopBar,
   DropDown,
-  DropDownItem
+  DropDownItem,
+  ImageGallery
 }
 export * from './inputs'
 export * from './dashboard'

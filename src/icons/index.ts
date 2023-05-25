@@ -33,3 +33,4 @@ export {
   IconThreeDotsMenu,
   IconEmojiDizzy
 }
+export * from './weather'
