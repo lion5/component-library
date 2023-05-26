@@ -17,6 +17,7 @@ import LeafletMap from '@/atoms/LeafletMap/LeafletMap.vue'
 import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
 import BackLinkTopBar from '@/atoms/app-bars/BackLinkTopBar/BackLinkTopBar.vue'
 import NavBar from '@/atoms/app-bars/NavBar/NavBar.vue'
+import { NavItem } from '@/atoms/app-bars/NavBar/navItem'
 import TopBar from '@/atoms/app-bars/TopBar/TopBar.vue'
 import DropDown from '@/atoms/dropdown/DropDown/DropDown.vue'
 import DropDownItem from '@/atoms/dropdown/DropDownItem/DropDownItem.vue'
@@ -45,6 +46,7 @@ export {
   LeafletMap,
   LoadingAnimation,
   NavBar,
+  NavItem,
   TopBar,
   DropDown,
   DropDownItem,
