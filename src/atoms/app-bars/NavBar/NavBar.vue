@@ -17,6 +17,9 @@
 import type { NavItem } from '@/atoms/app-bars/NavBar/navItem'
 
 defineProps<{
+  /**
+   * the nav bar items to display
+   */
   navItems: NavItem[]
 }>()
 </script>
