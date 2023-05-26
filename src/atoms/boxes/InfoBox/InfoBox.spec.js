@@ -16,13 +16,13 @@ describe('InfoBox', () => {
         infoMessage: undefined
       })
       expect(wrapper.findComponent(IconInfoCircle).exists()).toBeFalsy()
-    }),
-      it(':infoMessage - show component when set', async () => {
-        const expectedInfoMessage = 'test info message'
-        await wrapper.setProps({
-          infoMessage: expectedInfoMessage
-        })
-        expect(wrapper.text()).toContain(expectedInfoMessage)
+    })
+    it(':infoMessage - show component when set', async () => {
+      const expectedInfoMessage = 'test info message'
+      await wrapper.setProps({
+        infoMessage: expectedInfoMessage
       })
+      expect(wrapper.text()).toContain(expectedInfoMessage)
+    })
   })
 })
