@@ -1,9 +1,10 @@
 <template>
-  <div
+  <BaseBox
     v-if="localErrors.length > 0"
     class="error-box"
     data-cy="portal-error-box"
   >
+    <IconWarning />
     <ul v-if="localErrors.length > 1">
       <li v-for="localError in localErrors" :key="localError.message">
         {{ localError.message }}
@@ -12,11 +13,13 @@
     <span v-else>
       {{ localErrors[0].message }}
     </span>
-  </div>
+  </BaseBox>
 </template>
 
 <script lang="ts" setup>
 import { computed } from 'vue'
+import IconWarning from '@/icons/IconWarning.vue'
+import BaseBox from '@/atoms/boxes/BaseBox/BaseBox.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -35,9 +38,16 @@ const localErrors = computed(() => {
 </script>
 <style lang="scss" scoped>
 .error-box {
+  --box-background-color: var(--color-danger-surface-300);
+
+  display: flex;
+  gap: var(--space-sm);
+  align-items: start;
   color: var(--color-danger-hover);
-  background-color: var(--color-danger-surface-300);
-  padding: var(--space-sm);
-  border-radius: var(--border-radius-300);
+
+  ul {
+    margin: 0;
+    padding-inline: 1rem;
+  }
 }
 </style>

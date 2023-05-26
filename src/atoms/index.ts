@@ -57,3 +57,4 @@ export {
 }
 export * from './inputs'
 export * from './dashboard'
+export * from './boxes'
