@@ -1,31 +1,24 @@
 <template>
   <nav>
     <ul>
-      <RouterLink to="/">
-        <MapIcon />
-        <span>Lagekarte</span>
-      </RouterLink>
-      <RouterLink :to="{ name: 'CommandList' }">
-        <ListIcon />
-        <span>Aufgaben</span>
-      </RouterLink>
-      <RouterLink to="/dashboard">
-        <DashboardIcon />
-        <span>Dashboard</span>
-      </RouterLink>
-      <RouterLink to="/settings">
-        <GearIcon />
-        <span>Einstellungen</span>
+      <RouterLink
+        v-for="navItem in navItems"
+        :key="navItem.label"
+        :to="navItem.to"
+      >
+        <component v-if="navItem.icon" :is="navItem.icon" />
+        <span>{{ navItem.label }}</span>
       </RouterLink>
     </ul>
   </nav>
 </template>
 
 <script setup lang="ts">
-import GearIcon from '@/icons/IconGear.vue'
-import MapIcon from '@/icons/IconMap.vue'
-import DashboardIcon from '@/icons/IconDashboard.vue'
-import ListIcon from '@/icons/IconList.vue'
+import type { NavItem } from '@/atoms/app-bars/NavBar/navItem'
+
+defineProps<{
+  navItems: NavItem[]
+}>()
 </script>
 
 <style scoped lang="scss">
