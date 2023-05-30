@@ -75,7 +75,7 @@ export default defineComponent({
   max-width: 250px;
   padding: var(--space-sm) var(--space-md);
   border-radius: var(--border-radius-700);
-  line-height: 1rem;
+  line-height: 1;
   border: none;
   cursor: pointer;
 
@@ -120,10 +120,6 @@ export default defineComponent({
 
     .loading-icon {
       color: var(--color-button);
-      font-size: 1rem;
-      width: 1.4rem;
-      height: 1.4rem;
-      line-height: 0;
 
       &.animate {
         animation: scale 0.7s ease-in infinite;
