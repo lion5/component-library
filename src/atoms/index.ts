@@ -13,7 +13,7 @@ import InformationButton from '@/atoms/buttons/InformationButton/InformationButt
 import InformationHeadline from '@/atoms/InformationHeadline/InformationHeadline.vue'
 import EntityCard from '@/atoms/cards/EntityCard/EntityCard.vue'
 import EntityWrapper from '@/atoms/EntityWrapper/EntityWrapper.vue'
-import LeafletMap from '@/atoms/LeafletMap/LeafletMap.vue'
+import LeafletMap from '@/atoms/map/LeafletMap/LeafletMap.vue'
 import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
 import BackLinkTopBar from '@/atoms/app-bars/BackLinkTopBar/BackLinkTopBar.vue'
 import NavBar from '@/atoms/app-bars/NavBar/NavBar.vue'
@@ -24,7 +24,7 @@ import DropDownItem from '@/atoms/dropdown/DropDownItem/DropDownItem.vue'
 import ImageGallery from '@/atoms/ImageGallery/ImageGallery.vue'
 import MessageBox from '@/atoms/boxes/MessageBox/MessageBox.vue'
 import WakeLockToggle from '@/atoms/WakeLockToggle/WakeLockToggle.vue'
-import LeafletLayer from '@/atoms/LeafletLayer/LeafletLayer.vue'
+import LeafletLayer from '@/atoms/map/LeafletLayer/LeafletLayer.vue'
 
 export {
   ActionButton,

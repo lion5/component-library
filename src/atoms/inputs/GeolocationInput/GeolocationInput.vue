@@ -13,12 +13,12 @@
 
 <script lang="ts" setup>
 import type { DragEndEvent, Map, Marker } from 'leaflet'
-import LeafletMap from '@/atoms/LeafletMap/LeafletMap.vue'
+import { LatLng } from 'leaflet'
+import LeafletMap from '@/atoms/map/LeafletMap/LeafletMap.vue'
 import { GpsLocation } from '@/models/gpsLocation'
 import { useLeafletMarker } from '@/composables/useLeafletMarker'
 import { computed, ref, watch } from 'vue'
 import { useField } from 'vee-validate'
-import { LatLng } from 'leaflet'
 
 const props = withDefaults(
   defineProps<{
@@ -100,6 +100,7 @@ watch(
   height: 170px;
   width: 100%;
 }
+
 .error {
   color: var(--color-danger);
   font-size: var(--font-size-0);
