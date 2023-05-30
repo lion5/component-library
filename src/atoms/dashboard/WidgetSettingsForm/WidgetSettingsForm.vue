@@ -22,16 +22,31 @@ import { useWidget } from '@/atoms/dashboard/composables/useWidget'
 import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
 
 const props = defineProps<{
+  /**
+   * the customer set widget settings. Overwrites the {@link defaultSettings} prop.
+   */
   settings: WidgetSettings
+  /**
+   * the default settings of the widget
+   */
   defaultSettings: WidgetSettings
+  /**
+   * the form schema that is used to render the form
+   */
   schema: FormSchema
+}>()
+
+const emit = defineEmits<{
+  /**
+   * is emitted if the user click the submit button
+   * @param e
+   * @param widgetSettings the updated widgetSettings
+   */
+  (e: 'update:settings', widgetSettings: WidgetSettings): void
 }>()
 
 const { getSettings } = useWidget(props)
 const settingsObject = computed(() => Object.fromEntries(getSettings()))
-const emit = defineEmits<{
-  (e: 'update:settings', widgetSettings: WidgetSettings): void
-}>()
 
 const onSubmit = (values: object) => {
   const settings = new Map(Object.entries(values)) as WidgetSettings
