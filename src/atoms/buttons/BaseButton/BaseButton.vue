@@ -139,7 +139,7 @@ export default defineComponent({
     opacity: 1;
   }
   100% {
-    scale: 1.1;
+    scale: 1.2;
     opacity: 0.1;
   }
 }
