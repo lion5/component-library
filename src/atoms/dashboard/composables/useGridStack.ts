@@ -20,6 +20,7 @@ export function useGridStack(
     editMode: boolean
     widgetConfigs: WidgetConfiguration[]
     components: Map<string, WidgetComponentWrapper>
+    customGridStackClass?: string
   },
   emit: { (e: 'update:widgetConfigs', widgets: WidgetConfiguration[]): void }
 ) {
@@ -55,14 +56,20 @@ export function useGridStack(
   )
 
   const initializeGrid = () => {
-    grid = GridStack.init({
-      cellHeight: '5vh',
-      minRow: 1,
-      margin: '.25rem',
-      alwaysShowResizeHandle: true,
-      disableResize: true,
-      disableDrag: true
-    })
+    grid = GridStack.init(
+      {
+        id: '',
+        class: '',
+        cellHeight: '5vh',
+        column: 12,
+        minRow: 1,
+        margin: '.25rem',
+        alwaysShowResizeHandle: true,
+        disableResize: true,
+        disableDrag: true
+      },
+      props.customGridStackClass
+    )
   }
 
   const load = async (widgets: WidgetConfiguration[]) => {
