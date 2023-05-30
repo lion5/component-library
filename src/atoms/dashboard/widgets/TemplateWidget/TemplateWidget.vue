@@ -1,6 +1,8 @@
 <template>
-  <!--  TODO: your content here-->
-  <h1>Hello {{ greeting }}!</h1>
+  <WidgetWrapper>
+    <!--  TODO: your content here-->
+    <h1>Hello {{ greeting }}!</h1>
+  </WidgetWrapper>
 </template>
 
 <script lang="ts" setup>
@@ -8,6 +10,7 @@ import type { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguratio
 import { useWidget } from '@/atoms/dashboard/composables/useWidget'
 import { TemplateWidgetSetting } from '@/atoms/dashboard/widgets/TemplateWidget/settings'
 import type { ComputedRef } from 'vue'
+import WidgetWrapper from '@/atoms/dashboard/WidgetWrapper/WidgetWrapper.vue'
 
 /**
  * This is a Widget Template. You can copy this template and start to implement your own widget.

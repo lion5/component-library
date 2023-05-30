@@ -12,21 +12,7 @@ import { GridWidget } from '../models/gridWidget'
  * All vee validate compatible inputs can be used. The validation is provided by yup.
  */
 export default {
-  component: DynamicGrid,
-  argTypes: {
-    '--color-test': {
-      description: 'Defines the color of',
-      table: {
-        type: {
-          summary: 'something short',
-          detail: 'something really really long'
-        }
-      },
-      control: {
-        type: null
-      }
-    }
-  }
+  component: DynamicGrid
 } as Meta<typeof DynamicGrid>
 type Story = StoryObj<typeof DynamicGrid>
 
@@ -52,9 +38,6 @@ export const ViewMode: Story = {
       ['widget1', TEMPLATE_WIDGET_WRAPPER]
     ]),
     customGridStackClass: 'view-mode-grid'
-  },
-  parameters: {
-    docs: {}
   }
 }
 export const EditMode: Story = {
