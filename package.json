@@ -33,13 +33,13 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/library.umd.js",
+  "main": "./dist/library.cjs.js",
   "module": "./dist/library.es.js",
   "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
       "import": "./dist/library.es.js",
-      "require": "./dist/library.umd.js"
+      "require": "./dist/library.cjs.js"
     },
     "./dist/style.css": "./dist/style.css"
   },
