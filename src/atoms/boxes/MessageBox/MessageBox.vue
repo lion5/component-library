@@ -1,55 +1,25 @@
 <template>
-  <div
-    class="message-box"
-    v-if="errorMessage || infoMessage"
-    :class="classObject"
-  >
-    <span v-if="errorMessage"> <IconWarning /> {{ errorMessage }} </span>
-    <span v-if="infoMessage"> <IconInfoCircle />{{ infoMessage }} </span>
-    <slot v-else />
-  </div>
+  <ErrorBox v-if="errorMessage" :error="error" />
+  <InfoBox v-if="infoMessage" :info-message="infoMessage" />
 </template>
 
 <script lang="ts" setup>
+import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
+import InfoBox from '@/atoms/boxes/InfoBox/InfoBox.vue'
 import { computed } from 'vue'
-import IconInfoCircle from '@/icons/IconInfoCircle.vue'
-import IconWarning from '@/icons/IconWarning.vue'
 
-// TODO: only use this component for info message(s)?
 const props = defineProps<{
+  /**
+   * error message to display
+   */
   errorMessage?: string
+  /**
+   * info message to display
+   */
   infoMessage?: string
 }>()
 
-const classObject = computed(() => ({
-  error: !!props.errorMessage,
-  info: !!props.infoMessage
-}))
+const error = computed(() =>
+  props.errorMessage ? new Error(props.errorMessage) : undefined
+)
 </script>
-
-<style scoped lang="scss">
-.message-box {
-  padding: var(--space-sm);
-  border-radius: var(--border-radius-300);
-
-  span > i {
-    margin-right: var(--space-sm);
-  }
-
-  &.error {
-    background-color: var(--color-danger-surface-200);
-
-    span {
-      color: var(--color-danger);
-    }
-  }
-
-  &.info {
-    background-color: var(--color-info-surface);
-
-    span {
-      color: var(--color-neutral-600);
-    }
-  }
-}
-</style>
