@@ -8,7 +8,6 @@ import { useInterval } from '@/composables/useInterval'
 import { useNominatim } from '@/composables/useNominatim'
 import { useNumber } from '@/composables/useNumber'
 
-
 export {
   useBrowserPermissions,
   PermissionState,
