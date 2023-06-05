@@ -32,14 +32,14 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import {
   WidgetConfiguration,
   WidgetSettings
-} from '@/atoms/dashboard/models/widgetConfiguration'
-import NotFoundWidget from '@/atoms/dashboard/widgets/NotFoundWidget/NotFoundWidget.vue'
-import { FormSchema } from '@/atoms/dashboard/models/formSchema'
-import BaseWidgetEditMode from '@/atoms/dashboard/BaseWidgetEditMode/BaseWidgetEditMode.vue'
+} from '@/models/widgetConfiguration'
+import NotFoundWidget from '@/components/widgets/NotFoundWidget/NotFoundWidget.vue'
+import { FormSchema } from '@/models/formSchema'
+import BaseWidgetEditMode from '@/components/BaseWidgetEditMode/BaseWidgetEditMode.vue'
 
 const props = defineProps<{
   /**

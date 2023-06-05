@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { GpsLocation } from '@/models/gpsLocation'
-import { useBrightSkyWeatherForecast } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherForecast'
-import { BrightSkyForecastWeather } from '@/atoms/dashboard/widgets/weather/models/brightSkyForecastWeather'
-import { AggregatedWeather } from '@/atoms/dashboard/widgets/weather/models/aggregatedWeather'
+import { GpsLocation } from '@lion5/component-library'
+import { useBrightSkyWeatherForecast } from '@/components/widgets/weather/composables/useBrightSkyWeatherForecast'
+import { BrightSkyForecastWeather } from '@/components/widgets/weather/models/brightSkyForecastWeather'
+import { AggregatedWeather } from '@/components/widgets/weather/models/aggregatedWeather'
 
 describe('useBrightSkyWeatherForecast.ts', () => {
   beforeEach(() => {

@@ -1,5 +1,5 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
-import { GpsLocation } from '@/models/gpsLocation'
+import { GpsLocation } from '@lion5/component-library'
 import { useBrightSkyWeather } from './useBrightSkyWeather'
 
 describe('useBrightSkyWeather.ts', () => {

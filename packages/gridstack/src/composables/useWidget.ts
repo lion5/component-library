@@ -1,6 +1,6 @@
 import { computed } from 'vue'
-import { WidgetSetting } from '@/atoms/dashboard/models/widgetConfiguration'
-import type { WidgetProps } from '@/atoms/dashboard/models/widgetProps'
+import { WidgetSetting } from '@/models/widgetConfiguration'
+import type { WidgetProps } from '@/models/widgetProps'
 
 export function useWidget(props: Readonly<WidgetProps>) {
   const getSetting = (key: string) => {

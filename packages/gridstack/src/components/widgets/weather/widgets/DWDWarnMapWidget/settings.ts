@@ -1,7 +1,6 @@
-import { FormField } from '@/atoms/dashboard/models/formSchema'
 import { string } from 'yup'
-import BaseSelect from '@/atoms/inputs/BaseSelect/BaseSelect.vue'
-import { SelectOption } from '@/models/selectOption'
+import { BaseSelect, SelectOption } from '@lion5/component-library'
+import { FormField } from '@/models/formSchema'
 
 export enum DWDWarnGermanyByCriteriaSetting {
   CRITERIA = 'CRITERIA',

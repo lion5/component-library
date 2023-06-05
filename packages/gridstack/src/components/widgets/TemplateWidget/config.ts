@@ -1,9 +1,9 @@
-import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import {
   TemplateWidgetSetting,
   TemplateWidgetSettingsFormSchema
-} from '@/atoms/dashboard/widgets/TemplateWidget/settings'
-import TemplateWidget from '@/atoms/dashboard/widgets/TemplateWidget/TemplateWidget.vue'
+} from '@/components/widgets/TemplateWidget/settings'
+import TemplateWidget from '@/components/widgets/TemplateWidget/TemplateWidget.vue'
 
 /**
  * This is the main configuration that need to be added to the {@link availableWidgets} map.

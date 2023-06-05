@@ -1,12 +1,11 @@
 import { computed, ref } from 'vue'
 import { groupBy } from 'lodash'
-import { useFetchState } from '@/composables/useFetchState'
-import { GpsLocation } from '@/models/gpsLocation'
+import { GpsLocation, useFetchState } from '@lion5/component-library'
 import {
   BrightSkyForecastWeather,
   BrightSkyForecastWeatherItem
-} from '@/atoms/dashboard/widgets/weather/models/brightSkyForecastWeather'
-import { AggregatedWeather } from '@/atoms/dashboard/widgets/weather/models/aggregatedWeather'
+} from '@/components/widgets/weather/models/brightSkyForecastWeather'
+import { AggregatedWeather } from '@/components/widgets/weather/models/aggregatedWeather'
 
 export function useBrightSkyWeatherForecast() {
   const { busy, error, setBusy, setIdle, setError, clearError } =

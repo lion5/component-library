@@ -7,7 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import IconEmojiDizzy from '@/icons/IconEmojiDizzy.vue'
+import { IconEmojiDizzy } from '@lion5/component-library'
 
 defineProps<{ widgetName: string }>()
 </script>

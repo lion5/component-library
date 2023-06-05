@@ -19,7 +19,7 @@
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue'
-import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
+import { BaseButton } from '@lion5/component-library'
 
 const props = defineProps<{
   /**

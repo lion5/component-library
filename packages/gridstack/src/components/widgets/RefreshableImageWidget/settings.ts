@@ -1,7 +1,6 @@
 import { number, string } from 'yup'
-import { FormField } from '@/atoms/dashboard/models/formSchema'
-import BaseInputV2 from '@/atoms/inputs/BaseInputV2/BaseInputV2.vue'
-import NumberInput from '@/atoms/inputs/NumberInput/NumberInput.vue'
+import { FormField } from '@/models/formSchema'
+import { BaseInputV2, NumberInput } from '@lion5/component-library'
 
 export enum RefreshableImageSetting {
   SRC = 'src',

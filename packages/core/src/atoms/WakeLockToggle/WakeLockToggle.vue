@@ -14,7 +14,7 @@
 <script setup lang="ts">
 import { useWakeLockStore } from '@/stores/wakeLock'
 import { storeToRefs } from 'pinia'
-import SliderToggleInput from '@/atoms/inputs/SliderToggleInput/SliderToggleInput.vue'
+import SliderToggleInput from '@/inputs/SliderToggleInput/SliderToggleInput.vue'
 
 const wakeLockStore = useWakeLockStore()
 const { toggled } = storeToRefs(wakeLockStore)

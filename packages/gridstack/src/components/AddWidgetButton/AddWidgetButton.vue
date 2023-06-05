@@ -23,10 +23,9 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
-import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
-import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
-import AddWidgetInput from '@/atoms/dashboard/AddWidgetInput/AddWidgetInput.vue'
+import { BaseButton, DismissibleModal } from '@lion5/component-library'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import AddWidgetInput from '@/components/AddWidgetInput/AddWidgetInput.vue'
 
 const modalDisplayed = ref<boolean>(false)
 

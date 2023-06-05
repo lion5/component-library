@@ -1,11 +1,10 @@
-import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
+import { GpsLocation, NamedLocation } from '@lion5/component-library'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import {
   WeatherWarnSetting,
   WeatherWarnSettingsFormSchema
-} from '@/atoms/dashboard/widgets/weather/widgets/DWDWarnFeedWidget/settings'
-import { NamedLocation } from '@/models/namedLocation'
-import { GpsLocation } from '@/models/gpsLocation'
-import WeatherWarnFeedWidget from '@/atoms/dashboard/widgets/weather/widgets/DWDWarnFeedWidget/WeatherWarnFeedWidget.vue'
+} from '@/components/widgets/weather/widgets/DWDWarnFeedWidget/settings'
+import WeatherWarnFeedWidget from '@/components/widgets/weather/widgets/DWDWarnFeedWidget/WeatherWarnFeedWidget.vue'
 
 export const WEATHER_WARN_FEED_WIDGET_WRAPPER = new WidgetComponentWrapper(
   'Wetterwarnungen',

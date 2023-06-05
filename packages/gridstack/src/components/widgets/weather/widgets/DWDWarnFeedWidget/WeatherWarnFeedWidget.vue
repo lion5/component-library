@@ -27,15 +27,13 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
-import { WeatherForecastSetting } from '@/atoms/dashboard/widgets/weather/widgets/WeatherForcastWidget/settings'
-import { NamedLocation } from '@/models/namedLocation'
-import { useDWDWeatherWarnings } from '@/atoms/dashboard/widgets/weather/composables/useDWDWeatherWarnings'
-import WidgetWrapper from '@/atoms/dashboard/WidgetWrapper/WidgetWrapper.vue'
-import WidgetHeadline from '@/atoms/dashboard/WidgetHeadline/WidgetHeadline.vue'
-import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
-import { useWidget } from '@/atoms/dashboard/composables/useWidget'
-import { useInterval } from '@/composables/useInterval'
-import { useDate } from '@/composables/useDate'
+import { NamedLocation, useDate, useInterval } from '@lion5/component-library'
+import { WeatherForecastSetting } from '@/components/widgets/weather/widgets/WeatherForcastWidget/settings'
+import { useDWDWeatherWarnings } from '@/components/widgets/weather/composables/useDWDWeatherWarnings'
+import WidgetWrapper from '@/components/WidgetWrapper/WidgetWrapper.vue'
+import WidgetHeadline from '@/components/WidgetHeadline/WidgetHeadline.vue'
+import { WidgetSettings } from '@/models/widgetConfiguration'
+import { useWidget } from '@/composables/useWidget'
 
 const props = defineProps<{
   settings: WidgetSettings

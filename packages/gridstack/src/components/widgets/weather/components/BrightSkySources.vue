@@ -9,7 +9,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { BrightSkySource } from '@/atoms/dashboard/widgets/weather/models/brightSkyCurrentWeather'
+import { BrightSkySource } from '@/components/widgets/weather/models/brightSkyCurrentWeather'
 
 defineProps<{ sources: BrightSkySource[] }>()
 </script>

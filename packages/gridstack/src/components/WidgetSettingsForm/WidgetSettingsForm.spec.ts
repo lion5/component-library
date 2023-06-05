@@ -3,11 +3,13 @@ import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { boolean, string } from 'yup'
 import { Form } from 'vee-validate'
-import { FormField, FormSchema } from '@/atoms/dashboard/models/formSchema'
-import BaseInputV2 from '@/atoms/inputs/BaseInputV2/BaseInputV2.vue'
-import BaseSelect from '@/atoms/inputs/BaseSelect/BaseSelect.vue'
-import CheckboxInput from '@/atoms/inputs/CheckboxInput/CheckboxInput.vue'
-import WidgetSettingsForm from '@/atoms/dashboard/WidgetSettingsForm/WidgetSettingsForm.vue'
+import {
+  BaseInputV2,
+  BaseSelect,
+  CheckboxInput
+} from '@lion5/component-library'
+import { FormField, FormSchema } from '@/models/formSchema'
+import WidgetSettingsForm from '@/components/WidgetSettingsForm/WidgetSettingsForm.vue'
 
 describe('WidgetSettingsForm.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

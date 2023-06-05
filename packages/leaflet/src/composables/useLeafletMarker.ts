@@ -3,7 +3,7 @@ import { Icon, LatLng, Marker, Popup } from 'leaflet'
 import { toRaw } from 'vue'
 import icon from 'leaflet/dist/images/marker-icon-2x.png'
 import iconShadow from 'leaflet/dist/images/marker-shadow.png'
-import { LocalResource } from '../models/localResource'
+import { LocalResource } from '@/models/localResource'
 
 export function useLeafletMarker() {
   const MARKER_SHADOW_URL = 'marker-background.svg'

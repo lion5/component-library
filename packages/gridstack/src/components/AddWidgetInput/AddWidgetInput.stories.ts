@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/vue3'
-import { TEMPLATE_WIDGET_WRAPPER } from '@/atoms/dashboard/widgets/TemplateWidget/config'
+import { TEMPLATE_WIDGET_WRAPPER } from '@/components/widgets/TemplateWidget/config'
 import AddWidgetInput from './AddWidgetInput.vue'
 
 export default {

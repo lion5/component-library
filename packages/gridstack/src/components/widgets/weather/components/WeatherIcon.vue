@@ -4,7 +4,7 @@
   </span>
 </template>
 <script lang="ts" setup>
-import { useBrightSkyWeatherIcon } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherIcon'
+import { useBrightSkyWeatherIcon } from '@/components/widgets/weather/composables/useBrightSkyWeatherIcon'
 
 defineProps<{
   iconKey: string | null

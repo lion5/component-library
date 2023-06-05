@@ -1,7 +1,6 @@
 import { ref } from 'vue'
-import { BrightSkyCurrentWeather } from '@/atoms/dashboard/widgets/weather/models/brightSkyCurrentWeather'
-import { useFetchState } from '@/composables/useFetchState'
-import { GpsLocation } from '@/models/gpsLocation'
+import { BrightSkyCurrentWeather } from '@/components/widgets/weather/models/brightSkyCurrentWeather'
+import { GpsLocation, useFetchState } from '@lion5/component-library'
 
 export function useBrightSkyWeather() {
   const weatherData = ref<BrightSkyCurrentWeather | undefined>()

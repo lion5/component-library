@@ -22,11 +22,11 @@
 </template>
 
 <script lang="ts" setup>
-import { AggregatedWeather } from '@/atoms/dashboard/widgets/weather/models/aggregatedWeather'
-import { useDate } from '@/composables/useDate'
-import { useBrightSkyWeatherIcon } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherIcon'
-import WeatherIcon from '@/atoms/dashboard/widgets/weather/components/WeatherIcon.vue'
-import WindDirection from '@/atoms/dashboard/widgets/weather/components/WindDirection.vue'
+import { AggregatedWeather } from '@/components/widgets/weather/models/aggregatedWeather'
+import { useDate } from '@lion5/component-library'
+import WeatherIcon from '@/components/widgets/weather/components/WeatherIcon.vue'
+import WindDirection from '@/components/widgets/weather/components/WindDirection.vue'
+import { useBrightSkyWeatherIcon } from '@/components/widgets/weather/composables/useBrightSkyWeatherIcon'
 
 defineProps<{
   forecasts: AggregatedWeather[]

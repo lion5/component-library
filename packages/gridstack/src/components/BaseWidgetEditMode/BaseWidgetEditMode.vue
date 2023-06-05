@@ -38,13 +38,15 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
-import { FormSchema } from '@/atoms/dashboard/models/formSchema'
-import LayoutStack from '@/layouts/LayoutStack/LayoutStack.vue'
-import DropDown from '@/atoms/dropdown/DropDown/DropDown.vue'
-import DropDownItem from '@/atoms/dropdown/DropDownItem/DropDownItem.vue'
-import WidgetSettingsModal from '@/atoms/dashboard/WidgetSettingsModal/WidgetSettingsModal.vue'
-import IconThreeDotsMenu from '@/icons/IconThreeDotsMenu.vue'
+import {
+  DropDown,
+  DropDownItem,
+  IconThreeDotsMenu,
+  LayoutStack
+} from '@lion5/component-library'
+import { WidgetSettings } from '@/models/widgetConfiguration'
+import { FormSchema } from '@/models/formSchema'
+import WidgetSettingsModal from '@/components/WidgetSettingsModal/WidgetSettingsModal.vue'
 
 defineProps<{
   /**

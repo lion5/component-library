@@ -14,10 +14,10 @@
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
-import { FormSchema } from '@/atoms/dashboard/models/formSchema'
-import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
-import WidgetSettingsForm from '@/atoms/dashboard/WidgetSettingsForm/WidgetSettingsForm.vue'
+import { WidgetSettings } from '@/models/widgetConfiguration'
+import { FormSchema } from '@/models/formSchema'
+import { DismissibleModal } from '@lion5/component-library'
+import WidgetSettingsForm from '@/components/WidgetSettingsForm/WidgetSettingsForm.vue'
 
 const props = defineProps<{
   modalDisplayed: boolean

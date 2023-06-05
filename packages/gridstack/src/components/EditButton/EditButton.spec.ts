@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import EditButton from '@/atoms/dashboard/EditButton/EditButton.vue'
+import EditButton from '@/components/EditButton/EditButton.vue'
 
 describe('EditButton.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

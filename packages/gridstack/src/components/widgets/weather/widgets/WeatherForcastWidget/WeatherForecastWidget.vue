@@ -19,17 +19,16 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
-import { WeatherForecastSetting } from '@/atoms/dashboard/widgets/weather/widgets/WeatherForcastWidget/settings'
-import { NamedLocation } from '@/models/namedLocation'
-import { useBrightSkyWeatherForecast } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherForecast'
-import WidgetWrapper from '@/atoms/dashboard/WidgetWrapper/WidgetWrapper.vue'
-import WidgetHeadline from '@/atoms/dashboard/WidgetHeadline/WidgetHeadline.vue'
-import HourlyForecast from '@/atoms/dashboard/widgets/weather/components/HourlyForecast.vue'
-import SevenDayForecast from '@/atoms/dashboard/widgets/weather/components/SevenDayForecast.vue'
-import BrightSkySources from '@/atoms/dashboard/widgets/weather/components/BrightSkySources.vue'
-import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
-import { useWidget } from '@/atoms/dashboard/composables/useWidget'
-import { useInterval } from '@/composables/useInterval'
+import { WeatherForecastSetting } from '@/components/widgets/weather/widgets/WeatherForcastWidget/settings'
+import { NamedLocation, useInterval } from '@lion5/component-library'
+import { useBrightSkyWeatherForecast } from '@/components/widgets/weather/composables/useBrightSkyWeatherForecast'
+import WidgetWrapper from '@/components/WidgetWrapper/WidgetWrapper.vue'
+import WidgetHeadline from '@/components/WidgetHeadline/WidgetHeadline.vue'
+import HourlyForecast from '@/components/widgets/weather/components/HourlyForecast.vue'
+import SevenDayForecast from '@/components/widgets/weather/components/SevenDayForecast.vue'
+import BrightSkySources from '@/components/widgets/weather/components/BrightSkySources.vue'
+import { WidgetSettings } from '@/models/widgetConfiguration'
+import { useWidget } from '@/composables/useWidget'
 
 const props = defineProps<{
   settings: WidgetSettings

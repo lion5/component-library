@@ -2,10 +2,10 @@ import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { boolean } from 'yup'
-import BaseWidgetEditMode from '@/atoms/dashboard/BaseWidgetEditMode/BaseWidgetEditMode.vue'
-import { FormField, FormSchema } from '@/atoms/dashboard/models/formSchema'
-import BaseInputV2 from '@/atoms/inputs/BaseInputV2/BaseInputV2.vue'
-import WidgetSettingsModal from '@/atoms/dashboard/WidgetSettingsModal/WidgetSettingsModal.vue'
+import BaseWidgetEditMode from '@/components/BaseWidgetEditMode/BaseWidgetEditMode.vue'
+import { FormField, FormSchema } from '@/models/formSchema'
+import { BaseInputV2 } from '@lion5/component-library'
+import WidgetSettingsModal from '@/components/WidgetSettingsModal/WidgetSettingsModal.vue'
 
 describe('BaseWidgetEditMode.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

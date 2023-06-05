@@ -14,13 +14,18 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "emitDeclarationOnly": true,
     "isolatedModules": true,
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": [
+        "src/*"
+      ]
     },
     "types": [
       "vite/client",
@@ -30,8 +35,7 @@
   "exclude": [
     "node_modules",
     "dist",
-    "src/**/*.stories.js",
-    "src/**/*.stories.ts",
+    "src/**/*.stories.js"
   ],
   "include": [
     "src/**/*.js",
@@ -39,5 +43,5 @@
     "src/**/*.d.ts",
     "src/**/*.tsx",
     "src/**/*.vue"
-, "../firebase/src/composables/useFirebaseStorage.ts", "../firebase/src/composables/useFirebaseStorage.ts", "../leaflet/src/models/leafletButtonControl.ts", "../leaflet/src/models/leafletButtonControl.ts", "../leaflet/src/composables/useLeafletButtonControl.ts", "../leaflet/src/composables/useLeafletButtonControl.ts", "../leaflet/src/composables/useLeafletMap.ts", "../leaflet/src/composables/useLeafletMarker.ts", "../leaflet/src/models/geoJsonConvertibleType.ts", "../leaflet/src/models/geoJsonConvertibleType.ts", "../leaflet/src/composables/useShape.ts", "../leaflet/src/composables/useShape.ts", "../leaflet/src/composables/useGeoJSON.ts", "../leaflet/src/composables/useGeoJSON.ts", "../leaflet/src/models/localResource.ts", "../leaflet/src/models/localResource.ts"  ]
+  ]
 }

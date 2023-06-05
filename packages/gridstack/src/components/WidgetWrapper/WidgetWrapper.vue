@@ -7,8 +7,7 @@
 </template>
 
 <script lang="ts" setup>
-import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
-import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
+import { ErrorBox, LoadingAnimation } from '@lion5/component-library'
 
 defineProps<{
   busy?: boolean

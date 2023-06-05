@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
+import type { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 
 defineProps<{
   /**

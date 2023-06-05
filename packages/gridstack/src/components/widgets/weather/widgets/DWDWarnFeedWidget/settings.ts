@@ -1,5 +1,5 @@
-import { FormField, FormSchema } from '@/atoms/dashboard/models/formSchema'
-import LocationCoordinateSelect from '@/atoms/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
+import { FormField, FormSchema } from '@/models/formSchema'
+import { LocationCoordinateSelect } from '@lion5/component-library'
 
 export enum WeatherWarnSetting {
   LOCATION = 'LOCATION'

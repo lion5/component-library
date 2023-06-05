@@ -11,9 +11,9 @@
 </template>
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
-import { useWidget } from '@/atoms/dashboard/composables/useWidget'
-import type { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
-import { IFrameSetting } from '@/atoms/dashboard/widgets/IFrameWidget/settings'
+import { useWidget } from '@/composables/useWidget'
+import type { WidgetSettings } from '@/models/widgetConfiguration'
+import { IFrameSetting } from '@/components/widgets/IFrameWidget/settings'
 
 const props = defineProps<{
   settings: WidgetSettings

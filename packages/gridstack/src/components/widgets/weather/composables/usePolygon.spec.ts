@@ -1,7 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon'
-import { usePolygon } from '@/atoms/dashboard/widgets/weather/composables/usePolygon'
-import { GpsLocation } from '@/models/gpsLocation'
+import { usePolygon } from '@/components/widgets/weather/composables/usePolygon'
+import { GpsLocation } from '@lion5/component-library'
 
 vi.mock('@turf/boolean-point-in-polygon', () => ({
   default: vi.fn()

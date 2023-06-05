@@ -16,10 +16,10 @@
 <script lang="ts" setup>
 import { Form } from 'vee-validate'
 import { computed } from 'vue'
-import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
-import { FormSchema } from '@/atoms/dashboard/models/formSchema'
-import { useWidget } from '@/atoms/dashboard/composables/useWidget'
-import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
+import { WidgetSettings } from '@/models/widgetConfiguration'
+import { FormSchema } from '@/models/formSchema'
+import { useWidget } from '@/composables/useWidget'
+import { BaseButton } from '@lion5/component-library'
 
 const props = defineProps<{
   settings: WidgetSettings

@@ -33,20 +33,22 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
-import { WeatherSetting } from '@/atoms/dashboard/widgets/weather/widgets/WeatherWidget/settings'
-import { NamedLocation } from '@/models/namedLocation'
-import { useBrightSkyWeatherIcon } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeatherIcon'
-import { useBrightSkyWeather } from '@/atoms/dashboard/widgets/weather/composables/useBrightSkyWeather'
-import WidgetWrapper from '@/atoms/dashboard/WidgetWrapper/WidgetWrapper.vue'
-import WidgetHeadline from '@/atoms/dashboard/WidgetHeadline/WidgetHeadline.vue'
-import WeatherIcon from '@/atoms/dashboard/widgets/weather/components/WeatherIcon.vue'
-import WindDirection from '@/atoms/dashboard/widgets/weather/components/WindDirection.vue'
-import BrightSkySources from '@/atoms/dashboard/widgets/weather/components/BrightSkySources.vue'
-import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
-import { useWidget } from '@/atoms/dashboard/composables/useWidget'
-import { useInterval } from '@/composables/useInterval'
-import { useDate } from '@/composables/useDate'
-import { useNumber } from '@/composables/useNumber'
+import {
+  NamedLocation,
+  useDate,
+  useInterval,
+  useNumber
+} from '@lion5/component-library'
+import { WeatherSetting } from '@/components/widgets/weather/widgets/WeatherWidget/settings'
+import { useBrightSkyWeatherIcon } from '@/components/widgets/weather/composables/useBrightSkyWeatherIcon'
+import { useBrightSkyWeather } from '@/components/widgets/weather/composables/useBrightSkyWeather'
+import WidgetWrapper from '@/components/WidgetWrapper/WidgetWrapper.vue'
+import WidgetHeadline from '@/components/WidgetHeadline/WidgetHeadline.vue'
+import WeatherIcon from '@/components/widgets/weather/components/WeatherIcon.vue'
+import WindDirection from '@/components/widgets/weather/components/WindDirection.vue'
+import BrightSkySources from '@/components/widgets/weather/components/BrightSkySources.vue'
+import { WidgetSettings } from '@/models/widgetConfiguration'
+import { useWidget } from '@/composables/useWidget'
 
 const props = defineProps<{
   settings: WidgetSettings

@@ -1,4 +1,4 @@
-import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
+import { WidgetSettings } from '@/models/widgetConfiguration'
 
 export interface WidgetProps {
   settings: WidgetSettings

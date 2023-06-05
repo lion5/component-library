@@ -1,6 +1,6 @@
 import { string } from 'yup'
-import { FormField, FormSchema } from '@/atoms/dashboard/models/formSchema'
-import BaseInputV2 from '@/atoms/inputs/BaseInputV2/BaseInputV2.vue'
+import { FormField, FormSchema } from '@/models/formSchema'
+import { BaseInputV2 } from '@lion5/component-library'
 
 /**
  * Contains keys of all settings. These are used to add, update and retrieve the settings from the settings map.

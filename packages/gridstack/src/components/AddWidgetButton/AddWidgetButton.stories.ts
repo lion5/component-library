@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import AddWidgetButton from './AddWidgetButton.vue'
-import { TEMPLATE_WIDGET_WRAPPER } from '@/atoms/dashboard/widgets/TemplateWidget/config'
+import { TEMPLATE_WIDGET_WRAPPER } from '@/components/widgets/TemplateWidget/config'
 
 export default {
   component: AddWidgetButton

@@ -1,11 +1,10 @@
+import { GpsLocation, NamedLocation } from '@lion5/component-library'
 import {
   WeatherForecastSetting,
   WeatherForecastSettingsFormSchema
-} from '@/atoms/dashboard/widgets/weather/widgets/WeatherForcastWidget/settings'
-import { NamedLocation } from '@/models/namedLocation'
-import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
-import { GpsLocation } from '@/models/gpsLocation'
-import WeatherForecastWidget from '@/atoms/dashboard/widgets/weather/widgets/WeatherForcastWidget/WeatherForecastWidget.vue'
+} from '@/components/widgets/weather/widgets/WeatherForcastWidget/settings'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import WeatherForecastWidget from '@/components/widgets/weather/widgets/WeatherForcastWidget/WeatherForecastWidget.vue'
 
 export const WEATHER_FORECAST_WIDGET_WRAPPER = new WidgetComponentWrapper(
   'Wettervorhersage',

@@ -1,7 +1,7 @@
 import type {
   BrightSkyCondition,
   BrightSkySource
-} from '@/atoms/dashboard/widgets/weather/models/brightSkyCurrentWeather'
+} from '@/components/widgets/weather/models/brightSkyCurrentWeather'
 
 export interface BrightSkyForecastWeatherItem {
   timestamp: string

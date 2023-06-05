@@ -7,10 +7,10 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { computed, ref, watch } from 'vue'
-import { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
-import { useWidget } from '@/atoms/dashboard/composables/useWidget'
-import { RefreshableImageSetting } from '@/atoms/dashboard/widgets/RefreshableImageWidget/settings'
-import { useInterval } from '@/composables/useInterval'
+import { WidgetSettings } from '@/models/widgetConfiguration'
+import { useWidget } from '@/composables/useWidget'
+import { RefreshableImageSetting } from '@/components/widgets/RefreshableImageWidget/settings'
+import { useInterval } from '@lion5/component-library'
 
 const props = defineProps<{
   settings: WidgetSettings

@@ -1,5 +1,5 @@
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon'
-import { GpsLocation } from '@/models/gpsLocation'
+import { GpsLocation } from '@lion5/component-library'
 
 export function usePolygon() {
   type Feature = 'Feature'

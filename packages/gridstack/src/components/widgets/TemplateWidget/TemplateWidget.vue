@@ -4,9 +4,9 @@
 </template>
 
 <script lang="ts" setup>
-import type { WidgetSettings } from '@/atoms/dashboard/models/widgetConfiguration'
-import { useWidget } from '@/atoms/dashboard/composables/useWidget'
-import { TemplateWidgetSetting } from '@/atoms/dashboard/widgets/TemplateWidget/settings'
+import type { WidgetSettings } from '@/models/widgetConfiguration'
+import { useWidget } from '@/composables/useWidget'
+import { TemplateWidgetSetting } from '@/components/widgets/TemplateWidget/settings'
 import type { ComputedRef } from 'vue'
 
 /**

@@ -1,10 +1,10 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import AddWidgetInput from '@/atoms/dashboard/AddWidgetInput/AddWidgetInput.vue'
-import NotFoundWidget from '@/atoms/dashboard/widgets/NotFoundWidget/NotFoundWidget.vue'
-import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
-import { FormSchema } from '@/atoms/dashboard/models/formSchema'
+import AddWidgetInput from '@/components/AddWidgetInput/AddWidgetInput.vue'
+import NotFoundWidget from '@/components/widgets/NotFoundWidget/NotFoundWidget.vue'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import { FormSchema } from '@/models/formSchema'
 
 describe('AddWidgetInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

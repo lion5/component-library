@@ -1,5 +1,5 @@
 import { countBy, last, maxBy } from 'lodash'
-import { BrightSkyForecastWeatherItem } from '@/atoms/dashboard/widgets/weather/models/brightSkyForecastWeather'
+import { BrightSkyForecastWeatherItem } from '@/components/widgets/weather/models/brightSkyForecastWeather'
 
 export class AggregatedWeather {
   readonly date: Date

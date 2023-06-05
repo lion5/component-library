@@ -15,10 +15,10 @@
 </template>
 
 <script lang="ts" setup>
-import { WidgetConfiguration } from '@/atoms/dashboard/models/widgetConfiguration'
-import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
-import { useGridStack } from '@/atoms/dashboard/composables/useGridStack'
-import BaseWidget from '@/atoms/dashboard/BaseWidget/BaseWidget.vue'
+import { WidgetConfiguration } from '@/models/widgetConfiguration'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import { useGridStack } from '@/composables/useGridStack'
+import BaseWidget from '@/components/BaseWidget/BaseWidget.vue'
 
 /**
  * this component wraps the [gridstack.js]{@link https://gridstackjs.com/} lib functions and integrate its functionality into the vue framework.
