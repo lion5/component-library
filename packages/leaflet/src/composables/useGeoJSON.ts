@@ -2,7 +2,7 @@
 // @ts-ignore
 import type { GeoJSON } from 'leaflet'
 import { Circle, LatLng, Marker } from 'leaflet'
-import { GeoJsonConvertible } from '@/models/geoJsonConvertibleType'
+import { GeoJsonConvertible } from '../models/geoJsonConvertibleType'
 
 /**
  * Helper function for leaflet geojson
