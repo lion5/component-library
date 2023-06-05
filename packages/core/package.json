@@ -24,7 +24,7 @@
   "scripts": {
     "lint": "eslint src --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "build": "vite build",
-    "test:unit": "cross-env TZ=UTC vitest --environment jsdom --root src",
+    "test:unit": "cross-env TZ=UTC vitest run --environment jsdom --root src",
     "test:unit:ui": "cross-env TZ=UTC vitest --environment jsdom --root src --ui",
     "type-check": "vue-tsc -p tsconfig.json --composite false"
   },
