@@ -19,8 +19,24 @@ jobs:
       - name: Run Linter
         run: npm run lint
 
-  unit-testing:
+  build:
     needs: [ lint ]
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          cache: 'npm'
+      - name: Install Packages
+        run: npm ci
+      - name: Build Library
+        run: npm run build
+
+  unit-testing:
+    needs: [ build ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -50,19 +66,3 @@ jobs:
         run: npm ci
       - name: Build Library Documentation
         run: npm run docs:build
-
-  build:
-    needs: [ unit-testing ]
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v3
-      - name: Setup Node
-        uses: actions/setup-node@v3
-        with:
-          node-version: '18.x'
-          cache: 'npm'
-      - name: Install Packages
-        run: npm ci
-      - name: Build Library
-        run: npm run build
