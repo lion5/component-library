@@ -63,18 +63,18 @@ jobs:
               issue_number: result.data.number,
               labels: ['release', 'automated pr']
             });
-#            await github.rest.pulls.createReview({
-#              owner,
-#              repo,
-#              pull_number: result.data.number,
-#              event: 'APPROVE'
-#            });
-#            await github.rest.pulls.merge({
-#              owner,
-#              repo,
-#              pull_number: result.data.number,
-#              merge_method: 'merge'
-#            });
+      #            await github.rest.pulls.createReview({
+      #              owner,
+      #              repo,
+      #              pull_number: result.data.number,
+      #              event: 'APPROVE'
+      #            });
+      #            await github.rest.pulls.merge({
+      #              owner,
+      #              repo,
+      #              pull_number: result.data.number,
+      #              merge_method: 'merge'
+      #            });
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
@@ -82,7 +82,7 @@ jobs:
           generate_release_notes: true
 
   publish-package:
-    needs: [github-release]
+    needs: [ github-release ]
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -100,14 +100,14 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@lion5'
-      - run: npm ci
-      - run: npm run build
-      - run: npm publish
+      - run: npm ci --workspaces
+      - run: npm run build --workspaces
+      - run: npm publish --workspaces
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   publish-documentation:
-    needs: [github-release]
+    needs: [ github-release ]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

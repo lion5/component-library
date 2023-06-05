@@ -15,9 +15,9 @@ jobs:
           node-version: '18.x'
           cache: 'npm'
       - name: Install Packages
-        run: npm ci
+        run: npm ci --workspaces
       - name: Run Linter
-        run: npm run lint
+        run: npm run lint --workspaces
 
   unit-testing:
     needs: [ lint ]
@@ -31,9 +31,9 @@ jobs:
           node-version: '18.x'
           cache: 'npm'
       - name: Install Packages
-        run: npm ci
+        run: npm ci --workspaces
       - name: Run Unit Tests
-        run: npm run test:unit
+        run: npm run test:unit --workspaces
 
   build-storybook:
     needs: [ unit-testing ]
@@ -63,6 +63,6 @@ jobs:
           node-version: '18.x'
           cache: 'npm'
       - name: Install Packages
-        run: npm ci
+        run: npm ci --workspaces
       - name: Build Library
-        run: npm run build
+        run: npm run build --workspaces
