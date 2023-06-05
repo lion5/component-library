@@ -101,7 +101,7 @@ jobs:
           # Defaults to the user or organization that owns the workflow file
           scope: '@lion5'
       - run: npm ci
-      - run: npm run build --workspaces
+      - run: npm run build
       - run: npm publish --workspaces
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

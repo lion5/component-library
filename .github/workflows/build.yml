@@ -17,7 +17,7 @@ jobs:
       - name: Install Packages
         run: npm ci
       - name: Run Linter
-        run: npm run lint --workspaces
+        run: npm run lint
 
   unit-testing:
     needs: [ lint ]
@@ -33,7 +33,7 @@ jobs:
       - name: Install Packages
         run: npm ci
       - name: Run Unit Tests
-        run: npm run test:unit --workspaces
+        run: npm run test
 
   build-storybook:
     needs: [ unit-testing ]
@@ -65,4 +65,4 @@ jobs:
       - name: Install Packages
         run: npm ci
       - name: Build Library
-        run: npm run build --workspaces
+        run: npm run build
