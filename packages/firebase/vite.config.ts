@@ -17,7 +17,15 @@ export default defineConfig({
       fileName: (format) => `library.${format}.js`
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', 'pinia'],
+      external: [
+        'vue',
+        'vue-router',
+        'pinia',
+        'firebase',
+        'firebase/storage',
+        'lodash',
+        '@lion5/component-library'
+      ],
       output: {
         exports: 'named',
         globals: {

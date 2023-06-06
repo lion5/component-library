@@ -17,7 +17,14 @@ export default defineConfig({
       fileName: (format) => `library.${format}.js`
     },
     rollupOptions: {
-      external: ['vue', 'vue-router', 'pinia'],
+      external: [
+        'vue',
+        'vue-router',
+        'pinia',
+        'leaflet',
+        '@turf/boolean-point-in-polygon',
+        '@lion5/component-library'
+      ],
       output: {
         exports: 'named',
         globals: {

@@ -42,7 +42,6 @@
   },
   "dependencies": {
     "vue": "^3.3.4",
-    "vue-multiselect": "^3.0.0-beta.2",
     "leaflet": ">=1.9.0",
     "@turf/boolean-point-in-polygon": ">=6.5.0",
     "@lion5/component-library": "*"
