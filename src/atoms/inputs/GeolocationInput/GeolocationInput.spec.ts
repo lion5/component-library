@@ -3,7 +3,7 @@ import { Marker } from 'leaflet'
 import { flushPromises, mount } from '@vue/test-utils'
 import GeolocationInput from '@/atoms/inputs/GeolocationInput/GeolocationInput.vue'
 import { GpsLocation } from '@/models/gpsLocation'
-import LeafletMap from '@/atoms/LeafletMap/LeafletMap.vue'
+import LeafletMap from '@/atoms/map/LeafletMap/LeafletMap.vue'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 describe('GeolocationInput', () => {
