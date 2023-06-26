@@ -1,5 +1,5 @@
 <template>
-  <div class="grid-stack" @change="onChange">
+  <div :class="[customGridStackClass || 'grid-stack']" @change="onChange">
     <BaseWidget
       v-for="widgetConfig in widgetConfigs"
       :key="widgetConfig.id"
@@ -15,6 +15,7 @@
 </template>
 
 <script lang="ts" setup>
+import 'gridstack/dist/gridstack.min.css'
 import { WidgetConfiguration } from '@/models/widgetConfiguration'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import { useGridStack } from '@/composables/useGridStack'
@@ -37,6 +38,10 @@ const props = defineProps<{
    * the components that are available for componentId resolution.
    */
   components: Map<string, WidgetComponentWrapper>
+  /**
+   * changes the custom gridStack class
+   */
+  customGridStackClass?: string
 }>()
 
 const emit = defineEmits<{

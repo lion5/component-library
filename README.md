@@ -4,16 +4,20 @@ This is the Lion5 Component Library. It includes all shared vue3 ui components.
 
 ## How To Use
 
-- First you need to add a `.npmrc` to your project root
-  - add the following line `@lion5:registry=https://npm.pkg.github.com` (this changes the registry to GitHub for all
-    packages under the `@lion5` namespace)
-- Install the package:
+1. First you need to add a `.npmrc` to your project root
+
+   - add the following line `@lion5:registry=https://npm.pkg.github.com` (this changes the registry to GitHub for all
+     packages under the `@lion5` namespace)
+
+2. Install the package:
 
 ```shell
 npm install @lion5/component-library
 pnpm add "@lion5/component-library"
 yarn add @lion5/component-library
 ```
+
+3. Check out our [Storybook](https://lion5.github.io/component-library/)! This is the main reference to all components.
 
 ## How To Develop
 
