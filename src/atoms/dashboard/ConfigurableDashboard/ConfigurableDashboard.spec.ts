@@ -17,7 +17,7 @@ describe('ConfigurableDashboard.vue', () => {
     wrapper = mount(ConfigurableDashboard, {
       attachTo: 'body',
       props: {
-        components: new Map(),
+        availableWidgets: new Map(),
         dashboardConfig: []
       }
     })
@@ -26,7 +26,7 @@ describe('ConfigurableDashboard.vue', () => {
   describe(':props', () => {
     it('components - is applied to DynamicGrid', async () => {
       const expectedComponents = new Map([['key', TEMPLATE_WIDGET_WRAPPER]])
-      await wrapper.setProps({ components: expectedComponents })
+      await wrapper.setProps({ availableWidgets: expectedComponents })
       expect(wrapper.findComponent(DynamicGrid).vm.components).toStrictEqual(
         expectedComponents
       )

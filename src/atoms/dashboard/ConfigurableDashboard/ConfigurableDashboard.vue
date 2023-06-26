@@ -8,7 +8,7 @@
       @add-widget="onAddWidget"
     />
     <DynamicGrid
-      :components="components"
+      :components="availableWidgets"
       v-model:widget-configs="currentConfig"
       :edit-mode="editMode"
     />
@@ -24,10 +24,6 @@ import DashboardBar from '@/atoms/dashboard/DashboardBar/DashboardBar.vue'
 import DynamicGrid from '@/atoms/dashboard/DynamicGrid/DynamicGrid.vue'
 
 const props = defineProps<{
-  /**
-   * components map (see {@link availableWidgets}) that is used to resolve the dashboardConfig component ids (See {@link dashboardConfig}).
-   */
-  components: Map<string, WidgetComponentWrapper>
   /**
    * Configurations of the dashboardConfig that are displayed in the dashboard.
    * The {@link components} map need to include all component ids that are used in the dashboardConfig array

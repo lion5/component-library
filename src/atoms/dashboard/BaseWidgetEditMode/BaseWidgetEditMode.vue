@@ -85,12 +85,13 @@ const onUpdateSettings = (settings: WidgetSettings) => {
 
 <style lang="scss" scoped>
 .edit-content {
-  padding: var(--space-sm);
   height: 100%;
   cursor: move;
 
   .widget-name {
     justify-self: start;
+    padding: var(--space-sm);
+    margin: 0;
     font-size: var(--font-size-4);
   }
 
@@ -100,6 +101,7 @@ const onUpdateSettings = (settings: WidgetSettings) => {
   }
 
   .settings {
+    padding: var(--space-sm);
     place-self: start end;
     margin-inline-end: -8px;
   }
