@@ -1,3 +1,3 @@
-export * from '@/composables'
-export * from '@/components'
-export * from '@/models'
+export * from '@leaflet/composables'
+export * from '@leaflet/components'
+export * from '@leaflet/models'

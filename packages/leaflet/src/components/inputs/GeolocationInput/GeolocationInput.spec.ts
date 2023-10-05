@@ -1,9 +1,9 @@
 import type { MarkerOptions } from 'leaflet'
 import { Marker } from 'leaflet'
 import { flushPromises, mount } from '@vue/test-utils'
-import GeolocationInput from '@/components/inputs/GeolocationInput/GeolocationInput.vue'
+import GeolocationInput from '@leaflet/components/inputs/GeolocationInput/GeolocationInput.vue'
 import { GpsLocation } from '@lion5/component-library'
-import LeafletMap from '@/components/LeafletMap/LeafletMap.vue'
+import LeafletMap from '@leaflet/components/LeafletMap/LeafletMap.vue'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 describe('GeolocationInput', () => {

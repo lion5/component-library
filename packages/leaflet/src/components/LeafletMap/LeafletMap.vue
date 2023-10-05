@@ -4,7 +4,7 @@
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue'
-import { useLeafletMap } from '@/composables/useLeafletMap'
+import { useLeafletMap } from '@leaflet/composables/useLeafletMap'
 import type { Map } from 'leaflet'
 import { Control, LatLng } from 'leaflet'
 

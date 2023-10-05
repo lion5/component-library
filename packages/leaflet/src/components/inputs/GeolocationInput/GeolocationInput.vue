@@ -14,9 +14,9 @@
 <script lang="ts" setup>
 import type { DragEndEvent, Map, Marker } from 'leaflet'
 import { LatLng } from 'leaflet'
-import LeafletMap from '@/components/LeafletMap/LeafletMap.vue'
+import LeafletMap from '@leaflet/components/LeafletMap/LeafletMap.vue'
 import { GpsLocation } from '@lion5/component-library'
-import { useLeafletMarker } from '@/composables/useLeafletMarker'
+import { useLeafletMarker } from '@leaflet/composables/useLeafletMarker'
 import { computed, ref, watch } from 'vue'
 import { useField } from 'vee-validate'
 

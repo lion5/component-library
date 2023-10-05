@@ -1,3 +1,3 @@
-import GeolocationInput from '@/components/inputs/GeolocationInput/GeolocationInput.vue'
+import GeolocationInput from '@leaflet/components/inputs/GeolocationInput/GeolocationInput.vue'
 
 export { GeolocationInput }

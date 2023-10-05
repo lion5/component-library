@@ -1,7 +1,7 @@
-import { useShape } from '@/composables/useShape'
-import { useLeafletButtonControl } from '@/composables/useLeafletButtonControl'
-import { useLeafletMap } from '@/composables/useLeafletMap'
-import { useLeafletMarker } from '@/composables/useLeafletMarker'
+import { useShape } from '@leaflet/composables/useShape'
+import { useLeafletButtonControl } from '@leaflet/composables/useLeafletButtonControl'
+import { useLeafletMap } from '@leaflet/composables/useLeafletMap'
+import { useLeafletMarker } from '@leaflet/composables/useLeafletMarker'
 import { useGeoJSON } from '@/composables/useGeoJSON'
 
 export {

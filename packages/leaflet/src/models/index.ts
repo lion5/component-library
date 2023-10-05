@@ -1,5 +1,5 @@
-import type { GeoJsonConvertible } from '@/models/geoJsonConvertibleType'
-import { LocalResource, MarkerResource } from '@/models/localResource'
-import { ButtonControl } from '@/models/leafletButtonControl'
+import type { GeoJsonConvertible } from '@leaflet/models/geoJsonConvertibleType'
+import { LocalResource, MarkerResource } from '@leaflet/models/localResource'
+import { ButtonControl } from '@leaflet/models/leafletButtonControl'
 
 export { LocalResource, MarkerResource, ButtonControl, GeoJsonConvertible }

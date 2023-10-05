@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
-import LeafletMap from '@/components/LeafletMap/LeafletMap.vue'
+import LeafletMap from '@leaflet/components/LeafletMap/LeafletMap.vue'
 import { LatLng } from 'leaflet'
 
 describe('LeafletMap', () => {

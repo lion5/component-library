@@ -1,5 +1,5 @@
-import LeafletLayer from '@/components/LeafletLayer/LeafletLayer.vue'
-import LeafletMap from '@/components/LeafletMap/LeafletMap.vue'
+import LeafletLayer from '@leaflet/components/LeafletLayer/LeafletLayer.vue'
+import LeafletMap from '@leaflet/components/LeafletMap/LeafletMap.vue'
 
 export { LeafletMap, LeafletLayer }
 
