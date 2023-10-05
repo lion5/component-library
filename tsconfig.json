@@ -20,18 +20,15 @@
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"],
+      "@/*": ["src/*"]
     },
-    "types": [
-      "vite/client",
-      "dom-screen-wake-lock"
-    ]
+    "types": ["vite/client", "dom-screen-wake-lock"]
   },
   "exclude": [
     "node_modules",
     "dist",
     "src/**/*.stories.js",
-    "src/**/*.stories.ts",
+    "src/**/*.stories.ts"
   ],
   "include": [
     "src/**/*.js",
