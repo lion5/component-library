@@ -1,12 +1,13 @@
 {
   "name": "@lion5/component-library",
-  "version": "0.8.5",
+  "version": "0.8.6",
   "license": "MIT",
   "contributors": [
     "Michael Götz <michael.goetz@lion5.io> (https://github.com/michigg)",
     "Christopher Nagy <christopher.nagy@lion5.io> (https://github.com/nagychris)"
   ],
   "publishConfig": {
+    "access": "public",
     "registry": "https://registry.npmjs.org"
   },
   "repository": {
@@ -66,5 +67,6 @@
     "vite-plugin-dts": "^3.6.0",
     "vitest": "^0.34.6",
     "vue-tsc": "^1.8.15"
-  }
+  },
+  "gitHead": "4b5b01f298040c7d4206a67ab76b1b02fe7fe91e"
 }
