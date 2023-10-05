@@ -2,10 +2,10 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import {
   WidgetConfiguration,
   WidgetSetting
-} from '../models/widgetConfiguration'
-import DynamicGrid from './DynamicGrid.vue'
-import { TEMPLATE_WIDGET_WRAPPER } from '../widgets/TemplateWidget/config'
-import { GridWidget } from '../models/gridWidget'
+} from '@gridstack/models/widgetConfiguration'
+import DynamicGrid from '@gridstack/components/DynamicGrid/DynamicGrid.vue'
+import { TEMPLATE_WIDGET_WRAPPER } from '@gridstack/components/widgets/TemplateWidget/config'
+import { GridWidget } from '@gridstack/models/gridWidget'
 
 /**
  * This component is used to generate the widgets edit form dynamically based on a form schema.
@@ -23,8 +23,8 @@ export const ViewMode: Story = {
       return { args }
     },
     template: `
-      <div style="height: 60vh">
-      <DynamicGrid v-bind="args" />
+      <div style='height: 60vh'>
+        <DynamicGrid v-bind='args' />
       </div>`
   }),
   args: {

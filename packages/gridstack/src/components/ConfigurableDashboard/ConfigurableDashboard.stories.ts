@@ -2,14 +2,14 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import {
   WidgetConfiguration,
   WidgetSetting
-} from '../models/widgetConfiguration'
-import { TEMPLATE_WIDGET_WRAPPER } from '../widgets/TemplateWidget/config'
-import { GridWidget } from '../models/gridWidget'
-import ConfigurableDashboard from './ConfigurableDashboard.vue'
+} from '@gridstack/models/widgetConfiguration'
+import { TEMPLATE_WIDGET_WRAPPER } from '@gridstack/components/widgets/TemplateWidget/config'
+import { GridWidget } from '@gridstack/models/gridWidget'
+import ConfigurableDashboard from '@gridstack/components/ConfigurableDashboard/ConfigurableDashboard.vue'
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
-import { IFRAME_WIDGET_WRAPPER } from '../widgets/IFrameWidget/config'
-import { REFRESHABLE_IMAGE_WIDGET_WRAPPER } from '../widgets/RefreshableImageWidget/config'
+import { IFRAME_WIDGET_WRAPPER } from '@gridstack/components/widgets/IFrameWidget/config'
+import { REFRESHABLE_IMAGE_WIDGET_WRAPPER } from '@gridstack/components/widgets/RefreshableImageWidget/config'
 
 /**
  * This component is used to generate the widgets edit form dynamically based on a form schema.
@@ -33,8 +33,8 @@ export const Default: Story = {
       return { args, dashboardConfig, save }
     },
     template: `
-      <div style="height: 60vh">
-      <ConfigurableDashboard v-bind="args" v-model:dashboardConfig="dashboardConfig" @save="save" />
+      <div style='height: 60vh'>
+        <ConfigurableDashboard v-bind='args' v-model:dashboardConfig='dashboardConfig' @save='save' />
       </div>`
   }),
   args: {

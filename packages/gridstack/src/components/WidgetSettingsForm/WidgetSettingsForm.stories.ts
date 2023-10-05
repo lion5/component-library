@@ -1,12 +1,14 @@
 import { Meta, StoryObj } from '@storybook/vue3'
-import WidgetSettingsForm from './WidgetSettingsForm.vue'
-import { FormField, FormSchema } from '../models/formSchema'
-import BaseInputV2 from '../../inputs/BaseInputV2/BaseInputV2.vue'
+import WidgetSettingsForm from '@gridstack/components/WidgetSettingsForm/WidgetSettingsForm.vue'
+import { FormField, FormSchema } from '@gridstack/models/formSchema'
+import {
+  BaseInputV2,
+  BaseSelect,
+  NumberInput,
+  SelectOption
+} from '@lion5/component-library'
 import { number, string } from 'yup'
-import { SelectOption } from '../../../models'
-import BaseSelect from '../../inputs/BaseSelect/BaseSelect.vue'
-import NumberInput from '../../inputs/NumberInput/NumberInput.vue'
-import { WidgetSetting } from '../models/widgetConfiguration'
+import { WidgetSetting } from '@gridstack/models/widgetConfiguration'
 import { action } from '@storybook/addon-actions'
 
 /**
@@ -26,7 +28,7 @@ export const Empty: Story = {
       return { args, updateSettings }
     },
     template: `
-      <WidgetSettingsForm v-bind="args" @update:settings="updateSettings" />`
+      <WidgetSettingsForm v-bind='args' @update:settings='updateSettings' />`
   }),
   args: {
     settings: new Map(),

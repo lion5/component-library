@@ -1,4 +1,3 @@
-import { ActionButton } from '@'
 import IconWallet from '@core/icons/IconWallet.vue'
 import ApprovalModal from '@core/atoms/modals/ApprovalModal/ApprovalModal.vue'
 import IconTrash from '@core/icons/IconTrash.vue'
@@ -13,7 +12,6 @@ const Template = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   components: {
     ApprovalModal,
-    ActionButton,
     IconTrash
   },
   setup() {
@@ -22,14 +20,14 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <ApprovalModal
-        v-model:modal-displayed='args.modalDisplayed'
-        :title="args.title" 
-        @approve="onApprove"
+      v-model:modal-displayed='args.modalDisplayed'
+      :title='args.title'
+      @approve='onApprove'
     >
-      <template #trigger="{openModal}">
-        <ActionButton @click="openModal">
-          <IconTrash/>
-        </ActionButton>
+      <template #trigger='{openModal}'>
+        <button @click='openModal'>
+          <IconTrash />
+        </button>
       </template>
       <template #content>
         <p>Content here...</p>
