@@ -1,9 +1,9 @@
-import IFrameWidget from '@/components/widgets/IFrameWidget/IFrameWidget.vue'
-import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import IFrameWidget from '@gridstack/components/widgets/IFrameWidget/IFrameWidget.vue'
+import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
 import {
   IFrameSetting,
   IFrameSettingsFormSchema
-} from '@/components/widgets/IFrameWidget/settings'
+} from '@gridstack/components/widgets/IFrameWidget/settings'
 
 export const IFRAME_WIDGET_WRAPPER = new WidgetComponentWrapper(
   'Websiteintegration',

@@ -17,11 +17,11 @@
 
 <script lang="ts" setup>
 import { nextTick, ref } from 'vue'
-import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
-import { WidgetConfiguration } from '@/models/widgetConfiguration'
-import { GridWidget } from '@/models/gridWidget'
-import DashboardBar from '@/components/DashboardBar/DashboardBar.vue'
-import DynamicGrid from '@/components/DynamicGrid/DynamicGrid.vue'
+import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
+import { WidgetConfiguration } from '@gridstack/models/widgetConfiguration'
+import { GridWidget } from '@gridstack/models/gridWidget'
+import DashboardBar from '@gridstack/components/DashboardBar/DashboardBar.vue'
+import DynamicGrid from '@gridstack/components/DynamicGrid/DynamicGrid.vue'
 
 const props = defineProps<{
   /**

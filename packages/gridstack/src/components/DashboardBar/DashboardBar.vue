@@ -18,9 +18,9 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import AddWidgetButton from '@/components/AddWidgetButton/AddWidgetButton.vue'
-import EditButton from '@/components/EditButton/EditButton.vue'
-import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import AddWidgetButton from '@gridstack/components/AddWidgetButton/AddWidgetButton.vue'
+import EditButton from '@gridstack/components/EditButton/EditButton.vue'
+import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
 
 const props = defineProps<{
   /**

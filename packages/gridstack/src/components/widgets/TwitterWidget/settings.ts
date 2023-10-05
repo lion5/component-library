@@ -1,5 +1,5 @@
 import { string } from 'yup'
-import { FormField } from '@/models/formSchema'
+import { FormField } from '@gridstack/models/formSchema'
 import { BaseInputV2 } from '@lion5/component-library'
 
 export enum TwitterWidgetSetting {

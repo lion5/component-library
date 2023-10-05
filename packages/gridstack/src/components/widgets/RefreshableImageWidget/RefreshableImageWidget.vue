@@ -7,9 +7,9 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { computed, ref, watch } from 'vue'
-import { WidgetSettings } from '@/models/widgetConfiguration'
-import { useWidget } from '@/composables/useWidget'
-import { RefreshableImageSetting } from '@/components/widgets/RefreshableImageWidget/settings'
+import { WidgetSettings } from '@gridstack/models/widgetConfiguration'
+import { useWidget } from '@gridstack/composables/useWidget'
+import { RefreshableImageSetting } from '@gridstack/components/widgets/RefreshableImageWidget/settings'
 import { useInterval } from '@lion5/component-library'
 
 const props = defineProps<{

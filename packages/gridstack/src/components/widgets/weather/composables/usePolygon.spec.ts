@@ -1,6 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon'
-import { usePolygon } from '@/components/widgets/weather/composables/usePolygon'
+import { usePolygon } from '@gridstack/components/widgets/weather/composables/usePolygon'
 import { GpsLocation } from '@lion5/component-library'
 
 vi.mock('@turf/boolean-point-in-polygon', () => ({

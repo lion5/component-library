@@ -4,8 +4,8 @@ import { GpsLocation, useFetchState } from '@lion5/component-library'
 import {
   BrightSkyForecastWeather,
   BrightSkyForecastWeatherItem
-} from '@/components/widgets/weather/models/brightSkyForecastWeather'
-import { AggregatedWeather } from '@/components/widgets/weather/models/aggregatedWeather'
+} from '@gridstack/components/widgets/weather/models/brightSkyForecastWeather'
+import { AggregatedWeather } from '@gridstack/components/widgets/weather/models/aggregatedWeather'
 
 export function useBrightSkyWeatherForecast() {
   const { busy, error, setBusy, setIdle, setError, clearError } =

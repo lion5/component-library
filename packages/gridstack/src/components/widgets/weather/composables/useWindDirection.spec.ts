@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { useWindDirection } from '@/components/widgets/weather/composables/useWindDirection'
+import { useWindDirection } from '@gridstack/components/widgets/weather/composables/useWindDirection'
 
 describe('useWindDirection.ts', () => {
   it.each([

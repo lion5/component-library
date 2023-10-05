@@ -1,8 +1,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { GpsLocation } from '@lion5/component-library'
-import { useBrightSkyWeatherForecast } from '@/components/widgets/weather/composables/useBrightSkyWeatherForecast'
-import { BrightSkyForecastWeather } from '@/components/widgets/weather/models/brightSkyForecastWeather'
-import { AggregatedWeather } from '@/components/widgets/weather/models/aggregatedWeather'
+import { useBrightSkyWeatherForecast } from '@gridstack/components/widgets/weather/composables/useBrightSkyWeatherForecast'
+import { BrightSkyForecastWeather } from '@gridstack/components/widgets/weather/models/brightSkyForecastWeather'
+import { AggregatedWeather } from '@gridstack/components/widgets/weather/models/aggregatedWeather'
 
 describe('useBrightSkyWeatherForecast.ts', () => {
   beforeEach(() => {

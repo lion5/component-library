@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
-import WidgetHeadline from '@/atoms/dashboard/WidgetHeadline/WidgetHeadline.vue'
+import WidgetHeadline from '@gridstack/atoms/dashboard/WidgetHeadline/WidgetHeadline.vue'
 
 describe('WidgetHeadline', () => {
   let wrapper

@@ -1,9 +1,9 @@
-import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
 import {
   TemplateWidgetSetting,
   TemplateWidgetSettingsFormSchema
-} from '@/components/widgets/TemplateWidget/settings'
-import TemplateWidget from '@/components/widgets/TemplateWidget/TemplateWidget.vue'
+} from '@gridstack/components/widgets/TemplateWidget/settings'
+import TemplateWidget from '@gridstack/components/widgets/TemplateWidget/TemplateWidget.vue'
 
 /**
  * This is the main configuration that need to be added to the {@link availableWidgets} map.

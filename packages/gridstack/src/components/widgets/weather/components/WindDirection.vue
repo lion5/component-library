@@ -5,8 +5,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { useWindDirection } from '@/components/widgets/weather/composables/useWindDirection'
-import WindDirectionIcon from '@/components/widgets/weather/components/WindDirectionIcon.vue'
+import { useWindDirection } from '@gridstack/components/widgets/weather/composables/useWindDirection'
+import WindDirectionIcon from '@gridstack/components/widgets/weather/components/WindDirectionIcon.vue'
 
 defineProps<{
   degree: number | null

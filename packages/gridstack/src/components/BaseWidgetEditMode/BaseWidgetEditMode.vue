@@ -44,9 +44,9 @@ import {
   IconThreeDotsMenu,
   LayoutStack
 } from '@lion5/component-library'
-import { WidgetSettings } from '@/models/widgetConfiguration'
-import { FormSchema } from '@/models/formSchema'
-import WidgetSettingsModal from '@/components/WidgetSettingsModal/WidgetSettingsModal.vue'
+import { WidgetSettings } from '@gridstack/models/widgetConfiguration'
+import { FormSchema } from '@gridstack/models/formSchema'
+import WidgetSettingsModal from '@gridstack/components/WidgetSettingsModal/WidgetSettingsModal.vue'
 
 defineProps<{
   /**

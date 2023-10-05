@@ -16,7 +16,7 @@
 </template>
 
 <script lang="ts" setup>
-import type { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import type { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
 
 defineProps<{
   /**

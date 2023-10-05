@@ -39,16 +39,16 @@ import {
   useInterval,
   useNumber
 } from '@lion5/component-library'
-import { WeatherSetting } from '@/components/widgets/weather/widgets/WeatherWidget/settings'
-import { useBrightSkyWeatherIcon } from '@/components/widgets/weather/composables/useBrightSkyWeatherIcon'
-import { useBrightSkyWeather } from '@/components/widgets/weather/composables/useBrightSkyWeather'
-import WidgetWrapper from '@/components/WidgetWrapper/WidgetWrapper.vue'
-import WidgetHeadline from '@/components/WidgetHeadline/WidgetHeadline.vue'
-import WeatherIcon from '@/components/widgets/weather/components/WeatherIcon.vue'
-import WindDirection from '@/components/widgets/weather/components/WindDirection.vue'
-import BrightSkySources from '@/components/widgets/weather/components/BrightSkySources.vue'
-import { WidgetSettings } from '@/models/widgetConfiguration'
-import { useWidget } from '@/composables/useWidget'
+import { WeatherSetting } from '@gridstack/components/widgets/weather/widgets/WeatherWidget/settings'
+import { useBrightSkyWeatherIcon } from '@gridstack/components/widgets/weather/composables/useBrightSkyWeatherIcon'
+import { useBrightSkyWeather } from '@gridstack/components/widgets/weather/composables/useBrightSkyWeather'
+import WidgetWrapper from '@gridstack/components/WidgetWrapper/WidgetWrapper.vue'
+import WidgetHeadline from '@gridstack/components/WidgetHeadline/WidgetHeadline.vue'
+import WeatherIcon from '@gridstack/components/widgets/weather/components/WeatherIcon.vue'
+import WindDirection from '@gridstack/components/widgets/weather/components/WindDirection.vue'
+import BrightSkySources from '@gridstack/components/widgets/weather/components/BrightSkySources.vue'
+import { WidgetSettings } from '@gridstack/models/widgetConfiguration'
+import { useWidget } from '@gridstack/composables/useWidget'
 
 const props = defineProps<{
   settings: WidgetSettings

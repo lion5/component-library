@@ -19,16 +19,16 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
-import { WeatherForecastSetting } from '@/components/widgets/weather/widgets/WeatherForcastWidget/settings'
+import { WeatherForecastSetting } from '@gridstack/components/widgets/weather/widgets/WeatherForcastWidget/settings'
 import { NamedLocation, useInterval } from '@lion5/component-library'
-import { useBrightSkyWeatherForecast } from '@/components/widgets/weather/composables/useBrightSkyWeatherForecast'
-import WidgetWrapper from '@/components/WidgetWrapper/WidgetWrapper.vue'
-import WidgetHeadline from '@/components/WidgetHeadline/WidgetHeadline.vue'
-import HourlyForecast from '@/components/widgets/weather/components/HourlyForecast.vue'
-import SevenDayForecast from '@/components/widgets/weather/components/SevenDayForecast.vue'
-import BrightSkySources from '@/components/widgets/weather/components/BrightSkySources.vue'
-import { WidgetSettings } from '@/models/widgetConfiguration'
-import { useWidget } from '@/composables/useWidget'
+import { useBrightSkyWeatherForecast } from '@gridstack/components/widgets/weather/composables/useBrightSkyWeatherForecast'
+import WidgetWrapper from '@gridstack/components/WidgetWrapper/WidgetWrapper.vue'
+import WidgetHeadline from '@gridstack/components/WidgetHeadline/WidgetHeadline.vue'
+import HourlyForecast from '@gridstack/components/widgets/weather/components/HourlyForecast.vue'
+import SevenDayForecast from '@gridstack/components/widgets/weather/components/SevenDayForecast.vue'
+import BrightSkySources from '@gridstack/components/widgets/weather/components/BrightSkySources.vue'
+import { WidgetSettings } from '@gridstack/models/widgetConfiguration'
+import { useWidget } from '@gridstack/composables/useWidget'
 
 const props = defineProps<{
   settings: WidgetSettings

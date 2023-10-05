@@ -32,14 +32,14 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
 import {
   WidgetConfiguration,
   WidgetSettings
-} from '@/models/widgetConfiguration'
-import NotFoundWidget from '@/components/widgets/NotFoundWidget/NotFoundWidget.vue'
-import { FormSchema } from '@/models/formSchema'
-import BaseWidgetEditMode from '@/components/BaseWidgetEditMode/BaseWidgetEditMode.vue'
+} from '@gridstack/models/widgetConfiguration'
+import NotFoundWidget from '@gridstack/components/widgets/NotFoundWidget/NotFoundWidget.vue'
+import { FormSchema } from '@gridstack/models/formSchema'
+import BaseWidgetEditMode from '@gridstack/components/BaseWidgetEditMode/BaseWidgetEditMode.vue'
 
 const props = defineProps<{
   /**

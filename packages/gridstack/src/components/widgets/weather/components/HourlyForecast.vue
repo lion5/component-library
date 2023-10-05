@@ -13,11 +13,11 @@
 </template>
 
 <script lang="ts" setup>
-import { BrightSkyForecastWeatherItem } from '@/components/widgets/weather/models/brightSkyForecastWeather'
+import { BrightSkyForecastWeatherItem } from '@gridstack/components/widgets/weather/models/brightSkyForecastWeather'
 import { useDate, useNumber } from '@lion5/component-library'
-import { useBrightSkyWeatherIcon } from '@/components/widgets/weather/composables/useBrightSkyWeatherIcon'
-import WeatherIcon from '@/components/widgets/weather/components/WeatherIcon.vue'
-import WindDirection from '@/components/widgets/weather/components/WindDirection.vue'
+import { useBrightSkyWeatherIcon } from '@gridstack/components/widgets/weather/composables/useBrightSkyWeatherIcon'
+import WeatherIcon from '@gridstack/components/widgets/weather/components/WeatherIcon.vue'
+import WindDirection from '@gridstack/components/widgets/weather/components/WindDirection.vue'
 
 defineProps<{
   forecasts: BrightSkyForecastWeatherItem[]

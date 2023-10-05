@@ -6,11 +6,11 @@
 </template>
 
 <script lang="ts" setup>
-import type { WidgetSettings } from '@/models/widgetConfiguration'
-import { useWidget } from '@/composables/useWidget'
-import { TemplateWidgetSetting } from '@/components/widgets/TemplateWidget/settings'
+import type { WidgetSettings } from '@gridstack/models/widgetConfiguration'
+import { useWidget } from '@gridstack/composables/useWidget'
+import { TemplateWidgetSetting } from '@gridstack/components/widgets/TemplateWidget/settings'
 import type { ComputedRef } from 'vue'
-import WidgetWrapper from '@/components/WidgetWrapper/WidgetWrapper.vue'
+import WidgetWrapper from '@gridstack/components/WidgetWrapper/WidgetWrapper.vue'
 
 /**
  * This is a Widget Template. You can copy this template and start to implement your own widget.

@@ -1,4 +1,4 @@
-import { WidgetSettings } from '@/models/widgetConfiguration'
+import { WidgetSettings } from '@gridstack/models/widgetConfiguration'
 
 export interface WidgetProps {
   settings: WidgetSettings

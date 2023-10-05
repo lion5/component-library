@@ -4,11 +4,11 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { computed } from 'vue'
-import { TwitterWidgetSetting } from '@/components/widgets/TwitterWidget/settings'
-import { IFrameSetting } from '@/components/widgets/IFrameWidget/settings'
-import IFrameWidget from '@/components/widgets/IFrameWidget/IFrameWidget.vue'
-import { WidgetSettings } from '@/models/widgetConfiguration'
-import { useWidget } from '@/composables/useWidget'
+import { TwitterWidgetSetting } from '@gridstack/components/widgets/TwitterWidget/settings'
+import { IFrameSetting } from '@gridstack/components/widgets/IFrameWidget/settings'
+import IFrameWidget from '@gridstack/components/widgets/IFrameWidget/IFrameWidget.vue'
+import { WidgetSettings } from '@gridstack/models/widgetConfiguration'
+import { useWidget } from '@gridstack/composables/useWidget'
 
 const props = defineProps<{
   settings: WidgetSettings

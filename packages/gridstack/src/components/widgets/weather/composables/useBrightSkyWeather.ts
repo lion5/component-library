@@ -1,5 +1,5 @@
 import { ref } from 'vue'
-import { BrightSkyCurrentWeather } from '@/components/widgets/weather/models/brightSkyCurrentWeather'
+import { BrightSkyCurrentWeather } from '@gridstack/components/widgets/weather/models/brightSkyCurrentWeather'
 import { GpsLocation, useFetchState } from '@lion5/component-library'
 
 export function useBrightSkyWeather() {

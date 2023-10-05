@@ -16,10 +16,10 @@
 
 <script lang="ts" setup>
 import 'gridstack/dist/gridstack.min.css'
-import { WidgetConfiguration } from '@/models/widgetConfiguration'
-import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
-import { useGridStack } from '@/composables/useGridStack'
-import BaseWidget from '@/components/BaseWidget/BaseWidget.vue'
+import { WidgetConfiguration } from '@gridstack/models/widgetConfiguration'
+import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
+import { useGridStack } from '@gridstack/composables/useGridStack'
+import BaseWidget from '@gridstack/components/BaseWidget/BaseWidget.vue'
 
 /**
  * this component wraps the [gridstack.js]{@link https://gridstackjs.com/} lib functions and integrate its functionality into the vue framework.

@@ -7,9 +7,9 @@ import {
   CheckboxInput,
   DismissibleModal
 } from '@lion5/component-library'
-import { FormField, FormSchema } from '@/models/formSchema'
-import WidgetSettingsModal from '@/components/WidgetSettingsModal/WidgetSettingsModal.vue'
-import WidgetSettingsForm from '@/components/WidgetSettingsForm/WidgetSettingsForm.vue'
+import { FormField, FormSchema } from '@gridstack/models/formSchema'
+import WidgetSettingsModal from '@gridstack/components/WidgetSettingsModal/WidgetSettingsModal.vue'
+import WidgetSettingsForm from '@gridstack/components/WidgetSettingsForm/WidgetSettingsForm.vue'
 
 describe('WidgetSettingsModal.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
