@@ -24,8 +24,8 @@ const config: StorybookConfig = {
     },
     {
       titlePrefix: '',
-      directory: './src',
-      files: '../packages/**/*.mdx'
+      directory: '../src',
+      files: '**/*.mdx'
     }
   ],
   addons: [
