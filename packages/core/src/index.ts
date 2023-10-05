@@ -1,4 +1,4 @@
-import '@/assets/style/main.scss'
+import '@core/assets/style/main.scss'
 
 export * from './inputs'
 export * from './atoms'

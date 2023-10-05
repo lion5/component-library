@@ -1,12 +1,12 @@
 import {
   PermissionState,
   useBrowserPermissions
-} from '@/composables/useBrowserPermissions'
-import { useDate } from '@/composables/useDate'
-import { useFetchState } from '@/composables/useFetchState'
-import { useInterval } from '@/composables/useInterval'
-import { useNominatim } from '@/composables/useNominatim'
-import { useNumber } from '@/composables/useNumber'
+} from '@core/composables/useBrowserPermissions'
+import { useDate } from '@core/composables/useDate'
+import { useFetchState } from '@core/composables/useFetchState'
+import { useInterval } from '@core/composables/useInterval'
+import { useNominatim } from '@core/composables/useNominatim'
+import { useNumber } from '@core/composables/useNumber'
 
 export {
   useBrowserPermissions,

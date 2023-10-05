@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
-import IconArrowRepeat from '@/icons/IconArrowRepeat.vue'
-import IconButton from '@/atoms/buttons/IconButton/IconButton.vue'
+import IconArrowRepeat from '@core/icons/IconArrowRepeat.vue'
+import IconButton from '@core/atoms/buttons/IconButton/IconButton.vue'
 import { userEvent, within } from '@storybook/testing-library'
 
 export default {

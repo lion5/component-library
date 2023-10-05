@@ -1,4 +1,4 @@
-import BasePageLayout from '@/layouts/PageLayoutOneColumnV2/PageLayoutOneColumnV2.vue'
+import BasePageLayout from '@core/layouts/PageLayoutOneColumnV2/PageLayoutOneColumnV2.vue'
 
 export default {
   component: BasePageLayout

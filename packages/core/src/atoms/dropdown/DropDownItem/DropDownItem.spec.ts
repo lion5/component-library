@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import DropDownItem from '@/atoms/dropdown/DropDownItem/DropDownItem.vue'
+import DropDownItem from '@core/atoms/dropdown/DropDownItem/DropDownItem.vue'
 
 describe('DropDownItem.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

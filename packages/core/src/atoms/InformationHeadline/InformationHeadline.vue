@@ -8,7 +8,7 @@
 </template>
 
 <script lang="ts" setup>
-import InformationButton from '@/atoms/buttons/InformationButton/InformationButton.vue'
+import InformationButton from '@core/atoms/buttons/InformationButton/InformationButton.vue'
 
 defineProps<{
   /**

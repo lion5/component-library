@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import type { RuleExpression } from 'vee-validate'
 import { ErrorMessage, Field } from 'vee-validate'
-import BaseInputWrapper from '@/inputs/BaseInputWrapper/BaseInputWrapper.vue'
+import BaseInputWrapper from '@core/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 
 type InputValue = string | number | null
 

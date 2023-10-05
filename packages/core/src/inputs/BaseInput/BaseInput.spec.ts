@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import { defineRule } from 'vee-validate'
-import BaseInput from '@/inputs/BaseInput/BaseInput.vue'
+import BaseInput from '@core/inputs/BaseInput/BaseInput.vue'
 
 describe('BaseInput', () => {
   let wrapper: ReturnType<typeof mountComponent>

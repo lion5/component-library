@@ -14,7 +14,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import IconLoading from '@/icons/IconLoading.vue'
+import IconLoading from '@core/icons/IconLoading.vue'
+
 type AnimationType = 'grow' | 'hueRotate'
 
 withDefaults(

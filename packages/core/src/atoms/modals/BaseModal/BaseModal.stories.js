@@ -1,6 +1,6 @@
-import IconWallet from '@/icons/IconWallet.vue'
-import BaseModal from '@/atoms/modals/BaseModal/BaseModal.vue'
-import ActionButton from '@/atoms/buttons/ActionButton/ActionButton.vue'
+import IconWallet from '@core/icons/IconWallet.vue'
+import BaseModal from '@core/atoms/modals/BaseModal/BaseModal.vue'
+import ActionButton from '@core/atoms/buttons/ActionButton/ActionButton.vue'
 
 export default {
   components: { IconWallet },

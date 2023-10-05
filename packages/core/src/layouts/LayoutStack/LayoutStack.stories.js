@@ -1,4 +1,4 @@
-import LayoutStack from '@/layouts/LayoutStack/LayoutStack.vue'
+import LayoutStack from '@core/layouts/LayoutStack/LayoutStack.vue'
 
 export default {
   component: LayoutStack
@@ -10,8 +10,8 @@ const Template = (args, { argTypes }) => ({
   template: `
     <LayoutStack>
       <template v-if="${'default' in args}" v-slot:default>${
-    args.default
-  }</template>
+        args.default
+      }</template>
     </LayoutStack>`
 })
 

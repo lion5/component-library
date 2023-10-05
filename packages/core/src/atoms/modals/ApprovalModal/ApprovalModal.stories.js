@@ -1,7 +1,7 @@
 import { ActionButton } from '@'
-import IconWallet from '@/icons/IconWallet.vue'
-import ApprovalModal from '@/atoms/modals/ApprovalModal/ApprovalModal.vue'
-import IconTrash from '@/icons/IconTrash.vue'
+import IconWallet from '@core/icons/IconWallet.vue'
+import ApprovalModal from '@core/atoms/modals/ApprovalModal/ApprovalModal.vue'
+import IconTrash from '@core/icons/IconTrash.vue'
 import { action } from '@storybook/addon-actions'
 
 export default {

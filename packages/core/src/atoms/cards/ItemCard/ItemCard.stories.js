@@ -1,4 +1,4 @@
-import ItemCard from '@/atoms/cards/ItemCard/ItemCard.vue'
+import ItemCard from '@core/atoms/cards/ItemCard/ItemCard.vue'
 
 export default {
   component: ItemCard

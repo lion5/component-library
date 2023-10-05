@@ -20,7 +20,7 @@
 
 <script lang="ts">
 import { defineComponent } from 'vue'
-import PortalEntityWrapper from '@/atoms/EntityWrapper/EntityWrapper.vue'
+import PortalEntityWrapper from '@core/atoms/EntityWrapper/EntityWrapper.vue'
 
 export default defineComponent({
   components: {

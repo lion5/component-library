@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import InformationButton from '@/atoms/buttons/InformationButton/InformationButton.vue'
+import InformationButton from '@core/atoms/buttons/InformationButton/InformationButton.vue'
 
 defineOptions({ inheritAttrs: false })
 
@@ -77,6 +77,7 @@ const emitValue = (e: Event) => {
     font-size: var(--font-size-2);
     color: var(--color-neutral-600);
   }
+
   :slotted(:deep(.information-modal)) {
     h2 {
       font-size: var(--font-size-3);

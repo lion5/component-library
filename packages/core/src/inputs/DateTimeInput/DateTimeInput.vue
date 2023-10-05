@@ -6,9 +6,9 @@
 
 <script setup lang="ts">
 import { computed } from 'vue'
-import { useDate } from '@/composables/useDate'
-import IconCalendar from '@/icons/IconCalendar.vue'
-import BaseInput from '@/inputs/BaseInput/BaseInput.vue'
+import { useDate } from '@core/composables/useDate'
+import IconCalendar from '@core/icons/IconCalendar.vue'
+import BaseInput from '@core/inputs/BaseInput/BaseInput.vue'
 
 const props = withDefaults(
   defineProps<{

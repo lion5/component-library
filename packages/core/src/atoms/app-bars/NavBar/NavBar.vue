@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import type { NavItem } from '@/atoms/app-bars/NavBar/navItem'
+import type { NavItem } from '@core/atoms/app-bars/NavBar/navItem'
 
 defineProps<{
   navItems: NavItem[]

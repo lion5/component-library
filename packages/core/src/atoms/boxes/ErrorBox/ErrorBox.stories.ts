@@ -1,4 +1,4 @@
-import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
+import ErrorBox from '@core/atoms/boxes/ErrorBox/ErrorBox.vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
 export default {

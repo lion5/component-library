@@ -1,4 +1,4 @@
-import MessageBox from '@/atoms/boxes/MessageBox/MessageBox.vue'
+import MessageBox from '@core/atoms/boxes/MessageBox/MessageBox.vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
 export default {

@@ -14,7 +14,7 @@
  * This is a card dismiss button to close or delete a card. It places automatically to the upper right corner when it is placed inside a grid container.
  */
 import { defineComponent } from 'vue'
-import IconX from '@/icons/IconX.vue'
+import IconX from '@core/icons/IconX.vue'
 
 export default defineComponent({
   name: 'CardDismissButton',

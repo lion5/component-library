@@ -13,8 +13,8 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import IconButton from '@/atoms/buttons/IconButton/IconButton.vue'
-import IconThreeDotsMenu from '@/icons/IconThreeDotsMenu.vue'
+import IconButton from '@core/atoms/buttons/IconButton/IconButton.vue'
+import IconThreeDotsMenu from '@core/icons/IconThreeDotsMenu.vue'
 
 const triggerButton = ref()
 const onClick = () => {

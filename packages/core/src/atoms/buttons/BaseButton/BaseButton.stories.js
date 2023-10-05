@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
-import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
-import IconQRCode from '@/icons/IconQRCode.vue'
+import BaseButton from '@core/atoms/buttons/BaseButton/BaseButton.vue'
+import IconQRCode from '@core/icons/IconQRCode.vue'
 
 export default {
   components: { IconQRCode },

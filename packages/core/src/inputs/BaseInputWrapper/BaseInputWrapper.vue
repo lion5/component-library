@@ -130,5 +130,5 @@
 }
 </style>
 <script lang="ts" setup>
-import IconError from '@/icons/IconError.vue'
+import IconError from '@core/icons/IconError.vue'
 </script>

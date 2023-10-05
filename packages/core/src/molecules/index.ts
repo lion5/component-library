@@ -1,3 +1,3 @@
-import LoginForm from '@/molecules/LoginForm/LoginForm.vue'
+import LoginForm from '@core/molecules/LoginForm/LoginForm.vue'
 
 export { LoginForm }

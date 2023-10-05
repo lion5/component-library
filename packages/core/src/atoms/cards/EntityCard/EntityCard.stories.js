@@ -1,4 +1,4 @@
-import EntityCard from '@/atoms/cards/EntityCard/EntityCard.vue'
+import EntityCard from '@core/atoms/cards/EntityCard/EntityCard.vue'
 
 export default {
   component: EntityCard

@@ -2,8 +2,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import { useForm } from 'vee-validate'
 import LoginForm from './LoginForm.vue'
-import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
-import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
+import BaseButton from '@core/atoms/buttons/BaseButton/BaseButton.vue'
+import ErrorBox from '@core/atoms/boxes/ErrorBox/ErrorBox.vue'
 
 vi.mock('vee-validate', async () => {
   const actual = (await vi.importActual('vee-validate')) as object

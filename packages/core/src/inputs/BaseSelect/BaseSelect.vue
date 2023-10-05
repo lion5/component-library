@@ -22,8 +22,8 @@
 import type { RuleExpression } from 'vee-validate'
 import { useField } from 'vee-validate'
 import { toRef } from 'vue'
-import BaseInputWrapper from '@/inputs/BaseInputWrapper/BaseInputWrapper.vue'
-import { SelectOption } from '@/inputs/BaseSelect/selectOption'
+import BaseInputWrapper from '@core/inputs/BaseInputWrapper/BaseInputWrapper.vue'
+import { SelectOption } from '@core/inputs/BaseSelect/selectOption'
 
 type InputValue = string | number | null
 

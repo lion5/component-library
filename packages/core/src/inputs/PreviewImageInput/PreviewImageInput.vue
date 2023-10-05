@@ -14,8 +14,8 @@
 <script setup lang="ts">
 import { computed, toRef, watch } from 'vue'
 import { useField } from 'vee-validate'
-import ImageInputWrapper from '@/inputs/ImpageInputWrapper/ImageInputWrapper.vue'
-import IconCamera from '@/icons/IconCamera.vue'
+import ImageInputWrapper from '@core/inputs/ImpageInputWrapper/ImageInputWrapper.vue'
+import IconCamera from '@core/icons/IconCamera.vue'
 
 const props = defineProps<{
   name: string

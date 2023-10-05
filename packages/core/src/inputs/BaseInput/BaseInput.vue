@@ -20,7 +20,7 @@
 import type { RuleExpression } from 'vee-validate'
 import { useField } from 'vee-validate'
 import { computed, toRef } from 'vue'
-import BaseInputWrapper from '@/inputs/BaseInputWrapper/BaseInputWrapper.vue'
+import BaseInputWrapper from '@core/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 
 type InputValue = string | number | null
 

@@ -23,7 +23,7 @@
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": [
+      "@core/*": [
         "src/*"
       ]
     },

@@ -1,4 +1,4 @@
-import PageLayoutOneColumn from '@/layouts/PageLayoutOneColumn/PageLayoutOneColumn.vue'
+import PageLayoutOneColumn from '@core/layouts/PageLayoutOneColumn/PageLayoutOneColumn.vue'
 
 export default {
   component: PageLayoutOneColumn

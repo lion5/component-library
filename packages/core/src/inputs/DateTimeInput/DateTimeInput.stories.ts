@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
 import DateTimeInput from './DateTimeInput.vue'
-import { useDate } from '@/composables/useDate'
+import { useDate } from '@core/composables/useDate'
 
 export default {
   component: DateTimeInput

@@ -5,7 +5,7 @@
 </template>
 
 <script lang="ts" setup>
-import LayoutOneColumn from '@/layouts/LayoutOneColumn/LayoutOneColumn.vue'
+import LayoutOneColumn from '@core/layouts/LayoutOneColumn/LayoutOneColumn.vue'
 </script>
 
 <style lang="scss" scoped>

@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
-import InfoBox from '@/atoms/boxes/InfoBox/InfoBox.vue'
-import MessageBox from '@/atoms/boxes/MessageBox/MessageBox.vue'
-import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
+import InfoBox from '@core/atoms/boxes/InfoBox/InfoBox.vue'
+import MessageBox from '@core/atoms/boxes/MessageBox/MessageBox.vue'
+import ErrorBox from '@core/atoms/boxes/ErrorBox/ErrorBox.vue'
 
 describe('MessageBox', () => {
   let wrapper

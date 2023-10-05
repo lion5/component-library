@@ -4,7 +4,7 @@
   </div>
 </template>
 <style lang="scss" scoped>
-@use '@/assets/style/breakpoints.scss' as grid;
+@use '@core/assets/style/breakpoints.scss' as grid;
 
 .two-columns {
   display: grid;

@@ -12,9 +12,9 @@
 </template>
 <script setup lang="ts">
 import { useRouter } from 'vue-router'
-import IconArrowBack from '@/icons/IconArrowBack.vue'
-import IconButton from '@/atoms/buttons/IconButton/IconButton.vue'
-import TopBar from '@/atoms/app-bars/TopBar/TopBar.vue'
+import IconArrowBack from '@core/icons/IconArrowBack.vue'
+import IconButton from '@core/atoms/buttons/IconButton/IconButton.vue'
+import TopBar from '@core/atoms/app-bars/TopBar/TopBar.vue'
 
 defineProps<{
   title: string

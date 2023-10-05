@@ -8,9 +8,9 @@ import {
   vi
 } from 'vitest'
 import { mount } from '@vue/test-utils'
-import BaseModal from '@/atoms/modals/BaseModal/BaseModal.vue'
-import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
-import CardDismissButton from '@/atoms/buttons/CardDismissButton/CardDismissButton.vue'
+import BaseModal from '@core/atoms/modals/BaseModal/BaseModal.vue'
+import DismissibleModal from '@core/atoms/modals/DismissibleModal/DismissibleModal.vue'
+import CardDismissButton from '@core/atoms/buttons/CardDismissButton/CardDismissButton.vue'
 
 describe('DismissibleModal', () => {
   let wrapper

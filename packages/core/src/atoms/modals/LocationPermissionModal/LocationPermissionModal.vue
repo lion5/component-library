@@ -41,10 +41,10 @@
 </template>
 
 <script setup lang="ts">
-import BaseModal from '@/atoms/modals/BaseModal/BaseModal.vue'
-import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
-import IconGeolocation from '@/icons/IconGeolocation.vue'
-import IconWarning from '@/icons/IconWarning.vue'
+import BaseModal from '@core/atoms/modals/BaseModal/BaseModal.vue'
+import BaseButton from '@core/atoms/buttons/BaseButton/BaseButton.vue'
+import IconGeolocation from '@core/icons/IconGeolocation.vue'
+import IconWarning from '@core/icons/IconWarning.vue'
 
 withDefaults(
   defineProps<{

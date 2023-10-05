@@ -19,8 +19,8 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
-import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
+import DismissibleModal from '@core/atoms/modals/DismissibleModal/DismissibleModal.vue'
+import BaseButton from '@core/atoms/buttons/BaseButton/BaseButton.vue'
 
 const props = withDefaults(
   defineProps<{

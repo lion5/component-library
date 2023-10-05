@@ -4,8 +4,8 @@
 </template>
 
 <script lang="ts" setup>
-import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
-import InfoBox from '@/atoms/boxes/InfoBox/InfoBox.vue'
+import ErrorBox from '@core/atoms/boxes/ErrorBox/ErrorBox.vue'
+import InfoBox from '@core/atoms/boxes/InfoBox/InfoBox.vue'
 import { computed } from 'vue'
 
 const props = defineProps<{

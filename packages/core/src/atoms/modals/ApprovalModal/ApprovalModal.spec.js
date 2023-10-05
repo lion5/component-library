@@ -8,9 +8,9 @@ import {
   vi
 } from 'vitest'
 import { mount } from '@vue/test-utils'
-import ApprovalModal from '@/atoms/modals/ApprovalModal/ApprovalModal.vue'
-import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
-import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
+import ApprovalModal from '@core/atoms/modals/ApprovalModal/ApprovalModal.vue'
+import BaseButton from '@core/atoms/buttons/BaseButton/BaseButton.vue'
+import DismissibleModal from '@core/atoms/modals/DismissibleModal/DismissibleModal.vue'
 
 describe('ApprovalModal', () => {
   let wrapper

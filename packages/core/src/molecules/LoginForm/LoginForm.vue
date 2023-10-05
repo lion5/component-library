@@ -33,10 +33,10 @@
 <script setup lang="ts">
 import { ref, toRef } from 'vue'
 import { useForm } from 'vee-validate'
-import BaseButton from '@/atoms/buttons/BaseButton/BaseButton.vue'
-import BaseInput from '@/inputs/BaseInput/BaseInput.vue'
+import BaseButton from '@core/atoms/buttons/BaseButton/BaseButton.vue'
+import BaseInput from '@core/inputs/BaseInput/BaseInput.vue'
 import { object, string } from 'yup'
-import MessageBox from '@/atoms/boxes/MessageBox/MessageBox.vue'
+import MessageBox from '@core/atoms/boxes/MessageBox/MessageBox.vue'
 
 interface LoginForm {
   email: string

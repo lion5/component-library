@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import IconButton from '@/atoms/buttons/IconButton/IconButton.vue'
+import IconButton from '@core/atoms/buttons/IconButton/IconButton.vue'
 
 withDefaults(defineProps<{ busy?: boolean; disabled?: boolean }>(), {
   busy: false,

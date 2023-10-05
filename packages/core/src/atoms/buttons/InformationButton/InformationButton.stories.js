@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import InformationButton from '@/atoms/buttons/InformationButton/InformationButton.vue'
+import InformationButton from '@core/atoms/buttons/InformationButton/InformationButton.vue'
 
 export default {
   component: InformationButton

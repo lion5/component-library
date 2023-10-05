@@ -8,7 +8,7 @@ import {
   it,
   vi
 } from 'vitest'
-import BaseModal from '@/atoms/modals/BaseModal/BaseModal.vue'
+import BaseModal from '@core/atoms/modals/BaseModal/BaseModal.vue'
 
 describe('BaseModal', () => {
   let wrapper

@@ -31,7 +31,7 @@
 <script setup lang="ts" generic="LabelType">
 import Multiselect from 'vue-multiselect'
 import { computed, onMounted, ref } from 'vue'
-import { SelectOption } from '@/inputs/BaseSelect/selectOption'
+import { SelectOption } from '@core/inputs/BaseSelect/selectOption'
 
 const PLACEHOLDER_SUFFIX = 'wählen'
 
@@ -116,7 +116,7 @@ const emitKey = (selectedOption: SelectOption<LabelType>) => {
 @import 'vue-multiselect/dist/vue-multiselect.css';
 </style>
 <style lang="scss" scoped>
-@import '@/assets/style/floating_labels';
+@import '@core/assets/style/floating_labels';
 
 .error {
   color: var(--color-danger);

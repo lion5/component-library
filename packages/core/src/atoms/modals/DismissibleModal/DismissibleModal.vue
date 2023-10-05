@@ -12,8 +12,8 @@
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue'
-import BaseModal from '@/atoms/modals/BaseModal/BaseModal.vue'
-import CardDismissButton from '@/atoms/buttons/CardDismissButton/CardDismissButton.vue'
+import BaseModal from '@core/atoms/modals/BaseModal/BaseModal.vue'
+import CardDismissButton from '@core/atoms/buttons/CardDismissButton/CardDismissButton.vue'
 
 const props = withDefaults(
   defineProps<{

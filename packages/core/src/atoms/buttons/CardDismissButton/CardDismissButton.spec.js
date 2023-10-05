@@ -1,6 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
-import CardDismissButton from '@/atoms/buttons/CardDismissButton/CardDismissButton.vue'
+import CardDismissButton from '@core/atoms/buttons/CardDismissButton/CardDismissButton.vue'
 
 describe('CardDismissButton', () => {
   let wrapper

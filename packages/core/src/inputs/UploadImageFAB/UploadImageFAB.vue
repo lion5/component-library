@@ -12,8 +12,8 @@
 </template>
 <script setup lang="ts">
 import { ref } from 'vue'
-import IconCamera from '@/icons/IconCamera.vue'
-import ImageInputWrapper from '@/inputs/ImpageInputWrapper/ImageInputWrapper.vue'
+import IconCamera from '@core/icons/IconCamera.vue'
+import ImageInputWrapper from '@core/inputs/ImpageInputWrapper/ImageInputWrapper.vue'
 
 defineProps<{ name: string }>()
 

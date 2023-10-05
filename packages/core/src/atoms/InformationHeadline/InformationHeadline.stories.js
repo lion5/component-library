@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions'
-import InformationHeadline from '@/atoms/InformationHeadline/InformationHeadline.vue'
+import InformationHeadline from '@core/atoms/InformationHeadline/InformationHeadline.vue'
 
 export default {
   component: InformationHeadline

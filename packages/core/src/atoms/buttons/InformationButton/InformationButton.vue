@@ -14,9 +14,9 @@
 
 <script lang="ts" setup>
 import { ref } from 'vue'
-import IconButton from '@/atoms/buttons/IconButton/IconButton.vue'
-import IconInfoCircle from '@/icons/IconInfoCircle.vue'
-import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
+import IconButton from '@core/atoms/buttons/IconButton/IconButton.vue'
+import IconInfoCircle from '@core/icons/IconInfoCircle.vue'
+import DismissibleModal from '@core/atoms/modals/DismissibleModal/DismissibleModal.vue'
 
 /**
  Additional information that are relevant for the first use but bloat the UI for advance users can be hidden behind a information button.

@@ -2,10 +2,10 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { ErrorMessage, useField } from 'vee-validate'
-import * as useNominatimExports from '@/composables/useNominatim'
+import * as useNominatimExports from '@core/composables/useNominatim'
 import LocationCoordinateSelect from './LocationCoordinateSelect.vue'
-import { NamedLocation } from '@/models/namedLocation'
-import { GpsLocation } from '@/models/gpsLocation'
+import { NamedLocation } from '@core/models/namedLocation'
+import { GpsLocation } from '@core/models/gpsLocation'
 
 vi.spyOn(useNominatimExports, 'useNominatim').mockReturnValue({
   getLocations: vi.fn().mockResolvedValue({})

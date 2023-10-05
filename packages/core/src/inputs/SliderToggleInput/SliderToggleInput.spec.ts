@@ -1,6 +1,6 @@
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
-import SliderToggleInput from '@/inputs/SliderToggleInput/SliderToggleInput.vue'
+import SliderToggleInput from '@core/inputs/SliderToggleInput/SliderToggleInput.vue'
 
 describe('SliderToggleInput', () => {
   let wrapper: ReturnType<typeof mountComponent>
