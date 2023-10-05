@@ -10,7 +10,10 @@ export default defineConfig({
   plugins: [vue(), dts({ outputDir: './dist/types' })],
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@core': fileURLToPath(new URL('../core/src', import.meta.url)),
+      '@firebase': fileURLToPath(new URL('../firebase/src', import.meta.url)),
+      '@gridstack': fileURLToPath(new URL('../gridstack/src', import.meta.url)),
+      '@leaflet': fileURLToPath(new URL('../leaflet/src', import.meta.url))
     }
   },
   test: {

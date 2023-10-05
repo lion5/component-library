@@ -14,27 +14,39 @@
     "sourceMap": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "lib": ["esnext", "dom"],
+    "lib": [
+      "esnext",
+      "dom"
+    ],
     "emitDeclarationOnly": true,
     "isolatedModules": true,
     "skipLibCheck": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@core/*": [
+        "../core/src/*"
+      ],
+      "@firebase/*": [
+        "../firebase/src/*"
+      ],
+      "@gridstack/*": [
+        "../gridstack/src/*"
+      ],
+      "@leaflet/*": [
+        "../leaflet/src/*"
+      ]
     },
-    "types": ["vite/client", "dom-screen-wake-lock"]
+    "types": [
+      "vite/client",
+      "dom-screen-wake-lock"
+    ]
   },
   "exclude": [
-    "node_modules",
-    "dist",
-    "src/**/*.stories.js",
-    "src/**/*.stories.ts"
+    "**/node_modules",
+    "dist"
   ],
   "include": [
-    "src/**/*.js",
-    "src/**/*.ts",
-    "src/**/*.d.ts",
-    "src/**/*.tsx",
-    "src/**/*.vue"
+    "../../**/*.stories.js",
+    "../../**/*.stories.ts"
   ]
 }
