@@ -1,6 +1,6 @@
 {
   "name": "@lion5/component-library-gridstack",
-  "version": "0.8.4",
+  "version": "0.8.5",
   "license": "MIT",
   "contributors": [
     "Michael Götz <michael.goetz@lion5.io> (https://github.com/michigg)",
@@ -41,7 +41,7 @@
     "./dist/style.css": "./dist/style.css"
   },
   "dependencies": {
-    "@lion5/component-library": "^0.8.4",
+    "@lion5/component-library": "^0.8.5",
     "gridstack": "^8.4.0",
     "vue": "^3.3.4"
   },
