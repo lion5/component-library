@@ -1,3 +1,3 @@
-import { useFirebaseStorage } from '@/composables/useFirebaseStorage'
+import { useFirebaseStorage } from '@firebase/composables/useFirebaseStorage'
 
 export { useFirebaseStorage }

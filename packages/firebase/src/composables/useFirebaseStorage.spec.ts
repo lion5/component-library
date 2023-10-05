@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest'
-import { useFirebaseStorage } from '@/composables/useFirebaseStorage'
+import { useFirebaseStorage } from '@firebase/composables/useFirebaseStorage'
 import type {
   FirebaseStorage,
   StorageReference,

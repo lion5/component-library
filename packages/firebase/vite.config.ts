@@ -37,7 +37,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@firebase': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
   test: {
