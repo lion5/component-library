@@ -8,7 +8,8 @@ export function useLeafletMap(
   minZoom: number,
   maxZoom: number,
   center: Ref<LatLng>,
-  controls: Control[]
+  controls: Control[],
+  osmBaseMap: boolean = true
 ) {
   const map = shallowRef<Map | undefined>() as Ref<Map | undefined>
   const initMap = (
@@ -27,16 +28,19 @@ export function useLeafletMap(
     } as unknown as MapOptions) as Map
     map.value.setView(center, zoom)
 
-    const baseLayer = new TileLayer(
-      'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-      {
-        maxZoom,
-        minZoom,
-        attribution:
-          '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      }
-    )
-    map.value.addLayer(baseLayer)
+    if (osmBaseMap) {
+      const baseLayer = new TileLayer(
+          'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          {
+              maxZoom,
+              minZoom,
+              attribution:
+                  '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          }
+      )
+      map.value.addLayer(baseLayer)
+    }
+
     addCustomControls(map.value)
   }
 
