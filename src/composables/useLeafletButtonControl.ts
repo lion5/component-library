@@ -1,17 +1,9 @@
-import {Ref, ref} from 'vue'
-import {ButtonControl, StateChangeType} from '@/models/leafletButtonControl'
+import {ref} from 'vue'
+import {ButtonControl} from '@/models/leafletButtonControl'
 
-export function useLeafletButtonControl(
-  iconKey: string,
-  tooltipTitle: string,
-  stateChangeHook?: (
-    changedState: Ref<boolean>,
-    changeType: StateChangeType
-  ) => void
-) {
-
+export function useLeafletButtonControl(iconKey: string, tooltipTitle: string) {
   const isActive = ref<boolean>(false)
-  const buttonControl = new ButtonControl(isActive, iconKey, tooltipTitle, stateChangeHook)
+  const buttonControl = new ButtonControl(isActive, iconKey, tooltipTitle)
 
   return { buttonControl, isActive }
 }
