@@ -1,5 +1,5 @@
-import {ref} from 'vue'
-import {ButtonControl} from '@/models/leafletButtonControl'
+import { ref } from 'vue'
+import { ButtonControl } from '@/models/leafletButtonControl'
 
 export function useLeafletButtonControl(iconKey: string, tooltipTitle: string) {
   const isActive = ref<boolean>(false)
