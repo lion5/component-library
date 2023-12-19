@@ -18,6 +18,7 @@ const props = withDefaults(
     customControls?: Control[]
     contextMenu?: boolean
     hideControls?: boolean
+    osmBaseMap?: boolean
   }>(),
   {
     minZoom: 0,
@@ -25,7 +26,8 @@ const props = withDefaults(
     initialZoom: 14,
     customControls: () => [],
     contextMenu: false,
-    hideControls: false
+    hideControls: false,
+    osmBaseMap: true
   }
 )
 
@@ -44,7 +46,8 @@ const {
   props.minZoom,
   props.maxZoom,
   center,
-  props.customControls
+  props.customControls,
+  props.osmBaseMap,
 )
 defineExpose({ map }) // for testing
 
