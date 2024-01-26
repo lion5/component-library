@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
 import GeolocationInput from './GeolocationInput.vue'
-import { GpsLocation } from '@lion5/component-library'
+import { GpsLocation } from '@leaflet/models'
 
 export default {
   component: GeolocationInput

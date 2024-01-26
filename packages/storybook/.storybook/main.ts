@@ -41,6 +41,12 @@ const config: StorybookConfig = {
   },
   docs: {
     autodocs: true
+  },
+  refs: {
+    "Child-Storybook-Name": {
+      title: 'Child-Storybook-Name',
+      url: '/lion5/component-library/packages/core/',
+    },
   }
 }
 export default config

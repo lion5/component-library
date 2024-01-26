@@ -1,5 +1,5 @@
-import { Preview } from '@storybook/vue3'
-import './main.scss'
+import type { Preview } from '@storybook/vue3'
+import '../src/assets/style/variables/index.scss'
 
 const preview: Preview = {
   parameters: {
@@ -7,7 +7,7 @@ const preview: Preview = {
     controls: {
       matchers: {
         color: /(background|color)$/i,
-        date: /Date$/
+        date: /Date$/i
       }
     }
   }
