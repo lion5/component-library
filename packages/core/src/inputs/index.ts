@@ -5,7 +5,6 @@ import BaseSelect from '@core/inputs/BaseSelect/BaseSelect.vue'
 import CheckboxInput from '@core/inputs/CheckboxInput/CheckboxInput.vue'
 import DateTimeInput from '@core/inputs/DateTimeInput/DateTimeInput.vue'
 import ImageInputWrapper from '@core/inputs/ImpageInputWrapper/ImageInputWrapper.vue'
-import LocationCoordinateSelect from '@core/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
 import NumberInput from '@core/inputs/NumberInput/NumberInput.vue'
 import PreviewImageInput from '@core/inputs/PreviewImageInput/PreviewImageInput.vue'
 import SelectInput from '@core/inputs/SelectInput/SelectInput.vue'
@@ -20,7 +19,6 @@ export {
   CheckboxInput,
   DateTimeInput,
   ImageInputWrapper,
-  LocationCoordinateSelect,
   NumberInput,
   PreviewImageInput,
   SelectInput,

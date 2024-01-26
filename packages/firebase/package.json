@@ -28,9 +28,7 @@
     "test:unit:ui": "cross-env TZ=UTC vitest --environment jsdom --root src --ui",
     "type-check": "vue-tsc -p tsconfig.json --composite false",
     "docs": "storybook dev -p 6006",
-    "docs:build": "storybook build",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "docs:build": "storybook build"
   },
   "files": [
     "dist"
@@ -46,7 +44,7 @@
     "./dist/style.css": "./dist/style.css"
   },
   "dependencies": {
-    "@lion5/component-library": "^0.8.6",
+    "@lion5/component-library": "*",
     "firebase": "^10.7.1",
     "vue": "^3.4.6"
   },
