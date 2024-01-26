@@ -1,4 +1,4 @@
-import { GpsLocation } from '@core/models/gpsLocation'
+import { GpsLocation } from '@leaflet/models/gpsLocation'
 
 export class NamedLocation {
   readonly location: GpsLocation

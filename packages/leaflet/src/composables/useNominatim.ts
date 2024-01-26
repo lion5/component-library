@@ -1,7 +1,7 @@
 import { uniqBy } from 'lodash'
-import { NominatimResult } from '@core/models/nominatimResult'
-import { NamedLocation } from '@core/models/namedLocation'
-import { GpsLocation } from '@core/models/gpsLocation'
+import { NominatimResult } from '@leaflet/models'
+import { NamedLocation } from '@leaflet/models'
+import { GpsLocation } from '@leaflet/models'
 
 /**
  * Defines function to resolve location names to coordinates
