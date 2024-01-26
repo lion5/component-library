@@ -8,13 +8,15 @@
     "build": "lerna run build",
     "test": "lerna run test:unit",
     "docs": "npm -w storybook run docs",
-    "docs:build": "npm -w storybook run docs:build"
+    "docs:build": "lerna run docs:build"
   },
   "devDependencies": {
-    "lerna": "^7.3.0",
+    "@vitejs/plugin-vue": "^4.6.2",
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-storybook": "^0.6.14",
     "eslint-plugin-vue": "^9.17.0",
-    "eslint-plugin-storybook": "^0.6.14"
+    "lerna": "^7.3.0",
+    "vite": "^4.5.1"
   }
 }

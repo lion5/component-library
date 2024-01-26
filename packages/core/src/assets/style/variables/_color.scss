@@ -53,15 +53,15 @@
   --color-danger-900: hsl(var(--danger-hue) var(--danger-saturation) var(--l-900));
 
   --color-white: #fff;
-  --color-neutral-100: hsl(210 0% 98%);
-  --color-neutral-200: hsl(210 0% 93%);
-  --color-neutral-300: hsl(210 0% 89%);
-  --color-neutral-400: hsl(210 0% 83%);
-  --color-neutral-500: hsl(210 0% 71%);
-  --color-neutral-600: hsl(210 0% 46%);
-  --color-neutral-700: hsl(210 0% 31%);
-  --color-neutral-800: hsl(210 0% 19%);
-  --color-neutral-900: hsl(210 0% 15%);
+  --color-neutral-100: hsl(210 0% var(--l-100));
+  --color-neutral-200: hsl(210 0% var(--l-200));
+  --color-neutral-300: hsl(210 0% var(--l-300));
+  --color-neutral-400: hsl(210 0% var(--l-400));
+  --color-neutral-500: hsl(210 0% var(--l-500));
+  --color-neutral-600: hsl(210 0% var(--l-600));
+  --color-neutral-700: hsl(210 0% var(--l-700));
+  --color-neutral-800: hsl(210 0% var(--l-800));
+  --color-neutral-900: hsl(210 0% var(--l-900));
   --color-black: #000;
 
   --color-light: var(--color-neutral-100);
@@ -81,24 +81,15 @@
     --l-800: 93%;
     --l-900: 98%;
 
-    --primary-hue: var(--dark-primary-hue);
-    --primary-saturation: var(--dark-primary-saturation);
-    --primary-lightness: var(--dark-primary-lightness);
-    --success-hue: var(--dark-success-hue);
-    --success-saturation: var(--dark-success-saturation);
-    --danger-hue: var(--dark-danger-hue);
-    --danger-saturation: var(--dark-danger-saturation);
+    --primary-hue: var(--dark-primary-hue, var(--primary-hue));
+    --primary-saturation: var(--dark-primary-saturation, var(--primary-saturation));
+    --primary-lightness: var(--dark-primary-lightness, var(--primary-lightness));
+    --success-hue: var(--dark-success-hue, var(--success-hue));
+    --success-saturation: var(--dark-success-saturation, var(--success-saturation));
+    --danger-hue: var(--dark-danger-hue, var(--danger-hue));
+    --danger-saturation: var(--dark-danger-saturation, var(--danger-saturation));
 
     --color-white: #000;
-    --color-neutral-100: hsl(210 0% 15%);
-    --color-neutral-200: hsl(210 0% 19%);
-    --color-neutral-300: hsl(210 0% 31%);
-    --color-neutral-400: hsl(210 0% 46%);
-    --color-neutral-500: hsl(210 0% 71%);
-    --color-neutral-600: hsl(210 0% 83%);
-    --color-neutral-700: hsl(210 0% 89%);
-    --color-neutral-800: hsl(210 0% 93%);
-    --color-neutral-900: hsl(210 0% 98%);
     --color-black: #fff;
   }
 }
