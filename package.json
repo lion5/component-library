@@ -11,12 +11,13 @@
     "docs:build": "nx run-many -t docs:build"
   },
   "devDependencies": {
+    "@nx/storybook": "^18.0.3",
     "@vitejs/plugin-vue": "^4.6.2",
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-storybook": "^0.6.14",
     "eslint-plugin-vue": "^9.17.0",
-    "vite": "^4.5.1",
-    "nx": "17.2.8"
+    "nx": "17.2.8",
+    "vite": "^4.5.1"
   }
 }
