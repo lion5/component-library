@@ -28,7 +28,7 @@
     "test:unit:ui": "cross-env TZ=UTC vitest --environment jsdom --root src --ui",
     "type-check": "vue-tsc -p tsconfig.json --composite false",
     "docs": "storybook dev -p 6008",
-    "docs:build": "storybook build"
+    "docs:build": "storybook build -o ../storybook-host/storybook-static/gridstack"
   },
   "files": [
     "dist"
