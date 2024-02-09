@@ -1,8 +1,8 @@
 {
-  "name": "storybook",
+  "name": "storybook-host",
   "private": "true",
   "scripts": {
-    "docs": "storybook dev -p 6006",
+    "docs": "storybook dev -p 6010",
     "docs:build": "storybook build"
   },
   "devDependencies": {

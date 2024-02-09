@@ -39,7 +39,7 @@
 <script lang="ts" setup>
 import { computed, onMounted, ref } from 'vue'
 import { DismissibleModal } from '@lion5/component-library'
-import { useFirebaseStorage } from '@firebase/composables/useFirebaseStorage.js'
+import { useFirebaseStorage } from '@/composables/useFirebaseStorage.js'
 
 const props = defineProps<{
   storageUrls: string[]

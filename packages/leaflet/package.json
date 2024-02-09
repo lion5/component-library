@@ -27,7 +27,7 @@
     "test:unit": "cross-env TZ=UTC vitest run --environment jsdom --root src",
     "test:unit:ui": "cross-env TZ=UTC vitest --environment jsdom --root src --ui",
     "type-check": "vue-tsc -p tsconfig.json --composite false",
-    "docs": "storybook dev -p 6006",
+    "docs": "storybook dev -p 6009",
     "docs:build": "storybook build"
   },
   "files": [

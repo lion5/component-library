@@ -3,21 +3,6 @@ import type { StorybookConfig } from '@storybook/vue3-vite'
 const config: StorybookConfig = {
   stories: [
     {
-      titlePrefix: 'Core',
-      directory: '../../core/src',
-      files: '**/*.stories.@(js|jsx|ts|tsx)'
-    },
-    {
-      titlePrefix: 'GridStack',
-      directory: '../../gridstack/src',
-      files: '**/*.stories.@(js|jsx|ts|tsx)'
-    },
-    {
-      titlePrefix: 'Leaflet',
-      directory: '../../leaflet/src',
-      files: '**/*.stories.@(js|jsx|ts|tsx)'
-    },
-    {
       titlePrefix: '',
       directory: './src',
       files: '**/*.stories.@(js|jsx|ts|tsx)'
@@ -43,10 +28,22 @@ const config: StorybookConfig = {
     autodocs: true
   },
   refs: {
-    "Child-Storybook-Name": {
-      title: 'Child-Storybook-Name',
-      url: '/lion5/component-library/packages/core/',
+    core: {
+      title: 'Core',
+      url: '/component-library/core/'
     },
+    firebase: {
+      title: 'Firebase',
+      url: '/component-library/firebase/'
+    },
+    gridstack: {
+      title: 'Gridstack',
+      url: '/component-library/gridstack/'
+    },
+    leaflet: {
+      title: 'Leaflet',
+      url: '/component-library/leaflet/'
+    }
   }
 }
 export default config
