@@ -16,7 +16,9 @@ export const Default: Story = {
   }),
   args: {
     storageUrls: [
-      'gs://smart-city-digimap.appspot.com/6527d363d8cddb6cecf60817/reports/1700572644182'
+      'https://picsum.photos/200',
+      'https://picsum.photos/200',
+      'https://picsum.photos/200'
     ]
   }
 }
