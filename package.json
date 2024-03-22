@@ -1,5 +1,6 @@
 {
   "name": "root",
+  "version": "0.9.1",
   "workspaces": [
     "packages/*"
   ],
@@ -19,6 +20,5 @@
     "eslint-plugin-vue": "^9.17.0",
     "nx": "17.2.8",
     "vite": "^4.5.1"
-  },
-  "version": "1.0.0"
+  }
 }

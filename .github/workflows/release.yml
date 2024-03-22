@@ -97,14 +97,21 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
-          registry-url: 'https://npm.pkg.github.com'
           # Defaults to the user or organization that owns the workflow file
           scope: '@lion5'
-      - run: npm ci
-      - run: npm run build
-      - run: npm publish --workspaces
+      - name: Build
+        run: |
+          npm ci
+          npm run build
+      - name: Publish To Github Packages
+        run: npm publish --workspaces --registry https://npm.pkg.github.com --access public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Publish To NPM Packages
+        run: npm publish --workspaces --registry https://registry.npmjs.org/ --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
 
   publish-documentation:
     needs: [ github-release ]
@@ -127,6 +134,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          cache: 'npm'
+          cache-dependency-path: '**/package-lock.json'
       - name: Install Packages
         run: npm ci
       - name: Build Packages
