@@ -3,7 +3,7 @@
     <DashboardBar
       v-model:edit-mode="editMode"
       :available-widgets="availableWidgets"
-      @stop-edit="onStopEdit"
+      @start-save="prepareSave"
       @cancel-edit="onCancelEdit"
       @add-widget="onAddWidget"
     />
@@ -12,6 +12,9 @@
       v-model:widget-configs="currentConfig"
       :edit-mode="editMode"
     />
+    <DismissibleModal v-model:modalDisplayed="showModal" class="basic-modal">
+      <SaveDashboardModal v-if="showModal" @save="onSave" />
+    </DismissibleModal>
   </div>
 </template>
 
@@ -22,6 +25,8 @@ import { WidgetConfiguration } from '@/atoms/dashboard/models/widgetConfiguratio
 import { GridWidget } from '@/atoms/dashboard/models/gridWidget'
 import DashboardBar from '@/atoms/dashboard/DashboardBar/DashboardBar.vue'
 import DynamicGrid from '@/atoms/dashboard/DynamicGrid/DynamicGrid.vue'
+import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
+import SaveDashboardModal from '@/atoms/dashboard/SaveDashboardModal/SaveDashboardModal.vue'
 
 const props = defineProps<{
   /**
@@ -35,18 +40,25 @@ const props = defineProps<{
   availableWidgets: Map<string, WidgetComponentWrapper>
 }>()
 const emit = defineEmits<{
-  (e: 'save', dashboardConfig: WidgetConfiguration[]): void
+  (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
   (e: 'update:dashboardConfig', dashboardConfig: WidgetConfiguration[]): void
 }>()
 
 const currentConfig = ref<WidgetConfiguration[]>(props.dashboardConfig)
 const editMode = ref<boolean>(false)
+const showModal = ref(false)
 
-const onStopEdit = () => {
+const prepareSave = () => {
+  showModal.value = true
+}
+
+const onSave = (name: string) => {
   editMode.value = false
   emit('update:dashboardConfig', currentConfig.value)
-  emit('save', currentConfig.value)
+  emit('save', currentConfig.value, name)
+  showModal.value = false
 }
+
 const onCancelEdit = () => {
   editMode.value = false
   currentConfig.value = props.dashboardConfig

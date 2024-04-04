@@ -9,7 +9,7 @@
       <EditButton
         v-model:edit-mode="localEditMode"
         @start-edit="$emit('startEdit')"
-        @stop-edit="$emit('stopEdit')"
+        @start-save="$emit('startSave')"
         @cancel-edit="$emit('cancelEdit')"
       />
     </div>
@@ -38,9 +38,9 @@ const emit = defineEmits<{
    */
   (e: 'startEdit'): void
   /**
-   * emitted when edit button pressed and editMode was true before (User stops editing).
+   * emitted when edit button pressed and editMode was true before (User starts saving).
    */
-  (e: 'stopEdit'): void
+  (e: 'startSave'): void
   /**
    * emitted when user presses cancel button.
    */
