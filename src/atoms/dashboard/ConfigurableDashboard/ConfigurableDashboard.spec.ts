@@ -5,7 +5,8 @@ import { WidgetConfiguration } from '@/atoms/dashboard/models/widgetConfiguratio
 import { GridWidget } from '@/atoms/dashboard/models/gridWidget'
 import ConfigurableDashboard from '@/atoms/dashboard/ConfigurableDashboard/ConfigurableDashboard.vue'
 import DynamicGrid from '@/atoms/dashboard/DynamicGrid/DynamicGrid.vue'
-import EditButton from '@/atoms/dashboard/EditButton/EditButton.vue'
+import DashboardBar from '@/atoms/dashboard/DashboardBar/DashboardBar.vue'
+import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
 import { TEMPLATE_WIDGET_WRAPPER } from '@/atoms/dashboard/widgets/TemplateWidget/config'
 
 describe('ConfigurableDashboard.vue', () => {
@@ -18,64 +19,72 @@ describe('ConfigurableDashboard.vue', () => {
       attachTo: 'body',
       props: {
         availableWidgets: new Map(),
-        dashboardConfig: []
+        dashboardConfig: [],
+        dashboardConfigurations: []
       }
     })
   })
 
   describe(':props', () => {
-    it('components - is applied to DynamicGrid', async () => {
+    it('availableWidgets - is applied to DynamicGrid and DashboardBar', async () => {
       const expectedComponents = new Map([['key', TEMPLATE_WIDGET_WRAPPER]])
       await wrapper.setProps({ availableWidgets: expectedComponents })
-      expect(wrapper.findComponent(DynamicGrid).vm.components).toStrictEqual(
-        expectedComponents
-      )
+      expect(
+        wrapper.findComponent(DynamicGrid).props('components')
+      ).toStrictEqual(expectedComponents)
+      expect(
+        wrapper.findComponent(DashboardBar).props('availableWidgets')
+      ).toStrictEqual(expectedComponents)
     })
   })
+
   describe('@events', () => {
-    it('save - emitted if EditButton emits stopEdit', async () => {
+    it('save - emitted with name if SaveDashboardModal emits save', async () => {
       const expectedWidgets = [
         new WidgetConfiguration('test-1', new GridWidget(0, 0, 1, 2), 'key')
       ]
-      const grid = wrapper.findComponent(DynamicGrid)
-      grid.vm.$emit('update:widgetConfigs', expectedWidgets)
+      const expectedName = 'Test Dashboard'
+      wrapper
+        .findComponent(DynamicGrid)
+        .vm.$emit('update:widget-configs', expectedWidgets)
 
-      const editButton = wrapper.findComponent(EditButton)
-      await editButton.vm.$emit('stopEdit')
+      // Simulate the save process
+      wrapper.setData({ showModal: true })
+      await wrapper
+        .findComponent(DismissibleModal)
+        .vm.$emit('save', expectedName)
 
       expect(wrapper.emitted('save')).toBeDefined()
-      expect(wrapper.emitted('save')?.[0]).toStrictEqual([expectedWidgets])
+      expect(wrapper.emitted('save')?.[0]).toStrictEqual([
+        expectedWidgets,
+        expectedName
+      ])
     })
-    it('update:widgetConfigs - emitted if EditButton emits stopEdit', async () => {
+
+    it('update:dashboardConfig - emitted if DynamicGrid emits update:widget-configs', async () => {
       const expectedWidgets = [
         new WidgetConfiguration('test-1', new GridWidget(0, 0, 1, 2), 'key')
       ]
-      const grid = wrapper.findComponent(DynamicGrid)
-      grid.vm.$emit('update:widgetConfigs', expectedWidgets)
-
-      const editButton = wrapper.findComponent(EditButton)
-      await editButton.vm.$emit('stopEdit')
+      wrapper
+        .findComponent(DynamicGrid)
+        .vm.$emit('update:widget-configs', expectedWidgets)
 
       expect(wrapper.emitted('update:dashboardConfig')).toBeDefined()
       expect(wrapper.emitted('update:dashboardConfig')?.[0]).toStrictEqual([
         expectedWidgets
       ])
     })
-    it('cancelEdit - applies :widgetConfigs to DynamicGrid', async () => {
-      const expectedWidgets = wrapper.vm.widgets
 
-      const widgets = [
-        new WidgetConfiguration('test-1', new GridWidget(0, 0, 1, 2), 'key')
-      ]
-      const grid = wrapper.findComponent(DynamicGrid)
-      grid.vm.$emit('update:widgetConfigs', widgets)
+    it('dashboardConfigurationSelected - emitted if DashboardBar emits dashboardSelected', async () => {
+      const expectedId = 'dashboard-1'
+      wrapper
+        .findComponent(DashboardBar)
+        .vm.$emit('dashboardSelected', expectedId)
 
-      const editButton = wrapper.findComponent(EditButton)
-      await editButton.vm.$emit('cancelEdit')
-
-      expect(wrapper.emitted('save')).not.toBeDefined()
-      expect(wrapper.emitted('update:dashboardConfig')).not.toBeDefined()
-      expect(grid.vm.widgets).toStrictEqual(expectedWidgets)
+      expect(wrapper.emitted('dashboardConfigurationSelected')).toBeDefined()
+      expect(
+        wrapper.emitted('dashboardConfigurationSelected')?.[0]
+      ).toStrictEqual([expectedId])
     })
   })
 })
