@@ -1,7 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon'
 import { usePolygon } from '@/components/widgets/weather/composables/usePolygon'
-import { GpsLocation } from '@lion5/component-library'
 
 vi.mock('@turf/boolean-point-in-polygon', () => ({
   default: vi.fn()
@@ -36,7 +35,7 @@ describe('usePolygon.ts', () => {
     // @ts-ignore
     booleanPointInPolygon.mockReturnValue(true)
     const { isPointInPolygon } = usePolygon()
-    const location = new GpsLocation(49.12, 12.34)
+    const location = { latitude: 49.12, longitude: 12.34 }
     const dwdRegion = [49.12, 12.34, 51.13, 10.12]
 
     expect(isPointInPolygon(location, dwdRegion)).toBeTruthy()

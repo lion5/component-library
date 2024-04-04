@@ -1,8 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
-import WidgetWrapper from '@/atoms/dashboard/WidgetWrapper/WidgetWrapper.vue'
-import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
-import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
+import WidgetWrapper from '@/components/WidgetWrapper/WidgetWrapper.vue'
+import { ErrorBox, LoadingAnimation } from '@lion5/component-library'
 
 describe('WidgetWrapper', () => {
   let wrapper

@@ -1,7 +1,11 @@
 import { ref } from 'vue'
 import { BrightSkyCurrentWeather } from '@/components/widgets/weather/models/brightSkyCurrentWeather'
-import { GpsLocation, useFetchState } from '@lion5/component-library'
+import { useFetchState } from '@lion5/component-library'
 
+type GpsLocation = {
+  latitude: number
+  longitude: number
+}
 export function useBrightSkyWeather() {
   const weatherData = ref<BrightSkyCurrentWeather | undefined>()
   const { busy, error, setBusy, setIdle, setError, clearError } =
