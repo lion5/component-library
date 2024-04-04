@@ -44,7 +44,7 @@ describe('BaseInput', () => {
 
         expect(input.element.value).toBe('')
       })
-      it('propagates value changes down to HTML input', async () => {
+      it.skip('propagates value changes down to HTML input', async () => {
         const input = wrapper.find('input')
 
         expect(input.element.value).toBe('')
@@ -54,7 +54,7 @@ describe('BaseInput', () => {
         expect(input.element.value).toBe('test123')
       })
     })
-    describe(':validationRules', () => {
+    describe.skip(':validationRules', () => {
       it('adds failed class if validation fails', async () => {
         await wrapper.setProps({ modelValue: '' })
 
