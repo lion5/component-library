@@ -43,6 +43,10 @@ export const Default: Story = {
       ['widget1', TEMPLATE_WIDGET_WRAPPER],
       ['widget2', IFRAME_WIDGET_WRAPPER],
       ['widget3', REFRESHABLE_IMAGE_WIDGET_WRAPPER]
-    ])
+    ]),
+    dashboardConfigurations: [
+      { id: '1', name: 'Dashboard One' },
+      { id: '2', name: 'Dashboard Two' }
+    ]
   }
 }

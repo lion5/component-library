@@ -1,10 +1,15 @@
 <template>
   <div class="save-dashboard-modal">
+    <h3 class="header1">Konfigurationsname eingeben</h3>
+    <div class="header2">
+      Bitte wählen Sie den Dashboard-Konfigurationsnamen
+    </div>
     <BaseInputV2
       v-model="name"
       label="Name"
       :validation-rules="required"
       name="name"
+      class="base-input"
     />
     <BaseButton :disabled="!name" @click="submitAndClose" class="save-button">
       Speichern
@@ -31,17 +36,21 @@ const submitAndClose = () => {
 
 <style lang="scss" scoped>
 .save-dashboard-modal {
-  padding-top: 3rem;
+  padding-top: 0rem;
   padding-right: 1rem;
   padding-bottom: 1rem;
   padding-left: 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  align-items: center;
+  align-items: flex-start;
 }
-.base-input,
 .save-button {
-  width: 100%; /* Makes both input and button span full width of their parent */
+  max-width: unset;
+  width: 100%;
+}
+.header1,
+.header2 {
+  max-width: 250px;
 }
 </style>

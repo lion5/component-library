@@ -3,9 +3,11 @@
     <DashboardBar
       v-model:edit-mode="editMode"
       :available-widgets="availableWidgets"
+      :dashboard-configurations="dashboardConfigurations"
       @start-save="prepareSave"
       @cancel-edit="onCancelEdit"
       @add-widget="onAddWidget"
+      @dashboardSelected="onDashboardSelected"
     />
     <DynamicGrid
       :components="availableWidgets"
@@ -38,15 +40,24 @@ const props = defineProps<{
    * A map of widgets that can be added to the dashboard
    */
   availableWidgets: Map<string, WidgetComponentWrapper>
+  /**
+   * An array of available saved dashboard configurations
+   */
+  dashboardConfigurations: Array<{ id: string; name: string }>
 }>()
 const emit = defineEmits<{
   (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
   (e: 'update:dashboardConfig', dashboardConfig: WidgetConfiguration[]): void
+  (e: 'dashboardConfigurationSelected', id: string): void
 }>()
 
 const currentConfig = ref<WidgetConfiguration[]>(props.dashboardConfig)
 const editMode = ref<boolean>(false)
 const showModal = ref(false)
+
+const onDashboardSelected = (id: string) => {
+  emit('dashboardConfigurationSelected', id)
+}
 
 const prepareSave = () => {
   showModal.value = true

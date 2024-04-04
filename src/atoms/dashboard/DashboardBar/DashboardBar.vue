@@ -2,6 +2,14 @@
   <div class="dashboard-bar">
     <h1>Dashboard</h1>
     <div class="right-aligned">
+      <SelectInput
+        :options="dashboardOptions"
+        :label="'Dashboard-Konfiguration'"
+        v-if="!editMode"
+        @update:modelValue="onDashboardSelected"
+        id="dashboard-select"
+        class="select-input"
+      />
       <AddWidgetButton
         :available-widgets="availableWidgets"
         @add-widget="(widgetKey) => $emit('addWidget', widgetKey)"
@@ -21,6 +29,7 @@ import { computed } from 'vue'
 import AddWidgetButton from '@/atoms/dashboard/AddWidgetButton/AddWidgetButton.vue'
 import EditButton from '@/atoms/dashboard/EditButton/EditButton.vue'
 import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
+import SelectInput from '@/atoms/inputs/SelectInput/SelectInput.vue'
 
 const props = defineProps<{
   /**
@@ -31,6 +40,10 @@ const props = defineProps<{
    * A map of widgets that can be added to the dashboard
    */
   availableWidgets: Map<string, WidgetComponentWrapper>
+  /**
+   * An array of available saved dashboard configurations
+   */
+  dashboardConfigurations: Array<{ id: string; name: string }>
 }>()
 const emit = defineEmits<{
   /**
@@ -53,7 +66,25 @@ const emit = defineEmits<{
    * emitted when user presses cancel or edit button.
    */
   (e: 'update:editMode', value: boolean): void
+  /**
+   * emitted when user select a saved dashboard configuration
+   */
+  (e: 'dashboardSelected', id: string): void
 }>()
+
+const dashboardOptions = computed(() => {
+  return props.dashboardConfigurations
+    ? props.dashboardConfigurations.map((dc) => ({
+        key: dc.id,
+        label: dc.name
+      }))
+    : []
+})
+
+const onDashboardSelected = (id: string) => {
+  emit('dashboardSelected', id)
+}
+
 const localEditMode = computed({
   get() {
     return props.editMode
@@ -75,6 +106,14 @@ const localEditMode = computed({
   .right-aligned {
     display: flex;
     gap: var(--space-sm);
+    align-items: center;
+    & > :deep(button) {
+      height: 100%;
+    }
+    .select-input {
+      min-width: 300px;
+      align-items: center;
+    }
   }
 }
 </style>
