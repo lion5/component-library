@@ -1,5 +1,5 @@
 import type { GridStackWidget } from 'gridstack'
-import { GridWidget } from '@gridstack/models/gridWidget'
+import { GridWidget } from '@/models/gridWidget'
 
 export type WidgetSetting = number | string | object | boolean
 export type WidgetSettings = Map<string, WidgetSetting>

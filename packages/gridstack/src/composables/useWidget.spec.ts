@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { useWidget } from '@gridstack/composables/useWidget'
+import { useWidget } from '@/composables/useWidget'
 
 describe('useWidget.ts', () => {
   it('getSettings - returns merged settings', () => {

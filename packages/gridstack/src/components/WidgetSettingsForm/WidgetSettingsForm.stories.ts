@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/vue3'
-import WidgetSettingsForm from '@gridstack/components/WidgetSettingsForm/WidgetSettingsForm.vue'
-import { FormField, FormSchema } from '@gridstack/models/formSchema'
+import WidgetSettingsForm from '@/components/WidgetSettingsForm/WidgetSettingsForm.vue'
+import { FormField, FormSchema } from '@/models/formSchema'
 import {
   BaseInputV2,
   BaseSelect,
@@ -8,7 +8,7 @@ import {
   SelectOption
 } from '@lion5/component-library'
 import { number, string } from 'yup'
-import { WidgetSetting } from '@gridstack/models/widgetConfiguration'
+import { WidgetSetting } from '@/models/widgetConfiguration'
 import { action } from '@storybook/addon-actions'
 
 /**

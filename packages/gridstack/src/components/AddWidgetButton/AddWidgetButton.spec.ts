@@ -4,8 +4,8 @@ import type { defineComponent } from 'vue'
 import type WrapperLike from '@vue/test-utils/dist/interfaces/wrapperLike'
 import AddWidgetButton from './AddWidgetButton.vue'
 import { BaseButton, DismissibleModal } from '@lion5/component-library'
-import AddWidgetInput from '@gridstack/components/AddWidgetInput/AddWidgetInput.vue'
-import { TEMPLATE_WIDGET_WRAPPER } from '@gridstack/components/widgets/TemplateWidget/config'
+import AddWidgetInput from '@/components/AddWidgetInput/AddWidgetInput.vue'
+import { TEMPLATE_WIDGET_WRAPPER } from '@/components/widgets/TemplateWidget/config'
 
 const availableWidgets = new Map([['test', TEMPLATE_WIDGET_WRAPPER]])
 

@@ -1,8 +1,8 @@
 import { GpsLocation, NamedLocation } from '@lion5/component-library'
-import WeatherWidget from '@gridstack/components/widgets/weather/widgets/WeatherWidget/WeatherWidget.vue'
-import { WeatherForecastSetting } from '@gridstack/components/widgets/weather/widgets/WeatherForcastWidget/settings'
-import { WeatherSettingsFormSchema } from '@gridstack/components/widgets/weather/widgets/WeatherWidget/settings'
-import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
+import WeatherWidget from '@/components/widgets/weather/widgets/WeatherWidget/WeatherWidget.vue'
+import { WeatherForecastSetting } from '@/components/widgets/weather/widgets/WeatherForcastWidget/settings'
+import { WeatherSettingsFormSchema } from '@/components/widgets/weather/widgets/WeatherWidget/settings'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 
 export const WEATHER_WIDGET_WRAPPER = new WidgetComponentWrapper(
   'Wetter',

@@ -1,8 +1,8 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import EditButton from '@gridstack/components/EditButton/EditButton.vue'
-import DashboardBar from '@gridstack/components/DashboardBar/DashboardBar.vue'
+import EditButton from '@/components/EditButton/EditButton.vue'
+import DashboardBar from '@/components/DashboardBar/DashboardBar.vue'
 
 describe('DashboardBar.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

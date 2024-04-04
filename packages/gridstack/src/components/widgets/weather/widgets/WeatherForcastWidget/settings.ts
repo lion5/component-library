@@ -1,4 +1,4 @@
-import { FormField, FormSchema } from '@gridstack/models/formSchema'
+import { FormField, FormSchema } from '@/models/formSchema'
 import { LocationCoordinateSelect } from '@lion5/component-library'
 
 export enum WeatherForecastSetting {

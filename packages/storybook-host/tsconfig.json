@@ -29,7 +29,7 @@
       "@firebase/*": [
         "../firebase/src/*"
       ],
-      "@gridstack/*": [
+      "@/*": [
         "../gridstack/src/*"
       ],
       "@leaflet/*": [

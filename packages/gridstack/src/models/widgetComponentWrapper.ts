@@ -1,7 +1,7 @@
 import type { defineComponent } from 'vue'
 import { markRaw } from 'vue'
-import { FormSchema } from '@gridstack/models/formSchema'
-import { WidgetSettings } from '@gridstack/models/widgetConfiguration'
+import { FormSchema } from '@/models/formSchema'
+import { WidgetSettings } from '@/models/widgetConfiguration'
 
 /**
  * Wraps the widget name together with its vue component.

@@ -2,14 +2,14 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import {
   WidgetConfiguration,
   WidgetSetting
-} from '@gridstack/models/widgetConfiguration'
-import { TEMPLATE_WIDGET_WRAPPER } from '@gridstack/components/widgets/TemplateWidget/config'
-import { GridWidget } from '@gridstack/models/gridWidget'
-import ConfigurableDashboard from '@gridstack/components/ConfigurableDashboard/ConfigurableDashboard.vue'
+} from '@/models/widgetConfiguration'
+import { TEMPLATE_WIDGET_WRAPPER } from '@/components/widgets/TemplateWidget/config'
+import { GridWidget } from '@/models/gridWidget'
+import ConfigurableDashboard from '@/components/ConfigurableDashboard/ConfigurableDashboard.vue'
 import { ref } from 'vue'
 import { action } from '@storybook/addon-actions'
-import { IFRAME_WIDGET_WRAPPER } from '@gridstack/components/widgets/IFrameWidget/config'
-import { REFRESHABLE_IMAGE_WIDGET_WRAPPER } from '@gridstack/components/widgets/RefreshableImageWidget/config'
+import { IFRAME_WIDGET_WRAPPER } from '@/components/widgets/IFrameWidget/config'
+import { REFRESHABLE_IMAGE_WIDGET_WRAPPER } from '@/components/widgets/RefreshableImageWidget/config'
 
 /**
  * This component is used to generate the widgets edit form dynamically based on a form schema.

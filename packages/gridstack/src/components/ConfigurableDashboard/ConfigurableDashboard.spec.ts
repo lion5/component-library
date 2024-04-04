@@ -1,12 +1,12 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import { WidgetConfiguration } from '@gridstack/models/widgetConfiguration'
-import { GridWidget } from '@gridstack/models/gridWidget'
-import ConfigurableDashboard from '@gridstack/components/ConfigurableDashboard/ConfigurableDashboard.vue'
-import DynamicGrid from '@gridstack/components/DynamicGrid/DynamicGrid.vue'
-import EditButton from '@gridstack/components/EditButton/EditButton.vue'
-import { TEMPLATE_WIDGET_WRAPPER } from '@gridstack/components/widgets/TemplateWidget/config'
+import { WidgetConfiguration } from '@/models/widgetConfiguration'
+import { GridWidget } from '@/models/gridWidget'
+import ConfigurableDashboard from '@/components/ConfigurableDashboard/ConfigurableDashboard.vue'
+import DynamicGrid from '@/components/DynamicGrid/DynamicGrid.vue'
+import EditButton from '@/components/EditButton/EditButton.vue'
+import { TEMPLATE_WIDGET_WRAPPER } from '@/components/widgets/TemplateWidget/config'
 
 describe('ConfigurableDashboard.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

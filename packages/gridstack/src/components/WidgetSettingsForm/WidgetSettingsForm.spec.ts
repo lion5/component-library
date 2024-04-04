@@ -8,8 +8,8 @@ import {
   BaseSelect,
   CheckboxInput
 } from '@lion5/component-library'
-import { FormField, FormSchema } from '@gridstack/models/formSchema'
-import WidgetSettingsForm from '@gridstack/components/WidgetSettingsForm/WidgetSettingsForm.vue'
+import { FormField, FormSchema } from '@/models/formSchema'
+import WidgetSettingsForm from '@/components/WidgetSettingsForm/WidgetSettingsForm.vue'
 
 describe('WidgetSettingsForm.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

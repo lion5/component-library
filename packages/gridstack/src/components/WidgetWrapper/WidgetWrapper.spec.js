@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
-import WidgetWrapper from '@gridstack/atoms/dashboard/WidgetWrapper/WidgetWrapper.vue'
-import LoadingAnimation from '@gridstack/atoms/LoadingAnimation/LoadingAnimation.vue'
-import ErrorBox from '@gridstack/atoms/boxes/ErrorBox/ErrorBox.vue'
+import WidgetWrapper from '@/atoms/dashboard/WidgetWrapper/WidgetWrapper.vue'
+import LoadingAnimation from '@/atoms/LoadingAnimation/LoadingAnimation.vue'
+import ErrorBox from '@/atoms/boxes/ErrorBox/ErrorBox.vue'
 
 describe('WidgetWrapper', () => {
   let wrapper

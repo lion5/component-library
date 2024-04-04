@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest'
 import type { GridStackWidget } from 'gridstack'
-import { WidgetConfiguration } from '@gridstack/models/widgetConfiguration'
-import { GridWidget } from '@gridstack/models/gridWidget'
+import { WidgetConfiguration } from '@/models/widgetConfiguration'
+import { GridWidget } from '@/models/gridWidget'
 
 describe('widgetConfiguration.ts', () => {
   it('fromGridStackWidget - returns widgetConfig', () => {

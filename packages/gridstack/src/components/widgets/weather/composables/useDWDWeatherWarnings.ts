@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 import { GpsLocation, useFetchState } from '@lion5/component-library'
-import { WeatherWarning } from '@gridstack/components/widgets/weather/models/weatherWarning'
-import { usePolygon } from '@gridstack/components/widgets/weather/composables/usePolygon'
+import { WeatherWarning } from '@/components/widgets/weather/models/weatherWarning'
+import { usePolygon } from '@/components/widgets/weather/composables/usePolygon'
 
 export function useDWDWeatherWarnings() {
   const locationBasedWarnings = ref<WeatherWarning[]>()

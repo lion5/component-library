@@ -12,7 +12,7 @@ export default defineConfig({
     alias: {
       '@core': fileURLToPath(new URL('../core/src', import.meta.url)),
       '@firebase': fileURLToPath(new URL('../firebase/src', import.meta.url)),
-      '@gridstack': fileURLToPath(new URL('../gridstack/src', import.meta.url)),
+      '@': fileURLToPath(new URL('../gridstack/src', import.meta.url)),
       '@leaflet': fileURLToPath(new URL('../leaflet/src', import.meta.url))
     }
   },

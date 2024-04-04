@@ -1,6 +1,6 @@
 import { computed } from 'vue'
-import { WidgetSetting } from '@gridstack/models/widgetConfiguration'
-import type { WidgetProps } from '@gridstack/models/widgetProps'
+import { WidgetSetting } from '@/models/widgetConfiguration'
+import type { WidgetProps } from '@/models/widgetProps'
 
 export function useWidget(props: Readonly<WidgetProps>) {
   const getSetting = (key: string) => {

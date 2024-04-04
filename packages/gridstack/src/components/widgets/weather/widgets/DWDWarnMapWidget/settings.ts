@@ -1,6 +1,6 @@
 import { string } from 'yup'
 import { BaseSelect, SelectOption } from '@lion5/component-library'
-import { FormField } from '@gridstack/models/formSchema'
+import { FormField } from '@/models/formSchema'
 
 export enum DWDWarnGermanyByCriteriaSetting {
   CRITERIA = 'CRITERIA',

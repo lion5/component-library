@@ -6,14 +6,11 @@
 </template>
 <script lang="ts" setup>
 import { computed, ComputedRef } from 'vue'
-import {
-  WidgetSetting,
-  WidgetSettings
-} from '@gridstack/models/widgetConfiguration'
-import { useWidget } from '@gridstack/composables/useWidget'
-import RefreshableImageWidget from '@gridstack/components/widgets/RefreshableImageWidget/RefreshableImageWidget.vue'
-import { RefreshableImageSetting } from '@gridstack/components/widgets/RefreshableImageWidget/settings'
-import { DWDWarnGermanyByCriteriaSetting } from '@gridstack/components/widgets/weather/widgets/DWDWarnMapWidget/settings'
+import { WidgetSetting, WidgetSettings } from '@/models/widgetConfiguration'
+import { useWidget } from '@/composables/useWidget'
+import RefreshableImageWidget from '@/components/widgets/RefreshableImageWidget/RefreshableImageWidget.vue'
+import { RefreshableImageSetting } from '@/components/widgets/RefreshableImageWidget/settings'
+import { DWDWarnGermanyByCriteriaSetting } from '@/components/widgets/weather/widgets/DWDWarnMapWidget/settings'
 
 const props = defineProps<{
   settings: WidgetSettings

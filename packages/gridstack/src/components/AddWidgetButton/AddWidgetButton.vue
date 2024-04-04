@@ -24,8 +24,8 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import { BaseButton, DismissibleModal } from '@lion5/component-library'
-import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
-import AddWidgetInput from '@gridstack/components/AddWidgetInput/AddWidgetInput.vue'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import AddWidgetInput from '@/components/AddWidgetInput/AddWidgetInput.vue'
 
 const modalDisplayed = ref<boolean>(false)
 

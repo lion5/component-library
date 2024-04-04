@@ -1,10 +1,10 @@
-import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
-import { WidgetSetting } from '@gridstack/models/widgetConfiguration'
-import RefreshableImageWidget from '@gridstack/components/widgets/RefreshableImageWidget/RefreshableImageWidget.vue'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import { WidgetSetting } from '@/models/widgetConfiguration'
+import RefreshableImageWidget from '@/components/widgets/RefreshableImageWidget/RefreshableImageWidget.vue'
 import {
   RefreshableImageSetting,
   RefreshableImageSettingsFormSchema
-} from '@gridstack/components/widgets/RefreshableImageWidget/settings'
+} from '@/components/widgets/RefreshableImageWidget/settings'
 
 export const REFRESHABLE_IMAGE_WIDGET_WRAPPER = new WidgetComponentWrapper(
   'Auto-Refresh Bild',

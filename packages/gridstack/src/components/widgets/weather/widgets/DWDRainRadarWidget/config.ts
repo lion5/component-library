@@ -1,7 +1,7 @@
-import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
-import { WidgetSetting } from '@gridstack/models/widgetConfiguration'
-import RefreshableImageWidget from '@gridstack/components/widgets/RefreshableImageWidget/RefreshableImageWidget.vue'
-import { RefreshableImageSetting } from '@gridstack/components/widgets/RefreshableImageWidget/settings'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import { WidgetSetting } from '@/models/widgetConfiguration'
+import RefreshableImageWidget from '@/components/widgets/RefreshableImageWidget/RefreshableImageWidget.vue'
+import { RefreshableImageSetting } from '@/components/widgets/RefreshableImageWidget/settings'
 
 export const DWD_RAIN_RADAR_WIDGET_WRAPPER = new WidgetComponentWrapper(
   'Regenradar',

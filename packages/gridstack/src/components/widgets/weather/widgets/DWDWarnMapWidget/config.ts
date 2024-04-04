@@ -1,10 +1,10 @@
-import DWDWarnGermanyByCriteriaWidget from '@gridstack/components/widgets/weather/widgets/DWDWarnMapWidget/DWDWarnGermanyByCriteriaWidget.vue'
+import DWDWarnGermanyByCriteriaWidget from '@/components/widgets/weather/widgets/DWDWarnMapWidget/DWDWarnGermanyByCriteriaWidget.vue'
 import {
   DWDWarnGermanyByCriteriaSetting,
   DWDWarnGermanyByCriteriaSettingsFormSchema
-} from '@gridstack/components/widgets/weather/widgets/DWDWarnMapWidget/settings'
-import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
-import { WidgetSetting } from '@gridstack/models/widgetConfiguration'
+} from '@/components/widgets/weather/widgets/DWDWarnMapWidget/settings'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
+import { WidgetSetting } from '@/models/widgetConfiguration'
 
 export const DWD_WARN_WIDGET_WRAPPER = new WidgetComponentWrapper(
   'Deutschlandkarte, einzelne Warnkriterien',

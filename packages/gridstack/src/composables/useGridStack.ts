@@ -4,8 +4,8 @@ import { computed, nextTick, onMounted, watch } from 'vue'
 import {
   WidgetConfiguration,
   WidgetSettings
-} from '@gridstack/models/widgetConfiguration'
-import { WidgetComponentWrapper } from '@gridstack/models/widgetComponentWrapper'
+} from '@/models/widgetConfiguration'
+import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 
 /**
  * this composable integrates the [gridstack.js]{@link https://gridstackjs.com/} lib functions into the vue ecosystem.

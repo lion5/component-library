@@ -14,10 +14,10 @@
 </template>
 <script lang="ts" setup>
 import { computed } from 'vue'
-import { WidgetSettings } from '@gridstack/models/widgetConfiguration'
-import { FormSchema } from '@gridstack/models/formSchema'
+import { WidgetSettings } from '@/models/widgetConfiguration'
+import { FormSchema } from '@/models/formSchema'
 import { DismissibleModal } from '@lion5/component-library'
-import WidgetSettingsForm from '@gridstack/components/WidgetSettingsForm/WidgetSettingsForm.vue'
+import WidgetSettingsForm from '@/components/WidgetSettingsForm/WidgetSettingsForm.vue'
 
 const props = defineProps<{
   modalDisplayed: boolean
