@@ -10,7 +10,8 @@ describe('LeafletMap', () => {
     initialCenter: LatLng = new LatLng(0.0, 0.0),
     initialZoom?: number,
     maxZoom?: number,
-    minZoom?: number
+    minZoom?: number,
+    osmBaseMap: boolean = true,
   ) => {
     return mount(LeafletMap, {
       attachTo: document.body,
@@ -19,7 +20,8 @@ describe('LeafletMap', () => {
         initialZoom,
         initialCenter,
         maxZoom,
-        minZoom
+        minZoom,
+        osmBaseMap
       }
     })
   }
@@ -66,6 +68,28 @@ describe('LeafletMap', () => {
 
       expect(wrapper.vm.map?.getMaxZoom()).toStrictEqual(expectedMaxZoom)
       expect(wrapper.vm.map?.getMinZoom()).toStrictEqual(expectedMinZoom)
+    })
+
+    it(':osmBaseMap - create default base layer when map is created', async () => {
+      wrapper.unmount()
+      const expectedBaseLayer = true
+      wrapper = mountComponent(undefined, 15, undefined, undefined, expectedBaseLayer)
+
+      let layerCount = 0
+      wrapper.vm.map?.eachLayer(() => layerCount++)
+
+      expect(layerCount).toStrictEqual(1)
+    })
+
+    it(':osmBaseMap - do not create default base layer when map is created', async () => {
+      wrapper.unmount()
+      const expectedBaseLayer = false
+      wrapper = mountComponent(undefined, 15, undefined, undefined, expectedBaseLayer)
+
+      let layerCount = 0
+      wrapper.vm.map?.eachLayer(() => layerCount++)
+
+      expect(layerCount).toStrictEqual(0)
     })
   })
 })

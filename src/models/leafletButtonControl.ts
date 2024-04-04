@@ -1,5 +1,6 @@
 import { Control, DomEvent, DomUtil, Map } from 'leaflet'
 import type { Ref } from 'vue'
+import { watch } from "vue";
 
 export class ButtonControl extends Control {
   readonly state: Ref<boolean>
@@ -20,10 +21,19 @@ export class ButtonControl extends Control {
     button.innerHTML = `<i class='bi ${this.iconKey}'></i>`
     DomEvent.disableClickPropagation(button)
     DomEvent.on(button, 'click', () => {
-      this.state.value = button.classList.toggle(this.activeClass)
+      this.state.value = !this.state.value
     })
 
     container.title = this.tooltipTitle
+
+    // keep this.state and the button DOM element's "active" HTML-class in sync
+    watch(this.state, (newState: boolean): void => {
+      if (newState) {
+        button.classList.add(this.activeClass)
+      } else {
+        button.classList.remove(this.activeClass)
+      }
+    })
 
     return container
   }
