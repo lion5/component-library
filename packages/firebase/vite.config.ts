@@ -8,13 +8,11 @@ import { fileURLToPath } from 'node:url'
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), dts({ outDir: './dist/types' })],
+  plugins: [vue(), dts()],
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'lion5-component-library-shared',
-      formats: ['es'],
-      fileName: (format) => `library.${format}.js`
+      formats: ['es']
     },
     rollupOptions: {
       external: [
