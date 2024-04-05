@@ -30,13 +30,13 @@ export function useLeafletMap(
 
     if (osmBaseMap) {
       const baseLayer = new TileLayer(
-          'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
-          {
-              maxZoom,
-              minZoom,
-              attribution:
-                  '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-          }
+        'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+        {
+          maxZoom,
+          minZoom,
+          attribution:
+            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }
       )
       map.value.addLayer(baseLayer)
     }

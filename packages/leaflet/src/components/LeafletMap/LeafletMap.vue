@@ -47,7 +47,7 @@ const {
   props.maxZoom,
   center,
   props.customControls,
-  props.osmBaseMap,
+  props.osmBaseMap
 )
 defineExpose({ map }) // for testing
 

@@ -11,7 +11,7 @@ describe('LeafletMap', () => {
     initialZoom?: number,
     maxZoom?: number,
     minZoom?: number,
-    osmBaseMap: boolean = true,
+    osmBaseMap: boolean = true
   ) => {
     return mount(LeafletMap, {
       attachTo: document.body,
@@ -73,7 +73,13 @@ describe('LeafletMap', () => {
     it(':osmBaseMap - create default base layer when map is created', async () => {
       wrapper.unmount()
       const expectedBaseLayer = true
-      wrapper = mountComponent(undefined, 15, undefined, undefined, expectedBaseLayer)
+      wrapper = mountComponent(
+        undefined,
+        15,
+        undefined,
+        undefined,
+        expectedBaseLayer
+      )
 
       let layerCount = 0
       wrapper.vm.map?.eachLayer(() => layerCount++)
@@ -84,7 +90,13 @@ describe('LeafletMap', () => {
     it(':osmBaseMap - do not create default base layer when map is created', async () => {
       wrapper.unmount()
       const expectedBaseLayer = false
-      wrapper = mountComponent(undefined, 15, undefined, undefined, expectedBaseLayer)
+      wrapper = mountComponent(
+        undefined,
+        15,
+        undefined,
+        undefined,
+        expectedBaseLayer
+      )
 
       let layerCount = 0
       wrapper.vm.map?.eachLayer(() => layerCount++)

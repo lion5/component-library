@@ -1,7 +1,15 @@
 /* eslint-env node */
 module.exports = {
   root: true,
-  extends: ['plugin:vue/vue3-essential', 'eslint:recommended', '@vue/eslint-config-typescript/recommended', 'plugin:storybook/recommended', '@vue/eslint-config-prettier', 'plugin:prettier/recommended', 'plugin:storybook/recommended'],
+  extends: [
+    'plugin:vue/vue3-essential',
+    'eslint:recommended',
+    '@vue/eslint-config-typescript/recommended',
+    'plugin:storybook/recommended',
+    '@vue/eslint-config-prettier',
+    'plugin:prettier/recommended',
+    'plugin:storybook/recommended'
+  ],
   plugins: ['@typescript-eslint', 'prettier'],
   parserOptions: {
     ecmaVersion: 'latest'

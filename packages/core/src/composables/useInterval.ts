@@ -18,9 +18,12 @@ export function useInterval() {
     timeoutInSeconds: number
   ) => {
     removeInterval()
-    interval.value = setInterval(() => {
-      callback()
-    }, (timeoutInSeconds || 5) * 1000) as unknown as number
+    interval.value = setInterval(
+      () => {
+        callback()
+      },
+      (timeoutInSeconds || 5) * 1000
+    ) as unknown as number
   }
 
   /**

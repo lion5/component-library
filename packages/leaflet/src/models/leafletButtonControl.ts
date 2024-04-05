@@ -1,6 +1,6 @@
 import { Control, DomEvent, DomUtil, Map } from 'leaflet'
 import type { Ref } from 'vue'
-import { watch } from "vue";
+import { watch } from 'vue'
 
 export class ButtonControl extends Control {
   readonly state: Ref<boolean>

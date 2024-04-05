@@ -11,5 +11,5 @@ export {
   useLeafletMap,
   useLeafletMarker,
   useNominatim,
-  useShape,
+  useShape
 }
