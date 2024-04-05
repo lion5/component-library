@@ -8,7 +8,7 @@
     "lint": "eslint packages --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
     "build": "nx run-many -t build",
     "test": "nx run-many -t test:unit",
-    "docs": "nx run-many -t docs --parallel=4",
+    "docs": "nx run-many -t docs --parallel=5",
     "docs:build": "nx run-many -t docs:build"
   },
   "devDependencies": {
