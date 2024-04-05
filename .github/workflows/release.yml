@@ -74,7 +74,7 @@ jobs:
       - name: Release
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.event.inputs.release_version }}
+          tag_name: v${{ github.event.inputs.release_version }}
           generate_release_notes: true
 
   publish-package:
@@ -86,7 +86,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.release_version }}
+          ref: v${{ github.event.inputs.release_version }}
       # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v3
         with:
@@ -99,7 +99,7 @@ jobs:
           npm ci
           npm run build
       - name: Publish To Github Packages
-        run: npx nx release publish
+        run: npx nx release publish --registry https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - uses: actions/setup-node@v3
@@ -107,9 +107,9 @@ jobs:
           node-version: '18.x'
           # Defaults to the user or organization that owns the workflow file
           scope: '@lion5'
-          registry-url: 'https://registry.npmjs.org/'
+          registry-url: 'https://registry.npmjs.org'
       - name: Publish To NPM Packages
-        run: npx nx release publish
+        run: npx nx release publish --registry https://registry.npmjs.org
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -128,7 +128,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.inputs.release_version }}
+          ref: v${{ github.event.inputs.release_version }}
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
