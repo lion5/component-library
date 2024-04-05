@@ -1,3 +1,15 @@
+## 0.9.10 (2024-04-05)
+
+
+### 🩹 Fixes
+
+- make storybook depend on build ([c5c5e13](https://github.com/lion5/component-library/commit/c5c5e13))
+- **core:** added style reference to package.json ([6a42f92](https://github.com/lion5/component-library/commit/6a42f92))
+
+### ❤️  Thank You
+
+- Lukas Mahr
+
 ## 0.9.9 (2024-04-05)
 
 This was a version bump only, there were no code changes.
