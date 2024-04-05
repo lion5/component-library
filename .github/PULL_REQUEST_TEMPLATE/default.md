@@ -15,6 +15,10 @@ Please delete options that are not relevant.
 
 ## Checklist
 
-- [ ] I have commented my code, particularly in hard-to-understand areas
-- [ ] I documented new or updated frontend components
-- [ ] I have added tests that prove my fix is effective or that my feature works
+- [ ] New components are documented in a `.stories.js` Story file, and in the respective component file, the props and
+  exposed events / methods are annotated
+  using [code comments](https://vue-styleguidist.github.io/docs/Documenting.html#code-comments)
+- [ ] Make sure the documentation can be built (see command above - will be verified by CI as well)
+- [ ] Please test that your component works properly, by adding a `.spec.{ts|js}` file next to it.
+- [ ] New components (atoms, icons, layouts) need to be registered in the respective `index.ts` file,
+  e.g. `src/atoms/index.ts`.
