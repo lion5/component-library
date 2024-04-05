@@ -1,5 +1,6 @@
-@import "../../core/src/assets/style/variables/index.scss";
-@import '../../core/src/assets/style/icons.scss';
+@import '../src/assets/style/variables/index.scss';
+@import '../src/assets/style/icons.scss';
+
 
 :root {
   /* Overwrite light and dark theme */
@@ -28,4 +29,10 @@
   --dark-primary-hue: 50;
   --dark-primary-saturation: 50%;
   --dark-primary-lightness: 50%;
+
+  --dark-success-hue: 120;
+  --dark-success-saturation: 100%;
+
+  --dark-danger-hue: 5;
+  --dark-danger-saturation: 100%;
 }
