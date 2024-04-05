@@ -1,5 +1,14 @@
 {
   "targetDefaults": {
+    "release": {
+      "projects": [
+        "*",
+        "!storybook-host"
+      ],
+      "version": {
+        "conventionalCommits": true
+      }
+    },
     "build": {
       "dependsOn": [
         "^build"
