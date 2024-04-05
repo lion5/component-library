@@ -93,16 +93,23 @@ jobs:
           node-version: '18.x'
           # Defaults to the user or organization that owns the workflow file
           scope: '@lion5'
+          registry-url: 'https://npm.pkg.github.com'
       - name: Build
         run: |
           npm ci
           npm run build
       - name: Publish To Github Packages
-        run: npx nx release publish --registry https://npm.pkg.github.com
+        run: npx nx release publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
+          # Defaults to the user or organization that owns the workflow file
+          scope: '@lion5'
+          registry-url: 'https://registry.npmjs.org/'
       - name: Publish To NPM Packages
-        run: npx nx release publish --registry https://registry.npmjs.org/
+        run: npx nx release publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
