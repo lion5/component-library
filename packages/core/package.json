@@ -38,9 +38,10 @@
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/component-library.js",
-      "types": "./dist/index.d.ts"
-    }
+      "types": "./dist/index.d.ts",
+      "import": "./dist/component-library.js"
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "dependencies": {
     "bootstrap-icons": "^1.11.3",
