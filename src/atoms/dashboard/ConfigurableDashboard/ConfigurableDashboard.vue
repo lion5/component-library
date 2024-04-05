@@ -15,7 +15,7 @@
       :edit-mode="editMode"
     />
     <DismissibleModal v-model:modalDisplayed="showModal" class="basic-modal">
-      <SaveDashboardModal v-if="showModal" @save="onSave" />
+      <SaveDashboardModal v-if="showModal" @confirm-save="onConfirmSave" />
     </DismissibleModal>
   </div>
 </template>
@@ -63,7 +63,7 @@ const prepareSave = () => {
   showModal.value = true
 }
 
-const onSave = (name: string) => {
+const onConfirmSave = (name: string) => {
   editMode.value = false
   emit('update:dashboardConfig', currentConfig.value)
   emit('save', currentConfig.value, name)
