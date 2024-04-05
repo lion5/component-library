@@ -17,11 +17,12 @@ const config: StorybookConfig = {
     getAbsolutePath('@storybook/addon-interactions')
   ],
   framework: {
-    name: getAbsolutePath('@storybook/vue3-vite'),
+    name: getAbsolutePath("@storybook/vue3-vite"),
     options: {}
   },
   docs: {
-    autodocs: 'tag'
+    autodocs: true,
+    defaultName: 'Documentation'
   }
 }
 export default config
