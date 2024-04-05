@@ -5,7 +5,7 @@
       v-model="selectedOption"
       :options="options"
       :placeholder="placeholderText"
-      :track-by="'value'"
+      track-by="key"
       label="label"
       :multiple="false"
       :taggable="false"
