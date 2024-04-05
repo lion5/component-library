@@ -35,7 +35,7 @@
     },
     "docs:build": {
       "dependsOn": [
-        "^docs:build"
+        "^build"
       ],
       "outputs": [
         "{projectRoot}/storybook-build-dist"
