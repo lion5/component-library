@@ -13,7 +13,7 @@ Use buttons to trigger actions inside your application.
 
 ## Base Button
 The standard button.
-<Canvas>
+<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
   <Story of={BaseButton.Default} />
   <Story of={BaseButton.Secondary} />
   <Story of={BaseButton.Success} />
@@ -21,22 +21,22 @@ The standard button.
   <Story of={BaseButton.Disabled} />
   <Story of={BaseButton.Loading} />
   <Story of={BaseButton.Icon} />
-</Canvas>
+</div>
 
 ## Icon Button
 Button that can display only one icon
-<Canvas of={IconButton.Default} />
+<Story of={IconButton.Default} />
 
 ## Action Button
 Should be used for FAB button or other for other main actions.
-<Canvas of={ActionButton.Default} />
+<Story of={ActionButton.Default} />
 
 ## Card Dismiss Button
 Should be used to close a modal.
-<Canvas of={CardDismissButton.Default} />
+<Story of={CardDismissButton.Default} />
 
 ## Information Button
 Opens a modal to provide additional information to a specific topic.
-<Canvas of={InformationButton.Default} />
+<Story of={InformationButton.Default} />
 
 
