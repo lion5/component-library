@@ -43,7 +43,8 @@ npm run docs:build
 1. Run the release workflow using the Actions tab
 
 - Select the release version (SemVer e.g. 1.0.0) and run the release on main branch
-  ![graphic](https://user-images.githubusercontent.com/28068636/221237899-54cccd25-cd09-4758-a34c-d93d65785e98.png)
+  ![image](https://github.com/lion5/component-library/assets/19801231/bd87751a-8dad-442b-b7c9-0841a2acf2e7)
+
 
 2. After that the workflow creates a release PR after a while. This PR need to be approved, merged and the branch
    deleted.
