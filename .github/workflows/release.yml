@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
-          fetch-tags: true
+          fetch-depth: 0
       - name: Git configuration
         run: |
           git config --global user.email "github-actions@github.com"
