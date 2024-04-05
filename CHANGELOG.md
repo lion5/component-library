@@ -1,3 +1,14 @@
+## 0.10.0 (2024-04-05)
+
+
+### 🩹 Fixes
+
+- standalone docs ([f998fc8](https://github.com/lion5/component-library/commit/f998fc8))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.9.10 (2024-04-05)
 
 
