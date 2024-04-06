@@ -34,12 +34,12 @@
   "files": [
     "dist"
   ],
-  "module": "./dist/component-library.js",
+  "module": "./dist/index.es.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/component-library.js"
+      "import": "./dist/index.es.js"
     },
     "./dist/style.css": "./dist/style.css"
   },

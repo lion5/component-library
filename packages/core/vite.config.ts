@@ -12,7 +12,10 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      formats: ['es']
+      formats: ['es'],
+      fileName(format, _) {
+        return `index.${format}.js`
+      }
     },
     rollupOptions: {
       external: [
