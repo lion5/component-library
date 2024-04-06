@@ -1,6 +1,6 @@
 {
   "name": "@lion5/component-library-gridstack",
-  "version": "0.10.0",
+  "version": "0.10.1",
   "type": "module",
   "license": "MIT",
   "contributors": [
@@ -43,7 +43,7 @@
     }
   },
   "dependencies": {
-    "@lion5/component-library": "0.10.0",
+    "@lion5/component-library": "0.10.1",
     "gridstack": "^10.1.2",
     "vue": "^3.4.21"
   },
