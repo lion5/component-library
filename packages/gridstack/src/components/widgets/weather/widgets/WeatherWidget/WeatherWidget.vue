@@ -33,12 +33,7 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
-import {
-  NamedLocation,
-  useDate,
-  useInterval,
-  useNumber
-} from '@lion5/component-library'
+import { useDate, useInterval, useNumber } from '@lion5/component-library'
 import { WeatherSetting } from '@/components/widgets/weather/widgets/WeatherWidget/settings'
 import { useBrightSkyWeatherIcon } from '@/components/widgets/weather/composables/useBrightSkyWeatherIcon'
 import { useBrightSkyWeather } from '@/components/widgets/weather/composables/useBrightSkyWeather'
@@ -49,6 +44,7 @@ import WindDirection from '@/components/widgets/weather/components/WindDirection
 import BrightSkySources from '@/components/widgets/weather/components/BrightSkySources.vue'
 import { WidgetSettings } from '@/models/widgetConfiguration'
 import { useWidget } from '@/composables/useWidget'
+import { NamedLocation } from '@/models/namedLocation'
 
 const props = defineProps<{
   settings: WidgetSettings

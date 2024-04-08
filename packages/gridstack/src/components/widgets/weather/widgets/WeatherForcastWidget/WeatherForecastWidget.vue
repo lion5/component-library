@@ -20,7 +20,7 @@
 import type { ComputedRef } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
 import { WeatherForecastSetting } from '@/components/widgets/weather/widgets/WeatherForcastWidget/settings'
-import { NamedLocation, useInterval } from '@lion5/component-library'
+import { useInterval } from '@lion5/component-library'
 import { useBrightSkyWeatherForecast } from '@/components/widgets/weather/composables/useBrightSkyWeatherForecast'
 import WidgetWrapper from '@/components/WidgetWrapper/WidgetWrapper.vue'
 import WidgetHeadline from '@/components/WidgetHeadline/WidgetHeadline.vue'
@@ -29,6 +29,7 @@ import SevenDayForecast from '@/components/widgets/weather/components/SevenDayFo
 import BrightSkySources from '@/components/widgets/weather/components/BrightSkySources.vue'
 import { WidgetSettings } from '@/models/widgetConfiguration'
 import { useWidget } from '@/composables/useWidget'
+import { NamedLocation } from '@/models/namedLocation'
 
 const props = defineProps<{
   settings: WidgetSettings
