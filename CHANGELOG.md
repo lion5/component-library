@@ -1,3 +1,20 @@
+## 0.10.3 (2024-04-08)
+
+
+### 🩹 Fixes
+
+- failing tests ([5438ac6](https://github.com/lion5/component-library/commit/5438ac6))
+- failing tests 2 ([e9de851](https://github.com/lion5/component-library/commit/e9de851))
+- imports (caused by new component lib structure) ([f61e053](https://github.com/lion5/component-library/commit/f61e053))
+- unit tests ([2cddb71](https://github.com/lion5/component-library/commit/2cddb71))
+- review from michi ([3970bcd](https://github.com/lion5/component-library/commit/3970bcd))
+- **LocationCoordinateSelect:** unit tests ([6e9712a](https://github.com/lion5/component-library/commit/6e9712a))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+- Soumik Kumar Saha
+
 ## 0.10.2 (2024-04-08)
 
 This was a version bump only, there were no code changes.
