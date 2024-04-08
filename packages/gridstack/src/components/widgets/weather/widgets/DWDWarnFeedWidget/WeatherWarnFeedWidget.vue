@@ -27,13 +27,14 @@
 <script lang="ts" setup>
 import type { ComputedRef } from 'vue'
 import { onMounted, onUnmounted } from 'vue'
-import { NamedLocation, useDate, useInterval } from '@lion5/component-library'
+import { useDate, useInterval } from '@lion5/component-library'
 import { WeatherForecastSetting } from '@/components/widgets/weather/widgets/WeatherForcastWidget/settings'
 import { useDWDWeatherWarnings } from '@/components/widgets/weather/composables/useDWDWeatherWarnings'
 import WidgetWrapper from '@/components/WidgetWrapper/WidgetWrapper.vue'
 import WidgetHeadline from '@/components/WidgetHeadline/WidgetHeadline.vue'
 import { WidgetSettings } from '@/models/widgetConfiguration'
 import { useWidget } from '@/composables/useWidget'
+import { NamedLocation } from '@/models/namedLocation'
 
 const props = defineProps<{
   settings: WidgetSettings
