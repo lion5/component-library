@@ -1,6 +1,6 @@
 <template>
   <BaseButton @click="onClick" data-test="edit-button">
-    <span v-if="!localEditMode">
+    <span v-if="!editMode">
       <i class="bi-pencil" />
       Dashboard bearbeiten
     </span>
@@ -10,7 +10,7 @@
     </span>
   </BaseButton>
   <BaseButton
-    v-if="localEditMode"
+    v-if="editMode"
     @click="$emit('cancelEdit')"
     data-test="cancel-button"
     variant="danger"
@@ -34,9 +34,9 @@ const emit = defineEmits<{
    */
   (e: 'startEdit'): void
   /**
-   * emitted when edit button pressed and editMode was true before (User stops editing).
+   * emitted when edit button pressed and editMode was true before (User starts saving).
    */
-  (e: 'stopEdit'): void
+  (e: 'startSave'): void
   /**
    * emitted when user presses cancel button.
    */
@@ -58,11 +58,13 @@ const localEditMode = computed({
 
 const onClick = () => {
   const newMode = !localEditMode.value
-  localEditMode.value = newMode
+  if (newMode) {
+    localEditMode.value = newMode
+  }
   if (newMode) {
     emit('startEdit')
   } else {
-    emit('stopEdit')
+    emit('startSave')
   }
 }
 </script>
