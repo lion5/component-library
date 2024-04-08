@@ -8,8 +8,8 @@ import DynamicGrid from '@/components/DynamicGrid/DynamicGrid.vue'
 import EditButton from '@/components/EditButton/EditButton.vue'
 import { TEMPLATE_WIDGET_WRAPPER } from '@/components/widgets/TemplateWidget/config'
 import { vi } from 'vitest'
-import SaveDashboardModal from '@/atoms/dashboard/SaveDashboardModal/SaveDashboardModal.vue'
-import { DashboardBar } from '@/atoms'
+import { DashboardBar } from '@/components'
+import SaveDashboardModal from '@/components/SaveDashboardModal/SaveDashboardModal.vue'
 
 describe('ConfigurableDashboard.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -26,7 +26,8 @@ describe('ConfigurableDashboard.vue', () => {
       props: {
         availableWidgets: new Map(),
         dashboardConfig: [],
-        dashboardConfigurationOptions: []
+        dashboardConfigurationOptions: [],
+        selectedDashboardConfiguration: undefined
       }
     })
   })
