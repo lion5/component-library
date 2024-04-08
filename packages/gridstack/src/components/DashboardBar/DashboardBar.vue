@@ -29,7 +29,7 @@ import { computed, ref, watch } from 'vue'
 import AddWidgetButton from '@/components/AddWidgetButton/AddWidgetButton.vue'
 import EditButton from '@/components/EditButton/EditButton.vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
-import SelectInput from '@/atoms/inputs/SelectInput/SelectInput.vue'
+import { SelectInput } from '@lion5/component-library'
 
 const props = defineProps<{
   /**

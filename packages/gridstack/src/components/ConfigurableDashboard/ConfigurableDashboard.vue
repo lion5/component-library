@@ -27,8 +27,8 @@ import { WidgetConfiguration } from '@/models/widgetConfiguration'
 import { GridWidget } from '@/models/gridWidget'
 import DashboardBar from '@/components/DashboardBar/DashboardBar.vue'
 import DynamicGrid from '@/components/DynamicGrid/DynamicGrid.vue'
-import DismissibleModal from '@/atoms/modals/DismissibleModal/DismissibleModal.vue'
-import SaveDashboardModal from '@/atoms/dashboard/SaveDashboardModal/SaveDashboardModal.vue'
+import { DismissibleModal } from '@lion5/component-library'
+import SaveDashboardModal from '@/components/SaveDashboardModal/SaveDashboardModal.vue'
 
 const props = defineProps<{
   /**
