@@ -1,0 +1,42 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+
+import * as ActionButton from "./ActionButton/ActionButton.stories";
+import * as BaseButton from "./BaseButton/BaseButton.stories";
+import * as CardDismissButton from "./CardDismissButton/CardDismissButton.stories";
+import * as IconButton from "./IconButton/IconButton.stories";
+import * as InformationButton from "./InformationButton/InformationButton.stories";
+
+<Meta />
+
+# Buttons
+Use buttons to trigger actions inside your application.
+
+## Base Button
+The standard button.
+<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+  <Story of={BaseButton.Default} />
+  <Story of={BaseButton.Secondary} />
+  <Story of={BaseButton.Success} />
+  <Story of={BaseButton.Danger} />
+  <Story of={BaseButton.Disabled} />
+  <Story of={BaseButton.Loading} />
+  <Story of={BaseButton.Icon} />
+</div>
+
+## Icon Button
+Button that can display only one icon
+<Story of={IconButton.Default} />
+
+## Action Button
+Should be used for FAB button or other for other main actions.
+<Story of={ActionButton.Default} />
+
+## Card Dismiss Button
+Should be used to close a modal.
+<Story of={CardDismissButton.Default} />
+
+## Information Button
+Opens a modal to provide additional information to a specific topic.
+<Story of={InformationButton.Default} />
+
+

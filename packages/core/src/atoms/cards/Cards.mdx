@@ -1,0 +1,24 @@
+import { Canvas, Meta, Story } from "@storybook/blocks";
+
+import * as EntityCardStories from "./EntityCard/EntityCard.stories";
+import * as ItemCardStories from "./ItemCard/ItemCard.stories";
+
+<Meta />
+
+# Cards
+Cards can help to structure the content.
+
+## Entity Card
+Use entity card if the content that shall be displayed is bound to a specific entity.
+The entity card provide special states to reflect the loading state of the entity.
+
+<Story of={EntityCardStories.Default} />
+<Story of={EntityCardStories.BusyState} />
+<Story of={EntityCardStories.ErrorState} />
+<Story of={EntityCardStories.ErrorStateWithContent} />
+
+## Item Card
+The item card just provide a base card styling
+<Story of={ItemCardStories.Default} />
+
+

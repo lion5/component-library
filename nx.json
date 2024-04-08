@@ -1,0 +1,70 @@
+{
+  "targetDefaults": {
+    "release": {
+      "projects": [
+        "*",
+        "!storybook-host"
+      ],
+      "version": {
+        "conventionalCommits": true
+      }
+    },
+    "build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ],
+      "cache": true
+    },
+    "test:unit": {
+      "dependsOn": [
+        "^test:unit"
+      ],
+      "cache": true
+    },
+    "test:unit:ui": {
+      "dependsOn": [
+        "^test:unit:ui"
+      ],
+      "outputs": [
+        "{projectRoot}/coverage"
+      ],
+      "cache": true
+    },
+    "docs:build": {
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/storybook-build-dist"
+      ],
+      "cache": true
+    },
+    "build-storybook": {
+      "dependsOn": [
+        "^build-storybook"
+      ],
+      "outputs": [
+        "{projectRoot}/storybook-build-dist"
+      ],
+      "cache": true
+    },
+    "docs": {
+      "outputs": [
+        "{projectRoot}/storybook-dist"
+      ],
+      "cache": true
+    },
+    "type-check": {
+      "cache": true
+    },
+    "storybook": {
+      "cache": true
+    }
+  },
+  "affected": {
+    "defaultBase": "main"
+  }
+}
