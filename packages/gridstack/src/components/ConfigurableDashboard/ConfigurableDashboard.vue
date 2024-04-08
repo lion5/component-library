@@ -2,8 +2,10 @@
   <div class="configurable-dashboard">
     <DashboardBar
       v-model:edit-mode="editMode"
+      v-model:selected-dashboard-configuration="selectedDashboardId"
       :available-widgets="availableWidgets"
-      @stop-edit="onStopEdit"
+      :dashboard-configuration-options="dashboardConfigurationOptions"
+      @start-save="prepareSave"
       @cancel-edit="onCancelEdit"
       @add-widget="onAddWidget"
     />
@@ -12,16 +14,21 @@
       v-model:widget-configs="currentConfig"
       :edit-mode="editMode"
     />
+    <DismissibleModal v-model:modalDisplayed="showModal" class="basic-modal">
+      <SaveDashboardModal v-if="showModal" @confirm-save="onConfirmSave" />
+    </DismissibleModal>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import { WidgetConfiguration } from '@/models/widgetConfiguration'
 import { GridWidget } from '@/models/gridWidget'
 import DashboardBar from '@/components/DashboardBar/DashboardBar.vue'
 import DynamicGrid from '@/components/DynamicGrid/DynamicGrid.vue'
+import { DismissibleModal } from '@lion5/component-library'
+import SaveDashboardModal from '@/components/SaveDashboardModal/SaveDashboardModal.vue'
 
 const props = defineProps<{
   /**
@@ -33,20 +40,46 @@ const props = defineProps<{
    * A map of widgets that can be added to the dashboard
    */
   availableWidgets: Map<string, WidgetComponentWrapper>
+  /**
+   * An array of available saved dashboard configurations
+   */
+  dashboardConfigurationOptions: Array<{ id: string; name: string }>
+  /**
+   * Selected dashboard configuration
+   */
+  selectedDashboardConfiguration: string | undefined
 }>()
 const emit = defineEmits<{
-  (e: 'save', dashboardConfig: WidgetConfiguration[]): void
+  (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
   (e: 'update:dashboardConfig', dashboardConfig: WidgetConfiguration[]): void
+  (e: 'update:selectedDashboardConfiguration', id: string): void
 }>()
 
 const currentConfig = ref<WidgetConfiguration[]>(props.dashboardConfig)
 const editMode = ref<boolean>(false)
+const showModal = ref(false)
 
-const onStopEdit = () => {
+const selectedDashboardId = ref<string | undefined>(
+  props.selectedDashboardConfiguration
+)
+
+watch(selectedDashboardId, (id) => {
+  if (id !== undefined) {
+    emit('update:selectedDashboardConfiguration', id)
+  }
+})
+
+const prepareSave = () => {
+  showModal.value = true
+}
+
+const onConfirmSave = (name: string) => {
   editMode.value = false
   emit('update:dashboardConfig', currentConfig.value)
-  emit('save', currentConfig.value)
+  emit('save', currentConfig.value, name)
+  showModal.value = false
 }
+
 const onCancelEdit = () => {
   editMode.value = false
   currentConfig.value = props.dashboardConfig

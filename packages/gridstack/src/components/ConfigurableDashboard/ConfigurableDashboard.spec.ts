@@ -7,18 +7,27 @@ import ConfigurableDashboard from '@/components/ConfigurableDashboard/Configurab
 import DynamicGrid from '@/components/DynamicGrid/DynamicGrid.vue'
 import EditButton from '@/components/EditButton/EditButton.vue'
 import { TEMPLATE_WIDGET_WRAPPER } from '@/components/widgets/TemplateWidget/config'
+import { vi } from 'vitest'
+import { DashboardBar } from '@/components'
+import SaveDashboardModal from '@/components/SaveDashboardModal/SaveDashboardModal.vue'
 
 describe('ConfigurableDashboard.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
 
   beforeEach(() => {
+    // FIX to be able to use dialog field in jsdom. See https://github.com/jsdom/jsdom/issues/3294
+    HTMLDialogElement.prototype.showModal = vi.fn()
+    HTMLDialogElement.prototype.close = vi.fn()
+
     // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     wrapper = mount(ConfigurableDashboard, {
       attachTo: 'body',
       props: {
         availableWidgets: new Map(),
-        dashboardConfig: []
+        dashboardConfig: [],
+        dashboardConfigurationOptions: [],
+        selectedDashboardConfiguration: undefined
       }
     })
   })
@@ -33,28 +42,34 @@ describe('ConfigurableDashboard.vue', () => {
     })
   })
   describe('@events', () => {
-    it('save - emitted if EditButton emits stopEdit', async () => {
+    it('save - emitted if SaveDashboardModal emits confirmSave', async () => {
       const expectedWidgets = [
         new WidgetConfiguration('test-1', new GridWidget(0, 0, 1, 2), 'key')
       ]
       const grid = wrapper.findComponent(DynamicGrid)
       grid.vm.$emit('update:widgetConfigs', expectedWidgets)
-
-      const editButton = wrapper.findComponent(EditButton)
-      await editButton.vm.$emit('stopEdit')
+      const dashboardBar = wrapper.findComponent(DashboardBar)
+      await dashboardBar.vm.$emit('startSave')
+      const saveDashboardModal = wrapper.findComponent(SaveDashboardModal)
+      await saveDashboardModal.vm.$emit('confirmSave', 'name')
 
       expect(wrapper.emitted('save')).toBeDefined()
-      expect(wrapper.emitted('save')?.[0]).toStrictEqual([expectedWidgets])
+      expect(wrapper.emitted('save')?.[0]).toStrictEqual([
+        expectedWidgets,
+        'name'
+      ])
     })
-    it('update:widgetConfigs - emitted if EditButton emits stopEdit', async () => {
+    it('update:widgetConfigs - emitted if SaveDashboardModal emits confirmSave', async () => {
       const expectedWidgets = [
         new WidgetConfiguration('test-1', new GridWidget(0, 0, 1, 2), 'key')
       ]
       const grid = wrapper.findComponent(DynamicGrid)
       grid.vm.$emit('update:widgetConfigs', expectedWidgets)
 
-      const editButton = wrapper.findComponent(EditButton)
-      await editButton.vm.$emit('stopEdit')
+      const dashboardBar = wrapper.findComponent(DashboardBar)
+      await dashboardBar.vm.$emit('startSave')
+      const saveDashboardModal = wrapper.findComponent(SaveDashboardModal)
+      await saveDashboardModal.vm.$emit('confirm-save', 'name')
 
       expect(wrapper.emitted('update:dashboardConfig')).toBeDefined()
       expect(wrapper.emitted('update:dashboardConfig')?.[0]).toStrictEqual([

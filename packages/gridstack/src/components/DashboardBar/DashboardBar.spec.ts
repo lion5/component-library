@@ -8,7 +8,11 @@ describe('DashboardBar.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
   beforeEach(() => {
     wrapper = mount(DashboardBar, {
-      props: { editMode: false, availableWidgets: new Map() }
+      props: {
+        editMode: false,
+        availableWidgets: new Map(),
+        dashboardConfigurations: []
+      }
     })
   })
 
@@ -25,11 +29,11 @@ describe('DashboardBar.vue', () => {
 
       expect(wrapper.emitted('startEdit')).toBeDefined()
     })
-    it('stopEdit - emitted if EditButton emits stopEdit', async () => {
+    it('startSave - emitted if EditButton emits startSave', async () => {
       const editButton = wrapper.findComponent(EditButton)
-      await editButton.vm.$emit('stopEdit')
+      await editButton.vm.$emit('startSave')
 
-      expect(wrapper.emitted('stopEdit')).toBeDefined()
+      expect(wrapper.emitted('startSave')).toBeDefined()
     })
     it('cancelEdit - emitted if EditButton emits cancelEdit', async () => {
       const editButton = wrapper.findComponent(EditButton)
