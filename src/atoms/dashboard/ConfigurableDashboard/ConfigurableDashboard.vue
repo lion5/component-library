@@ -3,11 +3,11 @@
     <DashboardBar
       v-model:edit-mode="editMode"
       :available-widgets="availableWidgets"
-      :dashboard-configurations="dashboardConfigurations"
+      :dashboard-configuration-options="dashboardConfigurationOptions"
       @start-save="prepareSave"
       @cancel-edit="onCancelEdit"
       @add-widget="onAddWidget"
-      @dashboardSelected="onDashboardSelected"
+      v-model:selected-dashboard-configuration="selectedDashboardId"
     />
     <DynamicGrid
       :components="availableWidgets"
@@ -21,7 +21,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
 import { WidgetConfiguration } from '@/atoms/dashboard/models/widgetConfiguration'
 import { GridWidget } from '@/atoms/dashboard/models/gridWidget'
@@ -43,21 +43,31 @@ const props = defineProps<{
   /**
    * An array of available saved dashboard configurations
    */
-  dashboardConfigurations: Array<{ id: string; name: string }>
+  dashboardConfigurationOptions: Array<{ id: string; name: string }>
+  /**
+   * Selected dashboard configuration
+   */
+  selectedDashboardConfiguration: string | undefined
 }>()
 const emit = defineEmits<{
   (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
   (e: 'update:dashboardConfig', dashboardConfig: WidgetConfiguration[]): void
-  (e: 'dashboardConfigurationSelected', id: string): void
+  (e: 'update:selectedDashboardConfiguration', id: string): void
 }>()
 
 const currentConfig = ref<WidgetConfiguration[]>(props.dashboardConfig)
 const editMode = ref<boolean>(false)
 const showModal = ref(false)
 
-const onDashboardSelected = (id: string) => {
-  emit('dashboardConfigurationSelected', id)
-}
+const selectedDashboardId = ref<string | undefined>(
+  props.selectedDashboardConfiguration
+)
+
+watch(selectedDashboardId, (id) => {
+  if (id !== undefined) {
+    emit('update:selectedDashboardConfiguration', id)
+  }
+})
 
 const prepareSave = () => {
   showModal.value = true

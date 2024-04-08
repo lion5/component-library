@@ -26,7 +26,7 @@ describe('ConfigurableDashboard.vue', () => {
       props: {
         availableWidgets: new Map(),
         dashboardConfig: [],
-        dashboardConfigurations: []
+        dashboardConfigurationOptions: []
       }
     })
   })
@@ -41,16 +41,6 @@ describe('ConfigurableDashboard.vue', () => {
     })
   })
   describe('@events', () => {
-    it('dashboardConfigurationSelected - emitted if DashboardBar emits dashboardSelected', async () => {
-      const expectedId = 'dashboard-1'
-      const dashboardBar = wrapper.findComponent(DashboardBar)
-      dashboardBar.vm.$emit('dashboardSelected', expectedId)
-
-      expect(wrapper.emitted('dashboardConfigurationSelected')).toBeDefined()
-      expect(
-        wrapper.emitted('dashboardConfigurationSelected')?.[0]
-      ).toStrictEqual([expectedId])
-    })
     it('save - emitted if SaveDashboardModal emits confirmSave', async () => {
       const expectedWidgets = [
         new WidgetConfiguration('test-1', new GridWidget(0, 0, 1, 2), 'key')
@@ -68,7 +58,7 @@ describe('ConfigurableDashboard.vue', () => {
         'name'
       ])
     })
-    it('update:widgetConfigs - emitted if SaveDashboardModal emits save', async () => {
+    it('update:widgetConfigs - emitted if SaveDashboardModal emits confirmSave', async () => {
       const expectedWidgets = [
         new WidgetConfiguration('test-1', new GridWidget(0, 0, 1, 2), 'key')
       ]
@@ -78,7 +68,7 @@ describe('ConfigurableDashboard.vue', () => {
       const dashboardBar = wrapper.findComponent(DashboardBar)
       await dashboardBar.vm.$emit('startSave')
       const saveDashboardModal = wrapper.findComponent(SaveDashboardModal)
-      await saveDashboardModal.vm.$emit('save', 'name')
+      await saveDashboardModal.vm.$emit('confirm-save', 'name')
 
       expect(wrapper.emitted('update:dashboardConfig')).toBeDefined()
       expect(wrapper.emitted('update:dashboardConfig')?.[0]).toStrictEqual([
