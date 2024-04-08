@@ -6,7 +6,7 @@
         :options="dashboardConfigurationOptionsMap"
         :label="'Dashboard-Konfiguration'"
         v-if="!editMode"
-        v-model:model-value="selectedDashboardId"
+        v-model="selectedDashboardId"
         id="dashboard-select"
         class="select-input"
       />

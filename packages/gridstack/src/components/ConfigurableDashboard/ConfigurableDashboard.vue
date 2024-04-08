@@ -2,12 +2,12 @@
   <div class="configurable-dashboard">
     <DashboardBar
       v-model:edit-mode="editMode"
+      v-model:selected-dashboard-configuration="selectedDashboardId"
       :available-widgets="availableWidgets"
       :dashboard-configuration-options="dashboardConfigurationOptions"
       @start-save="prepareSave"
       @cancel-edit="onCancelEdit"
       @add-widget="onAddWidget"
-      v-model:selected-dashboard-configuration="selectedDashboardId"
     />
     <DynamicGrid
       :components="availableWidgets"

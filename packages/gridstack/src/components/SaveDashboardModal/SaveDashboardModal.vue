@@ -22,9 +22,8 @@ import { ref, computed } from 'vue'
 import { BaseInputV2, BaseButton } from '@lion5/component-library'
 
 const name = ref('')
-// TODO: this seems not right. The computed value is applied to the validation-rules prop of the BaseInputV2 component but the default value 'Erforderlich' seems not to be a validation rule.
 const required = computed(() => ({
-  required: (value) => !!value || 'Erforderlich'
+  required: (value) => !!value
 }))
 
 const emit = defineEmits(['confirmSave'])
