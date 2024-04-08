@@ -4,8 +4,7 @@ import type { defineComponent } from 'vue'
 import { ErrorMessage, useField } from 'vee-validate'
 import * as useNominatimExports from '@core/composables/useNominatim'
 import LocationCoordinateSelect from './LocationCoordinateSelect.vue'
-import { NamedLocation } from '@lion5/component-library-leaflet/src/models/namedLocation'
-import { GpsLocation } from '@lion5/component-library-leaflet/src/models/gpsLocation'
+import { GpsLocation, NamedLocation } from '@core/models'
 
 vi.spyOn(useNominatimExports, 'useNominatim').mockReturnValue({
   getLocations: vi.fn().mockResolvedValue({})
