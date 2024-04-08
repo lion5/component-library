@@ -27,19 +27,16 @@ const required = computed(() => ({
   required: (value) => !!value || 'Erforderlich'
 }))
 
-const emit = defineEmits(['save'])
+const emit = defineEmits(['confirmSave'])
 
 const submitAndClose = () => {
-  emit('save', name.value)
+  emit('confirmSave', name.value)
 }
 </script>
 
 <style lang="scss" scoped>
 .save-dashboard-modal {
-  padding-top: 0rem;
-  padding-right: 1rem;
-  padding-bottom: 1rem;
-  padding-left: 1rem;
+  padding: 0 1rem 1rem;
   display: flex;
   flex-direction: column;
   gap: 1rem;

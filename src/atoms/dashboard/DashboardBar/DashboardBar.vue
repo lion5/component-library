@@ -3,10 +3,10 @@
     <h1>Dashboard</h1>
     <div class="right-aligned">
       <SelectInput
-        :options="dashboardOptions"
+        :options="dashboardConfigurationOptionsMap"
         :label="'Dashboard-Konfiguration'"
         v-if="!editMode"
-        @update:modelValue="onDashboardSelected"
+        v-model:model-value="selectedDashboardId"
         id="dashboard-select"
         class="select-input"
       />
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, ref, watch } from 'vue'
 import AddWidgetButton from '@/atoms/dashboard/AddWidgetButton/AddWidgetButton.vue'
 import EditButton from '@/atoms/dashboard/EditButton/EditButton.vue'
 import { WidgetComponentWrapper } from '@/atoms/dashboard/models/widgetComponentWrapper'
@@ -43,7 +43,11 @@ const props = defineProps<{
   /**
    * An array of available saved dashboard configurations
    */
-  dashboardConfigurations: Array<{ id: string; name: string }>
+  dashboardConfigurationOptions: Array<{ id: string; name: string }>
+  /**
+   * Selected dashboard configuration
+   */
+  selectedDashboardConfiguration: string | undefined
 }>()
 const emit = defineEmits<{
   /**
@@ -69,21 +73,27 @@ const emit = defineEmits<{
   /**
    * emitted when user select a saved dashboard configuration
    */
-  (e: 'dashboardSelected', id: string): void
+  (e: 'update:selectedDashboardConfiguration', id: string): void
 }>()
 
-const dashboardOptions = computed(() => {
-  return props.dashboardConfigurations
-    ? props.dashboardConfigurations.map((dc) => ({
+const dashboardConfigurationOptionsMap = computed(() => {
+  return props.dashboardConfigurationOptions
+    ? props.dashboardConfigurationOptions.map((dc) => ({
         key: dc.id,
         label: dc.name
       }))
     : []
 })
 
-const onDashboardSelected = (id: string) => {
-  emit('dashboardSelected', id)
-}
+const selectedDashboardId = ref<string | undefined>(
+  props.selectedDashboardConfiguration
+)
+
+watch(selectedDashboardId, (id) => {
+  if (id !== undefined) {
+    emit('update:selectedDashboardConfiguration', id)
+  }
+})
 
 const localEditMode = computed({
   get() {

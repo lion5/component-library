@@ -44,9 +44,10 @@ export const Default: Story = {
       ['widget2', IFRAME_WIDGET_WRAPPER],
       ['widget3', REFRESHABLE_IMAGE_WIDGET_WRAPPER]
     ]),
-    dashboardConfigurations: [
+    dashboardConfigurationOptions: [
       { id: '1', name: 'Dashboard One' },
       { id: '2', name: 'Dashboard Two' }
-    ]
+    ],
+    selectedDashboardConfiguration: undefined
   }
 }
