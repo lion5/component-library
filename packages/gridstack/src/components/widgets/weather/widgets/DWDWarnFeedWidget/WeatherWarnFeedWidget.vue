@@ -34,7 +34,7 @@ import WidgetWrapper from '@/components/WidgetWrapper/WidgetWrapper.vue'
 import WidgetHeadline from '@/components/WidgetHeadline/WidgetHeadline.vue'
 import { WidgetSettings } from '@/models/widgetConfiguration'
 import { useWidget } from '@/composables/useWidget'
-import { NamedLocation } from '@/models/namedLocation'
+import { NamedLocation } from '@lion5/component-library'
 
 const props = defineProps<{
   settings: WidgetSettings

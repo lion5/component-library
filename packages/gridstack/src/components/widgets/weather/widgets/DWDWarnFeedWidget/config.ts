@@ -4,8 +4,7 @@ import {
   WeatherWarnSettingsFormSchema
 } from '@/components/widgets/weather/widgets/DWDWarnFeedWidget/settings'
 import WeatherWarnFeedWidget from '@/components/widgets/weather/widgets/DWDWarnFeedWidget/WeatherWarnFeedWidget.vue'
-import { NamedLocation } from '@/models/namedLocation'
-import { GpsLocation } from '@/models/gpsLocation'
+import { NamedLocation, GpsLocation } from '@lion5/component-library'
 
 export const WEATHER_WARN_FEED_WIDGET_WRAPPER = new WidgetComponentWrapper(
   'Wetterwarnungen',

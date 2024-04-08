@@ -1,4 +1,4 @@
-import { GpsLocation } from '@/models/gpsLocation'
+import { GpsLocation } from '@core/models/gpsLocation'
 
 export class NamedLocation {
   readonly location: GpsLocation

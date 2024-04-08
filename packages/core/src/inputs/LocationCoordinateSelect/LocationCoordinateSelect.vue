@@ -27,9 +27,10 @@ import type { RuleExpression } from 'vee-validate'
 import { ErrorMessage, useField } from 'vee-validate'
 import { computed, ref } from 'vue'
 import { debounce } from 'lodash'
-import { NamedLocation } from '@leaflet/models'
-import { BaseInputWrapper, LoadingAnimation } from '@lion5/component-library'
-import { useNominatim } from '@leaflet/composables'
+import { LoadingAnimation } from '@core/atoms'
+import { BaseInputWrapper } from '@core/inputs'
+import { NamedLocation } from '@core/models'
+import { useNominatim } from '@core/composables'
 
 type InputValue = string | number | null
 
