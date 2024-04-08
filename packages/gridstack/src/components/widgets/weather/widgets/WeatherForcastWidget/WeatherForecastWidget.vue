@@ -29,7 +29,7 @@ import SevenDayForecast from '@/components/widgets/weather/components/SevenDayFo
 import BrightSkySources from '@/components/widgets/weather/components/BrightSkySources.vue'
 import { WidgetSettings } from '@/models/widgetConfiguration'
 import { useWidget } from '@/composables/useWidget'
-import { NamedLocation } from '@/models/namedLocation'
+import { NamedLocation } from '@lion5/component-library'
 
 const props = defineProps<{
   settings: WidgetSettings

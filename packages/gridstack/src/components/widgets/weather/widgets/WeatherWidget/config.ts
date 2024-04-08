@@ -2,8 +2,7 @@ import WeatherWidget from '@/components/widgets/weather/widgets/WeatherWidget/We
 import { WeatherForecastSetting } from '@/components/widgets/weather/widgets/WeatherForcastWidget/settings'
 import { WeatherSettingsFormSchema } from '@/components/widgets/weather/widgets/WeatherWidget/settings'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
-import { NamedLocation } from '@/models/namedLocation'
-import { GpsLocation } from '@/models/gpsLocation'
+import { NamedLocation, GpsLocation } from '@lion5/component-library'
 
 export const WEATHER_WIDGET_WRAPPER = new WidgetComponentWrapper(
   'Wetter',
