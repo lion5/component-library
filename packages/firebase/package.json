@@ -40,7 +40,8 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js"
-    }
+    },
+    "./dist/style.css": "./dist/style.css"
   },
   "dependencies": {
     "@lion5/component-library": "0.10.3",
