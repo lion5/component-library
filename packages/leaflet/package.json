@@ -1,6 +1,6 @@
 {
   "name": "@lion5/component-library-leaflet",
-  "version": "0.10.4",
+  "version": "0.10.5",
   "type": "module",
   "license": "MIT",
   "contributors": [
@@ -44,7 +44,7 @@
     "./dist/style.css": "./dist/style.css"
   },
   "dependencies": {
-    "@lion5/component-library": "0.10.4",
+    "@lion5/component-library": "0.10.5",
     "@turf/boolean-point-in-polygon": "^6.5.0",
     "leaflet": "^1.9.4",
     "vue": "^3.4.21"

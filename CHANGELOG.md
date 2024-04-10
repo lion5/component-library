@@ -1,3 +1,14 @@
+## 0.10.5 (2024-04-10)
+
+
+### 🩹 Fixes
+
+- dashboard style ([6453507](https://github.com/lion5/component-library/commit/6453507))
+
+### ❤️  Thank You
+
+- Soumik Kumar Saha
+
 ## 0.10.4 (2024-04-10)
 
 
