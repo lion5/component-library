@@ -34,6 +34,10 @@ const submitAndClose = () => {
 </script>
 
 <style lang="scss" scoped>
+.base-input {
+  max-width: unset;
+  width: 100%;
+}
 .save-dashboard-modal {
   padding: 0 1rem 1rem;
   display: flex;
@@ -47,6 +51,6 @@ const submitAndClose = () => {
 }
 .header1,
 .header2 {
-  max-width: 250px;
+  min-width: 300px;
 }
 </style>
