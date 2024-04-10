@@ -1,0 +1,18 @@
+:root {
+  /* Spacing */
+  --space-100: .0625rem;
+  --space-200: .125rem;
+  --space-300: .25rem;
+  --space-400: .5rem;
+  --space-500: 1rem;
+  --space-600: 1.5rem;
+  --space-700: 2rem;
+  --space-800: 3rem;
+  --space-900: 4rem;
+
+  --space-xs: var(--space-300);
+  --space-sm: var(--space-400);
+  --space-md: var(--space-500);
+  --space-lg: var(--space-700);
+  --space-xl: var(--space-900);
+}

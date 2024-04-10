@@ -25,6 +25,8 @@ import IconWallet from '@core/icons/IconWallet.vue'
 import IconWarning from '@core/icons/IconWarning.vue'
 import IconX from '@core/icons/IconX.vue'
 import IconXCircleFill from '@core/icons/IconXCircleFill.vue'
+import IconEyeSlash from '@core/icons/IconEyeSlash.vue'
+import BaseIcon from '@core/icons/BaseIcon.vue'
 
 export {
   IconArrowBack,
@@ -53,6 +55,8 @@ export {
   IconWallet,
   IconWarning,
   IconX,
-  IconXCircleFill
+  IconXCircleFill,
+  IconEyeSlash,
+  BaseIcon
 }
 export * from './weather'

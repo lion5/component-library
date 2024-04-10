@@ -30,6 +30,12 @@ import DashboardItemCard from '@core/atoms/cards/DashboardItemCard/DashboardItem
 import { DashboardItem } from '@core/atoms/cards/DashboardItemCard/dashboardItem'
 import SingleMetricCard from '@core/atoms/cards/SingleMetricCard/SingleMetricCard.vue'
 import ImageDropArea from '@core/atoms/dragdrop/ImageDropArea/ImageDropArea.vue'
+import ScaleTransition from '@core/atoms/transitions/ScaleTransition.vue'
+import TooltipIcon from '@core/atoms/utils/TooltipIcon/TooltipIcon.vue'
+import StateIconSwitch from '@core/atoms/utils/StateIconSwitch/StateIconSwitch.vue'
+import InvoicePreview from '@core/atoms/utils/InvoicePreview/InvoicePreview.vue'
+import EmailLink from '@core/atoms/utils/EmailLink/EmailLink.vue'
+import BaseBadge from '@core/atoms/utils/BaseBadge/BaseBadge.vue'
 
 export {
   ActionButton,
@@ -63,7 +69,13 @@ export {
   DashboardItemCard,
   DashboardItem,
   SingleMetricCard,
-  ImageDropArea
+  ImageDropArea,
+  ScaleTransition,
+  BaseBadge,
+  EmailLink,
+  InvoicePreview,
+  StateIconSwitch,
+  TooltipIcon
 }
 export * from './boxes'
 export * from './image'
