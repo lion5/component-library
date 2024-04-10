@@ -1,9 +1,10 @@
-## 0.10.5 (2024-04-10)
-
+## 0.10.6 (2024-04-10)
 
 ### 🩹 Fixes
 
 - dashboard style ([6453507](https://github.com/lion5/component-library/commit/6453507))
+- dashboard style 2 ([742def4](https://github.com/lion5/component-library/commit/742def4))
+
 
 ### ❤️  Thank You
 
