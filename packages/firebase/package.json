@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@lion5/component-library": "0.10.6",
-    "firebase": "^10.10.0",
+    "firebase": "^9.22.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {
