@@ -1,7 +1,7 @@
 <template>
   <BaseBox class="info-box" v-if="infoMessage">
     <IconInfoCircle />
-    {{ infoMessage }}
+    <slot>{{ infoMessage }}</slot>
   </BaseBox>
 </template>
 
@@ -18,9 +18,8 @@ defineProps<{
 </script>
 <style lang="scss" scoped>
 .info-box {
-  --box-background-color: var(--color-primary-100);
-  color: var(--color-neutral-600);
-
+  --box-background-color: var(--color-primary-surface);
+  --box-color: var(--color-font-1);
   i {
     margin-right: var(--space-sm);
   }

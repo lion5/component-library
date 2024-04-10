@@ -17,5 +17,9 @@ const Template = (args, { argTypes }) => ({
     </ItemCard>`
 })
 
+/**
+ * ItemCards uses [BaseCard](/docs/atoms-cards-basecard--documentation) under the hood.<br>
+ * To configure the padding use `--item-card-padding` instead of `card-padding`
+ */
 export const Default = Template.bind({})
 Default.args = {}

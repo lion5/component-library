@@ -22,6 +22,14 @@ import DropDown from '@core/atoms/dropdown/DropDown/DropDown.vue'
 import DropDownItem from '@core/atoms/dropdown/DropDownItem/DropDownItem.vue'
 import MessageBox from '@core/atoms/boxes/MessageBox/MessageBox.vue'
 import WakeLockToggle from '@core/atoms/WakeLockToggle/WakeLockToggle.vue'
+import ConfirmButton from '@core/atoms/buttons/ConfirmButton/ConfirmButton.vue'
+import BaseCard from '@core/atoms/cards/BaseCard/BaseCard.vue'
+import CardBadgeBase from '@core/atoms/cards/CardBadgeBase/CardBadgeBase.vue'
+import CardContentGroup from '@core/atoms/cards/CardContentGroup/CardContentGroup.vue'
+import DashboardItemCard from '@core/atoms/cards/DashboardItemCard/DashboardItemCard.vue'
+import { DashboardItem } from '@core/atoms/cards/DashboardItemCard/dashboardItem'
+import SingleMetricCard from '@core/atoms/cards/SingleMetricCard/SingleMetricCard.vue'
+import ImageDropArea from '@core/atoms/dragdrop/ImageDropArea/ImageDropArea.vue'
 
 export {
   ActionButton,
@@ -47,6 +55,15 @@ export {
   DropDown,
   DropDownItem,
   MessageBox,
-  WakeLockToggle
+  WakeLockToggle,
+  ConfirmButton,
+  BaseCard,
+  CardBadgeBase,
+  CardContentGroup,
+  DashboardItemCard,
+  DashboardItem,
+  SingleMetricCard,
+  ImageDropArea
 }
 export * from './boxes'
+export * from './image'

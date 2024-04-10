@@ -5,6 +5,7 @@ import * as BaseButton from "./BaseButton/BaseButton.stories";
 import * as CardDismissButton from "./CardDismissButton/CardDismissButton.stories";
 import * as IconButton from "./IconButton/IconButton.stories";
 import * as InformationButton from "./InformationButton/InformationButton.stories";
+import * as ConfirmButton from "./ConfirmButton/ConfirmButton.stories";
 
 <Meta />
 
@@ -21,6 +22,7 @@ The standard button.
   <Story of={BaseButton.Disabled} />
   <Story of={BaseButton.Loading} />
   <Story of={BaseButton.Icon} />
+  <Story of={ConfirmButton.Default} />
 </div>
 
 ## Icon Button
@@ -38,5 +40,9 @@ Should be used to close a modal.
 ## Information Button
 Opens a modal to provide additional information to a specific topic.
 <Story of={InformationButton.Default} />
+
+## Confirm Button
+Opens a modal to allow user to confirm user a action.
+<Story of={ConfirmButton.Default} />
 
 
