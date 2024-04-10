@@ -51,6 +51,6 @@ const submitAndClose = () => {
 }
 .header1,
 .header2 {
-  min-width: 400px;
+  min-width: 300px;
 }
 </style>
