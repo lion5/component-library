@@ -1,3 +1,14 @@
+## 0.10.8 (2024-04-10)
+
+
+### 🩹 Fixes
+
+- remove firebase/app from export ([5e368ff](https://github.com/lion5/component-library/commit/5e368ff))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.10.7 (2024-04-10)
 
 
