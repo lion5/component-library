@@ -1,3 +1,14 @@
+## 0.10.4 (2024-04-10)
+
+
+### 🩹 Fixes
+
+- **leaflet,gridstack,firebase:** :bug: add missing style exports ([8b442ae](https://github.com/lion5/component-library/commit/8b442ae))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.10.3 (2024-04-08)
 
 
