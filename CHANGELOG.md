@@ -1,3 +1,14 @@
+## 0.10.7 (2024-04-10)
+
+
+### 🩹 Fixes
+
+- **firebase:** :arrow_down: change firebase version to 9.22.0 ([1604597](https://github.com/lion5/component-library/commit/1604597))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.10.6 (2024-04-10)
 
 ### 🩹 Fixes
