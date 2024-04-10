@@ -1,3 +1,4 @@
+import BaseIcon from '@core/components/icons/BaseIcon.vue'
 import IconArrowBack from '@core/components/icons/IconArrowBack.vue'
 import IconArrowRepeat from '@core/components/icons/IconArrowRepeat.vue'
 import IconCalendar from '@core/components/icons/IconCalendar.vue'
@@ -9,6 +10,7 @@ import IconDashboard from '@core/components/icons/IconDashboard.vue'
 import IconEmojiDizzy from '@core/components/icons/IconEmojiDizzy.vue'
 import IconError from '@core/components/icons/IconError.vue'
 import IconExclamationTriangle from '@core/components/icons/IconExclamationTriangle.vue'
+import IconEyeSlash from '@core/components/icons/IconEyeSlash.vue'
 import IconGear from '@core/components/icons/IconGear.vue'
 import IconGeolocation from '@core/components/icons/IconGeolocation.vue'
 import IconInfoCircle from '@core/components/icons/IconInfoCircle.vue'
@@ -25,10 +27,9 @@ import IconWallet from '@core/components/icons/IconWallet.vue'
 import IconWarning from '@core/components/icons/IconWarning.vue'
 import IconX from '@core/components/icons/IconX.vue'
 import IconXCircleFill from '@core/components/icons/IconXCircleFill.vue'
-import IconEyeSlash from '@core/components/icons/IconEyeSlash.vue'
-import BaseIcon from '@core/components/icons/BaseIcon.vue'
 
 export {
+  BaseIcon,
   IconArrowBack,
   IconArrowRepeat,
   IconCalendar,
@@ -40,6 +41,7 @@ export {
   IconEmojiDizzy,
   IconError,
   IconExclamationTriangle,
+  IconEyeSlash,
   IconGear,
   IconGeolocation,
   IconInfoCircle,
@@ -55,8 +57,6 @@ export {
   IconWallet,
   IconWarning,
   IconX,
-  IconXCircleFill,
-  IconEyeSlash,
-  BaseIcon
+  IconXCircleFill
 }
 export * from './weather'
