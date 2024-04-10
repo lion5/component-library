@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import InformationButton from '@core/atoms/buttons/InformationButton/InformationButton.vue'
+import InformationButton from '@core/components/buttons/InformationButton/InformationButton.vue'
 
 defineOptions({ inheritAttrs: false })
 
