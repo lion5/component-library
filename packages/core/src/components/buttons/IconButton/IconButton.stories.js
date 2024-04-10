@@ -1,4 +1,4 @@
-import IconArrowRepeat from '@core/icons/IconArrowRepeat.vue'
+import IconArrowRepeat from '@core/components/icons/IconArrowRepeat.vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 
 export default {

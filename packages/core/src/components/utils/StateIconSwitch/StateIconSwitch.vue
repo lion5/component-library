@@ -9,8 +9,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import IconCheckCircleFill from '@core/icons/IconCheckCircleFill.vue'
-import IconXCircleFill from '@core/icons/IconXCircleFill.vue'
+import IconCheckCircleFill from '@core/components/icons/IconCheckCircleFill.vue'
+import IconXCircleFill from '@core/components/icons/IconXCircleFill.vue'
 
 defineProps<{
   active: boolean

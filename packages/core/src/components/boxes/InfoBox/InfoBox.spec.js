@@ -1,7 +1,7 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
 import InfoBox from '@core/components/boxes/InfoBox/InfoBox.vue'
-import IconInfoCircle from '@core/icons/IconInfoCircle.vue'
+import IconInfoCircle from '@core/components/icons/IconInfoCircle.vue'
 
 describe('InfoBox', () => {
   let wrapper

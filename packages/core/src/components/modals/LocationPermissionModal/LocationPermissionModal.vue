@@ -43,8 +43,8 @@
 <script setup lang="ts">
 import BaseModal from '@core/components/modals/BaseModal/BaseModal.vue'
 import BaseButton from '@core/components/buttons/BaseButton/BaseButton.vue'
-import IconGeolocation from '@core/icons/IconGeolocation.vue'
-import IconWarning from '@core/icons/IconWarning.vue'
+import IconGeolocation from '@core/components/icons/IconGeolocation.vue'
+import IconWarning from '@core/components/icons/IconWarning.vue'
 
 withDefaults(
   defineProps<{

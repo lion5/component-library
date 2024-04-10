@@ -1,5 +1,5 @@
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
-import IconWallet from '@core/icons/IconWallet.vue'
+import IconWallet from '@core/components/icons/IconWallet.vue'
 import ActionButton from '@core/components/buttons/ActionButton/ActionButton.vue'
 
 export default {

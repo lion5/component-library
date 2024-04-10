@@ -14,7 +14,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
-import IconThreeDotsMenu from '@core/icons/IconThreeDotsMenu.vue'
+import IconThreeDotsMenu from '@core/components/icons/IconThreeDotsMenu.vue'
 
 const triggerButton = ref()
 const onClick = () => {

@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import TooltipIcon from './TooltipIcon.vue'
-import IconTrash from '../../../icons/IconTrash.vue'
-import IconInfoCircle from '../../../icons/IconTrash.vue'
+import IconTrash from '../../icons/IconTrash.vue'
+import IconInfoCircle from '../../icons/IconTrash.vue'
 
 export default {
   component: TooltipIcon,

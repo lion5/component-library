@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import OverlayBase from '@core/components/overlays/OverlayBase.vue'
-import { IconExclamationTriangle } from '@core/icons'
+import IconExclamationTriangle from '@core/components/icons/IconExclamationTriangle.vue'
 </script>
 
 <style lang="scss" scoped>

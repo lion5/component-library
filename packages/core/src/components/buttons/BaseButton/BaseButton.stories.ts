@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import BaseButton from '../../buttons/BaseButton/BaseButton.vue'
-import IconQRCode from '@core/icons/IconQRCode.vue'
+import IconQRCode from '@core/components/icons/IconQRCode.vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
 const meta: Meta<typeof BaseButton> = {

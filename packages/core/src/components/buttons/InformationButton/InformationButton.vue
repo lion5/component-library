@@ -15,7 +15,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
-import IconInfoCircle from '@core/icons/IconInfoCircle.vue'
+import IconInfoCircle from '@core/components/icons/IconInfoCircle.vue'
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
 
 /**

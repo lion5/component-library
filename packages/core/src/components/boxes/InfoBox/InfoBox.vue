@@ -6,7 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import IconInfoCircle from '@core/icons/IconInfoCircle.vue'
+import IconInfoCircle from '@core/components/icons/IconInfoCircle.vue'
 import BaseBox from '@core/components/boxes/BaseBox/BaseBox.vue'
 
 defineProps<{

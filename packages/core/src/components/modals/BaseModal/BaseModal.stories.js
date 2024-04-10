@@ -1,4 +1,4 @@
-import IconWallet from '@core/icons/IconWallet.vue'
+import IconWallet from '@core/components/icons/IconWallet.vue'
 import BaseModal from '@core/components/modals/BaseModal/BaseModal.vue'
 import ActionButton from '@core/components/buttons/ActionButton/ActionButton.vue'
 

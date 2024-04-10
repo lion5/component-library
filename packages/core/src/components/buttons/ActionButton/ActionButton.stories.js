@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
 import ActionButton from '@core/components/buttons/ActionButton/ActionButton.vue'
-import IconArrowRepeat from '@core/icons/IconArrowRepeat.vue'
+import IconArrowRepeat from '@core/components/icons/IconArrowRepeat.vue'
 
 export default {
   components: { ActionButton },

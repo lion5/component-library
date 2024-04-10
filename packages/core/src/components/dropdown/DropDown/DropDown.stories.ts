@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import DropDownItem from '../DropDownItem/DropDownItem.vue'
-import IconSettings from '../../../icons/IconSettings.vue'
+import IconSettings from '../../icons/IconSettings.vue'
 import DropDown from './DropDown.vue'
 
 export default {

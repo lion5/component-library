@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import LocationPermissionModal from './LocationPermissionModal.vue'
-import { BaseButton } from '../../index'
 import { ref } from 'vue'
+import { BaseButton } from '../../index'
 
 export default {
   component: LocationPermissionModal

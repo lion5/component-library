@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 import OverlayBase from '@core/components/overlays/OverlayBase.vue'
-import LoadingAnimation from '@core/components/LoadingAnimation/LoadingAnimation.vue'
+import LoadingAnimation from '@core/components/utils/LoadingAnimation/LoadingAnimation.vue'
 </script>
 
 <style lang="scss" scoped>

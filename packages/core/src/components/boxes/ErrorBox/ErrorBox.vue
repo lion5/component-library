@@ -18,7 +18,7 @@
 
 <script lang="ts" setup>
 import { computed } from 'vue'
-import IconWarning from '@core/icons/IconWarning.vue'
+import IconWarning from '@core/components/icons/IconWarning.vue'
 import BaseBox from '@core/components/boxes/BaseBox/BaseBox.vue'
 
 const props = withDefaults(
