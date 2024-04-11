@@ -1,32 +1,47 @@
 import { mount } from '@vue/test-utils'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import {
+  afterEach,
+  beforeAll,
+  beforeEach,
+  describe,
+  expect,
+  it,
+  vi
+} from 'vitest'
 import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import { PortalImage } from '@core/components/image/models/image'
-import { BaseModal } from '@core'
+import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
+import { ImageSizes } from '@core/components/image/models/imageSizes'
 
 describe('ImageModal', () => {
   let wrapper
 
+  beforeAll(() => {
+    // FIX to be able to use dialog field in jsdom. See https://github.com/jsdom/jsdom/issues/3294
+    HTMLDialogElement.prototype.showModal = vi.fn()
+    HTMLDialogElement.prototype.close = vi.fn()
+  })
+
   beforeEach(() => {
     wrapper = mount(ImageModal, {
       attachTo: document.body,
-      propsData: {
+      props: {
         image: new PortalImage(4711, 'testAltTag'),
-        aspectRatio: '16/9',
-        staticModal: true
+        aspectRatio: '16/9'
       }
     })
   })
   afterEach(() => {
-    wrapper.destroy()
+    wrapper.unmount()
   })
   describe(':props', () => {
-    it(':value - is applied to BasicPortalModal', async () => {
-      const value = true
-      await wrapper.setProps({ value })
+    it(':showModal - is applied to BasicPortalModal', async () => {
+      const showModal = true
+      await wrapper.setProps({ showModal })
 
-      const basicModal = wrapper.findComponent(BaseModal)
-      expect(basicModal.vm.value).toStrictEqual(value)
+      expect(
+        wrapper.findComponent(DismissibleModal).vm.modalDisplayed
+      ).toStrictEqual(showModal)
     })
     it(':image - image large size is applied to img tag when available', async () => {
       const image = new PortalImage(
@@ -71,7 +86,7 @@ describe('ImageModal', () => {
       const aspectRatio = '42/7'
       await wrapper.setProps({ aspectRatio })
 
-      const modalContent = wrapper.find('.modal-body > .modal-content')
+      const modalContent = wrapper.find('.modal-content')
       expect(modalContent.attributes('style')).toBe(
         `--image-edit-input-aspect-ratio: ${aspectRatio};`
       )

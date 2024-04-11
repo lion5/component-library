@@ -6,7 +6,7 @@
 
 <script lang="ts" setup>
 import { useRouter } from 'vue-router'
-import { IconChevronLeft } from '@core/icons'
+import IconChevronLeft from '@core/components/icons/IconChevronLeft.vue'
 
 const router = useRouter()
 const gotoPreviousPage = () => {

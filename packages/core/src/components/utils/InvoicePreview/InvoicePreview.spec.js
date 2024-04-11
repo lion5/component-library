@@ -1,8 +1,8 @@
 import { mount } from '@vue/test-utils'
-import { Address } from '@core/base/models/address'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import InvoicePreview from '@core/components/utils/InvoicePreview/InvoicePreview.vue'
-import { Invoice } from '@core/components/utils/InvoicePreview/invoice.js'
+import { Invoice } from '@core/components/utils/InvoicePreview/invoice'
+import { Address } from '@core/models/address'
 
 describe('PortalInvoicePreview', () => {
   let wrapper
@@ -12,7 +12,7 @@ describe('PortalInvoicePreview', () => {
   })
 
   afterEach(() => {
-    wrapper.destroy()
+    wrapper.unmount()
   })
 
   describe('Component', () => {

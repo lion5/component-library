@@ -3,6 +3,7 @@ import { describe, expect, it, vi } from 'vitest'
 import { PortalImage } from '@core/components/image/models/image'
 import { ImageSizes } from '@core/components/image/models/imageSizes'
 import * as useImageUtilsExports from '@core/composables/useImageUtils'
+import { flushPromises } from '@vue/test-utils'
 
 describe('Model PortalImage', () => {
   it('should load API data correctly', () => {
@@ -12,11 +13,9 @@ describe('Model PortalImage', () => {
   it('should load File data correctly', async () => {
     const dataUrl = 'dataUrl'
     const image = new Image()
-    const getDataUrlFromFileMock = vi
-      .spyOn(useImageUtilsExports, 'useImageUtils')
-      .mockReturnValue({
-        getDataUrlFromFile: vi.fn().mockResolvedValue(dataUrl)
-      })
+    vi.spyOn(useImageUtilsExports, 'useImageUtils').mockReturnValue({
+      getDataUrlFromFile: vi.fn().mockResolvedValue(dataUrl)
+    })
     const getImageMock = vi
       .spyOn(PortalImage, 'getImage')
       .mockResolvedValue(image)
@@ -28,7 +27,9 @@ describe('Model PortalImage', () => {
 
     const portalImage = await PortalImage.fromFile(file)
 
-    expect(getDataUrlFromFileMock).toHaveBeenCalledWith(file)
+    expect(
+      useImageUtilsExports.useImageUtils().getDataUrlFromFile
+    ).toHaveBeenCalledWith(file)
     expect(getImageMock).toHaveBeenCalledWith(dataUrl)
     expect(portalImage).toStrictEqual(
       new PortalImage(-1, 'Lokales Bild', file, image, new ImageSizes(dataUrl))

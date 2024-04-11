@@ -23,59 +23,43 @@
       :hide-modal="hideModal"
     >
       <ImageModal
-        v-model="displayModal"
+        v-model:show-modal="displayModal"
         :image="image"
         :aspect-ratio="aspectRatio"
       />
     </slot>
   </ItemCard>
 </template>
-<script>
+<script lang="ts" setup>
 import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import ItemCard from '@core/components/cards/ItemCard/ItemCard.vue'
 import { PortalImage } from '@core/components/image/models/image'
+import { ref } from 'vue'
 
 /**
  * This is the base image card component. It displays a modal on click with the image in full size.
  */
-export default {
-  name: 'ImageCard',
-  components: {
-    ItemCard,
-    ImageModal
-  },
-  props: {
-    /**
-     * the image that shall be displayed
-     */
-    image: {
-      type: PortalImage,
-      required: true
-    },
-    /**
-     * the aspect ratio the displayed image has (changes the card's aspect ratio)
-     */
-    aspectRatio: {
-      type: String,
-      required: true
-    }
-  },
-  data() {
-    return {
-      displayModal: false
-    }
-  },
-  methods: {
-    showModal() {
-      if (this.image.busy) {
-        return
-      }
-      this.displayModal = true
-    },
-    hideModal() {
-      this.displayModal = false
-    }
+
+const props = defineProps<{
+  /**
+   * the image that shall be displayed
+   */
+  image: PortalImage
+  /**
+   * the aspect ratio the displayed image has (changes the card's aspect ratio)
+   */
+  aspectRatio: string
+}>()
+
+const displayModal = ref(false)
+const showModal = () => {
+  if (props.image.busy) {
+    return
   }
+  displayModal.value = true
+}
+const hideModal = () => {
+  displayModal.value = false
 }
 </script>
 <style lang="scss" scoped>

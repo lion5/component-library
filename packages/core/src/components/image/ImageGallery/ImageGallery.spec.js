@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { Gallery } from '@core/components/image/models/gallery'
 import { PortalImage } from '@core/components/image/models/image'
 import { ImageSizes } from '@core/components/image/models/imageSizes'
@@ -10,6 +10,12 @@ describe('ImageGallery', () => {
   let wrapper
   let gallery
   let aspectRatio
+
+  beforeAll(() => {
+    // FIX to be able to use dialog field in jsdom. See https://github.com/jsdom/jsdom/issues/3294
+    HTMLDialogElement.prototype.showModal = vi.fn()
+    HTMLDialogElement.prototype.close = vi.fn()
+  })
 
   beforeEach(() => {
     gallery = new Gallery([
@@ -42,9 +48,6 @@ describe('ImageGallery', () => {
         aspectRatio
       }
     })
-  })
-  afterEach(() => {
-    wrapper.destroy()
   })
   describe(':props', () => {
     it(':gallery - is rendered', async () => {

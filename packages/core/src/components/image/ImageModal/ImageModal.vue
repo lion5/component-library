@@ -17,67 +17,52 @@
     </template>
   </DismissibleModal>
 </template>
-<script>
+<script lang="ts" setup>
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
 import { PortalImage } from '@core/components/image/models/image'
+import { computed } from 'vue'
 /**
  * Modal to display images in full size
  */
-export default {
-  name: 'ImageModal',
-  components: {
-    DismissibleModal
-  },
-  props: {
+
+const props = withDefaults(
+  defineProps<{
     /**
      * Open and closes modal (true => open, false => close)
      * @model
      */
-    modelValue: {
-      type: Boolean,
-      default: false
-    },
+    showModal?: boolean
     /**
      * the image that is displayed inside the modal
      */
-    image: {
-      type: PortalImage,
-      required: true
-    },
+    image: PortalImage
     /**
      * the aspect ratio of the image. Changes also modal's aspect ratio
      */
-    aspectRatio: {
-      type: String,
-      required: true
-    },
-    /**
-     * Renders the modal in a not lazy manner. The modal is inserted in the dom even if it is not displayed.
-     * Should never be set to true in production. Only for testing purpose.
-     *
-     * For further information see https://bootstrap-vue.org/docs/components/modal#lazy-loading-and-static-modals
-     */
-    staticModal: {
-      type: Boolean,
-      default: false
-    }
-  },
-  computed: {
-    showModal: {
-      get() {
-        return this.modelValue
-      },
-      set(newShowModal) {
-        /**
-         * Triggers when modal is open or closed
-         *
-         * @property {boolean} newShowModal the new modal state
-         */
-        this.$emit('update:modelValue', newShowModal)
-      }
-    }
+    aspectRatio: string
+  }>(),
+  {
+    showModal: false
   }
-}
+)
+
+const emit = defineEmits<{
+  /**
+   * Triggers when modal is open or closed
+   *
+   * @property {boolean} newShowModal the new modal state
+   */
+  (e: 'update:showModal', newShowModal: boolean): void
+}>()
+
+const showModal = computed({
+  get() {
+    return props.showModal
+  },
+  set(newShowModal) {
+    emit('update:showModal', newShowModal)
+  }
+})
 </script>
 <style lang="scss" scoped>
 .modal-content {

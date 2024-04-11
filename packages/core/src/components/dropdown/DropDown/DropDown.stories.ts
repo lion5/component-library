@@ -30,7 +30,5 @@ export const Text: Story = {
       </div>
     `
   }),
-  args: {
-    label: 'DropDown'
-  }
+  args: {}
 }

@@ -1,5 +1,5 @@
 import { mount } from '@vue/test-utils'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { PortalImage } from '@core/components/image/models/image'
 import { ImageSizes } from '@core/components/image/models/imageSizes'
 import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
@@ -10,6 +10,12 @@ describe('ImageCard', () => {
   let wrapper
   let portalImage
   let aspectRatio
+
+  beforeAll(() => {
+    // FIX to be able to use dialog field in jsdom. See https://github.com/jsdom/jsdom/issues/3294
+    HTMLDialogElement.prototype.showModal = vi.fn()
+    HTMLDialogElement.prototype.close = vi.fn()
+  })
 
   beforeEach(() => {
     portalImage = new PortalImage(4711, 'testAltTag')
@@ -22,9 +28,7 @@ describe('ImageCard', () => {
       }
     })
   })
-  afterEach(() => {
-    wrapper.destroy()
-  })
+
   describe(':props', () => {
     it(':image - is applied to ImageModal', async () => {
       const imageModal = wrapper.findComponent(ImageModal)
@@ -66,7 +70,7 @@ describe('ImageCard', () => {
       await media.trigger('click')
 
       const imageModal = wrapper.findComponent(ImageModal)
-      expect(imageModal.vm.value).toBe(true)
+      expect(imageModal.vm.showModal).toBe(true)
     })
   })
 })

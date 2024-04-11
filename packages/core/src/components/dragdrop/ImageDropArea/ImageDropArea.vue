@@ -19,72 +19,62 @@
   </div>
 </template>
 
-<script>
+<script lang="ts" setup>
 import { PortalImage } from '@core/components/image/models/image'
+import { computed, ref } from 'vue'
 
 /**
  * This is a wrapper component to allow users to drop images over the wrapped area.
  */
-export default {
-  name: 'ImageDropArea',
-  props: {
+const props = withDefaults(
+  defineProps<{
     /**
      * Disables the reaction on drag over, drag leave and drop events. So it disables the component.
      */
-    disable: {
-      type: Boolean,
-      default: false
-    },
+    disable?: boolean
     /**
      * Changes the information text that is displayed when a item is dragged over the component.
      */
-    dropInfo: {
-      type: String,
-      default: 'Bild hochladen'
-    },
+    dropInfo?: string
     /**
      * If set true it returns all dropped files.
      * If set to false it returns only the first file.
      */
-    multiselect: {
-      type: Boolean,
-      default: false
-    }
-  },
-  data() {
-    return {
-      draggedOver: false
-    }
-  },
-  computed: {
-    dragOver() {
-      return !this.disable ? 'dragover' : null
-    },
-    dragLeave() {
-      return !this.disable ? 'dragleave' : null
-    },
-    drop() {
-      return !this.disable ? 'drop' : null
-    }
-  },
-  methods: {
-    setDraggedOver(draggedOver) {
-      this.draggedOver = draggedOver
-    },
-    async onDrop(event) {
-      this.draggedOver = false
-      const files = event.dataTransfer.files
-      if (!this.multiselect && files[0] != null) {
-        /**
-         * Is emitted when images are dropped
-         */
-        this.$emit('input', await PortalImage.fromFile(files[0]))
-        return
-      }
-      for (const file of files) {
-        this.$emit('input', await PortalImage.fromFile(file))
-      }
-    }
+    multiselect?: boolean
+  }>(),
+  {
+    disable: false,
+    dropInfo: 'Bild hochladen',
+    multiselect: false
+  }
+)
+const emit = defineEmits<{
+  /**
+   * Is emitted when images are dropped
+   */
+  (e: 'input', image: PortalImage): void
+}>()
+
+const draggedOver = ref(false)
+const dragOver = computed(() => (!props.disable ? 'dragover' : null))
+const dragLeave = computed(() => (!props.disable ? 'dragleave' : null))
+const drop = computed(() => (!props.disable ? 'drop' : null))
+
+const setDraggedOver = (newDraggedOver: boolean) => {
+  draggedOver.value = newDraggedOver
+}
+const onDrop = async (event: DragEvent) => {
+  draggedOver.value = false
+  const files = event.dataTransfer?.files || []
+  if (!props.multiselect && files[0] != null) {
+    /**
+     * Is emitted when images are dropped
+     */
+    emit('input', await PortalImage.fromFile(files[0]))
+    return
+  }
+  for (const file of files) {
+    emit('input', await PortalImage.fromFile(file))
   }
 }
 </script>

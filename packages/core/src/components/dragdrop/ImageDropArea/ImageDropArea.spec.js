@@ -1,8 +1,7 @@
-import { mount } from '@vue/test-utils'
-import { PortalImage } from '@/base/models/image'
-import flushPromises from 'flush-promises'
+import { flushPromises, mount } from '@vue/test-utils'
 import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 import ImageDropArea from '@core/components/dragdrop/ImageDropArea/ImageDropArea.vue'
+import { PortalImage } from '@core/components/image/models/image'
 
 describe('ImageDropArea', () => {
   let wrapper
@@ -10,7 +9,7 @@ describe('ImageDropArea', () => {
     wrapper = mount(ImageDropArea)
   })
   afterEach(() => {
-    wrapper.destroy()
+    wrapper.unmount()
   })
   describe(':props', () => {
     it(':disable - dragOver, dragLeave and drop events are listened when set to false', async () => {
