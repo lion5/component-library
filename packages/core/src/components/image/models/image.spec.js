@@ -3,7 +3,6 @@ import { describe, expect, it, vi } from 'vitest'
 import { PortalImage } from '@core/components/image/models/image'
 import { ImageSizes } from '@core/components/image/models/imageSizes'
 import * as useImageUtilsExports from '@core/composables/useImageUtils'
-import { flushPromises } from '@vue/test-utils'
 
 describe('Model PortalImage', () => {
   it('should load API data correctly', () => {

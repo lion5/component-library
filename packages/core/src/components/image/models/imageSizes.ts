@@ -5,13 +5,7 @@ export class ImageSizes {
   readonly mid: string
   readonly large: string
 
-  constructor(
-    original = '',
-    tiny = '',
-    small = '',
-    mid = '',
-    large = ''
-  ) {
+  constructor(original = '', tiny = '', small = '', mid = '', large = '') {
     this.original = original
     this.tiny = tiny
     this.small = small

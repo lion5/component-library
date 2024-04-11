@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/vue3'
-import OverlayBase from './OverlayBase.vue'
 import OverlayError from './OverlayError.vue'
 
 export default {
