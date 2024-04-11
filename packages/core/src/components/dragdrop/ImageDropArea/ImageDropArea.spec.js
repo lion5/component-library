@@ -13,41 +13,35 @@ describe('ImageDropArea', () => {
   })
   describe(':props', () => {
     it(':disable - dragOver, dragLeave and drop events are listened when set to false', async () => {
-      wrapper.vm.setDraggedOver = vi.fn()
-      wrapper.vm.onDrop = vi.fn()
-
       await wrapper.setProps({ disable: false })
-      await wrapper.setData({ draggedOver: true })
-
-      const fileDropArea = await wrapper.find('.file-drop-area')
+      const fileDropArea = wrapper.find('.file-drop-area')
       await fileDropArea.trigger('dragover')
-      await fileDropArea.trigger('drop')
-
       const overlay = await wrapper.find('.overlay')
       await overlay.trigger('dragleave')
-      expect(wrapper.vm.setDraggedOver).toHaveBeenCalledTimes(2)
-      expect(wrapper.vm.onDrop).toHaveBeenCalledTimes(1)
+      await fileDropArea.trigger('drop')
+
+      expect(wrapper.emitted('dragover').length).toBe(1)
+      expect(wrapper.emitted('drop').length).toBe(1)
+      expect(wrapper.emitted('dragleave').length).toBe(1)
     })
     it(':disable - dragOver, dragLeave and drop events are not listened when set to true', async () => {
       wrapper.vm.setDraggedOver = vi.fn()
       wrapper.vm.onDrop = vi.fn()
 
       await wrapper.setProps({ disable: true })
-      await wrapper.setData({ draggedOver: true })
 
       const fileDropArea = await wrapper.find('.file-drop-area')
       await fileDropArea.trigger('dragover')
       await fileDropArea.trigger('drop')
 
-      const overlay = await wrapper.find('.overlay')
-      await overlay.trigger('dragleave')
       expect(wrapper.vm.setDraggedOver).toHaveBeenCalledTimes(0)
       expect(wrapper.vm.onDrop).toHaveBeenCalledTimes(0)
     })
     it(':dropInfo - is displayed on dragOver', async () => {
       const dropInfo = 'My Custom Drop Note'
       await wrapper.setProps({ dropInfo })
-      await wrapper.setData({ draggedOver: true })
+      const fileDropArea = wrapper.find('.file-drop-area')
+      await fileDropArea.trigger('dragover')
 
       expect(wrapper.find('.overlay .text').text()).toBe(dropInfo)
     })
@@ -104,7 +98,7 @@ describe('ImageDropArea', () => {
       expect(fileDropArea.classes('dragged-over')).toBeTruthy()
     })
     it('dragged-over class is removed on @dragleave', async () => {
-      await wrapper.setData({ draggedOver: true })
+      await wrapper.find('.file-drop-area').trigger('dragover')
 
       const overlay = wrapper.find('.overlay')
       await overlay.trigger('dragleave')
@@ -113,7 +107,7 @@ describe('ImageDropArea', () => {
       expect(fileDropArea.classes('dragged-over')).toBeFalsy()
     })
     it('dragged-over class is removed on @drop', async () => {
-      await wrapper.setData({ draggedOver: true })
+      await wrapper.find('.file-drop-area').trigger('dragover')
 
       const fileDropArea = wrapper.find('.file-drop-area')
       await fileDropArea.trigger('drop', { dataTransfer: { files: [] } })
