@@ -1,11 +1,10 @@
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage'
-import { type FirebaseError, getApp } from 'firebase/app'
+import { type FirebaseError } from 'firebase/app'
 
 /**
  * Provides firebase function to upload and display images
  */
 export function useFirebaseStorage() {
-  console.log('From Component Library#useFirebaseStorage: ', getApp())
   const storage = getStorage()
 
   /**
