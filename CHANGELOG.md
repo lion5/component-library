@@ -1,3 +1,37 @@
+## 0.10.8 (2024-04-10)
+
+
+### 🩹 Fixes
+
+- remove firebase/app from export ([5e368ff](https://github.com/lion5/component-library/commit/5e368ff))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
+## 0.10.7 (2024-04-10)
+
+
+### 🩹 Fixes
+
+- **firebase:** :arrow_down: change firebase version to 9.22.0 ([1604597](https://github.com/lion5/component-library/commit/1604597))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
+## 0.10.6 (2024-04-10)
+
+### 🩹 Fixes
+
+- dashboard style ([6453507](https://github.com/lion5/component-library/commit/6453507))
+- dashboard style 2 ([742def4](https://github.com/lion5/component-library/commit/742def4))
+
+
+### ❤️  Thank You
+
+- Soumik Kumar Saha
+
 ## 0.10.4 (2024-04-10)
 
 

@@ -16,7 +16,8 @@
     "esModuleInterop": true,
     "lib": [
       "esnext",
-      "dom"
+      "dom",
+      "dom.iterable",
     ],
     "emitDeclarationOnly": true,
     "isolatedModules": true,

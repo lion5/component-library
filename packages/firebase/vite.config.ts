@@ -24,6 +24,7 @@ export default defineConfig({
         'pinia',
         'firebase',
         'firebase/storage',
+        'firebase/app',
         'lodash',
         '@lion5/component-library'
       ],
