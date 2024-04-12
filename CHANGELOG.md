@@ -1,3 +1,17 @@
+## 0.11.0 (2024-04-12)
+
+
+### 🩹 Fixes
+
+- types for FileList ([6e203aa](https://github.com/lion5/component-library/commit/6e203aa))
+- tests and linter issues ([3fa4948](https://github.com/lion5/component-library/commit/3fa4948))
+- migrate test to vue composition api ([ab9cd9f](https://github.com/lion5/component-library/commit/ab9cd9f))
+- remove obsolete console log ([84fcaa0](https://github.com/lion5/component-library/commit/84fcaa0))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.10.8 (2024-04-10)
 
 
