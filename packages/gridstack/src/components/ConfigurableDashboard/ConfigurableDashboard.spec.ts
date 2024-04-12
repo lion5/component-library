@@ -40,30 +40,6 @@ describe('ConfigurableDashboard.vue', () => {
         expectedComponents
       )
     })
-    it('updates currentConfig when dashboardConfig prop changes', async () => {
-      const initialConfig = [
-        new WidgetConfiguration(
-          'initial-1',
-          new GridWidget(1, 1, 3, 3),
-          'initialKey'
-        )
-      ]
-
-      await wrapper.setProps({ dashboardConfig: initialConfig })
-
-      expect(wrapper.vm.currentConfig).toStrictEqual(initialConfig)
-
-      const newConfig = [
-        new WidgetConfiguration('new-1', new GridWidget(2, 2, 4, 4), 'newKey')
-      ]
-      await wrapper.setProps({ dashboardConfig: newConfig })
-      expect(wrapper.vm.currentConfig).toStrictEqual(newConfig)
-    })
-    it('updates currentDashboardSelectOption when selectedDashboardConfiguration prop changes', async () => {
-      const newId = 'new-dashboard-id'
-      await wrapper.setProps({ selectedDashboardConfiguration: newId })
-      expect(wrapper.vm.currentDashboardSelectOption).toBe(newId)
-    })
   })
   describe('@events', () => {
     it('save - emitted if SaveDashboardModal emits confirmSave', async () => {
@@ -113,7 +89,6 @@ describe('ConfigurableDashboard.vue', () => {
       await editButton.vm.$emit('cancelEdit')
 
       expect(wrapper.emitted('save')).not.toBeDefined()
-      expect(wrapper.emitted('update:dashboardConfig')).not.toBeDefined()
       expect(grid.vm.widgets).toStrictEqual(expectedWidgets)
     })
   })

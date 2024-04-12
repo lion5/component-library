@@ -3,7 +3,7 @@
     <h1>Dashboard</h1>
     <div class="right-aligned">
       <SelectInput
-        v-model="currentDashboardSelectOption"
+        v-model="selectedDashboardConfiguration"
         :options="dashboardConfigurationOptionsMap"
         :label="'Dashboard-Konfiguration'"
         v-if="!editMode"
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, toRef, watch } from 'vue'
+import { computed } from 'vue'
 import AddWidgetButton from '@/components/AddWidgetButton/AddWidgetButton.vue'
 import EditButton from '@/components/EditButton/EditButton.vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
@@ -44,10 +44,6 @@ const props = defineProps<{
    * An array of available saved dashboard configurations
    */
   dashboardConfigurationOptions: Array<{ id: string; name: string }>
-  /**
-   * Selected dashboard configuration
-   */
-  selectedDashboardConfiguration: string | undefined
 }>()
 const emit = defineEmits<{
   /**
@@ -70,11 +66,13 @@ const emit = defineEmits<{
    * emitted when user presses cancel or edit button.
    */
   (e: 'update:editMode', value: boolean): void
-  /**
-   * emitted when user select a saved dashboard configuration
-   */
-  (e: 'update:selectedDashboardConfiguration', id: string): void
 }>()
+/**
+ * Selected dashboard configuration
+ */
+const selectedDashboardConfiguration = defineModel<string | undefined>(
+  'selectedDashboardConfiguration'
+)
 
 const dashboardConfigurationOptionsMap = computed(() => {
   return props.dashboardConfigurationOptions
@@ -83,28 +81,6 @@ const dashboardConfigurationOptionsMap = computed(() => {
         label: dc.name
       }))
     : []
-})
-
-const selectedDashboardConfiguration = toRef(
-  props,
-  'selectedDashboardConfiguration'
-)
-
-const currentDashboardSelectOption = ref(selectedDashboardConfiguration)
-
-watch(selectedDashboardConfiguration, (id) => {
-  if (
-    id !== undefined &&
-    currentDashboardSelectOption.value !== selectedDashboardConfiguration.value
-  ) {
-    currentDashboardSelectOption.value = selectedDashboardConfiguration.value
-  }
-})
-
-watch(currentDashboardSelectOption, (id) => {
-  if (id !== undefined) {
-    emit('update:selectedDashboardConfiguration', id)
-  }
 })
 
 const localEditMode = computed({
