@@ -59,6 +59,11 @@ describe('ConfigurableDashboard.vue', () => {
       await wrapper.setProps({ dashboardConfig: newConfig })
       expect(wrapper.vm.currentConfig).toStrictEqual(newConfig)
     })
+    it('updates currentDashboardSelectOption when selectedDashboardConfiguration prop changes', async () => {
+      const newId = 'new-dashboard-id'
+      await wrapper.setProps({ selectedDashboardConfiguration: newId })
+      expect(wrapper.vm.currentDashboardSelectOption).toBe(newId)
+    })
   })
   describe('@events', () => {
     it('save - emitted if SaveDashboardModal emits confirmSave', async () => {

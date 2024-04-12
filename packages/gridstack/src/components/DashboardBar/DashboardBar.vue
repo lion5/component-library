@@ -3,10 +3,10 @@
     <h1>Dashboard</h1>
     <div class="right-aligned">
       <SelectInput
+        v-model="currentDashboardSelectOption"
         :options="dashboardConfigurationOptionsMap"
         :label="'Dashboard-Konfiguration'"
         v-if="!editMode"
-        v-model="selectedDashboardConfiguration"
         id="dashboard-select"
         class="select-input"
       />
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, toRef, watch } from 'vue'
+import { computed, ref, toRef, watch } from 'vue'
 import AddWidgetButton from '@/components/AddWidgetButton/AddWidgetButton.vue'
 import EditButton from '@/components/EditButton/EditButton.vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
@@ -90,7 +90,18 @@ const selectedDashboardConfiguration = toRef(
   'selectedDashboardConfiguration'
 )
 
+const currentDashboardSelectOption = ref(selectedDashboardConfiguration)
+
 watch(selectedDashboardConfiguration, (id) => {
+  if (
+    id !== undefined &&
+    currentDashboardSelectOption.value !== selectedDashboardConfiguration.value
+  ) {
+    currentDashboardSelectOption.value = selectedDashboardConfiguration.value
+  }
+})
+
+watch(currentDashboardSelectOption, (id) => {
   if (id !== undefined) {
     emit('update:selectedDashboardConfiguration', id)
   }

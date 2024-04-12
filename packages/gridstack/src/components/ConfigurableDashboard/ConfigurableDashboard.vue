@@ -2,7 +2,7 @@
   <div class="configurable-dashboard">
     <DashboardBar
       v-model:edit-mode="editMode"
-      v-model:selected-dashboard-configuration="selectedDashboardConfiguration"
+      v-model:selected-dashboard-configuration="currentDashboardSelectOption"
       :available-widgets="availableWidgets"
       :dashboard-configuration-options="dashboardConfigurationOptions"
       @start-save="prepareSave"
@@ -61,19 +61,30 @@ const currentConfig = ref(dashboardConfigFromProps.value)
 const editMode = ref<boolean>(false)
 const showModal = ref(false)
 
+watch(dashboardConfigFromProps, (newConfig) => {
+  currentConfig.value = newConfig
+})
+
 const selectedDashboardConfiguration = toRef(
   props,
   'selectedDashboardConfiguration'
 )
 
+const currentDashboardSelectOption = ref(selectedDashboardConfiguration)
+
 watch(selectedDashboardConfiguration, (id) => {
-  if (id !== undefined) {
-    emit('update:selectedDashboardConfiguration', id)
+  if (
+    id !== undefined &&
+    currentDashboardSelectOption.value !== selectedDashboardConfiguration.value
+  ) {
+    currentDashboardSelectOption.value = selectedDashboardConfiguration.value
   }
 })
 
-watch(dashboardConfigFromProps, (newConfig) => {
-  currentConfig.value = newConfig
+watch(currentDashboardSelectOption, (id) => {
+  if (id !== undefined) {
+    emit('update:selectedDashboardConfiguration', id)
+  }
 })
 
 const prepareSave = () => {
