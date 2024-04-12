@@ -89,7 +89,6 @@ describe('ConfigurableDashboard.vue', () => {
       await editButton.vm.$emit('cancelEdit')
 
       expect(wrapper.emitted('save')).not.toBeDefined()
-      expect(wrapper.emitted('update:dashboardConfig')).not.toBeDefined()
       expect(grid.vm.widgets).toStrictEqual(expectedWidgets)
     })
   })

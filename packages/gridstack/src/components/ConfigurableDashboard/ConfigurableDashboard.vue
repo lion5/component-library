@@ -2,16 +2,17 @@
   <div class="configurable-dashboard">
     <DashboardBar
       v-model:edit-mode="editMode"
-      v-model:selected-dashboard-configuration="selectedDashboardId"
+      v-model:selected-dashboard-configuration="selectedDashboardConfiguration"
       :available-widgets="availableWidgets"
       :dashboard-configuration-options="dashboardConfigurationOptions"
       @start-save="prepareSave"
       @cancel-edit="onCancelEdit"
       @add-widget="onAddWidget"
+      class="dashboard-bar"
     />
     <DynamicGrid
       :components="availableWidgets"
-      v-model:widget-configs="currentConfig"
+      v-model:widget-configs="dashboardConfig"
       :edit-mode="editMode"
     />
     <DismissibleModal v-model:modalDisplayed="showModal" class="basic-modal">
@@ -21,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, watch } from 'vue'
+import { nextTick, ref } from 'vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import { WidgetConfiguration } from '@/models/widgetConfiguration'
 import { GridWidget } from '@/models/gridWidget'
@@ -30,12 +31,7 @@ import DynamicGrid from '@/components/DynamicGrid/DynamicGrid.vue'
 import { DismissibleModal } from '@lion5/component-library'
 import SaveDashboardModal from '@/components/SaveDashboardModal/SaveDashboardModal.vue'
 
-const props = defineProps<{
-  /**
-   * Configurations of the dashboardConfig that are displayed in the dashboard.
-   * The {@link components} map need to include all component ids that are used in the dashboardConfig array
-   */
-  dashboardConfig: WidgetConfiguration[]
+defineProps<{
   /**
    * A map of widgets that can be added to the dashboard
    */
@@ -44,30 +40,27 @@ const props = defineProps<{
    * An array of available saved dashboard configurations
    */
   dashboardConfigurationOptions: Array<{ id: string; name: string }>
-  /**
-   * Selected dashboard configuration
-   */
-  selectedDashboardConfiguration: string | undefined
 }>()
 const emit = defineEmits<{
   (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
-  (e: 'update:dashboardConfig', dashboardConfig: WidgetConfiguration[]): void
-  (e: 'update:selectedDashboardConfiguration', id: string): void
 }>()
+/**
+ * Selected dashboard configuration
+ */
+const selectedDashboardConfiguration = defineModel<string | undefined>(
+  'selectedDashboardConfiguration'
+)
+/**
+ * Configurations of the dashboardConfig that are displayed in the dashboard.
+ * The {@link components} map need to include all component ids that are used in the dashboardConfig array
+ */
+const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
+  required: true
+})
 
-const currentConfig = ref<WidgetConfiguration[]>(props.dashboardConfig)
+const currentConfig = ref(dashboardConfig.value)
 const editMode = ref<boolean>(false)
 const showModal = ref(false)
-
-const selectedDashboardId = ref<string | undefined>(
-  props.selectedDashboardConfiguration
-)
-
-watch(selectedDashboardId, (id) => {
-  if (id !== undefined) {
-    emit('update:selectedDashboardConfiguration', id)
-  }
-})
 
 const prepareSave = () => {
   showModal.value = true
@@ -75,14 +68,14 @@ const prepareSave = () => {
 
 const onConfirmSave = (name: string) => {
   editMode.value = false
-  emit('update:dashboardConfig', currentConfig.value)
-  emit('save', currentConfig.value, name)
+  currentConfig.value = dashboardConfig.value
+  emit('save', dashboardConfig.value, name)
   showModal.value = false
 }
 
 const onCancelEdit = () => {
   editMode.value = false
-  currentConfig.value = props.dashboardConfig
+  dashboardConfig.value = currentConfig.value
 }
 
 const onAddWidget = async (widgetKey: string) => {
@@ -93,7 +86,7 @@ const onAddWidget = async (widgetKey: string) => {
     widgetKey
   )
 
-  currentConfig.value = [newWidget, ...currentConfig.value]
+  dashboardConfig.value = [newWidget, ...currentConfig.value]
   await nextTick()
   setTimeout(() => {
     document
@@ -107,5 +100,9 @@ const onAddWidget = async (widgetKey: string) => {
 .configurable-dashboard {
   display: grid;
   gap: var(--space-sm);
+}
+.dashboard-bar {
+  position: relative;
+  z-index: 10000;
 }
 </style>
