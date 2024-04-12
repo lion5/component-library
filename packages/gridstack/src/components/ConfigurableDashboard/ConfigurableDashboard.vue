@@ -8,6 +8,7 @@
       @start-save="prepareSave"
       @cancel-edit="onCancelEdit"
       @add-widget="onAddWidget"
+      class="dashboard-bar"
     />
     <DynamicGrid
       :components="availableWidgets"
@@ -107,5 +108,9 @@ const onAddWidget = async (widgetKey: string) => {
 .configurable-dashboard {
   display: grid;
   gap: var(--space-sm);
+}
+.dashboard-bar {
+  position: relative;
+  z-index: 10000;
 }
 </style>
