@@ -56,7 +56,8 @@ const emit = defineEmits<{
   (e: 'update:selectedDashboardConfiguration', id: string): void
 }>()
 
-const currentConfig = toRef(props, 'dashboardConfig')
+const dashboardConfigFromProps = toRef(props, 'dashboardConfig')
+const currentConfig = ref(dashboardConfigFromProps.value)
 const editMode = ref<boolean>(false)
 const showModal = ref(false)
 
@@ -69,6 +70,10 @@ watch(selectedDashboardConfiguration, (id) => {
   if (id !== undefined) {
     emit('update:selectedDashboardConfiguration', id)
   }
+})
+
+watch(dashboardConfigFromProps, (newConfig) => {
+  currentConfig.value = newConfig
 })
 
 const prepareSave = () => {
