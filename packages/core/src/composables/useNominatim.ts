@@ -1,5 +1,6 @@
 import { uniqBy } from 'lodash'
-import { GpsLocation, NamedLocation } from '@core/models'
+import { NamedLocation } from '@core/models/namedLocation'
+import { GpsLocation } from '@core/models/gpsLocation'
 import { NominatimResult } from '@core/models/nominatimResult'
 
 /**

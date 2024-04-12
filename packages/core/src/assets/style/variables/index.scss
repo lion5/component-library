@@ -1,4 +1,5 @@
 @import "color";
+@import "space";
 @import "input";
 
 :root {
@@ -24,13 +25,6 @@
   /* Font Weight */
   --font-weight-bold: bold;
   --font-weight-normal: normal;
-
-  /* Spacing */
-  --space-xs: .25rem;
-  --space-sm: .5rem;
-  --space-md: 1rem;
-  --space-lg: 2rem;
-  --space-xl: 4rem;
 
   /* Border Radius */
   --border-radius-300: .5rem;
