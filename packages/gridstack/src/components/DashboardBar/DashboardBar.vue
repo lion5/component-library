@@ -6,7 +6,7 @@
         :options="dashboardConfigurationOptionsMap"
         :label="'Dashboard-Konfiguration'"
         v-if="!editMode"
-        v-model="selectedDashboardId"
+        v-model="selectedDashboardConfiguration"
         id="dashboard-select"
         class="select-input"
       />
@@ -25,7 +25,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, ref, watch } from 'vue'
+import { computed, toRef, watch } from 'vue'
 import AddWidgetButton from '@/components/AddWidgetButton/AddWidgetButton.vue'
 import EditButton from '@/components/EditButton/EditButton.vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
@@ -85,11 +85,12 @@ const dashboardConfigurationOptionsMap = computed(() => {
     : []
 })
 
-const selectedDashboardId = ref<string | undefined>(
-  props.selectedDashboardConfiguration
+const selectedDashboardConfiguration = toRef(
+  props,
+  'selectedDashboardConfiguration'
 )
 
-watch(selectedDashboardId, (id) => {
+watch(selectedDashboardConfiguration, (id) => {
   if (id !== undefined) {
     emit('update:selectedDashboardConfiguration', id)
   }

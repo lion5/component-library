@@ -2,7 +2,7 @@
   <div class="configurable-dashboard">
     <DashboardBar
       v-model:edit-mode="editMode"
-      v-model:selected-dashboard-configuration="selectedDashboardId"
+      v-model:selected-dashboard-configuration="selectedDashboardConfiguration"
       :available-widgets="availableWidgets"
       :dashboard-configuration-options="dashboardConfigurationOptions"
       @start-save="prepareSave"
@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, watch } from 'vue'
+import { nextTick, ref, toRef, watch } from 'vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import { WidgetConfiguration } from '@/models/widgetConfiguration'
 import { GridWidget } from '@/models/gridWidget'
@@ -56,27 +56,18 @@ const emit = defineEmits<{
   (e: 'update:selectedDashboardConfiguration', id: string): void
 }>()
 
-const currentConfig = ref<WidgetConfiguration[]>(props.dashboardConfig)
+const currentConfig = toRef(props, 'dashboardConfig')
 const editMode = ref<boolean>(false)
 const showModal = ref(false)
 
-const selectedDashboardId = ref<string | undefined>(
-  props.selectedDashboardConfiguration
+const selectedDashboardConfiguration = toRef(
+  props,
+  'selectedDashboardConfiguration'
 )
 
-watch(selectedDashboardId, (id) => {
+watch(selectedDashboardConfiguration, (id) => {
   if (id !== undefined) {
     emit('update:selectedDashboardConfiguration', id)
-  }
-})
-
-watch(props.dashboardConfig, (newDashboardConfigFromProps) => {
-  currentConfig.value = newDashboardConfigFromProps
-})
-
-watch(props.selectedDashboardConfiguration, (newSelectedDashboardId) => {
-  if (typeof newSelectedDashboardId === 'string') {
-    selectedDashboardId.value = newSelectedDashboardId
   }
 })
 
