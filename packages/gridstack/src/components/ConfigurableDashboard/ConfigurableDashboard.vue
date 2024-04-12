@@ -70,6 +70,16 @@ watch(selectedDashboardId, (id) => {
   }
 })
 
+watch(props.dashboardConfig, (newDashboardConfigFromProps) => {
+  currentConfig.value = newDashboardConfigFromProps
+})
+
+watch(props.selectedDashboardConfiguration, (newSelectedDashboardId) => {
+  if (typeof newSelectedDashboardId === 'string') {
+    selectedDashboardId.value = newSelectedDashboardId
+  }
+})
+
 const prepareSave = () => {
   showModal.value = true
 }
