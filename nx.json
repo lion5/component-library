@@ -24,27 +24,9 @@
       ],
       "cache": true
     },
-    "test:unit:ui": {
-      "dependsOn": [
-        "^test:unit:ui"
-      ],
-      "outputs": [
-        "{projectRoot}/coverage"
-      ],
-      "cache": true
-    },
     "docs:build": {
       "dependsOn": [
         "^build"
-      ],
-      "outputs": [
-        "{projectRoot}/storybook-build-dist"
-      ],
-      "cache": true
-    },
-    "build-storybook": {
-      "dependsOn": [
-        "^build-storybook"
       ],
       "outputs": [
         "{projectRoot}/storybook-build-dist"

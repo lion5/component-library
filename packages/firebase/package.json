@@ -25,8 +25,8 @@
   ],
   "scripts": {
     "build": "vite build",
-    "test:unit": "cross-env TZ=UTC vitest run --environment jsdom --root src",
-    "test:unit:ui": "cross-env TZ=UTC vitest --environment jsdom --root src --ui",
+    "test:unit": "cross-env TZ=UTC vitest run",
+    "test:unit:ui": "cross-env TZ=UTC vitest --ui",
     "type-check": "vue-tsc -p tsconfig.json --composite false",
     "docs": "storybook dev -p 6007",
     "docs:build": "storybook build -o ../storybook-host/storybook-static/firebase"
@@ -45,22 +45,22 @@
   },
   "dependencies": {
     "@lion5/component-library": "0.12.0",
-    "firebase": "^9.22.0",
+    "firebase": "^9.23.0",
     "vue": "^3.4.21"
   },
   "devDependencies": {
-    "@storybook/addon-a11y": "^8.0.6",
-    "@storybook/addon-essentials": "^8.0.6",
-    "@storybook/addon-interactions": "^8.0.6",
-    "@storybook/addon-links": "^8.0.6",
-    "@storybook/blocks": "^8.0.6",
-    "@storybook/vue3": "^8.0.6",
-    "@storybook/vue3-vite": "^8.0.6",
+    "@storybook/addon-a11y": "^8.0.8",
+    "@storybook/addon-essentials": "^8.0.8",
+    "@storybook/addon-interactions": "^8.0.8",
+    "@storybook/addon-links": "^8.0.8",
+    "@storybook/blocks": "^8.0.8",
+    "@storybook/vue3": "^8.0.8",
+    "@storybook/vue3-vite": "^8.0.8",
     "@types/dom-screen-wake-lock": "^1.0.3",
     "@types/jsdom": "^21.1.6",
-    "@types/node": "^20.12.4",
+    "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^5.0.4",
-    "@vitest/ui": "^1.4.0",
+    "@vitest/ui": "^1.5.0",
     "@vue/test-utils": "^2.4.5",
     "@vue/tsconfig": "^0.5.1",
     "cross-env": "^7.0.3",
@@ -70,13 +70,13 @@
     "prettier": "^3.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.74.1",
-    "storybook": "^8.0.6",
-    "typescript": "^5.4.4",
+    "sass": "^1.75.0",
+    "storybook": "^8.0.8",
+    "typescript": "^5.4.5",
     "vite": "^5.2.8",
-    "vite-plugin-dts": "^3.8.1",
-    "vitest": "^1.4.0",
-    "vue-tsc": "^2.0.10"
+    "vite-plugin-dts": "^3.8.2",
+    "vitest": "^1.5.0",
+    "vue-tsc": "^2.0.13"
   },
   "gitHead": "4b5b01f298040c7d4206a67ab76b1b02fe7fe91e"
 }
