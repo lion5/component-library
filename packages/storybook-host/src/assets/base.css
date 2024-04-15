@@ -1,0 +1,30 @@
+code {
+    height: max-content;
+    width: max-content;
+    font-family: var(--font-mono);
+    background-color: var(--color-neutral-200);
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--border-radius-300);
+}
+
+.dynamic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: var(--space-600);
+}
+
+.mb {
+    margin-bottom: var(--space-600);
+}
+
+.in-box-example {
+    display: grid;
+    place-content: center;
+    background-color: var(--color-neutral-200);
+    aspect-ratio: 1;
+    width: max-content;
+}
+
+.rounded {
+    border-radius: var(--border-radius-500);
+}

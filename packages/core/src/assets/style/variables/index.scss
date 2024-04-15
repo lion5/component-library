@@ -1,42 +1,9 @@
 @import "color";
 @import "space";
+@import "typography";
+@import "border";
+@import "shadow";
 @import "input";
-
-:root {
-  /* Font */
-  --font-family: 'GothamNarrow', 'Helvetica', sans-serif;
-
-  /* Font Sizes */
-  --font-size-0: .75rem;
-  --font-size-1: 1rem;
-  --font-size-2: 1.1rem;
-  --font-size-3: 1.25rem;
-  --font-size-4: 1.5rem;
-  --font-size-5: 2rem;
-  --font-size-6: 2.5rem;
-  --font-size-7: 3rem;
-  --font-size-8: 3.5rem;
-  --font-size-h1: var(--font-size-5);
-  --font-size-h2: var(--font-size-4);
-  --font-size-h3: var(--font-size-3);
-  --font-size-body: var(--font-size-1);
-  --font-size-nav: var(--font-size-4);
-
-  /* Font Weight */
-  --font-weight-bold: bold;
-  --font-weight-normal: normal;
-
-  /* Border Radius */
-  --border-radius-300: .5rem;
-  --border-radius-md: 1rem;
-  --border-radius-500: var(--border-radius-md);
-  --border-radius-700: 1.75rem;
-
-  /* Shadows */
-  --shadow-300: 0 0.25rem 0.75rem var(--shadow-color, hsl(0 0% 80%));
-  --shadow-600: 0 0.75rem 2rem var(--shadow-color, hsl(0 0% 80%));
-}
-
 
 :root {
   /* Component settings */

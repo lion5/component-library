@@ -1,0 +1,123 @@
+import { Meta, Source } from '@storybook/blocks'
+import './assets/base.css'
+import './Typography.css'
+import TypographyVariables from '@core/assets/style/variables/_typography.scss?inline'
+
+<Meta title="Guide/Typography" />
+
+# Typography
+
+The typography system is based on the `rem` unit, which is relative to the root font size. This allows for a consistent and scalable design system. The typography system is based on the following variables: font family, font size and font weight.
+Most of the typography system is inspired by the [Open Props](https://open-props.style/#typography) and [Tailwind CSS](https://tailwindcss.com/docs/font-family) projects.
+
+## Font Family
+The font family system is based on the generic families, which are `sans-serif`, `serif` and `monospace`. The specialized family `display` is used for special cases. If prop not set it defaults back to `sans-serif`. The generic families are used for general text, while the specialized families are used for specific elements.
+The heading
+
+
+<div class="font-family-preview">
+  <div>
+    <code>var(--font-sans)</code>
+    <div class="sans-serif">
+      <span>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+      <span>abcdefghijklmnopqrstuvwxyz</span>
+      <span>0123456789</span>
+      <span>!?.,:;'"&$%+-*=</span>
+    </div>
+  </div>
+  <div>
+    <code>var(--font-serif)</code>
+    <div class="serif">
+      <span>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+      <span>abcdefghijklmnopqrstuvwxyz</span>
+      <span>0123456789</span>
+      <span>!?.,:;'"&$%+-*=</span>
+    </div>
+  </div>
+  <div>
+    <code>var(--font-mono)</code>
+    <div class="monospace">
+      <span>ABCDEFGHIJKLMNOPQRSTUVWXYZ</span>
+      <span>abcdefghijklmnopqrstuvwxyz</span>
+      <span>0123456789</span>
+      <span>!?.,:;'"&$%+-*=</span>
+    </div>
+  </div>
+</div>
+
+## Font Size
+The bases of the font size system are the generic sizes, which are numbered from 0 to 8. The specialized sizes are `h1`, `h2`, `h3`, `body` and `nav`.
+
+### Generic Sizes
+<div class="font-sizes">
+  <code>var(--font-size-0)</code>
+  <span style={{ 'font-size': 'var(--font-size-0)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-100)</code>
+  <span style={{ 'font-size': 'var(--font-size-100)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-200)</code>
+  <span style={{ 'font-size': 'var(--font-size-200)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-300)</code>
+  <span style={{ 'font-size': 'var(--font-size-300)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-400)</code>
+  <span style={{ 'font-size': 'var(--font-size-400)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-500)</code>
+  <span style={{ 'font-size': 'var(--font-size-500)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-600)</code>
+  <span style={{ 'font-size': 'var(--font-size-600)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-700)</code>
+  <span style={{ 'font-size': 'var(--font-size-700)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-800)</code>
+  <span style={{ 'font-size': 'var(--font-size-800)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+</div>
+
+### Specialized Sizes
+<div class="font-sizes">
+  <code>var(--font-size-h1)</code>
+  <span style={{ 'font-size': 'var(--font-size-h1)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-h2)</code>
+  <span style={{ 'font-size': 'var(--font-size-h2)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-h3)</code>
+  <span style={{ 'font-size': 'var(--font-size-h3)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-body)</code>
+  <span style={{ 'font-size': 'var(--font-size-body)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-size-nav)</code>
+  <span style={{ 'font-size': 'var(--font-size-nav)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+</div>
+
+## Font Weight
+The font weight system is based on the generic weights, which are numbered from 100 to 900. The specialized weights are `normal` and `bold`. The generic weights are used for general text, while the specialized weights are used for specific elements.
+
+### Generic Weights
+<div class="font-weight-examples">
+  <code>var(--font-weight-100)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-100)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-weight-200)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-200)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-weight-300)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-300)', }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-weight-400)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-400)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-weight-500)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-500)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-weight-600)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-600)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-weight-700)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-700)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-weight-800)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-800)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-weight-900)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-900)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+</div>
+
+<h3>Specialized Weights</h3>
+<div class="font-weight-examples">
+  <code>var(--font-weight-normal)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-normal)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+  <code>var(--font-weight-bold)</code>
+  <span style={{ 'font-weight': 'var(--font-weight-bold)' }}>Lollipop sweet roll chocolate cake bonbon gummies.</span>
+</div>
+
+## Style File
+
+All available options can be found in the `assets/style/variables/_typography.scss` file. Overwrites must be placed after the library style import.
+<Source type="code" language="css" code={TypographyVariables} />

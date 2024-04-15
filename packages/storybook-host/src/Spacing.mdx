@@ -1,0 +1,38 @@
+import { Meta, Source } from '@storybook/blocks'
+import './assets/base.css'
+import './Spacing.css'
+import SpaceVariables from '@core/assets/style/variables/_space.scss?inline'
+
+<Meta title="Guide/Spacing" />
+
+# Spacing
+
+The spacing system is a set of variables that can be used to create consistent spacing throughout the design system.
+The values are inspired by the [Open Props](https://open-props.style) project.
+
+<section class="space-examples">
+  <code>var(--space-100)</code>
+  <div style={{ 'width': 'var(--space-100)' }}></div>
+  <code>var(--space-200)</code>
+  <div style={{ 'width': 'var(--space-200)' }}></div>
+  <code>var(--space-300)</code>
+  <div style={{ 'width': 'var(--space-300)' }}></div>
+  <code>var(--space-400)</code>
+  <div style={{ 'width': 'var(--space-400)' }}></div>
+  <code>var(--space-500)</code>
+  <div style={{ 'width': 'var(--space-500)' }}></div>
+  <code>var(--space-600)</code>
+  <div style={{ 'width': 'var(--space-600)' }}></div>
+  <code>var(--space-700)</code>
+  <div style={{ 'width': 'var(--space-700)' }}></div>
+  <code>var(--space-800)</code>
+  <div style={{ 'width': 'var(--space-800)' }}></div>
+  <code>var(--space-900)</code>
+  <div style={{ 'width': 'var(--space-900)' }}></div>
+</section>
+
+
+## Style File
+
+All available options can be found in the `assets/style/variables/_space.scss` file. Overwrites must be placed after the library style import.
+<Source type="code" language="css" code={SpaceVariables} />

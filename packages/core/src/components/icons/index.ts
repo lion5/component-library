@@ -27,6 +27,7 @@ import IconWallet from '@core/components/icons/IconWallet.vue'
 import IconWarning from '@core/components/icons/IconWarning.vue'
 import IconX from '@core/components/icons/IconX.vue'
 import IconXCircleFill from '@core/components/icons/IconXCircleFill.vue'
+import IconCopy from '@core/components/icons/IconCopy.vue'
 
 export {
   BaseIcon,
@@ -57,6 +58,7 @@ export {
   IconWallet,
   IconWarning,
   IconX,
-  IconXCircleFill
+  IconXCircleFill,
+  IconCopy
 }
 export * from './weather'
