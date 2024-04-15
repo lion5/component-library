@@ -1,0 +1,24 @@
+import { Meta, Source } from '@storybook/blocks'
+import './assets/base.css'
+import ShadowVariables from '@core/assets/style/variables/_shadow.scss?inline'
+
+<Meta title="Guide/Shadows" />
+
+# Shadows
+
+The shadows are defined in the `assets/style/variables/_shadow.scss` file. They are used to give depth to the elements and to create a visual hierarchy.
+
+<section class="dynamic-grid mb">
+  <div class="in-box-example rounded" style={{ 'box-shadow': 'var(--shadow-300)' }}>
+    <code>var(--shadow-300)</code>
+  </div>
+  <div class="in-box-example rounded" style={{ 'box-shadow': 'var(--shadow-600)' }}>
+    <code>var(--shadow-600)</code>
+  </div>
+</section>
+
+
+## Style File
+
+All available options can be found in the `assets/style/variables/_space.scss` file. Overwrites must be placed after the library style import.
+<Source type="code" language="css" code={ShadowVariables} />

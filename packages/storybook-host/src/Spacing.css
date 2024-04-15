@@ -1,0 +1,10 @@
+.space-examples {
+    display: grid;
+    grid-template-columns: max-content auto;
+    gap: var(--space-400);
+    margin-bottom: var(--space-600);
+}
+
+.space-examples > div {
+    background-color: var(--color-neutral-200);
+}

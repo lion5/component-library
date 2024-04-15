@@ -1,0 +1,19 @@
+.border-radius-example {
+    margin: var(--space-400);
+    display: grid;
+    place-content: center;
+    background-color: var(--color-neutral-200);
+    aspect-ratio: 1;
+    width: max-content;
+}
+
+.border-pill-example {
+    width: max-content;
+    height: max-content;
+    padding: var(--space-200);
+    background-color: var(--color-neutral-200);
+}
+
+.border-pill-example > * {
+    background-color: var(--color-neutral-200);
+}

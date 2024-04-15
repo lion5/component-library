@@ -1,0 +1,14 @@
+:root {
+  /* Border Radius */
+  --border-radius-100: 1px;
+  --border-radius-200: 5px;
+  --border-radius-300: .5rem;
+  --border-radius-500: 1rem;
+  --border-radius-700: 1.75rem;
+  --border-radius-800: 2rem;
+  --border-radius-900: 4rem;
+  --border-radius-round: 1e5px;
+
+  /** Deprecated */
+  --border-radius-md: var(--border-radius-500);
+}
