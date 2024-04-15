@@ -1,0 +1,51 @@
+.font-sizes {
+    display: grid;
+    grid-template-columns: max-content auto;
+    gap: 1rem;
+    line-height: 1;
+    text-size-adjust: 100%;
+}
+
+.font-weight-examples {
+    display: grid;
+    grid-template-columns: max-content auto;
+    gap: 1rem;
+    font-size: var(--font-size-4);
+    line-height: 1;
+}
+
+.font-weight-examples :where(span) {
+    font-family: system-ui, -apple-system, sans-serif !important;
+}
+
+.font-family-preview {
+    display: flex;
+    gap: var(--space-800);
+}
+
+.font-family-preview > * {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-600);
+}
+
+.sans-serif, .serif, .monospace {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 1rem;
+    font-size: var(--font-size-4);
+    line-height: 1;
+}
+
+.font-family-preview :where(.sans-serif) :where(span) {
+    font-family: var(--font-sans) !important;
+}
+
+.font-family-preview :where(.serif) :where(span) {
+    font-family: var(--font-serif) !important;
+}
+
+.font-family-preview :where(.monospace) :where(span) {
+    font-family: var(--font-mono) !important;
+}

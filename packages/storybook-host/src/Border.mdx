@@ -1,0 +1,48 @@
+import { Meta, Source } from '@storybook/blocks'
+import './assets/base.css'
+import './Border.css'
+import BorderVariables from '@core/assets/style/variables/_border.scss?inline'
+
+<Meta title="Guide/Border" />
+
+# Border
+
+## Border Radius
+
+The border radius is a set of predefined values that can be used to create rounded corners on elements. The border radius values are defined in the `assets/style/variables/_border.scss` file.
+The values are inspired by the [Tailwind CSS](https://tailwindcss.com/docs/border-radius) library and [Open Props](https://open-props.style) project.
+
+<section class="dynamic-grid mb">
+  <div class="border-radius-example" style={{ 'border-radius': 'var(--border-radius-100)' }}>
+    <code>var(--border-radius-100)</code>
+  </div>
+  <div class="border-radius-example" style={{ 'border-radius': 'var(--border-radius-200)' }}>
+    <code>var(--border-radius-200)</code>
+  </div>
+  <div class="border-radius-example" style={{ 'border-radius': 'var(--border-radius-300)' }}>
+    <code>var(--border-radius-300)</code>
+  </div>
+  <div class="border-radius-example" style={{ 'border-radius': 'var(--border-radius-500)' }}>
+    <code>var(--border-radius-500)</code>
+  </div>
+  <div class="border-radius-example" style={{ 'border-radius': 'var(--border-radius-700)' }}>
+    <code>var(--border-radius-700)</code>
+  </div>
+  <div class="border-radius-example" style={{ 'border-radius': 'var(--border-radius-800)' }}>
+    <code>var(--border-radius-800)</code>
+  </div>
+  <div class="border-radius-example" style={{ 'border-radius': 'var(--border-radius-900)' }}>
+    <code>var(--border-radius-900)</code>
+  </div>
+  <div class="border-radius-example" style={{ 'border-radius': 'var(--border-radius-round)' }}>
+    <code>var(--border-radius-round)</code>
+  </div>
+  <div class="border-pill-example" style={{ 'border-radius': 'var(--border-radius-round)' }}>
+    <code>var(--border-radius-round)</code>
+  </div>
+</section>
+
+## Style File
+
+All available options can be found in the `assets/style/variables/_border.scss` file. Overwrites must be placed after the library style import.
+<Source type="code" language="css" code={BorderVariables} />
