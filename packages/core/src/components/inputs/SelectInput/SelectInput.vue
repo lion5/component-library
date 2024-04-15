@@ -1,9 +1,9 @@
 <template>
   <div class="floating-input-group">
     <multiselect
-      :id="props.id"
+      :id="id"
       v-model="selectedOption"
-      :options="props.options"
+      :options="options"
       :placeholder="placeholderText"
       track-by="key"
       label="label"
