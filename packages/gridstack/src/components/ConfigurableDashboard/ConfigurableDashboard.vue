@@ -22,7 +22,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import { WidgetConfiguration } from '@/models/widgetConfiguration'
 import { GridWidget } from '@/models/gridWidget'
@@ -58,6 +58,9 @@ const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
   required: true
 })
 
+/**
+ * Currently set dashboardConfig
+ */
 const currentConfig = ref(dashboardConfig.value)
 const editMode = ref<boolean>(false)
 const showModal = ref(false)
@@ -94,6 +97,12 @@ const onAddWidget = async (widgetKey: string) => {
       ?.scrollIntoView({ behavior: 'smooth' })
   }, 250)
 }
+
+watch(editMode, (isEditMode) => {
+  if (isEditMode) {
+    currentConfig.value = dashboardConfig.value
+  }
+})
 </script>
 
 <style scoped>

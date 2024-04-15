@@ -14,7 +14,7 @@
       :allow-empty="false"
       :show-labels="false"
       v-bind="$attrs"
-      @select="emitKey"
+      @select="updateModelValue"
     >
       <template v-for="(_, name) in $slots" #[name]>
         <slot :name="name" />
@@ -30,17 +30,13 @@
 </template>
 <script setup lang="ts" generic="LabelType">
 import Multiselect from 'vue-multiselect'
-import { computed, onMounted, ref } from 'vue'
+import { computed, onMounted, ref, watch } from 'vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
 
 const PLACEHOLDER_SUFFIX = 'wählen'
 
 const props = withDefaults(
   defineProps<{
-    /**
-     * The currently selected value as a `string`, initially `undefined`.
-     */
-    modelValue?: string
     /**
      * The options that should be available for selection. Contain a `value` (key to identify the option)
      * and a text to be displayed.
@@ -72,15 +68,16 @@ const props = withDefaults(
   }
 )
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: string | number | null): void
-}>()
+/**
+ * The currently selected value as a `string`, initially `undefined`.
+ */
+const modelValue = defineModel<string | undefined | null | number>()
 
 const selectedOption = ref<SelectOption<LabelType>>()
 
 onMounted(() => {
-  const { modelValue, options, defaultOption } = props
-  if (modelValue !== undefined) {
+  const { options, defaultOption } = props
+  if (modelValue.value != null) {
     const optionsMap = options.reduce(
       (
         accumulator: { [key: string]: SelectOption<LabelType> },
@@ -91,14 +88,33 @@ onMounted(() => {
       },
       {}
     )
-    selectedOption.value = optionsMap[modelValue]
+    selectedOption.value = optionsMap[modelValue.value]
   } else {
     selectedOption.value = defaultOption
   }
   if (selectedOption.value !== undefined) {
-    emitKey(selectedOption.value)
+    updateModelValue(selectedOption.value)
   }
 })
+
+watch(
+  () => modelValue.value,
+  (newValue) => {
+    if (newValue != null && props.options.length > 0) {
+      const optionsMap = props.options.reduce(
+        (
+          accumulator: { [key: string]: SelectOption<LabelType> },
+          selectOption: SelectOption<LabelType>
+        ) => {
+          accumulator[selectOption.key || ''] = selectOption
+          return accumulator
+        },
+        {}
+      )
+      selectedOption.value = optionsMap[newValue]
+    }
+  }
+)
 
 const placeholderText = computed(() => {
   return props.placeholder || props.label + ' ' + PLACEHOLDER_SUFFIX
@@ -108,8 +124,8 @@ const errorMessage = computed(() =>
   props.error instanceof Error ? props.error.message : props.error
 )
 
-const emitKey = (selectedOption: SelectOption<LabelType>) => {
-  emit('update:modelValue', selectedOption.key)
+const updateModelValue = (selectedOption: SelectOption<LabelType>) => {
+  modelValue.value = selectedOption.key
 }
 </script>
 <style>
