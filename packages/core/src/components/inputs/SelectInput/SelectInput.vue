@@ -77,7 +77,7 @@ const selectedOption = ref<SelectOption<LabelType>>()
 
 onMounted(() => {
   const { options, defaultOption } = props
-  if (modelValue.value !== undefined && modelValue.value !== null) {
+  if (modelValue.value != null) {
     const optionsMap = options.reduce(
       (
         accumulator: { [key: string]: SelectOption<LabelType> },
@@ -100,11 +100,7 @@ onMounted(() => {
 watch(
   () => modelValue.value,
   (newValue) => {
-    if (
-      newValue !== undefined &&
-      newValue !== null &&
-      props.options.length > 0
-    ) {
+    if (newValue != null && props.options.length > 0) {
       const optionsMap = props.options.reduce(
         (
           accumulator: { [key: string]: SelectOption<LabelType> },
