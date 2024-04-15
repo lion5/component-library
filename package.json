@@ -1,6 +1,7 @@
 {
   "name": "root",
   "version": "0.9.3",
+  "type": "module",
   "workspaces": [
     "packages/*"
   ],
@@ -12,13 +13,13 @@
     "docs:build": "nx run-many -t docs:build"
   },
   "devDependencies": {
-    "@nx/js": "^18.2.2",
+    "@nx/js": "^18.2.4",
     "@vitejs/plugin-vue": "^4.6.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "eslint-plugin-vue": "^9.24.0",
-    "nx": "^18.2.2",
+    "eslint-plugin-vue": "^9.25.0",
+    "nx": "^18.2.4",
     "vite": "^4.5.3"
   }
 }
