@@ -1,3 +1,16 @@
+## 0.12.1 (2024-04-15)
+
+
+### 🩹 Fixes
+
+- use direct reference to props in selectInput ([620ca98](https://github.com/lion5/component-library/commit/620ca98))
+- vitest ui package missing false positive ([c6d97bf](https://github.com/lion5/component-library/commit/c6d97bf))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+- Soumik Kumar Saha
+
 ## 0.12.0 (2024-04-15)
 
 This was a version bump only, there were no code changes.
