@@ -1,3 +1,18 @@
+## 0.13.0 (2024-04-23)
+
+
+### 🩹 Fixes
+
+- type problems ([14822f7](https://github.com/lion5/component-library/commit/14822f7))
+- build the project before type check can run ([81dc5ce](https://github.com/lion5/component-library/commit/81dc5ce))
+- GpsLocation types ([f7dd103](https://github.com/lion5/component-library/commit/f7dd103))
+- reset the storybook build output locations ([dfaf1ee](https://github.com/lion5/component-library/commit/dfaf1ee))
+- build packages before building storybook ([ac87b2b](https://github.com/lion5/component-library/commit/ac87b2b))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.12.1 (2024-04-15)
 
 
