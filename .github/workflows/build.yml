@@ -73,5 +73,7 @@ jobs:
           cache: 'npm'
       - name: Install Packages
         run: npm ci
+      - name: Build Packages
+        run: npm run build
       - name: Build Library Documentation
         run: npm run docs:build
