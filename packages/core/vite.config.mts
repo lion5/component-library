@@ -20,7 +20,7 @@ export default defineConfig({
         // package is supported by all consumers, we must export types that are
         // read as ESM. To do this, there must be duplicate types with the
         // correct extension supplied in the package.json exports field.
-        copyFileSync('dist/index.d.ts', 'dist/index.d.cts')
+        copyFileSync('dist/index.d.ts', 'dist/index.d.mts')
       }
     })
   ],
