@@ -27,33 +27,51 @@
     "build": "vite build",
     "test:unit": "cross-env TZ=UTC vitest run",
     "test:unit:ui": "cross-env TZ=UTC vitest --ui",
-    "type-check": "vue-tsc -p tsconfig.json --composite false",
+    "type-check": "vue-tsc --noEmit --skipLibCheck",
     "docs": "storybook dev -p 6007",
-    "docs:build": "storybook build -o ../storybook-host/storybook-static/firebase"
+    "docs:build": "storybook build -o ../storybook-host/storybook-static/core",
+    "package-check": "publint",
+    "package-type-check": "attw --pack . --exclude-entrypoints ./dist/style.css"
   },
   "files": [
     "dist"
   ],
-  "module": "./dist/index.es.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js"
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      },
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
     },
-    "./dist/style.css": "./dist/style.css"
+    "./dist/style.css": "./dist/style.css",
+    "./package.json": "./package.json"
   },
+  "sideEffects": ["./dist/style.css"],
   "dependencies": {
     "@lion5/component-library": "0.12.1",
     "firebase": "^9.23.0",
     "vue": "^3.4.21"
   },
+  "peerDependencies": {
+    "@lion5/component-library": ">= 0.12.1",
+    "firebase": ">= 9.23.0 < 10",
+    "vue": ">= 3.4.21"
+  },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.3",
     "@storybook/addon-a11y": "^8.0.8",
     "@storybook/addon-essentials": "^8.0.8",
     "@storybook/addon-interactions": "^8.0.8",
     "@storybook/addon-links": "^8.0.8",
     "@storybook/blocks": "^8.0.8",
+    "@storybook/test": "^8.0.8",
     "@storybook/vue3": "^8.0.8",
     "@storybook/vue3-vite": "^8.0.8",
     "@types/dom-screen-wake-lock": "^1.0.3",
@@ -68,8 +86,7 @@
     "jsdom": "^24.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "publint": "^0.2.7",
     "sass": "^1.75.0",
     "storybook": "^8.0.8",
     "typescript": "^5.4.5",
