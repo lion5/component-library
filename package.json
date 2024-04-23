@@ -14,7 +14,7 @@
     "docs:build": "nx run-many -t docs:build",
     "package-check": "nx run-many -t package-check",
     "package-type-check": "nx run-many -t package-type-check",
-    "clean": "rm -r packages/*/dist packages/*/node_modules node_modules package-lock.json"
+    "clean": "rm -r packages/*/dist packages/*/node_modules node_modules package-lock.json .nx"
   },
   "devDependencies": {
     "@nx/js": "^18.2.4",
