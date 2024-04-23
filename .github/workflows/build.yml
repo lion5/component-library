@@ -21,11 +21,25 @@ jobs:
         run: npm ci
       - name: Run Linter
         run: npm run lint
-      - name: Run Type Checker
+
+  type-check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - name: Install Packages
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Type Checker
         run: npm run type-check
 
   testing:
-    needs: [ lint ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
