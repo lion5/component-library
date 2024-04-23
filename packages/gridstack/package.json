@@ -29,7 +29,7 @@
     "test:unit:ui": "cross-env TZ=UTC vitest --ui",
     "type-check": "vue-tsc --noEmit --skipLibCheck",
     "docs": "storybook dev -p 6008",
-    "docs:build": "storybook build -o ../storybook-host/storybook-static/core",
+    "docs:build": "storybook build -o ../storybook-host/storybook-static/gridstack",
     "package-check": "publint",
     "package-type-check": "attw --pack . --exclude-entrypoints ./dist/style.css"
   },
