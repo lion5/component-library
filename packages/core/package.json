@@ -1,7 +1,7 @@
 {
   "name": "@lion5/component-library",
   "version": "0.13.0",
-  "type": "module",
+  "type": "commonjs",
   "license": "MIT",
   "contributors": [
     "Michael Götz <michael.goetz@lion5.io> (https://github.com/michigg)",
@@ -36,18 +36,18 @@
   "files": [
     "dist"
   ],
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "import": {
-        "types": "./dist/index.d.ts",
-        "default": "./dist/index.js"
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
       },
       "require": {
-        "types": "./dist/index.d.cts",
-        "default": "./dist/index.cjs"
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
       }
     },
     "./dist/style.css": "./dist/style.css",
@@ -57,22 +57,24 @@
     "./dist/style.css"
   ],
   "dependencies": {
-    "bootstrap-icons": "^1.11.3",
-    "pinia": "^2.1.7",
-    "vee-validate": "^4.12.6",
-    "vue": "^3.4.21",
-    "vue-multiselect": "^3.0.0",
-    "vue-router": "^4.3.0",
-    "yup": "^1.4.0"
+    "bootstrap-icons": ">=1.11.3",
+    "lodash": ">=4.17.21",
+    "pinia": ">=2.1.7",
+    "vee-validate": ">=4.12.6",
+    "vue": ">=3.4.21",
+    "vue-multiselect": ">=3.0.0",
+    "vue-router": ">=4.3.0",
+    "yup": ">=1.4.0"
   },
   "peerDependencies": {
-    "vue": ">= 3.4.21",
-    "bootstrap-icons": ">1.11.3",
-    "pinia": ">2.1.7",
-    "vee-validate": ">4.12.6",
-    "vue-multiselect": ">3.0.0",
-    "vue-router": ">4.3.0",
-    "yup": ">1.4.0"
+    "bootstrap-icons": ">=1.11.3",
+    "lodash": ">=4.17.21",
+    "pinia": ">=2.1.7",
+    "vee-validate": ">=4.12.6",
+    "vue": ">=3.4.21",
+    "vue-multiselect": ">=3.0.0",
+    "vue-router": ">=4.3.0",
+    "yup": ">=1.4.0"
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.15.3",

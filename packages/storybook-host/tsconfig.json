@@ -49,6 +49,6 @@
   "include": [
     "../../**/*.stories.js",
     "../../**/*.stories.ts",
-    "vite.config.ts"
+    "vite.config.mts"
   ]
 }
