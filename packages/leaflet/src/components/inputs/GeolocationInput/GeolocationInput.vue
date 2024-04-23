@@ -17,7 +17,12 @@ import { useLeafletMarker } from '@leaflet/composables/useLeafletMarker'
 import { computed, ref, watch } from 'vue'
 import { useField } from 'vee-validate'
 import { GpsLocation } from '@leaflet/models'
-import { DragEndEvent, LatLng, Marker } from 'leaflet'
+import {
+  DragEndEvent,
+  LatLng,
+  Marker,
+  type Map as LeafletMapType
+} from 'leaflet'
 
 const props = withDefaults(
   defineProps<{
@@ -43,7 +48,7 @@ const center = computed(
 )
 defineExpose({ marker })
 
-const onMapCreated = async (map: Map) => {
+const onMapCreated = async (map: LeafletMapType) => {
   const { drawDraggableMarker } = useLeafletMarker()
   marker.value = drawDraggableMarker(
     map,
