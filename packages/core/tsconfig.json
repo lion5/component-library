@@ -1,37 +1,18 @@
 {
+  "extends": [
+    "../tsconfig.shared.json"
+  ],
   "compilerOptions": {
-    "target": "esnext",
-    "module": "esnext",
-    "strict": true,
-    "declaration": true,
+    // Project Structure
     "declarationDir": "dist/types",
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "importHelpers": true,
-    "moduleResolution": "node",
-    "useDefineForClassFields": true,
-    "jsx": "preserve",
-    "sourceMap": true,
-    "resolveJsonModule": true,
-    "esModuleInterop": true,
-    "lib": [
-      "esnext",
-      "dom",
-      "dom.iterable"
-    ],
-    "emitDeclarationOnly": true,
-    "isolatedModules": true,
-    "skipLibCheck": true,
-    "baseUrl": "./",
+    "rootDir": ".",
+    "outDir": "dist",
     "paths": {
       "@core/*": [
         "src/*"
       ]
     },
-    "types": [
-      "vite/client",
-      "dom-screen-wake-lock"
-    ]
+    "baseUrl": "./"
   },
   "exclude": [
     "node_modules",
@@ -44,6 +25,7 @@
     "src/**/*.ts",
     "src/**/*.d.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "vite.config.ts"
   ]
 }

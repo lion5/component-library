@@ -23,7 +23,7 @@ import { BaseInputV2, BaseButton } from '@lion5/component-library'
 
 const name = ref('')
 const required = computed(() => ({
-  required: (value) => !!value
+  required: (value: unknown) => !!value
 }))
 
 const emit = defineEmits(['confirmSave'])

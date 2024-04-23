@@ -1,0 +1,33 @@
+{
+  "compilerOptions": {
+    "lib": [
+      "esnext",
+      "dom",
+      "dom.iterable"
+    ],
+    "target": "es2020",
+    // Runtime/Module
+    "module": "es2020",
+    "moduleResolution": "bundler",
+
+    "strict": true,
+    "alwaysStrict": true,
+    "skipLibCheck": false,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "importHelpers": true,
+    "useDefineForClassFields": true,
+    "jsx": "preserve",
+    "sourceMap": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
+
+    "isolatedModules": true,
+    "types": [
+      "vite/client",
+      "dom-screen-wake-lock"
+    ]
+  }
+}
