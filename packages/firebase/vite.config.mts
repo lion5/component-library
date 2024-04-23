@@ -31,7 +31,11 @@ export default defineConfig({
       fileName: 'index'
     },
     rollupOptions: {
-      external: Object.keys(packageJson.dependencies),
+      external: [
+        ...Object.keys(packageJson.dependencies),
+        'firebase/storage',
+        'firebase/app'
+      ],
       output: {
         exports: 'named',
         globals: {
