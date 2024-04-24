@@ -1,3 +1,14 @@
+## 0.13.2 (2024-04-24)
+
+
+### 🩹 Fixes
+
+- update ci actions to latest to get rid of node warning ([bacee6e](https://github.com/lion5/component-library/commit/bacee6e))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.13.1 (2024-04-23)
 
 
