@@ -26,7 +26,7 @@
 import type { RuleExpression } from 'vee-validate'
 import { ErrorMessage, useField } from 'vee-validate'
 import { computed, ref } from 'vue'
-import { debounce } from 'lodash'
+import { debounce } from 'lodash-es'
 import LoadingAnimation from '@core/components/utils/LoadingAnimation/LoadingAnimation.vue'
 import BaseInputWrapper from '@core/components/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 import { NamedLocation } from '@core/models/namedLocation'
