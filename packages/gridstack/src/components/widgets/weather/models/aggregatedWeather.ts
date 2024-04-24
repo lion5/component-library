@@ -1,4 +1,4 @@
-import { countBy, last, maxBy } from 'lodash'
+import { countBy, last, maxBy } from 'lodash-es'
 import { BrightSkyForecastWeatherItem } from '@/components/widgets/weather/models/brightSkyForecastWeather'
 
 export class AggregatedWeather {

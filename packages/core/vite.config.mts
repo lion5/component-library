@@ -31,7 +31,7 @@ export default defineConfig({
       fileName: 'index'
     },
     rollupOptions: {
-      external: Object.keys(packageJson.dependencies),
+      external: Object.keys(packageJson.peerDependencies),
       output: {
         exports: 'named',
         globals: {
