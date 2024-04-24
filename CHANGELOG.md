@@ -1,3 +1,14 @@
+## 0.13.1 (2024-04-23)
+
+
+### 🩹 Fixes
+
+- mark all peer dependencies as external ([36c6ac0](https://github.com/lion5/component-library/commit/36c6ac0))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.13.0 (2024-04-23)
 
 
