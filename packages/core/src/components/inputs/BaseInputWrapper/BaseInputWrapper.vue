@@ -1,6 +1,7 @@
 <template>
   <div class="base-input-wrapper">
     <slot />
+    <div class="postfix-icon"><slot name="postfix-icon" /></div>
     <IconError class="error-icon" />
   </div>
 </template>
@@ -20,7 +21,8 @@
 
   & > :deep(input),
   & > :deep(label),
-  & > .error-icon {
+  & > .error-icon,
+  & > .postfix-icon {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
     font-size: var(--_input-size);
@@ -35,11 +37,15 @@
     );
   }
 
-  .error-icon {
-    display: none;
+  .error-icon,
+  .postfix-icon {
     font-size: var(--_error-icon-size);
-    color: var(--color-danger);
     place-self: center end;
+  }
+
+  .error-icon {
+    color: var(--color-danger);
+    display: none;
   }
 
   & > :deep(input) {
@@ -100,6 +106,10 @@
 
   :deep(input.failed ~ .error-icon) {
     display: inline-block;
+  }
+
+  :deep(input.failed ~ .postfix-icon) {
+    display: none;
   }
 
   :deep(input.failed:hover ~ label) {
