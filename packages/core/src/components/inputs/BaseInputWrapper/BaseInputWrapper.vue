@@ -100,31 +100,31 @@
     font-size: var(--_label-size);
   }
 
-  :deep(input.failed ~ label) {
+  :deep(input.invalid ~ label) {
     color: var(--_input-error-color);
   }
 
-  :deep(input.failed ~ .error-icon) {
+  :deep(input.invalid ~ .error-icon) {
     display: inline-block;
   }
 
-  :deep(input.failed ~ .postfix-icon) {
+  :deep(input.invalid ~ .postfix-icon) {
     display: none;
   }
 
-  :deep(input.failed:hover ~ label) {
+  :deep(input.invalid:hover ~ label) {
     color: var(--_input-error-color-hover);
   }
 
-  :deep(input.failed:not(:focus)) {
+  :deep(input.invalid:not(:focus)) {
     outline: 2px solid var(--_input-error-color);
   }
 
-  :deep(input.failed:not(:focus):hover) {
+  :deep(input.invalid:not(:focus):hover) {
     outline: 2px solid var(--_input-error-color-hover);
   }
 
-  :deep(input.failed:not(:focus):hover ~ .error-icon),
+  :deep(input.invalid:not(:focus):hover ~ .error-icon),
   :deep(.error-icon):hover {
     color: var(--_input-error-color-hover);
   }
