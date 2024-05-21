@@ -60,9 +60,7 @@ describe('GeolocationInput', () => {
       await marker?.fire('dragend')
       await flushPromises()
 
-      expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([
-        geolocation
-      ])
+      expect(wrapper.vm.modelValue).toStrictEqual(geolocation)
     })
   })
 })
