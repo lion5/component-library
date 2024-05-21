@@ -17,9 +17,6 @@
     />
     <label :for="name">{{ label }}</label>
     <ErrorMessage class="error" :name="name" />
-    <template #postfix-icon>
-      <i class="bi bi-currency-euro"></i>
-    </template>
   </BaseInputWrapper>
 </template>
 <script lang="ts" setup>
