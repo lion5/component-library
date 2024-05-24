@@ -1,3 +1,14 @@
+## 0.13.3 (2024-05-24)
+
+
+### 🩹 Fixes
+
+- display error icon on invalidation failure ([09a2860](https://github.com/lion5/component-library/commit/09a2860))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.13.2 (2024-04-24)
 
 
