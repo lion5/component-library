@@ -18,9 +18,12 @@ describe('useFirebaseStorage.ts', () => {
     const expectedRef = 'fake-storage-ref' as unknown as StorageReference
     const expectedReturnPath = 'test-returned-path'
 
-    getStorage.mockReturnValue(expectedStorage)
-    ref.mockReturnValue(expectedRef)
-    uploadBytes.mockResolvedValueOnce({
+    const mockedGetStorage = vi.mocked(getStorage)
+    mockedGetStorage.mockReturnValue(expectedStorage)
+    const mockedRef = vi.mocked(ref)
+    mockedRef.mockReturnValue(expectedRef)
+    const mockedUploadBytes = vi.mocked(uploadBytes)
+    mockedUploadBytes.mockResolvedValueOnce({
       ref: { fullPath: expectedReturnPath }
     } as UploadResult)
     const { uploadFile } = useFirebaseStorage()

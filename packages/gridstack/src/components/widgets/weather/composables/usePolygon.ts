@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-expect-error
 import booleanPointInPolygon from '@turf/boolean-point-in-polygon'
 import { GpsLocation } from '@lion5/component-library'
 

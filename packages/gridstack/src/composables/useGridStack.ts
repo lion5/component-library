@@ -58,8 +58,6 @@ export function useGridStack(
   const initializeGrid = () => {
     grid = GridStack.init(
       {
-        id: '',
-        class: '',
         cellHeight: '5vh',
         column: 12,
         minRow: 1,

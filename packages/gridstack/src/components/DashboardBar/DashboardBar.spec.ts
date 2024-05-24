@@ -11,7 +11,7 @@ describe('DashboardBar.vue', () => {
       props: {
         editMode: false,
         availableWidgets: new Map(),
-        dashboardConfigurations: []
+        dashboardConfigurationOptions: []
       }
     })
   })

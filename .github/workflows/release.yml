@@ -37,7 +37,7 @@ jobs:
           git checkout -b release/${{ github.event.inputs.release_version }}
           git push --tags origin release/${{ github.event.inputs.release_version }}
       - name: Merge Release Data via Pull Request
-        uses: actions/github-script@v6
+        uses: actions/github-script@v7
         with:
           script: |
             const { repo, owner } = context.repo;
@@ -72,7 +72,7 @@ jobs:
       #              merge_method: 'merge'
       #            });
       - name: Release
-        uses: softprops/action-gh-release@v1
+        uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ github.event.inputs.release_version }}
           generate_release_notes: true

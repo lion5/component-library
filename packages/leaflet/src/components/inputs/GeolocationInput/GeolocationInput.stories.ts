@@ -10,8 +10,7 @@ type Story = StoryObj<typeof GeolocationInput>
 
 export const Empty: Story = {
   args: {
-    name: 'geolocation',
-    label: 'This is an example geolocation field'
+    name: 'geolocation'
   }
 }
 

@@ -1,7 +1,7 @@
 {
   "name": "@lion5/component-library-gridstack",
-  "version": "0.12.1",
-  "type": "module",
+  "version": "0.13.2",
+  "type": "commonjs",
   "license": "MIT",
   "contributors": [
     "Michael Götz <michael.goetz@lion5.io> (https://github.com/michigg)",
@@ -27,28 +27,55 @@
     "build": "vite build",
     "test:unit": "cross-env TZ=UTC vitest run",
     "test:unit:ui": "cross-env TZ=UTC vitest --ui",
-    "type-check": "vue-tsc -p tsconfig.json --composite false",
+    "type-check": "vue-tsc --noEmit --skipLibCheck",
     "docs": "storybook dev -p 6008",
-    "docs:build": "storybook build -o ../storybook-host/storybook-static/gridstack"
+    "docs:build": "storybook build -o ../storybook-host/storybook-static/gridstack",
+    "package-check": "publint",
+    "package-type-check": "attw --pack . --exclude-entrypoints ./dist/style.css"
   },
   "files": [
     "dist"
   ],
-  "module": "./dist/index.es.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js"
+      "import": {
+        "types": "./dist/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/index.js"
+      }
     },
-    "./dist/style.css": "./dist/style.css"
+    "./dist/style.css": "./dist/style.css",
+    "./package.json": "./package.json"
   },
+  "sideEffects": [
+    "./dist/style.css"
+  ],
   "dependencies": {
-    "@lion5/component-library": "0.12.1",
-    "gridstack": "^10.1.2",
-    "vue": "^3.4.21"
+    "@lion5/component-library": "0.13.2",
+    "@turf/boolean-point-in-polygon": ">= 6.5.0 < 7",
+    "gridstack": ">= 10.1.2 < 11",
+    "lodash-es": ">=4.17.21",
+    "remove": "^0.1.5",
+    "vee-validate": ">=4.12.6",
+    "vue": ">= 3.4.21"
+  },
+  "peerDependencies": {
+    "@lion5/component-library": ">= 0.12.1",
+    "@turf/boolean-point-in-polygon": ">= 6.5.0 < 7",
+    "lodash-es": ">=4.17.21",
+    "gridstack": ">= 10.1.2 < 11",
+    "vee-validate": ">=4.12.6",
+    "vue": ">= 3.4.21"
   },
   "devDependencies": {
+    "@arethetypeswrong/cli": "^0.15.3",
+    "@storybook/addon-a11y": "^8.0.8",
     "@storybook/addon-essentials": "^8.0.8",
     "@storybook/addon-interactions": "^8.0.8",
     "@storybook/addon-links": "^8.0.8",
@@ -58,6 +85,7 @@
     "@storybook/vue3-vite": "^8.0.8",
     "@types/dom-screen-wake-lock": "^1.0.3",
     "@types/jsdom": "^21.1.6",
+    "@types/lodash-es": "^4.17.12",
     "@types/node": "^20.12.7",
     "@vitejs/plugin-vue": "^5.0.4",
     "@vitest/ui": "^1.5.0",
@@ -65,16 +93,17 @@
     "@vue/tsconfig": "^0.5.1",
     "cross-env": "^7.0.3",
     "eslint-plugin-storybook": "^0.8.0",
-    "jsdom": "^23.2.0",
+    "jsdom": "^24.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.2.5",
+    "publint": "^0.2.7",
     "sass": "^1.75.0",
     "storybook": "^8.0.8",
     "typescript": "^5.4.5",
     "vite": "^5.2.8",
     "vite-plugin-dts": "^3.8.2",
     "vitest": "^1.5.0",
-    "vue-tsc": "^1.8.27"
+    "vue-tsc": "^2.0.13"
   },
   "gitHead": "4b5b01f298040c7d4206a67ab76b1b02fe7fe91e"
 }

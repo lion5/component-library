@@ -7,19 +7,21 @@
   ],
   "scripts": {
     "lint": "eslint packages --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
+    "type-check": "nx run-many -t type-check",
     "build": "nx run-many -t build",
     "test": "nx run-many -t test:unit",
     "docs": "nx run-many -t docs --parallel=5",
-    "docs:build": "nx run-many -t docs:build"
+    "docs:build": "nx run-many -t docs:build",
+    "package-check": "nx run-many -t package-check",
+    "package-type-check": "nx run-many -t package-type-check",
+    "clean": "rm -r packages/*/dist packages/*/node_modules node_modules package-lock.json .nx"
   },
   "devDependencies": {
     "@nx/js": "^18.2.4",
-    "@vitejs/plugin-vue": "^4.6.2",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-storybook": "^0.6.15",
     "eslint-plugin-vue": "^9.25.0",
-    "nx": "^18.2.4",
-    "vite": "^4.5.3"
+    "nx": "^18.2.4"
   }
 }
