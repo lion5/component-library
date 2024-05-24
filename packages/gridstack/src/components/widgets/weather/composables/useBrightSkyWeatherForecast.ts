@@ -1,5 +1,5 @@
 import { computed, ref } from 'vue'
-import { groupBy } from 'lodash'
+import { groupBy } from 'lodash-es'
 import { GpsLocation, useFetchState } from '@lion5/component-library'
 import {
   BrightSkyForecastWeather,

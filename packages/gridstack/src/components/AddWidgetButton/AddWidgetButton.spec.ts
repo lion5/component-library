@@ -1,7 +1,6 @@
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { mount, VueWrapper } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import type WrapperLike from '@vue/test-utils/dist/interfaces/wrapperLike'
 import AddWidgetButton from './AddWidgetButton.vue'
 import { BaseButton, DismissibleModal } from '@lion5/component-library'
 import AddWidgetInput from '@/components/AddWidgetInput/AddWidgetInput.vue'
@@ -35,7 +34,7 @@ describe('AddWidgetButton.vue', () => {
       const availableWidgets = wrapper.findAllComponents(AddWidgetInput)
 
       for (const [index, availableWidget] of Object.entries(availableWidgets)) {
-        const tabIndex = (availableWidget as WrapperLike).attributes('tabindex')
+        const tabIndex = (availableWidget as VueWrapper).attributes('tabindex')
         expect(Number(tabIndex)).toBe(Number(index) + 1)
       }
     })

@@ -3,6 +3,9 @@ name: Build
 on:
   pull_request:
 
+env:
+  NODE_VERSION: 20.x
+
 jobs:
   lint:
     runs-on: ubuntu-latest
@@ -12,15 +15,14 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       - name: Install Packages
         run: npm ci
       - name: Run Linter
         run: npm run lint
 
-  unit-testing:
-    needs: [ lint ]
+  type-check:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -28,7 +30,24 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - name: Install Packages
+        run: npm ci
+      - name: Build
+        run: npm run build
+      - name: Type Checker
+        run: npm run type-check
+
+  testing:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       - name: Install Packages
         run: npm ci
@@ -36,9 +55,13 @@ jobs:
         run: npm run build
       - name: Run Unit Tests
         run: npm run test
+      - name: Run Package Tests
+        run: |
+          npm run package-check
+          npm run package-type-check
 
   build-storybook:
-    needs: [ unit-testing ]
+    needs: [ testing ]
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -46,9 +69,11 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v3
         with:
-          node-version: '18.x'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       - name: Install Packages
         run: npm ci
+      - name: Build Packages
+        run: npm run build
       - name: Build Library Documentation
         run: npm run docs:build

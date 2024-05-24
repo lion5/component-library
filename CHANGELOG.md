@@ -1,3 +1,51 @@
+## 0.13.3 (2024-05-24)
+
+
+### 🩹 Fixes
+
+- display error icon on invalidation failure ([09a2860](https://github.com/lion5/component-library/commit/09a2860))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
+## 0.13.2 (2024-04-24)
+
+
+### 🩹 Fixes
+
+- update ci actions to latest to get rid of node warning ([bacee6e](https://github.com/lion5/component-library/commit/bacee6e))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
+## 0.13.1 (2024-04-23)
+
+
+### 🩹 Fixes
+
+- mark all peer dependencies as external ([36c6ac0](https://github.com/lion5/component-library/commit/36c6ac0))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
+## 0.13.0 (2024-04-23)
+
+
+### 🩹 Fixes
+
+- type problems ([14822f7](https://github.com/lion5/component-library/commit/14822f7))
+- build the project before type check can run ([81dc5ce](https://github.com/lion5/component-library/commit/81dc5ce))
+- GpsLocation types ([f7dd103](https://github.com/lion5/component-library/commit/f7dd103))
+- reset the storybook build output locations ([dfaf1ee](https://github.com/lion5/component-library/commit/dfaf1ee))
+- build packages before building storybook ([ac87b2b](https://github.com/lion5/component-library/commit/ac87b2b))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.12.1 (2024-04-15)
 
 
