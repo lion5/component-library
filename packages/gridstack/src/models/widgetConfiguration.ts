@@ -78,7 +78,9 @@ export class WidgetConfiguration {
         apiWidgetConfiguration.position.height
       ),
       apiWidgetConfiguration.componentId,
-      new Map(Object.entries(apiWidgetConfiguration.settings))
+      apiWidgetConfiguration.settings
+        ? new Map(Object.entries(apiWidgetConfiguration.settings))
+        : new Map()
     )
   }
 }
