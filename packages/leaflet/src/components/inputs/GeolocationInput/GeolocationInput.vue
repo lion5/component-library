@@ -56,22 +56,20 @@ const onMapCreated = async (map: LeafletMapType) => {
   )
 }
 
-const {
-  value: location,
-  errorMessage,
-  setValue
-} = useField<GpsLocation>(props.name, undefined, {
-  initialValue: props.modelValue,
-  syncVModel: true
-})
+const { value: location, errorMessage } = useField<GpsLocation>(
+  () => props.name,
+  undefined,
+  {
+    syncVModel: true
+  }
+)
 
 const onMarkerDragged = (e: DragEndEvent) => {
   if (!marker.value) {
     return
   }
   const latLng = e.target.getLatLng()
-  const location = GpsLocation.fromLatLng(latLng)
-  setValue(location)
+  location.value = GpsLocation.fromLatLng(latLng)
 }
 
 watch(
