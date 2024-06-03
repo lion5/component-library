@@ -1,5 +1,8 @@
 <template>
-  <div class="base-input-wrapper">
+  <div
+    class="base-input-wrapper"
+    :class="{ 'hide-placeholder': !showPlaceholder }"
+  >
     <slot />
     <div class="postfix-icon"><slot name="postfix-icon" /></div>
     <IconError class="error-icon" />
@@ -85,9 +88,8 @@
     line-height: 1;
   }
 
-  :deep(input::placeholder),
-  :deep(input::-webkit-input-placeholder) {
-    /* Chrome/Opera/Safari */
+  &.hide-placeholder :deep(input::placeholder),
+  &.hide-placeholder :deep(input::-webkit-input-placeholder) {
     color: transparent !important;
     opacity: 0;
   }
@@ -141,4 +143,14 @@
 </style>
 <script lang="ts" setup>
 import IconError from '@core/components/icons/IconError.vue'
+
+//props showPlaceholder: boolean
+withDefaults(
+  defineProps<{
+    showPlaceholder: boolean
+  }>(),
+  {
+    showPlaceholder: false
+  }
+)
 </script>
