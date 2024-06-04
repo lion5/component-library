@@ -33,6 +33,23 @@ export const Filled: Story = {
   }
 }
 
+export const FilledWithLabel: Story = {
+  render: (args: unknown) => ({
+    components: { CodeInput, Form },
+    setup() {
+      return { args }
+    },
+    template: `
+      <Form :initialValues='{ input1: "ABCD1234" }'>
+        <CodeInput v-bind='args' />
+      </Form>`
+  }),
+  args: {
+    name: 'input1',
+    label: 'Code'
+  }
+}
+
 export const WithError: Story = {
   render: (args: unknown) => ({
     components: { CodeInput, Form },

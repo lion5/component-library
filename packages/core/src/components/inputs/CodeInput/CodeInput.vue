@@ -1,5 +1,6 @@
 <template>
   <div class="input">
+    <label>{{ label }}</label>
     <div class="code-text-input">
       <div
         v-for="index in partNumber"
@@ -36,6 +37,13 @@ const props = defineProps({
    * Used to identify this field in a form (VeeValidate Form).
    */
   name: String,
+  /**
+   * The label of the input field.
+   */
+  label: {
+    type: String,
+    required: false
+  },
   /**
    * The value of the input field. Mainly used for backwards compatibility to our old forms.
    * Please use the vee validate form to fill this field instead.

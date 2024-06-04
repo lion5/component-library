@@ -5,7 +5,7 @@
   >
     <slot />
     <div class="postfix-icon"><slot name="postfix-icon" /></div>
-    <IconError class="error-icon" />
+    <IconError v-if="showErrorIcon" class="error-icon" />
   </div>
 </template>
 <style scoped lang="scss">
@@ -148,9 +148,11 @@ import IconError from '@core/components/icons/IconError.vue'
 withDefaults(
   defineProps<{
     showPlaceholder: boolean
+    showErrorIcon: boolean
   }>(),
   {
-    showPlaceholder: false
+    showPlaceholder: false,
+    showErrorIcon: true
   }
 )
 </script>

@@ -1,5 +1,5 @@
 <template>
-  <BaseInputWrapper :show-placeholder="true">
+  <BaseInputWrapper :show-placeholder="true" :show-error-icon="false">
     <input
       :id="`code-input-${index}`"
       :class="{
@@ -8,7 +8,6 @@
         invalid: meta?.touched && (!meta?.valid || errors)
       }"
       :value="code"
-      class="form-control"
       type="text"
       :maxlength="maxChars"
       :placeholder="placeholder"
@@ -16,6 +15,7 @@
       @input.capture="addInput"
       @keydown="handleKeydown"
       @paste.prevent="handlePasteEvent"
+      :style="`--input-size: ${maxChars}ch;`"
     />
   </BaseInputWrapper>
 </template>
@@ -125,4 +125,12 @@ const code = computed({
 const placeholder = computed(() => props.placeholderChar.repeat(props.maxChars))
 </script>
 
-<style></style>
+<style lang="scss" scoped>
+input {
+  // Calculate the width of the input based on the number of characters with the factor 1.2 for extra space
+  width: calc(1.2 * var(--input-size) + 2 * var(--space-sm));
+  padding-block: var(--space-sm) !important;
+  padding-inline: var(--space-sm) !important;
+  text-align: center;
+}
+</style>
