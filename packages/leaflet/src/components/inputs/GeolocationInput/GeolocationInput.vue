@@ -38,10 +38,6 @@ const props = withDefaults(
   }
 )
 
-const emit = defineEmits<{
-  (e: 'update:modelValue', value: GpsLocation): void
-}>()
-
 const marker = ref<Marker | undefined>()
 const center = computed(
   () => props.modelValue?.toLatLng() || new LatLng(49.8857, 10.8936)
@@ -65,7 +61,7 @@ const {
   errorMessage,
   setValue
 } = useField<GpsLocation>(props.name, undefined, {
-  initialValue: props.modelValue
+  syncVModel: true
 })
 
 const onMarkerDragged = (e: DragEndEvent) => {
@@ -75,7 +71,6 @@ const onMarkerDragged = (e: DragEndEvent) => {
   const latLng = e.target.getLatLng()
   const location = GpsLocation.fromLatLng(latLng)
   setValue(location)
-  emit('update:modelValue', location)
 }
 
 watch(
