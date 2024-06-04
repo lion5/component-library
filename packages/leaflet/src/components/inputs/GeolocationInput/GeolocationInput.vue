@@ -61,7 +61,6 @@ const {
   errorMessage,
   setValue
 } = useField<GpsLocation>(props.name, undefined, {
-  initialValue: props.modelValue,
   syncVModel: true
 })
 
