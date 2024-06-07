@@ -1,3 +1,18 @@
+<script lang="ts" setup>
+import IconError from '@core/components/icons/IconError.vue'
+
+//props showPlaceholder: boolean
+withDefaults(
+  defineProps<{
+    showPlaceholder?: boolean
+    showErrorIcon?: boolean
+  }>(),
+  {
+    showPlaceholder: false,
+    showErrorIcon: true
+  }
+)
+</script>
 <template>
   <div
     class="base-input-wrapper"
@@ -141,18 +156,3 @@
   }
 }
 </style>
-<script lang="ts" setup>
-import IconError from '@core/components/icons/IconError.vue'
-
-//props showPlaceholder: boolean
-withDefaults(
-  defineProps<{
-    showPlaceholder: boolean
-    showErrorIcon: boolean
-  }>(),
-  {
-    showPlaceholder: false,
-    showErrorIcon: true
-  }
-)
-</script>
