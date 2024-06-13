@@ -21,7 +21,7 @@
     >
       <SaveDashboardModal
         v-if="showSaveModal"
-        :show-error="showModalError"
+        :show-error="localShowModalError"
         @confirm-save="onConfirmSave"
       />
     </DismissibleModal>
@@ -57,8 +57,8 @@ const props = defineProps<{
   dashboardConfigurationOptions: Array<{ id: string; name: string }>
 }>()
 const emit = defineEmits<{
-  (e: 'prepareSave'): void
   (e: 'update:showSaveModal', value: boolean): void
+  (e: 'update:showModalError', value: boolean): void
   (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
 }>()
 /**
@@ -80,14 +80,19 @@ const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
  */
 const currentConfig = ref(dashboardConfig.value)
 const editMode = ref<boolean>(false)
-// separated from showSaveModal to avoid prop/v-model
+
 const localShowSaveModal = computed({
   get: () => props.showSaveModal,
   set: (value) => emit('update:showSaveModal', value)
 })
 
+const localShowModalError = computed({
+  get: () => props.showModalError,
+  set: (value) => emit('update:showModalError', value)
+})
+
 const prepareSave = () => {
-  emit('prepareSave')
+  localShowSaveModal.value = true
 }
 
 const onConfirmSave = (name: string) => {
@@ -99,6 +104,8 @@ const onConfirmSave = (name: string) => {
 const onCancelEdit = () => {
   editMode.value = false
   dashboardConfig.value = currentConfig.value
+  localShowSaveModal.value = false
+  localShowModalError.value = false
 }
 
 const onAddWidget = async (widgetKey: string) => {
