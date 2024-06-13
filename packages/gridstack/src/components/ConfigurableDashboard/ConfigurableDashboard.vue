@@ -16,7 +16,7 @@
       :edit-mode="editMode"
     />
     <DismissibleModal
-      v-model:modalDisplayed="showDismissibleModal"
+      v-model:modalDisplayed="localShowSaveModal"
       class="basic-modal"
     >
       <SaveDashboardModal
@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import { WidgetConfiguration } from '@/models/widgetConfiguration'
 import { GridWidget } from '@/models/gridWidget'
@@ -42,7 +42,7 @@ const props = defineProps<{
   /**
    * A flag that indicates if save modal should be displayed
    */
-  showSaveModal: { type: boolean; default: false }
+  showSaveModal: boolean
   /**
    * A flag that indicates if an error should be displayed in the save modal
    */
@@ -58,9 +58,7 @@ const props = defineProps<{
 }>()
 const emit = defineEmits<{
   (e: 'prepareSave'): void
-  /**
-   * Event that is emitted when the dashboard configuration is saved
-   */
+  (e: 'update:showSaveModal', value: boolean): void
   (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
 }>()
 /**
@@ -83,10 +81,12 @@ const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
 const currentConfig = ref(dashboardConfig.value)
 const editMode = ref<boolean>(false)
 // separated from showSaveModal to avoid prop/v-model
-const showDismissibleModal = ref(props.showSaveModal)
+const localShowSaveModal = computed({
+  get: () => props.showSaveModal,
+  set: (value) => emit('update:showSaveModal', value)
+})
 
 const prepareSave = () => {
-  // showSaveModal.value = true
   emit('prepareSave')
 }
 
@@ -123,13 +123,6 @@ watch(editMode, (isEditMode) => {
     currentConfig.value = dashboardConfig.value
   }
 })
-
-watch(
-  () => props.showSaveModal,
-  (newVal) => {
-    showDismissibleModal.value = newVal
-  }
-)
 </script>
 
 <style scoped>
