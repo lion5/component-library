@@ -15,8 +15,15 @@
       v-model:widget-configs="dashboardConfig"
       :edit-mode="editMode"
     />
-    <DismissibleModal v-model:modalDisplayed="showModal" class="basic-modal">
-      <SaveDashboardModal v-if="showModal" @confirm-save="onConfirmSave" />
+    <DismissibleModal
+      v-model:modalDisplayed="showDismissibleModal"
+      class="basic-modal"
+    >
+      <SaveDashboardModal
+        v-if="showSaveModal"
+        :show-error="showModalError"
+        @confirm-save="onConfirmSave"
+      />
     </DismissibleModal>
   </div>
 </template>
@@ -31,7 +38,15 @@ import DynamicGrid from '@/components/DynamicGrid/DynamicGrid.vue'
 import { DismissibleModal } from '@lion5/component-library'
 import SaveDashboardModal from '@/components/SaveDashboardModal/SaveDashboardModal.vue'
 
-defineProps<{
+const props = defineProps<{
+  /**
+   * A flag that indicates if save modal should be displayed
+   */
+  showSaveModal: { type: boolean; default: false }
+  /**
+   * A flag that indicates if an error should be displayed in the save modal
+   */
+  showModalError: boolean
   /**
    * A map of widgets that can be added to the dashboard
    */
@@ -42,6 +57,10 @@ defineProps<{
   dashboardConfigurationOptions: Array<{ id: string; name: string }>
 }>()
 const emit = defineEmits<{
+  (e: 'prepareSave'): void
+  /**
+   * Event that is emitted when the dashboard configuration is saved
+   */
   (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
 }>()
 /**
@@ -63,17 +82,18 @@ const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
  */
 const currentConfig = ref(dashboardConfig.value)
 const editMode = ref<boolean>(false)
-const showModal = ref(false)
+// separated from showSaveModal to avoid prop/v-model
+const showDismissibleModal = ref(props.showSaveModal)
 
 const prepareSave = () => {
-  showModal.value = true
+  // showSaveModal.value = true
+  emit('prepareSave')
 }
 
 const onConfirmSave = (name: string) => {
   editMode.value = false
   currentConfig.value = dashboardConfig.value
   emit('save', dashboardConfig.value, name)
-  showModal.value = false
 }
 
 const onCancelEdit = () => {
@@ -103,6 +123,13 @@ watch(editMode, (isEditMode) => {
     currentConfig.value = dashboardConfig.value
   }
 })
+
+watch(
+  () => props.showSaveModal,
+  (newVal) => {
+    showDismissibleModal.value = newVal
+  }
+)
 </script>
 
 <style scoped>

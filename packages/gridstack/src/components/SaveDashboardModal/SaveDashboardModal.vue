@@ -11,6 +11,11 @@
       name="name"
       class="base-input"
     />
+    <div v-if="showError" class="error-message">
+      Fehler beim Speichern der Konfiguration. Konfiguration mit diesem Namen
+      existiert bereits.
+    </div>
+
     <BaseButton :disabled="!name" @click="submitAndClose" class="save-button">
       Speichern
     </BaseButton>
@@ -25,7 +30,9 @@ const name = ref('')
 const required = computed(() => ({
   required: (value: unknown) => !!value
 }))
-
+defineProps({
+  showError: Boolean
+})
 const emit = defineEmits(['confirmSave'])
 
 const submitAndClose = () => {
@@ -52,5 +59,8 @@ const submitAndClose = () => {
 .header1,
 .header2 {
   min-width: 300px;
+}
+.error-message {
+  color: red;
 }
 </style>
