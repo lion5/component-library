@@ -16,12 +16,12 @@
       :edit-mode="editMode"
     />
     <DismissibleModal
-      v-model:modalDisplayed="localShowSaveModal"
+      v-model:modalDisplayed="showSaveModal"
       class="basic-modal"
     >
       <SaveDashboardModal
         v-if="showSaveModal"
-        :show-error="localShowModalError"
+        :show-error="showSaveModalError"
         @confirm-save="onConfirmSave"
       />
     </DismissibleModal>
@@ -29,7 +29,7 @@
 </template>
 
 <script lang="ts" setup>
-import { computed, nextTick, ref, watch } from 'vue'
+import { nextTick, ref, watch } from 'vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import { WidgetConfiguration } from '@/models/widgetConfiguration'
 import { GridWidget } from '@/models/gridWidget'
@@ -38,15 +38,7 @@ import DynamicGrid from '@/components/DynamicGrid/DynamicGrid.vue'
 import { DismissibleModal } from '@lion5/component-library'
 import SaveDashboardModal from '@/components/SaveDashboardModal/SaveDashboardModal.vue'
 
-const props = defineProps<{
-  /**
-   * A flag that indicates if save modal should be displayed
-   */
-  showSaveModal: boolean
-  /**
-   * A flag that indicates if an error should be displayed in the save modal
-   */
-  showModalError: boolean
+defineProps<{
   /**
    * A map of widgets that can be added to the dashboard
    */
@@ -57,10 +49,17 @@ const props = defineProps<{
   dashboardConfigurationOptions: Array<{ id: string; name: string }>
 }>()
 const emit = defineEmits<{
-  (e: 'update:showSaveModal', value: boolean): void
-  (e: 'update:showModalError', value: boolean): void
   (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
 }>()
+
+/**
+ * A flag that indicates if save modal should be displayed
+ */
+const showSaveModal = defineModel<boolean>('showSaveModal')
+/**
+ * A flag that indicates if an error should be displayed in the save modal
+ */
+const showSaveModalError = defineModel<boolean>('showSaveModalError')
 /**
  * Selected dashboard configuration
  */
@@ -81,18 +80,8 @@ const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
 const currentConfig = ref(dashboardConfig.value)
 const editMode = ref<boolean>(false)
 
-const localShowSaveModal = computed({
-  get: () => props.showSaveModal,
-  set: (value) => emit('update:showSaveModal', value)
-})
-
-const localShowModalError = computed({
-  get: () => props.showModalError,
-  set: (value) => emit('update:showModalError', value)
-})
-
 const prepareSave = () => {
-  localShowSaveModal.value = true
+  showSaveModal.value = true
 }
 
 const onConfirmSave = (name: string) => {
@@ -104,8 +93,8 @@ const onConfirmSave = (name: string) => {
 const onCancelEdit = () => {
   editMode.value = false
   dashboardConfig.value = currentConfig.value
-  localShowSaveModal.value = false
-  localShowModalError.value = false
+  showSaveModal.value = false
+  showSaveModalError.value = false
 }
 
 const onAddWidget = async (widgetKey: string) => {
