@@ -27,7 +27,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, watch, nextTick } from 'vue'
 import CodePartTextInput from './CodePartTextInput.vue'
 import { ErrorMessage, useField } from 'vee-validate'
@@ -36,13 +36,16 @@ const props = defineProps({
   /**
    * Used to identify this field in a form (VeeValidate Form).
    */
-  name: String,
+  name: {
+    type: String,
+    required: true
+  },
   /**
    * The label of the input field.
    */
   label: {
     type: String,
-    required: false
+    default: ''
   },
   /**
    * The value of the input field. Mainly used for backwards compatibility to our old forms.
@@ -50,7 +53,7 @@ const props = defineProps({
    */
   code: {
     type: String,
-    required: false
+    default: ''
   },
   /**
    * The length of each inputfield.
@@ -69,15 +72,14 @@ const props = defineProps({
 })
 
 const updateInput = ref({})
-const parts = ref([])
-const inputRefs = ref([])
-
+const parts = ref<string[]>([])
+const inputRefs = ref<InstanceType<typeof CodePartTextInput>[]>([])
 const {
   value: code,
   handleBlur,
   meta,
   errors
-} = useField(() => props.name, undefined, {
+} = useField<string>(() => props.name, undefined, {
   syncVModel: 'code'
 })
 watch(
@@ -88,11 +90,8 @@ watch(
   { immediate: true }
 )
 
-function updateParts(value) {
+function updateParts(value: string) {
   parts.value = []
-  if (value === undefined) {
-    return
-  }
   for (let i = 0; i < props.partNumber; i++) {
     parts.value.push(
       value.slice(i * props.partLength, (i + 1) * props.partLength)
@@ -100,7 +99,7 @@ function updateParts(value) {
   }
 }
 
-function handleInput(index, value) {
+function handleInput(index: number, value: string) {
   parts.value[index] = value
   code.value = parts.value.join('')
 
@@ -112,10 +111,10 @@ function handleInput(index, value) {
   }
 }
 
-function handlePaste(value) {
+function handlePaste(value: string) {
   updateParts(value)
 }
-function handleChangeInput(index) {
+function handleChangeInput(index: number) {
   if (index >= 0 && index < props.partNumber) {
     nextTick(() => {
       const targetInput = inputRefs.value[index]?.$el.querySelector('input')
