@@ -16,8 +16,11 @@
       v-model:widget-configs="dashboardConfig"
       :edit-mode="editMode"
     />
-    <DismissibleModal v-model:modalDisplayed="showModal" class="basic-modal">
-      <SaveDashboardModal v-if="showModal" @confirm-save="onConfirmSave" />
+    <DismissibleModal
+      v-model:modalDisplayed="showSaveModal"
+      class="basic-modal"
+    >
+      <SaveDashboardModal v-if="showSaveModal" @confirm-save="onConfirmSave" />
     </DismissibleModal>
     <DismissibleModal
       v-model:modal-displayed="showDeleteModal"
@@ -76,7 +79,7 @@ const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
  */
 const currentConfig = ref(dashboardConfig.value)
 const editMode = ref<boolean>(false)
-const showModal = ref(false)
+const showSaveModal = ref(false)
 const showDeleteModal = ref<boolean>(false)
 const selectedDashboardConfigurationName = computed(() => {
   const config = props.dashboardConfigurationOptions.find(
@@ -86,14 +89,14 @@ const selectedDashboardConfigurationName = computed(() => {
 })
 
 const prepareSave = () => {
-  showModal.value = true
+  showSaveModal.value = true
 }
 
 const onConfirmSave = (name: string) => {
   editMode.value = false
   currentConfig.value = dashboardConfig.value
   emit('save', dashboardConfig.value, name)
-  showModal.value = false
+  showSaveModal.value = false
 }
 
 const onCancelEdit = () => {
