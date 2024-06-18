@@ -30,11 +30,14 @@ export const Default: Story = {
         new WidgetConfiguration('c', new GridWidget(10, 10, 3, 3), 'widget1')
       ])
       const save = action('save')
-      return { args, dashboardConfig, save }
+      const deleteDashboardConfiguration = action(
+        'deleteDashboardConfiguration'
+      )
+      return { args, dashboardConfig, save, deleteDashboardConfiguration }
     },
     template: `
       <div style='height: 60vh'>
-        <ConfigurableDashboard v-bind='args' v-model:dashboardConfig='dashboardConfig' @save='save' />
+        <ConfigurableDashboard v-bind='args' v-model:dashboardConfig='dashboardConfig' @save='save' @delete-dashboard-configuration='deleteDashboardConfiguration' />
       </div>`
   }),
   args: {

@@ -12,6 +12,7 @@ import PreviewImageInput from '@core/components/inputs/PreviewImageInput/Preview
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
 import SliderToggleInput from '@core/components/inputs/SliderToggleInput/SliderToggleInput.vue'
 import UploadImageFAB from '@core/components/inputs/UploadImageFAB/UploadImageFAB.vue'
+import CodeInput from '@core/components/inputs/CodeInput/CodeInput.vue'
 
 export {
   BaseInput,
@@ -20,6 +21,7 @@ export {
   BaseSelect,
   CheckboxInput,
   CurrencyInput,
+  CodeInput,
   DateTimeInput,
   ImageInputWrapper,
   LocationCoordinateSelect,

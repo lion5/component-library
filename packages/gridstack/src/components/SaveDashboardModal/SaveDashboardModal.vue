@@ -13,7 +13,7 @@
     />
     <ErrorBox v-if="showError" class="error-message" :error="nameError" />
 
-    <BaseButton :disabled="!name" @click="submitAndClose" class="save-button">
+    <BaseButton :disabled="!name" @click="submit" class="save-button">
       Speichern
     </BaseButton>
   </div>
@@ -37,7 +37,7 @@ const nameError = new Error(
 
 const emit = defineEmits(['confirmSave'])
 
-const submitAndClose = () => {
+const submit = () => {
   emit('confirmSave', name.value)
 }
 </script>
