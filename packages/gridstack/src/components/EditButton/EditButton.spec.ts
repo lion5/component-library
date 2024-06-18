@@ -6,7 +6,9 @@ import EditButton from '@/components/EditButton/EditButton.vue'
 describe('EditButton.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
   beforeEach(() => {
-    wrapper = mount(EditButton, { props: { editMode: false } })
+    wrapper = mount(EditButton, {
+      props: { dashboardOptionSelected: false, editMode: false }
+    })
   })
 
   describe(':props', () => {

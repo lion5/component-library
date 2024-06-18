@@ -1,4 +1,13 @@
 <template>
+  <BaseButton
+    v-if="showDeleteButton"
+    @click="$emit('deleteDashboardConfiguration')"
+    data-test="delete-button"
+    variant="danger"
+  >
+    <i class="bi-trash" />
+    Dashboard löschen
+  </BaseButton>
   <BaseButton @click="onClick" data-test="edit-button">
     <span v-if="!editMode">
       <i class="bi-pencil" />
@@ -27,6 +36,10 @@ const props = defineProps<{
    * If true an additional cancel button is shown.
    */
   editMode: boolean
+  /**
+   * If true a dashboard option is selected. thus, delete button is shown.
+   */
+  dashboardOptionSelected: boolean
 }>()
 const emit = defineEmits<{
   /**
@@ -42,6 +55,10 @@ const emit = defineEmits<{
    */
   (e: 'cancelEdit'): void
   /**
+   * emitted when user presses delete button.
+   */
+  (e: 'deleteDashboardConfiguration'): void
+  /**
    * emitted when user presses cancel or edit button.
    */
   (e: 'update:editMode', value: boolean): void
@@ -55,6 +72,10 @@ const localEditMode = computed({
     emit('update:editMode', newEditMode)
   }
 })
+
+const showDeleteButton = computed(
+  () => props.dashboardOptionSelected && localEditMode.value
+)
 
 const onClick = () => {
   const newMode = !localEditMode.value

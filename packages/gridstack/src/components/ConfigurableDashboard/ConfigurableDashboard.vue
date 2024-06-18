@@ -8,6 +8,7 @@
       @start-save="prepareSave"
       @cancel-edit="onCancelEdit"
       @add-widget="onAddWidget"
+      @delete-dashboard-configuration="onPrepareDelete"
       class="dashboard-bar"
     />
     <DynamicGrid
@@ -18,11 +19,21 @@
     <DismissibleModal v-model:modalDisplayed="showModal" class="basic-modal">
       <SaveDashboardModal v-if="showModal" @confirm-save="onConfirmSave" />
     </DismissibleModal>
+    <DismissibleModal
+      v-model:modal-displayed="showDeleteModal"
+      class="basic-modal"
+    >
+      <DeleteDashboardModal
+        v-if="showDeleteModal"
+        :dashboard-name="selectedDashboardConfigurationName"
+        @confirm-delete="onDeleteDashboardConfiguration"
+      />
+    </DismissibleModal>
   </div>
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, watch } from 'vue'
+import { computed, nextTick, ref, watch } from 'vue'
 import { WidgetComponentWrapper } from '@/models/widgetComponentWrapper'
 import { WidgetConfiguration } from '@/models/widgetConfiguration'
 import { GridWidget } from '@/models/gridWidget'
@@ -30,8 +41,9 @@ import DashboardBar from '@/components/DashboardBar/DashboardBar.vue'
 import DynamicGrid from '@/components/DynamicGrid/DynamicGrid.vue'
 import { DismissibleModal } from '@lion5/component-library'
 import SaveDashboardModal from '@/components/SaveDashboardModal/SaveDashboardModal.vue'
+import DeleteDashboardModal from '@/components/DeleteDashboardModal/DeleteDashboardModal.vue'
 
-defineProps<{
+const props = defineProps<{
   /**
    * A map of widgets that can be added to the dashboard
    */
@@ -42,6 +54,7 @@ defineProps<{
   dashboardConfigurationOptions: Array<{ id: string; name: string }>
 }>()
 const emit = defineEmits<{
+  (e: 'deleteDashboardConfiguration', id: string): void
   (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
 }>()
 /**
@@ -64,6 +77,13 @@ const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
 const currentConfig = ref(dashboardConfig.value)
 const editMode = ref<boolean>(false)
 const showModal = ref(false)
+const showDeleteModal = ref<boolean>(false)
+const selectedDashboardConfigurationName = computed(() => {
+  const config = props.dashboardConfigurationOptions.find(
+    (option) => option.id === selectedDashboardConfiguration.value
+  )
+  return config ? config.name : undefined
+})
 
 const prepareSave = () => {
   showModal.value = true
@@ -79,6 +99,20 @@ const onConfirmSave = (name: string) => {
 const onCancelEdit = () => {
   editMode.value = false
   dashboardConfig.value = currentConfig.value
+}
+
+const onDeleteDashboardConfiguration = () => {
+  if (!selectedDashboardConfiguration.value) {
+    return
+  }
+  emit('deleteDashboardConfiguration', selectedDashboardConfiguration.value)
+  selectedDashboardConfiguration.value = undefined
+  editMode.value = false
+  showDeleteModal.value = false
+}
+
+const onPrepareDelete = () => {
+  showDeleteModal.value = true
 }
 
 const onAddWidget = async (widgetKey: string) => {

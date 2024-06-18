@@ -11,7 +11,7 @@
       name="name"
       class="base-input"
     />
-    <BaseButton :disabled="!name" @click="submitAndClose" class="save-button">
+    <BaseButton :disabled="!name" @click="submit" class="save-button">
       Speichern
     </BaseButton>
   </div>
@@ -28,7 +28,7 @@ const required = computed(() => ({
 
 const emit = defineEmits(['confirmSave'])
 
-const submitAndClose = () => {
+const submit = () => {
   emit('confirmSave', name.value)
 }
 </script>
