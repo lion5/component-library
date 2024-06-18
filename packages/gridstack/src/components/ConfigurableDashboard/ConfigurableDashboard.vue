@@ -92,7 +92,6 @@ const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
  */
 const currentConfig = ref(dashboardConfig.value)
 const editMode = ref<boolean>(false)
-const showSaveModal = ref(false)
 const showDeleteModal = ref<boolean>(false)
 const selectedDashboardConfigurationName = computed(() => {
   const config = props.dashboardConfigurationOptions.find(
