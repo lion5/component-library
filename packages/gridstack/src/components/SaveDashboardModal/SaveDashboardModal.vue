@@ -11,10 +11,7 @@
       name="name"
       class="base-input"
     />
-    <div v-if="showError" class="error-message">
-      Fehler beim Speichern der Konfiguration. Konfiguration mit diesem Namen
-      existiert bereits.
-    </div>
+    <ErrorBox v-if="showError" class="error-message" :error="nameError" />
 
     <BaseButton :disabled="!name" @click="submitAndClose" class="save-button">
       Speichern
@@ -24,7 +21,7 @@
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
-import { BaseInputV2, BaseButton } from '@lion5/component-library'
+import { BaseInputV2, BaseButton, ErrorBox } from '@lion5/component-library'
 
 const name = ref('')
 const required = computed(() => ({
@@ -33,6 +30,11 @@ const required = computed(() => ({
 defineProps({
   showError: Boolean
 })
+
+const nameError = new Error(
+  'Fehler beim Speichern der Konfiguration. Konfiguration mit diesem Namen existiert bereits.'
+)
+
 const emit = defineEmits(['confirmSave'])
 
 const submitAndClose = () => {
@@ -59,8 +61,5 @@ const submitAndClose = () => {
 .header1,
 .header2 {
   min-width: 300px;
-}
-.error-message {
-  color: red;
 }
 </style>
