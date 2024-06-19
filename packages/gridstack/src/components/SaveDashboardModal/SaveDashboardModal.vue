@@ -11,7 +11,7 @@
       name="name"
       class="base-input"
     />
-    <ErrorBox class="error-message" :error="nameError" />
+    <ErrorBox class="error-message" :error="props.error" />
 
     <BaseButton :disabled="!name" @click="submit" class="save-button">
       Speichern
@@ -20,7 +20,7 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed, toRef } from 'vue'
+import { ref, computed } from 'vue'
 import { BaseInputV2, BaseButton, ErrorBox } from '@lion5/component-library'
 
 const name = ref('')
@@ -28,11 +28,8 @@ const required = computed(() => ({
   required: (value: unknown) => !!value
 }))
 const props = defineProps({
-  showError: Boolean,
   error: Error
 })
-
-const nameError = toRef(props.error)
 
 const emit = defineEmits(['confirmSave'])
 

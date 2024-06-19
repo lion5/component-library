@@ -29,7 +29,7 @@ describe('ConfigurableDashboard.vue', () => {
         dashboardConfigurationOptions: [],
         selectedDashboardConfiguration: undefined,
         showSaveModal: false,
-        showModalError: false
+        saveModalError: undefined
       }
     })
   })

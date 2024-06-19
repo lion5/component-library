@@ -42,7 +42,7 @@ export const Default: Story = {
   }),
   args: {
     editMode: false,
-    showSaveModalError: false,
+    saveModalError: undefined,
     showSaveModal: false,
     availableWidgets: new Map<string, WidgetSetting>([
       ['widget1', TEMPLATE_WIDGET_WRAPPER],
