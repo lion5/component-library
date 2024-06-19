@@ -11,7 +11,7 @@
       name="name"
       class="base-input"
     />
-    <ErrorBox v-if="showError" class="error-message" :error="nameError" />
+    <ErrorBox class="error-message" :error="nameError" />
 
     <BaseButton :disabled="!name" @click="submit" class="save-button">
       Speichern
@@ -20,20 +20,19 @@
 </template>
 
 <script lang="ts" setup>
-import { ref, computed } from 'vue'
+import { ref, computed, toRef } from 'vue'
 import { BaseInputV2, BaseButton, ErrorBox } from '@lion5/component-library'
 
 const name = ref('')
 const required = computed(() => ({
   required: (value: unknown) => !!value
 }))
-defineProps({
-  showError: Boolean
+const props = defineProps({
+  showError: Boolean,
+  error: Error
 })
 
-const nameError = new Error(
-  'Fehler beim Speichern der Konfiguration. Konfiguration mit diesem Namen existiert bereits.'
-)
+const nameError = toRef(props.error)
 
 const emit = defineEmits(['confirmSave'])
 

@@ -22,7 +22,7 @@
     >
       <SaveDashboardModal
         v-if="showSaveModal"
-        :show-error="showSaveModalError"
+        :error="saveModalError"
         @confirm-save="onConfirmSave"
       />
     </DismissibleModal>
@@ -72,7 +72,7 @@ const showSaveModal = defineModel<boolean>('showSaveModal')
 /**
  * A flag that indicates if an error should be displayed in the save modal
  */
-const showSaveModalError = defineModel<boolean>('showSaveModalError')
+const saveModalError = defineModel<Error | undefined>('saveModalError')
 /**
  * Selected dashboard configuration
  */
@@ -115,7 +115,7 @@ const onCancelEdit = () => {
   editMode.value = false
   dashboardConfig.value = currentConfig.value
   showSaveModal.value = false
-  showSaveModalError.value = false
+  saveModalError.value = undefined
 }
 
 const onDeleteDashboardConfiguration = () => {
