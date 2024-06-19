@@ -18,7 +18,8 @@ The `InfoBox` should be used to display important information to the user
 <Story of={InfoBoxStories.Default} />
 
 ## Error Box
-The `ErrorBox` should be used to display global error or errors to the user
+The `ErrorBox` should be used to display global error or errors to the user.
+<strong>It will not be rendered if no error given!</strong>
 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
   <Story of={ErrorBoxStories.SingleError} />
   <Story of={ErrorBoxStories.MultipleErrors} />
