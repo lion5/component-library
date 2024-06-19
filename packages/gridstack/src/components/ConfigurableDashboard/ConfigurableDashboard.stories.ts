@@ -42,6 +42,8 @@ export const Default: Story = {
   }),
   args: {
     editMode: false,
+    saveModalError: undefined,
+    showSaveModal: false,
     availableWidgets: new Map<string, WidgetSetting>([
       ['widget1', TEMPLATE_WIDGET_WRAPPER],
       ['widget2', IFRAME_WIDGET_WRAPPER],

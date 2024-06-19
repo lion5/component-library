@@ -20,7 +20,11 @@
       v-model:modalDisplayed="showSaveModal"
       class="basic-modal"
     >
-      <SaveDashboardModal v-if="showSaveModal" @confirm-save="onConfirmSave" />
+      <SaveDashboardModal
+        v-if="showSaveModal"
+        :error="saveModalError"
+        @confirm-save="onConfirmSave"
+      />
     </DismissibleModal>
     <DismissibleModal
       v-model:modal-displayed="showDeleteModal"
@@ -60,6 +64,15 @@ const emit = defineEmits<{
   (e: 'deleteDashboardConfiguration', id: string): void
   (e: 'save', dashboardConfig: WidgetConfiguration[], name: string): void
 }>()
+
+/**
+ * A flag that indicates if save modal should be displayed
+ */
+const showSaveModal = defineModel<boolean>('showSaveModal')
+/**
+ * A flag that indicates if an error should be displayed in the save modal
+ */
+const saveModalError = defineModel<Error | undefined>('saveModalError')
 /**
  * Selected dashboard configuration
  */
@@ -79,7 +92,6 @@ const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
  */
 const currentConfig = ref(dashboardConfig.value)
 const editMode = ref<boolean>(false)
-const showSaveModal = ref(false)
 const showDeleteModal = ref<boolean>(false)
 const selectedDashboardConfigurationName = computed(() => {
   const config = props.dashboardConfigurationOptions.find(
@@ -102,6 +114,8 @@ const onConfirmSave = (name: string) => {
 const onCancelEdit = () => {
   editMode.value = false
   dashboardConfig.value = currentConfig.value
+  showSaveModal.value = false
+  saveModalError.value = undefined
 }
 
 const onDeleteDashboardConfiguration = () => {
