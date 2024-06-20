@@ -1,3 +1,18 @@
+## 0.15.0 (2024-06-19)
+
+
+### 🩹 Fixes
+
+- showSaveModal handling ([eb6b5c8](https://github.com/lion5/component-library/commit/eb6b5c8))
+- showSaveModal handling 2 ([39bbdf3](https://github.com/lion5/component-library/commit/39bbdf3))
+- Change showSaveModal and showSaveModalError to defineModel ([6934e86](https://github.com/lion5/component-library/commit/6934e86))
+- renaming variables ([86ae5e6](https://github.com/lion5/component-library/commit/86ae5e6))
+- change to using errorbox component in save dashboard modal ([e9162b7](https://github.com/lion5/component-library/commit/e9162b7))
+
+### ❤️  Thank You
+
+- Soumik Kumar Saha
+
 ## 0.14.1 (2024-06-17)
 
 This was a version bump only, there were no code changes.
