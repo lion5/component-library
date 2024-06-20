@@ -66,6 +66,14 @@ const emit = defineEmits<{
 }>()
 
 /**
+ * A flag that indicates if the dashboard is in edit mode
+ */
+const editMode = defineModel<boolean>('editMode', {
+  default: false,
+  type: Boolean
+})
+
+/**
  * A flag that indicates if save modal should be displayed
  */
 const showSaveModal = defineModel<boolean>('showSaveModal')
@@ -91,7 +99,6 @@ const dashboardConfig = defineModel<WidgetConfiguration[]>('dashboardConfig', {
  * Currently set dashboardConfig
  */
 const currentConfig = ref(dashboardConfig.value)
-const editMode = ref<boolean>(false)
 const showDeleteModal = ref<boolean>(false)
 const selectedDashboardConfigurationName = computed(() => {
   const config = props.dashboardConfigurationOptions.find(
@@ -105,10 +112,8 @@ const prepareSave = () => {
 }
 
 const onConfirmSave = (name: string) => {
-  editMode.value = false
   currentConfig.value = dashboardConfig.value
   emit('save', dashboardConfig.value, name)
-  showSaveModal.value = false
 }
 
 const onCancelEdit = () => {
@@ -152,6 +157,12 @@ const onAddWidget = async (widgetKey: string) => {
 watch(editMode, (isEditMode) => {
   if (isEditMode) {
     currentConfig.value = dashboardConfig.value
+  }
+})
+
+watch(showSaveModal, (isSaveModalDisplayed) => {
+  if (!isSaveModalDisplayed) {
+    saveModalError.value = undefined
   }
 })
 </script>
