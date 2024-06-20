@@ -2,8 +2,8 @@
   <div class="delete-dashboard-modal">
     <h3 class="header1">Dashboard-Konfiguration löschen</h3>
     <div class="header2">
-      Möchten Sie die Dashboard-Konfiguration
-      {{ localConfigurationName }} wirklich löschen?
+      Möchten Sie die Dashboard-Konfiguration '{{ configurationName }}' wirklich
+      löschen?
     </div>
     <BaseButton @click="$emit('confirmDelete')" class="delete-button">
       Löschen
@@ -13,22 +13,11 @@
 
 <script lang="ts" setup>
 import { BaseButton } from '@lion5/component-library'
-import { toRef, watch } from 'vue'
 
 defineEmits(['confirmDelete'])
-const props = defineProps({
+defineProps({
   configurationName: String
 })
-
-const localConfigurationName = toRef(props.configurationName)
-
-watch(
-  () => props.configurationName,
-  (newValue) => {
-    localConfigurationName.value = newValue
-  },
-  { immediate: true }
-)
 </script>
 <style scoped lang="scss">
 .delete-dashboard-modal {
