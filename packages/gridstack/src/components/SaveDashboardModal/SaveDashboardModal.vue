@@ -54,6 +54,10 @@ const submit = () => {
   max-width: unset;
   width: 100%;
 }
+.error-message {
+  max-width: unset;
+  width: 100%;
+}
 .header1,
 .header2 {
   min-width: 300px;
