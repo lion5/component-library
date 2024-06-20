@@ -32,7 +32,7 @@
     >
       <DeleteDashboardModal
         v-if="showDeleteModal"
-        :dashboard-name="selectedDashboardConfigurationName"
+        :configuration-name="selectedDashboardConfigurationName"
         @confirm-delete="onDeleteDashboardConfiguration"
       />
     </DismissibleModal>

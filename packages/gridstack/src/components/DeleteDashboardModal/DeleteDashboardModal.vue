@@ -2,8 +2,8 @@
   <div class="delete-dashboard-modal">
     <h3 class="header1">Dashboard-Konfiguration löschen</h3>
     <div class="header2">
-      Möchten Sie die Dashboard-Konfiguration
-      {{ configurationName }} wirklich löschen?
+      Möchten Sie die Dashboard-Konfiguration '{{ configurationName }}' wirklich
+      löschen?
     </div>
     <BaseButton @click="$emit('confirmDelete')" class="delete-button">
       Löschen
