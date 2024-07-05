@@ -1,8 +1,15 @@
 import type { GridStackWidget } from 'gridstack'
-import { GridWidget } from '@/models/gridWidget'
+import { ApiGridWidget, GridWidget } from '@/models/gridWidget'
 
 export type WidgetSetting = number | string | object | boolean
 export type WidgetSettings = Map<string, WidgetSetting>
+
+export interface ApiWidgetConfiguration {
+  id: string
+  position: ApiGridWidget
+  componentId: string
+  settings: object
+}
 
 /**
  * Stores a widget's configuration:
@@ -56,6 +63,24 @@ export class WidgetConfiguration {
       ),
       componentId,
       settings
+    )
+  }
+
+  static fromApi(
+    apiWidgetConfiguration: ApiWidgetConfiguration
+  ): WidgetConfiguration {
+    return new WidgetConfiguration(
+      apiWidgetConfiguration.id,
+      new GridWidget(
+        apiWidgetConfiguration.position.x,
+        apiWidgetConfiguration.position.y,
+        apiWidgetConfiguration.position.width,
+        apiWidgetConfiguration.position.height
+      ),
+      apiWidgetConfiguration.componentId,
+      apiWidgetConfiguration.settings
+        ? new Map(Object.entries(apiWidgetConfiguration.settings))
+        : new Map()
     )
   }
 }

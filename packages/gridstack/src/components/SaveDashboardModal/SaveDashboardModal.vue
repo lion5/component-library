@@ -11,7 +11,9 @@
       name="name"
       class="base-input"
     />
-    <BaseButton :disabled="!name" @click="submitAndClose" class="save-button">
+    <ErrorBox class="error-message" :error="props.error" />
+
+    <BaseButton :disabled="!name" @click="submit" class="save-button">
       Speichern
     </BaseButton>
   </div>
@@ -19,16 +21,19 @@
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
-import { BaseInputV2, BaseButton } from '@lion5/component-library'
+import { BaseInputV2, BaseButton, ErrorBox } from '@lion5/component-library'
 
 const name = ref('')
 const required = computed(() => ({
   required: (value: unknown) => !!value
 }))
+const props = defineProps({
+  error: Error
+})
 
 const emit = defineEmits(['confirmSave'])
 
-const submitAndClose = () => {
+const submit = () => {
   emit('confirmSave', name.value)
 }
 </script>
@@ -46,6 +51,10 @@ const submitAndClose = () => {
   align-items: flex-start;
 }
 .save-button {
+  max-width: unset;
+  width: 100%;
+}
+.error-message {
   max-width: unset;
   width: 100%;
 }

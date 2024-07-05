@@ -19,6 +19,8 @@
         @start-edit="$emit('startEdit')"
         @start-save="$emit('startSave')"
         @cancel-edit="$emit('cancelEdit')"
+        @delete-dashboard-configuration="$emit('deleteDashboardConfiguration')"
+        :dashboard-option-selected="!!selectedDashboardConfiguration"
       />
     </div>
   </div>
@@ -62,6 +64,10 @@ const emit = defineEmits<{
    * add widget
    */
   (e: 'addWidget', widgetKey: string): void
+  /**
+   * emitted when user presses delete button.
+   */
+  (e: 'deleteDashboardConfiguration'): void
   /**
    * emitted when user presses cancel or edit button.
    */

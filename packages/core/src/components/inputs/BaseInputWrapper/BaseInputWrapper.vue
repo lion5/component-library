@@ -1,7 +1,26 @@
+<script lang="ts" setup>
+import IconError from '@core/components/icons/IconError.vue'
+
+//props showPlaceholder: boolean
+withDefaults(
+  defineProps<{
+    showPlaceholder?: boolean
+    showErrorIcon?: boolean
+  }>(),
+  {
+    showPlaceholder: false,
+    showErrorIcon: true
+  }
+)
+</script>
 <template>
-  <div class="base-input-wrapper">
+  <div
+    class="base-input-wrapper"
+    :class="{ 'hide-placeholder': !showPlaceholder }"
+  >
     <slot />
-    <IconError class="error-icon" />
+    <div class="postfix-icon"><slot name="postfix-icon" /></div>
+    <IconError v-if="showErrorIcon" class="error-icon" />
   </div>
 </template>
 <style scoped lang="scss">
@@ -20,7 +39,8 @@
 
   & > :deep(input),
   & > :deep(label),
-  & > .error-icon {
+  & > .error-icon,
+  & > .postfix-icon {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
     font-size: var(--_input-size);
@@ -35,11 +55,15 @@
     );
   }
 
-  .error-icon {
-    display: none;
+  .error-icon,
+  .postfix-icon {
     font-size: var(--_error-icon-size);
-    color: var(--color-danger);
     place-self: center end;
+  }
+
+  .error-icon {
+    color: var(--color-danger);
+    display: none;
   }
 
   & > :deep(input) {
@@ -79,9 +103,8 @@
     line-height: 1;
   }
 
-  :deep(input::placeholder),
-  :deep(input::-webkit-input-placeholder) {
-    /* Chrome/Opera/Safari */
+  &.hide-placeholder :deep(input::placeholder),
+  &.hide-placeholder :deep(input::-webkit-input-placeholder) {
     color: transparent !important;
     opacity: 0;
   }
@@ -94,27 +117,31 @@
     font-size: var(--_label-size);
   }
 
-  :deep(input.failed ~ label) {
+  :deep(input.invalid ~ label) {
     color: var(--_input-error-color);
   }
 
-  :deep(input.failed ~ .error-icon) {
+  :deep(input.invalid ~ .error-icon) {
     display: inline-block;
   }
 
-  :deep(input.failed:hover ~ label) {
+  :deep(input.invalid ~ .postfix-icon) {
+    display: none;
+  }
+
+  :deep(input.invalid:hover ~ label) {
     color: var(--_input-error-color-hover);
   }
 
-  :deep(input.failed:not(:focus)) {
+  :deep(input.invalid:not(:focus)) {
     outline: 2px solid var(--_input-error-color);
   }
 
-  :deep(input.failed:not(:focus):hover) {
+  :deep(input.invalid:not(:focus):hover) {
     outline: 2px solid var(--_input-error-color-hover);
   }
 
-  :deep(input.failed:not(:focus):hover ~ .error-icon),
+  :deep(input.invalid:not(:focus):hover ~ .error-icon),
   :deep(.error-icon):hover {
     color: var(--_input-error-color-hover);
   }
@@ -129,6 +156,3 @@
   }
 }
 </style>
-<script lang="ts" setup>
-import IconError from '@core/components/icons/IconError.vue'
-</script>

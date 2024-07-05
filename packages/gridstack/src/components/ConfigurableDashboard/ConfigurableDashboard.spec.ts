@@ -27,7 +27,9 @@ describe('ConfigurableDashboard.vue', () => {
         availableWidgets: new Map(),
         dashboardConfig: [],
         dashboardConfigurationOptions: [],
-        selectedDashboardConfiguration: undefined
+        selectedDashboardConfiguration: undefined,
+        showSaveModal: false,
+        saveModalError: undefined
       }
     })
   })

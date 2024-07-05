@@ -1,5 +1,12 @@
 import type { GridStackWidget } from 'gridstack'
 
+export interface ApiGridWidget {
+  x: number
+  y: number
+  width: number
+  height: number
+}
+
 export class GridWidget implements GridStackWidget {
   readonly x: number
   readonly y: number
