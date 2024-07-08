@@ -74,7 +74,7 @@ const props = defineProps({
    * The type of inputfields.
    */
   inputMode: {
-    String,
+    type: String as () => 'text' | 'numeric' | undefined,
     default: 'text'
   }
 })

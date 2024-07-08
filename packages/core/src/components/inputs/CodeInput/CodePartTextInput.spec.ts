@@ -18,7 +18,8 @@ describe('CodePartTextInput.vue', () => {
           validated: false,
           required: true,
           pending: false
-        }
+        },
+        inputMode: 'text'
       }
     })
   })
