@@ -8,7 +8,7 @@
         invalid: meta?.touched && (!meta?.valid || errors)
       }"
       :value="code"
-      type="text"
+      :inputmode="inputMode"
       :maxlength="maxChars"
       :placeholder="placeholder"
       autocomplete="off"
@@ -34,6 +34,7 @@ const props = withDefaults(
     index: number
     placeholderChar?: string
     meta: FieldMeta<string>
+    inputMode: 'text' | 'numeric' | undefined
   }>(),
   {
     errors: undefined,

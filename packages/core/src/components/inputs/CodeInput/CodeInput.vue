@@ -20,6 +20,7 @@
           @handle-paste="handlePaste"
           @change-input="handleChangeInput"
           @blur="handleBlur"
+          :input-mode="inputMode"
         />
       </div>
     </div>
@@ -68,6 +69,13 @@ const props = defineProps({
   partNumber: {
     type: Number,
     default: 2
+  },
+  /**
+   * The type of inputfields.
+   */
+  inputMode: {
+    String,
+    default: 'text'
   }
 })
 
@@ -113,6 +121,15 @@ function handleInput(index: number, value: string) {
 
 function handlePaste(value: string) {
   updateParts(value)
+  const focusIndex = Math.min(
+    Math.floor(value.length / props.partLength),
+    props.partNumber - 1
+  )
+
+  nextTick(() => {
+    const nextInput = inputRefs.value[focusIndex]?.$el.querySelector('input')
+    nextInput && nextInput.focus()
+  })
 }
 function handleChangeInput(index: number) {
   if (index >= 0 && index < props.partNumber) {
