@@ -67,12 +67,10 @@ const addInput = (event: Event) => {
   if (currentCodeLength !== normalizedNewCode.length) {
     if (index === 0) {
       emit('change-input', props.index - 1)
-      console.log('change-input minus', props.index - 1)
     }
 
     if (index >= props.maxChars) {
       emit('change-input', props.index + 1)
-      console.log('change-input plus', props.index + 1)
     }
 
     code.value = normalizedNewCode.substring(0, props.maxChars)
@@ -82,12 +80,10 @@ const handleKeydown = (event: KeyboardEvent) => {
   if (event.key === 'Backspace' && code.value.length === 0) {
     event.preventDefault()
     emit('change-input', props.index - 1)
-    console.log('change-input minus', props.index - 1)
   }
 
   if (event.key !== 'Backspace' && code.value.length === props.maxChars) {
     emit('change-input', props.index + 1)
-    console.log('change-input plus', props.index + 1)
   }
 
   const key = event.key.toUpperCase()
