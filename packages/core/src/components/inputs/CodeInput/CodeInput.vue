@@ -15,6 +15,7 @@
           :value="parts[index - 1]"
           :update-input="updateInput"
           :meta="meta"
+          :input-mode="inputMode"
           ref="inputRefs"
           @update:inputCode="handleInput(index - 1, $event)"
           @handle-paste="handlePaste"
@@ -31,45 +32,42 @@
 import { ref, watch, nextTick } from 'vue'
 import CodePartTextInput from './CodePartTextInput.vue'
 import { ErrorMessage, useField } from 'vee-validate'
-
-const props = defineProps({
-  /**
-   * Used to identify this field in a form (VeeValidate Form).
-   */
-  name: {
-    type: String,
-    required: true
-  },
-  /**
-   * The label of the input field.
-   */
-  label: {
-    type: String,
-    default: ''
-  },
-  /**
-   * The value of the input field. Mainly used for backwards compatibility to our old forms.
-   * Please use the vee validate form to fill this field instead.
-   */
-  code: {
-    type: String,
-    default: ''
-  },
-  /**
-   * The length of each inputfield.
-   */
-  partLength: {
-    type: Number,
-    default: 4
-  },
-  /**
-   * The number of inputfields.
-   */
-  partNumber: {
-    type: Number,
-    default: 2
+const props = withDefaults(
+  defineProps<{
+    /**
+     * Used to identify this field in a form (VeeValidate Form).
+     */
+    name: string
+    /**
+     * The label of the input field.
+     */
+    label?: string
+    /**
+     * The value of the input field. Mainly used for backwards compatibility to our old forms.
+     * Please use the vee validate form to fill this field instead.
+     */
+    code?: string
+    /**
+     * The length of each inputfield.
+     */
+    partLength?: number
+    /**
+     * The number of inputfields.
+     */
+    partNumber?: number
+    /**
+     * The type of inputfields.
+     */
+    inputMode?: 'text' | 'numeric' | undefined
+  }>(),
+  {
+    label: '',
+    code: '',
+    partLength: 4,
+    partNumber: 2,
+    inputMode: 'text'
   }
-})
+)
 
 const updateInput = ref({})
 const parts = ref<string[]>([])
@@ -113,6 +111,15 @@ function handleInput(index: number, value: string) {
 
 function handlePaste(value: string) {
   updateParts(value)
+  const focusIndex = Math.min(
+    Math.floor(value.length / props.partLength),
+    props.partNumber - 1
+  )
+
+  nextTick(() => {
+    const nextInput = inputRefs.value[focusIndex]?.$el.querySelector('input')
+    nextInput && nextInput.focus()
+  })
 }
 function handleChangeInput(index: number) {
   if (index >= 0 && index < props.partNumber) {
