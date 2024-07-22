@@ -6,6 +6,7 @@
   <slot :open-modal="openModal" name="trigger" />
   <DismissibleModal
     v-model:modal-displayed="localModalDisplayed"
+    v-bind="$attrs"
     class="approval-modal"
   >
     <h2>{{ title }}</h2>
