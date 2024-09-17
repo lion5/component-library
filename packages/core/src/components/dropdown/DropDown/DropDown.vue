@@ -57,7 +57,8 @@ const onClick = () => {
 
   .trigger:focus ~ .dropdown-content,
   &:focus-within .dropdown-content,
-  .dropdown-content:focus-within {
+  .dropdown-content:focus-within,
+  .dropdown-content:active {
     display: flex;
   }
 }
