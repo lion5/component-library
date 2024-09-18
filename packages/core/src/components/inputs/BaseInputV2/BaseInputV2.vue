@@ -1,9 +1,14 @@
 <template>
   <BaseInputWrapper>
-    <Field
-      as="input"
+    <input
       :id="name"
       :name="name"
+      v-model="value"
+      :class="{
+        dirty: meta.dirty,
+        valid: meta.touched && meta.valid,
+        invalid: meta.touched && !meta.valid
+      }"
       :type="type"
       v-bind="$attrs"
       placeholder="hidden"
@@ -13,14 +18,18 @@
   </BaseInputWrapper>
 </template>
 <script setup lang="ts">
-import type { RuleExpression } from 'vee-validate'
-import { ErrorMessage, Field } from 'vee-validate'
+import { RuleExpression, useField } from 'vee-validate'
+import { ErrorMessage } from 'vee-validate'
 import BaseInputWrapper from '@core/components/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 
 type InputValue = string | number | null
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
+    /**
+     * Used to identify this field in a form (VeeValidate Form).
+     */
+    modelValue?: InputValue
     /**
      * Used to identify this field in a form (VeeValidate Form).
      */
@@ -41,6 +50,13 @@ withDefaults(
   {
     type: 'text',
     validationRules: ''
+  }
+)
+const { value, meta } = useField<InputValue>(
+  () => props.name,
+  props.validationRules,
+  {
+    syncVModel: true
   }
 )
 </script>
