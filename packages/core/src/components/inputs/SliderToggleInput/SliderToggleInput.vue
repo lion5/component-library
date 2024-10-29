@@ -22,7 +22,7 @@
 </template>
 
 <script setup lang="ts">
-import InformationButton from '@core/components/buttons/InformationButton/InformationButton.vue'
+import { InformationButton } from '@lion5/component-library'
 
 defineOptions({ inheritAttrs: false })
 
@@ -72,6 +72,7 @@ const emitValue = (e: Event) => {
 .toggle-container {
   display: flex;
   gap: var(--space-xs);
+  height: fit-content;
 
   :slotted(:deep(.information-button)) {
     font-size: var(--font-size-2);
@@ -90,21 +91,26 @@ const emitValue = (e: Event) => {
 }
 
 .toggle {
-  --_toggle-width: 58px;
-
+  --_toggle-size: var(--toggle-size, 2.5rem);
+  --slider-size: calc(var(--_toggle-size) / 2 - var(--space-sm));
   position: relative;
   display: flex;
   align-items: center;
-  height: var(--font-size-5);
+  height: calc(var(--_toggle-size) / 2);
 }
 
 .toggle input {
   display: none;
 }
 
-.slider {
-  width: var(--_toggle-width);
+@media (pointer: coarse) {
+  .toggle {
+    --_toggle-size: var(--toggle-size, 3.5rem);
+  }
+}
 
+.slider {
+  width: var(--_toggle-size);
   position: absolute;
   cursor: pointer;
   top: 0;
@@ -119,8 +125,8 @@ const emitValue = (e: Event) => {
 .slider:before {
   position: absolute;
   content: '';
-  height: calc(var(--font-size-5) - var(--space-sm));
-  width: calc(var(--font-size-5) - var(--space-sm));
+  height: var(--slider-size);
+  width: var(--slider-size);
   left: 4px;
   bottom: 4px;
   background-color: white;
@@ -137,9 +143,13 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  -webkit-transform: translateX(26px);
-  -ms-transform: translateX(26px);
-  transform: translateX(26px);
+  --translate-distance: calc(
+    var(--_toggle-size) - var(--slider-size) - var(--space-sm)
+  );
+
+  -webkit-transform: translateX(var(--translate-distance));
+  -ms-transform: translateX(var(--translate-distance));
+  transform: translateX(var(--translate-distance));
 }
 
 .slider.round {
@@ -151,7 +161,7 @@ input:checked + .slider:before {
 }
 
 .text-after {
-  padding-inline-start: calc(var(--_toggle-width) + var(--space-sm));
+  padding-inline-start: calc(var(--_toggle-size) + var(--space-sm));
   white-space: nowrap;
 }
 </style>
