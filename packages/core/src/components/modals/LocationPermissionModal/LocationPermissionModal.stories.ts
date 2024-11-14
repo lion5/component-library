@@ -20,7 +20,7 @@ export const Default: Story = {
     },
     template: `
       <BaseButton @click='showModal'>Show/Hide</BaseButton>
-      <LocationPermissionModal v-bind='args' v-model:visible='visible' />`
+      <LocationPermissionModal v-bind='args' v-model:visible='visible' @update:visible="(value) => visible=value"/>`
   })
 }
 
@@ -36,6 +36,6 @@ export const PermissionDenied: Story = {
     },
     template: `
       <BaseButton @click='showModal'>Show/Hide</BaseButton>
-      <LocationPermissionModal v-bind='args' v-model:visible='visible' :location-denied='true' />`
+      <LocationPermissionModal v-bind='args' v-model:visible='visible' :location-denied='true' @update:visible="(value) => visible=value" />`
   })
 }

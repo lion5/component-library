@@ -1,5 +1,9 @@
 <template>
-  <BaseModal :modal-displayed="visible" class="location-permission-modal">
+  <DismissibleModal
+    :modal-displayed="visible"
+    @update:modal-displayed="(value) => emit('update:visible', value)"
+    class="location-permission-modal"
+  >
     <div class="content">
       <h3>Positionsfreigabe</h3>
       <span>
@@ -37,14 +41,14 @@
         Freigabe erteilen
       </BaseButton>
     </div>
-  </BaseModal>
+  </DismissibleModal>
 </template>
 
 <script setup lang="ts">
-import BaseModal from '@core/components/modals/BaseModal/BaseModal.vue'
 import BaseButton from '@core/components/buttons/BaseButton/BaseButton.vue'
 import IconGeolocation from '@core/components/icons/IconGeolocation.vue'
 import IconWarning from '@core/components/icons/IconWarning.vue'
+import { DismissibleModal } from '@core/components'
 
 withDefaults(
   defineProps<{
@@ -59,6 +63,7 @@ withDefaults(
 
 const emit = defineEmits<{
   (event: 'grant-click'): void
+  (event: 'update:visible', value: boolean): void
 }>()
 </script>
 
