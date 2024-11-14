@@ -65,11 +65,10 @@ const localVariant = computed(() => {
     v-bind="$attrs"
     v-on="$listeners"
   >
-    <i
+    <IconLoading
       v-if="loading"
-      class="bi-circle-fill"
-      data-cy="button-loading"
       :class="{ 'loading-icon': true, animate: loading }"
+      data-cy="button-loading"
     />
     <slot v-else name="icon-left" />
     <span class="content">
