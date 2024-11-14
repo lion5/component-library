@@ -71,10 +71,7 @@ const localVariant = computed(() => {
       data-cy="button-loading"
       :class="{ 'loading-icon': true, animate: loading }"
     />
-    <slot
-      v-else
-      name="icon-left"
-    />
+    <slot v-else name="icon-left" />
     <span class="content">
       <slot />
     </span>
