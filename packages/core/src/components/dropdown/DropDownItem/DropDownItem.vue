@@ -37,6 +37,7 @@ withDefaults(
   padding: var(--space-xs) var(--space-sm);
   cursor: pointer;
   outline: none;
+  align-items: center;
 
   &:hover,
   &:focus-within {
