@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import type { RawLocation } from 'vue-router'
+import { RouteLocationRaw } from 'vue-router';
 
 const props = withDefaults(
   defineProps<{
@@ -11,7 +11,7 @@ const props = withDefaults(
     /**
      * If set the button will be rendered as a router-link
      */
-    to?: RawLocation
+    to?: RouteLocationRaw
     disabled?: boolean
     loading?: boolean
     /**
@@ -44,7 +44,6 @@ const localVariant = computed(() => {
     :to="to"
     :class="['base-button', localVariant]"
     v-bind="$attrs"
-    v-on="$listeners"
   >
     <slot name="icon-left" />
     <slot />
@@ -54,7 +53,6 @@ const localVariant = computed(() => {
     :href="href"
     :class="['base-button', localVariant]"
     v-bind="$attrs"
-    v-on="$listeners"
   >
     <slot />
   </a>
@@ -63,7 +61,6 @@ const localVariant = computed(() => {
     :class="['base-button', localVariant]"
     :disabled="disabled"
     v-bind="$attrs"
-    v-on="$listeners"
   >
     <IconLoading
       v-if="loading"
