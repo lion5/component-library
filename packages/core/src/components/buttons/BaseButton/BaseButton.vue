@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RouteLocationRaw } from 'vue-router';
+import { RouteLocationRaw, RouterLink } from 'vue-router';
 
 const props = withDefaults(
   defineProps<{
