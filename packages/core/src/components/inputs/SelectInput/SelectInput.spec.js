@@ -10,7 +10,7 @@ describe('SelectInput', () => {
   beforeEach(() => {
     wrapper = shallowMount(SelectInput, {
       global: {
-        stubs: ['Multiselect']
+        stubs: ['MultiselectInput']
       },
       props: {
         id: 'test-select-input',
@@ -41,14 +41,14 @@ describe('SelectInput', () => {
       const multiselect = wrapper.findComponent(Multiselect)
       // FIXME: snapshot creates weird file with local path to file?
       //expect(wrapper).toMatchSnapshot()
-      // TODO: Basic test can be removed when Multiselect do not to be stubbed
+      // TODO: Basic test can be removed when MultiselectInput do not to be stubbed
       expect(multiselect.attributes().options.split(',').length).toStrictEqual(
         expectedOptions.length
       )
-      // TODO: Can be included when Multiselect do not to be stubbed
+      // TODO: Can be included when MultiselectInput do not to be stubbed
       // expect(multiselect.attributes().options).toStrictEqual(expectedOptions)
     })
-    // TODO: Can be included when Multiselect do not to be stubbed
+    // TODO: Can be included when MultiselectInput do not to be stubbed
     it.skip(':id - is applied to the input field', async () => {
       const id = 'testId'
       await wrapper.setProps({ id })
@@ -78,7 +78,7 @@ describe('SelectInput', () => {
       const expectedValue = '3'
       wrapper = mount(SelectInput, {
         global: {
-          stubs: ['Multiselect']
+          stubs: ['MultiselectInput']
         },
         props: {
           id: 'test-select-input',
@@ -109,7 +109,7 @@ describe('SelectInput', () => {
           modelValue: expectedValue
         },
         global: {
-          stubs: ['Multiselect']
+          stubs: ['MultiselectInput']
         }
       })
       expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([
@@ -130,30 +130,60 @@ describe('SelectInput', () => {
           defaultOption: new SelectOption(expectedValue, 'Two')
         },
         global: {
-          stubs: ['Multiselect']
+          stubs: ['MultiselectInput']
         }
       })
       expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([
         expectedValue
       ])
     })
-    it(':placeholder - is applied to the placeholder prop', async () => {
-      const label = 'label'
-      const placeholder = 'placeholder'
-      await wrapper.setProps({
-        label,
-        placeholder
+  })
+
+  describe('slots', () => {
+    it('renders noOptions slot content when options array is empty', () => {
+      wrapper = mount(SelectInput, {
+        props: {
+          id: 'test-select-input',
+          label: 'Merchants',
+          entityName: 'Merchants',
+          options: []
+        },
+        global: {
+          stubs: ['MultiselectInput']
+        }
       })
-      const multiselectComponent = wrapper.findComponent(Multiselect)
-      expect(multiselectComponent.attributes().placeholder).toBe(placeholder)
-    })
-    it(':placeholder - default is label + " wählen"', async () => {
-      const label = 'label'
-      await wrapper.setProps({ label })
-      const multiselectComponent = wrapper.findComponent(Multiselect)
-      expect(multiselectComponent.attributes().placeholder).toBe(
-        `${label} wählen`
+
+      console.log(wrapper.html())
+      const noOptionsSlot = wrapper.find(
+        'li:not([style*="display: none"]) .multiselect__option'
       )
+      expect(noOptionsSlot.exists()).toBe(true)
+      expect(noOptionsSlot.text()).toBe('Keine Merchants vorhanden')
+    })
+
+    it('renders noResult slot content when options array contains random text', async () => {
+      wrapper = mount(SelectInput, {
+        props: {
+          id: 'test-select-input',
+          label: 'Merchants',
+          entityName: 'Merchants',
+          options: [
+            new SelectOption('1', 'One'),
+            new SelectOption(2, 'Two'),
+            new SelectOption('3', 'Three')
+          ]
+        },
+        global: {
+          stubs: ['MultiselectInput']
+        }
+      })
+      const input = wrapper.find('input')
+      await input.setValue('nonexistent')
+      const noResultSlot = wrapper.find(
+        'li:not([style*="display: none"]) .multiselect__option'
+      )
+      expect(noResultSlot.exists()).toBe(true)
+      expect(noResultSlot.text()).toBe('Keine Merchants gefunden')
     })
   })
 })

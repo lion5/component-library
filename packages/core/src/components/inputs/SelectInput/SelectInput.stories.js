@@ -21,6 +21,7 @@ export const Default = Template.bind({})
 Default.args = {
   id: 'select-input',
   label: 'Option',
+  entityName: 'Optionen',
   placeholder: 'Choose option',
   options: [
     new SelectOption('option1', 'Option One'),
