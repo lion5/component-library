@@ -68,7 +68,7 @@ const props = withDefaults(
     /**
      * The name of the entity that is being selected.
      */
-    entityName: string
+    entityName?: string
   }>(),
   {
     error: '',
