@@ -17,11 +17,11 @@
     "clean": "rm -r packages/*/dist packages/*/node_modules node_modules package-lock.json .nx"
   },
   "devDependencies": {
-    "@nx/js": "^18.2.4",
-    "eslint": "^8.57.0",
+    "@nx/js": "^20.1.2",
+    "eslint": "^9.15.0",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-storybook": "^0.6.15",
-    "eslint-plugin-vue": "^9.25.0",
-    "nx": "^18.2.4"
+    "eslint-plugin-storybook": "^0.11.1",
+    "eslint-plugin-vue": "^9.31.0",
+    "nx": "^20.1.2"
   }
 }
