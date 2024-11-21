@@ -30,7 +30,7 @@ export function useDWDWeatherWarnings() {
       locationBasedWarnings.value = warnings.filter((weatherWarnItem) =>
         isLocationWarning(location, weatherWarnItem)
       )
-    } catch (e) {
+    } catch {
       setError(
         new Error(
           'Die Wetterwarnungen konnten leider nicht geladen werden. Bitte wenden Sie sich an den Support.'
