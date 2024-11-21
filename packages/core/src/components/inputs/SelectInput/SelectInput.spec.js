@@ -1,4 +1,4 @@
-import { flushPromises, mount, shallowMount } from '@vue/test-utils'
+import { mount, shallowMount } from '@vue/test-utils'
 import Multiselect from 'vue-multiselect'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
