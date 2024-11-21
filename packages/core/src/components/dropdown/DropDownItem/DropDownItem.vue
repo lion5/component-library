@@ -1,12 +1,16 @@
 <template>
   <button v-bind="$attrs" class="drop-down-item">
     <slot name="icon" v-if="!busy" />
-    <slot name="busy-icon" v-if="busy" />
+    <slot name="busy-icon" v-if="busy">
+      <ArrowRotateLoadingAnimation />
+    </slot>
     {{ label }}
   </button>
 </template>
 
 <script lang="ts" setup>
+import ArrowRotateLoadingAnimation from '@core/components/icons/ArrowRotateLoadingAnimation.vue'
+
 withDefaults(
   defineProps<{
     /**
