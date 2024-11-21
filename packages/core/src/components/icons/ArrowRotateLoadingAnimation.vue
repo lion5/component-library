@@ -4,7 +4,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import BaseIcon from '@/components/BaseIcon.vue'
+import BaseIcon from '@core/components/icons/BaseIcon.vue'
 </script>
 <style lang="scss" scoped>
 .rotate-animation {
