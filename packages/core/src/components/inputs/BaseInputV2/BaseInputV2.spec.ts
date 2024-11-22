@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import { flushPromises, mount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import { defineRule, ErrorMessage } from 'vee-validate'
+import { defineRule } from 'vee-validate'
 import BaseInputV2 from './BaseInputV2.vue'
 
 describe('BaseInput.vue', () => {
