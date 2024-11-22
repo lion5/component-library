@@ -27,11 +27,10 @@
     <ErrorBox class="error-box" :errors="errors" />
   </div>
 </template>
-<script setup lang="ts">
+<script setup lang="ts" generic="T">
 import IconError from '../../icons/IconError.vue'
 import { ErrorBox } from '@core/components'
 
-type InputValue = string | number | null
 
 withDefaults(
   defineProps<{
@@ -73,7 +72,7 @@ withDefaults(
 /**
  * The value to display
  */
-const value = defineModel<InputValue>()
+const value = defineModel<T>()
 </script>
 <style scoped lang="scss">
 .base-input-wrapper {
