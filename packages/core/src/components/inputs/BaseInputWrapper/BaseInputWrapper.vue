@@ -72,6 +72,7 @@ withDefaults(
     padding-block-start: calc(var(--_label-size) + var(--space-sm));
     border-radius: var(--_input-border-radius);
     background-color: var(--_input-surface-color);
+    width: 100%;
 
     &[type='color'] {
       -webkit-appearance: none;

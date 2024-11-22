@@ -78,7 +78,7 @@ const emit = defineEmits<{
 }>()
 
 const classObject = computed(() => ({
-  failed: errorMessage.value
+  invalid: errorMessage.value
 }))
 
 const emitValue = (event: Event) => {
