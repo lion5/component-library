@@ -1,5 +1,5 @@
 import type { Preview } from '@storybook/vue3'
-import './main.scss'
+import './main.scss';
 
 const preview: Preview = {
   parameters: {
@@ -10,9 +10,10 @@ const preview: Preview = {
       }
     },
     docs: {
-      toc: true
+      toc: true,
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default preview

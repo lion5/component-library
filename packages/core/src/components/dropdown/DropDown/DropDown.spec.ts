@@ -1,14 +1,24 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import DropDown from '@core/components/dropdown/DropDown/DropDown.vue'
 
 describe('DropDown.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
+  const input = document.createElement('input')
+
   beforeEach(() => {
     wrapper = mount(DropDown, {
-      attachTo: 'body'
+      attachTo: document.body,
     })
+
+    document.body.appendChild(input)
+    input.focus()
+  })
+
+  afterEach(() => {
+    wrapper.unmount()
+    document.body.removeChild(input)
   })
   describe('<template>', () => {
     it('dropdown hidden on mounted', async () => {

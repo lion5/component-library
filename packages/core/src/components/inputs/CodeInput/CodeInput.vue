@@ -104,7 +104,7 @@ function handleInput(index: number, value: string) {
   if (value.length >= props.partLength && index < props.partNumber - 1) {
     nextTick(() => {
       const nextInput = inputRefs.value[index + 1]?.$el.querySelector('input')
-      nextInput && nextInput.focus()
+      nextInput?.focus()
     })
   }
 }
@@ -118,14 +118,14 @@ function handlePaste(value: string) {
 
   nextTick(() => {
     const nextInput = inputRefs.value[focusIndex]?.$el.querySelector('input')
-    nextInput && nextInput.focus()
+    nextInput?.focus()
   })
 }
 function handleChangeInput(index: number) {
   if (index >= 0 && index < props.partNumber) {
     nextTick(() => {
       const targetInput = inputRefs.value[index]?.$el.querySelector('input')
-      targetInput && targetInput.focus()
+      targetInput?.focus()
     })
   }
 }

@@ -45,6 +45,7 @@ const props = withDefaults(
     options: SelectOption<LabelType>[]
     /**
      * The option that should be pre-selected by default. If unset, no option is pre-selected.
+     *
      * @deprecated Use `modelValue` instead.
      */
     defaultOption?: SelectOption<LabelType>
@@ -121,7 +122,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
 </style>
 
 <style lang="scss" scoped>
-@import '@core/assets/style/floating_labels';
+@use '@core/assets/style/floating_labels' as *;
 
 .floating-input-group {
   --_input-size: var(--input-font-size, 1.2rem);
