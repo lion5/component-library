@@ -1,0 +1,118 @@
+<template>
+  <ItemCard class="image-input-card">
+    <div class="content">
+      <input
+        id="add-image"
+        tabindex="0"
+        class="image-input"
+        type="file"
+        :accept="accept"
+        :multiple="multiselect"
+        @change="addImage"
+      />
+      <label for="add-image">
+        <BaseIcon class="add-icon" icon="bi-plus" />
+      </label>
+    </div>
+  </ItemCard>
+</template>
+<script lang="ts" setup>
+import BaseIcon from '../../../icons/BaseIcon.vue'
+import ItemCard from '../../../cards/ItemCard/ItemCard.vue'
+import { computed } from 'vue'
+import { ImageForm } from '@core/models/image/imageForm'
+
+const props = withDefaults(
+  defineProps<{
+    /**
+     * Switches the input mode between single file upload (false) and multi file upload (true)
+     */
+    multiselect: boolean
+    /**
+     * Defines the allowed file types to upload. The arrays value's need to be mime types.
+     *
+     * See https://www.iana.org/assignments/media-types/media-types.xhtml#image for the allowed mime types.
+     */
+    acceptedMimeTypes: string[]
+  }>(),
+  {
+    multiselect: false,
+    acceptedMimeTypes: []
+  }
+)
+const emit = defineEmits<{
+  (event: 'input', image: ImageForm): void
+}>()
+
+const accept = computed(() => props.acceptedMimeTypes.join(', '))
+const addImage = async (event: Event) => {
+  const files = getFiles(event)
+
+  for (const file of files) {
+    const image = await ImageForm.fromFile(file)
+    /**
+     * Triggers when one or multiple files are submitted.
+     *
+     * @property {PortalImage} image new loaded image
+     */
+    emit('input', image)
+  }
+}
+
+const getFiles = (event: Event): FileList => {
+  // Is required to be able to test file input
+  return (event.target as HTMLInputElement).files || new FileList()
+}
+</script>
+<style lang="scss" scoped>
+.image-input-card {
+  aspect-ratio: 4/3;
+
+  .content {
+    display: grid;
+    place-content: center;
+    width: 100%;
+    height: 100%;
+  }
+
+  &:hover,
+  &:active {
+    background-color: var(--color-success-surface);
+  }
+
+  &:focus-visible,
+  &:focus-within {
+    border: 2px solid var(--color-primary);
+  }
+
+  input,
+  label {
+    grid-row: 1/2;
+    grid-column: 1/2;
+    width: 100%;
+    height: 100%;
+  }
+
+  input {
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  label {
+    display: grid;
+    place-content: center;
+    cursor: pointer;
+    margin: 0;
+
+    .add-icon {
+      font-size: 5rem;
+      color: var(--success);
+    }
+  }
+
+  .add-icon {
+    line-height: 1;
+    display: inherit;
+  }
+}
+</style>

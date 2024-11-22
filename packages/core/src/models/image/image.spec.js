@@ -1,8 +1,8 @@
-import { portalImage, portalImageApiData } from './__test__/testData'
+import { portalImage, portalImageApiData } from '../__test__/testData'
+import { PortalImage } from '@/base/models/image'
+import { imageMixin } from '@/base/mixins/imageMixin'
+import { ImageSizes } from '@/base/models/imageSizes'
 import { describe, expect, it, vi } from 'vitest'
-import { PortalImage } from '@core/components/image/models/image'
-import { ImageSizes } from '@core/components/image/models/imageSizes'
-import * as useImageUtilsExports from '@core/composables/useImageUtils'
 
 describe('Model ImageForm', () => {
   it('should load API data correctly', () => {
@@ -12,9 +12,9 @@ describe('Model ImageForm', () => {
   it('should load File data correctly', async () => {
     const dataUrl = 'dataUrl'
     const image = new Image()
-    vi.spyOn(useImageUtilsExports, 'useImageUtils').mockReturnValue({
-      getDataUrlFromFile: vi.fn().mockResolvedValue(dataUrl)
-    })
+    const getDataUrlFromFileMock = vi
+      .spyOn(imageMixin.methods, 'getDataUrlFromFile')
+      .mockResolvedValue(dataUrl)
     const getImageMock = vi
       .spyOn(PortalImage, 'getImage')
       .mockResolvedValue(image)
@@ -26,9 +26,7 @@ describe('Model ImageForm', () => {
 
     const portalImage = await PortalImage.fromFile(file)
 
-    expect(
-      useImageUtilsExports.useImageUtils().getDataUrlFromFile
-    ).toHaveBeenCalledWith(file)
+    expect(getDataUrlFromFileMock).toHaveBeenCalledWith(file)
     expect(getImageMock).toHaveBeenCalledWith(dataUrl)
     expect(portalImage).toStrictEqual(
       new PortalImage(-1, 'Lokales Bild', file, image, new ImageSizes(dataUrl))
