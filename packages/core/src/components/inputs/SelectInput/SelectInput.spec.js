@@ -153,7 +153,6 @@ describe('SelectInput', () => {
         }
       })
 
-      console.log(wrapper.html())
       const noOptionsSlot = wrapper.find(
         'li:not([style*="display: none"]) .multiselect__option'
       )
