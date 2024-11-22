@@ -28,8 +28,8 @@
   </div>
 </template>
 <script setup lang="ts" generic="T">
-import IconError from '../../icons/IconError.vue'
-import { ErrorBox } from '@core/components'
+import IconError from '@core/components/icons/IconError.vue'
+import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 
 
 withDefaults(
