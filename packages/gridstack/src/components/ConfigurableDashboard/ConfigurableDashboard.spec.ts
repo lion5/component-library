@@ -10,9 +10,12 @@ import { TEMPLATE_WIDGET_WRAPPER } from '@/components/widgets/TemplateWidget/con
 import { vi } from 'vitest'
 import { DashboardBar } from '@/components'
 import SaveDashboardModal from '@/components/SaveDashboardModal/SaveDashboardModal.vue'
+import { defineRule } from 'vee-validate'
 
 describe('ConfigurableDashboard.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
+  // mock required validation rule
+  defineRule('required', () => 'error message')
 
   beforeEach(() => {
     // FIX to be able to use dialog field in jsdom. See https://github.com/jsdom/jsdom/issues/3294

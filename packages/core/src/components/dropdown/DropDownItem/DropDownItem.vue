@@ -1,17 +1,31 @@
 <template>
   <button v-bind="$attrs" class="drop-down-item">
-    <slot name="icon" />
+    <slot name="icon" v-if="!busy" />
+    <slot name="busy-icon" v-if="busy">
+      <ArrowRotateLoadingAnimation />
+    </slot>
     {{ label }}
   </button>
 </template>
 
 <script lang="ts" setup>
-defineProps<{
-  /**
-   * the dropdown items label. Displayed beside the icon
-   */
-  label: string
-}>()
+import ArrowRotateLoadingAnimation from '@core/components/icons/ArrowRotateLoadingAnimation.vue'
+
+withDefaults(
+  defineProps<{
+    /**
+     * The dropdown item's label. Displayed beside the icon.
+     */
+    label: string
+    /**
+     * Indicates if the item is busy, affecting the displayed icon.
+     */
+    busy?: boolean
+  }>(),
+  {
+    busy: false
+  }
+)
 </script>
 
 <style lang="scss" scoped>
@@ -27,6 +41,7 @@ defineProps<{
   padding: var(--space-xs) var(--space-sm);
   cursor: pointer;
   outline: none;
+  align-items: center;
 
   &:hover,
   &:focus-within {
