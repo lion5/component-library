@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import { RouteLocationRaw, RouterLink } from 'vue-router';
+import IconLoading from '@core/components/icons/IconLoading.vue'
 
 const props = withDefaults(
   defineProps<{
