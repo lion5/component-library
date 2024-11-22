@@ -1,3 +1,32 @@
+## 0.16.0 (2024-11-22)
+
+### 🩹 Fixes
+
+- add vue 3 specific fixes ([8dcd12a](https://github.com/lion5/component-library/commit/8dcd12a))
+- use new eslint config and fix new eslint problem; fix also failing unit tests ([d208143](https://github.com/lion5/component-library/commit/d208143))
+- remove unused import ([8f809cf](https://github.com/lion5/component-library/commit/8f809cf))
+- make entityName for select input optional ([3c26dca](https://github.com/lion5/component-library/commit/3c26dca))
+- most of sass warnings; fix: documentation build ([2db3bc4](https://github.com/lion5/component-library/commit/2db3bc4))
+- unit tests ([a06ac98](https://github.com/lion5/component-library/commit/a06ac98))
+- remove unused import ([4b67f02](https://github.com/lion5/component-library/commit/4b67f02))
+- mock vee validate rules and set required props ([bad10b9](https://github.com/lion5/component-library/commit/bad10b9))
+- migrate sass imports ([0bd88ef](https://github.com/lion5/component-library/commit/0bd88ef))
+- only diplay errors if field is touched and invalid ([9e74b87](https://github.com/lion5/component-library/commit/9e74b87))
+- set box sizing to border box globally ([c272cfd](https://github.com/lion5/component-library/commit/c272cfd))
+- set touched correctly; chore add test for address input ([1b8fcbd](https://github.com/lion5/component-library/commit/1b8fcbd))
+- remove unused imports ([33e4a56](https://github.com/lion5/component-library/commit/33e4a56))
+- remove defaultOption test ([ae4c19b](https://github.com/lion5/component-library/commit/ae4c19b))
+- **BaseButton:** import loading icon ([1315f09](https://github.com/lion5/component-library/commit/1315f09))
+- **BaseButton:** make background transparent ([27a7df6](https://github.com/lion5/component-library/commit/27a7df6))
+- **BaseInputV3:** use absolute path imports ([2caad5c](https://github.com/lion5/component-library/commit/2caad5c))
+- **DropDown:** display drop down content also if element is active ([713ac03](https://github.com/lion5/component-library/commit/713ac03))
+
+### ❤️  Thank You
+
+- Animesh Risal
+- Michael Götz @michigg
+- Roman Kudravcev
+
 ## 0.15.3 (2024-07-25)
 
 This was a version bump only, there were no code changes.
