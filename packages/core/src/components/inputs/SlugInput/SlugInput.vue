@@ -2,11 +2,12 @@
   <BaseInputV3
     :name="name"
     :label="label"
-    :value="value"
+    :model-value="value"
     :dirty="meta.dirty"
     :invalid="meta.touched && !meta.valid"
     v-bind="$attrs"
     @blur="handleBlur"
+    @update:model-value="onInput"
   >
     <template #prefix>
       <span>{{ prefix }}</span>
@@ -29,13 +30,13 @@ const props = withDefaults(
      */
     label?: string
     /**
-     * The value of the input field. Mainly used for backwards compatibility to our old forms.
-     * Please use the vee validate form to fill this field instead.
+     * The value of the input field.
      */
     slug?: string
-    infoText?: string
+    /**
+     * The prefix to be displayed before the input field. Example: "https://example.com/"
+     */
     prefix?: string
-    postfix?: string
   }>(),
   {
     label: 'Slug'
@@ -52,7 +53,6 @@ const { value, setValue, handleBlur, meta } = useField<string>(
 
 const valueToSlug = (value: string) => {
   // Based on ideas from https://gist.github.com/codeguy/6684588
-  console.log('value', value)
   return value
     .toString()
     .toLowerCase()
@@ -67,10 +67,14 @@ const valueToSlug = (value: string) => {
     .replace(/\s+/g, '-')
 }
 
+const onInput = (value: string) => {
+  setValue(valueToSlug(value))
+}
+
 watch(
   () => props.slug,
   (newSlug) => {
-    if (newSlug && !meta.dirty) {
+    if (newSlug && !meta.touched) {
       setValue(valueToSlug(newSlug))
     }
   }
