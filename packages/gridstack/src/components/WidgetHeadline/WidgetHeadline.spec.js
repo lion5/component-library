@@ -6,7 +6,11 @@ describe('WidgetHeadline', () => {
   let wrapper
 
   beforeEach(() => {
-    wrapper = mount(WidgetHeadline)
+    wrapper = mount(WidgetHeadline, {
+      props: {
+        headline: 'Example Headline',
+      }
+    })
   })
 
   describe(':props', () => {
