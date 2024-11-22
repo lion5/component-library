@@ -65,7 +65,7 @@ describe('CodePartTextInput.vue', () => {
   it('@input.capture - just show 4 chars', async () => {
     await wrapper.setProps({ value: '' })
     await flushPromises()
-    await wrapper.vm.$nextTick()
+    // await wrapper.vm.$nextTick()
 
     const inputElement = wrapper.find('input')
 

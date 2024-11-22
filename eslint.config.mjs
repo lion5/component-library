@@ -1,5 +1,6 @@
 import pluginVue from 'eslint-plugin-vue'
 import vueTsEslintConfig from '@vue/eslint-config-typescript'
+import pluginVitest from '@vitest/eslint-plugin'
 import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
 import { includeIgnoreFile } from "@eslint/compat";
 import path from "node:path";
@@ -18,6 +19,10 @@ export default [
   ...pluginVue.configs['flat/essential'],
   ...vueTsEslintConfig(),
   {
+    ...pluginVitest.configs.recommended,
+    files: ['src/**/__tests__/*'],
+  },
+  {
     rules: {
       // allow unused vars with "_" as prefix
       '@typescript-eslint/no-unused-vars': [
@@ -28,14 +33,3 @@ export default [
   },
   skipFormatting
 ]
-
-// export default [
-//   {files: ["**/*.{js,mjs,cjs,ts,vue}"]},
-//   {files: ["**/*.js"], languageOptions: {sourceType: "commonjs"}},
-//   {languageOptions: { globals: globals.browser }},
-//   pluginJs.configs.recommended,
-//   ...tsEslint.configs.recommended,
-//   ...pluginVue.configs["flat/essential"],
-//   {files: ["**/*.vue"], languageOptions: {parserOptions: {parser: tsEslint.parser}}},
-//   eslintPluginPrettierRecommended
-// ];

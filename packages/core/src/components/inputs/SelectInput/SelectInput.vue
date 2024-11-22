@@ -134,7 +134,7 @@ const updateModelValue = (selectedOption: SelectOption<LabelType>) => {
 @import 'vue-multiselect/dist/vue-multiselect.css';
 </style>
 <style lang="scss" scoped>
-@import '@core/assets/style/floating_labels';
+@use '@core/assets/style/floating_labels' as *;
 
 .error {
   color: var(--color-danger);

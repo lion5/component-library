@@ -10,9 +10,10 @@ const preview: Preview = {
       }
     },
     docs: {
-      toc: true
+      toc: true,
     }
-  }
+  },
+  tags: ['autodocs']
 }
 
 export default preview
