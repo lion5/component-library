@@ -1,2 +1,11 @@
 node_modules
-dist
+dist/
+coverage/
+*.xml
+*.ico
+*.png
+*.PNG
+*.xlsx
+*.csv
+*.svg
+*.pdf

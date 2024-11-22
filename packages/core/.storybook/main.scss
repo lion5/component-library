@@ -1,6 +1,6 @@
-@import '../src/assets/style/variables/index.scss';
-@import '../src/assets/style/icons.scss';
-
+@use '../src/assets/style/reset.scss' as *;
+@use '../src/assets/style/variables/index.scss' as *;
+@use '../src/assets/style/icons.scss' as *;
 
 :root {
   /* Overwrite light and dark theme */

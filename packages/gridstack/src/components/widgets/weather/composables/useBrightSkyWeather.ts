@@ -30,7 +30,7 @@ export function useBrightSkyWeather() {
       const response = await fetch(_getUrl(location))
       weatherData.value = await response.json()
       return weatherData.value as BrightSkyCurrentWeather
-    } catch (error) {
+    } catch {
       setError(new Error('Wetterdaten konnten nicht abegrufen werden.'))
     } finally {
       setIdle()
