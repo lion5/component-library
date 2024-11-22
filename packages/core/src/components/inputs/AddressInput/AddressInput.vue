@@ -6,12 +6,21 @@ import { useAddressUtils } from '@core/components/inputs/AddressInput/useAddress
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * Used to identify this field in a form (VeeValidate Form).
+     */
     name: string
+    /**
+     * The address value.
+     */
     address?: Address
-    validationRules?: RuleExpression<unknown>
+    /**
+     * Global validations for all fields.
+     */
+    validationRules?: RuleExpression<string>
   }>(),
   {
-    address: new Address(),
+    address: () => new Address(),
     validationRules: ''
   }
 )
@@ -21,9 +30,9 @@ const emit = defineEmits<{
   (e: 'input-finished'): void
 }>()
 
-const { value: address } = useField<Address>(
+const { value: address, handleBlur } = useField<Address>(
   props.name,
-  props.validationRules,
+  undefined,
   {
     syncVModel: 'address'
   }
@@ -32,13 +41,13 @@ const { value: address } = useField<Address>(
 const { isValidStreet } = useAddressUtils()
 const streetValidationRules = (value: string) => {
   return (
-    props.validationRules ||
     isValidStreet(value) ||
     'Geben Sie bitte Straßenname mit Hausnummer ein. Bsp.: An der Weberei 5'
   )
 }
 
 const partialInputFinished = () => {
+  handleBlur()
   if (address.value.isComplete()) {
     emit('input-finished')
   }
@@ -54,7 +63,7 @@ const partialInputFinished = () => {
         :name="`${name}.street`"
         v-model="address.street"
         label="Straße"
-        :validation-rules="streetValidationRules"
+        :validation-rules="validationRules || streetValidationRules"
         @blur="partialInputFinished"
       />
       <BaseInputV2
@@ -87,6 +96,10 @@ const partialInputFinished = () => {
   display: grid;
   grid-template-columns: 1fr;
   gap: var(--space-sm);
+
+  & > * {
+    height: min-content;
+  }
 }
 
 @container (width > 40ch) {
