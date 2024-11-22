@@ -70,7 +70,7 @@ const getLocation = async () => {
   locationsBusy.value = true
   try {
     locations.value = await getNominatimLocations(locationName.value)
-  } catch (e) {
+  } catch {
     //   Ignore errors: locations should stay as is
   } finally {
     locationsBusy.value = false

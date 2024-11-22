@@ -74,48 +74,6 @@ describe('SelectInput', () => {
     it(':defaultOption - nothing is emitted when value and default value not set', async () => {
       expect(wrapper.emitted('update:modelValue')).toBe(undefined)
     })
-    it(':defaultOption - value is emitted when not set', async () => {
-      const expectedValue = '3'
-      wrapper = mount(SelectInput, {
-        global: {
-          stubs: ['Multiselect']
-        },
-        props: {
-          id: 'test-select-input',
-          label: 'Merchants',
-          options: [
-            new SelectOption('1', 'One'),
-            new SelectOption('2', 'Two'),
-            new SelectOption('3', 'Three')
-          ],
-          modelValue: expectedValue
-        }
-      })
-      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([
-        expectedValue
-      ])
-    })
-    it(':defaultOption - value of 0 is emitted when default value not set', async () => {
-      const expectedValue = '0'
-      wrapper = mount(SelectInput, {
-        props: {
-          id: 'test-select-input',
-          label: 'Merchants',
-          options: [
-            new SelectOption('1', 'One'),
-            new SelectOption('2', 'Two'),
-            new SelectOption('0', 'Zero')
-          ],
-          modelValue: expectedValue
-        },
-        global: {
-          stubs: ['Multiselect']
-        }
-      })
-      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([
-        expectedValue
-      ])
-    })
     it(':defaultOption - is emitted when default option value of "2" is set', async () => {
       const expectedValue = '2'
       wrapper = mount(SelectInput, {

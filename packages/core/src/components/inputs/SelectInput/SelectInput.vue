@@ -44,6 +44,8 @@ const props = withDefaults(
     options: SelectOption<LabelType>[]
     /**
      * The option that should be pre-selected by default. If unset, no option is pre-selected.
+     *
+     * @deprecated Use `modelValue` instead.
      */
     defaultOption?: SelectOption<LabelType>
     /**
@@ -132,7 +134,7 @@ const updateModelValue = (selectedOption: SelectOption<LabelType>) => {
 @import 'vue-multiselect/dist/vue-multiselect.css';
 </style>
 <style lang="scss" scoped>
-@import '@core/assets/style/floating_labels';
+@use '@core/assets/style/floating_labels' as *;
 
 .error {
   color: var(--color-danger);

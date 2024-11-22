@@ -1,9 +1,9 @@
-@import "color";
-@import "space";
-@import "typography";
-@import "border";
-@import "shadow";
-@import "input";
+@use 'color' as *;
+@use 'space' as *;
+@use 'typography' as *;
+@use 'border' as *;
+@use 'shadow' as *;
+@use 'input' as *;
 
 :root {
   /* Component settings */

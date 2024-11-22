@@ -33,7 +33,7 @@ describe('LoginForm', () => {
   })
 
   afterEach(() => {
-    wrapper && wrapper.unmount()
+    wrapper?.unmount()
   })
 
   describe(':props', () => {
