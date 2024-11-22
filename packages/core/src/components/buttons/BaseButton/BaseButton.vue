@@ -160,6 +160,8 @@ const localVariant = computed(() => {
 
   &.outline-primary {
     outline: 1px solid var(--color-button-outline) !important;
+    background-color: transparent;
+
     &:not([disabled]):hover,
     &:not([disabled]):active {
       border-color: var(--color-button-outline) !important;
