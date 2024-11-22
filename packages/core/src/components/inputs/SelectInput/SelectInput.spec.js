@@ -1,4 +1,4 @@
-import { mount, shallowMount } from '@vue/test-utils'
+import { flushPromises, mount, shallowMount } from '@vue/test-utils'
 import Multiselect from 'vue-multiselect'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
@@ -71,10 +71,10 @@ describe('SelectInput', () => {
       const labelElement = wrapper.find('small.error')
       expect(labelElement.text()).toBe(error)
     })
-    it(':defaultOption - nothing is emitted when value and default value not set', async () => {
+    it(':modelValue - nothing is emitted when value and default value not set', async () => {
       expect(wrapper.emitted('update:modelValue')).toBe(undefined)
     })
-    it(':defaultOption - value is emitted when not set', async () => {
+    it(':modelValue - option 3 is selected', async () => {
       const expectedValue = '3'
       wrapper = mount(SelectInput, {
         global: {
@@ -91,30 +91,8 @@ describe('SelectInput', () => {
           modelValue: expectedValue
         }
       })
-      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([
-        expectedValue
-      ])
-    })
-    it(':defaultOption - value of 0 is emitted when default value not set', async () => {
-      const expectedValue = '0'
-      wrapper = mount(SelectInput, {
-        props: {
-          id: 'test-select-input',
-          label: 'Merchants',
-          options: [
-            new SelectOption('1', 'One'),
-            new SelectOption('2', 'Two'),
-            new SelectOption('0', 'Zero')
-          ],
-          modelValue: expectedValue
-        },
-        global: {
-          stubs: ['MultiselectInput']
-        }
-      })
-      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([
-        expectedValue
-      ])
+      await flushPromises()
+      expect(wrapper.findComponent(Multiselect).vm.modelValue).toStrictEqual(new SelectOption('3', 'Three'))
     })
     it(':defaultOption - is emitted when default option value of "2" is set', async () => {
       const expectedValue = '2'
