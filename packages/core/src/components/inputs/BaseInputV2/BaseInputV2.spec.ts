@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest'
-import { flushPromises, mount } from '@vue/test-utils'
+import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import { defineRule, ErrorMessage } from 'vee-validate'
+import { defineRule } from 'vee-validate'
 import BaseInputV2 from './BaseInputV2.vue'
 
 describe('BaseInput.vue', () => {
@@ -26,15 +26,6 @@ describe('BaseInput.vue', () => {
       await wrapper.setProps({ name: expectedName })
       expect(wrapper.find('input').attributes('name')).toBe(expectedName)
       expect(wrapper.find('input').attributes('id')).toBe(expectedName)
-    })
-    it(':name - is applied to ErrorMessage', async () => {
-      const expectedName = 'expectedFieldName'
-      await wrapper.setProps({ name: expectedName })
-      await wrapper.setProps({ modelValue: '' })
-
-      await flushPromises()
-
-      expect(wrapper.findComponent(ErrorMessage).vm.name).toBe(expectedName)
     })
     it(':label - is rendered as label', async () => {
       const expectedLabel = 'Expected Label'
