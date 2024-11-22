@@ -36,7 +36,7 @@ describe('LocationPermissionModal', () => {
   })
 
   afterEach(() => {
-    wrapper && wrapper.unmount()
+    wrapper?.unmount()
     vi.clearAllMocks()
   })
 

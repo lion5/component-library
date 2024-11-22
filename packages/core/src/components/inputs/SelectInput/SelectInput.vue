@@ -1,39 +1,40 @@
 <template>
   <div class="floating-input-group">
-    <multiselect
-      :id="id"
-      v-model="selectedOption"
-      :options="options"
-      :placeholder="placeholderText"
-      track-by="key"
-      label="label"
-      :multiple="false"
-      :taggable="false"
-      :close-on-select="true"
-      deselect-label="Auswahl kann nicht gelöscht werden."
-      :allow-empty="false"
-      :show-labels="false"
-      v-bind="$attrs"
-      @select="updateModelValue"
+    <div
+      :class="{ 'single-select-input': true, 'has-content': selectedOption }"
     >
-      <template v-for="(_, name) in $slots" #[name]>
-        <slot :name="name" />
-      </template>
-    </multiselect>
-    <label class="floating-label-active" :for="id">
-      {{ label }}
-    </label>
-    <small v-if="error" class="error">
-      {{ errorMessage }}
-    </small>
+      <multiselect
+        :id="id"
+        v-model="selectedOption"
+        :options="options"
+        track-by="key"
+        label="label"
+        :multiple="false"
+        :taggable="false"
+        :close-on-select="true"
+        deselect-label="Auswahl kann nicht gelöscht werden."
+        :allow-empty="false"
+        :show-labels="false"
+        v-bind="$attrs"
+        :open-direction="'bottom'"
+        @select="updateModelValue"
+      >
+        <template v-for="(_, name) in $slots" #[name]>
+          <slot :name="name" />
+        </template>
+        <template #noOptions> Keine {{ entityName }} vorhanden </template>
+        <template #noResult> Keine {{ entityName }} gefunden </template>
+      </multiselect>
+      <label class="floating-label-active" :for="id">{{ label }}</label>
+      <small v-if="error" class="error">{{ errorMessage }}</small>
+    </div>
   </div>
 </template>
+
 <script setup lang="ts" generic="LabelType">
 import Multiselect from 'vue-multiselect'
 import { computed, onMounted, ref, watch } from 'vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
-
-const PLACEHOLDER_SUFFIX = 'wählen'
 
 const props = withDefaults(
   defineProps<{
@@ -44,6 +45,8 @@ const props = withDefaults(
     options: SelectOption<LabelType>[]
     /**
      * The option that should be pre-selected by default. If unset, no option is pre-selected.
+     *
+     * @deprecated Use `modelValue` instead.
      */
     defaultOption?: SelectOption<LabelType>
     /**
@@ -60,11 +63,17 @@ const props = withDefaults(
     error?: string | Error
     /**
      * A placeholder to be displayed if no option is selected. By default, the label + ' wählen' is displayed.
+     * @deprecated not used anymore
      */
     placeholder?: string
+    /**
+     * The name of the entity that is being selected.
+     */
+    entityName?: string
   }>(),
   {
-    error: ''
+    error: '',
+    entityName: 'Optionen'
   }
 )
 
@@ -72,110 +81,158 @@ const props = withDefaults(
  * The currently selected value as a `string`, initially `undefined`.
  */
 const modelValue = defineModel<string | undefined | null | number>()
-
 const selectedOption = ref<SelectOption<LabelType>>()
 
+const optionsMap = computed(() =>
+  props.options.reduce(
+    (acc, option) => {
+      acc[option.key || ''] = option
+      return acc
+    },
+    {} as { [key: string]: SelectOption<LabelType> }
+  )
+)
+
 onMounted(() => {
-  const { options, defaultOption } = props
-  if (modelValue.value != null) {
-    const optionsMap = options.reduce(
-      (
-        accumulator: { [key: string]: SelectOption<LabelType> },
-        selectOption: SelectOption<LabelType>
-      ) => {
-        accumulator[selectOption.key || ''] = selectOption
-        return accumulator
-      },
-      {}
-    )
-    selectedOption.value = optionsMap[modelValue.value]
-  } else {
-    selectedOption.value = defaultOption
-  }
-  if (selectedOption.value !== undefined) {
-    updateModelValue(selectedOption.value)
-  }
+  selectedOption.value =
+    modelValue.value != null
+      ? optionsMap.value[modelValue.value]
+      : props.defaultOption
+  if (selectedOption.value) updateModelValue(selectedOption.value)
 })
 
 watch(
   () => modelValue.value,
   (newValue) => {
-    if (newValue != null && props.options.length > 0) {
-      const optionsMap = props.options.reduce(
-        (
-          accumulator: { [key: string]: SelectOption<LabelType> },
-          selectOption: SelectOption<LabelType>
-        ) => {
-          accumulator[selectOption.key || ''] = selectOption
-          return accumulator
-        },
-        {}
-      )
-      selectedOption.value = optionsMap[newValue]
-    }
+    if (newValue != null) selectedOption.value = optionsMap.value[newValue]
   }
 )
-
-const placeholderText = computed(() => {
-  return props.placeholder || props.label + ' ' + PLACEHOLDER_SUFFIX
-})
 
 const errorMessage = computed(() =>
   props.error instanceof Error ? props.error.message : props.error
 )
 
-const updateModelValue = (selectedOption: SelectOption<LabelType>) => {
-  modelValue.value = selectedOption.key
+const updateModelValue = (option: SelectOption<LabelType>) => {
+  modelValue.value = option.key
 }
 </script>
+
 <style>
 @import 'vue-multiselect/dist/vue-multiselect.css';
 </style>
+
 <style lang="scss" scoped>
-@import '@core/assets/style/floating_labels';
+@use '@core/assets/style/floating_labels' as *;
 
-.error {
-  color: var(--color-danger);
-}
+.floating-input-group {
+  --_input-size: var(--input-font-size, 1.2rem);
+  --_label-size: var(--input-label-font-size, 0.75rem);
+  --_input-surface-color: var(--input-surface-color, var(--color-neutral-200));
+  --_input-border-radius: var(--input-border-radius, var(--border-radius-300));
+  --_error-icon-size: var(--_input-size);
+  --_input-error-color: var(--color-danger);
+  --_input-error-color-hover: var(--color-danger-hover);
+  --focus-border: 1px solid var(--color-primary);
 
-.multiselect--active ~ label {
-  // label must be above active Multiselect div
-  z-index: 100;
-}
+  display: grid;
+  position: relative;
+  gap: var(--space-sm);
 
-:deep(.multiselect) {
-  .multiselect__tags {
-    height: calc(2.25rem + 2px);
-    color: #495057;
-    background-color: #fff;
-    border: 1px solid #ced4da;
-    border-radius: 0;
+  .single-select-input,
+  .floating-label-active {
+    grid-row: 1 / 2;
+    grid-column: 1 / 2;
+    font-size: var(--_input-size);
   }
 
-  .multiselect__placeholder {
-    margin: 0;
-    padding: 0;
-    color: #495057;
+  .floating-label-active {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-neutral-600);
+    background-color: transparent;
+    transform-origin: left center;
+    transition: 0.15s ease-out;
+    transition-property: top, margin-top, transform, font-size;
+    cursor: text;
+    user-select: none;
+    line-height: 1;
+    padding-inline: var(--space-sm);
   }
 
-  .multiselect__tag {
-    background-color: var(--color-primary);
-    border-radius: 2rem;
-    margin-top: 0.1rem;
+  .floating-label-active.required::after {
+    display: inline-block;
+    content: '*';
+    font-size: 1.2rem;
+    padding-left: 0.3rem;
+    color: var(--color-danger);
+    line-height: 0.5;
+    transform: translateY(0.25rem);
+  }
 
-    &-icon {
-      &:after {
-        color: white;
-      }
+  .single-select-input,
+  :focus-within > .floating-label-active,
+  .single-select-input.has-content > .floating-label-active {
+    top: var(--space-sm);
+    transform: translateY(0%);
+    margin-top: var(--space-xs);
+    font-size: var(--_label-size);
+  }
 
-      &:hover {
-        background: var(--color-primary-hover);
-      }
+  :deep(.multiselect) {
+    .multiselect__placeholder {
+      display: none;
+    }
+
+    input::placeholder,
+    input::-webkit-input-placeholder {
+      color: transparent !important;
+      opacity: 0;
+    }
+
+    .multiselect__tags,
+    .multiselect__content-wrapper {
+      border: none;
+      border-radius: var(--_input-border-radius);
+      background-color: var(--_input-surface-color);
+      padding-block-end: var(--space-xs);
+      padding-block-start: calc(var(--_label-size) + var(--space-sm));
+    }
+
+    &:focus-within .multiselect__tags {
+      border-inline: var(--focus-border);
+      border-top: var(--focus-border);
+    }
+
+    .multiselect__input,
+    .multiselect__single {
+      background-color: var(--_input-surface-color);
+      font-size: var(--_input-size);
+    }
+
+    .multiselect__select {
+      height: 100%;
+    }
+
+    .multiselect__option--highlight {
+      background-color: var(--color-primary);
+    }
+
+    .multiselect__content-wrapper {
+      border-radius: 0 0 var(--_input-border-radius) var(--_input-border-radius);
+      background-color: var(--_input-surface-color);
+    }
+
+    &:focus-within .multiselect__content-wrapper {
+      border-inline: var(--focus-border);
+      border-bottom: var(--focus-border);
     }
   }
 
-  .multiselect__placeholder {
-    font-size: 1rem;
+  :deep(.multiselect--active) {
+    .multiselect__tags {
+      border-radius: var(--_input-border-radius) var(--_input-border-radius) 0 0;
+    }
   }
 }
 </style>
