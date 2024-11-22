@@ -67,7 +67,7 @@ withDefaults(
     dirty: false,
     invalid: false,
     showErrorIcon: true,
-    errors: []
+    errors: () => []
   }
 )
 /**
@@ -168,10 +168,6 @@ const value = defineModel<InputValue>()
   input::-webkit-input-placeholder {
     color: transparent !important;
     opacity: 0;
-  }
-
-  .error-icon,
-  .postfix {
   }
 
   .error-icon {
