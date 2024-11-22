@@ -3,7 +3,7 @@
     :class="{
       'base-input-wrapper': true,
       dirty,
-      invalid: invalid || errors.length > 0
+      invalid
     }"
   >
     <div class="input-group">
@@ -20,19 +20,20 @@
         <label :for="name">{{ label }}</label>
       </div>
       <div class="postfix">
-        <IconError v-if="invalid || errors.length > 0" class="error-icon" />
+        <IconError v-if="invalid" class="error-icon" />
         <slot v-else name="postfix" />
       </div>
     </div>
-    <ErrorBox class="error-box" :errors="errors" />
+    <ErrorBox class="error-box" :errors="errorObjects" />
   </div>
 </template>
 <script setup lang="ts" generic="T">
-import IconError from '../../icons/IconError.vue'
-import { ErrorBox } from '@core/components'
+import IconError from '@core/components/icons/IconError.vue'
+import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
+import { computed } from 'vue'
 
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     /**
      * Used to identify this field in a form (VeeValidate Form).
@@ -58,7 +59,7 @@ withDefaults(
     /**
      * The errors of the field. This is provided by `useField` from `vee-validate`.
      */
-    errors?: Error[]
+    errors?: Error[] | string[]
   }>(),
   {
     type: 'text',
@@ -73,6 +74,18 @@ withDefaults(
  * The value to display
  */
 const value = defineModel<T>()
+
+const errorObjects = computed(() => {
+  if (!props.invalid) {
+    return []
+  }
+  return props.errors.map((error) => {
+    if (typeof error === 'string') {
+      return new Error(error)
+    }
+    return error
+  })
+})
 </script>
 <style scoped lang="scss">
 .base-input-wrapper {

@@ -38,7 +38,10 @@ describe('SlugInput.vue', () => {
     })
     it(':error - is applied to ErrorMessage', async () => {
       const expectedError = new Error('Expected Error')
-      await wrapper.setProps({ name: 'test', errors: [expectedError] })
+      await wrapper.setProps({ name: 'test', errors: [expectedError], invalid: true })
+      wrapper.find('input').trigger('blur')
+      await flushPromises()
+
       expect(wrapper.findComponent(ErrorBox).vm.errors).toStrictEqual([expectedError])
     })
     it(':slug - is applied to input', async () => {
