@@ -1,5 +1,5 @@
 <template>
-  <button v-bind="$attrs" class="drop-down-item">
+  <button v-bind="$attrs" class="drop-down-item" :disabled="busy">
     <slot name="icon" v-if="!busy" />
     <slot name="busy-icon" v-if="busy">
       <ArrowRotateLoadingAnimation />
@@ -46,6 +46,11 @@ withDefaults(
   &:hover,
   &:focus-within {
     background-color: var(--color-primary-300);
+  }
+
+  &:disabled {
+    cursor: progress;
+    color: var(--color-neutral-500);
   }
 }
 </style>
