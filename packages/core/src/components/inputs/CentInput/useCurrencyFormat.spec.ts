@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest'
-import { useCurrencyFormat } from '@core/components/inputs/CurrencyInput/useCurrencyFormat'
+import { useCurrencyFormat } from '@core/components/inputs/CentInput/useCurrencyFormat'
 
 describe('useCurrencyFormat', () => {
   it.each([

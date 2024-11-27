@@ -4,11 +4,12 @@ import BaseInputV2 from '@core/components/inputs/BaseInputV2/BaseInputV2.vue'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import BaseInputWrapper from '@core/components/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 import BaseSelect from '@core/components/inputs/BaseSelect/BaseSelect.vue'
+import CentInput from '@core/components/inputs/CentInput/CentInput.vue'
 import CheckboxInput from '@core/components/inputs/CheckboxInput/CheckboxInput.vue'
 import CheckboxInputV2 from '@core/components/inputs/CheckboxInputV2/CheckboxInputV2.vue'
 import CodeInput from '@core/components/inputs/CodeInput/CodeInput.vue'
-import CurrencyInput from '@core/components/inputs/CurrencyInput/CurrencyInput.vue'
 import DateTimeInput from '@core/components/inputs/DateTimeInput/DateTimeInput.vue'
+import EuroInput from '@core/components/inputs/EuroInput/EuroInput.vue'
 import IbanInput from '@core/components/inputs/IbanInput/IbanInput.vue'
 import ImageInputWrapper from '@core/components/inputs/ImpageInputWrapper/ImageInputWrapper.vue'
 import LocationCoordinateSelect from '@core/components/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
@@ -28,11 +29,12 @@ export {
   BaseInputV3,
   BaseInputWrapper,
   BaseSelect,
+  CentInput,
   CheckboxInput,
   CheckboxInputV2,
   CodeInput,
-  CurrencyInput,
   DateTimeInput,
+  EuroInput,
   IbanInput,
   ImageInputWrapper,
   LocationCoordinateSelect,
@@ -43,5 +45,5 @@ export {
   SelectInput,
   SliderToggleInput,
   SlugInput,
-  UploadImageFAB,
+  UploadImageFAB
 }
