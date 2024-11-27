@@ -45,12 +45,15 @@
 /**
  * A search input field that displays search results below the input field.
  */
-import { BaseIcon, BaseInputV2, IconButton, IconError } from '@core/components'
 import { ref, watch } from 'vue'
 import { debounce } from 'lodash-es'
 import { SearchResult } from '@core/components/inputs/SearchInput/searchResult'
 import GrowLoadingAnimation from '@core/components/icons/GrowLoadingAnimation.vue'
 import { useField, useFieldError } from 'vee-validate'
+import BaseInputV2 from '@core/components/inputs/BaseInputV2/BaseInputV2.vue'
+import BaseIcon from '@core/components/icons/BaseIcon.vue'
+import IconError from '@core/components/icons/IconError.vue'
+import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 
 const props = withDefaults(
   defineProps<{
