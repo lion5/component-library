@@ -1,5 +1,5 @@
-import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
-import { flushPromises, mount } from '@vue/test-utils'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import SearchInput from './SearchInput.vue'
 import { BaseInputV3 } from '@core/components'
