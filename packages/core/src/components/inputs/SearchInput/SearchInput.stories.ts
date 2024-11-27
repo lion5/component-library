@@ -1,7 +1,12 @@
 import { Meta, StoryObj } from '@storybook/vue3'
-import { Form } from 'vee-validate'
 import SearchResult from './SearchInput.vue'
 import { SearchResult as SearchResultClass } from './searchResult'
+
+/**
+ * This input is optimized for searching.
+ * It can be used to search for things synchronously or asynchronously.
+ * If you want to search for things asynchronously, you can use the `busy` prop to signal that the search is in progress.
+ */
 
 export default {
   component: SearchResult
@@ -18,6 +23,7 @@ export const Empty: Story = {
 export const Filled: Story = {
   args: {
     name: 'filled-input',
+    searchTokenPreset: 'My Search',
     searchResults: [
       new SearchResultClass('1', 'Result 1', {}),
       new SearchResultClass('2', 'Result 2', {}),

@@ -5,31 +5,32 @@
       'has-results': searchResults.length > 0
     }"
   >
-    <BaseInputV2
+    <BaseInputV3
       :name="name"
       v-model="searchToken"
       :class="['search-input', { busy }]"
       type="search"
       :label="label"
       :list="`${name}-list`"
-      :error="error"
-      @input="onSearch"
+      :invalid="!!error"
+      :errors="[error]"
+      @update:modelValue="onSearch"
     >
-      <template #postfix-icon>
-        <GrowLoadingAnimation v-if="busy" class="busy-icon" />
-        <IconError v-else-if="error" class="error-icon" />
-        <BaseIcon v-else-if="!searchToken" icon="bi-search" />
+      <template #postfix>
+        <GrowLoadingAnimation v-if="busy" class="postfix-icon busy-icon" />
+        <IconError v-else-if="!!error" class="postfix-icon error-icon" />
+        <BaseIcon v-else-if="!searchToken" icon="bi-search" class="postfix-icon" />
         <IconButton
           v-else
-          class="clear-button"
+          class="postfix-icon clear-button"
           type="button"
           @click="clearInput"
         >
           <BaseIcon icon="bi-x-circle" />
         </IconButton>
       </template>
-    </BaseInputV2>
-    <ul class="result-list">
+    </BaseInputV3>
+    <ul v-if="searchResults.length > 0" class="result-list">
       <li
         v-for="searchResult in searchResults"
         :key="searchResult.key"
@@ -42,25 +43,27 @@
   </div>
 </template>
 <script lang="ts" setup>
-/**
- * A search input field that displays search results below the input field.
- */
 import { ref, watch } from 'vue'
 import { debounce } from 'lodash-es'
 import { SearchResult } from '@core/components/inputs/SearchInput/searchResult'
 import GrowLoadingAnimation from '@core/components/icons/GrowLoadingAnimation.vue'
-import { useField, useFieldError } from 'vee-validate'
-import BaseInputV2 from '@core/components/inputs/BaseInputV2/BaseInputV2.vue'
+import { useField } from 'vee-validate'
 import BaseIcon from '@core/components/icons/BaseIcon.vue'
 import IconError from '@core/components/icons/IconError.vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
+import { BaseInputV3 } from '@core/components'
 
 const props = withDefaults(
   defineProps<{
     /**
+     * Sets the search token to a preset value.
+     * If not set, the search token is empty.
+     */
+    searchTokenPreset?: string
+    /**
      * The search results to display.
      */
-    searchResults: SearchResult[]
+    searchResults?: SearchResult[]
     /**
      * The unique id of the component (used for labels).
      */
@@ -79,6 +82,8 @@ const props = withDefaults(
     error?: Error
   }>(),
   {
+    searchTokenPreset: '',
+    searchResults: () => [],
     label: 'Suche',
     busy: false,
     error: undefined
@@ -100,7 +105,7 @@ const emit = defineEmits<{
   (e: 'select', selectedValue: SearchResult): void
 }>()
 
-const searchToken = ref<string>('')
+const searchToken = ref<string>(props.searchTokenPreset)
 
 const emitSearch = () => {
   emit('search', searchToken.value)
@@ -145,10 +150,13 @@ watch(
   .clear-button {
     padding-inline: 0;
     color: var(--color-neutral-600);
-    transform: scale(1);
     transition: all 0.1s ease-in-out;
     padding: 0;
   }
+}
+
+.postfix-icon {
+  font-size: var(--font-size-300);
 }
 
 .search-input-wrapper {
@@ -201,7 +209,7 @@ watch(
 .search-input.busy {
   --animation-duration: 1.2s;
 
-  :deep(input) {
+  :deep(.input-group) {
     outline: 2px solid transparent;
     outline-offset: 1px;
     animation: grow var(--animation-duration) infinite;
