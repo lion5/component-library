@@ -1,3 +1,18 @@
+## 0.17.0 (2024-11-27)
+
+### 🩹 Fixes
+
+- **BaseInputV3:** remove event passthrough (causes duplicate events) ([7be06ab](https://github.com/lion5/component-library/commit/7be06ab))
+- **CentInput:** migrate test to use base input ([ac60d80](https://github.com/lion5/component-library/commit/ac60d80))
+- **CentInput:** remove unused import ([b1422c8](https://github.com/lion5/component-library/commit/b1422c8))
+- **IbanInput:** import component directly; do not use index for imports ([c502104](https://github.com/lion5/component-library/commit/c502104))
+- **SearchInput:** use direct component imports ([4b9b520](https://github.com/lion5/component-library/commit/4b9b520))
+- **SearchInput:** BaseInputV3 input ([4aa4ae3](https://github.com/lion5/component-library/commit/4aa4ae3))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.16.0 (2024-11-22)
 
 ### 🩹 Fixes
