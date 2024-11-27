@@ -1,7 +1,6 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import { ErrorMessage } from 'vee-validate'
 import CentInput from './CentInput.vue'
 import { BaseInputV3 } from '@core/components'
 
