@@ -51,7 +51,7 @@ import { useField } from 'vee-validate'
 import BaseIcon from '@core/components/icons/BaseIcon.vue'
 import IconError from '@core/components/icons/IconError.vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
-import { BaseInputV3 } from '@core/components'
+import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 
 const props = withDefaults(
   defineProps<{
