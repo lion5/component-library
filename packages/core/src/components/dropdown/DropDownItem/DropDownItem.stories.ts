@@ -13,23 +13,38 @@ export const Text: Story = {
   }
 }
 
-export const IconWithText: Story = {
-  render: (args: unknown) => ({
-    components: { DropDownItem, IconSettings },
-    setup() {
-      return { args }
-    },
-    template: `
-      <div style='width: fit-content'>
+const templateWithIcon = (args: unknown) => ({
+  components: { DropDownItem, IconSettings },
+  setup() {
+    return { args }
+  },
+  template: `
+    <div style='width: fit-content'>
       <DropDownItem v-bind='args'>
         <template #icon>
           <IconSettings />
         </template>
       </DropDownItem>
-      </div>
-    `
-  }),
+      <DropDownItem v-bind='args'>
+        <template #icon>
+          <IconSettings />
+        </template>
+      </DropDownItem>
+    </div>
+  `
+})
+
+export const IconWithText: Story = {
+  render: templateWithIcon,
   args: {
     label: 'DropDown Item'
+  }
+}
+
+export const Busy: Story = {
+  render: templateWithIcon,
+  args: {
+    label: 'DropDown Item',
+    busy: true
   }
 }
