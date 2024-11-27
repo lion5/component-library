@@ -1,22 +1,17 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import { defineRule } from 'vee-validate'
-import BaseInputV2 from './BaseInputV2.vue'
+import BaseInputV3 from './BaseInputV3.vue'
+import { ErrorBox } from '@core/components'
 
 describe('BaseInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
 
   beforeEach(() => {
-    // mock required validation rule
-    defineRule('required', () => 'error message')
-
-    wrapper = mount(BaseInputV2, {
-      attachTo: document.body,
+    wrapper = mount(BaseInputV3, {
       props: {
         name: 'name',
-        label: 'label',
-        validationRules: 'required'
+        label: 'label'
       }
     })
   })
@@ -39,6 +34,11 @@ describe('BaseInput.vue', () => {
       const expectedType = 'email'
       await wrapper.setProps({ type: expectedType })
       expect(wrapper.find('input').attributes('type')).toBe(expectedType)
+    })
+    it(':error - is applied to ErrorMessage', async () => {
+      const expectedError = new Error('Expected Error')
+      await wrapper.setProps({ name: 'test', errors: [expectedError], invalid: true })
+      expect(wrapper.findComponent(ErrorBox).vm.errors).toStrictEqual([expectedError])
     })
   })
 })

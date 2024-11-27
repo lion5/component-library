@@ -1,23 +1,27 @@
 <template>
   <div class="floating-input-group">
     <div
-      :class="{ 'single-select-input': true, 'has-content': selectedOption }"
+      :class="{
+        'multi-select-input': true,
+        'has-content': selectedOptions.length > 0
+      }"
     >
       <multiselect
         :id="id"
-        v-model="selectedOption"
+        v-model="selectedOptions"
         :options="options"
         track-by="key"
         label="label"
-        :multiple="false"
+        :multiple="true"
         :taggable="false"
-        :close-on-select="true"
+        :close-on-select="false"
         deselect-label="Auswahl kann nicht gelöscht werden."
-        :allow-empty="false"
         :show-labels="false"
         v-bind="$attrs"
+        @select="selectOption"
+        @remove="removeOption"
         :open-direction="'bottom'"
-        @select="updateModelValue"
+        :class="{ 'has-content': selectedOptions.length > 0 }"
       >
         <template v-for="(_, name) in $slots" #[name]>
           <slot :name="name" />
@@ -25,15 +29,19 @@
         <template #noOptions> Keine {{ entityName }} vorhanden </template>
         <template #noResult> Keine {{ entityName }} gefunden </template>
       </multiselect>
-      <label class="floating-label-active" :for="id">{{ label }}</label>
-      <small v-if="error" class="error">{{ errorMessage }}</small>
+      <label class="floating-label-active" :for="id">
+        {{ label }}
+      </label>
+      <small v-if="error" class="error">
+        {{ errorMessage }}
+      </small>
     </div>
   </div>
 </template>
 
 <script setup lang="ts" generic="LabelType">
 import Multiselect from 'vue-multiselect'
-import { computed, onMounted, ref, watch } from 'vue'
+import { computed, onMounted, Ref, ref, watch } from 'vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
 
 const props = withDefaults(
@@ -45,10 +53,9 @@ const props = withDefaults(
     options: SelectOption<LabelType>[]
     /**
      * The option that should be pre-selected by default. If unset, no option is pre-selected.
-     *
      * @deprecated Use `modelValue` instead.
      */
-    defaultOption?: SelectOption<LabelType>
+    defaultOption?: SelectOption<LabelType>[]
     /**
      * The unique ID of the HTML element.
      */
@@ -80,31 +87,59 @@ const props = withDefaults(
 /**
  * The currently selected value as a `string`, initially `undefined`.
  */
-const modelValue = defineModel<string | undefined | null | number>()
-const selectedOption = ref<SelectOption<LabelType>>()
-
-const optionsMap = computed(() =>
-  props.options.reduce(
-    (acc, option) => {
-      acc[option.key || ''] = option
-      return acc
-    },
-    {} as { [key: string]: SelectOption<LabelType> }
-  )
-)
+const modelValue = defineModel<(string | number | null)[]>({
+  default: []
+})
+const selectedOptions = ref<SelectOption<Ref<LabelType>>[]>([])
 
 onMounted(() => {
-  selectedOption.value =
-    modelValue.value != null
-      ? optionsMap.value[modelValue.value]
-      : props.defaultOption
-  if (selectedOption.value) updateModelValue(selectedOption.value)
+  const { options, defaultOption } = props
+  if (modelValue.value && modelValue.value.length) {
+    const optionsMap = options.reduce(
+      (
+        accumulator: { [key: string]: SelectOption<LabelType> },
+        selectOption: SelectOption<LabelType>
+      ) => {
+        accumulator[selectOption.key || ''] = selectOption
+        return accumulator
+      },
+      {}
+    )
+    selectedOptions.value = modelValue.value.map((key) => {
+      if (key == null) return
+      return optionsMap[key]
+    }) as SelectOption<LabelType>[]
+  } else {
+    selectedOptions.value = defaultOption || []
+  }
+  if (selectedOptions.value !== undefined && selectedOptions.value.length > 0) {
+    modelValue.value = selectedOptions.value.map((option) => option.key)
+  }
 })
 
 watch(
   () => modelValue.value,
   (newValue) => {
-    if (newValue != null) selectedOption.value = optionsMap.value[newValue]
+    if (newValue != null && props.options.length > 0) {
+      const optionsMap = props.options.reduce(
+        (
+          accumulator: { [key: string]: SelectOption<LabelType> },
+          selectOption: SelectOption<LabelType>
+        ) => {
+          accumulator[selectOption.key || ''] = selectOption
+          return accumulator
+        },
+        {}
+      )
+      selectedOptions.value = newValue
+        .map((key) => {
+          if (key === null) return ''
+          return optionsMap[key]
+        })
+        .filter(
+          (option): option is SelectOption<LabelType> => option !== undefined
+        )
+    }
   }
 )
 
@@ -112,18 +147,31 @@ const errorMessage = computed(() =>
   props.error instanceof Error ? props.error.message : props.error
 )
 
-const updateModelValue = (option: SelectOption<LabelType>) => {
-  modelValue.value = option.key
+const selectOption = (option: SelectOption<LabelType>) => {
+  if (
+    !selectedOptions.value.some(
+      (selectedOption) => selectedOption.key === option.key
+    )
+  ) {
+    selectedOptions.value.push(option)
+  }
+
+  modelValue.value = selectedOptions.value.map((option) => option.key)
+}
+
+const removeOption = (option: SelectOption<LabelType>) => {
+  selectedOptions.value = selectedOptions.value.filter(
+    (selectedOption) => selectedOption.key !== option.key
+  )
+
+  modelValue.value = selectedOptions.value.map((option) => option.key)
 }
 </script>
-
 <style>
 @import 'vue-multiselect/dist/vue-multiselect.css';
 </style>
-
 <style lang="scss" scoped>
-@use '@core/assets/style/floating_labels' as *;
-
+@import '@core/assets/style/floating_labels';
 .floating-input-group {
   --_input-size: var(--input-font-size, 1.2rem);
   --_label-size: var(--input-label-font-size, 0.75rem);
@@ -138,7 +186,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
   position: relative;
   gap: var(--space-sm);
 
-  .single-select-input,
+  .multi-select-input,
   .floating-label-active {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
@@ -170,9 +218,9 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
     transform: translateY(0.25rem);
   }
 
-  .single-select-input,
+  .multi-select-input,
   :focus-within > .floating-label-active,
-  .single-select-input.has-content > .floating-label-active {
+  .multi-select-input.has-content > .floating-label-active {
     top: var(--space-sm);
     transform: translateY(0%);
     margin-top: var(--space-xs);
@@ -186,6 +234,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
 
     input::placeholder,
     input::-webkit-input-placeholder {
+      /* Chrome/Opera/Safari */
       color: transparent !important;
       opacity: 0;
     }
@@ -204,23 +253,38 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
       border-top: var(--focus-border);
     }
 
-    .multiselect__input,
-    .multiselect__single {
+    .multiselect__tag {
+      background-color: var(--color-primary);
+      color: var(--color-white);
+      border-radius: var(--_input-border-radius);
+
+      .multiselect__tag-icon::after {
+        color: var(--color-white);
+        font-size: var(--font-size-1);
+      }
+
+      .multiselect__tag-icon:hover {
+        background-color: var(--color-danger);
+
+        &::after {
+          color: var(--color-font-inverted);
+        }
+      }
+    }
+
+    .multiselect__input {
       background-color: var(--_input-surface-color);
-      font-size: var(--_input-size);
     }
 
     .multiselect__select {
       height: 100%;
     }
 
-    .multiselect__option--highlight {
-      background-color: var(--color-primary);
-    }
-
     .multiselect__content-wrapper {
-      border-radius: 0 0 var(--_input-border-radius) var(--_input-border-radius);
+      border-radius: 0 0 var(--border-radius-300) var(--border-radius-300);
       background-color: var(--_input-surface-color);
+      // Prevents the multiselect from enabling the scrollbar if the space below the input is not enough
+      max-height: 350px !important;
     }
 
     &:focus-within .multiselect__content-wrapper {
@@ -231,7 +295,27 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
 
   :deep(.multiselect--active) {
     .multiselect__tags {
-      border-radius: var(--_input-border-radius) var(--_input-border-radius) 0 0;
+      border-radius: var(--border-radius-300) var(--border-radius-300) 0 0;
+    }
+  }
+}
+
+:deep(.multiselect) {
+  .multiselect__option--highlight {
+    background-color: var(--color-primary);
+
+    &::after {
+      background: var(--color-primary-hover);
+      content: 'Zur Auswahl hinzufügen';
+    }
+  }
+
+  .multiselect__option--highlight.multiselect__option--selected {
+    background-color: var(--color-danger);
+
+    &::after {
+      background: var(--color-danger-hover);
+      content: 'Auswahl löschen';
     }
   }
 }
