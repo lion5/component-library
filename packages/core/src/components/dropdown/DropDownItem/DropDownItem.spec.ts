@@ -35,5 +35,15 @@ describe('DropDownItem.vue', () => {
       expect(wrapper.find('.icon-slot').exists()).toBe(false)
       expect(wrapper.find('.busy-icon-slot').exists()).toBe(true)
     })
+
+    it(':busy - disable button if busy true', async () => {
+      await wrapper.setProps({ busy: true })
+      expect(wrapper.find('button').attributes('disabled')).toBeDefined()
+    })
+
+    it(':busy - enable button if busy false', async () => {
+      await wrapper.setProps({ busy: false })
+      expect(wrapper.find('button').attributes('disabled')).toBeUndefined()
+    })
   })
 })
