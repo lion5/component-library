@@ -1,14 +1,14 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import EuroCurrencyInput from '@core/components/inputs/EuroCurrencyInput/EuroCurrencyInput.vue'
+import EuroInput from '@core/components/inputs/EuroInput/EuroInput.vue'
 import { BaseInputV3 } from '@core/components'
 
-describe('EuroCurrencyInput.vue', () => {
+describe('EuroInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
 
   beforeEach(() => {
-    wrapper = mount(EuroCurrencyInput, {
+    wrapper = mount(EuroInput, {
       props: {
         name: 'name'
       }

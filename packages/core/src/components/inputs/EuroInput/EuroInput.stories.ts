@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
-import EuroCurrencyInput from './EuroCurrencyInput.vue'
+import EuroInput from './EuroInput.vue'
 
 /**
  * The CurrencyInput component is used to input a cent amount. The inserted value is formatted as euros.
@@ -9,9 +9,9 @@ import EuroCurrencyInput from './EuroCurrencyInput.vue'
  */
 
 export default {
-  component: EuroCurrencyInput
-} as Meta<typeof EuroCurrencyInput>
-type Story = StoryObj<typeof EuroCurrencyInput>
+  component: EuroInput
+} as Meta<typeof EuroInput>
+type Story = StoryObj<typeof EuroInput>
 
 export const Empty: Story = {
   args: {
@@ -21,7 +21,7 @@ export const Empty: Story = {
 
 export const Filled: Story = {
   render: (args: unknown) => ({
-    components: { EuroCurrencyInput, Form },
+    components: { EuroCurrencyInput: EuroInput, Form },
     setup() {
       return { args }
     },
@@ -37,7 +37,7 @@ export const Filled: Story = {
 
 export const WithError: Story = {
   render: (args: unknown) => ({
-    components: { EuroCurrencyInput, Form },
+    components: { EuroCurrencyInput: EuroInput, Form },
     setup() {
       return { args }
     },
