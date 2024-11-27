@@ -2,13 +2,13 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { ErrorMessage } from 'vee-validate'
-import CentCurrencyInput from './CentCurrencyInput.vue'
+import CentInput from './CentInput.vue'
 
-describe('CentCurrencyInput.vue', () => {
+describe('CentInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
 
   beforeEach(() => {
-    wrapper = mount(CentCurrencyInput, {
+    wrapper = mount(CentInput, {
       props: {
         name: 'name'
       }

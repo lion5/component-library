@@ -19,7 +19,7 @@
 <script setup lang="ts">
 import { useField } from 'vee-validate'
 import { ref, watch } from 'vue'
-import { useCurrencyFormat } from '@core/components/inputs/CentCurrencyInput/useCurrencyFormat'
+import { useCurrencyFormat } from '@core/components/inputs/CentInput/useCurrencyFormat'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import IconEuro from '@core/components/icons/IconEuro.vue'
 
