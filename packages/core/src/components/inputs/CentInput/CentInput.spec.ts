@@ -3,6 +3,7 @@ import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { ErrorMessage } from 'vee-validate'
 import CentInput from './CentInput.vue'
+import { BaseInputV3 } from '@core/components'
 
 describe('CentInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -25,7 +26,7 @@ describe('CentInput.vue', () => {
     it(':name - is applied to ErrorMessage', async () => {
       const expectedName = 'expectedFieldName'
       await wrapper.setProps({ name: expectedName })
-      expect(wrapper.findComponent(ErrorMessage).vm.name).toBe(expectedName)
+      expect(wrapper.findComponent(BaseInputV3).props().name).toBe(expectedName)
     })
     it(':label - "Betrag" is used if undefined', async () => {
       await wrapper.setProps({ label: undefined })
