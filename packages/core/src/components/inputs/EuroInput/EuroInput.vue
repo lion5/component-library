@@ -6,6 +6,7 @@
     :label="label"
     :dirty="meta.dirty"
     :invalid="meta.touched && !meta.valid"
+    :errors="errors"
     @input="setAsEuroValue"
     @blur="handleBlur"
   >
@@ -43,12 +44,11 @@ const props = withDefaults(
 
 const displayedCurrencyValue = ref<string>('0')
 
-const { value, handleBlur, meta, setValue } = useField<number>(
+const { value, handleBlur, meta, setValue, errors } = useField<number>(
   () => props.name,
   (value) => value >= 0 || 'Der Betrag muss größer oder gleich 0 sein.',
   {
     syncVModel: 'euros',
-    initialValue: 0
   }
 )
 
@@ -64,7 +64,6 @@ const setAsEuroValue = (event: InputEvent) => {
 }
 
 const syncValueWithElements = (newValue: number, target: HTMLInputElement) => {
-  console.log('Setting value to', newValue, value.value)
   displayedCurrencyValue.value = newValue.toString()
   target.value = newValue.toString()
   if (newValue === value.value) {
@@ -84,4 +83,3 @@ watch(
   { immediate: true }
 )
 </script>
-<style scoped lang="scss"></style>
