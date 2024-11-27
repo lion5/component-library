@@ -27,7 +27,7 @@
 import { ErrorMessage, useField } from 'vee-validate'
 import BaseInputWrapper from '@core/components/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 import { ref, watch } from 'vue'
-import { useCurrencyFormat } from '@core/components/inputs/CurrencyInput/useCurrencyFormat'
+import { useCurrencyFormat } from '@core/components/inputs/CentCurrencyInput/useCurrencyFormat'
 
 const props = withDefaults(
   defineProps<{

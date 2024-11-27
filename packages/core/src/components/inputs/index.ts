@@ -7,7 +7,7 @@ import BaseSelect from '@core/components/inputs/BaseSelect/BaseSelect.vue'
 import CheckboxInput from '@core/components/inputs/CheckboxInput/CheckboxInput.vue'
 import CheckboxInputV2 from '@core/components/inputs/CheckboxInputV2/CheckboxInputV2.vue'
 import CodeInput from '@core/components/inputs/CodeInput/CodeInput.vue'
-import CurrencyInput from '@core/components/inputs/CurrencyInput/CurrencyInput.vue'
+import CentCurrencyInput from '@core/components/inputs/CentCurrencyInput/CentCurrencyInput.vue'
 import DateTimeInput from '@core/components/inputs/DateTimeInput/DateTimeInput.vue'
 import IbanInput from '@core/components/inputs/IbanInput/IbanInput.vue'
 import ImageInputWrapper from '@core/components/inputs/ImpageInputWrapper/ImageInputWrapper.vue'
@@ -29,7 +29,7 @@ export {
   CheckboxInput,
   CheckboxInputV2,
   CodeInput,
-  CurrencyInput,
+  CentCurrencyInput,
   DateTimeInput,
   IbanInput,
   ImageInputWrapper,

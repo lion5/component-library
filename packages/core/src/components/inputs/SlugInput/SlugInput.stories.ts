@@ -4,9 +4,7 @@ import SlugInput from './SlugInput.vue'
 import { ref } from 'vue'
 
 /**
- * The CurrencyInput component is used to input a cent amount. The inserted value is formatted as euros.
- *
- * The design files can be found in [figma](https://www.figma.com/file/t7Sf0lcqLOFsWf9IfczzDf/Bamberg-Gutschein?type=design&node-id=2215%3A9872&mode=design&t=HMv5F0wNEzgDKZeY-1)
+ * The SlugInput component is used to insert slugs or paths for urls.
  */
 
 export default {
