@@ -16,7 +16,7 @@
 import { ref, watch } from 'vue'
 import { useField } from 'vee-validate'
 import { useIbanUtils } from '@core/composables/useIbanUtils'
-import { BaseInputV3 } from '@core/components'
+import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 
 const props = withDefaults(
   defineProps<{

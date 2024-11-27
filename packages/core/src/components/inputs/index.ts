@@ -12,8 +12,10 @@ import DateTimeInput from '@core/components/inputs/DateTimeInput/DateTimeInput.v
 import IbanInput from '@core/components/inputs/IbanInput/IbanInput.vue'
 import ImageInputWrapper from '@core/components/inputs/ImpageInputWrapper/ImageInputWrapper.vue'
 import LocationCoordinateSelect from '@core/components/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
+import MultiselectInput from '@core/components/inputs/MultiselectInput/MultiselectInput.vue'
 import NumberInput from '@core/components/inputs/NumberInput/NumberInput.vue'
 import PreviewImageInput from '@core/components/inputs/PreviewImageInput/PreviewImageInput.vue'
+import SearchInput from '@core/components/inputs/SearchInput/SearchInput.vue'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
 import SliderToggleInput from '@core/components/inputs/SliderToggleInput/SliderToggleInput.vue'
 import SlugInput from '@core/components/inputs/SlugInput/SlugInput.vue'
@@ -34,10 +36,12 @@ export {
   IbanInput,
   ImageInputWrapper,
   LocationCoordinateSelect,
+  MultiselectInput,
   NumberInput,
   PreviewImageInput,
+  SearchInput,
   SelectInput,
   SliderToggleInput,
   SlugInput,
-  UploadImageFAB
+  UploadImageFAB,
 }
