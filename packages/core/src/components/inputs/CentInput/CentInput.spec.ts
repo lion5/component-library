@@ -1,14 +1,14 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import { ErrorMessage } from 'vee-validate'
-import CurrencyInput from './CurrencyInput.vue'
+import CentInput from './CentInput.vue'
+import { BaseInputV3 } from '@core/components'
 
-describe('CurrencyInput.vue', () => {
+describe('CentInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
 
   beforeEach(() => {
-    wrapper = mount(CurrencyInput, {
+    wrapper = mount(CentInput, {
       props: {
         name: 'name'
       }
@@ -25,7 +25,7 @@ describe('CurrencyInput.vue', () => {
     it(':name - is applied to ErrorMessage', async () => {
       const expectedName = 'expectedFieldName'
       await wrapper.setProps({ name: expectedName })
-      expect(wrapper.findComponent(ErrorMessage).vm.name).toBe(expectedName)
+      expect(wrapper.findComponent(BaseInputV3).props().name).toBe(expectedName)
     })
     it(':label - "Betrag" is used if undefined', async () => {
       await wrapper.setProps({ label: undefined })

@@ -1,17 +1,17 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
-import CurrencyInput from './CurrencyInput.vue'
+import CentInput from './CentInput.vue'
 
 /**
- * The CurrencyInput component is used to input a cent amount. The inserted value is formatted as euros.
+ * The CentInput component is used to input a cent amount. The inserted value is formatted as euros.
  *
  * The design files can be found in [figma](https://www.figma.com/file/t7Sf0lcqLOFsWf9IfczzDf/Bamberg-Gutschein?type=design&node-id=2215%3A9872&mode=design&t=HMv5F0wNEzgDKZeY-1)
  */
 
 export default {
-  component: CurrencyInput
-} as Meta<typeof CurrencyInput>
-type Story = StoryObj<typeof CurrencyInput>
+  component: CentInput
+} as Meta<typeof CentInput>
+type Story = StoryObj<typeof CentInput>
 
 export const Empty: Story = {
   args: {
@@ -21,7 +21,7 @@ export const Empty: Story = {
 
 export const Filled: Story = {
   render: (args: unknown) => ({
-    components: { CurrencyInput, Form },
+    components: { CurrencyInput: CentInput, Form },
     setup() {
       return { args }
     },
@@ -37,7 +37,7 @@ export const Filled: Story = {
 
 export const WithError: Story = {
   render: (args: unknown) => ({
-    components: { CurrencyInput, Form },
+    components: { CurrencyInput: CentInput, Form },
     setup() {
       return { args }
     },

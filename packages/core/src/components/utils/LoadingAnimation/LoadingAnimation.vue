@@ -28,7 +28,7 @@ withDefaults(
      * The used animation. Defaults to grow animation.
      * @values grow, hueRotate
      */
-    type: AnimationType
+    type?: AnimationType
   }>(),
   {
     type: 'grow'

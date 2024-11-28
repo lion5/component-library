@@ -1,33 +1,27 @@
 <template>
-  <BaseInputWrapper>
-    <input
-      :id="name"
-      :class="{
-        dirty: meta.dirty,
-        valid: meta.touched && meta.valid,
-        invalid: meta.touched && !meta.valid
-      }"
-      :name="name"
-      type="tel"
-      :value="displayedCurrencyValue"
-      placeholder="hidden"
-      v-bind="$attrs"
-      @input="onRawInput"
-      @keydown.delete="onDelete"
-      @blur="handleBlur"
-    />
-    <label :for="name">{{ label }}</label>
-    <ErrorMessage class="error" :name="name" />
-    <template #postfix-icon>
-      <i class="bi bi-currency-euro"></i>
+  <BaseInputV3
+    :model-value="displayedCurrencyValue"
+    type="tel"
+    :name="name"
+    :label="label"
+    :dirty="meta.dirty"
+    :invalid="meta.touched && !meta.valid"
+    :errors="errors"
+    @input="onRawInput"
+    @keydown.delete="onDelete"
+    @blur="handleBlur"
+  >
+    <template #postfix>
+      <IconEuro />
     </template>
-  </BaseInputWrapper>
+  </BaseInputV3>
 </template>
 <script setup lang="ts">
-import { ErrorMessage, useField } from 'vee-validate'
-import BaseInputWrapper from '@core/components/inputs/BaseInputWrapper/BaseInputWrapper.vue'
+import { useField } from 'vee-validate'
 import { ref, watch } from 'vue'
-import { useCurrencyFormat } from '@core/components/inputs/CurrencyInput/useCurrencyFormat'
+import { useCurrencyFormat } from '@core/components/inputs/CentInput/useCurrencyFormat'
+import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
+import IconEuro from '@core/components/icons/IconEuro.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -98,7 +92,7 @@ const onDelete = () => {
   value.value = parseInt(internalValue.value || '0')
 }
 
-const { value, handleBlur, meta } = useField<number>(
+const { value, handleBlur, meta, errors } = useField<number>(
   () => props.name,
   (value) => value >= 0 || 'Der Betrag muss größer oder gleich 0 sein.',
   {

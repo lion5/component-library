@@ -8,8 +8,8 @@ import {
   vi
 } from 'vitest'
 import { mount } from '@vue/test-utils'
-import BaseModal from '../BaseModal/BaseModal.vue'
 import LocationPermissionModal from './LocationPermissionModal.vue'
+import DismissibleModal from '../DismissibleModal/DismissibleModal.vue'
 
 describe('LocationPermissionModal', () => {
   let wrapper: ReturnType<typeof mountComponent>
@@ -36,27 +36,27 @@ describe('LocationPermissionModal', () => {
   })
 
   afterEach(() => {
-    wrapper && wrapper.unmount()
+    wrapper?.unmount()
     vi.clearAllMocks()
   })
 
   describe(':props', () => {
     describe(':visible', () => {
       it('initially sets modalDisplayed of BaseModal to false', async () => {
-        const baseModal = wrapper.findComponent(BaseModal)
+        const baseModal = wrapper.findComponent(DismissibleModal)
 
         expect(baseModal.props('modalDisplayed')).toBe(false)
       })
 
       it('initially sets modalDisplayed of BaseModal to true if specified', async () => {
         wrapper = mountComponent(true)
-        const baseModal = wrapper.findComponent(BaseModal)
+        const baseModal = wrapper.findComponent(DismissibleModal)
 
         expect(baseModal.props('modalDisplayed')).toBe(true)
       })
 
       it('updates displayModal of modal to true if set after mount', async () => {
-        const baseModal = wrapper.findComponent(BaseModal)
+        const baseModal = wrapper.findComponent(DismissibleModal)
 
         await wrapper.setProps({ visible: true })
 
@@ -65,11 +65,11 @@ describe('LocationPermissionModal', () => {
 
       it('updates displayModal of modal to false if set after mount', async () => {
         wrapper = mountComponent(true)
-        const baseModal = wrapper.findComponent(BaseModal)
+        const dismissibleModal = wrapper.findComponent(DismissibleModal)
 
         await wrapper.setProps({ visible: false })
 
-        expect(baseModal.props('modalDisplayed')).toBe(false)
+        expect(dismissibleModal.props('modalDisplayed')).toBe(false)
       })
     })
   })
@@ -78,6 +78,14 @@ describe('LocationPermissionModal', () => {
     it('@grant-click - is fired when grant button is clicked', async () => {
       await wrapper.find('.grant-button').trigger('click')
       expect(wrapper.emitted('grant-click')?.length).toBe(1)
+    })
+    it('should emit update:visible when @update:modal-displayed emits false', async () => {
+      wrapper = mountComponent(true)
+      const dismissibleModal = wrapper.findComponent(DismissibleModal)
+
+      dismissibleModal.vm.$emit('update:modal-displayed', false)
+
+      expect(wrapper.emitted('update:visible')).toEqual([[false]])
     })
   })
 })
