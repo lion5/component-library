@@ -7,9 +7,9 @@ import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import ItemCard from '@core/components/cards/ItemCard/ItemCard.vue'
 
 describe('ImageCard', () => {
-  let wrapper
-  let portalImage
-  let aspectRatio
+  let wrapper: ReturnType<typeof mount>
+  let portalImage: PortalImage
+  let aspectRatio: string
 
   beforeAll(() => {
     // FIX to be able to use dialog field in jsdom. See https://github.com/jsdom/jsdom/issues/3294
