@@ -29,6 +29,7 @@ describe('ImageCarousel.vue', () => {
     ]
     wrapper = mount(ImageCarousel, {
       props: {
+        selectedImage: images[0],
         images
       }
     })

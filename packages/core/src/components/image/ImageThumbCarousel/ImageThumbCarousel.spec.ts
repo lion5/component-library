@@ -1,7 +1,6 @@
 import { flushPromises, mount } from '@vue/test-utils'
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { ImageSizes } from '@core/components/image/models/imageSizes'
-import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
 import type { defineComponent } from 'vue'
 import { MultiScaleImage } from '@core/components/image/models/multiScaleImage'
 import ImageThumbCarousel from '@core/components/image/ImageThumbCarousel/ImageThumbCarousel.vue'

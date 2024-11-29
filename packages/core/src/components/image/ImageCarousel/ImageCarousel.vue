@@ -14,7 +14,7 @@ import { MinimalImage } from '@core/components/image/models/minimalImage'
 import { IconChevronLeft } from '@core/components'
 import IconChevronRight from '@core/components/icons/IconChevronRight.vue'
 import BaseImage from '@core/components/image/BaseImage/BaseImage.vue'
-import { onMounted, ref, watch } from 'vue'
+import { ref, watch } from 'vue'
 import { onKeyStroke, useSwipe } from '@vueuse/core'
 
 const props = withDefaults(
