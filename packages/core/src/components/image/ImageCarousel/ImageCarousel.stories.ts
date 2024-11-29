@@ -1,6 +1,7 @@
 import ImageCarousel from './ImageCarousel.vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 import { MinimalImage } from '../models/minimalImage'
+import { ref } from 'vue'
 
 /**
  * The image carousel component displays a carousel of images.
@@ -16,9 +17,14 @@ export const DefaultWithDifferentAspectRatios: Story = {
   render: (args: unknown) => ({
     components: { ImageCarousel },
     setup() {
-      return { args }
+      const selectedImage = ref(new MinimalImage(
+        1,
+        'alt',
+        'https://dummyimage.com/2000x1000/ff0000/fff.png'
+      ))
+      return { args, selectedImage }
     },
-    template: '<ImageCarousel v-bind="args" />'
+    template: '<ImageCarousel v-bind="args" v-model:selected-image="selectedImage" />'
   }),
   args: {
     images: [

@@ -3,7 +3,7 @@
     <button class="left-arrow" @click="toPreviousImage">
       <IconChevronLeft />
     </button>
-    <BaseImage :image="image" @click="emit('click')" />
+    <BaseImage :image="selectedImage" @click="emit('click')" />
     <button class="right-arrow" @click="toNextImage">
       <IconChevronRight />
     </button>
@@ -14,7 +14,7 @@ import { MinimalImage } from '@core/components/image/models/minimalImage'
 import { IconChevronLeft } from '@core/components'
 import IconChevronRight from '@core/components/icons/IconChevronRight.vue'
 import BaseImage from '@core/components/image/BaseImage/BaseImage.vue'
-import { ref, watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { onKeyStroke, useSwipe } from '@vueuse/core'
 
 const props = withDefaults(
@@ -46,14 +46,18 @@ const emit = defineEmits<{
   (event: 'click'): void
 }>()
 
-const image = ref<MinimalImage>(props.images[0])
+
+/**
+ * The currently selected selectedImage in the slider
+ */
+const selectedImage = defineModel<MinimalImage>('selectedImage', { required: true })
 
 const toNextImage = () => {
-  image.value = props.images[(props.images.indexOf(image.value) + 1) % props.images.length]
+  selectedImage.value = props.images[(props.images.indexOf(selectedImage.value) + 1) % props.images.length]
   emit('next')
 }
 const toPreviousImage = () => {
-  image.value = props.images[(props.images.indexOf(image.value) - 1 + props.images.length) % props.images.length]
+  selectedImage.value = props.images[(props.images.indexOf(selectedImage.value) - 1 + props.images.length) % props.images.length]
   emit('previous')
 }
 const carouselWrapper = ref<HTMLElement>()
