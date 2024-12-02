@@ -44,11 +44,11 @@ describe('ImageSlider.vue', () => {
     })
   })
   describe('@events', () => {
-    it('@update:modelValue - emitted if image selected', async () => {
+    it('@update:selectedImage - emitted if image selected', async () => {
       await wrapper.findAll('input')[1].trigger('change')
 
-      expect(wrapper.emitted('update:modelValue')).toHaveLength(1)
-      expect(wrapper.emitted('update:modelValue')[0]).toEqual([images[1]])
+      expect(wrapper.emitted('update:selectedImage')).toHaveLength(1)
+      expect(wrapper.emitted('update:selectedImage')[0]).toEqual([images[1]])
       expect(wrapper.findAll('label').at(1).wrapperElement.scrollIntoView).toHaveBeenCalledWith({
         behavior: 'smooth',
         block: 'nearest',
