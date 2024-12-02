@@ -12,9 +12,10 @@ import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import { PortalImage } from '@core/components/image/models/image'
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
 import { ImageSizes } from '@core/components/image/models/imageSizes'
+import type { defineComponent } from 'vue'
 
 describe('ImageModal', () => {
-  let wrapper
+  let wrapper: ReturnType<typeof defineComponent>
 
   beforeAll(() => {
     // FIX to be able to use dialog field in jsdom. See https://github.com/jsdom/jsdom/issues/3294

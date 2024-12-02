@@ -5,11 +5,12 @@ import { PortalImage } from '@core/components/image/models/image'
 import { ImageSizes } from '@core/components/image/models/imageSizes'
 import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
 import ImageGallery from '@core/components/image/ImageGallery/ImageGallery.vue'
+import type { defineComponent } from 'vue'
 
 describe('ImageGallery', () => {
-  let wrapper
-  let gallery
-  let aspectRatio
+  let wrapper: ReturnType<typeof defineComponent>
+  let gallery: Gallery
+  let aspectRatio: string
 
   beforeAll(() => {
     // FIX to be able to use dialog field in jsdom. See https://github.com/jsdom/jsdom/issues/3294
