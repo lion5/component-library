@@ -39,6 +39,11 @@ Danger.args = {
   variant: 'danger'
 }
 
+export const OutlinePrimary = Template.bind({})
+OutlinePrimary.args = {
+  variant: 'outline-primary'
+}
+
 export const Disabled = Template.bind({})
 Disabled.args = {
   disabled: true

@@ -24,7 +24,7 @@ export const Text: Story = {
             </template>
           </DropDownItem>
           <DropDownItem label='Item 2' />
-          <DropDownItem label='Item 3' />
+          <DropDownItem label='Item 3' :busy="true" />
         </template>
       </DropDown>
       </div>
