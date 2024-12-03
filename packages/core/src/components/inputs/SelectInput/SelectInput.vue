@@ -1,33 +1,76 @@
 <template>
-  <div class="floating-input-group">
-    <div
-      :class="{ 'single-select-input': true, 'has-content': selectedOption }"
+  <div
+    class="floating-input-group"
+    :class="{ 'single-select-input': true, 'has-content': selectedOption }"
+  >
+    <multiselect
+      :id="id"
+      v-model="selectedOption"
+      :options="options"
+      track-by="key"
+      label="label"
+      :multiple="false"
+      :taggable="false"
+      :close-on-select="true"
+      deselect-label="Auswahl kann nicht gelöscht werden."
+      :allow-empty="false"
+      :show-labels="false"
+      v-bind="$attrs"
+      :open-direction="'bottom'"
+      @select="updateModelValue"
     >
-      <multiselect
-        :id="id"
-        v-model="selectedOption"
-        :options="options"
-        track-by="key"
-        label="label"
-        :multiple="false"
-        :taggable="false"
-        :close-on-select="true"
-        deselect-label="Auswahl kann nicht gelöscht werden."
-        :allow-empty="false"
-        :show-labels="false"
-        v-bind="$attrs"
-        :open-direction="'bottom'"
-        @select="updateModelValue"
+      <template
+        v-for="(_, name) in $slots"
+        #[name]
       >
-        <template v-for="(_, name) in $slots" #[name]>
-          <slot :name="name" />
-        </template>
-        <template #noOptions> Keine {{ entityName }} vorhanden </template>
-        <template #noResult> Keine {{ entityName }} gefunden </template>
-      </multiselect>
-      <label class="floating-label-active" :for="id">{{ label }}</label>
-      <small v-if="error" class="error">{{ errorMessage }}</small>
-    </div>
+        <slot :name="name" />
+      </template>
+      <template #noOptions> Keine {{ entityName }} vorhanden </template>
+      <template #noResult> Keine {{ entityName }} gefunden </template>
+      <template #singleLabel="props">
+        <div class="option__container">
+          <img
+            v-if="props.option.img"
+            class="option__image"
+            :src="props.option.img"
+            :alt="props.option.label"
+          />
+          <i
+            v-if="props.option.icon"
+            class="option__icon bi"
+            :class="props.option.icon"
+          />
+          <span class="option__title">{{ props.option.label }}</span>
+        </div>
+      </template>
+
+      <template #option="props">
+        <div class="option__container">
+          <img
+            v-if="props.option.img"
+            class="option__image"
+            :src="props.option.img"
+            :alt="props.option.label"
+          />
+          <i
+            v-if="props.option.icon"
+            class="option__icon bi"
+            :class="props.option.icon"
+          />
+          <span class="option__title">{{ props.option.label }}</span>
+        </div>
+      </template>
+    </multiselect>
+    <label
+      class="floating-label-active"
+      :for="id"
+      >{{ label }}</label
+    >
+    <small
+      v-if="error"
+      class="error"
+      >{{ errorMessage }}</small
+    >
   </div>
 </template>
 
@@ -95,9 +138,7 @@ const optionsMap = computed(() =>
 
 onMounted(() => {
   selectedOption.value =
-    modelValue.value != null
-      ? optionsMap.value[modelValue.value]
-      : props.defaultOption
+    modelValue.value != null ? optionsMap.value[modelValue.value] : props.defaultOption
   if (selectedOption.value) updateModelValue(selectedOption.value)
 })
 
@@ -122,8 +163,6 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
 </style>
 
 <style lang="scss" scoped>
-@use '@core/assets/style/floating_labels' as *;
-
 .floating-input-group {
   --_input-size: var(--input-font-size, 1.2rem);
   --_label-size: var(--input-label-font-size, 0.75rem);
@@ -137,15 +176,35 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
   display: grid;
   position: relative;
   gap: var(--space-sm);
+  height: calc(var(--input-field-height) + 5px);
 
-  .single-select-input,
-  .floating-label-active {
+  .option__container {
+    display: flex;
+    align-items: center;
+  }
+
+  .option__image {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 10px;
+  }
+
+  .option__icon {
+    font-size: 1.25rem;
+    margin-right: 10px;
+  }
+
+  .option__title {
+    display: inline-block;
+  }
+
+  label {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
     font-size: var(--_input-size);
   }
 
-  .floating-label-active {
+  label {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -157,10 +216,10 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
     cursor: text;
     user-select: none;
     line-height: 1;
-    padding-inline: var(--space-sm);
+    padding-left: calc(var(--space-sm) + var(--space-xs));
   }
 
-  .floating-label-active.required::after {
+  label.required::after {
     display: inline-block;
     content: '*';
     font-size: 1.2rem;
@@ -170,13 +229,12 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
     transform: translateY(0.25rem);
   }
 
-  .single-select-input,
-  :focus-within > .floating-label-active,
-  .single-select-input.has-content > .floating-label-active {
-    top: var(--space-sm);
+  &:focus-within > label,
+  &.has-content > label {
+    top: var(--space-xs);
     transform: translateY(0%);
-    margin-top: var(--space-xs);
     font-size: var(--_label-size);
+    padding-left: calc(var(--space-sm) + var(--space-xs));
   }
 
   :deep(.multiselect) {
@@ -190,13 +248,19 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
       opacity: 0;
     }
 
-    .multiselect__tags,
-    .multiselect__content-wrapper {
+    .multiselect__tags {
+      padding-left: var(--space-sm);
+    }
+    .multiselect__single {
+      padding-left: var(--space-xs);
+      padding-top: var(--space-sm);
+      margin: 0;
+    }
+
+    .multiselect__tags {
       border: none;
       border-radius: var(--_input-border-radius);
       background-color: var(--_input-surface-color);
-      padding-block-end: var(--space-xs);
-      padding-block-start: calc(var(--_label-size) + var(--space-sm));
     }
 
     &:focus-within .multiselect__tags {
@@ -210,10 +274,6 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
       font-size: var(--_input-size);
     }
 
-    .multiselect__select {
-      height: 100%;
-    }
-
     .multiselect__option--highlight {
       background-color: var(--color-primary);
     }
@@ -221,6 +281,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
     .multiselect__content-wrapper {
       border-radius: 0 0 var(--_input-border-radius) var(--_input-border-radius);
       background-color: var(--_input-surface-color);
+      overflow-x: hidden;
     }
 
     &:focus-within .multiselect__content-wrapper {
@@ -234,5 +295,26 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
       border-radius: var(--_input-border-radius) var(--_input-border-radius) 0 0;
     }
   }
+}
+
+/* For WebKit browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+  border-radius: 10px;
+  border: 3px solid transparent;
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Adjust the color and opacity as needed */
 }
 </style>

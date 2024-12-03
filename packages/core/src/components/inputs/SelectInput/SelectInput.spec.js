@@ -92,7 +92,9 @@ describe('SelectInput', () => {
         }
       })
       await flushPromises()
-      expect(wrapper.findComponent(Multiselect).vm.modelValue).toStrictEqual(new SelectOption('3', 'Three'))
+      expect(wrapper.findComponent(Multiselect).vm.modelValue).toStrictEqual(
+        new SelectOption('3', 'Three')
+      )
     })
     it(':defaultOption - is emitted when default option value of "2" is set', async () => {
       const expectedValue = '2'
@@ -111,9 +113,7 @@ describe('SelectInput', () => {
           stubs: ['MultiselectInput']
         }
       })
-      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([
-        expectedValue
-      ])
+      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([expectedValue])
     })
   })
 
@@ -131,9 +131,7 @@ describe('SelectInput', () => {
         }
       })
 
-      const noOptionsSlot = wrapper.find(
-        'li:not([style*="display: none"]) .multiselect__option'
-      )
+      const noOptionsSlot = wrapper.find('li:not([style*="display: none"]) .multiselect__option')
       expect(noOptionsSlot.exists()).toBe(true)
       expect(noOptionsSlot.text()).toBe('Keine Merchants vorhanden')
     })
@@ -156,11 +154,51 @@ describe('SelectInput', () => {
       })
       const input = wrapper.find('input')
       await input.setValue('nonexistent')
-      const noResultSlot = wrapper.find(
-        'li:not([style*="display: none"]) .multiselect__option'
-      )
+      const noResultSlot = wrapper.find('li:not([style*="display: none"]) .multiselect__option')
       expect(noResultSlot.exists()).toBe(true)
       expect(noResultSlot.text()).toBe('Keine Merchants gefunden')
+    })
+    it('renders image in option when img property is provided', async () => {
+      wrapper = mount(SelectInput, {
+        props: {
+          id: 'test-select-input',
+          label: 'Merchants',
+          entityName: 'Merchants',
+          options: [
+            new SelectOption('1', 'One', 'https://via.placeholder.com/150'),
+            new SelectOption('2', 'Two', 'https://via.placeholder.com/150')
+          ]
+        },
+        global: {
+          stubs: ['MultiselectInput']
+        }
+      })
+      const multiselect = wrapper.findComponent(Multiselect)
+      const option = multiselect.find('.option__container img')
+      expect(option.exists()).toBe(true)
+      expect(option.attributes('src')).toBe('https://via.placeholder.com/150')
+    })
+
+    it('renders icon in option when icon property is provided', async () => {
+      wrapper = mount(SelectInput, {
+        props: {
+          id: 'test-select-input',
+          label: 'Merchants',
+          entityName: 'Merchants',
+          options: [
+            new SelectOption('1', 'One', '', 'icon-class-1'),
+            new SelectOption('2', 'Two', '', 'icon-class-2')
+          ]
+        },
+        global: {
+          stubs: ['MultiselectInput']
+        }
+      })
+
+      const multiselect = wrapper.findComponent(Multiselect)
+      const option = multiselect.find('.option__container i')
+      expect(option.exists()).toBe(true)
+      expect(option.classes()).toContain('icon-class-1')
     })
   })
 })

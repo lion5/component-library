@@ -1,47 +1,94 @@
 <template>
-  <div class="floating-input-group">
-    <div
-      :class="{
-        'multi-select-input': true,
-        'has-content': selectedOptions.length > 0
-      }"
+  <div
+    class="floating-input-group"
+    :class="{
+      'multi-select-input': true,
+      'has-content': selectedOptions.length > 0
+    }"
+  >
+    <multiselect
+      :id="id"
+      v-model="selectedOptions"
+      :options="options"
+      track-by="key"
+      label="label"
+      :multiple="true"
+      :taggable="false"
+      :close-on-select="false"
+      deselect-label="Auswahl kann nicht gelöscht werden."
+      :show-labels="false"
+      v-bind="$attrs"
+      @select="selectOption"
+      @remove="removeOption"
+      :open-direction="'bottom'"
+      :class="{ 'has-content': selectedOptions.length > 0 }"
     >
-      <multiselect
-        :id="id"
-        v-model="selectedOptions"
-        :options="options"
-        track-by="key"
-        label="label"
-        :multiple="true"
-        :taggable="false"
-        :close-on-select="false"
-        deselect-label="Auswahl kann nicht gelöscht werden."
-        :show-labels="false"
-        v-bind="$attrs"
-        @select="selectOption"
-        @remove="removeOption"
-        :open-direction="'bottom'"
-        :class="{ 'has-content': selectedOptions.length > 0 }"
+      <template
+        v-for="(_, name) in $slots"
+        #[name]
       >
-        <template v-for="(_, name) in $slots" #[name]>
-          <slot :name="name" />
-        </template>
-        <template #noOptions> Keine {{ entityName }} vorhanden </template>
-        <template #noResult> Keine {{ entityName }} gefunden </template>
-      </multiselect>
-      <label class="floating-label-active" :for="id">
-        {{ label }}
-      </label>
-      <small v-if="error" class="error">
-        {{ errorMessage }}
-      </small>
-    </div>
+        <slot :name="name" />
+      </template>
+      <template #noOptions> Keine {{ entityName }} vorhanden </template>
+      <template #noResult> Keine {{ entityName }} gefunden </template>
+      <template v-slot:tag="{ option, remove }">
+        <div class="multiselect__tag">
+          <div class="option__container">
+            <img
+              v-if="option.img"
+              class="option__image"
+              :src="option.img"
+              :alt="option.label"
+            />
+            <i
+              v-if="option.icon"
+              class="option__icon bi"
+              :class="option.icon"
+            />
+            <span class="option__title">{{ option.label }}</span>
+          </div>
+          <i
+            class="multiselect__tag-icon"
+            @click.prevent
+            @mousedown.prevent.stop="remove(option, $event)"
+          />
+        </div>
+      </template>
+      <template #option="props">
+        <div class="option__container">
+          <img
+            v-if="props.option.img"
+            class="option__image"
+            :src="props.option.img"
+            :alt="props.option.label"
+          />
+          <i
+            v-if="props.option.icon"
+            class="option__icon bi"
+            :class="props.option.icon"
+          />
+          <span class="option__title">{{ props.option.label }}</span>
+        </div>
+      </template>
+    </multiselect>
+    <label
+      class="floating-label-active"
+      :for="id"
+    >
+      {{ label }}
+    </label>
+    <small
+      v-if="error"
+      class="error"
+    >
+      {{ errorMessage }}
+    </small>
   </div>
 </template>
 
 <script setup lang="ts" generic="LabelType">
 import Multiselect from 'vue-multiselect'
-import { computed, onMounted, Ref, ref, watch } from 'vue'
+import { computed, onMounted, type Ref, ref, watch } from 'vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
 
 const props = withDefaults(
@@ -136,9 +183,7 @@ watch(
           if (key === null) return ''
           return optionsMap[key]
         })
-        .filter(
-          (option): option is SelectOption<LabelType> => option !== undefined
-        )
+        .filter((option): option is SelectOption<LabelType> => option !== undefined)
     }
   }
 )
@@ -148,11 +193,7 @@ const errorMessage = computed(() =>
 )
 
 const selectOption = (option: SelectOption<LabelType>) => {
-  if (
-    !selectedOptions.value.some(
-      (selectedOption) => selectedOption.key === option.key
-    )
-  ) {
+  if (!selectedOptions.value.some((selectedOption) => selectedOption.key === option.key)) {
     selectedOptions.value.push(option)
   }
 
@@ -171,7 +212,6 @@ const removeOption = (option: SelectOption<LabelType>) => {
 @import 'vue-multiselect/dist/vue-multiselect.css';
 </style>
 <style lang="scss" scoped>
-@import '@core/assets/style/floating_labels';
 .floating-input-group {
   --_input-size: var(--input-font-size, 1.2rem);
   --_label-size: var(--input-label-font-size, 0.75rem);
@@ -186,14 +226,33 @@ const removeOption = (option: SelectOption<LabelType>) => {
   position: relative;
   gap: var(--space-sm);
 
-  .multi-select-input,
-  .floating-label-active {
+  label {
     grid-row: 1 / 2;
     grid-column: 1 / 2;
     font-size: var(--_input-size);
   }
 
-  .floating-label-active {
+  .option__container {
+    display: flex;
+    align-items: center;
+  }
+
+  .option__image {
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-right: 10px;
+  }
+
+  .option__icon {
+    font-size: 1.25rem;
+    margin-right: 10px;
+  }
+
+  .option__title {
+    display: inline-block;
+  }
+
+  label {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -205,10 +264,10 @@ const removeOption = (option: SelectOption<LabelType>) => {
     cursor: text;
     user-select: none;
     line-height: 1;
-    padding-inline: var(--space-sm);
+    padding-left: calc(var(--space-sm) + var(--space-xs));
   }
 
-  .floating-label-active.required::after {
+  label.required::after {
     display: inline-block;
     content: '*';
     font-size: 1.2rem;
@@ -218,13 +277,12 @@ const removeOption = (option: SelectOption<LabelType>) => {
     transform: translateY(0.25rem);
   }
 
-  .multi-select-input,
-  :focus-within > .floating-label-active,
-  .multi-select-input.has-content > .floating-label-active {
-    top: var(--space-sm);
+  &:focus-within > label,
+  &.has-content > label {
+    top: var(--space-xs);
     transform: translateY(0%);
-    margin-top: var(--space-xs);
     font-size: var(--_label-size);
+    padding-left: calc(var(--space-sm) + var(--space-xs));
   }
 
   :deep(.multiselect) {
@@ -237,6 +295,13 @@ const removeOption = (option: SelectOption<LabelType>) => {
       /* Chrome/Opera/Safari */
       color: transparent !important;
       opacity: 0;
+    }
+
+    .multiselect__tags {
+      padding-left: var(--space-sm);
+    }
+    .multiselect__single {
+      padding-left: var(--space-xs);
     }
 
     .multiselect__tags,
@@ -257,6 +322,13 @@ const removeOption = (option: SelectOption<LabelType>) => {
       background-color: var(--color-primary);
       color: var(--color-white);
       border-radius: var(--_input-border-radius);
+
+      .multiselect__tag-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+      }
 
       .multiselect__tag-icon::after {
         color: var(--color-white);
@@ -307,6 +379,9 @@ const removeOption = (option: SelectOption<LabelType>) => {
     &::after {
       background: var(--color-primary-hover);
       content: 'Zur Auswahl hinzufügen';
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
   }
 
@@ -316,6 +391,9 @@ const removeOption = (option: SelectOption<LabelType>) => {
     &::after {
       background: var(--color-danger-hover);
       content: 'Auswahl löschen';
+      height: 100%;
+      display: flex;
+      align-items: center;
     }
   }
 }
