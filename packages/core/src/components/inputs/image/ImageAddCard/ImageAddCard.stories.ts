@@ -24,32 +24,14 @@ export const Default: Story = {
 }
 
 export const AcceptJPGOnly: Story = {
-  render: (args: unknown) => ({
-    components: { ImageAddCard },
-    setup() {
-      return { args }
-    },
-    template: `
-      <div style="display: flex;">
-        <ImageAddCard v-bind="args" />
-      </div>`
-  }),
+  render: Default.render,
   args: {
     acceptedMimeTypes: ['image/jpeg']
   }
 }
 
 export const MultiFile: Story = {
-  render: (args: unknown) => ({
-    components: { ImageAddCard },
-    setup() {
-      return { args }
-    },
-    template: `
-      <div style="display: flex;">
-        <ImageAddCard v-bind="args" />
-      </div>`
-  }),
+  render:Default.render,
   args: {
     multiselect: true
   }

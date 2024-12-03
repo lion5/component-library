@@ -12,7 +12,11 @@
     <template #overlays>
       <OverlayError v-if="image.hasErrors()" class="error-badge" />
       <OverlayBusy v-if="image.busy" class="loading-badge" />
-      <CardBadgeSuccess v-if="image.isPublished()" class="published-badge" />
+      <CardBadgeSuccess
+        v-if="image.isPublished()"
+        class="published-badge"
+        tooltip-text="Dieses Bild wurde veröffentlicht."
+      />
       <CardDismissButton
         v-if="!image.busy"
         :tabindex="0"
@@ -36,7 +40,7 @@ import { ImageForm } from '@core/models/image/imageForm'
 import { watch } from 'vue'
 import { ImageConstraints } from '@core/models/image/imageConstraints'
 import { ImageValidator } from '@core/models/image/imageValidator'
-import { ImageCard } from '@core/components'
+import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
 import OverlayError from '@core/components/overlays/OverlayError.vue'
 import OverlayBusy from '@core/components/overlays/OverlayBusy.vue'
 import CardDismissButton from '@core/components/buttons/CardDismissButton/CardDismissButton.vue'
@@ -66,7 +70,7 @@ watch(
         newImage,
         props.imageConstraints
       )
-    } catch (e) {
+    } catch {
       // ignore validation error
     }
   },
@@ -82,12 +86,9 @@ const setImage = (newImage: ImageForm) => {
 </script>
 <style lang="scss" scoped>
 .image-edit-input-card {
+  // Busy loading animation size
+  --size: 2rem;
   border: 2px solid transparent;
-
-  aspect-ratio: var(--image-edit-input-aspect-ratio, unset);
-  display: grid;
-  overflow: hidden;
-  text-decoration: none;
 
   &:not(.busy) {
     cursor: pointer;
@@ -98,57 +99,6 @@ const setImage = (newImage: ImageForm) => {
     &:focus-within {
       border: 2px solid var(--color-primary);
     }
-  }
-
-  .media {
-    display: grid;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
-
-    & > * {
-      grid-column: 1/2;
-      grid-row: 1/2;
-    }
-
-    & > img {
-      aspect-ratio: var(--image-edit-input-aspect-ratio, unset);
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
-    }
-  }
-
-  .media,
-  .loading-badge,
-  .published-badge,
-  .error-badge,
-  .delete-button {
-    grid-column: 1/2;
-    grid-row: 1/2;
-  }
-
-  .delete-button {
-    justify-self: end;
-    align-self: start;
-    z-index: 100;
-  }
-
-  .published-badge {
-    justify-self: end;
-    align-self: end;
-
-    display: flex;
-    gap: var(--space-sm);
-    align-items: center;
-    padding: 0.25rem 1rem;
-    border-start-start-radius: var(--border-radius-md);
-  }
-
-  .published-badge {
-    color: var(--color-success);
-    background-color: var(--color-surface-1);
   }
 }
 

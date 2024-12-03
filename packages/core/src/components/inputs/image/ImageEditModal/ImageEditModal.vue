@@ -12,7 +12,7 @@
 <script lang="ts" setup>
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 import { ImageForm } from '@core/models/image/imageForm'
-import { ImageModal } from '@core/components'
+import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import { ImageConstraints } from '@core/models/image/imageConstraints'
 
 defineProps<{

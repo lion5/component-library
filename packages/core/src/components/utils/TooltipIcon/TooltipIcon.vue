@@ -48,6 +48,8 @@ withDefaults(
   position: absolute;
   left: var(--tooltip-left, unset);
   right: var(--tooltip-right, unset);
+  bottom: var(--tooltip-bottom, unset);
+  top: var(--tooltip-top, unset);
   background-color: var(--white);
   width: max-content;
   max-width: 30ch;
