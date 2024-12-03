@@ -2,8 +2,8 @@ import { action } from '@storybook/addon-actions'
 import { Meta, StoryObj } from '@storybook/vue3'
 import ImageEditCardDraggable from './ImageEditCardDraggable.vue'
 import { ImageForm } from '../../../../models/image/imageForm'
-import { ImageSizes } from '../../../image'
-import { ImageConstraints } from '../../../../models/image/imageConstraints'
+import { ImageSizes } from '@core/models/image/imageSizes'
+import { ImageConstraints } from '@core/models/image/imageConstraints'
 
 /**
  * This combines the {@link ImageEditCard} with the {@link DraggableItem}.
