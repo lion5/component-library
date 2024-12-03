@@ -1,31 +1,23 @@
-import '@/configuration/validation'
-import { createLocalVue, mount } from '@vue/test-utils'
-import BootstrapVue, { BootstrapVueIcons } from 'bootstrap-vue'
-import ImageAddCard from '@/base/components/input/ImageAddCard/ImageAddCard.vue'
-import { PortalImage } from '@/base/models/image'
-import flushPromises from 'flush-promises'
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-
-const localVue = createLocalVue()
-localVue.use(BootstrapVue)
-localVue.use(BootstrapVueIcons)
+import { mount } from '@vue/test-utils'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
+import type { defineComponent } from 'vue'
+import ImageAddCard from '@core/components/inputs/image/ImageAddCard/ImageAddCard.vue'
+import { ImageForm } from '@core/models/image/imageForm'
 
 describe('ImageAddCard', () => {
-  let wrapper
+  let wrapper: ReturnType<typeof defineComponent>
 
   beforeEach(() => {
-    wrapper = mount(ImageAddCard, { localVue })
+    wrapper = mount(ImageAddCard)
   })
-  afterEach(() => {
-    wrapper.destroy()
-  })
+
   describe(':props', () => {
     it(':multiselect - is applied to input', async () => {
       const multiselect = true
       await wrapper.setProps({ multiselect })
 
       const input = wrapper.find('input')
-      expect(input.attributes('multiple')).toBe('multiple')
+      expect(input.attributes('multiple')).toBeDefined()
     })
     it(':acceptedMimeTypes - are applied to input', async () => {
       const acceptedMimeTypes = ['image/png', 'image/jpg']
@@ -39,16 +31,16 @@ describe('ImageAddCard', () => {
     it(':input - is triggered for each selected file', async () => {
       const file = new File([''], 'test', {
         type: 'image/jpg',
-        lastModified: new Date()
+        lastModified: Date.now()
       })
-      const portalImage = new PortalImage(4711)
-
-      vi.spyOn(PortalImage, 'fromFile').mockResolvedValue(portalImage)
-      wrapper.vm.getFiles = vi.fn().mockReturnValueOnce([file, file, file])
-
+      const portalImage = new ImageForm(4711)
+      vi.spyOn(ImageForm, 'fromFile').mockResolvedValue(portalImage)
       const input = wrapper.find('input')
+      Object.defineProperty(input.element, 'files', {
+        value: [file, file, file],
+      })
+
       await input.trigger('change')
-      await flushPromises()
 
       expect(wrapper.emitted('input').length).toBe(3)
       expect(wrapper.emitted('input')[0]).toStrictEqual([portalImage])

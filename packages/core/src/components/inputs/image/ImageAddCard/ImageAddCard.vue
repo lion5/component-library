@@ -17,27 +17,27 @@
   </ItemCard>
 </template>
 <script lang="ts" setup>
-import BaseIcon from '../../../icons/BaseIcon.vue'
-import ItemCard from '../../../cards/ItemCard/ItemCard.vue'
 import { computed } from 'vue'
 import { ImageForm } from '@core/models/image/imageForm'
+import BaseIcon from '@core/components/icons/BaseIcon.vue'
+import ItemCard from '@core/components/cards/ItemCard/ItemCard.vue'
 
 const props = withDefaults(
   defineProps<{
     /**
      * Switches the input mode between single file upload (false) and multi file upload (true)
      */
-    multiselect: boolean
+    multiselect?: boolean
     /**
      * Defines the allowed file types to upload. The arrays value's need to be mime types.
      *
      * See https://www.iana.org/assignments/media-types/media-types.xhtml#image for the allowed mime types.
      */
-    acceptedMimeTypes: string[]
+    acceptedMimeTypes?: string[]
   }>(),
   {
     multiselect: false,
-    acceptedMimeTypes: []
+    acceptedMimeTypes: () => []
   }
 )
 const emit = defineEmits<{
@@ -77,7 +77,7 @@ const getFiles = (event: Event): FileList => {
 
   &:hover,
   &:active {
-    background-color: var(--color-success-surface);
+    background-color: var(--color-primary-surface);
   }
 
   &:focus-visible,

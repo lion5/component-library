@@ -1,17 +1,17 @@
-import { ImageConstraints } from '@/base/models/imageConstraints'
-import { ImageValidator } from '@/base/models/imageValidator'
-import { PortalImage } from '@/base/models/image'
 import { beforeEach, describe, expect, it } from 'vitest'
+import { ImageForm } from '@core/models/image/imageForm'
+import { ImageConstraints } from '@core/models/image/imageConstraints'
+import { ImageValidator } from '@core/models/image/imageValidator'
 
-describe('Model ImageValidator', () => {
-  let image
+describe('imageValidator.ts', () => {
+  let image: ImageForm
 
   beforeEach(() => {
-    image = new PortalImage(1, '', new File(['Hello World.'], 'testFile.txt', { type: 'text/plain' }), new Image(1200, 900))
+    image = new ImageForm(1, '', new File(['Hello World.'], 'testFile.txt', { type: 'text/plain' }), new Image(1200, 900))
   })
 
   it('should throw error when file not exists', () => {
-    const actualImage = new PortalImage(1, '', null, new Image())
+    const actualImage = new ImageForm(1, '', undefined, new Image())
     const imageConstraints = new ImageConstraints()
 
     const testFunction = () => {
@@ -21,7 +21,7 @@ describe('Model ImageValidator', () => {
     expect(testFunction).toThrow('Remote images cannot be validated at the moment.')
   })
   it('should throw error when image not exists', () => {
-    const actualImage = new PortalImage(1, '', new File([''], 'testFile'), null)
+    const actualImage = new ImageForm(1, '', new File([''], 'testFile'), undefined)
     const imageConstraints = new ImageConstraints()
 
     const testFunction = () => {
