@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import SortableGalleryInput from './SortableGalleryInput.vue'
 import { ImageForm } from '../../../../models/image/imageForm'
 import { ref } from 'vue'
-import { ImageSizes } from '../../../image'
+import { ImageSizes } from '@core/models/image/imageSizes'
 import { ImageConstraints } from '../../../../models/image/imageConstraints'
 import { GalleryForm } from '../../../../models/image/galleryForm'
 

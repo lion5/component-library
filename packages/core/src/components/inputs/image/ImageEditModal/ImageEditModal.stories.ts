@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import ImageEditModal from './ImageEditModal.vue'
 import { ImageForm } from '../../../../models/image/imageForm'
 import { ImageConstraints } from '../../../../models/image/imageConstraints'
-import { ImageSizes } from '../../../image'
+import { ImageSizes } from '@core/models/image/imageSizes'
 
 export default {
   component: ImageEditModal
