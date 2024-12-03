@@ -1,3 +1,20 @@
+## 0.18.0 (2024-12-03)
+
+### 🩹 Fixes
+
+- styling problems & feature: add img and icon support ([5063bbe](https://github.com/lion5/component-library/commit/5063bbe))
+- add missing dependency vue use ([10d6d12](https://github.com/lion5/component-library/commit/10d6d12))
+- lint and type issues ([a93c687](https://github.com/lion5/component-library/commit/a93c687))
+- remove duplicated models ([575cad7](https://github.com/lion5/component-library/commit/575cad7))
+- imports ([4c5c292](https://github.com/lion5/component-library/commit/4c5c292))
+- imports ([563652a](https://github.com/lion5/component-library/commit/563652a))
+- **ImageSlider:** use new custom attribute for v model events ([bfa2b09](https://github.com/lion5/component-library/commit/bfa2b09))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+- Roman Kudravcev
+
 ## 0.17.0 (2024-11-27)
 
 ### 🩹 Fixes
