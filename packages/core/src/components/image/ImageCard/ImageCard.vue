@@ -33,18 +33,18 @@
 <script lang="ts" setup>
 import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import ItemCard from '@core/components/cards/ItemCard/ItemCard.vue'
-import { PortalImage } from '@core/components/image/models/image'
 import { ref } from 'vue'
+import { ImageResponse } from '@core/models'
 
 /**
  * This is the base image card component. It displays a modal on click with the image in full size.
  */
 
-const props = defineProps<{
+defineProps<{
   /**
    * the image that shall be displayed
    */
-  image: PortalImage
+  image: ImageResponse
   /**
    * the aspect ratio the displayed image has (changes the card's aspect ratio)
    */
@@ -53,9 +53,6 @@ const props = defineProps<{
 
 const displayModal = ref(false)
 const showModal = () => {
-  if (props.image.busy) {
-    return
-  }
   displayModal.value = true
 }
 const hideModal = () => {

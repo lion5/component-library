@@ -1,4 +1,4 @@
-import { ImageSizes } from '@core/components'
+import { ImageSizes } from '@core/models/image/imageSizes'
 
 export class MultiScaleImage {
   readonly id: number

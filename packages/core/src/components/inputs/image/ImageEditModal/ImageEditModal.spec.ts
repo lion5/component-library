@@ -6,6 +6,7 @@ import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import { ImageForm } from '@core/models/image/imageForm'
 import { ImageConstraints } from '@core/models/image/imageConstraints'
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
+import { ImageResponse } from '@core/models'
 
 describe('ImageEditModal.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -38,9 +39,10 @@ describe('ImageEditModal.vue', () => {
     it(':image - is applied to ImageModal', async () => {
       const image = new ImageForm()
       await wrapper.setProps({ image })
+      const expectedImage = new ImageResponse(image.id || -1, image.alt || '', image.sizes)
 
       const imageModal = wrapper.findComponent(ImageModal)
-      expect(imageModal.props().image).toStrictEqual(image)
+      expect(imageModal.props().image).toStrictEqual(expectedImage)
     })
     it(':image - errors are applied to PortalErrorBox', async () => {
       const image = new ImageForm()

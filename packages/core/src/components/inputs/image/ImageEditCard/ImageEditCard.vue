@@ -6,7 +6,7 @@
       published: image.isPublished(),
       busy: image.busy
     }"
-    :image="image"
+    :image="minimalImage"
     :aspect-ratio="imageConstraints.aspectRatio || '16/9'"
   >
     <template #overlays>
@@ -37,7 +37,7 @@
 </template>
 <script lang="ts" setup>
 import { ImageForm } from '@core/models/image/imageForm'
-import { watch } from 'vue'
+import { computed, watch } from 'vue'
 import { ImageConstraints } from '@core/models/image/imageConstraints'
 import { ImageValidator } from '@core/models/image/imageValidator'
 import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
@@ -46,6 +46,7 @@ import OverlayBusy from '@core/components/overlays/OverlayBusy.vue'
 import CardDismissButton from '@core/components/buttons/CardDismissButton/CardDismissButton.vue'
 import CardBadgeSuccess from '@core/components/cards/CardBadgeSuccess/CardBadgeSuccess.vue'
 import ImageEditModal from '@core/components/inputs/image/ImageEditModal/ImageEditModal.vue'
+import { ImageResponse } from '@core/models'
 
 const props = defineProps<{
   imageConstraints: ImageConstraints
@@ -59,6 +60,12 @@ const props = defineProps<{
 const image = defineModel<ImageForm>('image', {
   required: true
 })
+
+const minimalImage = computed(() => new ImageResponse(
+  image.value.id || -1,
+  image.value.alt || '',
+  image.value.sizes
+))
 watch(
   image,
   (newImage) => {

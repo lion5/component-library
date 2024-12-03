@@ -1,14 +1,14 @@
 import { mount } from '@vue/test-utils'
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { PortalImage } from '@core/components/image/models/image'
-import { ImageSizes } from '@core/components/image/models/imageSizes'
 import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
 import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import ItemCard from '@core/components/cards/ItemCard/ItemCard.vue'
+import { ImageResponse } from '@core/models/image/imageResponse'
+import { ImageSizes } from '@core/models/image/imageSizes'
 
 describe('ImageCard', () => {
   let wrapper: ReturnType<typeof mount>
-  let portalImage: PortalImage
+  let imageResponse: ImageResponse
   let aspectRatio: string
 
   beforeAll(() => {
@@ -18,12 +18,15 @@ describe('ImageCard', () => {
   })
 
   beforeEach(() => {
-    portalImage = new PortalImage(4711, 'testAltTag')
-    portalImage.sizes = new ImageSizes('original', '', '', 'mid')
+    imageResponse = new ImageResponse(
+      4711,
+      'testAltTag',
+      new ImageSizes('original', '', '', 'mid')
+    )
     aspectRatio = '16/9'
     wrapper = mount(ImageCard, {
       propsData: {
-        image: portalImage,
+        image: imageResponse,
         aspectRatio
       }
     })
@@ -32,23 +35,26 @@ describe('ImageCard', () => {
   describe(':props', () => {
     it(':image - is applied to ImageModal', async () => {
       const imageModal = wrapper.findComponent(ImageModal)
-      expect(imageModal.vm.image).toStrictEqual(portalImage)
+      expect(imageModal.vm.image).toStrictEqual(imageResponse)
     })
     it(':image - image medium size is applied to img tag when available', async () => {
       const image = wrapper.find('.media > img')
-      expect(image.attributes('src')).toBe(portalImage.sizes.mid)
+      expect(image.attributes('src')).toBe(imageResponse.sizes.mid)
     })
     it(':image - image original size is applied to img tag when medium size is not available', async () => {
-      const localPortalImage = new PortalImage()
-      localPortalImage.sizes = new ImageSizes('original')
+      const localPortalImage = new ImageResponse(
+        4711,
+        'testAltTag',
+        new ImageSizes('original')
+      )
       await wrapper.setProps({ image: localPortalImage })
 
       const image = wrapper.find('.media > img')
-      expect(image.attributes('src')).toBe(portalImage.sizes.original)
+      expect(image.attributes('src')).toBe(imageResponse.sizes.original)
     })
     it(':image - image alt is applied to img tag', async () => {
       const image = wrapper.find('.media > img')
-      expect(image.attributes('alt')).toBe(portalImage.alt)
+      expect(image.attributes('alt')).toBe(imageResponse.alt)
     })
     it(':aspectRatio - is applied to ImageModal', async () => {
       const imageModal = wrapper.findComponent(ImageModal)

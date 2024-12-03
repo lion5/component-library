@@ -20,8 +20,8 @@
 </template>
 
 <script lang="ts" setup>
-import { PortalImage } from '@core/components/image/models/image'
 import { computed, ref } from 'vue'
+import { ImageForm } from '@core/models/image/imageForm'
 
 /**
  * This is a wrapper component to allow users to drop images over the wrapped area.
@@ -52,7 +52,7 @@ const emit = defineEmits<{
   /**
    * Is emitted when images are dropped
    */
-  (e: 'input', image: PortalImage): void
+  (e: 'input', image: ImageForm): void
 }>()
 
 const draggedOver = ref(false)
@@ -70,11 +70,11 @@ const onDrop = async (event: DragEvent) => {
     /**
      * Is emitted when images are dropped
      */
-    emit('input', await PortalImage.fromFile(files[0]))
+    emit('input', await ImageForm.fromFile(files[0]))
     return
   }
   for (const file of files) {
-    emit('input', await PortalImage.fromFile(file))
+    emit('input', await ImageForm.fromFile(file))
   }
 }
 </script>

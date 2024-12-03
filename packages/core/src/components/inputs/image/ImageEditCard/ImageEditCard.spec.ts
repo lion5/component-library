@@ -10,6 +10,7 @@ import OverlayBusy from '@core/components/overlays/OverlayBusy.vue'
 import CardDismissButton from '@core/components/buttons/CardDismissButton/CardDismissButton.vue'
 import CardBadgeSuccess from '@core/components/cards/CardBadgeSuccess/CardBadgeSuccess.vue'
 import ImageEditModal from '@core/components/inputs/image/ImageEditModal/ImageEditModal.vue'
+import { ImageResponse } from '@core/models'
 
 
 describe('ImageEditCard.vue', () => {
@@ -79,9 +80,10 @@ describe('ImageEditCard.vue', () => {
     it(':image - image card :image is applied', async () => {
       const image = new ImageForm(4711, 'testImage')
       await wrapper.setProps({ image })
+      const expectedImage = new ImageResponse(image.id || -1, image.alt || '', image.sizes)
 
       const imageCard = wrapper.findComponent(ImageCard)
-      expect(imageCard.vm.image).toStrictEqual(image)
+      expect(imageCard.vm.image).toStrictEqual(expectedImage)
     })
     it(':image - error overlay is displayed when image has error', async () => {
       const image = new ImageForm()

@@ -1,8 +1,8 @@
 import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
-import { PortalImage } from '@core/components/image/models/image'
-import { ImageSizes } from '@core/components/image/models/imageSizes'
+import { ImageSizes } from '@core/models/image/imageSizes'
 import { ref } from 'vue'
 import { Meta, StoryObj } from '@storybook/vue3'
+import { ImageResponse } from '@core/models/image/imageResponse'
 
 /**
  * Modal to display images in full size
@@ -25,9 +25,7 @@ export const Default: Story = {
   render: Template,
   args: {
     value: true,
-    image: new PortalImage(
-      undefined,
-      undefined,
+    image: new ImageResponse(
       undefined,
       undefined,
       new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')

@@ -1,11 +1,11 @@
 import { mount } from '@vue/test-utils'
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { Gallery } from '@core/components/image/models/gallery'
-import { PortalImage } from '@core/components/image/models/image'
-import { ImageSizes } from '@core/components/image/models/imageSizes'
+import { ImageSizes } from '@core/models/image/imageSizes'
 import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
 import ImageGallery from '@core/components/image/ImageGallery/ImageGallery.vue'
 import type { defineComponent } from 'vue'
+import { Gallery } from '@core/models/image/gallery'
+import { ImageResponse } from '@core/models'
 
 describe('ImageGallery', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -20,25 +20,19 @@ describe('ImageGallery', () => {
 
   beforeEach(() => {
     gallery = new Gallery([
-      new PortalImage(
+      new ImageResponse(
         4711,
         'testAltTag',
-        undefined,
-        undefined,
         new ImageSizes('original', '', '', 'mid')
       ),
-      new PortalImage(
+      new ImageResponse(
         4712,
         'testAltTag',
-        undefined,
-        undefined,
         new ImageSizes('original', '', '', 'mid')
       ),
-      new PortalImage(
+      new ImageResponse(
         4713,
         'testAltTag',
-        undefined,
-        undefined,
         new ImageSizes('original', '', '', 'mid')
       )
     ])

@@ -1,18 +1,10 @@
 import { mount } from '@vue/test-utils'
-import {
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi
-} from 'vitest'
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
-import { PortalImage } from '@core/components/image/models/image'
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
-import { ImageSizes } from '@core/components/image/models/imageSizes'
+import { ImageSizes } from '@core/models/image/imageSizes'
 import type { defineComponent } from 'vue'
+import { ImageResponse } from '@core/models'
 
 describe('ImageModal', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -27,7 +19,7 @@ describe('ImageModal', () => {
     wrapper = mount(ImageModal, {
       attachTo: document.body,
       props: {
-        image: new PortalImage(4711, 'testAltTag'),
+        image: new ImageResponse(4711, 'testAltTag', new ImageSizes()),
         aspectRatio: '16/9'
       }
     })
@@ -45,11 +37,9 @@ describe('ImageModal', () => {
       ).toStrictEqual(showModal)
     })
     it(':image - image large size is applied to img tag when available', async () => {
-      const image = new PortalImage(
+      const image = new ImageResponse(
         4711,
         'testAltTag',
-        undefined,
-        undefined,
         new ImageSizes('original', '', '', '', 'large')
       )
       await wrapper.setProps({ image })
@@ -58,11 +48,9 @@ describe('ImageModal', () => {
       expect(imageItem.attributes('src')).toBe(image.sizes.large)
     })
     it(':image - image original size is applied to img tag when large size is not available', async () => {
-      const image = new PortalImage(
+      const image = new ImageResponse(
         4711,
         'testAltTag',
-        undefined,
-        undefined,
         new ImageSizes('original')
       )
       await wrapper.setProps({ image })
@@ -71,11 +59,9 @@ describe('ImageModal', () => {
       expect(imageItem.attributes('src')).toBe(image.sizes.original)
     })
     it(':image - image alt is applied to img tag', async () => {
-      const image = new PortalImage(
+      const image = new ImageResponse(
         4711,
         'testAltTag',
-        undefined,
-        undefined,
         new ImageSizes('original')
       )
       await wrapper.setProps({ image })

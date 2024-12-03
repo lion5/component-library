@@ -19,8 +19,8 @@
 </template>
 <script lang="ts" setup>
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
-import { PortalImage } from '@core/components/image/models/image'
 import { computed } from 'vue'
+import { ImageResponse } from '@core/models/image/imageResponse'
 /**
  * Modal to display images in full size
  */
@@ -35,7 +35,7 @@ const props = withDefaults(
     /**
      * the image that is displayed inside the modal
      */
-    image: PortalImage
+    image: ImageResponse
     /**
      * the aspect ratio of the image. Changes also modal's aspect ratio
      */
