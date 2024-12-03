@@ -1,8 +1,8 @@
-import { PortalImage } from '@core/components/image/models/image'
-import { ImageSizes } from '@core/components/image/models/imageSizes'
-import { Gallery } from '@core/components/image/models/gallery'
+import { ImageSizes } from '@core/models/image/imageSizes'
 import ImageGallery from '@core/components/image/ImageGallery/ImageGallery.vue'
 import { Meta, StoryObj } from '@storybook/vue3'
+import { Gallery } from '@core/models/image/gallery'
+import { ImageResponse } from '@core/models/image/imageResponse'
 
 /**
  * This all given images as cards in a grid layout.
@@ -15,46 +15,34 @@ type Story = StoryObj<typeof ImageGallery>
 export const Default: Story = {
   args: {
     gallery: new Gallery([
-      new PortalImage(
+      new ImageResponse(
         1,
         'alt',
-        undefined,
-        undefined,
         new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')
       ),
-      new PortalImage(
+      new ImageResponse(
         2,
         'alt',
-        undefined,
-        undefined,
         new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')
       ),
-      new PortalImage(
+      new ImageResponse(
         3,
         'alt',
-        undefined,
-        undefined,
         new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')
       ),
-      new PortalImage(
+      new ImageResponse(
         4,
         'alt',
-        undefined,
-        undefined,
         new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')
       ),
-      new PortalImage(
+      new ImageResponse(
         5,
         'alt',
-        undefined,
-        undefined,
         new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')
       ),
-      new PortalImage(
+      new ImageResponse(
         6,
         'alt',
-        undefined,
-        undefined,
         new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')
       )
     ]),

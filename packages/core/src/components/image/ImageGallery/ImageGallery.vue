@@ -9,8 +9,8 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { Gallery } from '@core/components/image/models/gallery'
 import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
+import { Gallery } from '@core/models/image/gallery'
 /**
  * This displays a gallery using the {@link ImageCard} component for each image.
  */

@@ -1,16 +1,19 @@
 import { flushPromises, mount } from '@vue/test-utils'
 import { beforeEach, afterEach, describe, expect, it, vi } from 'vitest'
 import ImageDropArea from '@core/components/dragdrop/ImageDropArea/ImageDropArea.vue'
-import { PortalImage } from '@core/components/image/models/image'
+import type { defineComponent } from 'vue'
+import { ImageForm } from '@core/models/image/imageForm'
 
-describe('ImageDropArea', () => {
-  let wrapper
+describe('ImageDropArea.vue', () => {
+  let wrapper: ReturnType<typeof defineComponent>
+
   beforeEach(() => {
     wrapper = mount(ImageDropArea)
   })
   afterEach(() => {
     wrapper.unmount()
   })
+
   describe(':props', () => {
     it(':disable - dragOver, dragLeave and drop events are listened when set to false', async () => {
       await wrapper.setProps({ disable: false })
@@ -48,12 +51,12 @@ describe('ImageDropArea', () => {
   })
   describe('@events', () => {
     it('input - is triggered only once on drop', async () => {
-      const portalImage = new PortalImage(4711)
-      vi.spyOn(PortalImage, 'fromFile').mockResolvedValueOnce(portalImage)
+      const portalImage = new ImageForm(4711)
+      vi.spyOn(ImageForm, 'fromFile').mockResolvedValueOnce(portalImage)
 
       const file = new File([''], 'test', {
         type: 'image/jpg',
-        lastModified: new Date()
+        lastModified: Date.now()
       })
 
       const dropArea = wrapper.find('.file-drop-area')
@@ -68,12 +71,12 @@ describe('ImageDropArea', () => {
     it('input - is triggered multiple times on drop when multiselect is set to true', async () => {
       await wrapper.setProps({ multiselect: true })
 
-      const portalImage = new PortalImage(4711)
-      vi.spyOn(PortalImage, 'fromFile').mockResolvedValue(portalImage)
+      const portalImage = new ImageForm(4711)
+      vi.spyOn(ImageForm, 'fromFile').mockResolvedValue(portalImage)
 
       const file = new File([''], 'test', {
         type: 'image/jpg',
-        lastModified: new Date()
+        lastModified: Date.now()
       })
 
       const dropArea = wrapper.find('.file-drop-area')

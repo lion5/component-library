@@ -1,7 +1,8 @@
-import { ImageSizes } from '@core/components/image/models/imageSizes'
+import { ImageSizes } from '@core/models/image/imageSizes'
 import { useImageUtils } from '@core/composables/useImageUtils'
+import { ImageResponse } from '@core/models/image/imageResponse'
 
-export interface ApiPortalImage {
+export interface ApiImage {
   id: number
   alt: string
   original: string
@@ -11,7 +12,7 @@ export interface ApiPortalImage {
   large: string
 }
 
-export class PortalImage {
+export class ImageForm {
   readonly id: number | undefined
   alt: string | undefined
   file: File | undefined
@@ -55,33 +56,29 @@ export class PortalImage {
     return this.errors.length > 0
   }
 
-  static async fromFile(file: File): Promise<PortalImage> {
+  static async fromFile(file: File): Promise<ImageForm> {
     if (!file) {
       throw new Error('A image file is required!')
     }
     const { getDataUrlFromFile } = useImageUtils()
-    const dataUrl = (await getDataUrlFromFile(file)) as string
-    return new PortalImage(
+    const dataUrl = await getDataUrlFromFile(file)
+    return new ImageForm(
       -1,
       'Lokales Bild',
       file,
-      await PortalImage.getImage(dataUrl),
+      await ImageForm.getImage(dataUrl),
       new ImageSizes(dataUrl)
     )
   }
 
-  static fromApi(json: ApiPortalImage | undefined) {
-    if (!json) {
-      return
-    }
-    const imageSizes = new ImageSizes(
-      json.original,
-      json.tiny,
-      json.small,
-      json.mid,
-      json.large
+  static fromImage(image: ImageResponse) {
+    return new ImageForm(
+      image.id,
+      image.alt,
+      undefined,
+      undefined,
+      image.sizes.clone()
     )
-    return new PortalImage(json.id, json.alt, undefined, undefined, imageSizes)
   }
 
   static async getImage(dataUrl: string): Promise<HTMLImageElement> {
@@ -96,7 +93,7 @@ export class PortalImage {
   }
 
   clone() {
-    return new PortalImage(
+    return new ImageForm(
       this.id,
       this.alt,
       this.file,

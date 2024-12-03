@@ -1,13 +1,11 @@
-import {
-  ApiPortalImage,
-  PortalImage
-} from '@core/components/image/models/image'
+import { ImageForm } from '@core/models/image/imageForm'
+import { Gallery } from '@core/models/image/gallery'
 import { useArrayUtils } from '@core/composables/useArrayUtils'
 
-export class Gallery {
-  images: PortalImage[]
+export class GalleryForm {
+  images: ImageForm[]
 
-  constructor(images: PortalImage[] = []) {
+  constructor(images: ImageForm[] = []) {
     this.images = images
   }
 
@@ -30,7 +28,7 @@ export class Gallery {
     return this.images.length === 0
   }
 
-  addImage(image: PortalImage) {
+  addImage(image: ImageForm) {
     this.images = [...this.images, image]
   }
 
@@ -43,18 +41,13 @@ export class Gallery {
     moveInArray(this.images, fromIndex, toIndex)
   }
 
-  static fromApi(rawImages: ApiPortalImage[]) {
-    if (rawImages == null) {
-      return new Gallery()
-    }
-    return new Gallery(
-      rawImages
-        .map((rawImage: ApiPortalImage) => PortalImage.fromApi(rawImage))
-        .filter((image: PortalImage | undefined) => image) as PortalImage[]
+  static fromGallery(gallery: Gallery) {
+    return new GalleryForm(
+      gallery.images.map((image) => ImageForm.fromImage(image))
     )
   }
 
   clone() {
-    return new Gallery(this.images.map((image) => image.clone()))
+    return new GalleryForm(this.images.map((image) => image.clone()))
   }
 }

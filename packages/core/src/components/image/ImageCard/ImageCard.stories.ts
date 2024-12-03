@@ -1,7 +1,7 @@
 import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
-import { PortalImage } from '@core/components/image/models/image'
-import { ImageSizes } from '@core/components/image/models/imageSizes'
 import { Meta, StoryObj } from '@storybook/vue3'
+import { ImageSizes } from '@core/models/image/imageSizes'
+import { ImageResponse } from '@core/models/image/imageResponse'
 
 /**
  * This is the base image card component. It displays a modal on click with the image in full size.
@@ -22,9 +22,7 @@ const Template = (args: unknown) => ({
 export const Default: Story = {
   render: Template,
   args: {
-    image: new PortalImage(
-      undefined,
-      undefined,
+    image: new ImageResponse(
       undefined,
       undefined,
       new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')
