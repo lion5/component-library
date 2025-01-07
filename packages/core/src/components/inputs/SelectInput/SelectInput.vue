@@ -2,6 +2,7 @@
   <div
     class="floating-input-group"
     :class="{ 'single-select-input': true, 'has-content': selectedOption }"
+    :style="{ width: `${maxLabelWidth}px` }"
   >
     <multiselect
       :id="id"
@@ -18,6 +19,8 @@
       v-bind="$attrs"
       :open-direction="'bottom'"
       @select="updateModelValue"
+      :searchable="searchable"
+      :placeholder="label"
     >
       <template
         v-for="(_, name) in $slots"
@@ -113,39 +116,72 @@ const props = withDefaults(
      * The name of the entity that is being selected.
      */
     entityName?: string
+    /**
+     * Search function is enabled
+     */
+    searchable?: boolean
   }>(),
   {
     error: '',
-    entityName: 'Optionen'
+    entityName: 'Optionen',
+    searchable: true
   }
 )
 
 /**
  * The currently selected value as a `string`, initially `undefined`.
  */
-const modelValue = defineModel<string | undefined | null | number>()
+const modelValue = defineModel<string | number | boolean | undefined | null>()
 const selectedOption = ref<SelectOption<LabelType>>()
 
 const optionsMap = computed(() =>
   props.options.reduce(
     (acc, option) => {
-      acc[option.key || ''] = option
+      acc[String(option.key)] = option
       return acc
     },
     {} as { [key: string]: SelectOption<LabelType> }
   )
 )
 
+const maxLabelWidth = computed(() => {
+  const canvas = document.createElement('canvas')
+  const context = canvas.getContext('2d')
+  if (!context) return 0
+
+  context.font = '20px GothamNarrow, Helvetica, sans-serif'
+
+  const labelWidth = context.measureText(props.label).width
+  const optionsWidth = Math.max(
+    ...props.options.map((option) => context.measureText(String(option.label)).width)
+  )
+  const noOptionWidth = context.measureText(`Keine ${props.entityName} vorhanden`).width
+
+  const padding = 48
+  return Math.max(labelWidth, optionsWidth, noOptionWidth) + padding
+})
+
 onMounted(() => {
-  selectedOption.value =
-    modelValue.value != null ? optionsMap.value[modelValue.value] : props.defaultOption
+  if (
+    typeof modelValue.value === 'string' ||
+    typeof modelValue.value === 'number' ||
+    typeof modelValue.value === 'boolean'
+  ) {
+    selectedOption.value = optionsMap.value[String(modelValue.value)] || props.defaultOption
+  }
   if (selectedOption.value) updateModelValue(selectedOption.value)
 })
 
 watch(
   () => modelValue.value,
   (newValue) => {
-    if (newValue != null) selectedOption.value = optionsMap.value[newValue]
+    if (
+      typeof newValue === 'string' ||
+      typeof newValue === 'number' ||
+      typeof newValue === 'boolean'
+    ) {
+      selectedOption.value = optionsMap.value[String(newValue)]
+    }
   }
 )
 
@@ -176,7 +212,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
   display: grid;
   position: relative;
   gap: var(--space-sm);
-  height: calc(var(--input-field-height) + 5px);
+  width: fit-content;
 
   .option__container {
     display: flex;
@@ -235,11 +271,18 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
     transform: translateY(0%);
     font-size: var(--_label-size);
     padding-left: calc(var(--space-sm) + var(--space-xs));
+    z-index: 9999;
   }
 
   :deep(.multiselect) {
     .multiselect__placeholder {
-      display: none;
+      color: transparent;
+      font-size: var(--_input-size);
+      padding-block-end: var(--space-sm);
+      padding-block-start: calc(var(--_label-size) + var(--space-xs));
+      line-height: 1;
+
+      margin: 0;
     }
 
     input::placeholder,
@@ -252,8 +295,8 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
       padding-left: var(--space-sm);
     }
     .multiselect__single {
-      padding-left: var(--space-xs);
-      padding-top: var(--space-sm);
+      padding-block-end: var(--space-sm);
+      padding-block-start: calc(var(--_label-size) + var(--space-xs));
       margin: 0;
     }
 
@@ -288,16 +331,26 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
       border-inline: var(--focus-border);
       border-bottom: var(--focus-border);
     }
+
+    .multiselect__select {
+      height: 100%;
+    }
+
+    .multiselect__input {
+      padding-block-end: var(--space-sm);
+      padding-block-start: calc(var(--_label-size) + var(--space-xs));
+    }
   }
 
   :deep(.multiselect--active) {
+    position: absolute;
+
     .multiselect__tags {
       border-radius: var(--_input-border-radius) var(--_input-border-radius) 0 0;
     }
   }
 }
 
-/* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
   width: 12px;
 }
@@ -307,14 +360,13 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.5); /* Adjust the color and opacity as needed */
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
   border: 3px solid transparent;
 }
 
-/* For Firefox */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.5) transparent; /* Adjust the color and opacity as needed */
+  scrollbar-color: rgba(0, 0, 0, 0.5) transparent;
 }
 </style>
