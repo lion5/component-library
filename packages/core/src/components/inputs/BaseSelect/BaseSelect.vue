@@ -1,7 +1,17 @@
 <template>
   <BaseInputWrapper>
-    <select :name="name" :id="name" @change="handleChange" v-model="value">
-      <option v-if="optionsLabel" value="" disabled selected>
+    <select
+      :name="name"
+      :id="name"
+      @change="handleChange"
+      v-model="value"
+    >
+      <option
+        v-if="optionsLabel"
+        value=""
+        disabled
+        selected
+      >
         {{ optionsLabel }}
       </option>
       <option
@@ -13,7 +23,10 @@
       </option>
     </select>
     <label :for="name">{{ label }}</label>
-    <span class="error" v-if="errorMessage && meta.touched">
+    <span
+      class="error"
+      v-if="errorMessage && meta.touched"
+    >
       {{ errorMessage }}
     </span>
   </BaseInputWrapper>
@@ -25,7 +38,7 @@ import { toRef } from 'vue'
 import BaseInputWrapper from '@core/components/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
 
-type InputValue = string | number | null
+type InputValue = string | number | boolean | null
 
 const props = withDefaults(
   defineProps<{
