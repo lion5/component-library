@@ -1,6 +1,6 @@
 {
   "name": "@lion5/component-library-gridstack",
-  "version": "0.18.0",
+  "version": "0.19.0",
   "type": "commonjs",
   "license": "MIT",
   "contributors": [
@@ -59,7 +59,7 @@
     "./dist/style.css"
   ],
   "dependencies": {
-    "@lion5/component-library": "0.18.0",
+    "@lion5/component-library": "0.19.0",
     "@turf/boolean-point-in-polygon": ">=7.1.0",
     "gridstack": ">=11.1.0",
     "lodash-es": ">=4.17.21",
