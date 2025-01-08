@@ -1,3 +1,15 @@
+## 0.19.0 (2025-01-08)
+
+### 🩹 Fixes
+
+- imports ([5d13e37](https://github.com/lion5/component-library/commit/5d13e37))
+- imports in dependend packages ([4329865](https://github.com/lion5/component-library/commit/4329865))
+- imports in gridstack story ([896da09](https://github.com/lion5/component-library/commit/896da09))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.18.0 (2024-12-03)
 
 ### 🩹 Fixes
