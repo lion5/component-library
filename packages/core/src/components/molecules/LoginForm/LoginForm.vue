@@ -34,7 +34,7 @@
 import { ref, toRef } from 'vue'
 import { useForm } from 'vee-validate'
 import BaseButton from '@core/components/buttons/BaseButton/BaseButton.vue'
-import BaseInput from '@core/components/inputs/BaseInputV1Validated/BaseInput.vue'
+import BaseInput from '@core/components/inputs/BaseInputV1Validated/BaseInputV1Validated.vue'
 import { object, string } from 'yup'
 import MessageBox from '@core/components/boxes/MessageBox/MessageBox.vue'
 

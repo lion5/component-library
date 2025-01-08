@@ -1,21 +1,21 @@
 import { Meta, StoryObj } from '@storybook/vue3'
-import BaseInput from './BaseInput.vue'
+import BaseInputV1Validated from './BaseInputV1Validated.vue'
 import { Form } from 'vee-validate'
 
 export default {
-  component: BaseInput
-} as Meta<typeof BaseInput>
-type Story = StoryObj<typeof BaseInput>
+  component: BaseInputV1Validated
+} as Meta<typeof BaseInputV1Validated>
+type Story = StoryObj<typeof BaseInputV1Validated>
 
 export const TextInput: Story = {
   render: (args: unknown) => ({
-    components: { BaseInput, Form },
+    components: { BaseInputV1Validated, Form },
     setup() {
       return { args }
     },
     template: `
       <Form :initialValues='{input1: "Text Input"}'>
-      <BaseInput v-bind="args" />
+      <BaseInputV1Validated v-bind="args" />
       </Form>`
   }),
   args: {
@@ -27,13 +27,13 @@ export const TextInput: Story = {
 
 export const EMailInput: Story = {
   render: (args: unknown) => ({
-    components: { BaseInput, Form },
+    components: { BaseInputV1Validated, Form },
     setup() {
       return { args }
     },
     template: `
       <Form :initialValues='{input2: "email@example.com"}'>
-      <BaseInput v-bind="args" />
+      <BaseInputV1Validated v-bind="args" />
       </Form>`
   }),
   args: {
@@ -45,13 +45,13 @@ export const EMailInput: Story = {
 
 export const PasswordInput: Story = {
   render: (args: unknown) => ({
-    components: { BaseInput, Form },
+    components: { BaseInputV1Validated, Form },
     setup() {
       return { args }
     },
     template: `
       <Form :initialValues='{input3: "secret password"}'>
-      <BaseInput v-bind="args" />
+      <BaseInputV1Validated v-bind="args" />
       </Form>`
   }),
   args: {
@@ -79,7 +79,7 @@ export const Empty: Story = {
 
 export const WithError: Story = {
   render: (args: unknown) => ({
-    components: { BaseInput, Form },
+    components: { BaseInputV1Validated, Form },
     setup() {
       return { args }
     },
@@ -88,7 +88,7 @@ export const WithError: Story = {
             :initialTouched='{"input-with-error": true}'
             :validateOnMount="false"
             :initialErrors='{"input-with-error": "This is an error"}'>
-      <BaseInput v-bind="args" />
+      <BaseInputV1Validated v-bind="args" />
       </Form>`
   }),
   args: {

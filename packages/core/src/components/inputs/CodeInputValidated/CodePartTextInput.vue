@@ -24,7 +24,7 @@
 import { computed } from 'vue'
 import { allowedCodeCharacters } from '@core/components/inputs/CodeInputValidated/codeInputValidation'
 import type { FieldMeta } from 'vee-validate'
-import { BaseInputWrapper } from '@core/components'
+import BaseInputWrapper from '@core/components/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 
 const props = withDefaults(
   defineProps<{

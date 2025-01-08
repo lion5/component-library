@@ -2,7 +2,7 @@
   <BaseIcon icon="bi-circle-fill" />
 </template>
 <script lang="ts" setup>
-import { BaseIcon } from '@core/components'
+import BaseIcon from '@core/components/icons/BaseIcon.vue'
 </script>
 <style lang="scss" scoped>
 .bi::before {
