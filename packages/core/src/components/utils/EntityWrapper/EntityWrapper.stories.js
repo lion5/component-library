@@ -1,7 +1,8 @@
 import EntityWrapper from '@core/components/utils/EntityWrapper/EntityWrapper.vue'
 
 export default {
-  component: EntityWrapper
+  component: EntityWrapper,
+  title: 'Utility Components/EntityWrapper',
 }
 
 const Template = (args) => ({

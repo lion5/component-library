@@ -2,6 +2,7 @@ import LayoutDynamicGrid from '@core/components/layouts/LayoutDynamicGrid/Layout
 
 export default {
   component: LayoutDynamicGrid,
+  title: 'Layout Components/LayoutDynamicGrid',
   parameters: {
     cssprops: {
       'grid-min-width': {

@@ -9,7 +9,8 @@ import { ref } from 'vue'
  * The carousel can be controlled via the arrow buttons, by swiping on touch devices or using the left and right keyboard key.
  */
 export default {
-  component: ImageCarousel
+  component: ImageCarousel,
+  title: 'Display Components/Image/ImageCarousel',
 } as Meta<typeof ImageCarousel>
 type Story = StoryObj<typeof ImageCarousel>
 

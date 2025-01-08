@@ -5,6 +5,7 @@ import IconInfoCircle from '../../icons/IconTrash.vue'
 
 export default {
   component: TooltipIcon,
+  title: 'Display Components/TooltipIcon',
   render: (args) => ({
     components: { TooltipIcon, IconTrash, IconInfoCircle },
     setup() {

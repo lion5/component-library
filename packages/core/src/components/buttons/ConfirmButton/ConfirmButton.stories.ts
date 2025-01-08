@@ -3,7 +3,8 @@ import { action } from '@storybook/addon-actions'
 import ConfirmButton from './ConfirmButton.vue'
 
 export default {
-  component: ConfirmButton
+  component: ConfirmButton,
+  title: 'Navigation Components/ConfirmButton'
 } as Meta<typeof ConfirmButton>
 type Story = StoryObj<typeof ConfirmButton>
 

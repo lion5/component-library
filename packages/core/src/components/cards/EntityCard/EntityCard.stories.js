@@ -1,7 +1,8 @@
 import EntityCard from '@core/components/cards/EntityCard/EntityCard.vue'
 
 export default {
-  component: EntityCard
+  component: EntityCard,
+  title: 'Display Components/Cards/EntityCard',
 }
 
 const Template = (args, { argTypes }) => ({

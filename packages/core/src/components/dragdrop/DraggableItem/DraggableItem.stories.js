@@ -2,7 +2,8 @@ import { action } from '@storybook/addon-actions'
 import DraggableItem from '@core/components/dragdrop/DraggableItem/DraggableItem.vue'
 
 export default {
-  component: DraggableItem
+  component: DraggableItem,
+  title: 'Input Components/DraggableItem',
 }
 
 const Template = (args, { argTypes }) => ({

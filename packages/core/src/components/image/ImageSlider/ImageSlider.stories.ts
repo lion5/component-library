@@ -4,7 +4,8 @@ import { ref } from 'vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
 export default {
-  component: ImageSlider
+  component: ImageSlider,
+  title: 'Display Components/Image/ImageSlider',
 } as Meta<typeof ImageSlider>
 type Story = StoryObj<typeof ImageSlider>
 

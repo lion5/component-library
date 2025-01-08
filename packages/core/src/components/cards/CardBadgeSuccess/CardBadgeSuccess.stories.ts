@@ -3,7 +3,8 @@ import ItemCard from '../ItemCard/ItemCard.vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
 export default {
-  component: CardBadgeSuccess
+  component: CardBadgeSuccess,
+  title: 'Display Components/Cards/CardBadgeSuccess',
 } as Meta<typeof CardBadgeSuccess>
 type Story = StoryObj<typeof CardBadgeSuccess>
 

@@ -5,7 +5,8 @@ import { ImageConstraints } from '../../../../models/image/imageConstraints'
 import { ImageSizes } from '@core/models/image/imageSizes'
 
 export default {
-  component: ImageEditModal
+  component: ImageEditModal,
+  title: 'Input Components/ImageEditModal'
 } as Meta<typeof ImageEditModal>
 type Story = StoryObj<typeof ImageEditModal>
 

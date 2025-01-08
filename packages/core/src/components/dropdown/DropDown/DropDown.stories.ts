@@ -4,7 +4,8 @@ import IconSettings from '../../icons/IconSettings.vue'
 import DropDown from './DropDown.vue'
 
 export default {
-  component: DropDown
+  component: DropDown,
+  title: 'Navigation Components/DropDown/DropDown',
 } as Meta<typeof DropDown>
 type Story = StoryObj<typeof DropDown>
 

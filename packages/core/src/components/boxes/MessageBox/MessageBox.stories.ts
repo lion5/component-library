@@ -2,7 +2,8 @@ import MessageBox from '../../boxes/MessageBox/MessageBox.vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
 export default {
-  component: MessageBox
+  component: MessageBox,
+  title: 'Display Components/Boxes/MessageBox'
 } as Meta<typeof MessageBox>
 type Story = StoryObj<typeof MessageBox>
 

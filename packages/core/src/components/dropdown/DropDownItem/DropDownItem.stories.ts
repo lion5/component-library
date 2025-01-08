@@ -3,7 +3,8 @@ import DropDownItem from './DropDownItem.vue'
 import IconSettings from '../../icons/IconSettings.vue'
 
 export default {
-  component: DropDownItem
+  component: DropDownItem,
+  title: 'Navigation Components/DropDown/DropDownItem',
 } as Meta<typeof DropDownItem>
 type Story = StoryObj<typeof DropDownItem>
 

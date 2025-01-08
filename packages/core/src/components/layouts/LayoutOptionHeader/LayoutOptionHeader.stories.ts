@@ -3,6 +3,7 @@ import LayoutOptionHeader from './LayoutOptionHeader.vue'
 
 export default {
   component: LayoutOptionHeader,
+  title: 'Layout Components/LayoutOptionHeader',
   render: (args) => ({
     components: { LayoutOptionHeader },
     setup() {

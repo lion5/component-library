@@ -1,57 +1,59 @@
-import AddressInput from '@core/components/inputs/AddressInput/AddressInput.vue'
-import BaseInput from '@core/components/inputs/BaseInput/BaseInput.vue'
-import BaseInputV2 from '@core/components/inputs/BaseInputV2/BaseInputV2.vue'
+import AddressInputValidated from '@core/components/inputs/AddressInputValidated/AddressInputValidated.vue'
+import BaseInputV1Validated from '@core/components/inputs/BaseInputV1Validated/BaseInputV1Validated.vue'
+import BaseInputV2Validated from '@core/components/inputs/BaseInputV2Validated/BaseInputV2Validated.vue'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import BaseInputWrapper from '@core/components/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 import BaseSelect from '@core/components/inputs/BaseSelect/BaseSelect.vue'
-import CentInput from '@core/components/inputs/CentInput/CentInput.vue'
-import CheckboxInput from '@core/components/inputs/CheckboxInput/CheckboxInput.vue'
-import CheckboxInputV2 from '@core/components/inputs/CheckboxInputV2/CheckboxInputV2.vue'
-import CodeInput from '@core/components/inputs/CodeInput/CodeInput.vue'
-import DateTimeInput from '@core/components/inputs/DateTimeInput/DateTimeInput.vue'
-import EuroInput from '@core/components/inputs/EuroInput/EuroInput.vue'
+import CentInputValidated from '@core/components/inputs/CentInputValidated/CentInputValidated.vue'
+import CheckboxInputV1Validated from '@core/components/inputs/CheckboxInputV1Validated/CheckboxInputV1Validated.vue'
+import CheckboxInputV2Validated from '@core/components/inputs/CheckboxInputV2Validated/CheckboxInputV2Validated.vue'
+import CodeInputValidated from '@core/components/inputs/CodeInputValidated/CodeInputValidated.vue'
+import DateTimeInputValidated from '@core/components/inputs/DateTimeInputValidated/DateTimeInputValidated.vue'
+import EuroInputValidated from '@core/components/inputs/EuroInputValidated/EuroInputValidated.vue'
 import GalleryInput from '@core/components/inputs/image/GalleryInput/GalleryInput.vue'
-import IbanInput from '@core/components/inputs/IbanInput/IbanInput.vue'
+import IbanInputValidated from '@core/components/inputs/IbanInputValidated/IbanInputValidated.vue'
 import ImageAddCard from '@core/components/inputs/image/ImageAddCard/ImageAddCard.vue'
 import ImageEditCard from '@core/components/inputs/image/ImageEditCard/ImageEditCard.vue'
-import ImageInputWrapper from '@core/components/inputs/ImpageInputWrapper/ImageInputWrapper.vue'
+import ImageInputWrapperValidated from '@core/components/inputs/image/ImageInputWrapperValidated/ImageInputWrapperValidated.vue'
 import LocationCoordinateSelect from '@core/components/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
 import MultiselectInput from '@core/components/inputs/MultiselectInput/MultiselectInput.vue'
-import NumberInput from '@core/components/inputs/NumberInput/NumberInput.vue'
-import PreviewImageInput from '@core/components/inputs/PreviewImageInput/PreviewImageInput.vue'
-import SearchInput from '@core/components/inputs/SearchInput/SearchInput.vue'
+import NumberInputValidated from '@core/components/inputs/NumberInputValidated/NumberInputValidated.vue'
+import PreviewImageInputValidated from '@core/components/inputs/image/PreviewImageInputValidated/PreviewImageInputValidated.vue'
+import SearchInputValidated from '@core/components/inputs/SearchInputValidated/SearchInputValidated.vue'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
 import SliderToggleInput from '@core/components/inputs/SliderToggleInput/SliderToggleInput.vue'
-import SlugInput from '@core/components/inputs/SlugInput/SlugInput.vue'
+import SlugInputValidated from '@core/components/inputs/SlugInputValidated/SlugInputValidated.vue'
 import SortableGalleryInput from '@core/components/inputs/image/SortableGalleryInput/SortableGalleryInput.vue'
-import UploadImageFAB from '@core/components/inputs/UploadImageFAB/UploadImageFAB.vue'
+import UploadImageFABValidated from '@core/components/inputs/image/UploadImageFABValidated/UploadImageFABValidated.vue'
 
 export {
-  AddressInput,
-  BaseInput,
-  BaseInputV2,
+  AddressInputValidated,
+  BaseInputV1Validated,
+  BaseInputV2Validated,
   BaseInputV3,
+  BaseInputV3 as BaseInput,
   BaseInputWrapper,
   BaseSelect,
-  CentInput,
-  CheckboxInput,
-  CheckboxInputV2,
-  CodeInput,
-  DateTimeInput,
-  EuroInput,
+  CentInputValidated,
+  CheckboxInputV1Validated,
+  CheckboxInputV2Validated,
+  CheckboxInputV2Validated as CheckboxInputValidated,
+  CodeInputValidated,
+  DateTimeInputValidated,
+  EuroInputValidated,
   GalleryInput,
-  IbanInput,
+  IbanInputValidated,
   ImageAddCard,
   ImageEditCard,
-  ImageInputWrapper,
+  ImageInputWrapperValidated,
   LocationCoordinateSelect,
   MultiselectInput,
-  NumberInput,
-  PreviewImageInput,
-  SearchInput,
+  NumberInputValidated,
+  PreviewImageInputValidated,
+  SearchInputValidated,
   SelectInput,
   SliderToggleInput,
-  SlugInput,
+  SlugInputValidated,
   SortableGalleryInput,
-  UploadImageFAB
+  UploadImageFABValidated
 }

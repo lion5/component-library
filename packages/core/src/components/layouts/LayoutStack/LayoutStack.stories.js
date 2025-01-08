@@ -1,7 +1,8 @@
 import LayoutStack from '@core/components/layouts/LayoutStack/LayoutStack.vue'
 
 export default {
-  component: LayoutStack
+  component: LayoutStack,
+  title: 'Layout Components/LayoutStack'
 }
 
 const Template = (args, { argTypes }) => ({

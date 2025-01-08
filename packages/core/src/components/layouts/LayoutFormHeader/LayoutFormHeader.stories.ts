@@ -3,6 +3,7 @@ import LayoutFormHeader from './LayoutFormHeader.vue'
 
 export default {
   component: LayoutFormHeader,
+  title: 'Layout Components/LayoutFormHeader',
   render: (args) => ({
     components: { LayoutFormHeader },
     setup() {

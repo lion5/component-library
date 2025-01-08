@@ -8,7 +8,8 @@ import { Meta, StoryObj } from '@storybook/vue3'
  * **If both props (error and errors) are undefined or empty, the box will not be rendered!**
  */
 export default {
-  component: ErrorBox
+  component: ErrorBox,
+  title: 'Display Components/Boxes/ErrorBox'
 } as Meta<typeof ErrorBox>
 type Story = StoryObj<typeof ErrorBox>
 

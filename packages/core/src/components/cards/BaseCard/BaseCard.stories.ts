@@ -2,7 +2,8 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import BaseCard from './BaseCard.vue'
 
 export default {
-  component: BaseCard
+  component: BaseCard,
+  title: 'Display Components/Cards/BaseCard'
 } as Meta<typeof BaseCard>
 type Story = StoryObj<typeof BaseCard>
 

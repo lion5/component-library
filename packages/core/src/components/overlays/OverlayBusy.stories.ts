@@ -2,7 +2,8 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import OverlayBusy from './OverlayBusy.vue'
 
 export default {
-  component: OverlayBusy
+  component: OverlayBusy,
+  title: 'Display Components/Overlays/OverlayBusy',
 } as Meta<typeof OverlayBusy>
 type Story = StoryObj<typeof OverlayBusy>
 

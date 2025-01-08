@@ -1,7 +1,8 @@
 import BasePageLayout from '@core/components/layouts/PageLayoutOneColumnV2/PageLayoutOneColumnV2.vue'
 
 export default {
-  component: BasePageLayout
+  component: BasePageLayout,
+  title: 'Layout Components/PageLayoutOneColumnV2'
 }
 
 const Template = (args) => ({
