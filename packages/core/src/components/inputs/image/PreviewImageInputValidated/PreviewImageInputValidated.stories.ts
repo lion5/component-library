@@ -4,7 +4,8 @@ import { ref } from 'vue'
 import { Form } from 'vee-validate'
 
 export default {
-  component: PreviewImageInput
+  component: PreviewImageInput,
+  title: 'Input Components/PreviewImageInputValidated'
 } as Meta<typeof PreviewImageInput>
 type Story = StoryObj<typeof PreviewImageInput>
 

@@ -5,7 +5,8 @@ import { Meta, StoryObj } from '@storybook/vue3'
 
 const meta: Meta<typeof BaseButton> = {
   subcomponents: { IconQRCode },
-  component: BaseButton
+  component: BaseButton,
+  title: 'Navigation Components/BaseButton'
 }
 export default meta
 type Story = StoryObj<typeof BaseButton>

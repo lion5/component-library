@@ -11,7 +11,8 @@ import { GalleryForm } from '../../../../models/image/galleryForm'
  * It supports drop files to add images and sorting with drag and drop.
  */
 export default {
-  component: SortableGalleryInput
+  component: SortableGalleryInput,
+  title: 'Input Components/SortableGalleryInput'
 } as Meta<typeof SortableGalleryInput>
 type Story = StoryObj<typeof SortableGalleryInput>
 

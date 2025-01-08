@@ -8,7 +8,8 @@ import { ref } from 'vue'
  */
 
 export default {
-  component: SlugInput
+  component: SlugInput,
+  title: 'Input Components/SlugInputValidated'
 } as Meta<typeof SlugInput>
 type Story = StoryObj<typeof SlugInput>
 

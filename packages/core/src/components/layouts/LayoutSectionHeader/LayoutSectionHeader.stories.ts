@@ -3,6 +3,7 @@ import LayoutSectionHeader from './LayoutSectionHeader.vue'
 
 export default {
   component: LayoutSectionHeader,
+  title: 'Layout Components/LayoutSectionHeader',
   render: (args) => ({
     components: { LayoutSectionHeader },
     setup() {

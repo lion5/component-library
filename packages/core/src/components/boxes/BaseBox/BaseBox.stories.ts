@@ -2,7 +2,8 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import BaseBox from './BaseBox.vue'
 
 export default {
-  component: BaseBox
+  component: BaseBox,
+  title: 'Display Components/Boxes/BaseBox'
 } as Meta<typeof BaseBox>
 type Story = StoryObj<typeof BaseBox>
 

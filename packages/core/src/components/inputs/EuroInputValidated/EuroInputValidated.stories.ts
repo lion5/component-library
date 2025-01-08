@@ -9,7 +9,8 @@ import EuroInput from './EuroInputValidated.vue'
  */
 
 export default {
-  component: EuroInput
+  component: EuroInput,
+  title: 'Input Components/EuroInputValidated'
 } as Meta<typeof EuroInput>
 type Story = StoryObj<typeof EuroInput>
 

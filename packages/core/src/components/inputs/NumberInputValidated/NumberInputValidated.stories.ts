@@ -3,7 +3,8 @@ import { Form } from 'vee-validate'
 import NumberInput from './NumberInputValidated.vue'
 
 export default {
-  component: NumberInput
+  component: NumberInput,
+  title: 'Input Components/NumberInputValidated'
 } as Meta<typeof NumberInput>
 type Story = StoryObj<typeof NumberInput>
 

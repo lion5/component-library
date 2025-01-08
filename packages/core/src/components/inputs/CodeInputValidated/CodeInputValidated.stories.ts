@@ -7,7 +7,8 @@ import CodeInput from './CodeInputValidated.vue'
  **/
 
 export default {
-  component: CodeInput
+  component: CodeInput,
+  title: 'Input Components/CodeInputValidated'
 } as Meta<typeof CodeInput>
 type Story = StoryObj<typeof CodeInput>
 

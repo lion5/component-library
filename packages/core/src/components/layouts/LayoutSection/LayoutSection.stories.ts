@@ -3,6 +3,7 @@ import LayoutSection from './LayoutSection.vue'
 
 export default {
   component: LayoutSection,
+  title: 'Layout Components/LayoutSection',
   render: (args) => ({
     components: { LayoutSection },
     setup() {

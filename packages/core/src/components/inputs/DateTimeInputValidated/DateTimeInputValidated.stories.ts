@@ -4,7 +4,8 @@ import DateTimeInput from './DateTimeInputValidated.vue'
 import { useDate } from '@core/composables/useDate'
 
 export default {
-  component: DateTimeInput
+  component: DateTimeInput,
+  title: 'Input Components/DateTimeInputValidated'
 } as Meta<typeof DateTimeInput>
 type Story = StoryObj<typeof DateTimeInput>
 

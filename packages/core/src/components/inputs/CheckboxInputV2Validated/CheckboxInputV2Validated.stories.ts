@@ -3,7 +3,8 @@ import { Form } from 'vee-validate'
 import CheckboxInputV2 from './CheckboxInputV2Validated.vue'
 
 export default {
-  component: CheckboxInputV2
+  component: CheckboxInputV2,
+  title: 'Input Components/CheckboxInputValidated'
 } as Meta<typeof CheckboxInputV2>
 type Story = StoryObj<typeof CheckboxInputV2>
 

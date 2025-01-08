@@ -2,7 +2,8 @@ import { action } from '@storybook/addon-actions'
 import InformationButton from '@core/components/buttons/InformationButton/InformationButton.vue'
 
 export default {
-  component: InformationButton
+  component: InformationButton,
+  title: 'Navigation Components/InformationButton',
 }
 
 const Template = (args, { argTypes }) => ({

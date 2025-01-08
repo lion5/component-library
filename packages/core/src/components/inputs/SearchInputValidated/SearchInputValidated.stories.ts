@@ -9,7 +9,8 @@ import { SearchResult as SearchResultClass } from './searchResult'
  */
 
 export default {
-  component: SearchResult
+  component: SearchResult,
+  title: 'Input Components/SearchInputValidated'
 } as Meta<typeof SearchResult>
 type Story = StoryObj<typeof SearchResult>
 

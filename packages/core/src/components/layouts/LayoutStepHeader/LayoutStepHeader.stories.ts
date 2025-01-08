@@ -3,6 +3,7 @@ import LayoutStepHeader from './LayoutStepHeader.vue'
 
 export default {
   component: LayoutStepHeader,
+  title: 'Layout Components/LayoutStepHeader',
   render: (args) => ({
     components: { LayoutStepHeader },
     setup() {

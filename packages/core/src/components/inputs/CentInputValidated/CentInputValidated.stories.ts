@@ -9,7 +9,8 @@ import CentInput from './CentInputValidated.vue'
  */
 
 export default {
-  component: CentInput
+  component: CentInput,
+  title: 'Input Components/CentInputValidated'
 } as Meta<typeof CentInput>
 type Story = StoryObj<typeof CentInput>
 

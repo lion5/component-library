@@ -11,7 +11,8 @@ import { ImageConstraints } from '../../../../models/image/imageConstraints'
  * It supports drop files to add images and sorting with drag and drop.
  */
 export default {
-  component: ImageGalleryInput
+  component: ImageGalleryInput,
+  title: 'Input Components/GalleryInput'
 } as Meta<typeof ImageGalleryInput>
 type Story = StoryObj<typeof ImageGalleryInput>
 

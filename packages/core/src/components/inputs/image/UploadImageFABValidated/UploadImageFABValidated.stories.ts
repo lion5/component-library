@@ -3,7 +3,8 @@ import { ref } from 'vue'
 import UploadImageFAB from './UploadImageFABValidated.vue'
 
 export default {
-  component: UploadImageFAB
+  component: UploadImageFAB,
+  title: 'Input Components/UploadImageFAB'
 } as Meta<typeof UploadImageFAB>
 type Story = StoryObj<typeof UploadImageFAB>
 

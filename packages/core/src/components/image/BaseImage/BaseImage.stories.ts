@@ -11,7 +11,8 @@ import { MinimalImage } from '../models/minimalImage'
  * - use `--image-height` to configure the image height. Default: `100%`
  */
 export default {
-  component: BaseImage
+  component: BaseImage,
+  title: 'Display Components/Image/BaseImage',
 } as Meta<typeof BaseImage>
 type Story = StoryObj<typeof BaseImage>
 

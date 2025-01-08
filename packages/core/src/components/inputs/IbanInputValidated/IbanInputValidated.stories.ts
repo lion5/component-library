@@ -3,7 +3,8 @@ import { Form } from 'vee-validate'
 import IbanInput from './IbanInputValidated.vue'
 
 export default {
-  component: IbanInput
+  component: IbanInput,
+  title: 'Input Components/IbanInputValidated'
 } as Meta<typeof IbanInput>
 type Story = StoryObj<typeof IbanInput>
 

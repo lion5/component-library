@@ -7,7 +7,8 @@ import { ImageResponse } from '@core/models/image/imageResponse'
  * This is the base image card component. It displays a modal on click with the image in full size.
  */
 export default {
-  component: ImageCard
+  component: ImageCard,
+  title: 'Display Components/Image/ImageCard',
 } as Meta<typeof ImageCard>
 type Story = StoryObj<typeof ImageCard>
 

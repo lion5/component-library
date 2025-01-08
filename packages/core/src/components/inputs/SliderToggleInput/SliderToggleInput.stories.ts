@@ -3,7 +3,8 @@ import SliderToggleInput from './SliderToggleInput.vue'
 import { ref } from 'vue'
 
 export default {
-  component: SliderToggleInput
+  component: SliderToggleInput,
+  title: 'Input Components/SliderToggleInput'
 } as Meta<typeof SliderToggleInput>
 type Story = StoryObj<typeof SliderToggleInput>
 

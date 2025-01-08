@@ -6,7 +6,8 @@ import { Address } from '../../../models'
 import { string } from 'yup'
 
 export default {
-  component: AddressInput
+  component: AddressInput,
+  title: 'Input Components/AddressInputValidated'
 } as Meta<typeof AddressInput>
 type Story = StoryObj<typeof AddressInput>
 

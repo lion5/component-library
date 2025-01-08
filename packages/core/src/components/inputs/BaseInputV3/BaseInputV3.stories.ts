@@ -3,7 +3,8 @@ import BaseInputV3 from './BaseInputV3.vue'
 import { BaseIcon } from '../../icons'
 
 export default {
-  component: BaseInputV3
+  component: BaseInputV3,
+  title: 'Input Components/BaseInput'
 } as Meta<typeof BaseInputV3>
 type Story = StoryObj<typeof BaseInputV3>
 

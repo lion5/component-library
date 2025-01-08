@@ -1,7 +1,8 @@
 import PageLayoutOneColumn from '@core/components/layouts/PageLayoutOneColumn/PageLayoutOneColumn.vue'
 
 export default {
-  component: PageLayoutOneColumn
+  component: PageLayoutOneColumn,
+  title: 'Layout Components/PageLayoutOneColumn'
 }
 
 const Template = (args) => ({

@@ -3,7 +3,8 @@ import DashboardItem from './DashboardItemCard.vue'
 import { DashboardItem as DashboardItemClass } from './dashboardItem'
 
 export default {
-  component: DashboardItem
+  component: DashboardItem,
+  title: 'Display Components/Cards/DashboardItemCard',
 } as Meta<typeof DashboardItem>
 type Story = StoryObj<typeof DashboardItem>
 

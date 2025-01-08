@@ -3,7 +3,8 @@ import BaseInputV1Validated from './BaseInputV1Validated.vue'
 import { Form } from 'vee-validate'
 
 export default {
-  component: BaseInputV1Validated
+  component: BaseInputV1Validated,
+  tags: ['!dev', '!autodocs']
 } as Meta<typeof BaseInputV1Validated>
 type Story = StoryObj<typeof BaseInputV1Validated>
 
