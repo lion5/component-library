@@ -4,9 +4,9 @@ import type { defineComponent } from 'vue'
 import { boolean, string } from 'yup'
 import { Form } from 'vee-validate'
 import {
-  BaseInputV2,
+  BaseInputV2Validated,
   BaseSelect,
-  CheckboxInput
+  CheckboxInputV1Validated
 } from '@lion5/component-library'
 import { FormField, FormSchema } from '@/models/formSchema'
 import WidgetSettingsForm from '@/components/WidgetSettingsForm/WidgetSettingsForm.vue'
@@ -23,10 +23,10 @@ describe('WidgetSettingsForm.vue', () => {
     ['test3', 'defaultTest3Value']
   ])
   const schema = new FormSchema([
-    new FormField(BaseInputV2, 'Test 1 Label', 'test1', string(), {
+    new FormField(BaseInputV2Validated, 'Test 1 Label', 'test1', string(), {
       type: 'text'
     }),
-    new FormField(CheckboxInput, 'Test 2 Label', 'test2', boolean()),
+    new FormField(CheckboxInputV1Validated, 'Test 2 Label', 'test2', boolean()),
     new FormField(BaseSelect, 'Test 3 Label', 'test3', string(), {
       options: ['value1', 'value2', 'value3']
     })
@@ -49,14 +49,14 @@ describe('WidgetSettingsForm.vue', () => {
       )
     })
     it(':schema - is rendered', async () => {
-      const firstInput = wrapper.findComponent(BaseInputV2)
+      const firstInput = wrapper.findComponent(BaseInputV2Validated)
       expect(firstInput.exists()).toBeTruthy()
       expect(firstInput.vm.label).toBe(schema.fields[0].label)
       expect(firstInput.vm.name).toBe(schema.fields[0].name)
       expect(firstInput.vm.type).toBe(
         (schema.fields[0].additionalProps as { type: string }).type
       )
-      const secondInput = wrapper.findComponent(CheckboxInput)
+      const secondInput = wrapper.findComponent(CheckboxInputV1Validated)
       expect(secondInput.exists()).toBeTruthy()
       expect(secondInput.vm.label).toBe(schema.fields[1].label)
       expect(secondInput.vm.name).toBe(schema.fields[1].name)

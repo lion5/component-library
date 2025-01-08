@@ -1,6 +1,6 @@
 import { string } from 'yup'
 import { FormField, FormSchema } from '@/models/formSchema'
-import { BaseInputV2 } from '@lion5/component-library'
+import { BaseInputV2Validated } from '@lion5/component-library'
 
 /**
  * Contains keys of all settings. These are used to add, update and retrieve the settings from the settings map.
@@ -15,7 +15,7 @@ export enum TemplateWidgetSetting {
  */
 export const TemplateWidgetSettingsFormSchema = new FormSchema([
   new FormField(
-    BaseInputV2,
+    BaseInputV2Validated,
     'Greeting',
     TemplateWidgetSetting.GREETING,
     string().required()
