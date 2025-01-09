@@ -4,6 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
 import type { defineComponent } from 'vue'
 import MultiselectInput from '@core/components/inputs/MultiselectInput/MultiselectInput.vue'
+import { ErrorBox } from '@core/components'
 
 describe('MultiselectInput', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -14,6 +15,7 @@ describe('MultiselectInput', () => {
         stubs: ['MultiselectInput']
       },
       props: {
+        name: 'name',
         id: 'test-select-input',
         label: 'Merchants',
         options: [
@@ -67,11 +69,10 @@ describe('MultiselectInput', () => {
       expect(labelElement.text()).toBe(label)
       expect(labelElement.attributes('for')).toBe(id)
     })
-    it(':error - is applied to the error element', async () => {
-      const error = 'Test Error'
-      await wrapper.setProps({ error })
-      const labelElement = wrapper.find('small.error')
-      expect(labelElement.text()).toBe(error)
+    it(':errors - is applied to the errors element', async () => {
+      const expectedError = new Error('Expected Error')
+      await wrapper.setProps({ name: 'test', errors: [expectedError], invalid: true })
+      expect(wrapper.findComponent(ErrorBox).vm.errors).toStrictEqual([expectedError])
     })
     it(':defaultOption - nothing is emitted when value and default value not set', async () => {
       expect(wrapper.emitted('update:modelValue')).toBe(undefined)
@@ -83,6 +84,7 @@ describe('MultiselectInput', () => {
           stubs: ['MultiselectInput']
         },
         props: {
+          name: 'name',
           id: 'test-select-input',
           label: 'Merchants',
           options: [
@@ -102,6 +104,7 @@ describe('MultiselectInput', () => {
     it('renders noOptions slot content when options array is empty', () => {
       wrapper = mount(MultiselectInput, {
         props: {
+          name: 'name',
           id: 'test-select-input',
           label: 'Merchants',
           entityName: 'Merchants',
@@ -121,6 +124,7 @@ describe('MultiselectInput', () => {
     it('renders noResult slot content when options array contains random text', async () => {
       wrapper = mount(MultiselectInput, {
         props: {
+          name: 'name',
           id: 'test-select-input',
           label: 'Merchants',
           entityName: 'Merchants',
@@ -143,6 +147,7 @@ describe('MultiselectInput', () => {
     it('renders image in option when img property is provided', async () => {
       wrapper = mount(MultiselectInput, {
         props: {
+          name: 'name',
           id: 'test-select-input',
           label: 'Merchants',
           entityName: 'Merchants',
@@ -164,6 +169,7 @@ describe('MultiselectInput', () => {
     it('renders icon in option when icon property is provided', async () => {
       wrapper = mount(MultiselectInput, {
         props: {
+          name: 'name',
           id: 'test-select-input',
           label: 'Merchants',
           entityName: 'Merchants',
@@ -195,6 +201,7 @@ describe('MultiselectInput', () => {
           stubs: ['MultiselectInput']
         },
         props: {
+          name: 'name',
           id: 'test-select-input',
           label: 'Merchants',
           options,
@@ -222,6 +229,7 @@ describe('MultiselectInput', () => {
           stubs: ['MultiselectInput']
         },
         props: {
+          name: 'name',
           id: 'test-select-input',
           label: 'Merchants',
           options,
@@ -250,6 +258,7 @@ describe('MultiselectInput', () => {
           stubs: ['MultiselectInput']
         },
         props: {
+          name: 'name',
           id: 'test-select-input',
           label: 'Merchants',
           options,
