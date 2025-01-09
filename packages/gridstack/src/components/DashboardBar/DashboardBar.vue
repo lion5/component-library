@@ -3,6 +3,7 @@
     <h1>Dashboard</h1>
     <div class="right-aligned">
       <SelectInput
+        name="dashboard-select"
         v-model="selectedDashboardConfiguration"
         :options="dashboardConfigurationOptionsMap"
         :label="'Dashboard-Konfiguration'"
