@@ -2,6 +2,7 @@ import SelectInputValidated from './SelectInputValidated.vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 import { SelectOption } from '../BaseSelect/selectOption'
 import { Form } from 'vee-validate'
+import { number } from 'yup'
 
 export default {
   component: SelectInputValidated
@@ -81,6 +82,35 @@ export const Icons: Story = {
   args: {
     ...Empty.args,
     name: 'test4',
+    options: [
+      new SelectOption('option1', 'Option 1', '', 'bi-1-circle'),
+      new SelectOption('option2', 'Option 2', '', 'bi-2-circle'),
+      new SelectOption('option3', 'Option 3', '', 'bi-3-circle'),
+      new SelectOption('option4', 'Option 4', '', 'bi-4-circle'),
+      new SelectOption('option5', 'Option 5', '', 'bi-5-circle')
+    ]
+  }
+}
+
+export const WithError: Story = {
+  render: (args: unknown) => ({
+    components: { SelectInputValidated, Form },
+    setup() {
+      return { args }
+    },
+    template: `
+      <Form :initialValues='{"input-with-error": "Some wrong text"}'
+            :initialTouched='{"input-with-error": true}'
+            :validateOnMount='false'
+            :keep-values="true"
+            :initialErrors='{"input-with-error": "This is an error"}'>
+        <SelectInputValidated v-bind="args" />
+      </Form>`
+  }),
+  args: {
+    ...Empty.args,
+    name: 'input-with-error',
+    validationRules: number().required(),
     options: [
       new SelectOption('option1', 'Option 1', '', 'bi-1-circle'),
       new SelectOption('option2', 'Option 2', '', 'bi-2-circle'),
