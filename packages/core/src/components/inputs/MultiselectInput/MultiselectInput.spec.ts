@@ -238,5 +238,30 @@ describe('MultiselectInput', () => {
       await multiselect.vm.$emit('remove', new SelectOption('2', 'option2'))
       expect(wrapper.emitted('update:modelValue')[2]).toStrictEqual([[]])
     })
+
+    it('selects a boolean option and checks modelValue', async () => {
+      const options = [
+        new SelectOption('1', 'One'),
+        new SelectOption('2', 'Two'),
+        new SelectOption(true, 'True Option')
+      ]
+      wrapper = mount(MultiselectInput, {
+        global: {
+          stubs: ['MultiselectInput']
+        },
+        props: {
+          id: 'test-select-input',
+          label: 'Merchants',
+          options,
+          entityName: 'Optionen'
+        }
+      })
+
+      const multiselect = wrapper.findComponent(Multiselect)
+
+      await multiselect.vm.$emit('select', new SelectOption(true, 'True Option'))
+
+      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([[true]])
+    })
   })
 })
