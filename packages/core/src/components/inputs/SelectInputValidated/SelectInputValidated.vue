@@ -18,7 +18,7 @@
 <script setup lang="ts" generic="LabelType">
 import { type RuleExpression, useField } from 'vee-validate'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
-import { SelectInput } from '@core/components'
+import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -82,7 +82,3 @@ const { value, meta, handleBlur, errors } = useField<InputType>(
   }
 )
 </script>
-
-<style>
-@import 'vue-multiselect/dist/vue-multiselect.css';
-</style>
