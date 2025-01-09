@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { SelectOption } from '../BaseSelect/selectOption'
 import { Form } from 'vee-validate'
-import MultiSelectInputValidated from './MultiSelectInputValidated.vue'
+import MultiSelectInputValidated from './MultiselectInputValidated.vue'
 
 export default {
   component: MultiSelectInputValidated

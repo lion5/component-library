@@ -17,6 +17,7 @@ import ImageEditCard from '@core/components/inputs/image/ImageEditCard/ImageEdit
 import ImageInputWrapperValidated from '@core/components/inputs/image/ImageInputWrapperValidated/ImageInputWrapperValidated.vue'
 import LocationCoordinateSelect from '@core/components/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
 import MultiselectInput from '@core/components/inputs/MultiselectInput/MultiselectInput.vue'
+import MultiselectInputValidated from '@core/components/inputs/MultiselectInputValidated/MultiselectInputValidated.vue'
 import NumberInputValidated from '@core/components/inputs/NumberInputValidated/NumberInputValidated.vue'
 import PreviewImageInputValidated from '@core/components/inputs/image/PreviewImageInputValidated/PreviewImageInputValidated.vue'
 import SearchInputValidated from '@core/components/inputs/SearchInputValidated/SearchInputValidated.vue'
@@ -49,6 +50,7 @@ export {
   ImageInputWrapperValidated,
   LocationCoordinateSelect,
   MultiselectInput,
+  MultiselectInputValidated,
   NumberInputValidated,
   PreviewImageInputValidated,
   SearchInputValidated,
