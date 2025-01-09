@@ -1,7 +1,11 @@
 <template>
   <div
     class="floating-input-group"
-    :class="{ 'single-select-input': true, 'has-content': selectedOption }"
+    :class="{
+      'single-select-input': true,
+      'has-content': selectedOption,
+      'has-error': (dirty && invalid) || errorObjects.length > 0
+    }"
     :style="{ width: `${maxLabelWidth}px` }"
   >
     <multiselect
@@ -69,11 +73,10 @@
       :for="id"
       >{{ label }}</label
     >
-    <small
-      v-if="error"
-      class="error"
-      >{{ errorMessage }}</small
-    >
+    <ErrorBox
+      class="error-box"
+      :errors="errorObjects"
+    />
   </div>
 </template>
 
@@ -81,9 +84,14 @@
 import Multiselect from 'vue-multiselect'
 import { computed, onMounted, ref, watch } from 'vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
+import ErrorBox from '../../boxes/ErrorBox/ErrorBox.vue'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * Used to identify this field in a form (VeeValidate Form).
+     */
+    name: string
     /**
      * The options that should be available for selection. Contain a `value` (key to identify the option)
      * and a text to be displayed.
@@ -104,9 +112,14 @@ const props = withDefaults(
      */
     label: string
     /**
-     * An error to be displayed below the field. Either string or an Error object.
+     * The meta information of the field. This is provided by `useField` from `vee-validate`.
      */
-    error?: string | Error
+    dirty?: boolean
+    invalid?: boolean
+    /**
+     * The errors of the field. This is provided by `useField` from `vee-validate`.
+     */
+    errors?: Error[] | string[]
     /**
      * A placeholder to be displayed if no option is selected. By default, the label + ' wählen' is displayed.
      * @deprecated not used anymore
@@ -117,14 +130,16 @@ const props = withDefaults(
      */
     entityName?: string
     /**
-     * Search function is enabled
+     * Whether the user is able to use the search functionality.
      */
     searchable?: boolean
   }>(),
   {
-    error: '',
     entityName: 'Optionen',
-    searchable: true
+    searchable: true,
+    dirty: false,
+    invalid: false,
+    errors: () => []
   }
 )
 
@@ -133,6 +148,18 @@ const props = withDefaults(
  */
 const modelValue = defineModel<string | number | boolean | undefined | null>()
 const selectedOption = ref<SelectOption<LabelType>>()
+
+const errorObjects = computed(() => {
+  if (!props.invalid) {
+    return []
+  }
+  return props.errors.map((error) => {
+    if (typeof error === 'string') {
+      return new Error(error)
+    }
+    return error
+  })
+})
 
 const optionsMap = computed(() =>
   props.options.reduce(
@@ -185,10 +212,6 @@ watch(
   }
 )
 
-const errorMessage = computed(() =>
-  props.error instanceof Error ? props.error.message : props.error
-)
-
 const updateModelValue = (option: SelectOption<LabelType>) => {
   modelValue.value = option.key
 }
@@ -208,6 +231,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
   --_input-error-color: var(--color-danger);
   --_input-error-color-hover: var(--color-danger-hover);
   --focus-border: 1px solid var(--color-primary);
+  --error-border: 2px solid var(--_input-error-color);
 
   display: grid;
   position: relative;
@@ -272,6 +296,15 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
     font-size: var(--_label-size);
     padding-left: calc(var(--space-sm) + var(--space-xs));
     z-index: 9999;
+  }
+
+  &.has-error :deep(.multiselect) {
+    border-radius: var(--_input-border-radius);
+    border: var(--error-border);
+  }
+
+  &.has-error:focus-within :deep(.multiselect) {
+    border: none;
   }
 
   :deep(.multiselect) {
