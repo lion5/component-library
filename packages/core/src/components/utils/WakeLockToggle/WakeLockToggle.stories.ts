@@ -3,7 +3,8 @@ import WakeLockToggle from './WakeLockToggle.vue'
 import { createPinia, setActivePinia } from 'pinia'
 
 export default {
-  component: WakeLockToggle
+  component: WakeLockToggle,
+  title: 'Input Components/WakeLockToggle',
 } as Meta<typeof WakeLockToggle>
 type Story = StoryObj<typeof WakeLockToggle>
 

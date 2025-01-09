@@ -2,7 +2,8 @@ import ImageDropArea from '@core/components/dragdrop/ImageDropArea/ImageDropArea
 import { action } from '@storybook/addon-actions'
 
 export default {
-  component: ImageDropArea
+  component: ImageDropArea,
+  title: 'Input Components/ImageDropArea',
 }
 
 const Template = (args) => ({

@@ -2,7 +2,8 @@ import { action } from '@storybook/addon-actions'
 import InformationHeadline from '@core/components/utils/InformationHeadline/InformationHeadline.vue'
 
 export default {
-  component: InformationHeadline
+  component: InformationHeadline,
+  title: 'Display Components/InformationHeadline',
 }
 
 const Template = (args, { argTypes }) => ({

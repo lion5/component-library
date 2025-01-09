@@ -1,6 +1,6 @@
 import { number, string } from 'yup'
 import { FormField } from '@/models/formSchema'
-import { BaseInputV2, NumberInput } from '@lion5/component-library'
+import { BaseInputV2Validated, NumberInputValidated } from '@lion5/component-library'
 
 export enum RefreshableImageSetting {
   SRC = 'src',
@@ -11,19 +11,19 @@ export enum RefreshableImageSetting {
 export const RefreshableImageSettingsFormSchema = {
   fields: [
     new FormField(
-      BaseInputV2,
+      BaseInputV2Validated,
       'Bild-Url',
       RefreshableImageSetting.SRC,
       string()
     ),
     new FormField(
-      BaseInputV2,
+      BaseInputV2Validated,
       'Bildtitel',
       RefreshableImageSetting.TITLE,
       string()
     ),
     new FormField(
-      NumberInput,
+      NumberInputValidated,
       'Aktualisierungsintervall',
       RefreshableImageSetting.REFRESH_INTERVAL_SECONDS,
       number(),

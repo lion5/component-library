@@ -3,6 +3,7 @@ import BaseBadge from './BaseBadge.vue'
 
 export default {
   component: BaseBadge,
+  title: 'Display Components/BaseBadge',
   render: (args) => ({
     components: { BaseBadge },
     setup() {

@@ -4,7 +4,7 @@ import type { defineComponent } from 'vue'
 import { boolean } from 'yup'
 import BaseWidgetEditMode from '@/components/BaseWidgetEditMode/BaseWidgetEditMode.vue'
 import { FormField, FormSchema } from '@/models/formSchema'
-import { BaseInputV2 } from '@lion5/component-library'
+import { BaseInputV2Validated } from '@lion5/component-library'
 import WidgetSettingsModal from '@/components/WidgetSettingsModal/WidgetSettingsModal.vue'
 
 describe('BaseWidgetEditMode.vue', () => {
@@ -17,7 +17,7 @@ describe('BaseWidgetEditMode.vue', () => {
         settings: new Map(),
         defaultSettings: new Map(),
         formSchema: new FormSchema([
-          new FormField(BaseInputV2, '', '', undefined)
+          new FormField(BaseInputV2Validated, '', '', undefined)
         ])
       }
     })
@@ -74,7 +74,7 @@ describe('BaseWidgetEditMode.vue', () => {
     })
     it(':formSchema - is applied to WidgetSettingsModal', async () => {
       const expectedFormSchema = new FormSchema([
-        new FormField(BaseInputV2, 'test', 'test', boolean())
+        new FormField(BaseInputV2Validated, 'test', 'test', boolean())
       ])
       await wrapper.setProps({ formSchema: expectedFormSchema })
       await openSettingsModal()

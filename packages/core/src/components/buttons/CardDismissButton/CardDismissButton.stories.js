@@ -4,7 +4,8 @@ import ItemCard from '@core/components/cards/ItemCard/ItemCard.vue'
 
 export default {
   components: { ItemCard },
-  component: CardDismissButton
+  component: CardDismissButton,
+  title: 'Navigation Components/CardDismissButton'
 }
 
 const Template = (args, { argTypes }) => ({

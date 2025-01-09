@@ -5,7 +5,8 @@ import { action } from '@storybook/addon-actions'
 
 export default {
   components: { IconTrash, ApprovalModal, IconWallet },
-  component: ApprovalModal
+  component: ApprovalModal,
+  title: 'Navigation Components/Modals/ApprovalModal',
 }
 
 const Template = (args, { argTypes }) => ({

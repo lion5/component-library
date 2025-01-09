@@ -1,6 +1,6 @@
 import { string } from 'yup'
 import { FormField, FormSchema } from '@/models/formSchema'
-import { BaseInputV2 } from '@lion5/component-library'
+import { BaseInputV2Validated } from '@lion5/component-library'
 
 export enum IFrameSetting {
   SRC = 'src',
@@ -9,10 +9,10 @@ export enum IFrameSetting {
 
 export const IFrameSettingsFormSchema = new FormSchema([
   new FormField(
-    BaseInputV2,
+    BaseInputV2Validated,
     'Website Url',
     IFrameSetting.SRC,
     string().required()
   ),
-  new FormField(BaseInputV2, 'Titel', IFrameSetting.TITLE, string())
+  new FormField(BaseInputV2Validated, 'Titel', IFrameSetting.TITLE, string())
 ])

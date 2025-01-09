@@ -2,7 +2,8 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import SingleMetricCard from './SingleMetricCard.vue'
 
 export default {
-  component: SingleMetricCard
+  component: SingleMetricCard,
+  title: 'Display Components/Cards/SingleMetricCard',
 } as Meta<typeof SingleMetricCard>
 type Story = StoryObj<typeof SingleMetricCard>
 

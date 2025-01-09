@@ -3,7 +3,8 @@ import ScaleTransition from './ScaleTransition.vue'
 import { ref } from 'vue'
 
 export default {
-  component: ScaleTransition
+  component: ScaleTransition,
+  title: 'Transition Components/ScaleTransition',
 } as Meta<typeof ScaleTransition>
 type Story = StoryObj<typeof ScaleTransition>
 

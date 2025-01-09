@@ -8,7 +8,8 @@ import { ImageConstraints } from '../../../../models/image/imageConstraints'
  * Card to edit and delete images. It can display error, busy and published states.
  */
 export default {
-  component: ImageEditCard
+  component: ImageEditCard,
+  title: 'Input Components/ImageEditCard'
 } as Meta<typeof ImageEditCard>
 type Story = StoryObj<typeof ImageEditCard>
 

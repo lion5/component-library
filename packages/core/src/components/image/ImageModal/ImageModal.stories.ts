@@ -8,7 +8,8 @@ import { ImageResponse } from '@core/models/image/imageResponse'
  * Modal to display images in full size
  */
 export default {
-  component: ImageModal
+  component: ImageModal,
+  title: 'Display Components/Image/ImageModal',
 } as Meta<typeof ImageModal>
 type Story = StoryObj<typeof ImageModal>
 

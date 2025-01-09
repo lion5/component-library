@@ -2,7 +2,8 @@ import BaseInputWrapper from './BaseInputWrapper.vue'
 import { Meta, StoryObj } from '@storybook/vue3'
 
 export default {
-  component: BaseInputWrapper
+  component: BaseInputWrapper,
+  title: 'Input Components/BaseInputWrapper'
 } as Meta<typeof BaseInputWrapper>
 type Story = StoryObj<typeof BaseInputWrapper>
 

@@ -22,6 +22,8 @@
       @remove="removeOption"
       :open-direction="'bottom'"
       :class="{ 'has-content': selectedOptions.length > 0 }"
+      :searchable="searchable"
+      :placeholder="label"
     >
       <template
         v-for="(_, name) in $slots"
@@ -124,17 +126,22 @@ const props = withDefaults(
      * The name of the entity that is being selected.
      */
     entityName?: string
+    /**
+     * Search function is enabled
+     */
+    searchable?: boolean
   }>(),
   {
     error: '',
-    entityName: 'Optionen'
+    entityName: 'Optionen',
+    searchable: true
   }
 )
 
 /**
  * The currently selected value as a `string`, initially `undefined`.
  */
-const modelValue = defineModel<(string | number | null)[]>({
+const modelValue = defineModel<(string | number | boolean | null)[]>({
   default: []
 })
 const selectedOptions = ref<SelectOption<Ref<LabelType>>[]>([])
@@ -147,14 +154,14 @@ onMounted(() => {
         accumulator: { [key: string]: SelectOption<LabelType> },
         selectOption: SelectOption<LabelType>
       ) => {
-        accumulator[selectOption.key || ''] = selectOption
+        accumulator[String(selectOption.key) || ''] = selectOption
         return accumulator
       },
       {}
     )
     selectedOptions.value = modelValue.value.map((key) => {
       if (key == null) return
-      return optionsMap[key]
+      return optionsMap[String(key)]
     }) as SelectOption<LabelType>[]
   } else {
     selectedOptions.value = defaultOption || []
@@ -173,7 +180,7 @@ watch(
           accumulator: { [key: string]: SelectOption<LabelType> },
           selectOption: SelectOption<LabelType>
         ) => {
-          accumulator[selectOption.key || ''] = selectOption
+          accumulator[String(selectOption.key) || ''] = selectOption
           return accumulator
         },
         {}
@@ -181,7 +188,7 @@ watch(
       selectedOptions.value = newValue
         .map((key) => {
           if (key === null) return ''
-          return optionsMap[key]
+          return optionsMap[String(key)]
         })
         .filter((option): option is SelectOption<LabelType> => option !== undefined)
     }

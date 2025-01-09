@@ -7,7 +7,8 @@ import InfoBox from './InfoBox.vue'
  * **If the infoMessage is undefined or empty, the box will not be rendered!**
  */
 const meta: Meta<typeof InfoBox> = {
-  component: InfoBox
+  component: InfoBox,
+  title: 'Display Components/Boxes/InfoBox'
 }
 export default meta
 type Story = StoryObj<typeof InfoBox>

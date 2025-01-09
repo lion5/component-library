@@ -3,8 +3,8 @@ import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { boolean, string } from 'yup'
 import {
-  BaseInputV2,
-  CheckboxInput,
+  BaseInputV2Validated,
+  CheckboxInputV1Validated,
   DismissibleModal
 } from '@lion5/component-library'
 import { FormField, FormSchema } from '@/models/formSchema'
@@ -23,7 +23,7 @@ describe('WidgetSettingsModal.vue', () => {
     const settings = new Map([['test1', 'test1Value']])
     const defaultSettings = new Map([['test1', 'defaultTest1Value']])
     const formSchema = new FormSchema([
-      new FormField(CheckboxInput, 'Test 2 Label', 'test2', boolean())
+      new FormField(CheckboxInputV1Validated, 'Test 2 Label', 'test2', boolean())
     ])
 
     wrapper = mount(WidgetSettingsModal, {
@@ -66,7 +66,7 @@ describe('WidgetSettingsModal.vue', () => {
     })
     it(':formSchema - is applied to WidgetSettingsForm', async () => {
       const expectedSchema = new FormSchema([
-        new FormField(BaseInputV2, 'New Test 1 Label', 'test1', string(), {
+        new FormField(BaseInputV2Validated, 'New Test 1 Label', 'test1', string(), {
           type: 'text'
         })
       ])

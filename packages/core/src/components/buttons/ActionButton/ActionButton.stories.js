@@ -4,7 +4,8 @@ import IconArrowRepeat from '@core/components/icons/IconArrowRepeat.vue'
 
 export default {
   components: { ActionButton },
-  component: ActionButton
+  component: ActionButton,
+  title: 'Navigation Components/ActionButton'
 }
 
 const Template = (args, { argTypes }) => ({

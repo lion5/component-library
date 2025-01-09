@@ -8,7 +8,8 @@ import { ImageResponse } from '@core/models/image/imageResponse'
  * This all given images as cards in a grid layout.
  */
 export default {
-  component: ImageGallery
+  component: ImageGallery,
+  title: 'Display Components/Image/ImageGallery',
 } as Meta<typeof ImageGallery>
 type Story = StoryObj<typeof ImageGallery>
 

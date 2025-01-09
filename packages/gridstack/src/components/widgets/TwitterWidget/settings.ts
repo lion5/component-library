@@ -1,6 +1,6 @@
 import { string } from 'yup'
 import { FormField } from '@/models/formSchema'
-import { BaseInputV2 } from '@lion5/component-library'
+import { BaseInputV2Validated } from '@lion5/component-library'
 
 export enum TwitterWidgetSetting {
   TAG = 'TAG',
@@ -10,11 +10,11 @@ export enum TwitterWidgetSetting {
 export const TwitterWidgetFormSchema = {
   fields: [
     new FormField(
-      BaseInputV2,
+      BaseInputV2Validated,
       'Hashtag',
       TwitterWidgetSetting.TAG,
       string().required()
     ),
-    new FormField(BaseInputV2, 'Titel', TwitterWidgetSetting.TITLE, string())
+    new FormField(BaseInputV2Validated, 'Titel', TwitterWidgetSetting.TITLE, string())
   ]
 }

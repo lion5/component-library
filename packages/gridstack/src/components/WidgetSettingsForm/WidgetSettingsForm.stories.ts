@@ -2,9 +2,9 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import WidgetSettingsForm from '@/components/WidgetSettingsForm/WidgetSettingsForm.vue'
 import { FormField, FormSchema } from '@/models/formSchema'
 import {
-  BaseInputV2,
+  BaseInputV2Validated,
   BaseSelect,
-  NumberInput,
+  NumberInputValidated,
   SelectOption
 } from '@lion5/component-library'
 import { number, string } from 'yup'
@@ -34,9 +34,9 @@ export const Empty: Story = {
     settings: new Map(),
     defaultSettings: new Map(),
     schema: new FormSchema([
-      new FormField(BaseInputV2, 'First Input', 'input1', string().required()),
+      new FormField(BaseInputV2Validated, 'First Input', 'input1', string().required()),
       new FormField(
-        BaseInputV2,
+        BaseInputV2Validated,
         'Password Input',
         'input2',
         string().required(),
@@ -51,7 +51,7 @@ export const Empty: Story = {
           new SelectOption('key3', 'Option 3')
         ]
       }),
-      new FormField(NumberInput, 'Number Input', 'input4', number().required())
+      new FormField(NumberInputValidated, 'Number Input', 'input4', number().required())
     ])
   }
 }

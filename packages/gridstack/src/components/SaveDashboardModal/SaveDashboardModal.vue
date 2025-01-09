@@ -4,7 +4,7 @@
     <div class="header2">
       Bitte wählen Sie den Dashboard-Konfigurationsnamen
     </div>
-    <BaseInputV2
+    <BaseInputV2Validated
       v-model="name"
       label="Name"
       :validation-rules="required"
@@ -21,7 +21,7 @@
 
 <script lang="ts" setup>
 import { ref, computed } from 'vue'
-import { BaseInputV2, BaseButton, ErrorBox } from '@lion5/component-library'
+import { BaseInputV2Validated, BaseButton, ErrorBox } from '@lion5/component-library'
 
 const name = ref('')
 const required = computed(() => ({

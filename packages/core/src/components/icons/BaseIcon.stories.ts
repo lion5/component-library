@@ -15,6 +15,7 @@ import IconWind from './weather/IconWind.vue'
 
 const meta = {
   component: BaseIcon,
+  title: 'Icons/BaseIcon',
   render: (args) => ({
     components: { BaseIcon },
     setup() {

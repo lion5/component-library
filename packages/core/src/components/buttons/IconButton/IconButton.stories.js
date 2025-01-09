@@ -2,7 +2,8 @@ import IconArrowRepeat from '@core/components/icons/IconArrowRepeat.vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 
 export default {
-  component: IconButton
+  component: IconButton,
+  title: 'Navigation Components/IconButton',
 }
 
 const Template = (args, { argTypes }) => ({

@@ -3,6 +3,7 @@ import EmailLink from './EmailLink.vue'
 
 export default {
   component: EmailLink,
+  title: 'Display Components/EmailLink',
   render: (args) => ({
     components: { EmailLink },
     setup() {
