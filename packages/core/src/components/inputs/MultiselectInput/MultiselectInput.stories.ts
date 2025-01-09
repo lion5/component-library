@@ -23,6 +23,7 @@ Default.args = {
   label: 'Option',
   entityName: 'Optionen',
   options: [
+    new SelectOption(true, 'True options'),
     new SelectOption('option1', 'Option 1'),
     new SelectOption('option2', 'Option 2'),
     new SelectOption('option3', 'Option 3'),
@@ -56,5 +57,18 @@ Icons.args = {
     new SelectOption('option3', 'Option 3', '', 'bi-3-circle'),
     new SelectOption('option4', 'Option 4', '', 'bi-4-circle'),
     new SelectOption('option5', 'Option 5', '', 'bi-5-circle')
+  ]
+}
+
+export const NotSearchable = Template.bind({})
+NotSearchable.args = {
+  id: 'select-input',
+  label: 'Option',
+  entityName: 'Optionen',
+  searchable: false,
+  options: [
+    new SelectOption(true, 'True Option'),
+    new SelectOption('option1', 'Option One'),
+    new SelectOption('option2', 'Option Two')
   ]
 }

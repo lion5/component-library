@@ -200,5 +200,30 @@ describe('SelectInput', () => {
       expect(option.exists()).toBe(true)
       expect(option.classes()).toContain('icon-class-1')
     })
+
+    it('selects a boolean option and checks modelValue', async () => {
+      const options = [
+        new SelectOption('1', 'One'),
+        new SelectOption('2', 'Two'),
+        new SelectOption(true, 'True Option')
+      ]
+      wrapper = mount(SelectInput, {
+        global: {
+          stubs: ['MultiselectInput']
+        },
+        props: {
+          id: 'test-select-input',
+          label: 'Merchants',
+          options,
+          entityName: 'Optionen'
+        }
+      })
+
+      const multiselect = wrapper.findComponent(Multiselect)
+
+      await multiselect.vm.$emit('select', new SelectOption(true, 'True Option'))
+
+      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([true])
+    })
   })
 })

@@ -44,7 +44,8 @@ describe('BaseSelect.vue', () => {
       const expectedOptions = [
         new SelectOption('key1', 'label1'),
         new SelectOption('key2', 'label2'),
-        new SelectOption('key3', 'label3')
+        new SelectOption('key3', 'label3'),
+        new SelectOption(true, 'true')
       ]
       await wrapper.setProps({ options: expectedOptions })
 
@@ -55,6 +56,8 @@ describe('BaseSelect.vue', () => {
       expect(options.at(1).text()).toBe(expectedOptions[1].label)
       expect(options.at(2).attributes('value')).toBe(expectedOptions[2].key)
       expect(options.at(2).text()).toBe(expectedOptions[2].label)
+      expect(options.at(3).attributes('value')).toBe(expectedOptions[3].key?.toString())
+      expect(options.at(3).text()).toBe(expectedOptions[3].label)
     })
     it(':optionsLabel - options label not rendered if not set', async () => {
       const expectedOptionsLabel = ''
