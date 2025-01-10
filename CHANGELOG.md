@@ -1,3 +1,13 @@
+## 0.20.2 (2025-01-10)
+
+### 🩹 Fixes
+
+- **ListInputValidated:** make label optional to use slot ([e406c50](https://github.com/lion5/component-library/commit/e406c50))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.20.1 (2025-01-10)
 
 ### 🩹 Fixes
