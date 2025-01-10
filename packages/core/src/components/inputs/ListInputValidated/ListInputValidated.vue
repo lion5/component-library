@@ -51,8 +51,9 @@ const props = withDefaults(
     name: string
     /**
      * The text to be displayed within a floating label of this field.
+     * You can use the label slot to provide a custom label.
      */
-    label: string
+    label?: string
     /**
      * The items that are currently in the list.
      */
