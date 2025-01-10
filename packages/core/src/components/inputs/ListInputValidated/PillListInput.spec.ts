@@ -1,14 +1,13 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { mount, type Wrapper } from '@vue/test-utils'
-import type Vue, { nextTick } from 'vue'
-import { fakeUser } from '@/sdk/account/__test__/testData'
-import { PillInputItem } from '@/base/component-library/components/atoms/PillListInput/pillInputItem'
-import flushPromises from 'flush-promises'
-import PillListInput from '@/base/component-library/components/atoms/PillListInput/PillListInput.vue'
-import PillInput from '@/base/component-library/components/atoms/PillInput/PillInput.vue'
+import { mount } from '@vue/test-utils'
+import { defineComponent, nextTick } from 'vue'
+import PillListInput from '@core/components/inputs/ListInputValidated/PillListInput.vue'
+import { PillInputItem } from '@core/components/inputs/ListInputValidated/pillInputItem'
+import { PillInput } from '@core/components'
 
 describe('PillListInput.vue', () => {
-  let wrapper: Wrapper<Vue>
+  let wrapper: ReturnType<typeof defineComponent>
+  const pillInputItem = new PillInputItem('test', 'test', false, 'icon-class')
 
   const mountListInputGroup = () => {
     wrapper = mount(PillListInput, {
@@ -27,12 +26,9 @@ describe('PillListInput.vue', () => {
   })
   describe(':props', () => {
     it(':pillInputItems - are rendered as PillInputs', async () => {
-      const expectedPillInputItems = [
-        new PillInputItem(fakeUser.firebaseUid, fakeUser.displayName, false, 'icon-class')
-      ]
-      await wrapper.setProps({ pillInputsItems: expectedPillInputItems })
+      const expectedPillInputItems = [ pillInputItem ]
+      await wrapper.setProps({ pillInputItems: expectedPillInputItems })
       await nextTick()
-      await flushPromises()
 
       const pillInputItems = wrapper.findAllComponents(PillInput)
       expect(pillInputItems.length).toBe(expectedPillInputItems.length)
@@ -43,16 +39,13 @@ describe('PillListInput.vue', () => {
   })
   describe('@events', () => {
     it('@delete - emits @delete', async () => {
-      const expectedPillInputItems = [
-        new PillInputItem(fakeUser.firebaseUid, fakeUser.displayName, false, 'icon-class')
-      ]
-      await wrapper.setProps({ pillInputsItems: expectedPillInputItems })
+      const expectedPillInputItems = [ pillInputItem ]
+      await wrapper.setProps({ pillInputItems: expectedPillInputItems })
       wrapper.findComponent(PillInput).vm.$emit('delete')
       await nextTick()
-      await flushPromises()
 
       expect(wrapper.emitted('delete')).toBeDefined()
-      expect(wrapper.emitted('delete')?.at(0)).toEqual([fakeUser.firebaseUid])
+      expect(wrapper.emitted('delete')?.at(0)).toEqual([pillInputItem.key])
     })
   })
 })

@@ -10,7 +10,7 @@
       :errors="errorObjects"
     />
     <PillListInput
-      :pill-inputs-items="pillInputItems"
+      :pill-input-items="pillInputItems"
       @delete="onDelete"
     />
     <EndButtonWrapper

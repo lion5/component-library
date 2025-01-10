@@ -1,14 +1,13 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
-import { mount, type Wrapper } from '@vue/test-utils'
-import type Vue, { nextTick } from 'vue'
-import flushPromises from 'flush-promises'
-import PillInput from '@/base/component-library/components/atoms/PillInput/PillInput.vue'
-import BasePill from '@/base/component-library/components/atoms/BasePill/BasePill.vue'
-import IconButton from '@/base/component-library/components/atoms/IconButton/IconButton.vue'
-import ArrowRotateLoadingAnimation from '@/base/component-library/components/atoms/ArrowRotateLoadingAnimation/ArrowRotateLoadingAnimation.vue'
+import { mount } from '@vue/test-utils'
+import { defineComponent, nextTick } from 'vue'
+import PillInput from '@core/components/inputs/PillInput/PillInput.vue'
+import BasePill from '@core/components/display/BasePill/BasePill.vue'
+import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
+import ArrowRotateLoadingAnimation from '@core/components/icons/ArrowRotateLoadingAnimation.vue'
 
 describe('PillInput.vue', () => {
-  let wrapper: Wrapper<Vue>
+  let wrapper: ReturnType<typeof defineComponent>
 
   const mountPillInput = () => {
     wrapper = mount(PillInput, {
@@ -34,7 +33,7 @@ describe('PillInput.vue', () => {
     })
     it(':busy - set IconButton disabled if busy', async () => {
       await wrapper.setProps({ busy: true })
-      expect(wrapper.findComponent(IconButton).attributes().disabled).toBe('disabled')
+      expect(wrapper.findComponent(IconButton).props().disabled).toBeTruthy()
     })
     it(':busy - ArrowRotateLoadingAnimation hidden if false', async () => {
       await wrapper.setProps({ busy: false })
@@ -56,7 +55,6 @@ describe('PillInput.vue', () => {
     it('@click - emits @delete', async () => {
       wrapper.findComponent(IconButton).vm.$emit('click')
       await nextTick()
-      await flushPromises()
 
       expect(wrapper.emitted('delete')).toBeDefined()
     })

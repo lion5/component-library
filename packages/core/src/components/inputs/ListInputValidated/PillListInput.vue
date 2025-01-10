@@ -9,7 +9,7 @@ defineProps<{
   /**
    * The pill input items to display.
    */
-  pillInputsItems: PillInputItem[]
+  pillInputItems: PillInputItem[]
 }>()
 
 const emit = defineEmits<{
@@ -29,7 +29,7 @@ const onDelete = (key: string | number) => {
 <template>
   <div class="pill-list-input">
     <PillInput
-      v-for="item in pillInputsItems"
+      v-for="item in pillInputItems"
       :key="item.key"
       :busy="item.busy"
       :label="item.label"
