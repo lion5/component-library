@@ -22,12 +22,14 @@ const props = withDefaults(
      *
      * If you do not want that the check icon is displayed on success use the 'success-without-checkmark' variant
      */
-    variant?: string
+    variant?: string,
+    type?: 'button' | 'submit' | 'reset'
   }>(),
   {
     disabled: false,
     loading: false,
-    variant: 'primary'
+    variant: 'primary',
+    type: 'button'
   }
 )
 
@@ -59,6 +61,7 @@ const localVariant = computed(() => {
   </a>
   <button
     v-else
+    type="button"
     :class="['base-button', localVariant]"
     :disabled="disabled"
     v-bind="$attrs"
