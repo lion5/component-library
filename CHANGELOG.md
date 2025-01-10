@@ -1,3 +1,17 @@
+## 0.20.0 (2025-01-10)
+
+### 🚀 Features
+
+- **BaseInputV3Validated:** add new component ([f27037e](https://github.com/lion5/component-library/commit/f27037e))
+
+### 🩹 Fixes
+
+- **ListInput:** unit tests ([e10942a](https://github.com/lion5/component-library/commit/e10942a))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.19.0 (2025-01-08)
 
 ### 🩹 Fixes
