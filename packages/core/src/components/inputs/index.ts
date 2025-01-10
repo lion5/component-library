@@ -16,9 +16,11 @@ import IbanInputValidated from '@core/components/inputs/IbanInputValidated/IbanI
 import ImageAddCard from '@core/components/inputs/image/ImageAddCard/ImageAddCard.vue'
 import ImageEditCard from '@core/components/inputs/image/ImageEditCard/ImageEditCard.vue'
 import ImageInputWrapperValidated from '@core/components/inputs/image/ImageInputWrapperValidated/ImageInputWrapperValidated.vue'
+import ListInputValidated from '@core/components/inputs/ListInputValidated/ListInputValidated.vue'
 import LocationCoordinateSelect from '@core/components/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
 import MultiselectInput from '@core/components/inputs/MultiselectInput/MultiselectInput.vue'
 import NumberInputValidated from '@core/components/inputs/NumberInputValidated/NumberInputValidated.vue'
+import PillInput from '@core/components/inputs/PillInput/PillInput.vue'
 import PreviewImageInputValidated from '@core/components/inputs/image/PreviewImageInputValidated/PreviewImageInputValidated.vue'
 import SearchInputValidated from '@core/components/inputs/SearchInputValidated/SearchInputValidated.vue'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
@@ -31,16 +33,16 @@ export {
   AddressInputValidated,
   BaseInputV1Validated,
   BaseInputV2Validated,
-  BaseInputV3,
   BaseInputV3 as BaseInput,
+  BaseInputV3,
   BaseInputV3Validated,
   BaseInputV3Validated as BaseInputValidated,
   BaseInputWrapper,
   BaseSelect,
   CentInputValidated,
   CheckboxInputV1Validated,
-  CheckboxInputV2Validated,
   CheckboxInputV2Validated as CheckboxInputValidated,
+  CheckboxInputV2Validated,
   CodeInputValidated,
   DateTimeInputValidated,
   EuroInputValidated,
@@ -49,9 +51,11 @@ export {
   ImageAddCard,
   ImageEditCard,
   ImageInputWrapperValidated,
+  ListInputValidated,
   LocationCoordinateSelect,
   MultiselectInput,
   NumberInputValidated,
+  PillInput,
   PreviewImageInputValidated,
   SearchInputValidated,
   SelectInput,
