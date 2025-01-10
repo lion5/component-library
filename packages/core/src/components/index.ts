@@ -17,6 +17,7 @@ import DraggableItem from '@core/components/dragdrop/DraggableItem/DraggableItem
 import DropDown from '@core/components/dropdown/DropDown/DropDown.vue'
 import DropDownItem from '@core/components/dropdown/DropDownItem/DropDownItem.vue'
 import EmailLink from '@core/components/utils/EmailLink/EmailLink.vue'
+import EndButtonWrapper from '@core/components/utils/EndButtonWrapper/EndButtonWrapper.vue'
 import EntityCard from '@core/components/cards/EntityCard/EntityCard.vue'
 import EntityWrapper from '@core/components/utils/EntityWrapper/EntityWrapper.vue'
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
@@ -60,6 +61,7 @@ export {
   DropDown,
   DropDownItem,
   EmailLink,
+  EndButtonWrapper,
   EntityCard,
   EntityWrapper,
   ErrorBox,
