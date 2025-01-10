@@ -3,6 +3,7 @@ import Multiselect from 'vue-multiselect'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
+import { ErrorBox } from '../../index'
 
 describe('SelectInput', () => {
   let wrapper
@@ -65,11 +66,10 @@ describe('SelectInput', () => {
       expect(labelElement.text()).toBe(label)
       expect(labelElement.attributes('for')).toBe(id)
     })
-    it(':error - is applied to the error element', async () => {
-      const error = 'Test Error'
-      await wrapper.setProps({ error })
-      const labelElement = wrapper.find('small.error')
-      expect(labelElement.text()).toBe(error)
+    it(':errors - is applied to the errors element', async () => {
+      const expectedError = new Error('Expected Error')
+      await wrapper.setProps({ name: 'test', errors: [expectedError], invalid: true })
+      expect(wrapper.findComponent(ErrorBox).vm.errors).toStrictEqual([expectedError])
     })
     it(':modelValue - nothing is emitted when value and default value not set', async () => {
       expect(wrapper.emitted('update:modelValue')).toBe(undefined)

@@ -19,11 +19,13 @@ import ImageInputWrapperValidated from '@core/components/inputs/image/ImageInput
 import ListInputValidated from '@core/components/inputs/ListInputValidated/ListInputValidated.vue'
 import LocationCoordinateSelect from '@core/components/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
 import MultiselectInput from '@core/components/inputs/MultiselectInput/MultiselectInput.vue'
+import MultiselectInputValidated from '@core/components/inputs/MultiselectInputValidated/MultiselectInputValidated.vue'
 import NumberInputValidated from '@core/components/inputs/NumberInputValidated/NumberInputValidated.vue'
 import PillInput from '@core/components/inputs/PillInput/PillInput.vue'
 import PreviewImageInputValidated from '@core/components/inputs/image/PreviewImageInputValidated/PreviewImageInputValidated.vue'
 import SearchInputValidated from '@core/components/inputs/SearchInputValidated/SearchInputValidated.vue'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
+import SelectInputValidated from '@core/components/inputs/SelectInputValidated/SelectInputValidated.vue'
 import SliderToggleInput from '@core/components/inputs/SliderToggleInput/SliderToggleInput.vue'
 import SlugInputValidated from '@core/components/inputs/SlugInputValidated/SlugInputValidated.vue'
 import SortableGalleryInput from '@core/components/inputs/image/SortableGalleryInput/SortableGalleryInput.vue'
@@ -54,11 +56,13 @@ export {
   ListInputValidated,
   LocationCoordinateSelect,
   MultiselectInput,
+  MultiselectInputValidated,
   NumberInputValidated,
   PillInput,
   PreviewImageInputValidated,
   SearchInputValidated,
   SelectInput,
+  SelectInputValidated,
   SliderToggleInput,
   SlugInputValidated,
   SortableGalleryInput,

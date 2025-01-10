@@ -58,6 +58,24 @@ Icons.args = {
   ]
 }
 
+export const WithError = Template.bind({})
+WithError.args = {
+  name: 'select-input',
+  id: 'select-input',
+  label: 'Option',
+  entityName: 'Optionen',
+  dirty: true,
+  invalid: true,
+  errors: ['This field is required'],
+  options: [
+    new SelectOption('option1', 'Option 1', '', 'bi-1-circle'),
+    new SelectOption('option2', 'Option 2', '', 'bi-2-circle'),
+    new SelectOption('option3', 'Option 3', '', 'bi-3-circle'),
+    new SelectOption('option4', 'Option 4', '', 'bi-4-circle'),
+    new SelectOption('option5', 'Option 5', '', 'bi-5-circle')
+  ]
+}
+
 export const Booleans = Template.bind({})
 Booleans.args = {
   id: 'select-input',
