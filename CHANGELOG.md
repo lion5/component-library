@@ -1,3 +1,13 @@
+## 0.20.1 (2025-01-10)
+
+### 🩹 Fixes
+
+- **SearchInputValidated:** expose SearchResult ([9eb6372](https://github.com/lion5/component-library/commit/9eb6372))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.20.0 (2025-01-10)
 
 ### 🚀 Features
