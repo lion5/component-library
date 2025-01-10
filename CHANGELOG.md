@@ -1,3 +1,13 @@
+## 0.20.4 (2025-01-10)
+
+### 🩹 Fixes
+
+- **EndButtonWrapper:** export end button wrapper ([d6b81a6](https://github.com/lion5/component-library/commit/d6b81a6))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.20.3 (2025-01-10)
 
 ### 🩹 Fixes
