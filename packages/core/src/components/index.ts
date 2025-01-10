@@ -5,6 +5,7 @@ import BaseBadge from '@core/components/utils/BaseBadge/BaseBadge.vue'
 import BaseButton from '@core/components/buttons/BaseButton/BaseButton.vue'
 import BaseCard from '@core/components/cards/BaseCard/BaseCard.vue'
 import BaseModal from '@core/components/modals/BaseModal/BaseModal.vue'
+import BasePill from '@core/components/display/BasePill/BasePill.vue'
 import CardBadgeBase from '@core/components/cards/CardBadgeBase/CardBadgeBase.vue'
 import CardContentGroup from '@core/components/cards/CardContentGroup/CardContentGroup.vue'
 import CardDismissButton from '@core/components/buttons/CardDismissButton/CardDismissButton.vue'
@@ -46,6 +47,7 @@ export {
   BaseButton,
   BaseCard,
   BaseModal,
+  BasePill,
   CardBadgeBase,
   CardContentGroup,
   CardDismissButton,

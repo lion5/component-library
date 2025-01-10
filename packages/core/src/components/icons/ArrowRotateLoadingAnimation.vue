@@ -8,20 +8,16 @@ import BaseIcon from '@core/components/icons/BaseIcon.vue'
 </script>
 <style lang="scss" scoped>
 .rotate-animation {
+  --_size: var(--size, var(--font-size-body));
+  width: var(--_size);
+  height: var(--_size);
+  font-size: var(--_size);
   animation: rotate 1s infinite linear;
-  line-height: 1;
-
-  .bi::before {
-    vertical-align: bottom;
-  }
 }
 
 @keyframes rotate {
-  0% {
-    rotate: 0deg;
-  }
-  100% {
-    rotate: 360deg;
+  to {
+    rotate: 1turn;
   }
 }
 </style>
