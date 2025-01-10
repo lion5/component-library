@@ -23,6 +23,7 @@ import NumberInputValidated from '@core/components/inputs/NumberInputValidated/N
 import PillInput from '@core/components/inputs/PillInput/PillInput.vue'
 import PreviewImageInputValidated from '@core/components/inputs/image/PreviewImageInputValidated/PreviewImageInputValidated.vue'
 import SearchInputValidated from '@core/components/inputs/SearchInputValidated/SearchInputValidated.vue'
+import { SearchResult } from '@core/components/inputs/SearchInputValidated/searchResult'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
 import SliderToggleInput from '@core/components/inputs/SliderToggleInput/SliderToggleInput.vue'
 import SlugInputValidated from '@core/components/inputs/SlugInputValidated/SlugInputValidated.vue'
@@ -58,6 +59,7 @@ export {
   PillInput,
   PreviewImageInputValidated,
   SearchInputValidated,
+  SearchResult,
   SelectInput,
   SliderToggleInput,
   SlugInputValidated,
