@@ -1,3 +1,13 @@
+## 0.20.3 (2025-01-10)
+
+### 🩹 Fixes
+
+- **BaseButton:** set default button type to button ([bab545b](https://github.com/lion5/component-library/commit/bab545b))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.20.2 (2025-01-10)
 
 ### 🩹 Fixes
