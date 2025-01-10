@@ -23,7 +23,11 @@ Default.args = {
   label: 'Option',
   entityName: 'Optionen',
   placeholder: 'Choose option',
-  options: [new SelectOption('option1', 'Option One'), new SelectOption('option2', 'Option Two')]
+  options: [
+    new SelectOption(true, 'All options'),
+    new SelectOption('option1', 'Option One'),
+    new SelectOption('option2', 'Option Two')
+  ]
 }
 
 export const Images = Template.bind({})
@@ -51,5 +55,26 @@ Icons.args = {
     new SelectOption('option3', 'Option 3', '', 'bi-3-circle'),
     new SelectOption('option4', 'Option 4', '', 'bi-4-circle'),
     new SelectOption('option5', 'Option 5', '', 'bi-5-circle')
+  ]
+}
+
+export const Booleans = Template.bind({})
+Booleans.args = {
+  id: 'select-input',
+  label: 'Option',
+  entityName: 'Optionen',
+  options: [new SelectOption(true, 'Wahr', '', ''), new SelectOption(false, 'Falsch', '', '')]
+}
+
+export const NotSearchable = Template.bind({})
+NotSearchable.args = {
+  id: 'select-input',
+  label: 'Option',
+  entityName: 'Optionen',
+  searchable: false,
+  options: [
+    new SelectOption(true, 'All options'),
+    new SelectOption('option1', 'Option One'),
+    new SelectOption('option2', 'Option Two')
   ]
 }

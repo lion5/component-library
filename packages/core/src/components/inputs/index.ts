@@ -2,6 +2,7 @@ import AddressInputValidated from '@core/components/inputs/AddressInputValidated
 import BaseInputV1Validated from '@core/components/inputs/BaseInputV1Validated/BaseInputV1Validated.vue'
 import BaseInputV2Validated from '@core/components/inputs/BaseInputV2Validated/BaseInputV2Validated.vue'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
+import BaseInputV3Validated from '@core/components/inputs/BaseInputV3Validated/BaseInputV3Validated.vue'
 import BaseInputWrapper from '@core/components/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 import BaseSelect from '@core/components/inputs/BaseSelect/BaseSelect.vue'
 import CentInputValidated from '@core/components/inputs/CentInputValidated/CentInputValidated.vue'
@@ -34,6 +35,8 @@ export {
   BaseInputV2Validated,
   BaseInputV3 as BaseInput,
   BaseInputV3,
+  BaseInputV3Validated,
+  BaseInputV3Validated as BaseInputValidated,
   BaseInputWrapper,
   BaseSelect,
   CentInputValidated,
