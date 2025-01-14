@@ -4,12 +4,27 @@ import { SelectOption } from '../BaseSelect/selectOption'
 import { Form } from 'vee-validate'
 import { number } from 'yup'
 
+/**
+ * SelectInputValidated can be configured via following css custom props
+ * - `--input-width` to define the width of the input. Default is dynamically calculated based on the label and options length
+ */
 export default {
-  component: SelectInputValidated
+  component: SelectInputValidated,
+  title: 'Input Components/SelectInputValidated'
 } as Meta<typeof SelectInputValidated>
 type Story = StoryObj<typeof SelectInputValidated>
 
 export const Empty: Story = {
+  render: (args: unknown) => ({
+    components: { SelectInputValidated, Form },
+    setup() {
+      return { args }
+    },
+    template: `
+      <Form :initialValues="{test1: 1}" style="--input-width: 90%;">
+      <SelectInputValidated v-bind="args" />
+      </Form>`
+  }),
   args: {
     name: 'test1',
     label: 'Test Select',
@@ -29,7 +44,7 @@ export const Selected: Story = {
       return { args }
     },
     template: `
-      <Form :initialValues="{test2: 1}">
+      <Form :initialValues="{test2: 1}" style="--input-width: 90%;">
       <SelectInputValidated v-bind="args" />
       </Form>`
   }),
@@ -47,7 +62,7 @@ export const Images: Story = {
       return { args }
     },
     template: `
-      <Form :initialValues="{test3: 'option1'}">
+      <Form :initialValues="{test3: 'option1'}" style="--input-width: 90%;">
         <SelectInputValidated v-bind="args" />
       </Form>`
   }),
@@ -75,7 +90,7 @@ export const Icons: Story = {
       return { args }
     },
     template: `
-      <Form :initialValues="{test4: 'option1'}">
+      <Form :initialValues="{test4: 'option1'}" style="--input-width: 90%;">
         <SelectInputValidated v-bind="args" />
       </Form>`
   }),
@@ -104,6 +119,7 @@ export const WithError: Story = {
             :validateOnMount='false'
             :keep-values="true"
             :initialErrors='{"input-with-error": "This is an error"}'>
+            style="--input-width: 90%;"
         <SelectInputValidated v-bind="args" />
       </Form>`
   }),

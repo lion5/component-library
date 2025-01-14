@@ -4,7 +4,8 @@ import { Form } from 'vee-validate'
 import MultiSelectInputValidated from './MultiselectInputValidated.vue'
 
 export default {
-  component: MultiSelectInputValidated
+  component: MultiSelectInputValidated,
+  title: 'Input Components/MultiselectInputValidated'
 } as Meta<typeof MultiSelectInputValidated>
 type Story = StoryObj<typeof MultiSelectInputValidated>
 

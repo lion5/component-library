@@ -3,7 +3,8 @@ import { SelectOption } from '../BaseSelect/selectOption'
 
 export default {
   components: { MultiselectInput },
-  component: MultiselectInput
+  component: MultiselectInput,
+  title: 'Input Components/MultiselectInput'
 }
 
 const Template = (args, { argTypes }) => ({
