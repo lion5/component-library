@@ -39,9 +39,9 @@ describe('LoginForm', () => {
   describe(':props', () => {
     it(':errorMessage - form errorMessage is displayed', async () => {
       await wrapper.setProps({ errorMessage: 'error message' })
-      const errorMessage = wrapper.findComponent(ErrorBox)
-      expect(errorMessage.isVisible()).toBe(true)
-      expect(errorMessage.text()).toBe('error message')
+      const errorBoxes = wrapper.findAllComponents(ErrorBox)
+      expect(errorBoxes[errorBoxes.length - 1].isVisible()).toBe(true)
+      expect(errorBoxes[errorBoxes.length - 1].text()).toBe('error message')
     })
   })
 

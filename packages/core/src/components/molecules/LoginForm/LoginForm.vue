@@ -1,13 +1,16 @@
 <template>
-  <form @submit="onSubmit" class="login-form">
-    <BaseInput
+  <form
+    @submit="onSubmit"
+    class="login-form"
+  >
+    <BaseInputV3Validated
       label="E-Mail-Adresse"
       type="email"
       name="email"
       v-model="email"
       data-test="email"
     />
-    <BaseInput
+    <BaseInputV3Validated
       label="Passwort"
       type="password"
       name="password"
@@ -34,9 +37,9 @@
 import { ref, toRef } from 'vue'
 import { useForm } from 'vee-validate'
 import BaseButton from '@core/components/buttons/BaseButton/BaseButton.vue'
-import BaseInput from '@core/components/inputs/BaseInputV1Validated/BaseInputV1Validated.vue'
 import { object, string } from 'yup'
 import MessageBox from '@core/components/boxes/MessageBox/MessageBox.vue'
+import { BaseInputV3Validated } from '@core/components'
 
 interface LoginForm {
   email: string
