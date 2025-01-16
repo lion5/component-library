@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { RouteLocationRaw, RouterLink } from 'vue-router';
+import { RouteLocationRaw, RouterLink } from 'vue-router'
 import IconLoading from '@core/components/icons/IconLoading.vue'
 
 const props = withDefaults(
@@ -22,7 +22,7 @@ const props = withDefaults(
      *
      * If you do not want that the check icon is displayed on success use the 'success-without-checkmark' variant
      */
-    variant?: string,
+    variant?: string
     type?: 'button' | 'submit' | 'reset'
   }>(),
   {
@@ -61,7 +61,7 @@ const localVariant = computed(() => {
   </a>
   <button
     v-else
-    type="button"
+    :type="type"
     :class="['base-button', localVariant]"
     :disabled="disabled"
     v-bind="$attrs"
@@ -71,7 +71,10 @@ const localVariant = computed(() => {
       :class="{ 'loading-icon': true, animate: loading }"
       data-cy="button-loading"
     />
-    <slot v-else name="icon-left" />
+    <slot
+      v-else
+      name="icon-left"
+    />
     <span class="content">
       <slot />
     </span>
