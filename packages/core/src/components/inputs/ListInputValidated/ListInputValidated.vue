@@ -1,14 +1,12 @@
 <template>
   <div
     :class="{
-        'list-input-group': true
-      }"
+      'list-input-group': true
+    }"
   >
     <slot name="label" />
     <!-- VeeValidate error message (from api or local from validation rules) -->
-    <ErrorBox
-      :errors="errorObjects"
-    />
+    <ErrorBox :errors="errorObjects" />
     <PillListInput
       :pill-input-items="pillInputItems"
       @delete="onDelete"
@@ -41,7 +39,6 @@ import { SearchResult } from '@core/components/inputs/SearchInputValidated/searc
 import { useField } from 'vee-validate'
 import { computed } from 'vue'
 import EndButtonWrapper from '@core/components/utils/EndButtonWrapper/EndButtonWrapper.vue'
-
 
 const props = withDefaults(
   defineProps<{
@@ -80,7 +77,7 @@ const props = withDefaults(
     validationRules?: string | Record<string, unknown>
   }>(),
   {
-    validationRules: ''
+    validationRules: undefined
   }
 )
 
