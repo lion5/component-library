@@ -1,6 +1,6 @@
 {
   "name": "storybook-host",
-  "version": "0.20.4",
+  "version": "0.20.5",
   "private": "true",
   "scripts": {
     "docs": "storybook dev -p 6010",
