@@ -18,7 +18,7 @@ export const Default: Story = {
       return { args }
     },
     template: `
-      <div style="--input-width: 90%;">
+      <div style="--input-width: 100%;">
       <SelectInput v-bind="args" />
       </div>`
   }),
@@ -42,7 +42,7 @@ export const Images: Story = {
       return { args }
     },
     template: `
-      <div style="--input-width: 90%;">
+      <div style="--input-width: 100%;">
         <SelectInput v-bind="args" />
       </div>`
   }),
@@ -71,7 +71,7 @@ export const Icons: Story = {
       return { args }
     },
     template: `
-      <div style="--input-width: 90%;">
+      <div style="--input-width: 100%;">
       <SelectInput v-bind="args" />
       </div>`
   }),
@@ -96,7 +96,7 @@ export const WithError: Story = {
       return { args }
     },
     template: `
-      <div style="--input-width: 90%;">
+      <div style="--input-width: 100%;">
       <SelectInput v-bind="args" />
       </div>`
   }),
@@ -125,7 +125,7 @@ export const Booleans: Story = {
       return { args }
     },
     template: `
-      <div style="--input-width: 90%;">
+      <div style="--input-width: 100%;">
         <SelectInput v-bind="args" />
       </div>`
   }),
@@ -144,7 +144,7 @@ export const NotSearchable: Story = {
       return { args }
     },
     template: `
-      <div style="--input-width: 90%;">
+      <div style="--input-width: 100%;">
         <SelectInput v-bind="args" />
       </div>`
   }),

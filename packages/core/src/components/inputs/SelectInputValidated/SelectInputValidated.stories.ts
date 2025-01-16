@@ -21,7 +21,7 @@ export const Empty: Story = {
       return { args }
     },
     template: `
-      <Form :initialValues="{test1: 1}" style="--input-width: 90%;">
+      <Form :initialValues="{test1: 1}" style="--input-width: 100%;">
       <SelectInputValidated v-bind="args" />
       </Form>`
   }),
@@ -44,7 +44,7 @@ export const Selected: Story = {
       return { args }
     },
     template: `
-      <Form :initialValues="{test2: 1}" style="--input-width: 90%;">
+      <Form :initialValues="{test2: 1}" style="--input-width: 100%;">
       <SelectInputValidated v-bind="args" />
       </Form>`
   }),
@@ -62,7 +62,7 @@ export const Images: Story = {
       return { args }
     },
     template: `
-      <Form :initialValues="{test3: 'option1'}" style="--input-width: 90%;">
+      <Form :initialValues="{test3: 'option1'}" style="--input-width: 100%;">
         <SelectInputValidated v-bind="args" />
       </Form>`
   }),
@@ -90,7 +90,7 @@ export const Icons: Story = {
       return { args }
     },
     template: `
-      <Form :initialValues="{test4: 'option1'}" style="--input-width: 90%;">
+      <Form :initialValues="{test4: 'option1'}" style="--input-width: 100%;">
         <SelectInputValidated v-bind="args" />
       </Form>`
   }),
@@ -119,7 +119,7 @@ export const WithError: Story = {
             :validateOnMount='false'
             :keep-values="true"
             :initialErrors='{"input-with-error": "This is an error"}'>
-            style="--input-width: 90%;"
+            style="--input-width: 100%;"
         <SelectInputValidated v-bind="args" />
       </Form>`
   }),
