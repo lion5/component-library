@@ -1,3 +1,13 @@
+## 0.20.7 (2025-01-16)
+
+### 🩹 Fixes
+
+- set validation rules to undefined ([6339ee3](https://github.com/lion5/component-library/commit/6339ee3))
+
+### ❤️  Thank You
+
+- Roman Kudravcev
+
 ## 0.20.6 (2025-01-16)
 
 This was a version bump only, there were no code changes.
