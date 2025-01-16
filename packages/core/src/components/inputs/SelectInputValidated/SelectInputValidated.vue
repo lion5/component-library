@@ -70,7 +70,7 @@ const props = withDefaults(
   {
     entityName: 'Optionen',
     searchable: true,
-    validationRules: ''
+    validationRules: undefined
   }
 )
 type InputType = string | number | boolean | undefined | null

@@ -65,7 +65,7 @@ const props = withDefaults(
     optionsLabel?: string
   }>(),
   {
-    validationRules: ''
+    validationRules: undefined
   }
 )
 

@@ -14,14 +14,16 @@
       v-for="(_, slotName) in $slots"
       v-slot:[slotName]="slotProps"
     >
-      <slot :name="slotName" v-bind="slotProps ?? {}" />
+      <slot
+        :name="slotName"
+        v-bind="slotProps ?? {}"
+      />
     </template>
   </BaseInputV3>
 </template>
 <script setup lang="ts" generic="T">
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import { RuleExpression, useField } from 'vee-validate'
-
 
 const props = withDefaults(
   defineProps<{
@@ -51,16 +53,11 @@ const props = withDefaults(
     validationRules?: RuleExpression<T>
   }>(),
   {
-    validationRules: ''
+    validationRules: undefined
   }
 )
-const { value, meta, handleBlur, errors } = useField<T>(
-  () => props.name,
-  props.validationRules,
-  {
-    syncVModel: true
-  }
-)
+const { value, meta, handleBlur, errors } = useField<T>(() => props.name, props.validationRules, {
+  syncVModel: true
+})
 </script>
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>
