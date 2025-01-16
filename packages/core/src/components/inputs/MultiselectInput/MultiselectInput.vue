@@ -389,6 +389,7 @@ const removeOption = (option: SelectOption<LabelType>) => {
     }
 
     .multiselect__content-wrapper {
+      padding-top: 0;
       border-radius: 0 0 var(--border-radius-300) var(--border-radius-300);
       background-color: var(--_input-surface-color);
       // Prevents the multiselect from enabling the scrollbar if the space below the input is not enough
@@ -402,6 +403,10 @@ const removeOption = (option: SelectOption<LabelType>) => {
   }
 
   :deep(.multiselect--active) {
+    input {
+      margin: 0;
+    }
+
     .multiselect__tags {
       border-radius: var(--border-radius-300) var(--border-radius-300) 0 0;
     }

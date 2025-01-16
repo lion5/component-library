@@ -6,7 +6,7 @@
       'has-content': selectedOption,
       'has-error': (dirty && invalid) || errorObjects.length > 0
     }"
-    :style="{ width: `${maxLabelWidth}px` }"
+    :style="{ width: `var(--input-width, ${maxLabelWidth}px)` }"
   >
     <multiselect
       :id="id"
@@ -376,7 +376,9 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
   }
 
   :deep(.multiselect--active) {
-    position: absolute;
+    input {
+      margin: 0;
+    }
 
     .multiselect__tags {
       border-radius: var(--_input-border-radius) var(--_input-border-radius) 0 0;
