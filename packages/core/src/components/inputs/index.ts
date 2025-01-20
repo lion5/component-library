@@ -24,13 +24,15 @@ import NumberInputValidated from '@core/components/inputs/NumberInputValidated/N
 import PillInput from '@core/components/inputs/PillInput/PillInput.vue'
 import PreviewImageInputValidated from '@core/components/inputs/image/PreviewImageInputValidated/PreviewImageInputValidated.vue'
 import SearchInputValidated from '@core/components/inputs/SearchInputValidated/SearchInputValidated.vue'
-import { SearchResult } from '@core/components/inputs/SearchInputValidated/searchResult'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
 import SelectInputValidated from '@core/components/inputs/SelectInputValidated/SelectInputValidated.vue'
 import SliderToggleInput from '@core/components/inputs/SliderToggleInput/SliderToggleInput.vue'
 import SlugInputValidated from '@core/components/inputs/SlugInputValidated/SlugInputValidated.vue'
 import SortableGalleryInput from '@core/components/inputs/image/SortableGalleryInput/SortableGalleryInput.vue'
+import TextareaInput from '@core/components/inputs/TextareaInput/TextareaInput.vue'
+import TextareaInputValidated from '@core/components/inputs/TextareaInputValidated/TextareaInputValidated.vue'
 import UploadImageFABValidated from '@core/components/inputs/image/UploadImageFABValidated/UploadImageFABValidated.vue'
+import { SearchResult } from '@core/components/inputs/SearchInputValidated/searchResult'
 
 export {
   AddressInputValidated,
@@ -38,8 +40,8 @@ export {
   BaseInputV2Validated,
   BaseInputV3 as BaseInput,
   BaseInputV3,
-  BaseInputV3Validated,
   BaseInputV3Validated as BaseInputValidated,
+  BaseInputV3Validated,
   BaseInputWrapper,
   BaseSelect,
   CentInputValidated,
@@ -68,5 +70,7 @@ export {
   SliderToggleInput,
   SlugInputValidated,
   SortableGalleryInput,
+  TextareaInput,
+  TextareaInputValidated,
   UploadImageFABValidated
 }

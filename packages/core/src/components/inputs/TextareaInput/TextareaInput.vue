@@ -7,27 +7,30 @@
     }"
   >
     <div class="input-group">
-      <slot name="prefix" />
       <div class="input-label">
-        <input
+        <textarea
           :id="name"
           :name="name"
           v-model.trim="value"
-          :type="type"
+          rows="1"
           placeholder="hidden"
+          v-bind="$attrs"
+          :maxlength="maxlength"
         />
         <label :for="name">{{ label }}</label>
       </div>
-      <div class="postfix">
-        <IconError v-if="invalid" class="error-icon" />
-        <slot v-else name="postfix" />
-      </div>
+    </div>
+    <div class="info-section">
+      <small v-if="typeof value === 'string' && maxlength" class="max-length-indicator">
+        {{ value.length }}&nbsp;/&nbsp;{{ maxlength }}
+      </small>
+      <!--      -->
+      <slot name="infoText" />
     </div>
     <ErrorBox class="error-box" :errors="errorObjects" />
   </div>
 </template>
-<script setup lang="ts" generic="T">
-import IconError from '@core/components/icons/IconError.vue'
+<script setup lang="ts">
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 import { computed } from 'vue'
 
@@ -43,13 +46,9 @@ const props = withDefaults(
      */
     label: string
     /**
-     * The type of the HTML `input` element, e.g. "text", "password", or "number".
+     * The maximum length of the input field.
      */
-    type?: string
-    /**
-     * Whether to show the error icon or not. Defaults to `true`.
-     */
-    showErrorIcon?: boolean
+    maxlength?: string,
     /**
      * The meta information of the field. This is provided by `useField` from `vee-validate`.
      */
@@ -61,17 +60,15 @@ const props = withDefaults(
     errors?: Error[] | string[]
   }>(),
   {
-    type: 'text',
     dirty: false,
     invalid: false,
-    showErrorIcon: true,
     errors: () => []
   }
 )
 /**
  * The value to display
  */
-const value = defineModel<T>()
+const value = defineModel<string>()
 
 const errorObjects = computed(() => {
   if (!props.invalid) {
@@ -104,8 +101,8 @@ const errorObjects = computed(() => {
     border-radius: var(--_input-border-radius);
     background-color: var(--_input-surface-color);
     align-items: center;
-    padding-inline: var(--space-sm);
     gap: var(--space-sm);
+    overflow: clip;
 
     &:has(*:focus) {
       outline: 2px solid var(--color-primary);
@@ -118,37 +115,38 @@ const errorObjects = computed(() => {
     gap: var(--space-sm);
     flex-grow: 1;
 
-    input,
+    textarea,
     label {
       grid-row: 1 / 2;
       grid-column: 1 / 2;
       font-size: var(--_input-size);
       background-color: transparent;
+      resize: vertical;
+      padding-inline: var(--space-sm);
     }
 
-    input {
+    textarea {
       border: none;
       padding-block-end: var(--space-xs);
       padding-block-start: calc(var(--_label-size) + var(--space-sm));
+      min-height: var(--_input-size);
+      transition: border-color 0.15s ease-in-out,
+      min-height 0.4s ease-in-out;
 
       &:focus {
         outline: none;
       }
 
-      &[type='color'] {
-        -webkit-appearance: none;
-        border: none;
-        width: 100%;
-        height: 2.5rem;
+      scrollbar-color: var(--color-font-2) var(--_input-surface-color);
+      scrollbar-width: thin;
+      scrollbar-gutter: stable;
 
-        &::-webkit-color-swatch-wrapper {
-          padding: 0;
-        }
+      &::-webkit-scrollbar-thumb { /* Foreground */
+        background: var(--scrollbar-foreground);
+      }
 
-        &::-webkit-color-swatch {
-          border: none;
-          border-radius: var(--_input-border-radius);
-        }
+      &::-webkit-scrollbar-track { /* Background */
+        background: var(--scrollbar-background);
       }
     }
 
@@ -165,8 +163,8 @@ const errorObjects = computed(() => {
       line-height: 1;
     }
 
-    input:not(:placeholder-shown) ~ label,
-    input:focus ~ label {
+    textarea:not(:placeholder-shown) ~ label,
+    textarea:focus ~ label {
       top: 0;
       transform: translateY(0%);
       margin-top: var(--space-xs);
@@ -174,21 +172,17 @@ const errorObjects = computed(() => {
     }
   }
 
-  input::placeholder,
-  input::-webkit-input-placeholder {
+  textarea::placeholder,
+  textarea::-webkit-input-placeholder {
     color: transparent !important;
     opacity: 0;
   }
 
-  .error-icon {
-    color: var(--color-danger);
-  }
-
-  &.invalid input ~ label {
+  &.invalid textarea ~ label {
     color: var(--_input-error-color);
   }
 
-  &.invalid input:hover ~ label {
+  &.invalid textarea:hover ~ label {
     color: var(--_input-error-color-hover);
   }
 
@@ -197,16 +191,21 @@ const errorObjects = computed(() => {
 
     &:hover {
       outline: 2px solid var(--_input-error-color-hover);
-
-      .error-icon {
-        color: var(--_input-error-color-hover);
-      }
     }
   }
 
   .error {
     color: var(--_input-error-color);
     font-size: var(--font-size-0);
+  }
+
+  .max-length-indicator {
+    width: max-content;
+    position: relative;
+    float: right;
+    display: block;
+    color: var(--color-neutral-500);
+    margin-block-start: var(--space-xs);
   }
 }
 </style>
