@@ -62,7 +62,6 @@ const props = withDefaults(
   }>(),
   {
     type: 'text',
-    validationRules: '',
     dirty: false,
     invalid: false,
     showErrorIcon: true,
