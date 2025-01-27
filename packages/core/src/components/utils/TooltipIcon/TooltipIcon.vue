@@ -1,8 +1,13 @@
 <template>
-  <div class="portal-tooltip">
-    <IconButton :aria-labelledby="id">
+  <div class="tooltip">
+    <IconButton
+      :class="{ 'on-hover': showOnHover }"
+      :aria-labelledby="id"
+    >
       <!-- @slot should contain the icon that is used as trigger for the tooltip -->
-      <slot name="tooltipIcon" />
+      <span :class="{ 'selectable-content': isSelectable }">
+        <slot name="tooltipIcon" />
+      </span>
     </IconButton>
     <BaseCard :id="id" role="tooltip">
       <!-- @slot content displayed in the tooltip box -->
@@ -31,16 +36,27 @@ withDefaults(
     /**
      * Text that is displayed inside the tooltips box. The slot tooltipText will override this prop if set.
      */
-    tooltipText: string
+    tooltipText: string,
+    /**
+     * Determines if the content is selectable.
+     */
+    isSelectable?: boolean
+    /**
+     * Determines if the tooltip is only shown on focus.
+     */
+    showOnHover?: boolean
   }>(),
-  { tooltipText: '' }
+  {
+    tooltipText: '',
+    isSelectable: false,
+    showOnHover: true
+  }
 )
 </script>
 
 <style lang="scss" scoped>
-.portal-tooltip {
+.tooltip {
   position: relative;
-  max-width: min-content;
 }
 
 [role='tooltip'] {
@@ -55,9 +71,18 @@ withDefaults(
   max-width: 30ch;
 }
 
-button:hover + [role='tooltip'],
-button:focus + [role='tooltip'] {
+
+button.on-hover:hover + [role='tooltip'],
+button:focus + [role='tooltip'],
+[role='tooltip']:hover,
+[role='tooltip']:focus-within,
+[role='tooltip']:focus,
+[role='tooltip']:active {
   display: block;
+}
+
+button:not(.on-hover) {
+  cursor: pointer;
 }
 
 .tooltip-right {
@@ -66,5 +91,10 @@ button:focus + [role='tooltip'] {
 
 .tooltip-left {
   right: 0;
+}
+
+.selectable-content {
+  user-select: text;
+  cursor: text;
 }
 </style>

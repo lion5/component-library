@@ -42,7 +42,7 @@ export const LeftAligned: Story = {
       return { args }
     },
     template: `
-      <div style="margin-left: 200px">
+      <div style="margin-left: 200px; width: fit-content;">
       <TooltipIcon v-bind="args" style="--tooltip-right: 0">
         <template #tooltipIcon>
           <IconInfoCircle />
