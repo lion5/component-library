@@ -8,7 +8,7 @@
     :invalid="meta.touched && !meta.valid"
     :showErrorIcon="showErrorIcon"
     :errors="errors"
-    @blur="handleBlur"
+    @blur="syncBlur"
   >
     <template
       v-for="(_, slotName) in $slots"
@@ -56,8 +56,19 @@ const props = withDefaults(
     validationRules: undefined
   }
 )
+
+const emit = defineEmits<{
+  (e: 'blur', event: FocusEvent): void
+  (e: 'update:modelValue', value: T): void
+}>()
+
 const { value, meta, handleBlur, errors } = useField<T>(() => props.name, props.validationRules, {
-  syncVModel: true
+  syncVModel: true,
 })
+
+const syncBlur = (event: FocusEvent) => {
+  handleBlur(event)
+  emit('blur', event)
+}
 </script>
 <style scoped lang="scss"></style>

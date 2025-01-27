@@ -1,42 +1,40 @@
 <script setup lang="ts">
 import { Address } from '@core/models/address'
-import BaseInputV2 from '@core/components/inputs/BaseInputV2Validated/BaseInputV2Validated.vue'
-import { ErrorMessage, RuleExpression, useField } from 'vee-validate'
+import BaseInputV3Validated from '@core/components/inputs/BaseInputV3Validated/BaseInputV3Validated.vue'
+import { ErrorMessage, RuleExpression } from 'vee-validate'
 import { useAddressUtils } from '@core/components/inputs/AddressInputValidated/useAddressUtils'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     /**
      * Used to identify this field in a form (VeeValidate Form).
      */
     name: string
     /**
-     * The address value.
-     */
-    address?: Address
-    /**
      * Global validations for all fields.
      */
     validationRules?: RuleExpression<string>
   }>(),
   {
-    address: () => new Address(),
     validationRules: ''
   }
 )
 
 const emit = defineEmits<{
-  (e: 'update:address', value: Address): void
-  (e: 'input-finished'): void
+  /**
+   * if address is completely inputted
+   * @param e
+   */
+  (e: 'input-finished'): void,
+  (e: 'update:modelValue', value: Address): void
 }>()
 
-const { value: address, handleBlur } = useField<Address>(
-  props.name,
-  undefined,
-  {
-    syncVModel: 'address'
-  }
-)
+
+const address = defineModel<Address>({
+  required: false,
+  default: () => new Address()
+})
+
 
 const { isValidStreet } = useAddressUtils()
 const streetValidationRules = (value: string) => {
@@ -47,38 +45,55 @@ const streetValidationRules = (value: string) => {
 }
 
 const partialInputFinished = () => {
-  handleBlur()
+  console.log('partialInputFinished', address.value)
   if (address.value.isComplete()) {
     emit('input-finished')
   }
 }
-// TODO: add rules for street and postalCode
+
+const onStreetInput = (street: string) => {
+  address.value.street = street
+  address.value = address.value.clone()
+}
+const onPostalCodeInput = (postalCode: string) => {
+  address.value.postalCode = postalCode
+  address.value = address.value.clone()
+}
+
+const onCityInput = (city: string) => {
+  address.value.city = city
+  address.value = address.value.clone()
+}
 </script>
 
 <template>
   <div class="address-input-container">
     <div class="address-input">
-      <BaseInputV2
+      <BaseInputV3Validated
         class="street-input"
         :name="`${name}.street`"
+        :model-value="address.street"
         v-model="address.street"
         label="Straße"
         :validation-rules="validationRules || streetValidationRules"
+        @update:model-value="onStreetInput"
         @blur="partialInputFinished"
       />
-      <BaseInputV2
+      <BaseInputV3Validated
         class="postal-code-input"
         :name="`${name}.postalCode`"
-        v-model="address.postalCode"
+        :model-value="address.postalCode"
         label="PLZ"
         :validation-rules="validationRules"
+        @update:model-value="onPostalCodeInput"
         @blur="partialInputFinished"
       />
-      <BaseInputV2
+      <BaseInputV3Validated
         :name="`${name}.city`"
-        v-model="address.city"
+        :model-value="address.city"
         label="Stadt"
         :validation-rules="validationRules"
+        @update:model-value="onCityInput"
         @blur="partialInputFinished"
       />
     </div>
