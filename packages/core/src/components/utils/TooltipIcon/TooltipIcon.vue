@@ -66,7 +66,7 @@ withDefaults(
   right: var(--tooltip-right, unset);
   bottom: var(--tooltip-bottom, unset);
   top: var(--tooltip-top, unset);
-  background-color: var(--white);
+  background-color: var(--color-white);
   width: max-content;
   max-width: 30ch;
 }
