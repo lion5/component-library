@@ -5,8 +5,11 @@
     :disabled="success"
     @click="copyToClipboard"
   >
-    <IconCopy />
-    <span v-if="success">Kopiert <IconCheck /></span>
+    <IconCopy v-if="extensiveSuccess || !success" />
+    <span v-if="success">
+      <span v-if="extensiveSuccess">Kopiert </span>
+      <IconCheck />
+    </span>
   </IconButton>
 </template>
 <script setup lang="ts">
@@ -14,9 +17,21 @@ import { IconButton, IconCheck } from '@core/components'
 import IconCopy from '@core/components/icons/IconCopy.vue'
 import { computed, ref } from 'vue'
 
-const props = defineProps<{
-  copyContent?: string
-}>()
+const props = withDefaults(
+  defineProps<{
+    /**
+     * The content to copy to the clipboard.
+     */
+    copyContent?: string
+    /**
+     * Shows a more extensive success message.
+     */
+    extensiveSuccess?: boolean
+  }>(),
+  {
+    extensiveSuccess: false
+  }
+)
 
 const success = ref(false)
 const notifySuccess = () => {
