@@ -1,3 +1,17 @@
+## 0.21.0 (2025-01-20)
+
+### 🚀 Features
+
+- **TextareaInput:** implement textarea input ([fe15920](https://github.com/lion5/component-library/commit/fe15920))
+
+### 🩹 Fixes
+
+- **BaseInputV3:** remove obsolete prop ([dd4eec0](https://github.com/lion5/component-library/commit/dd4eec0))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.20.9 (2025-01-17)
 
 ### 🩹 Fixes
