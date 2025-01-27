@@ -73,7 +73,6 @@ const onCityInput = (city: string) => {
         class="street-input"
         :name="`${name}.street`"
         :model-value="address.street"
-        v-model="address.street"
         label="Straße"
         :validation-rules="validationRules || streetValidationRules"
         @update:model-value="onStreetInput"
