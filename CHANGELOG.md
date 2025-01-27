@@ -1,3 +1,17 @@
+## 0.21.1 (2025-01-27)
+
+### 🩹 Fixes
+
+- **AddressInput:** remove duplicated v-model ([d142734](https://github.com/lion5/component-library/commit/d142734))
+- **AddressInputValidate:** emit address on input ([9bd699e](https://github.com/lion5/component-library/commit/9bd699e))
+- **CopyButton:** match bg spec ([b69acb5](https://github.com/lion5/component-library/commit/b69acb5))
+- **TooltipIcon:** match bg spec ([2a2d37d](https://github.com/lion5/component-library/commit/2a2d37d))
+- **TooltipIcon:** use correct color custom prop to set background color ([1c04af4](https://github.com/lion5/component-library/commit/1c04af4))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.21.0 (2025-01-20)
 
 ### 🚀 Features

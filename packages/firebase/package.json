@@ -1,6 +1,6 @@
 {
   "name": "@lion5/component-library-firebase",
-  "version": "0.21.0",
+  "version": "0.21.1",
   "type": "commonjs",
   "license": "MIT",
   "contributors": [
@@ -59,7 +59,7 @@
     "./dist/style.css"
   ],
   "dependencies": {
-    "@lion5/component-library": "0.21.0",
+    "@lion5/component-library": "0.21.1",
     "firebase": "^11.0.2",
     "vue": "^3.5.13"
   },
