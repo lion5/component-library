@@ -17,7 +17,7 @@
   </BaseInputV3>
 </template>
 <script setup lang="ts">
-import { useField } from 'vee-validate'
+import { RuleExpression, useField } from 'vee-validate'
 import { ref, watch } from 'vue'
 import { useCurrencyFormat } from '@core/components/inputs/CentInputValidated/useCurrencyFormat'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
@@ -37,7 +37,11 @@ const props = withDefaults(
      * The value of the input field. Mainly used for backwards compatibility to our old forms.
      * Please use the vee validate form to fill this field instead.
      */
-    cents?: number
+    cents?: number,
+    /**
+     * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
+     */
+    validationRules?: RuleExpression<number>
   }>(),
   {
     label: 'Betrag'
@@ -92,9 +96,15 @@ const onDelete = () => {
   value.value = parseInt(internalValue.value || '0')
 }
 
+const validateAbsoluteValue = (value: number) => {
+  return (
+    value >= 0 || 'Der Betrag muss größer oder gleich 0 sein.'
+  )
+}
+
 const { value, handleBlur, meta, errors } = useField<number>(
   () => props.name,
-  (value) => value >= 0 || 'Der Betrag muss größer oder gleich 0 sein.',
+  props.validationRules || validateAbsoluteValue,
   {
     syncVModel: 'cents'
   }
