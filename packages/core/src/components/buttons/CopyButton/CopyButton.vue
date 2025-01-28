@@ -46,7 +46,6 @@ const isAvailable = computed(
 )
 const copyToClipboard = () => {
   if (!props.copyContent) return
-  console.log('clicked')
   navigator.clipboard.writeText(props.copyContent)
   notifySuccess()
 }
