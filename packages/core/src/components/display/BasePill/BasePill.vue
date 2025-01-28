@@ -1,16 +1,24 @@
 <script setup lang="ts">
 import BaseIcon from '@core/components/icons/BaseIcon.vue'
+import ArrowRotateLoadingAnimation from '@core/components/icons/ArrowRotateLoadingAnimation.vue'
 
 defineProps<{
   label: string
-  iconStartCls?: string
+  iconStartCls?: string,
+  busy?: boolean
 }>()
 </script>
 
 <template>
   <div class="pill">
     <span
-      v-if="iconStartCls"
+      v-if="busy"
+      class="start-icon"
+    >
+      <ArrowRotateLoadingAnimation />
+    </span>
+    <span
+      v-else-if="iconStartCls"
       class="start-icon"
     >
       <BaseIcon :icon="iconStartCls" />

@@ -25,6 +25,13 @@ export const WithIcon: Story = {
   }
 }
 
+export const Busy: Story = {
+  args: {
+    ...WithIcon.args,
+    busy: true
+  }
+}
+
 export const WithPostfix: Story = {
   render: (args) => ({
     components: { BasePill },
