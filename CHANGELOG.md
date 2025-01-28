@@ -1,3 +1,18 @@
+## 0.21.2 (2025-01-28)
+
+### 🚀 Features
+
+- **BasePill:** introduce busy state ([3b3c86f](https://github.com/lion5/component-library/commit/3b3c86f))
+
+### 🩹 Fixes
+
+- **BaseInputV3:** bypass events ([4fb0d60](https://github.com/lion5/component-library/commit/4fb0d60))
+- **CopyButton:** typos ([95e1b6d](https://github.com/lion5/component-library/commit/95e1b6d))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.21.1 (2025-01-27)
 
 ### 🩹 Fixes
