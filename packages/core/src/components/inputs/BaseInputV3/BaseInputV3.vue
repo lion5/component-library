@@ -1,10 +1,10 @@
 <template>
   <div
-    :class="{
-      'base-input-wrapper': true,
-      dirty,
-      invalid
-    }"
+    :class="[
+      'base-input-wrapper',
+      { dirty, invalid },
+      $attrs.class
+    ]"
   >
     <div class="input-group">
       <slot name="prefix" />
@@ -15,6 +15,7 @@
           v-model.trim="value"
           :type="type"
           placeholder="hidden"
+          v-bind="$attrs"
         />
         <label :for="name">{{ label }}</label>
       </div>
@@ -31,6 +32,9 @@ import IconError from '@core/components/icons/IconError.vue'
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 import { computed } from 'vue'
 
+defineOptions({
+  inheritAttrs: false
+})
 
 const props = withDefaults(
   defineProps<{

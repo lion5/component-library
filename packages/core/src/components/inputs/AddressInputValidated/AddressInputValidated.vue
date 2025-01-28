@@ -45,7 +45,6 @@ const streetValidationRules = (value: string) => {
 }
 
 const partialInputFinished = () => {
-  console.log('partialInputFinished', address.value)
   if (address.value.isComplete()) {
     emit('input-finished')
   }
