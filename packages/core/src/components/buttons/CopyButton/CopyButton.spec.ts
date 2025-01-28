@@ -3,7 +3,7 @@ import { describe, beforeEach, it, expect, vi, beforeAll } from 'vitest'
 import { mount } from '@vue/test-utils'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 
-describe('CopyButton.cue', () => {
+describe('CopyButton.vue', () => {
   let wrapper: ReturnType<typeof mount>
 
   beforeAll(() => {
