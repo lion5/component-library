@@ -15,6 +15,7 @@
           v-model.trim="value"
           :type="type"
           placeholder="hidden"
+          v-bind="$attrs"
         />
         <label :for="name">{{ label }}</label>
       </div>
