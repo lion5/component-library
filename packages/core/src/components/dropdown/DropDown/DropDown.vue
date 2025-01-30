@@ -39,8 +39,10 @@ const onClick = () => {
 
   .dropdown-content {
     position: absolute;
-    right: 0;
-    top: 0;
+    right: var(--anchor-right, 0);
+    top: var(--anchor-top, calc(100% + var(--space-300)));
+    bottom: var(--anchor-bottom, unset);
+    left: var(--anchor-left, unset);
     margin-right: var(--font-size-5);
     width: max-content;
     display: none;
@@ -49,6 +51,7 @@ const onClick = () => {
     border-radius: var(--border-radius-300);
     background-color: var(--color-surface-1);
     overflow: hidden;
+    z-index: 1;
 
     &:focus-within {
       border: 2px solid var(--color-primary);
