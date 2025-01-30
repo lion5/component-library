@@ -19,7 +19,7 @@ defineProps<{
 </script>
 
 <template>
-  <BaseCard class="entity-card">
+  <BaseCard class="editable-entity-card">
     <h2>{{ title }}</h2>
     <div class="top-end-icon">
       <IconButton
@@ -51,7 +51,7 @@ defineProps<{
 </template>
 
 <style scoped lang="scss">
-.entity-card {
+.editable-entity-card {
   display: grid;
   grid-template-columns: 1fr min-content;
   --card-padding: var(--space-400) var(--space-500);
