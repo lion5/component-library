@@ -1,12 +1,13 @@
 <template>
   <TextareaInput
-    :name="name"
-    :label="label"
     v-model="value"
-    :maxlength="maxlength"
     :dirty="meta.dirty"
-    :invalid="meta.touched && !meta.valid"
     :errors="errors"
+    :invalid="meta.touched && !meta.valid"
+    :label="label"
+    :maxlength="maxlength"
+    :name="name"
+    :required="required"
     @blur="handleBlur"
   >
     <template
@@ -20,9 +21,11 @@
     </template>
   </TextareaInput>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
 import { RuleExpression, useField } from 'vee-validate'
 import TextareaInput from '@core/components/inputs/TextareaInput/TextareaInput.vue'
+import { computed } from 'vue'
+import { Schema } from 'yup'
 
 
 const props = withDefaults(
@@ -48,11 +51,14 @@ const props = withDefaults(
     validationRules: undefined
   }
 )
+
+const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
+
 const { value, meta, handleBlur, errors } = useField<string>(() => props.name, props.validationRules, {
   syncVModel: true
 })
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .base-input-wrapper {
   --_input-size: var(--input-font-size, 1.2rem);
   --_label-size: var(--input-label-font-size, 0.75rem);

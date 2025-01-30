@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import SelectInput from './SelectInput.vue'
 import { SelectOption } from '../BaseSelect/selectOption'
+
 /**
  * SelectInput can be configured via following css custom props
  * - `--input-width` to define the width of the input. Default is dynamically calculated based on the label and options length
@@ -19,7 +20,7 @@ export const Default: Story = {
     },
     template: `
       <div style="--input-width: 100%;">
-      <SelectInput v-bind="args" />
+        <SelectInput v-bind="args" />
       </div>`
   }),
   args: {
@@ -72,7 +73,7 @@ export const Icons: Story = {
     },
     template: `
       <div style="--input-width: 100%;">
-      <SelectInput v-bind="args" />
+        <SelectInput v-bind="args" />
       </div>`
   }),
   args: {
@@ -97,7 +98,7 @@ export const WithError: Story = {
     },
     template: `
       <div style="--input-width: 100%;">
-      <SelectInput v-bind="args" />
+        <SelectInput v-bind="args" />
       </div>`
   }),
   args: {
@@ -153,6 +154,31 @@ export const NotSearchable: Story = {
     label: 'Option',
     entityName: 'Optionen',
     searchable: false,
+    options: [
+      new SelectOption(true, 'All options'),
+      new SelectOption('option1', 'Option One'),
+      new SelectOption('option2', 'Option Two')
+    ]
+  }
+}
+
+export const Required: Story = {
+  render: (args: unknown) => ({
+    components: { SelectInput },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style="--input-width: 100%;">
+        <SelectInput v-bind="args" />
+      </div>`
+  }),
+  args: {
+    id: 'select-input',
+    label: 'Option',
+    entityName: 'Optionen',
+    placeholder: 'Choose option',
+    required: true,
     options: [
       new SelectOption(true, 'All options'),
       new SelectOption('option1', 'Option One'),

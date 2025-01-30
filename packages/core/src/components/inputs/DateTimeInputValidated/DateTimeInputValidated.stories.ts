@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
 import DateTimeInput from './DateTimeInputValidated.vue'
 import { useDate } from '@core/composables/useDate'
+import { date } from 'yup'
 
 export default {
   component: DateTimeInput,
@@ -25,11 +26,19 @@ export const Filled: Story = {
     },
     template: `
       <Form :initialValues='{"date-input2": getDateTimeLocalInputValue(new Date())}'>
-      <DateTimeInput v-bind="args" />
+        <DateTimeInput v-bind="args" />
       </Form>`
   }),
   args: {
     ...Empty.args,
     name: 'date-input2'
+  }
+}
+
+export const Required: Story = {
+  args: {
+    name: 'date-input-required',
+    label: 'This is an required date field',
+    validationRules: date().required()
   }
 }

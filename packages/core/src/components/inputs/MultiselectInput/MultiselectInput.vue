@@ -1,30 +1,31 @@
 <template>
   <div
-    class="floating-input-group"
     :class="{
       'multi-select-input': true,
       'has-content': selectedOptions.length > 0,
-      'has-error': (dirty && invalid) || errorObjects.length > 0
+      'has-error': (dirty && invalid) || errorObjects.length > 0,
+      'required': required
     }"
+    class="floating-input-group"
   >
     <multiselect
       :id="id"
       v-model="selectedOptions"
-      :options="options"
-      track-by="key"
-      label="label"
-      :multiple="true"
-      :taggable="false"
-      :close-on-select="false"
-      deselect-label="Auswahl kann nicht gelöscht werden."
-      :show-labels="false"
-      v-bind="$attrs"
-      @select="selectOption"
-      @remove="removeOption"
-      :open-direction="'bottom'"
       :class="{ 'has-content': selectedOptions.length > 0 }"
-      :searchable="searchable"
+      :close-on-select="false"
+      :multiple="true"
+      :open-direction="'bottom'"
+      :options="options"
       :placeholder="label"
+      :searchable="searchable"
+      :show-labels="false"
+      :taggable="false"
+      deselect-label="Auswahl kann nicht gelöscht werden."
+      label="label"
+      track-by="key"
+      v-bind="$attrs"
+      @remove="removeOption"
+      @select="selectOption"
     >
       <template
         v-for="(_, name) in $slots"
@@ -32,21 +33,21 @@
       >
         <slot :name="name" />
       </template>
-      <template #noOptions> Keine {{ entityName }} vorhanden </template>
-      <template #noResult> Keine {{ entityName }} gefunden </template>
+      <template #noOptions> Keine {{ entityName }} vorhanden</template>
+      <template #noResult> Keine {{ entityName }} gefunden</template>
       <template v-slot:tag="{ option, remove }">
         <div class="multiselect__tag">
           <div class="option__container">
             <img
               v-if="option.img"
-              class="option__image"
-              :src="option.img"
               :alt="option.label"
+              :src="option.img"
+              class="option__image"
             />
             <i
               v-if="option.icon"
-              class="option__icon bi"
               :class="option.icon"
+              class="option__icon bi"
             />
             <span class="option__title">{{ option.label }}</span>
           </div>
@@ -61,33 +62,33 @@
         <div class="option__container">
           <img
             v-if="props.option.img"
-            class="option__image"
-            :src="props.option.img"
             :alt="props.option.label"
+            :src="props.option.img"
+            class="option__image"
           />
           <i
             v-if="props.option.icon"
-            class="option__icon bi"
             :class="props.option.icon"
+            class="option__icon bi"
           />
           <span class="option__title">{{ props.option.label }}</span>
         </div>
       </template>
     </multiselect>
     <label
-      class="floating-label-active"
       :for="id"
+      class="floating-label-active"
     >
       {{ label }}
     </label>
     <ErrorBox
-      class="error-box"
       :errors="errorObjects"
+      class="error-box"
     />
   </div>
 </template>
 
-<script setup lang="ts" generic="LabelType">
+<script generic="LabelType" lang="ts" setup>
 import Multiselect from 'vue-multiselect'
 import { computed, onMounted, type Ref, ref, watch } from 'vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
@@ -122,6 +123,7 @@ const props = withDefaults(
      */
     dirty?: boolean
     invalid?: boolean
+    required?: boolean
     /**
      * The errors of the field. This is provided by `useField` from `vee-validate`.
      */
@@ -145,6 +147,7 @@ const props = withDefaults(
     searchable: true,
     dirty: false,
     invalid: false,
+    required: false,
     errors: () => []
   }
 )
@@ -294,7 +297,7 @@ const removeOption = (option: SelectOption<LabelType>) => {
     padding-left: calc(var(--space-sm) + var(--space-xs));
   }
 
-  label.required::after {
+  &.required > label::after {
     display: inline-block;
     content: '*';
     font-size: 1.2rem;
@@ -336,6 +339,7 @@ const removeOption = (option: SelectOption<LabelType>) => {
     .multiselect__tags {
       padding-left: var(--space-sm);
     }
+
     .multiselect__single {
       padding-left: var(--space-xs);
     }

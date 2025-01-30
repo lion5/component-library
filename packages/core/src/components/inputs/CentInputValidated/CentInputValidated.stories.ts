@@ -66,7 +66,7 @@ export const MaxInput: Story = {
       return { args, cents }
     },
     template: `
-      <Form :initialValues='{ "inputMaxValue": cents }' 
+      <Form :initialValues='{ "inputMaxValue": cents }'
             :initialTouched='{"inputMaxValue": true}'
             :validateOnMount='true'>
         <p>Cents: {{ cents }}</p>
@@ -76,5 +76,12 @@ export const MaxInput: Story = {
   args: {
     name: 'inputMaxValue',
     validationRules: number().max(5000)
+  }
+}
+
+export const Required: Story = {
+  args: {
+    name: 'test-empty',
+    validationRules: number().required()
   }
 }

@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import { SelectOption } from '../BaseSelect/selectOption'
 import { Form } from 'vee-validate'
 import MultiSelectInputValidated from './MultiselectInputValidated.vue'
+import { array } from 'yup'
 
 export default {
   component: MultiSelectInputValidated,
@@ -30,7 +31,7 @@ export const Selected: Story = {
     },
     template: `
       <Form :initialValues="{test2: [1]}">
-      <MultiSelectInputValidated v-bind="args" />
+        <MultiSelectInputValidated v-bind="args" />
       </Form>`
   }),
   args: {
@@ -88,6 +89,20 @@ export const Icons: Story = {
       new SelectOption('option3', 'Option 3', '', 'bi-3-circle'),
       new SelectOption('option4', 'Option 4', '', 'bi-4-circle'),
       new SelectOption('option5', 'Option 5', '', 'bi-5-circle')
+    ]
+  }
+}
+
+export const Required: Story = {
+  args: {
+    name: 'test required',
+    label: 'Test Select',
+    entityName: 'Optionen',
+    validationRules: array().required().min(1),
+    options: [
+      new SelectOption('1', 'test1'),
+      new SelectOption('2', 'test2'),
+      new SelectOption('3', 'test3')
     ]
   }
 }

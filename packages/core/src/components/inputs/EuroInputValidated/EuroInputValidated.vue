@@ -1,25 +1,27 @@
 <template>
   <BaseInputV3
-    :model-value="displayedCurrencyValue"
-    type="tel"
-    :name="name"
-    :label="label"
     :dirty="meta.dirty"
-    :invalid="meta.touched && !meta.valid"
     :errors="errors"
-    @input="setAsEuroValue"
+    :invalid="meta.touched && !meta.valid"
+    :label="label"
+    :model-value="displayedCurrencyValue"
+    :name="name"
+    :required="required"
+    type="tel"
     @blur="handleBlur"
+    @input="setAsEuroValue"
   >
     <template #postfix>
       <IconEuro />
     </template>
   </BaseInputV3>
 </template>
-<script setup lang="ts">
-import { useField } from 'vee-validate'
+<script lang="ts" setup>
+import { RuleExpression, useField } from 'vee-validate'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import IconEuro from '@core/components/icons/IconEuro.vue'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
+import { Schema } from 'yup'
 
 const props = withDefaults(
   defineProps<{
@@ -36,19 +38,27 @@ const props = withDefaults(
      * Please use the vee validate form to fill this field instead.
      */
     euros?: number
+    /**
+     * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
+     */
+    validationRules?: RuleExpression<number>
   }>(),
   {
-    label: 'Betrag'
+    label: 'Betrag',
+    euros: 0
   }
 )
 
 const displayedCurrencyValue = ref<string>('0')
 
+const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
+
+
 const { value, handleBlur, meta, setValue, errors } = useField<number>(
   () => props.name,
   (value) => value >= 0 || 'Der Betrag muss größer oder gleich 0 sein.',
   {
-    syncVModel: 'euros',
+    syncVModel: 'euros'
   }
 )
 

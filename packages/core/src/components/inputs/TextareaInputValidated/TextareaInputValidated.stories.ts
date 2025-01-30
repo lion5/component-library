@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import TextareaInputValidated from './TextareaInputValidated.vue'
 import { Form } from 'vee-validate'
-import { number } from 'yup'
+import { number, string } from 'yup'
 
 export default {
   component: TextareaInputValidated,
@@ -77,5 +77,13 @@ export const WithError: Story = {
     name: 'input-with-error',
     label: 'Text Input',
     validationRules: number().required()
+  }
+}
+
+export const Required: Story = {
+  args: {
+    name: 'test-required',
+    label: 'Required Text Input',
+    validationRules: string().required()
   }
 }

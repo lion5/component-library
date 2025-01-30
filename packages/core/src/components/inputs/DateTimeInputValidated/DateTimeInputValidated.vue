@@ -1,14 +1,16 @@
 <template>
-  <BaseInputV1Validated type="datetime-local" :name="name" :label="label" :max="maxValue">
-    <IconCalendar />
-  </BaseInputV1Validated>
+  <BaseInputV3Validated :label="label" :max="maxValue" :name="name" :validationRules="validationRules"
+                        type="datetime-local">
+
+
+  </BaseInputV3Validated>
 </template>
 
-<script setup lang="ts">
+<script lang="ts" setup>
 import { computed } from 'vue'
 import { useDate } from '@core/composables/useDate'
-import IconCalendar from '@core/components/icons/IconCalendar.vue'
-import BaseInputV1Validated from '@core/components/inputs/BaseInputV1Validated/BaseInputV1Validated.vue'
+import { BaseInputV3Validated } from '@core/components'
+import { RuleExpression } from 'vee-validate'
 
 const props = withDefaults(
   defineProps<{
@@ -20,9 +22,14 @@ const props = withDefaults(
      * vee-validate.
      */
     max?: Date
+    /**
+     * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
+     */
+    validationRules?: RuleExpression<Date>
   }>(),
   {
-    label: 'Zeit'
+    label: 'Zeit',
+    validationRules: undefined
   }
 )
 
@@ -32,7 +39,7 @@ const maxValue = computed(
 )
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .base-input-wrapper {
   & > :deep(input[type='datetime-local']) {
     &::-webkit-calendar-picker-indicator {

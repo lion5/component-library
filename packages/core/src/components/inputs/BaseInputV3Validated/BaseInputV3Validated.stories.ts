@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import BaseInputV3Validated from './BaseInputV3Validated.vue'
 import { BaseIcon } from '../../icons'
 import { Form } from 'vee-validate'
-import { number } from 'yup'
+import { number, string } from 'yup'
 
 export default {
   component: BaseInputV3Validated,
@@ -39,7 +39,7 @@ export const FilledWithPostfix: Story = {
           <BaseIcon icon="bi-currency-euro" />
         </template>
       </BaseInputV3Validated>
-      `
+    `
   }),
   args: {
     name: 'test-filled',
@@ -61,7 +61,7 @@ export const FilledWithPrefix: Story = {
           <BaseIcon icon="bi-house" />
         </template>
       </BaseInputV3Validated>
-      `
+    `
   }),
   args: {
     name: 'test-filled',
@@ -86,7 +86,7 @@ export const FilledWithPostAndPrefix: Story = {
           <BaseIcon icon="bi-currency-euro" />
         </template>
       </BaseInputV3Validated>
-      `
+    `
   }),
   args: {
     name: 'test-filled',
@@ -116,5 +116,14 @@ export const WithError: Story = {
     label: 'Text Input',
     type: 'text',
     validationRules: number().required()
+  }
+}
+
+export const Required: Story = {
+  args: {
+    name: 'test-required',
+    label: 'Required Text Input',
+    type: 'text',
+    validationRules: string().required('Dieses Feld ist erforderlich')
   }
 }

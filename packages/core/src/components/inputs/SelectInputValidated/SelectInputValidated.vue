@@ -1,24 +1,27 @@
 <template>
   <SelectInput
     :id="id"
-    :name="name"
-    :label="label"
-    :entity-name="entityName"
-    :placeholder="placeholder"
-    :searchable="searchable"
-    :options="options"
-    :errors="errors"
-    :dirty="meta.dirty"
-    :invalid="!meta.valid"
     v-model="value"
+    :dirty="meta.dirty"
+    :entity-name="entityName"
+    :errors="errors"
+    :invalid="!meta.valid"
+    :label="label"
+    :name="name"
+    :options="options"
+    :placeholder="placeholder"
+    :required="required"
+    :searchable="searchable"
     @blur="handleBlur"
   />
 </template>
 
-<script setup lang="ts" generic="LabelType">
+<script generic="LabelType" lang="ts" setup>
 import { type RuleExpression, useField } from 'vee-validate'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
+import { computed } from 'vue'
+import { Schema } from 'yup'
 
 const props = withDefaults(
   defineProps<{
@@ -74,6 +77,9 @@ const props = withDefaults(
   }
 )
 type InputType = string | number | boolean | undefined | null
+
+const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
+
 const { value, meta, handleBlur, errors } = useField<InputType>(
   () => props.name,
   props.validationRules,

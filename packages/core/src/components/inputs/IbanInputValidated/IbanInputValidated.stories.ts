@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
 import IbanInput from './IbanInputValidated.vue'
+import { string } from 'yup'
 
 export default {
   component: IbanInput,
@@ -22,7 +23,7 @@ export const Filled: Story = {
     },
     template: `
       <Form :initialValues='{input1: "Text Input"}'>
-      <IbanInput v-bind='args' />
+        <IbanInput v-bind='args' />
       </Form>`
   }),
   args: {
@@ -42,10 +43,17 @@ export const Error: Story = {
             :initialTouched='{"input-with-error": true}'
             :validateOnMount='false'
             :initialErrors='{"input-with-error": "This is an error"}'>
-      <IbanInput v-bind='args' />
+        <IbanInput v-bind='args' />
       </Form>`
   }),
   args: {
     name: 'input-with-error'
+  }
+}
+
+export const Required: Story = {
+  args: {
+    name: 'test-required',
+    validationRules: string().required()
   }
 }

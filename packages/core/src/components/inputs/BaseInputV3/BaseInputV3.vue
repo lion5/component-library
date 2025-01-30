@@ -2,7 +2,7 @@
   <div
     :class="[
       'base-input-wrapper',
-      { dirty, invalid },
+      { dirty, invalid, required },
       $attrs.class
     ]"
   >
@@ -11,23 +11,24 @@
       <div class="input-label">
         <input
           :id="name"
-          :name="name"
           v-model.trim="value"
+          :name="name"
           :type="type"
           placeholder="hidden"
           v-bind="$attrs"
         />
-        <label :for="name">{{ label }}</label>
+        <label :for="name">{{ label }}
+        </label>
       </div>
       <div class="postfix">
         <IconError v-if="invalid" class="error-icon" />
         <slot v-else name="postfix" />
       </div>
     </div>
-    <ErrorBox class="error-box" :errors="errorObjects" />
+    <ErrorBox :errors="errorObjects" class="error-box" />
   </div>
 </template>
-<script setup lang="ts" generic="T">
+<script generic="T" lang="ts" setup>
 import IconError from '@core/components/icons/IconError.vue'
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 import { computed } from 'vue'
@@ -59,6 +60,8 @@ const props = withDefaults(
      */
     dirty?: boolean
     invalid?: boolean
+    required?: boolean
+
     /**
      * The errors of the field. This is provided by `useField` from `vee-validate`.
      */
@@ -68,6 +71,7 @@ const props = withDefaults(
     type: 'text',
     dirty: false,
     invalid: false,
+    required: false,
     showErrorIcon: true,
     errors: () => []
   }
@@ -89,7 +93,7 @@ const errorObjects = computed(() => {
   })
 })
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .base-input-wrapper {
   --_input-size: var(--input-font-size, 1.2rem);
   --_label-size: var(--input-label-font-size, 0.75rem);
@@ -103,6 +107,7 @@ const errorObjects = computed(() => {
   width: 100%;
   font-size: var(--_input-size);
 
+
   .input-group {
     display: flex;
     border-radius: var(--_input-border-radius);
@@ -114,6 +119,17 @@ const errorObjects = computed(() => {
     &:has(*:focus) {
       outline: 2px solid var(--color-primary);
     }
+  }
+
+
+  &.required input ~ label:after {
+    display: inline-block;
+    content: "*";
+    font-size: 1.2rem;
+    padding-left: .3rem;
+    color: var(--color-danger);
+    line-height: .5;
+    transform: translateY(.25rem);
   }
 
   .input-label {
@@ -182,6 +198,11 @@ const errorObjects = computed(() => {
   input::-webkit-input-placeholder {
     color: transparent !important;
     opacity: 0;
+  }
+
+  .postfix-icon {
+    font-size: var(--_error-icon-size);
+    place-self: center end;
   }
 
   .error-icon {

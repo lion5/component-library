@@ -3,19 +3,20 @@
     :class="{
       'base-input-wrapper': true,
       dirty,
-      invalid
+      invalid,
+      required
     }"
   >
     <div class="input-group">
       <div class="input-label">
         <textarea
           :id="name"
-          :name="name"
           v-model.trim="value"
-          rows="1"
-          placeholder="hidden"
-          v-bind="$attrs"
           :maxlength="maxlength"
+          :name="name"
+          placeholder="hidden"
+          rows="1"
+          v-bind="$attrs"
         />
         <label :for="name">{{ label }}</label>
       </div>
@@ -24,13 +25,12 @@
       <small v-if="typeof value === 'string' && maxlength" class="max-length-indicator">
         {{ value.length }}&nbsp;/&nbsp;{{ maxlength }}
       </small>
-      <!--      -->
       <slot name="infoText" />
     </div>
-    <ErrorBox class="error-box" :errors="errorObjects" />
+    <ErrorBox :errors="errorObjects" class="error-box" />
   </div>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 import { computed } from 'vue'
 
@@ -54,6 +54,7 @@ const props = withDefaults(
      */
     dirty?: boolean
     invalid?: boolean
+    required?: boolean
     /**
      * The errors of the field. This is provided by `useField` from `vee-validate`.
      */
@@ -62,6 +63,7 @@ const props = withDefaults(
   {
     dirty: false,
     invalid: false,
+    required: false,
     errors: () => []
   }
 )
@@ -82,7 +84,7 @@ const errorObjects = computed(() => {
   })
 })
 </script>
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .base-input-wrapper {
   --_input-size: var(--input-font-size, 1.2rem);
   --_label-size: var(--input-label-font-size, 0.75rem);
@@ -107,6 +109,16 @@ const errorObjects = computed(() => {
     &:has(*:focus) {
       outline: 2px solid var(--color-primary);
     }
+  }
+
+  &.required textarea ~ label:after {
+    display: inline-block;
+    content: "*";
+    font-size: 1.2rem;
+    padding-left: .3rem;
+    color: var(--color-danger);
+    line-height: .5;
+    transform: translateY(.25rem);
   }
 
   .input-label {
@@ -186,7 +198,7 @@ const errorObjects = computed(() => {
     color: var(--_input-error-color-hover);
   }
 
-  &.invalid .input-group:has(input:not(:focus)) {
+  &.invalid .input-group:has(textarea:not(:focus)) {
     outline: 2px solid var(--_input-error-color);
 
     &:hover {

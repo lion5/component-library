@@ -1,13 +1,14 @@
 <template>
   <BaseInputV3
-    :name="name"
-    :label="label"
     v-model="value"
     :dirty="meta.dirty"
-    :type="type"
-    :invalid="meta.touched && !meta.valid"
-    :showErrorIcon="showErrorIcon"
     :errors="errors"
+    :invalid="meta.touched && !meta.valid"
+    :label="label"
+    :name="name"
+    :required="required"
+    :showErrorIcon="showErrorIcon"
+    :type="type"
     @blur="syncBlur"
   >
     <template
@@ -21,9 +22,11 @@
     </template>
   </BaseInputV3>
 </template>
-<script setup lang="ts" generic="T">
+<script generic="T" lang="ts" setup>
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import { RuleExpression, useField } from 'vee-validate'
+import { computed } from 'vue'
+import { Schema } from 'yup'
 
 const props = withDefaults(
   defineProps<{
@@ -62,8 +65,10 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: T): void
 }>()
 
+const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
+
 const { value, meta, handleBlur, errors } = useField<T>(() => props.name, props.validationRules, {
-  syncVModel: true,
+  syncVModel: true
 })
 
 const syncBlur = (event: FocusEvent) => {
@@ -71,4 +76,4 @@ const syncBlur = (event: FocusEvent) => {
   emit('blur', event)
 }
 </script>
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>
