@@ -17,6 +17,7 @@ import DismissibleModal from '@core/components/modals/DismissibleModal/Dismissib
 import DraggableItem from '@core/components/dragdrop/DraggableItem/DraggableItem.vue'
 import DropDown from '@core/components/dropdown/DropDown/DropDown.vue'
 import DropDownItem from '@core/components/dropdown/DropDownItem/DropDownItem.vue'
+import EditableEntityCard from '@core/components/cards/EditableEntityCard/EditableEntityCard.vue'
 import EmailLink from '@core/components/utils/EmailLink/EmailLink.vue'
 import EndButtonWrapper from '@core/components/utils/EndButtonWrapper/EndButtonWrapper.vue'
 import EntityCard from '@core/components/cards/EntityCard/EntityCard.vue'
@@ -62,6 +63,7 @@ export {
   DraggableItem,
   DropDown,
   DropDownItem,
+  EditableEntityCard,
   EmailLink,
   EndButtonWrapper,
   EntityCard,
