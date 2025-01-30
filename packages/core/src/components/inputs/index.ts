@@ -32,6 +32,7 @@ import SortableGalleryInput from '@core/components/inputs/image/SortableGalleryI
 import TextareaInput from '@core/components/inputs/TextareaInput/TextareaInput.vue'
 import TextareaInputValidated from '@core/components/inputs/TextareaInputValidated/TextareaInputValidated.vue'
 import UploadImageFABValidated from '@core/components/inputs/image/UploadImageFABValidated/UploadImageFABValidated.vue'
+import { PillInputItem } from '@core/components/inputs/ListInputValidated/pillInputItem'
 import { SearchResult } from '@core/components/inputs/SearchInputValidated/searchResult'
 
 export {
@@ -62,6 +63,7 @@ export {
   MultiselectInputValidated,
   NumberInputValidated,
   PillInput,
+  PillInputItem,
   PreviewImageInputValidated,
   SearchInputValidated,
   SearchResult,
