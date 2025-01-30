@@ -1,86 +1,75 @@
 <template>
   <div
-    class="floating-input-group"
     :class="{
       'single-select-input': true,
       'has-content': selectedOption,
       'has-error': (dirty && invalid) || errorObjects.length > 0
     }"
-    :style="{ width: `var(--input-width, ${maxLabelWidth}px)` }"
+    :style="`--input-chars: ${maxChars}ch;`"
+    class="floating-input-group"
   >
     <multiselect
       :id="id"
       v-model="selectedOption"
-      :options="options"
-      track-by="key"
-      label="label"
-      :multiple="false"
-      :taggable="false"
-      :close-on-select="true"
-      deselect-label="Auswahl kann nicht gelöscht werden."
       :allow-empty="false"
-      :show-labels="false"
-      v-bind="$attrs"
+      :close-on-select="true"
+      :multiple="false"
       :open-direction="'bottom'"
-      @select="updateModelValue"
-      :searchable="searchable"
+      :options="options"
       :placeholder="label"
+      :searchable="searchable"
+      :show-labels="false"
+      :taggable="false"
+      deselect-label="Auswahl kann nicht gelöscht werden."
+      label="label"
+      track-by="key"
+      v-bind="$attrs"
+      @select="updateModelValue"
     >
-      <template
-        v-for="(_, name) in $slots"
-        #[name]
-      >
+      <template v-for="(_, name) in $slots" #[name]>
         <slot :name="name" />
       </template>
-      <template #noOptions> Keine {{ entityName }} vorhanden </template>
-      <template #noResult> Keine {{ entityName }} gefunden </template>
+      <template #noOptions> Keine {{ entityName }} vorhanden</template>
+      <template #noResult> Keine {{ entityName }} gefunden</template>
       <template #singleLabel="props">
         <div class="option__container">
           <img
             v-if="props.option.img"
-            class="option__image"
-            :src="props.option.img"
             :alt="props.option.label"
+            :src="props.option.img"
+            class="option__image"
           />
           <i
             v-if="props.option.icon"
-            class="option__icon bi"
             :class="props.option.icon"
+            class="option__icon bi"
           />
           <span class="option__title">{{ props.option.label }}</span>
         </div>
       </template>
-
       <template #option="props">
         <div class="option__container">
           <img
             v-if="props.option.img"
-            class="option__image"
-            :src="props.option.img"
             :alt="props.option.label"
+            :src="props.option.img"
+            class="option__image"
           />
           <i
             v-if="props.option.icon"
-            class="option__icon bi"
             :class="props.option.icon"
+            class="option__icon bi"
           />
           <span class="option__title">{{ props.option.label }}</span>
         </div>
       </template>
     </multiselect>
-    <label
-      class="floating-label-active"
-      :for="id"
-      >{{ label }}</label
-    >
-    <ErrorBox
-      class="error-box"
-      :errors="errorObjects"
-    />
+    <label :for="id" class="floating-label-active">{{ label }}</label>
+    <ErrorBox :errors="errorObjects" class="error-box" />
   </div>
 </template>
 
-<script setup lang="ts" generic="LabelType">
+<script generic="LabelType" lang="ts" setup>
 import Multiselect from 'vue-multiselect'
 import { computed, onMounted, ref, watch } from 'vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
@@ -88,50 +77,16 @@ import ErrorBox from '../../boxes/ErrorBox/ErrorBox.vue'
 
 const props = withDefaults(
   defineProps<{
-    /**
-     * Used to identify this field in a form (VeeValidate Form).
-     */
     name: string
-    /**
-     * The options that should be available for selection. Contain a `value` (key to identify the option)
-     * and a text to be displayed.
-     */
     options: SelectOption<LabelType>[]
-    /**
-     * The option that should be pre-selected by default. If unset, no option is pre-selected.
-     *
-     * @deprecated Use `modelValue` instead.
-     */
     defaultOption?: SelectOption<LabelType>
-    /**
-     * The unique ID of the HTML element.
-     */
     id: string
-    /**
-     * The label text to be displayed next to the field.
-     */
     label: string
-    /**
-     * The meta information of the field. This is provided by `useField` from `vee-validate`.
-     */
     dirty?: boolean
     invalid?: boolean
-    /**
-     * The errors of the field. This is provided by `useField` from `vee-validate`.
-     */
     errors?: Error[] | string[]
-    /**
-     * A placeholder to be displayed if no option is selected. By default, the label + ' wählen' is displayed.
-     * @deprecated not used anymore
-     */
     placeholder?: string
-    /**
-     * The name of the entity that is being selected.
-     */
     entityName?: string
-    /**
-     * Whether the user is able to use the search functionality.
-     */
     searchable?: boolean
   }>(),
   {
@@ -143,9 +98,6 @@ const props = withDefaults(
   }
 )
 
-/**
- * The currently selected value as a `string`, initially `undefined`.
- */
 const modelValue = defineModel<string | number | boolean | undefined | null>()
 const selectedOption = ref<SelectOption<LabelType>>()
 
@@ -171,21 +123,12 @@ const optionsMap = computed(() =>
   )
 )
 
-const maxLabelWidth = computed(() => {
-  const canvas = document.createElement('canvas')
-  const context = canvas.getContext('2d')
-  if (!context) return 0
-
-  context.font = '20px GothamNarrow, Helvetica, sans-serif'
-
-  const labelWidth = context.measureText(props.label).width
-  const optionsWidth = Math.max(
-    ...props.options.map((option) => context.measureText(String(option.label)).width)
+const maxChars = computed(() => {
+  return Math.max(
+    props.label.length,
+    ...props.options.map((option) => String(option.label).length),
+    `Keine ${props.entityName} vorhanden`.length
   )
-  const noOptionWidth = context.measureText(`Keine ${props.entityName} vorhanden`).width
-
-  const padding = 48
-  return Math.max(labelWidth, optionsWidth, noOptionWidth) + padding
 })
 
 onMounted(() => {
@@ -236,7 +179,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
   display: grid;
   position: relative;
   gap: var(--space-sm);
-  width: fit-content;
+  width: calc(1.4 * var(--input-chars) + 2 * var(--space-sm));
 
   .option__container {
     display: flex;
@@ -295,7 +238,6 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
     transform: translateY(0%);
     font-size: var(--_label-size);
     padding-left: calc(var(--space-sm) + var(--space-xs));
-    z-index: 9999;
   }
 
   &.has-error :deep(.multiselect) {
@@ -314,7 +256,6 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
       padding-block-end: var(--space-sm);
       padding-block-start: calc(var(--_label-size) + var(--space-xs));
       line-height: 1;
-
       margin: 0;
     }
 
@@ -327,6 +268,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
     .multiselect__tags {
       padding-left: var(--space-sm);
     }
+
     .multiselect__single {
       padding-block-end: var(--space-sm);
       padding-block-start: calc(var(--_label-size) + var(--space-xs));
