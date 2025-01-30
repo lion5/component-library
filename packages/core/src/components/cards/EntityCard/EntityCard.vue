@@ -1,8 +1,8 @@
 <template>
-  <div :class="['portal-card', oldStyle ? 'old-card-style' : '']">
+  <div class="portal-card">
     <!-- @slot the cards title section. Overwrites the title set via the title prop -->
     <slot name="title">
-      <h2 v-if="title" data-cy="portal-card-title">
+      <h2 v-if="title" data-cy="entity-card-title">
         {{ title }}
       </h2>
     </slot>
@@ -18,66 +18,46 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import PortalEntityWrapper from '@core/components/utils/EntityWrapper/EntityWrapper.vue'
 
-export default defineComponent({
-  components: {
-    PortalEntityWrapper
-  },
-  props: {
+withDefaults(
+  defineProps<{
     /**
      * The cards title (h2)
      */
-    title: {
-      type: String,
-      default: undefined
-    },
+    title?: string
     /**
      * Sets the cards busy state.
      * If card is in busy state the entity section will not be displayed.
      */
-    busy: {
-      type: Boolean,
-      default: false
-    },
+    busy?: boolean
     /**
      * Message that is displayed when card is in busy state
      */
-    busyMsg: {
-      type: String,
-      default: undefined
-    },
+    busyMsg?: string
     /**
      * Error that is displayed
      * if error is set the entity section will not be displayed as long as the <code>showContentOnError</code> is false
      */
-    error: {
-      type: Error,
-      default: undefined
-    },
+    error?: Error
     /**
      * Show content on error or not
      */
-    showContentOnError: {
-      type: Boolean,
-      default: false
-    },
-    /**
-     * @deprecated
-     * Compatibility to old portal cards. Can be removed in the future
-     */
-    oldStyle: {
-      type: Boolean,
-      default: false
-    }
+    showContentOnError?: boolean
+  }>(),
+  {
+    title: undefined,
+    busy: false,
+    busyMsg: undefined,
+    error: undefined,
+    showContentOnError: false
   }
-})
+)
 </script>
 
 <style lang="scss">
-.portal-card {
+.entity-card {
   border-radius: var(--border-radius-700);
   box-shadow: var(--shadow-600);
   margin-bottom: 2rem;
