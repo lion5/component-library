@@ -78,17 +78,50 @@ import ErrorBox from '../../boxes/ErrorBox/ErrorBox.vue'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * Used to identify this field in a form (VeeValidate Form).
+     */
     name: string
+    /**
+     * The options that should be available for selection. Contain a `value` (key to identify the option)
+     * and a text to be displayed.
+     */
     options: SelectOption<LabelType>[]
+    /**
+     * The option that should be pre-selected by default. If unset, no option is pre-selected.
+     * @deprecated Use `modelValue` instead.
+     */
     defaultOption?: SelectOption<LabelType>
+    /**
+     * The unique ID of the HTML element.
+     */
     id: string
+    /**
+     * The label text to be displayed next to the field.
+     */
     label: string
+    /**
+     * The meta information of the field. This is provided by `useField` from `vee-validate`.
+     */
     dirty?: boolean
     invalid?: boolean
     required?: boolean
+    /**
+     * The errors of the field. This is provided by `useField` from `vee-validate`.
+     */
     errors?: Error[] | string[]
+    /**
+     * A placeholder to be displayed if no option is selected. By default, the label + ' wählen' is displayed.
+     * @deprecated not used anymore
+     */
     placeholder?: string
+    /**
+     * The name of the entity that is being selected.
+     */
     entityName?: string
+    /**
+     * Search function is enabled
+     */
     searchable?: boolean
   }>(),
   {
@@ -182,7 +215,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
   display: grid;
   position: relative;
   gap: var(--space-sm);
-  width: calc(1.4 * var(--input-chars) + 2 * var(--space-sm));
+  width: calc(1.2 * var(--input-chars) + var(--space-xl));
 
   .option__container {
     display: flex;
@@ -294,6 +327,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
       background-color: var(--_input-surface-color);
       font-size: var(--_input-size);
     }
+
 
     .multiselect__option--highlight {
       background-color: var(--color-primary);

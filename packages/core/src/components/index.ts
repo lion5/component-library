@@ -10,12 +10,14 @@ import CardBadgeBase from '@core/components/cards/CardBadgeBase/CardBadgeBase.vu
 import CardContentGroup from '@core/components/cards/CardContentGroup/CardContentGroup.vue'
 import CardDismissButton from '@core/components/buttons/CardDismissButton/CardDismissButton.vue'
 import ConfirmButton from '@core/components/buttons/ConfirmButton/ConfirmButton.vue'
+import ContentGroup from '@core/components/display/ContentGroup/ContentGroup.vue'
 import CopyButton from '@core/components/buttons/CopyButton/CopyButton.vue'
 import DashboardItemCard from '@core/components/cards/DashboardItemCard/DashboardItemCard.vue'
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
 import DraggableItem from '@core/components/dragdrop/DraggableItem/DraggableItem.vue'
 import DropDown from '@core/components/dropdown/DropDown/DropDown.vue'
 import DropDownItem from '@core/components/dropdown/DropDownItem/DropDownItem.vue'
+import EditableEntityCard from '@core/components/cards/EditableEntityCard/EditableEntityCard.vue'
 import EmailLink from '@core/components/utils/EmailLink/EmailLink.vue'
 import EndButtonWrapper from '@core/components/utils/EndButtonWrapper/EndButtonWrapper.vue'
 import EntityCard from '@core/components/cards/EntityCard/EntityCard.vue'
@@ -53,6 +55,7 @@ export {
   CardContentGroup,
   CardDismissButton,
   ConfirmButton,
+  ContentGroup,
   CopyButton,
   DashboardItem,
   DashboardItemCard,
@@ -60,6 +63,7 @@ export {
   DraggableItem,
   DropDown,
   DropDownItem,
+  EditableEntityCard,
   EmailLink,
   EndButtonWrapper,
   EntityCard,

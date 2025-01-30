@@ -1,3 +1,30 @@
+## 0.22.1 (2025-01-30)
+
+### 🩹 Fixes
+
+- **EditableEntityCard:** resolve style conflict with EntityCard ([fee339d](https://github.com/lion5/component-library/commit/fee339d))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
+## 0.22.0 (2025-01-30)
+
+### 🚀 Features
+
+- **ContentGroup:** introduce new component ([b58d352](https://github.com/lion5/component-library/commit/b58d352))
+- **EditableEntityCard:** introduce new component ([cb9cad5](https://github.com/lion5/component-library/commit/cb9cad5))
+
+### 🩹 Fixes
+
+- match bg card style ([02fd12d](https://github.com/lion5/component-library/commit/02fd12d))
+- **DropDown:** match bg style ([f9fa933](https://github.com/lion5/component-library/commit/f9fa933))
+- **PillInputItem:** expose PillInput model ([836214f](https://github.com/lion5/component-library/commit/836214f))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.21.2 (2025-01-28)
 
 ### 🚀 Features

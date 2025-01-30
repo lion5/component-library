@@ -12,48 +12,37 @@
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 import LoadingAnimation from '@core/components/utils/LoadingAnimation/LoadingAnimation.vue'
 
-export default defineComponent({
-  components: {
-    LoadingAnimation,
-    ErrorBox
-  },
-  props: {
+withDefaults(
+  defineProps<{
     /**
      * entities busy state. If true, the entity content is hidden and a loading animation appears.
      */
-    busy: {
-      type: Boolean,
-      default: false
-    },
+    busy?: boolean
     /**
      * Message to display if busy state is active.
      */
-    busyMsg: {
-      type: String,
-      default: undefined
-    },
+    busyMsg?: string
     /**
      * Error that is displayed
      * if error is set the entity section will not be displayed as long as the <code>showContentOnError</code> is false
      */
-    error: {
-      type: Error,
-      default: undefined
-    },
+    error?: Error
     /**
      * Show content on error or not
      */
-    showContentOnError: {
-      type: Boolean,
-      default: false
-    }
+    showContentOnError?: boolean
+  }>(),
+  {
+    busy: false,
+    busyMsg: undefined,
+    error: undefined,
+    showContentOnError: false
   }
-})
+)
 </script>
 <style scoped>
 .portal-entity-wrapper {
@@ -62,6 +51,6 @@ export default defineComponent({
 }
 
 .error-box {
-  margin-bottom: var(--space-md);
+  margin-block-end: var(--space-md);
 }
 </style>
