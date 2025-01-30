@@ -1,3 +1,13 @@
+## 0.22.1 (2025-01-30)
+
+### 🩹 Fixes
+
+- **EditableEntityCard:** resolve style conflict with EntityCard ([fee339d](https://github.com/lion5/component-library/commit/fee339d))
+
+### ❤️  Thank You
+
+- Michael Götz @michigg
+
 ## 0.22.0 (2025-01-30)
 
 ### 🚀 Features
