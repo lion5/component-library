@@ -9,5 +9,6 @@
   box-shadow: var(--card-shadow, var(--shadow-300));
   border-radius: var(--card-border-radius, var(--border-radius-300));
   padding: var(--local-padding);
+  background-color: var(--card-background-color, var(--color-white));
 }
 </style>
