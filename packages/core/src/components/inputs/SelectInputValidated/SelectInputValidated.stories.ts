@@ -22,7 +22,7 @@ export const Empty: Story = {
     },
     template: `
       <Form :initialValues="{test1: 1}" style="--input-width: 100%;">
-      <SelectInputValidated v-bind="args" />
+        <SelectInputValidated v-bind="args" />
       </Form>`
   }),
   args: {
@@ -45,7 +45,7 @@ export const Selected: Story = {
     },
     template: `
       <Form :initialValues="{test2: 1}" style="--input-width: 100%;">
-      <SelectInputValidated v-bind="args" />
+        <SelectInputValidated v-bind="args" />
       </Form>`
   }),
   args: {
@@ -118,8 +118,8 @@ export const WithError: Story = {
             :initialTouched='{"input-with-error": true}'
             :validateOnMount='false'
             :keep-values="true"
-            :initialErrors='{"input-with-error": "This is an error"}'>
-            style="--input-width: 100%;"
+            :initialErrors='{"input-with-error": "This is an error"}'
+            style="--input-width: 100%;">
         <SelectInputValidated v-bind="args" />
       </Form>`
   }),
@@ -133,6 +133,30 @@ export const WithError: Story = {
       new SelectOption('option3', 'Option 3', '', 'bi-3-circle'),
       new SelectOption('option4', 'Option 4', '', 'bi-4-circle'),
       new SelectOption('option5', 'Option 5', '', 'bi-5-circle')
+    ]
+  }
+}
+
+export const Required: Story = {
+  render: (args: unknown) => ({
+    components: { SelectInputValidated, Form },
+    setup() {
+      return { args }
+    },
+    template: `
+      <Form :initialValues="{test1: 1}" style="--input-width: 100%;">
+        <SelectInputValidated v-bind="args" />
+      </Form>`
+  }),
+  args: {
+    name: 'test1',
+    label: 'Test Select',
+    entityName: 'Optionen',
+    validationRules: number().required(),
+    options: [
+      new SelectOption(1, 'test1'),
+      new SelectOption(2, 'test2'),
+      new SelectOption(3, 'test3')
     ]
   }
 }

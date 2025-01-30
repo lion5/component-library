@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
 import SlugInput from './SlugInputValidated.vue'
 import { ref } from 'vue'
+import { string } from 'yup'
 
 /**
  * The SlugInput component is used to insert slugs or paths for urls.
@@ -69,5 +70,12 @@ export const WithError: Story = {
   }),
   args: {
     name: 'input-with-error'
+  }
+}
+
+export const Required: Story = {
+  args: {
+    name: 'test-required',
+    validationRules: string().required()
   }
 }

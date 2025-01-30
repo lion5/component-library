@@ -74,7 +74,7 @@
     "bootstrap-icons": ">=1.11.3",
     "lodash-es": ">=4.17.21",
     "pinia": ">=2.1.7",
-    "vee-validate": ">=4.12.6",
+    "vee-validate": ">=4.14.7",
     "vue": ">=3.4.21",
     "vue-router": ">=4.3.0",
     "yup": ">=1.4.0",

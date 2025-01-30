@@ -91,3 +91,19 @@ WithError.args = {
     new SelectOption('option5', 'Option 5', '', 'bi-5-circle')
   ]
 }
+
+export const Required = Template.bind({})
+Required.args = {
+  id: 'select-input',
+  label: 'Option',
+  entityName: 'Optionen',
+  required: true,
+  options: [
+    new SelectOption(true, 'True options'),
+    new SelectOption('option1', 'Option 1'),
+    new SelectOption('option2', 'Option 2'),
+    new SelectOption('option3', 'Option 3'),
+    new SelectOption('option4', 'Option 4'),
+    new SelectOption('option5', 'Option 5')
+  ]
+}

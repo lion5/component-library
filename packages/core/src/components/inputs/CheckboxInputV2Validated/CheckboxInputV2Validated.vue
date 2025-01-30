@@ -1,29 +1,34 @@
 <template>
-  <div class="checkbox-input-wrapper">
+  <div :class="{ required: required }" class="checkbox-input-wrapper">
     <input
       :id="name"
+      :checked="checked"
       :class="{
         dirty: meta.dirty,
         valid: meta.touched && meta.valid,
-        invalid: meta.touched && !meta.valid
+        invalid: meta.touched && !meta.valid,
       }"
       :name="name"
-      type="checkbox"
       :value="checkedValue"
-      :checked="checked"
+      type="checkbox"
       v-bind="$attrs"
       @change="handleChange"
     />
+    <span v-if="required" class="asterisk">*</span>
+
     <label :for="name">
       <span class="main-label">{{ label }}</span>
       <small v-if="labelSmall" class="small-label">{{ labelSmall }}</small>
     </label>
-    <ErrorMessage class="error" :name="name" />
+    <ErrorMessage :name="name" class="error" />
   </div>
 </template>
 
-<script setup lang="ts">
-import { useField, ErrorMessage } from 'vee-validate'
+<script lang="ts" setup>
+import { ErrorMessage, RuleExpression, useField } from 'vee-validate'
+import { computed } from 'vue'
+import { Schema } from 'yup'
+
 const props = withDefaults(
   defineProps<{
     /**
@@ -46,15 +51,24 @@ const props = withDefaults(
      * A small label that is displayed below the main label.
      */
     labelSmall?: string
+    /**
+     * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
+     */
+    validationRules?: RuleExpression<boolean | object>
   }>(),
   {
     checkedValue: true,
-    labelSmall: ''
+    labelSmall: '',
+    validationRules: undefined
   }
 )
+
+const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
+
+
 const { handleChange, checked, meta } = useField<boolean | object>(
   () => props.name,
-  undefined,
+  props.validationRules,
   {
     syncVModel: true,
     type: 'checkbox',
@@ -63,13 +77,24 @@ const { handleChange, checked, meta } = useField<boolean | object>(
 )
 </script>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .checkbox-input-wrapper {
   --_input-error-color: var(--color-danger);
   display: grid;
-  grid-template-columns: min-content 1fr;
+  grid-template-columns: min-content min-content 1fr;
   gap: var(--space-md);
   padding: 0 var(--space-sm);
+
+  &.required {
+    gap: var(--space-sm);
+  }
+
+  .asterisk {
+    display: flex;
+    align-items: center;
+    color: var(--_input-error-color);
+  }
+
   label {
     display: flex;
     flex-direction: column;
@@ -77,19 +102,23 @@ const { handleChange, checked, meta } = useField<boolean | object>(
     margin-bottom: 0;
     width: max-content;
     cursor: pointer;
+
     span {
       font-size: var(--font-size-1);
     }
+
     small {
       font-size: var(--font-size-0);
     }
   }
+
   input {
     cursor: pointer;
     width: var(--checkbox-input-size, 1.5rem);
   }
+
   .error {
-    grid-column: span 2;
+    grid-column: span 3;
     color: var(--_input-error-color);
     font-size: var(--font-size-0);
   }

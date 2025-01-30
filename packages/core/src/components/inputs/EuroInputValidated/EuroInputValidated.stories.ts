@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
 import EuroInput from './EuroInputValidated.vue'
+import { number } from 'yup'
 
 /**
  * The CurrencyInput component is used to input a cent amount. The inserted value is formatted as euros.
@@ -53,5 +54,12 @@ export const WithError: Story = {
   }),
   args: {
     name: 'input-with-error'
+  }
+}
+
+export const Required: Story = {
+  args: {
+    name: 'test-required',
+    validationRules: number().required()
   }
 }

@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
 import CheckboxInputV2 from './CheckboxInputV2Validated.vue'
+import { boolean } from 'yup'
 
 export default {
   component: CheckboxInputV2,
@@ -38,7 +39,7 @@ export const Checked: Story = {
     name: 'input1',
     label: 'This is a checkbox',
     labelSmall: 'This is a small label',
-    modelValue: true,
+    modelValue: true
   }
 }
 
@@ -60,5 +61,14 @@ export const Error: Story = {
     name: 'input-with-error',
     label: 'This is a checkbox',
     labelSmall: 'This is a small label'
+  }
+}
+
+export const Required: Story = {
+  args: {
+    name: 'test-required',
+    label: 'This is a required checkbox',
+    labelSmall: 'This is a small label',
+    validationRules: boolean().required()
   }
 }

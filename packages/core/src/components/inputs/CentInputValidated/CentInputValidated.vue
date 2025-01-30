@@ -1,27 +1,29 @@
 <template>
   <BaseInputV3
-    :model-value="displayedCurrencyValue"
-    type="tel"
-    :name="name"
-    :label="label"
     :dirty="meta.dirty"
-    :invalid="meta.touched && !meta.valid"
     :errors="errors"
+    :invalid="meta.touched && !meta.valid"
+    :label="label"
+    :model-value="displayedCurrencyValue"
+    :name="name"
+    :required="required"
+    type="tel"
+    @blur="handleBlur"
     @input="onRawInput"
     @keydown.delete="onDelete"
-    @blur="handleBlur"
   >
     <template #postfix>
       <IconEuro />
     </template>
   </BaseInputV3>
 </template>
-<script setup lang="ts">
+<script lang="ts" setup>
 import { RuleExpression, useField } from 'vee-validate'
-import { ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useCurrencyFormat } from '@core/components/inputs/CentInputValidated/useCurrencyFormat'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import IconEuro from '@core/components/icons/IconEuro.vue'
+import { Schema } from 'yup'
 
 const props = withDefaults(
   defineProps<{
@@ -44,7 +46,8 @@ const props = withDefaults(
     validationRules?: RuleExpression<number>
   }>(),
   {
-    label: 'Betrag'
+    label: 'Betrag',
+    cents: 0
   }
 )
 
@@ -96,6 +99,8 @@ const onDelete = () => {
   value.value = parseInt(internalValue.value || '0')
 }
 
+const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
+
 const validateAbsoluteValue = (value: number) => {
   return (
     value >= 0 || 'Der Betrag muss größer oder gleich 0 sein.'
@@ -125,4 +130,4 @@ watch(
   { immediate: true }
 )
 </script>
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

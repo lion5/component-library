@@ -65,3 +65,11 @@ export const WithError: Story = {
     errors: [new Error('Some error')]
   }
 }
+
+export const Required: Story = {
+  args: {
+    name: 'test-required',
+    label: 'Required Text Input',
+    required: true
+  }
+}

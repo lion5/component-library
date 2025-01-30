@@ -1,10 +1,12 @@
 <template>
   <BaseInputV3
-    :name="name"
+    :dirty="meta.dirty"
+    :errors="errors"
+    :invalid="meta.touched && !meta.valid"
     :label="label"
     :model-value="value"
-    :dirty="meta.dirty"
-    :invalid="meta.touched && !meta.valid"
+    :name="name"
+    :required="required"
     v-bind="$attrs"
     @blur="handleBlur"
     @update:model-value="onInput"
@@ -14,10 +16,11 @@
     </template>
   </BaseInputV3>
 </template>
-<script setup lang="ts">
-import { useField } from 'vee-validate'
-import { watch } from 'vue'
+<script lang="ts" setup>
+import { type RuleExpression, useField } from 'vee-validate'
+import { computed, watch } from 'vue'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
+import { Schema } from 'yup'
 
 const props = withDefaults(
   defineProps<{
@@ -37,15 +40,23 @@ const props = withDefaults(
      * The prefix to be displayed before the input field. Example: "https://example.com/"
      */
     prefix?: string
+    /**
+     * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
+     */
+    validationRules?: RuleExpression<string>
   }>(),
   {
-    label: 'Slug'
+    label: 'Slug',
+    validationRules: undefined
   }
 )
 
-const { value, setValue, handleBlur, meta } = useField<string>(
+const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
+
+
+const { value, setValue, handleBlur, meta, errors } = useField<string>(
   () => props.name,
-  undefined,
+  props.validationRules,
   {
     syncVModel: 'slug'
   }
@@ -80,4 +91,4 @@ watch(
   }
 )
 </script>
-<style scoped lang="scss"></style>
+<style lang="scss" scoped></style>

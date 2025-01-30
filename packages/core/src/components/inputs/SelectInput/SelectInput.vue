@@ -3,7 +3,8 @@
     :class="{
       'single-select-input': true,
       'has-content': selectedOption,
-      'has-error': (dirty && invalid) || errorObjects.length > 0
+      'has-error': (dirty && invalid) || errorObjects.length > 0,
+            'required': required
     }"
     :style="`--input-chars: ${maxChars}ch;`"
     class="floating-input-group"
@@ -84,6 +85,7 @@ const props = withDefaults(
     label: string
     dirty?: boolean
     invalid?: boolean
+    required?: boolean
     errors?: Error[] | string[]
     placeholder?: string
     entityName?: string
@@ -94,6 +96,7 @@ const props = withDefaults(
     searchable: true,
     dirty: false,
     invalid: false,
+    required: false,
     errors: () => []
   }
 )
@@ -222,7 +225,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
     padding-left: calc(var(--space-sm) + var(--space-xs));
   }
 
-  label.required::after {
+  &.required > label::after {
     display: inline-block;
     content: '*';
     font-size: 1.2rem;
