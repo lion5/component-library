@@ -10,6 +10,7 @@ import CardBadgeBase from '@core/components/cards/CardBadgeBase/CardBadgeBase.vu
 import CardContentGroup from '@core/components/cards/CardContentGroup/CardContentGroup.vue'
 import CardDismissButton from '@core/components/buttons/CardDismissButton/CardDismissButton.vue'
 import ConfirmButton from '@core/components/buttons/ConfirmButton/ConfirmButton.vue'
+import ContentGroup from '@core/components/display/ContentGroup/ContentGroup.vue'
 import CopyButton from '@core/components/buttons/CopyButton/CopyButton.vue'
 import DashboardItemCard from '@core/components/cards/DashboardItemCard/DashboardItemCard.vue'
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
@@ -53,6 +54,7 @@ export {
   CardContentGroup,
   CardDismissButton,
   ConfirmButton,
+  ContentGroup,
   CopyButton,
   DashboardItem,
   DashboardItemCard,
