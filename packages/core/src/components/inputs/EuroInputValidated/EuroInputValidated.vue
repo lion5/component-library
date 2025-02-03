@@ -21,7 +21,7 @@ import { RuleExpression, useField } from 'vee-validate'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import IconEuro from '@core/components/icons/IconEuro.vue'
 import { computed, ref, watch } from 'vue'
-import { Schema } from 'yup'
+import { number, Schema } from 'yup'
 
 const props = withDefaults(
   defineProps<{
@@ -56,7 +56,7 @@ const required = computed(() => (props.validationRules as Schema)?.spec.optional
 
 const { value, handleBlur, meta, setValue, errors } = useField<number>(
   () => props.name,
-  (value) => value >= 0 || 'Der Betrag muss größer oder gleich 0 sein.',
+  props.validationRules ?? number().min(0, 'Der Betrag muss größer oder gleich 0 sein.'),
   {
     syncVModel: 'euros'
   }
