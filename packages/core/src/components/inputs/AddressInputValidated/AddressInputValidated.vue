@@ -16,7 +16,7 @@ withDefaults(
     validationRules?: RuleExpression<string>
   }>(),
   {
-    validationRules: ''
+    validationRules: undefined
   }
 )
 

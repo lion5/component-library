@@ -65,7 +65,7 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: T): void
 }>()
 
-const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
+const required = computed(() => (props.validationRules as Schema)?.spec?.optional === false)
 
 const { value, meta, handleBlur, errors } = useField<T>(() => props.name, props.validationRules, {
   syncVModel: true

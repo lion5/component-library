@@ -38,7 +38,7 @@ const localErrors = computed(() => {
 </script>
 <style lang="scss" scoped>
 .error-box {
-  --box-background-color: var(--color-danger-surface-300);
+  --box-background-color: var(--color-danger-200);
 
   display: flex;
   gap: var(--space-sm);

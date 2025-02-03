@@ -14,9 +14,12 @@
 
   /* Color Definitions */
   // Primary Color = Brand Color = Accent Color
-  --primary-hue: var(--light-primary-hue, 220);
-  --primary-saturation: var(--light-primary-saturation, 100%);
-  --primary-lightness: var(--light-primary-lightness, 50%); // To be able to define the primary color more precisely we need to set the lightness here
+  --_primary-hue-default: 220;
+  --_primary-saturation-default: 100%;
+  --_primary-lightness-default: 50%;
+  --primary-hue: var(--light-primary-hue, var(--_primary-hue-default));
+  --primary-saturation: var(--light-primary-saturation, var(--_primary-saturation-default));
+  --primary-lightness: var(--light-primary-lightness, var(--_primary-lightness-default)); // To be able to define the primary color more precisely we need to set the lightness here
 
   --color-primary-100: hsl(var(--primary-hue) var(--primary-saturation) var(--l-100));
   --color-primary-200: hsl(var(--primary-hue) var(--primary-saturation) var(--l-200));
@@ -28,8 +31,10 @@
   --color-primary-800: hsl(var(--primary-hue) var(--primary-saturation) var(--l-800));
   --color-primary-900: hsl(var(--primary-hue) var(--primary-saturation) var(--l-900));
 
-  --success-hue: var(--light-success-hue, 152.2);
-  --success-saturation: var(--light-success-saturation, 68.8%);
+  --_success-hue-default: 152.2;
+  --_success-saturation-default: 68.8%;
+  --success-hue: var(--light-success-hue, var(--_success-hue-default));
+  --success-saturation: var(--light-success-saturation, var(--_success-saturation-default));
   --color-success-100: hsl(var(--success-hue) var(--success-saturation) var(--l-100));
   --color-success-200: hsl(var(--success-hue) var(--success-saturation) var(--l-200));
   --color-success-300: hsl(var(--success-hue) var(--success-saturation) var(--l-300));
@@ -40,8 +45,10 @@
   --color-success-800: hsl(var(--success-hue) var(--success-saturation) var(--l-800));
   --color-success-900: hsl(var(--success-hue) var(--success-saturation) var(--l-900));
 
-  --danger-hue: var(--light-danger-hue, 354.3);
-  --danger-saturation: var(--light-danger-saturation, 70.5%);
+  --_danger-hue-default: 354.3;
+  --_danger-saturation-default: 100%;
+  --danger-hue: var(--light-danger-hue, var(--_danger-hue-default));
+  --danger-saturation: var(--light-danger-saturation, var(--_danger-saturation-default));
   --color-danger-100: hsl(var(--danger-hue) var(--danger-saturation) var(--l-100));
   --color-danger-200: hsl(var(--danger-hue) var(--danger-saturation) var(--l-200));
   --color-danger-300: hsl(var(--danger-hue) var(--danger-saturation) var(--l-300));
@@ -81,18 +88,19 @@
     --l-800: 93%;
     --l-900: 98%;
 
-    --primary-hue: var(--dark-primary-hue, var(--primary-hue));
-    --primary-saturation: var(--dark-primary-saturation, var(--primary-saturation));
-    --primary-lightness: var(--dark-primary-lightness, var(--primary-lightness));
-    --success-hue: var(--dark-success-hue, var(--success-hue));
-    --success-saturation: var(--dark-success-saturation, var(--success-saturation));
-    --danger-hue: var(--dark-danger-hue, var(--danger-hue));
-    --danger-saturation: var(--dark-danger-saturation, var(--danger-saturation));
+    --primary-hue: var(--dark-primary-hue, var(--_primary-hue-default));
+    --primary-saturation: var(--dark-primary-saturation, var(--_primary-saturation-default));
+    --primary-lightness: var(--dark-primary-lightness, var(--_primary-lightness-default));
+    --success-hue: var(--dark-success-hue, var(--_success-hue-default));
+    --success-saturation: var(--dark-success-saturation, var(--_success-saturation-default));
+    --danger-hue: var(--dark-danger-hue, var(--_danger-hue-default));
+    --danger-saturation: var(--dark-danger-saturation, var(--_danger-saturation-default));
 
     --color-white: #000;
     --color-black: #fff;
   }
 }
+
 // Special Colors
 :root {
   --color-primary: hsl(var(--primary-hue, 220) var(--primary-saturation, 30%) var(--primary-lightness, 40%));
@@ -101,7 +109,7 @@
 
   --color-success: var(--color-success-600);
   --color-success-surface: var(--color-success-100);
-  --color-success-hover:  var(--color-success-700);
+  --color-success-hover: var(--color-success-700);
 
   /**
   @deprecated use danger color instead
