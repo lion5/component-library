@@ -47,7 +47,7 @@ export const Filled: Story = {
 
 export const Required: Story = {
   args: {
-    name: 'input-with-error',
+    name: 'input-required',
     modelValue: new Address('An der Weberei 5', '96052', 'Bamberg'),
     validationRules: string().required()
   }
