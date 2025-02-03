@@ -1,3 +1,18 @@
+## 0.22.2 (2025-01-30)
+
+### 🚀 Features
+
+- add required attribute to input fields ([1f0924c](https://github.com/lion5/component-library/commit/1f0924c))
+
+### 🩹 Fixes
+
+- **SelectInput:** adjust width based on chars & label z-index overlap ([95630d7](https://github.com/lion5/component-library/commit/95630d7))
+- **SelectInput:** add props documentation and refactor width calculation ([54a7f54](https://github.com/lion5/component-library/commit/54a7f54))
+
+### ❤️  Thank You
+
+- Roman Kudravcev
+
 ## 0.22.1 (2025-01-30)
 
 ### 🩹 Fixes
