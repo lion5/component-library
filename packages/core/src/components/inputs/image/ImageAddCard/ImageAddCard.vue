@@ -41,7 +41,7 @@ const props = withDefaults(
   }
 )
 const emit = defineEmits<{
-  (event: 'input', image: ImageForm): void
+  (event: 'new-image', image: ImageForm): void
 }>()
 
 const accept = computed(() => props.acceptedMimeTypes.join(', '))
@@ -55,7 +55,7 @@ const addImage = async (event: Event) => {
      *
      * @property {PortalImage} image new loaded image
      */
-    emit('input', image)
+    emit('new-image', image)
   }
 }
 
