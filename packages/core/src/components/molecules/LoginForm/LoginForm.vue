@@ -1,6 +1,6 @@
 <template>
   <form
-    @submit="onSubmit"
+    @submit.prevent="onSubmit"
     class="login-form"
   >
     <BaseInputV3Validated

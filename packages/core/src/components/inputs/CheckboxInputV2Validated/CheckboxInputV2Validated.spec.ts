@@ -60,7 +60,6 @@ describe('CheckboxInput', () => {
       await inputEl.setChecked(false)
 
       await flushPromises()
-      console.log(wrapper.emitted('update:modelValue'))
 
       expect(wrapper.emitted('update:modelValue')?.at(0)).toEqual([undefined])
     })

@@ -8,7 +8,7 @@
     />
     <DismissibleModal v-if="modalMode" v-model:modalDisplayed="modalMode">
       <ImageCarousel
-        v-model:selected-image="selectedFullScreenImage"
+        :selected-image="selectedFullScreenImage"
         :images="fullScreenImages"
         style="--carousel-action-button-spacing: 0"
         @update:selected-image="onFullScreenImageChange"

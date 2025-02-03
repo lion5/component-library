@@ -24,7 +24,7 @@ const props = withDefaults(
      */
     images: MinimalImage[]
     /**
-     * If true, key strokes are ignored
+     * If true, keystrokes are ignored
      */
     ignoreKeyStrokes?: boolean
   }>(),

@@ -10,7 +10,7 @@
     class="floating-input-group"
   >
     <multiselect
-      :id="id"
+      :id="name"
       v-model="selectedOption"
       :allow-empty="false"
       :close-on-select="true"
@@ -65,7 +65,7 @@
         </div>
       </template>
     </multiselect>
-    <label :for="id" class="floating-label-active">{{ label }}</label>
+    <label :for="name" class="floating-label-active">{{ label }}</label>
     <ErrorBox :errors="errorObjects" class="error-box" />
   </div>
 </template>
@@ -92,10 +92,6 @@ const props = withDefaults(
      * @deprecated Use `modelValue` instead.
      */
     defaultOption?: SelectOption<LabelType>
-    /**
-     * The unique ID of the HTML element.
-     */
-    id: string
     /**
      * The label text to be displayed next to the field.
      */
