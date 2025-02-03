@@ -42,10 +42,10 @@ describe('ImageAddCard', () => {
 
       await input.trigger('change')
 
-      expect(wrapper.emitted('input').length).toBe(3)
-      expect(wrapper.emitted('input')[0]).toStrictEqual([portalImage])
-      expect(wrapper.emitted('input')[1]).toStrictEqual([portalImage])
-      expect(wrapper.emitted('input')[2]).toStrictEqual([portalImage])
+      expect(wrapper.emitted('new-image')?.length).toBe(3)
+      expect(wrapper.emitted('new-image')[0]).toStrictEqual([portalImage])
+      expect(wrapper.emitted('new-image')[1]).toStrictEqual([portalImage])
+      expect(wrapper.emitted('new-image')[2]).toStrictEqual([portalImage])
     })
   })
 })
