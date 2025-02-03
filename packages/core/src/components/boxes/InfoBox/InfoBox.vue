@@ -18,7 +18,7 @@ defineProps<{
 </script>
 <style lang="scss" scoped>
 .info-box {
-  --box-background-color: var(--color-primary-surface);
+  --box-background-color: var(--color-primary-200);
   --box-color: var(--color-font-1);
   i {
     margin-right: var(--space-sm);
