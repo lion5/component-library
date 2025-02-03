@@ -36,7 +36,7 @@ import SearchInputValidated from '@core/components/inputs/SearchInputValidated/S
 import PillListInput from '@core/components/inputs/ListInputValidated/PillListInput.vue'
 import { PillInputItem } from '@core/components/inputs/ListInputValidated/pillInputItem'
 import { SearchResult } from '@core/components/inputs/SearchInputValidated/searchResult'
-import { useField } from 'vee-validate'
+import { type RuleExpression, useField } from 'vee-validate'
 import { computed } from 'vue'
 import EndButtonWrapper from '@core/components/utils/EndButtonWrapper/EndButtonWrapper.vue'
 
@@ -74,14 +74,14 @@ const props = withDefaults(
     /**
      * The validation rules for the input (used for VeeValidate).
      */
-    validationRules?: string | Record<string, unknown>
+    validationRules?: RuleExpression<PillInputItem[]>
   }>(),
   {
     validationRules: undefined
   }
 )
 
-const { errors } = useField(props.name, props.validationRules, {
+const { errors } = useField<PillInputItem[]>(props.name, props.validationRules, {
   syncVModel: 'pillInputItems'
 })
 
