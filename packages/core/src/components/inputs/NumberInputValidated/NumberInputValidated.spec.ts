@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import { ErrorMessage, useField } from 'vee-validate'
+import { useField } from 'vee-validate'
 import NumberInput from './NumberInputValidated.vue'
 
 vi.mock('vee-validate', async () => {
@@ -12,7 +12,12 @@ vi.mock('vee-validate', async () => {
     ...actual,
     useField: vi.fn().mockReturnValue({
       setValue: vi.fn(),
-      value: vi.fn()
+      value: vi.fn(),
+      meta: vi.fn().mockReturnValue({
+        touched: false,
+        dirty: false,
+        valid: true
+      })
     })
   }
 })
@@ -43,12 +48,7 @@ describe('NumberInput.vue', () => {
           label: 'label'
         }
       })
-      expect(useField).toHaveBeenCalledWith(expectedName)
-    })
-    it(':name - is applied to ErrorMessage', async () => {
-      const expectedName = 'expectedFieldName'
-      await wrapper.setProps({ name: expectedName })
-      expect(wrapper.findComponent(ErrorMessage).vm.name).toBe(expectedName)
+      expect(useField).toHaveBeenCalledWith(expectedName, undefined, { syncVModel: true })
     })
     it(':label - is rendered as label', async () => {
       const expectedLabel = 'Expected Label'
