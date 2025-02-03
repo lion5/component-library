@@ -2,7 +2,7 @@
   <ItemCard class="image-input-card">
     <div class="content">
       <input
-        id="add-image"
+        :id="inputId"
         tabindex="0"
         class="image-input"
         type="file"
@@ -10,14 +10,14 @@
         :multiple="multiselect"
         @change="addImage"
       />
-      <label for="add-image">
+      <label :for="inputId">
         <BaseIcon class="add-icon" icon="bi-plus" />
       </label>
     </div>
   </ItemCard>
 </template>
 <script lang="ts" setup>
-import { computed } from 'vue'
+import { computed, useId } from 'vue'
 import { ImageForm } from '@core/models/image/imageForm'
 import BaseIcon from '@core/components/icons/BaseIcon.vue'
 import ItemCard from '@core/components/cards/ItemCard/ItemCard.vue'
@@ -43,6 +43,8 @@ const props = withDefaults(
 const emit = defineEmits<{
   (event: 'new-image', image: ImageForm): void
 }>()
+
+const inputId = useId()
 
 const accept = computed(() => props.acceptedMimeTypes.join(', '))
 const addImage = async (event: Event) => {
