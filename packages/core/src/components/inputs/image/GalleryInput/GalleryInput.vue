@@ -24,7 +24,7 @@
 import { computed, ref } from 'vue'
 import { GalleryForm } from '@core/models/image/galleryForm'
 import { ImageConstraints } from '@core/models/image/imageConstraints'
-import ImageDropArea from '../../../dragdrop/ImageDropArea/ImageDropArea.vue'
+import ImageDropArea from '@core/components/dragdrop/ImageDropArea/ImageDropArea.vue'
 import ImageAddCard from '@core/components/inputs/image/ImageAddCard/ImageAddCard.vue'
 import ImageEditCard from '@core/components/inputs/image/ImageEditCard/ImageEditCard.vue'
 

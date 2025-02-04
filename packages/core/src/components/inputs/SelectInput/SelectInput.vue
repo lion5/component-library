@@ -130,6 +130,10 @@ const props = withDefaults(
   }
 )
 
+defineSlots<{
+  [key: string]: unknown;
+}>()
+
 const modelValue = defineModel<string | number | boolean | undefined | null>()
 const selectedOption = ref<SelectOption<LabelType>>()
 

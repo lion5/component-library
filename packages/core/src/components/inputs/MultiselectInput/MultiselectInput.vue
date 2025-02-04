@@ -152,6 +152,10 @@ const props = withDefaults(
   }
 )
 
+defineSlots<{
+  [key: string]: unknown;
+}>()
+
 /**
  * The currently selected value as a `string`, initially `undefined`.
  */

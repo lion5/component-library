@@ -52,6 +52,10 @@ const props = withDefaults(
   }
 )
 
+defineSlots<{
+  [key: string]: unknown;
+}>()
+
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
 
 const { value, meta, handleBlur, errors } = useField<string>(() => props.name, props.validationRules, {

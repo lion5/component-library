@@ -1,7 +1,7 @@
 <template>
   <ImageDropArea
     class="file-drop-area"
-    :disable="disabledFileDrop"
+    :disabled="disabledFileDrop"
     :multiselect="true"
     @input="addImage"
   >

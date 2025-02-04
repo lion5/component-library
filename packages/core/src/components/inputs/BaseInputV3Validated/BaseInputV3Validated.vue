@@ -65,6 +65,10 @@ const emit = defineEmits<{
   (e: 'update:modelValue', value: T): void
 }>()
 
+defineSlots<{
+  [key: string]: unknown;
+}>()
+
 const required = computed(() => (props.validationRules as Schema)?.spec?.optional === false)
 
 const { value, meta, handleBlur, errors } = useField<T>(() => props.name, props.validationRules, {
