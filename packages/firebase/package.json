@@ -33,7 +33,7 @@
     "docs": "storybook dev -p 6006",
     "docs:build": "storybook build -o ../storybook-host/storybook-static/firebase",
     "package-check": "publint",
-    "package-type-check": "attw --pack . --exclude-entrypoints ./dist/style.css"
+    "package-type-check": "attw --pack . --exclude-entrypoints ./dist/index.css"
   },
   "files": [
     "dist"
@@ -52,11 +52,11 @@
         "default": "./dist/index.js"
       }
     },
-    "./dist/style.css": "./dist/style.css",
+    "./dist/index.css": "./dist/index.css",
     "./package.json": "./package.json"
   },
   "sideEffects": [
-    "./dist/style.css"
+    "./dist/index.css"
   ],
   "dependencies": {
     "@lion5/component-library": "0.22.2",
