@@ -1,6 +1,6 @@
 @use '../../core/src/assets/style/variables/index.scss' as *;
 @use '../../core/src/assets/style/icons.scss' as *;
-@use '@lion5/component-library/dist/style.css' as *;
+@use '@lion5/component-library/dist/index.css' as *;
 
 :root {
   /* Overwrite light and dark theme */

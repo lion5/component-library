@@ -14,9 +14,9 @@
 
   /* Color Definitions */
   // Primary Color = Brand Color = Accent Color
-  --_primary-hue-default: 220;
+  --_primary-hue-default: 200;
   --_primary-saturation-default: 100%;
-  --_primary-lightness-default: 50%;
+  --_primary-lightness-default: 60%;
   --primary-hue: var(--light-primary-hue, var(--_primary-hue-default));
   --primary-saturation: var(--light-primary-saturation, var(--_primary-saturation-default));
   --primary-lightness: var(--light-primary-lightness, var(--_primary-lightness-default)); // To be able to define the primary color more precisely we need to set the lightness here
@@ -46,7 +46,7 @@
   --color-success-900: hsl(var(--success-hue) var(--success-saturation) var(--l-900));
 
   --_danger-hue-default: 354.3;
-  --_danger-saturation-default: 100%;
+  --_danger-saturation-default: 80%;
   --danger-hue: var(--light-danger-hue, var(--_danger-hue-default));
   --danger-saturation: var(--light-danger-saturation, var(--_danger-saturation-default));
   --color-danger-100: hsl(var(--danger-hue) var(--danger-saturation) var(--l-100));

@@ -31,18 +31,16 @@ describe('BaseInputV3Validated.vue', () => {
   })
 
   describe('@events', () => {
-    describe('@update:modelValue', () => {
-      it('emits updated input value', async () => {
-        const expectedValue = 'Expected Value'
-        const input = wrapper.findComponent(BaseInputV3)
-        input.vm.$emit('update:modelValue', expectedValue)
-        await nextTick()
+    it('@update:modelValue - emits updated input value', async () => {
+      const expectedValue = 'Expected Value'
+      const input = wrapper.findComponent(BaseInputV3)
+      input.vm.$emit('update:modelValue', expectedValue)
+      await nextTick()
 
-        expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
-        expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([
-          expectedValue
-        ])
-      })
+      expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
+      expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([
+        expectedValue
+      ])
     })
   })
 })

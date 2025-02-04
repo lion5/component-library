@@ -21,7 +21,9 @@ describe('GalleryInput.vue', () => {
       },
       global: {
         stubs: {
-          ImageDropArea: ImageDropArea
+          ImageDropArea: {
+            template: '<div><slot></slot></div>',
+          },
         }
       }
     })

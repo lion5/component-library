@@ -66,7 +66,6 @@ describe('DynamicGrid.vue', () => {
       await flushPromises()
 
       const baseWidget = wrapper.find('.grid-stack-item')
-      console.log(baseWidget.html())
       expect(baseWidget.classes()).toContain('ui-draggable-disabled')
       expect(baseWidget.classes()).toContain('ui-resizable-disabled')
       expect(baseWidget.classes()).not.toContain('ui-draggable')
@@ -77,7 +76,6 @@ describe('DynamicGrid.vue', () => {
       await flushPromises()
 
       const baseWidget = wrapper.find('.grid-stack-item')
-      console.log(baseWidget.html())
       expect(baseWidget.classes()).not.toContain('ui-draggable-disabled')
       expect(baseWidget.classes()).not.toContain('ui-resizable-disabled')
       expect(baseWidget.classes()).toContain('ui-draggable')

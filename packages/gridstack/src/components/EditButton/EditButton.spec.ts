@@ -31,7 +31,6 @@ describe('EditButton.vue', () => {
     it('startEdit - emitted if edit button clicked and editMode is false', async () => {
       await wrapper.setProps({ editMode: false })
       const editButton = wrapper.findComponent('[data-test="edit-button"]')
-      console.log(wrapper.html(), editButton)
       await editButton.vm.$emit('click')
 
       expect(wrapper.emitted('startEdit')).toBeDefined()

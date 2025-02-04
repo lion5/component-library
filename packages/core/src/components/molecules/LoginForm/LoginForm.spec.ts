@@ -10,7 +10,7 @@ vi.mock('vee-validate', async () => {
   return {
     ...actual,
     useForm: () => ({
-      handleSubmit: vi.fn()
+      handleSubmit: vi.fn(),
     })
   }
 })

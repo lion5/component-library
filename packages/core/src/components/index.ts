@@ -23,6 +23,7 @@ import EndButtonWrapper from '@core/components/utils/EndButtonWrapper/EndButtonW
 import EntityCard from '@core/components/cards/EntityCard/EntityCard.vue'
 import EntityWrapper from '@core/components/utils/EntityWrapper/EntityWrapper.vue'
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
+import FileDropArea from '@core/components/dragdrop/FileDropArea/FileDropArea.vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 import ImageDropArea from '@core/components/dragdrop/ImageDropArea/ImageDropArea.vue'
 import InformationButton from '@core/components/buttons/InformationButton/InformationButton.vue'
@@ -69,6 +70,7 @@ export {
   EntityCard,
   EntityWrapper,
   ErrorBox,
+  FileDropArea,
   IconButton,
   ImageDropArea,
   InformationButton,
