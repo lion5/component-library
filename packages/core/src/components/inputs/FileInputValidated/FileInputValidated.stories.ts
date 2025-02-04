@@ -1,28 +1,32 @@
 import { Meta, StoryObj } from '@storybook/vue3'
-import FileInput from './FileInput.vue'
+import FileInputValidated from './FileInputValidated.vue'
 import { ref } from 'vue'
+import { formWrapper } from '../../../../.storybook/decorators'
+import { array } from 'yup'
 
 export default {
-  component: FileInput,
-  title: 'Input Components/FileInput',
+  component: FileInputValidated,
+  title: 'Input Components/FileInputValidated',
+  decorators: [formWrapper],
   render: (args) => ({
-    components: { FileInput },
+    components: { FileInputValidated },
     setup() {
       const files = ref<File[]>(args.modelValue || [])
       return { args, files }
     },
     template: `
-      <FileInput v-bind="args" v-model="files" />
+      <FileInputValidated v-bind="args" v-model="files" />
       <p>Selected Files: {{ files }}</p>
     `
   })
-} as Meta<typeof FileInput>
-type Story = StoryObj<typeof FileInput>
+} as Meta<typeof FileInputValidated>
+type Story = StoryObj<typeof FileInputValidated>
 
 export const Empty: Story = {
   args: {
     name: 'file-input-empty',
     label: 'Empty File Input',
+    validationRules: array()
   }
 }
 
@@ -38,9 +42,9 @@ export const WithError: Story = {
   args: {
     name: 'file-input-error',
     label: 'Error File Input',
-    modelValue: [new File(['Some content'], 'test.txt')],
-    invalid: true,
-    errors: [new Error('This file is not valid')]
+    validationRules: array().min(1),
+    initialTouched: { 'file-input-error': true },
+    validateOnMount: true
   }
 }
 
@@ -48,7 +52,7 @@ export const Required: Story = {
   args: {
     name: 'file-input-required',
     label: 'Required File Input',
-    required: true
+    validationRules: array().min(1)
   }
 }
 
@@ -60,7 +64,7 @@ export const Disabled: Story = {
   }
 }
 
-export const MultifileInput: Story = {
+export const MultipleFiles: Story = {
   args: {
     name: 'file-input-multiple',
     label: 'Multiple Files Input',

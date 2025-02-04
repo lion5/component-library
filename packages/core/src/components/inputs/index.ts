@@ -35,6 +35,7 @@ import UploadImageFABValidated from '@core/components/inputs/image/UploadImageFA
 import { PillInputItem } from '@core/components/inputs/ListInputValidated/pillInputItem'
 import { SearchResult } from '@core/components/inputs/SearchInputValidated/searchResult'
 import FileInput from '@core/components/inputs/FileInput/FileInput.vue'
+import FileInputValidated from '@core/components/inputs/FileInputValidated/FileInputValidated.vue'
 
 export {
   AddressInputValidated,
@@ -64,7 +65,8 @@ export {
   MultiselectInputValidated,
   NumberInputValidated,
   PillInput,
-  FileInput
+  FileInput,
+  FileInputValidated,
   PillInputItem,
   PreviewImageInputValidated,
   SearchInputValidated,
