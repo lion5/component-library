@@ -8,7 +8,7 @@
     :maxlength="maxlength"
     :name="name"
     :required="required"
-    @blur="handleBlur"
+    @blur="syncBlur"
   >
     <template
       v-for="(_, slotName) in $slots"
@@ -27,9 +27,12 @@ import TextareaInput from '@core/components/inputs/TextareaInput/TextareaInput.v
 import { computed } from 'vue'
 import { Schema } from 'yup'
 
-
 const props = withDefaults(
   defineProps<{
+    /**
+     * Used to identify this field in a form (VeeValidate Form).
+     */
+    modelValue?: string
     /**
      * Used to identify this field in a form (VeeValidate Form).
      */
@@ -41,7 +44,7 @@ const props = withDefaults(
     /**
      * The maximum length of the input field.
      */
-    maxlength?: string,
+    maxlength?: string
     /**
      * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
      */
@@ -52,11 +55,25 @@ const props = withDefaults(
   }
 )
 
+const emit = defineEmits<{
+  (e: 'blur', event: FocusEvent): void
+  (e: 'update:modelValue', value: string): void
+}>()
+
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
 
-const { value, meta, handleBlur, errors } = useField<string>(() => props.name, props.validationRules, {
-  syncVModel: true
-})
+const { value, meta, handleBlur, errors } = useField<string>(
+  () => props.name,
+  props.validationRules,
+  {
+    syncVModel: true
+  }
+)
+
+const syncBlur = (event: FocusEvent) => {
+  handleBlur(event)
+  emit('blur', event)
+}
 </script>
 <style lang="scss" scoped>
 .base-input-wrapper {
@@ -106,8 +123,9 @@ const { value, meta, handleBlur, errors } = useField<string>(() => props.name, p
       padding-block-end: var(--space-xs);
       padding-block-start: calc(var(--_label-size) + var(--space-sm));
       min-height: var(--_input-size);
-      transition: border-color 0.15s ease-in-out,
-      min-height 0.4s ease-in-out;
+      transition:
+        border-color 0.15s ease-in-out,
+        min-height 0.4s ease-in-out;
 
       &:focus {
         outline: none;
@@ -117,11 +135,13 @@ const { value, meta, handleBlur, errors } = useField<string>(() => props.name, p
       scrollbar-width: thin;
       scrollbar-gutter: stable;
 
-      &::-webkit-scrollbar-thumb { /* Foreground */
+      &::-webkit-scrollbar-thumb {
+        /* Foreground */
         background: var(--scrollbar-foreground);
       }
 
-      &::-webkit-scrollbar-track { /* Background */
+      &::-webkit-scrollbar-track {
+        /* Background */
         background: var(--scrollbar-background);
       }
     }
