@@ -19,9 +19,9 @@ describe('ImageDropArea.vue', () => {
     it(':disabled, :dropInfo, :multiselect - passed to FileDropArea', async () => {
       await wrapper.setProps({ disabled: true, dropInfo: 'Drop Info', multiselect: true })
 
-      expect(wrapper.getComponent(FileDropArea).disabled).toBe(true)
-      expect(wrapper.getComponent(FileDropArea).dropInfo).toBe('Drop Info')
-      expect(wrapper.getComponent(FileDropArea).multiselect).toBe(true)
+      expect(wrapper.getComponent(FileDropArea).props().disabled).toBe(true)
+      expect(wrapper.getComponent(FileDropArea).props().dropInfo).toBe('Drop Info')
+      expect(wrapper.getComponent(FileDropArea).props().multiselect).toBe(true)
     })
   })
   describe('@events', () => {

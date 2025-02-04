@@ -40,6 +40,7 @@ withDefaults(
   }>(),
   {
     disable: false,
+    disabled: false,
     dropInfo: 'Bild hochladen',
     multiselect: false
   }
