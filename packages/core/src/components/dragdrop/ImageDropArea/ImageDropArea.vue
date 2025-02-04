@@ -1,37 +1,33 @@
 <template>
-  <div
-    :class="{ 'file-drop-area': true, 'dragged-over': draggedOver }"
-    @[dragOver].prevent="setDraggedOver(true)"
-    @[drop].prevent="onDrop"
+  <FileDropArea
+    :disabled="disable || disabled"
+    :dropInfo="dropInfo"
+    :multiselect="multiselect"
+    @new-file="onImageDrop"
   >
-    <!--    @slot insert the component around that the drop area shall be created -->
     <slot />
-    <div
-      v-if="draggedOver"
-      class="overlay"
-      @[dragLeave].prevent="setDraggedOver(false)"
-    >
-      <div class="background" />
-      <div class="text">
-        {{ dropInfo }}
-      </div>
-    </div>
-  </div>
+  </FileDropArea>
 </template>
 
 <script lang="ts" setup>
-import { computed, ref } from 'vue'
 import { ImageForm } from '@core/models/image/imageForm'
+import FileDropArea from '@core/components/dragdrop/FileDropArea/FileDropArea.vue'
 
 /**
  * This is a wrapper component to allow users to drop images over the wrapped area.
  */
-const props = withDefaults(
+withDefaults(
   defineProps<{
     /**
      * Disables the reaction on drag over, drag leave and drop events. So it disables the component.
+     * @deprecated Use `disabled` prop instead
      */
     disable?: boolean
+    /**
+     * Disables the reaction on drag over, drag leave and drop events. So it disables the component.
+     * @since 0.23.0
+     */
+    disabled?: boolean
     /**
      * Changes the information text that is displayed when a item is dragged over the component.
      */
@@ -51,69 +47,22 @@ const props = withDefaults(
 const emit = defineEmits<{
   /**
    * Is emitted when images are dropped
+   * @deprecated Use `new-image` event instead
    */
   (e: 'input', image: ImageForm): void
+  /**
+   * Is emitted when images are dropped
+   * @since 0.23.0
+   */
+  (e: 'new-image', image: ImageForm): void
 }>()
 
-const draggedOver = ref(false)
-const dragOver = computed(() => (!props.disable ? 'dragover' : null))
-const dragLeave = computed(() => (!props.disable ? 'dragleave' : null))
-const drop = computed(() => (!props.disable ? 'drop' : null))
-
-const setDraggedOver = (newDraggedOver: boolean) => {
-  draggedOver.value = newDraggedOver
-}
-const onDrop = async (event: DragEvent) => {
-  draggedOver.value = false
-  const files = event.dataTransfer?.files || []
-  if (!props.multiselect && files[0] != null) {
-    /**
-     * Is emitted when images are dropped
-     */
-    emit('input', await ImageForm.fromFile(files[0]))
-    return
-  }
-  for (const file of files) {
-    emit('input', await ImageForm.fromFile(file))
-  }
+const onImageDrop = async (file: File) => {
+  const imageForm = await ImageForm.fromFile(file)
+  emit('input', imageForm)
+  emit('new-image', imageForm)
 }
 </script>
 
 <style lang="scss" scoped>
-.file-drop-area {
-  display: grid;
-  & > * {
-    grid-column: 1/2;
-    grid-row: 1/2;
-  }
-  .overlay {
-    transition: all 0.25s ease-in;
-  }
-}
-.file-drop-area.dragged-over {
-  & > :not(.overlay) {
-    filter: blur(7px);
-  }
-  .overlay {
-    display: grid;
-    cursor: move;
-    isolation: isolate;
-    & > * {
-      grid-column: 1/2;
-      grid-row: 1/2;
-    }
-    .text {
-      isolation: isolate;
-      display: grid;
-      place-content: center;
-      font-size: 1.25rem;
-      font-weight: bold;
-    }
-    .background {
-      background-color: var(--light);
-      outline: 2px dashed var(--color-primary);
-      opacity: 0.4;
-    }
-  }
-}
 </style>
