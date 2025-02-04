@@ -11,10 +11,14 @@ import CheckboxInputV2Validated from '@core/components/inputs/CheckboxInputV2Val
 import CodeInputValidated from '@core/components/inputs/CodeInputValidated/CodeInputValidated.vue'
 import DateTimeInputValidated from '@core/components/inputs/DateTimeInputValidated/DateTimeInputValidated.vue'
 import EuroInputValidated from '@core/components/inputs/EuroInputValidated/EuroInputValidated.vue'
+import FileInput from '@core/components/inputs/FileInput/FileInput.vue'
+import FileInputValidated from '@core/components/inputs/FileInputValidated/FileInputValidated.vue'
 import GalleryInput from '@core/components/inputs/image/GalleryInput/GalleryInput.vue'
 import IbanInputValidated from '@core/components/inputs/IbanInputValidated/IbanInputValidated.vue'
 import ImageAddCard from '@core/components/inputs/image/ImageAddCard/ImageAddCard.vue'
 import ImageEditCard from '@core/components/inputs/image/ImageEditCard/ImageEditCard.vue'
+import ImageInput from '@core/components/inputs/image/ImageInput/ImageInput.vue'
+import ImageInputValidated from '@core/components/inputs/image/ImageInputValidated/ImageInputValidated.vue'
 import ImageInputWrapperValidated from '@core/components/inputs/image/ImageInputWrapperValidated/ImageInputWrapperValidated.vue'
 import ListInputValidated from '@core/components/inputs/ListInputValidated/ListInputValidated.vue'
 import LocationCoordinateSelect from '@core/components/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
@@ -34,9 +38,6 @@ import TextareaInputValidated from '@core/components/inputs/TextareaInputValidat
 import UploadImageFABValidated from '@core/components/inputs/image/UploadImageFABValidated/UploadImageFABValidated.vue'
 import { PillInputItem } from '@core/components/inputs/ListInputValidated/pillInputItem'
 import { SearchResult } from '@core/components/inputs/SearchInputValidated/searchResult'
-import FileInput from '@core/components/inputs/FileInput/FileInput.vue'
-import FileInputValidated from '@core/components/inputs/FileInputValidated/FileInputValidated.vue'
-import ImageInput from '@core/components/inputs/image/ImageInput/ImageInput.vue'
 
 export {
   AddressInputValidated,
@@ -55,10 +56,14 @@ export {
   CodeInputValidated,
   DateTimeInputValidated,
   EuroInputValidated,
+  FileInput,
+  FileInputValidated,
   GalleryInput,
   IbanInputValidated,
   ImageAddCard,
   ImageEditCard,
+  ImageInput,
+  ImageInputValidated,
   ImageInputWrapperValidated,
   ListInputValidated,
   LocationCoordinateSelect,
@@ -66,9 +71,6 @@ export {
   MultiselectInputValidated,
   NumberInputValidated,
   PillInput,
-  FileInput,
-  FileInputValidated,
-  ImageInput,
   PillInputItem,
   PreviewImageInputValidated,
   SearchInputValidated,
