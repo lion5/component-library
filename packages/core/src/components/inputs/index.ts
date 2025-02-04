@@ -36,6 +36,7 @@ import { PillInputItem } from '@core/components/inputs/ListInputValidated/pillIn
 import { SearchResult } from '@core/components/inputs/SearchInputValidated/searchResult'
 import FileInput from '@core/components/inputs/FileInput/FileInput.vue'
 import FileInputValidated from '@core/components/inputs/FileInputValidated/FileInputValidated.vue'
+import ImageInput from '@core/components/inputs/image/ImageInput/ImageInput.vue'
 
 export {
   AddressInputValidated,
@@ -67,6 +68,7 @@ export {
   PillInput,
   FileInput,
   FileInputValidated,
+  ImageInput,
   PillInputItem,
   PreviewImageInputValidated,
   SearchInputValidated,
