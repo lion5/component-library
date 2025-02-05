@@ -2,6 +2,8 @@ import { Address } from '@core/models/address'
 import { Gallery } from '@core/models/image/gallery'
 import { GalleryForm } from '@core/models/image/galleryForm'
 import { GpsLocation } from '@core/models/gpsLocation'
+import { ImageConstraints } from '@core/models/image/imageConstraints'
+import { ImageForm } from '@core/models/image/imageForm'
 import { ImageResponse } from '@core/models/image/imageResponse'
 import { ImageSizes } from '@core/models/image/imageSizes'
 import { NamedLocation } from '@core/models/namedLocation'
@@ -14,6 +16,8 @@ export {
   Gallery,
   GalleryForm,
   GpsLocation,
+  ImageConstraints,
+  ImageForm,
   ImageResponse,
   ImageSizes,
   NamedLocation,
