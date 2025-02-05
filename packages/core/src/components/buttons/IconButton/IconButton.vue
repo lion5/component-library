@@ -50,6 +50,12 @@ const disabled = computed(() => props.disabled || props.busy)
     background-color: var(--icon-button-bg-color, var(--color-primary));
   }
 
+  &:focus-visible {
+    border-radius: var(--border-radius-round);
+    outline-color: var(--color-primary);
+    outline-offset: 2px;
+  }
+
   &:not([disabled]):hover {
     background-color: var(--icon-button-bg-hover-color, var(--color-neutral-300));
   }
