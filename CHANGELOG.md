@@ -1,3 +1,23 @@
+## 0.23.4 (2025-02-05)
+
+### 🚀 Features
+
+- **IconButton:** add styling for keyboard focus ([ed0b174](https://github.com/lion5/component-library/commit/ed0b174))
+- **TooltipIcon:** make max-width and padding configurable ([a787317](https://github.com/lion5/component-library/commit/a787317))
+
+### 🩹 Fixes
+
+- **CardBadgeSuccess:** shrink tooltip size a bit to match image card ([4fd56f9](https://github.com/lion5/component-library/commit/4fd56f9))
+- **ContentGroup:** display content in one row on desktop screens ([48311c5](https://github.com/lion5/component-library/commit/48311c5))
+- **EntityCard:** apply card styles again ([0fce6ca](https://github.com/lion5/component-library/commit/0fce6ca))
+- **SearchInputValidate:** allow to configure debounce time and emit search on delete search ([668be03](https://github.com/lion5/component-library/commit/668be03))
+- **SelectInput:** add changeable width ([4e0dce6](https://github.com/lion5/component-library/commit/4e0dce6))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+- Roman Kudravcev
+
 ## 0.23.3 (2025-02-05)
 
 ### 🩹 Fixes
