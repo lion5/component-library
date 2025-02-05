@@ -16,6 +16,7 @@
         />
         <BaseButton
           :disabled="disabled"
+          @click="() => $refs.fileInput.click()"
         >
           <template #icon-left>
             <BaseIcon icon="bi-upload" />
@@ -23,6 +24,7 @@
           <label>
             {{ label }}<span v-if="required" class="required-identification">*</span>
             <input
+              ref="fileInput"
               :name="name"
               type="file"
               :required="required"
