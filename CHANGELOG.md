@@ -1,3 +1,13 @@
+## 0.23.2 (2025-02-05)
+
+### 🩹 Fixes
+
+- **ImageInputValidated:** apply errors only if model is set ([8ec6cd0](https://github.com/lion5/component-library/commit/8ec6cd0))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.23.1 (2025-02-05)
 
 ### 🩹 Fixes
