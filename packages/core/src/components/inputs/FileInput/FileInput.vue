@@ -16,6 +16,7 @@
         />
         <BaseButton
           :disabled="disabled"
+          @click="() => $refs.fileInput.click()"
         >
           <template #icon-left>
             <BaseIcon icon="bi-upload" />
@@ -23,6 +24,7 @@
           <label>
             {{ label }}<span v-if="required" class="required-identification">*</span>
             <input
+              ref="fileInput"
               :name="name"
               type="file"
               :required="required"
@@ -109,6 +111,7 @@ const emit = defineEmits<{
    * Is emitted when files are dropped
    */
   (e: 'update:modelValue', files: File[]): void
+  (e: 'blur', event: FocusEvent): void
 }>()
 
 const files = computed({
@@ -121,6 +124,7 @@ const files = computed({
 
 const onFileDrop = (files: File[]) => {
   emit('update:modelValue', files)
+  emit('blur', new FocusEvent('blur'))
 }
 
 const onFileInput = (event: Event) => {
@@ -130,6 +134,7 @@ const onFileInput = (event: Event) => {
     return
   }
   emit('update:modelValue', files)
+  emit('blur', new FocusEvent('blur'))
 }
 
 const filePills = computed(() => files.value.map((file) => new PillInputItem(file.name, file.name, false)))

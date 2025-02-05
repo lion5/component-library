@@ -11,6 +11,7 @@
     :invalid="invalid"
     :dirty="dirty"
     :errors="!!modelValue ? modelValue.errors : []"
+    @blur="$emit('blur', $event)"
   >
     <template #prepend>
       <div v-if="!disabled">
@@ -94,6 +95,7 @@ const emit = defineEmits<{
    * Is emitted when files are dropped
    */
   (e: 'update:modelValue', imageForm?: ImageForm): void
+  (e: 'blur', event: FocusEvent): void
 }>()
 
 const files = computed({
