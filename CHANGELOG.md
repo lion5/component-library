@@ -1,3 +1,14 @@
+## 0.23.3 (2025-02-05)
+
+### 🩹 Fixes
+
+- propagate blur event ([f30fed9](https://github.com/lion5/component-library/commit/f30fed9))
+- **FileInput:** call file input action on wrapper button click ([4090c17](https://github.com/lion5/component-library/commit/4090c17))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.23.2 (2025-02-05)
 
 ### 🩹 Fixes
