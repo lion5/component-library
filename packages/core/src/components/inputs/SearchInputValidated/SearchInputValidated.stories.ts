@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import SearchResult from './SearchInputValidated.vue'
 import { SearchResult as SearchResultClass } from './searchResult'
+import { ref } from 'vue'
 
 /**
  * This input is optimized for searching.
@@ -10,7 +11,20 @@ import { SearchResult as SearchResultClass } from './searchResult'
 
 export default {
   component: SearchResult,
-  title: 'Input Components/SearchInputValidated'
+  title: 'Input Components/SearchInputValidated',
+  render: (args) => ({
+    components: { SearchResult },
+    setup() {
+      const searchToken = ref('')
+      const onSearch = (newToken: string) => {
+        searchToken.value = newToken
+      }
+      return { args, searchToken, onSearch }
+    },
+    template: `
+      <SearchResult v-bind="args"  @search="onSearch"/>
+      <p>SearchToken: {{ searchToken }}</p>`
+  })
 } as Meta<typeof SearchResult>
 type Story = StoryObj<typeof SearchResult>
 
