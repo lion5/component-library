@@ -1,3 +1,13 @@
+## 0.23.1 (2025-02-05)
+
+### 🩹 Fixes
+
+- expose ImageInput models ([bb279b9](https://github.com/lion5/component-library/commit/bb279b9))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.23.0 (2025-02-04)
 
 ### 🚀 Features
