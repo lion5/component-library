@@ -147,8 +147,15 @@ const { value, meta, handleBlur, errors } = useField<ImageForm>(
 )
 
 watch(errors, () => {
-  value.value.errors = errors.value.map((error) => new Error(error))
-})
+    if (!value.value) {
+      return
+    }
+    value.value.errors = errors.value.map((error) => new Error(error))
+  },
+  {
+    immediate: true
+  }
+)
 
 const syncBlur = (event: FocusEvent) => {
   handleBlur(event)
