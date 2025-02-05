@@ -77,6 +77,10 @@ const props = withDefaults(
      */
     busy?: boolean
     /**
+     * The debounce time in milliseconds for the search.
+     */
+    debounceMs?: number
+    /**
      * Error displayed below the input field.
      */
     error?: Error
@@ -86,6 +90,7 @@ const props = withDefaults(
     searchResults: () => [],
     label: 'Suche',
     busy: false,
+    debounceMs: 500,
     error: undefined
   }
 )
@@ -110,7 +115,7 @@ const searchToken = ref<string>(props.searchTokenPreset)
 const emitSearch = () => {
   emit('search', searchToken.value)
 }
-const emitSearchDebounced = debounce(emitSearch, 500)
+const emitSearchDebounced = debounce(emitSearch, props.debounceMs)
 
 const onSearch = () => {
   emitSearchDebounced.cancel()
@@ -125,6 +130,7 @@ const onSelect = (searchResult: SearchResult) => {
 const clearInput = () => {
   emitSearchDebounced.cancel()
   searchToken.value = ''
+  emit('search', searchToken.value)
 }
 
 const { value } = useField(props.name)

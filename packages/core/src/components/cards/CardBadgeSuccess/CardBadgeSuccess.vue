@@ -3,7 +3,7 @@
     <TooltipIcon
       :id="tooltipId"
       :tooltip-text="tooltipText"
-      style="--tooltip-right: 0; --tooltip-bottom: 100%;"
+      style="--tooltip-right: 0; --tooltip-bottom: 100%; --tooltip-max-width: 23ch;"
     >
       <template #tooltipIcon>
         <BaseIcon icon="bi-check" />
