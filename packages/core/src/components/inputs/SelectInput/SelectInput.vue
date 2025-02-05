@@ -215,7 +215,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
   display: grid;
   position: relative;
   gap: var(--space-sm);
-  width: calc(1.2 * var(--input-chars) + var(--space-xl));
+  width: var(--input-width, calc(1.2 * var(--input-chars) + var(--space-xl)));
 
   .option__container {
     display: flex;
