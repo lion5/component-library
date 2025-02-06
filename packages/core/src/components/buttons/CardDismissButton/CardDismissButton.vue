@@ -3,7 +3,11 @@
     triggered on button click
     @event remove
   -->
-  <button type="button" class="delete-badge" @click.capture="$emit('dismiss')">
+  <button
+    class="delete-badge"
+    type="button"
+    @click.capture="$emit('dismiss')"
+  >
     <slot name="icon">
       <IconX />
     </slot>
@@ -35,7 +39,7 @@ export default defineComponent({
   width: 2rem;
   height: 2rem;
   padding: 0;
-  margin: 0.25rem;
+  margin: 0;
   border-color: transparent;
   border-radius: 50%;
   font-size: var(--font-size-3);
@@ -45,10 +49,7 @@ export default defineComponent({
 
   &:hover {
     mix-blend-mode: unset;
-    background-color: var(
-      --dismiss-button-background-color,
-      var(--color-danger)
-    );
+    background-color: var(--dismiss-button-background-color, var(--color-danger));
     color: var(--dismiss-button-color, var(--light));
   }
 }

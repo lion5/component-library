@@ -32,9 +32,7 @@ describe('ImageModal', () => {
       const showModal = true
       await wrapper.setProps({ showModal })
 
-      expect(
-        wrapper.findComponent(DismissibleModal).vm.modalDisplayed
-      ).toStrictEqual(showModal)
+      expect(wrapper.findComponent(DismissibleModal).vm.modalDisplayed).toStrictEqual(showModal)
     })
     it(':image - image large size is applied to img tag when available', async () => {
       const image = new ImageResponse(
@@ -48,22 +46,14 @@ describe('ImageModal', () => {
       expect(imageItem.attributes('src')).toBe(image.sizes.large)
     })
     it(':image - image original size is applied to img tag when large size is not available', async () => {
-      const image = new ImageResponse(
-        4711,
-        'testAltTag',
-        new ImageSizes('original')
-      )
+      const image = new ImageResponse(4711, 'testAltTag', new ImageSizes('original'))
       await wrapper.setProps({ image })
 
       const imageItem = wrapper.find('img')
       expect(imageItem.attributes('src')).toBe(image.sizes.original)
     })
     it(':image - image alt is applied to img tag', async () => {
-      const image = new ImageResponse(
-        4711,
-        'testAltTag',
-        new ImageSizes('original')
-      )
+      const image = new ImageResponse(4711, 'testAltTag', new ImageSizes('original'))
       await wrapper.setProps({ image })
 
       const imageItem = wrapper.find('img')
