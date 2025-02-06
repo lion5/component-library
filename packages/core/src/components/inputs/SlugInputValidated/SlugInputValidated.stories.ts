@@ -1,7 +1,6 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
 import SlugInput from './SlugInputValidated.vue'
-import { ref } from 'vue'
 import { string } from 'yup'
 
 /**
@@ -16,23 +15,7 @@ type Story = StoryObj<typeof SlugInput>
 
 export const Empty: Story = {
   args: {
-    name: 'test-empty'
-  }
-}
-export const EmptyPrefix: Story = {
-  render: (args: unknown) => ({
-    components: { SlugInput, Form },
-    setup() {
-      const slug = ref()
-      return { args, slug }
-    },
-    template: `
-      <Form :initialValues='{ input1: 234 }'>
-        <SlugInput v-bind='args' v-model:slug="slug" />
-      </Form>`
-  }),
-  args: {
-    name: 'test-empty-prefix',
+    name: 'test-empty',
     prefix: 'Prefix'
   }
 }
@@ -49,7 +32,8 @@ export const Filled: Story = {
       </Form>`
   }),
   args: {
-    name: 'input1'
+    name: 'input1',
+    prefix: 'Prefix'
   }
 }
 
@@ -69,13 +53,15 @@ export const WithError: Story = {
       </Form>`
   }),
   args: {
-    name: 'input-with-error'
+    name: 'input-with-error',
+    prefix: 'Prefix'
   }
 }
 
 export const Required: Story = {
   args: {
     name: 'test-required',
+    prefix: 'Prefix',
     validationRules: string().required()
   }
 }
