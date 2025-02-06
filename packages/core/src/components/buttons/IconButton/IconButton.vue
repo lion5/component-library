@@ -12,7 +12,7 @@
   </button>
 </template>
 <script setup lang="ts">
-import { computed, defineProps } from 'vue'
+import { computed } from 'vue'
 import ArrowRotateLoadingAnimation from '@core/components/icons/ArrowRotateLoadingAnimation.vue'
 
 const props = defineProps<{
@@ -48,6 +48,12 @@ const disabled = computed(() => props.disabled || props.busy)
   &.filled {
     color: var(--icon-button-color, var(--color-primary-100));
     background-color: var(--icon-button-bg-color, var(--color-primary));
+  }
+
+  &:focus-visible {
+    border-radius: var(--border-radius-round);
+    outline-color: var(--color-primary);
+    outline-offset: 2px;
   }
 
   &:not([disabled]):hover {

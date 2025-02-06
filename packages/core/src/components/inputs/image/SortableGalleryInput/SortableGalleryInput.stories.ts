@@ -39,17 +39,6 @@ function getDummyImage(
 const Template = (args: unknown) => ({
   components: { SortableGalleryInput },
   setup() {
-    const lol = new GalleryForm([
-      getDummyImage(),
-      getDummyImage(),
-      getDummyImage(true),
-      getDummyImage(true),
-      getDummyImage(false, true),
-      getDummyImage(false, true),
-      getDummyImage(false, false, [new Error('Fehler')]),
-      getDummyImage(false, false, [new Error('Fehler')])
-    ])
-    console.log(lol.images)
     const gallery = ref<GalleryForm>(
       new GalleryForm([
         getDummyImage(),
@@ -62,7 +51,6 @@ const Template = (args: unknown) => ({
         getDummyImage(false, false, [new Error('Fehler')])
       ])
     )
-    console.log(gallery.value.images)
     return { args, gallery }
   },
   template: '<SortableGalleryInput v-bind="args" :gallery="gallery" />'

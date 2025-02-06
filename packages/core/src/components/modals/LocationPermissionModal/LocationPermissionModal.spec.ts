@@ -1,13 +1,5 @@
-import {
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi
-} from 'vitest'
-import { mount } from '@vue/test-utils'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { shallowMount } from '@vue/test-utils'
 import LocationPermissionModal from './LocationPermissionModal.vue'
 import DismissibleModal from '../DismissibleModal/DismissibleModal.vue'
 
@@ -15,21 +7,22 @@ describe('LocationPermissionModal', () => {
   let wrapper: ReturnType<typeof mountComponent>
 
   const mountComponent = (visible?: boolean, locationDenied?: boolean) => {
-    return mount(LocationPermissionModal, {
-      attachTo: document.body,
+    return shallowMount(LocationPermissionModal, {
       props: {
         visible,
         locationDenied
+      },
+      global: {
+        stubs: {
+          DismissibleModal: {
+            template: '<div><slot></slot></div>',
+            props: ['modalDisplayed'],
+            emits: ['update:modal-displayed']
+          }
+        }
       }
     })
   }
-
-  beforeAll(() => {
-    // TODO: remove when JSDom supports HTMLDialogElement https://github.com/jsdom/jsdom/issues/3294
-    HTMLDialogElement.prototype.show = vi.fn()
-    HTMLDialogElement.prototype.showModal = vi.fn()
-    HTMLDialogElement.prototype.close = vi.fn()
-  })
 
   beforeEach(() => {
     wrapper = mountComponent()
@@ -43,24 +36,24 @@ describe('LocationPermissionModal', () => {
   describe(':props', () => {
     describe(':visible', () => {
       it('initially sets modalDisplayed of BaseModal to false', async () => {
-        const baseModal = wrapper.findComponent(DismissibleModal)
+        const dismissibleModal = wrapper.findComponent(DismissibleModal)
 
-        expect(baseModal.props('modalDisplayed')).toBe(false)
+        expect(dismissibleModal.props('modalDisplayed')).toBe(false)
       })
 
       it('initially sets modalDisplayed of BaseModal to true if specified', async () => {
         wrapper = mountComponent(true)
-        const baseModal = wrapper.findComponent(DismissibleModal)
+        const dismissibleModal = wrapper.findComponent(DismissibleModal)
 
-        expect(baseModal.props('modalDisplayed')).toBe(true)
+        expect(dismissibleModal.props('modalDisplayed')).toBe(true)
       })
 
       it('updates displayModal of modal to true if set after mount', async () => {
-        const baseModal = wrapper.findComponent(DismissibleModal)
+        const dismissibleModal = wrapper.findComponent(DismissibleModal)
 
         await wrapper.setProps({ visible: true })
 
-        expect(baseModal.props('modalDisplayed')).toBe(true)
+        expect(dismissibleModal.props('modalDisplayed')).toBe(true)
       })
 
       it('updates displayModal of modal to false if set after mount', async () => {

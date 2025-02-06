@@ -13,7 +13,6 @@ describe('SelectInputValidated.vue', () => {
       props: {
         name: 'name',
         label: 'label',
-        id: 'id',
         entityName: 'entityName',
         options: [
           new SelectOption(1, 'test1'),
@@ -26,10 +25,9 @@ describe('SelectInputValidated.vue', () => {
     })
   })
   describe(':props', () => {
-    it(':name :label :id :entityName :options :searchable: placeholder are applied', async () => {
+    it(':name :label :entityName :options :searchable: placeholder are applied', async () => {
       const expectedName = 'expectedFieldName'
       const expectedLabel = 'Expected Label'
-      const expectedId = 'expectedId'
       const expectedEntityName = 'Expected Entity Name'
       const expectedOptions = [
         new SelectOption(1, 'test1'),
@@ -42,7 +40,6 @@ describe('SelectInputValidated.vue', () => {
       await wrapper.setProps({
         name: expectedName,
         label: expectedLabel,
-        id: expectedId,
         entityName: expectedEntityName,
         options: expectedOptions,
         searchable: expectedSearchable,
@@ -51,7 +48,6 @@ describe('SelectInputValidated.vue', () => {
 
       expect(wrapper.findComponent(SelectInput).props().name).toBe(expectedName)
       expect(wrapper.findComponent(SelectInput).props().label).toBe(expectedLabel)
-      expect(wrapper.findComponent(SelectInput).props().id).toBe(expectedId)
       expect(wrapper.findComponent(SelectInput).props().entityName).toBe(expectedEntityName)
       expect(wrapper.findComponent(SelectInput).props().options).toStrictEqual(expectedOptions)
       expect(wrapper.findComponent(SelectInput).props().searchable).toBe(expectedSearchable)

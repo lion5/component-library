@@ -115,7 +115,6 @@ describe('MultiselectInput', () => {
         }
       })
 
-      console.log(wrapper.html())
       const noOptionsSlot = wrapper.find('li:not([style*="display: none"]) .multiselect__option')
       expect(noOptionsSlot.exists()).toBe(true)
       expect(noOptionsSlot.text()).toBe('Keine Merchants vorhanden')

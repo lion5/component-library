@@ -17,8 +17,8 @@ import LoadingAnimation from '@core/components/utils/LoadingAnimation/LoadingAni
   --overlay-font-size: var(--font-size-4);
 
   & > .content .spinner-grow {
-    width: var(--font-size-8);
-    height: var(--font-size-8);
+    width: var(--font-size-7);
+    height: var(--font-size-7);
   }
 }
 </style>

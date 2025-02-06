@@ -1,6 +1,5 @@
 <template>
   <SelectInput
-    :id="id"
     v-model="value"
     :dirty="meta.dirty"
     :entity-name="entityName"
@@ -44,10 +43,6 @@ const props = withDefaults(
      * @deprecated Use `modelValue` instead.
      */
     defaultOption?: SelectOption<LabelType>
-    /**
-     * The unique ID of the HTML element.
-     */
-    id: string
     /**
      * The label text to be displayed next to the field.
      */

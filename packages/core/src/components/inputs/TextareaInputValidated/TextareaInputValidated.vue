@@ -30,7 +30,7 @@ import { Schema } from 'yup'
 const props = withDefaults(
   defineProps<{
     /**
-     * Used to identify this field in a form (VeeValidate Form).
+     * The textarea content
      */
     modelValue?: string
     /**
@@ -54,6 +54,10 @@ const props = withDefaults(
     validationRules: undefined
   }
 )
+
+defineSlots<{
+  [key: string]: unknown;
+}>()
 
 const emit = defineEmits<{
   (e: 'blur', event: FocusEvent): void

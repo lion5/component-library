@@ -8,7 +8,7 @@ import ImageAddCard from '@core/components/inputs/image/ImageAddCard/ImageAddCar
 import ImageDropArea from '@core/components/dragdrop/ImageDropArea/ImageDropArea.vue'
 import SortableGalleryInput from '@core/components/inputs/image/SortableGalleryInput/SortableGalleryInput.vue'
 import ImageEditCardDraggable from '@core/components/inputs/image/ImageEditCardDraggable/ImageEditCardDraggable.vue'
-
+import FileDropArea from '@core/components/dragdrop/FileDropArea/FileDropArea.vue'
 
 describe('SortableGalleryInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -21,7 +21,8 @@ describe('SortableGalleryInput.vue', () => {
       },
       global: {
         stubs: {
-          ImageDropArea: ImageDropArea
+          ImageDropArea: ImageDropArea,
+          FileDropArea: FileDropArea
         }
       }
     })
@@ -108,7 +109,8 @@ describe('SortableGalleryInput.vue', () => {
       await imagCard.vm.$emit('drag')
       await wrapper.vm.$nextTick()
 
-      expect(wrapper.findComponent(ImageDropArea).props().disable).toBe(true)
+
+      expect(wrapper.findComponent(ImageDropArea).props().disabled).toBe(true)
     })
   })
 })
