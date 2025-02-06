@@ -1,6 +1,13 @@
 <template>
-  <dialog ref="modal" class="basic-modal" @cancel="closeModal">
-    <slot :open-modal="openModal" :close-modal="closeModal" />
+  <dialog
+    ref="modal"
+    class="basic-modal"
+    @cancel="closeModal"
+  >
+    <slot
+      :close-modal="closeModal"
+      :open-modal="openModal"
+    />
   </dialog>
 </template>
 
@@ -57,7 +64,7 @@ watch(() => props.modalDisplayed, setModalVisibility)
   border: none;
   overflow: hidden;
   border-radius: var(--border-radius-md) !important;
-  padding: 0;
+  padding: var(--modal-padding, var(--space-md));
   box-shadow: var(--shadow-600);
 
   &::backdrop {
