@@ -62,7 +62,6 @@ watch(() => props.modalDisplayed, setModalVisibility)
 <style lang="scss" scoped>
 .basic-modal {
   border: none;
-  overflow: hidden;
   border-radius: var(--border-radius-md) !important;
   padding: var(--modal-padding, var(--space-md));
   box-shadow: var(--shadow-600);
