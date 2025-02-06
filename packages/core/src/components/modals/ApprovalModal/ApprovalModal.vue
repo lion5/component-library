@@ -30,7 +30,7 @@
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
 import BaseButton from '@core/components/buttons/BaseButton/BaseButton.vue'
 
-const props = withDefaults(
+withDefaults(
   defineProps<{
     /**
      * The title is displayed at the top of the modal
