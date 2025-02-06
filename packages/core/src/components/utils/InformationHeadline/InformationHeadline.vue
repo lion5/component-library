@@ -28,9 +28,10 @@ defineProps<{
   justify-content: space-between;
   width: 100%;
   font-size: var(--font-size-h1);
+
+  h1 {
+    margin: 0;
+  }
 }
 
-.info-headline > * {
-  margin-bottom: 0;
-}
 </style>
