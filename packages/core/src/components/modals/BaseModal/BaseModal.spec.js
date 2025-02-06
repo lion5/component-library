@@ -1,13 +1,5 @@
 import { mount } from '@vue/test-utils'
-import {
-  afterEach,
-  beforeEach,
-  beforeAll,
-  describe,
-  expect,
-  it,
-  vi
-} from 'vitest'
+import { afterEach, beforeEach, beforeAll, describe, expect, it, vi } from 'vitest'
 import BaseModal from '@core/components/modals/BaseModal/BaseModal.vue'
 
 describe('BaseModal', () => {

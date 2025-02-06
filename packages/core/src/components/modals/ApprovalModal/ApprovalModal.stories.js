@@ -3,10 +3,15 @@ import ApprovalModal from '@core/components/modals/ApprovalModal/ApprovalModal.v
 import IconTrash from '@core/components/icons/IconTrash.vue'
 import { action } from '@storybook/addon-actions'
 
+/**
+ * ApprovalModal can be configured via following css custom props
+ * - `--modal-width` to define the width of the modal. Default is 60ch
+ */
+
 export default {
   components: { IconTrash, ApprovalModal, IconWallet },
   component: ApprovalModal,
-  title: 'Navigation Components/Modals/ApprovalModal',
+  title: 'Navigation Components/Modals/ApprovalModal'
 }
 
 const Template = (args, { argTypes }) => ({

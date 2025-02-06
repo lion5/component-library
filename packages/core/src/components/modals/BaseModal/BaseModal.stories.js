@@ -2,10 +2,15 @@ import IconWallet from '@core/components/icons/IconWallet.vue'
 import BaseModal from '@core/components/modals/BaseModal/BaseModal.vue'
 import ActionButton from '@core/components/buttons/ActionButton/ActionButton.vue'
 
+/**
+ * BaseModal can be configured via following css custom props
+ * - `--modal-width` to define the width of the modal. Default is 60ch
+ */
+
 export default {
   components: { IconWallet },
   component: BaseModal,
-  title: 'Navigation Components/Modals/BaseModal',
+  title: 'Navigation Components/Modals/BaseModal'
 }
 
 const Template = (args, { argTypes }) => ({
@@ -20,11 +25,11 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <ActionButton @click='args.modalDisplayed=true'>
-    <IconWallet />
+      <IconWallet />
     </ActionButton>
     <BaseModal v-model:modal-displayed='args.modalDisplayed'>
-    <h1>Wallet</h1>
-    <p>Content here...</p>
+      <h1>Wallet</h1>
+      <p>Content here...</p>
     </BaseModal>`
 })
 

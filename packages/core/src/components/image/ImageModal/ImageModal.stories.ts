@@ -9,7 +9,7 @@ import { ImageResponse } from '@core/models/image/imageResponse'
  */
 export default {
   component: ImageModal,
-  title: 'Display Components/Image/ImageModal',
+  title: 'Display Components/Image/ImageModal'
 } as Meta<typeof ImageModal>
 type Story = StoryObj<typeof ImageModal>
 
