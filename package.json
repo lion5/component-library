@@ -23,6 +23,7 @@
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-storybook": "^0.11.2",
     "eslint-plugin-vue": "^9.32.0",
-    "nx": "^20.4.0"
+    "nx": "^20.4.0",
+    "@vitejs/plugin-vue": "^5.2.1"
   }
 }
