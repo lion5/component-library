@@ -1,15 +1,15 @@
 <template>
-  <DismissibleModal v-model:modal-displayed="showModal">
+  <DismissibleModal v-model:modal-displayed="showModal" class="image-modal">
     <template #default>
       <div
-        class="modal-content"
         :style="{ '--image-edit-input-aspect-ratio': aspectRatio }"
+        class="modal-content"
       >
         <div class="media-wrapper">
           <img
-            class="media"
-            :src="image.sizes.large || image.sizes.original"
             :alt="image.alt"
+            :src="image.sizes.large || image.sizes.original"
+            class="media"
           />
         </div>
         <slot name="additionalContent" />
@@ -21,6 +21,7 @@
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
 import { computed } from 'vue'
 import { ImageResponse } from '@core/models/image/imageResponse'
+
 /**
  * Modal to display images in full size
  */
@@ -65,34 +66,49 @@ const showModal = computed({
 })
 </script>
 <style lang="scss" scoped>
-.modal-content {
-  display: grid;
-  grid-template-rows: 1fr min-content;
+.image-modal {
+  --modal-padding: 0;
 
-  .error-box {
-    margin: 0;
+  :deep(.dismissible-modal[open]) {
+    width: 100%;
   }
 
-  .hide-button:hover {
-    --dismiss-button-background-color: var(--color-light);
-    --dismiss-button-color: var(--color-dark);
-    filter: brightness(70%);
+  :deep(.hide-button) {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 0.25rem;
   }
 
-  .media-wrapper {
+  .modal-content {
     display: grid;
-    aspect-ratio: var(--image-edit-input-aspect-ratio, unset);
+    grid-template-rows: 1fr min-content;
 
-    & > * {
-      grid-column: 1 / 2;
-      grid-row: 1 / 2;
+    .error-box {
+      margin: 0;
     }
 
-    .media {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
+    .hide-button:hover {
+      --dismiss-button-background-color: var(--color-light);
+      --dismiss-button-color: var(--color-dark);
+      filter: brightness(70%);
+    }
+
+    .media-wrapper {
+      display: grid;
+      aspect-ratio: var(--image-edit-input-aspect-ratio, unset);
+
+      & > * {
+        grid-column: 1 / 2;
+        grid-row: 1 / 2;
+      }
+
+      .media {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        object-position: center;
+      }
     }
   }
 }
