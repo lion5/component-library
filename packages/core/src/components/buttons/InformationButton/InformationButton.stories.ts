@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions'
-import InformationButton from '@core/components/buttons/InformationButton/InformationButton.vue'
 import { Meta, StoryObj } from '@storybook/vue3'
+import InformationButton from './InformationButton.vue'
 
 export default {
   component: InformationButton,
