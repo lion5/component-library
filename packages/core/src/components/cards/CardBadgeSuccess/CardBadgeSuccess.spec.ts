@@ -1,7 +1,7 @@
 import { mount, type VueWrapper } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { defineComponent } from 'vue'
-import { TooltipIcon } from '@core/components'
+import { BaseTooltip } from '@core/components'
 import CardBadgeSuccess from '@core/components/cards/CardBadgeSuccess/CardBadgeSuccess.vue'
 
 describe('CardBadgeSuccess.spec.ts', () => {
@@ -15,11 +15,11 @@ describe('CardBadgeSuccess.spec.ts', () => {
     })
   })
   describe(':props', () => {
-    it('tooltipText - is applied to TooltipIcon', async () => {
+    it('tooltipText - is applied to BaseTooltip', async () => {
       const tooltipText = 'Test'
       await wrapper.setProps({ tooltipText })
 
-      expect(wrapper.findComponent(TooltipIcon).props().tooltipText).toBe(tooltipText)
+      expect(wrapper.findComponent(BaseTooltip).props().tooltipText).toBe(tooltipText)
     })
   })
 })

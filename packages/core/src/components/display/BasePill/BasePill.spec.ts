@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import { defineComponent } from 'vue'
 import BasePillContent from '@core/components/display/BasePill/BasePillContent.vue'
-import TooltipIcon from '@core/components/utils/TooltipIcon/TooltipIcon.vue'
+import BaseTooltip from '@core/components/utils/BaseTooltip/BaseTooltip.vue'
 
 describe('BasePill.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -28,19 +28,19 @@ describe('BasePill.vue', () => {
     it(':tooltipText - Tooltip not rendered if not set', async () => {
       await wrapper.setProps({ tooltipText: undefined })
 
-      expect(wrapper.findComponent(TooltipIcon).exists()).toBeFalsy()
+      expect(wrapper.findComponent(BaseTooltip).exists()).toBeFalsy()
     })
     it(':tooltipText - Tooltip is rendered if set', async () => {
       await wrapper.setProps({ tooltipText: 'Some text' })
 
-      expect(wrapper.findComponent(TooltipIcon).exists()).toBeTruthy()
+      expect(wrapper.findComponent(BaseTooltip).exists()).toBeTruthy()
     })
-    it(':tooltipText,:tooltipShowOnHover - are passed to TooltipIcon', async () => {
+    it(':tooltipText,:tooltipShowOnHover - are passed to BaseTooltip', async () => {
       const expectedTooltipText = 'Some text'
       await wrapper.setProps({ tooltipText: expectedTooltipText, tooltipShowOnHover: false })
 
-      expect(wrapper.findComponent(TooltipIcon).props().tooltipText).toBe(expectedTooltipText)
-      expect(wrapper.findComponent(TooltipIcon).props().showOnHover).toBe(false)
+      expect(wrapper.findComponent(BaseTooltip).props().tooltipText).toBe(expectedTooltipText)
+      expect(wrapper.findComponent(BaseTooltip).props().showOnHover).toBe(false)
     })
   })
 })

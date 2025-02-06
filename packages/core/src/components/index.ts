@@ -38,7 +38,7 @@ import PillList from '@core/components/display/PillList/PillList.vue'
 import ScaleTransition from '@core/components/transitions/ScaleTransition.vue'
 import SingleMetricCard from '@core/components/cards/SingleMetricCard/SingleMetricCard.vue'
 import StateIconSwitch from '@core/components/utils/StateIconSwitch/StateIconSwitch.vue'
-import TooltipIcon from '@core/components/utils/TooltipIcon/TooltipIcon.vue'
+import BaseTooltip from '@core/components/utils/BaseTooltip/BaseTooltip.vue'
 import TopBar from '@core/components/app-bars/TopBar/TopBar.vue'
 import WakeLockToggle from '@core/components/utils/WakeLockToggle/WakeLockToggle.vue'
 import { DashboardItem } from '@core/components/cards/DashboardItemCard/dashboardItem'
@@ -89,7 +89,7 @@ export {
   ScaleTransition,
   SingleMetricCard,
   StateIconSwitch,
-  TooltipIcon,
+  BaseTooltip,
   TopBar,
   WakeLockToggle
 }

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BasePillContent from '@core/components/display/BasePill/BasePillContent.vue'
-import TooltipIcon from '@core/components/utils/TooltipIcon/TooltipIcon.vue'
+import BaseTooltip from '@core/components/utils/BaseTooltip/BaseTooltip.vue'
 
 withDefaults(
   defineProps<{
@@ -20,7 +20,7 @@ withDefaults(
 </script>
 
 <template>
-  <TooltipIcon
+  <BaseTooltip
     v-if="tooltipText"
     :tooltip-text="tooltipText"
     :show-on-hover="tooltipShowOnHover"
@@ -32,7 +32,7 @@ withDefaults(
         :busy="busy"
       />
     </template>
-  </TooltipIcon>
+  </BaseTooltip>
   <BasePillContent
     v-else
     :label="label"
