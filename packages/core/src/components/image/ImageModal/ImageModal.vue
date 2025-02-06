@@ -68,10 +68,7 @@ const showModal = computed({
 <style lang="scss" scoped>
 .image-modal {
   --modal-padding: 0;
-
-  :deep(.dismissible-modal[open]) {
-    width: 100%;
-  }
+  --modal-width: 100%;
 
   :deep(.hide-button) {
     position: absolute;
