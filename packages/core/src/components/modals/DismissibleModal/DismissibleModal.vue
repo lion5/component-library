@@ -1,13 +1,18 @@
 <template>
   <BaseModal
-    v-model:modal-displayed="localModalDisplayed"
     v-slot="{ openModal, closeModal }"
+    v-model:modal-displayed="localModalDisplayed"
     class="dismissible-modal"
   >
-    <div class="content">
-      <slot :open-modal="openModal" :close-modal="closeModal" />
-    </div>
-    <CardDismissButton class="hide-button" @dismiss="closeModal" />
+    <CardDismissButton
+      class="hide-button"
+      @dismiss="closeModal"
+    />
+    <slot
+      :close-modal="closeModal"
+      :open-modal="openModal"
+    />
+
   </BaseModal>
 </template>
 <script lang="ts" setup>
@@ -46,12 +51,10 @@ const localModalDisplayed = computed({
 </script>
 <style lang="scss" scoped>
 .dismissible-modal[open] {
-  display: grid;
-  grid-template-rows: min-content;
+  width: min(100%, 60ch);
 
-  & > * {
-    grid-column: 1 / 2;
-    grid-row: 1 / 2;
+  .hide-button {
+    float: right;
   }
 
   .hide-button:hover {

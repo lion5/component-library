@@ -5,7 +5,7 @@ import ActionButton from '@core/components/buttons/ActionButton/ActionButton.vue
 export default {
   components: { IconWallet },
   component: DismissibleModal,
-  title: 'Navigation Components/Modals/DismissibleModal',
+  title: 'Navigation Components/Modals/DismissibleModal'
 }
 
 const Template = (args, { argTypes }) => ({
@@ -20,11 +20,11 @@ const Template = (args, { argTypes }) => ({
   },
   template: `
     <ActionButton @click="args.modalDisplayed=true">
-     <IconWallet/>
+      <IconWallet />
     </ActionButton>
     <DismissibleModal v-model:modal-displayed="args.modalDisplayed">
-    <h1>Wallet</h1>
-    <p>Content here...</p>
+      <h1>Wallet</h1>
+      <p>Content here...</p>
     </DismissibleModal>`
 })
 
