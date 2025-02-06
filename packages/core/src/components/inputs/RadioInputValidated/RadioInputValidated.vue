@@ -18,7 +18,7 @@
       <span v-if="required" class="asterisk">*</span>
 
       <label :for="name">
-        <span :class="{ title: labelDescription }">{{ label }}</span>
+        <span :class="{ title: labelDescription }" class="main-label">{{ label }}</span>
         <span v-if="labelDescription" class="description">{{ labelDescription }}</span>
       </label>
     </div>
@@ -80,7 +80,7 @@ const { handleChange, checked, meta, errors } = useField<boolean | object>(
 )
 
 const errorObjects = computed(() => {
-  if (meta.invalid) {
+  if (meta.valid) {
     return []
   }
   return errors.value.map((error) => {
