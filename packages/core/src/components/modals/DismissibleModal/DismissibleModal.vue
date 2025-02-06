@@ -51,8 +51,6 @@ const localModalDisplayed = computed({
 </script>
 <style lang="scss" scoped>
 .dismissible-modal[open] {
-  width: min(100%, 60ch);
-
   .hide-button {
     float: right;
   }

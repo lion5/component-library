@@ -11,8 +11,8 @@
       v-model:modalDisplayed="modalMode"
     >
       <ImageCarousel
-        :selected-image="selectedFullScreenImage"
         :images="fullScreenImages"
+        :selected-image="selectedFullScreenImage"
         style="--carousel-action-button-spacing: 0"
         @update:selected-image="onFullScreenImageChange"
       />
@@ -71,11 +71,7 @@ const onImageChange = (selectedImage: MinimalImage) => {
 <style lang="scss" scoped>
 .image-thumb-carousel {
   --modal-padding: 0;
-
-  :deep(.dismissible-modal[open]) {
-    width: 100%;
-  }
-
+  --modal-width: 100%;
 
   :deep(.hide-button) {
     position: absolute;

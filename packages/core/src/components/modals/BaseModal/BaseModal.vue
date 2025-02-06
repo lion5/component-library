@@ -61,9 +61,11 @@ watch(() => props.modalDisplayed, setModalVisibility)
 
 <style lang="scss" scoped>
 .basic-modal {
+  --_modal-width: var(--modal-width, 60ch);
   border: none;
   border-radius: var(--border-radius-md) !important;
   padding: var(--modal-padding, var(--space-md));
+  width: min(100%, var(--_modal-width));
   box-shadow: var(--shadow-600);
 
   &::backdrop {
