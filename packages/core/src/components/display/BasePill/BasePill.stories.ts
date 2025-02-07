@@ -66,3 +66,21 @@ export const WithIconAndPostfix: Story = {
 }
 
 
+export const WithTooltip: Story = {
+  render: (args) => ({
+    components: { BasePill },
+    setup() {
+      return { args }
+    },
+    template: `
+      <BasePill v-bind="args">
+        <template #postfix>€</template>
+      </BasePill>`
+  }),
+  args: {
+    label: 'Money Pill',
+    iconStartCls: 'bi-cash',
+    tooltipText: 'This is a tooltip'
+  }
+}
+

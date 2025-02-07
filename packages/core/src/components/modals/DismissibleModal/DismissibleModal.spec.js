@@ -1,12 +1,4 @@
-import {
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi
-} from 'vitest'
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import BaseModal from '@core/components/modals/BaseModal/BaseModal.vue'
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'

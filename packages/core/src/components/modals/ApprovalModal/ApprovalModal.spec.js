@@ -1,12 +1,4 @@
-import {
-  afterEach,
-  beforeAll,
-  beforeEach,
-  describe,
-  expect,
-  it,
-  vi
-} from 'vitest'
+import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import ApprovalModal from '@core/components/modals/ApprovalModal/ApprovalModal.vue'
 import BaseButton from '@core/components/buttons/BaseButton/BaseButton.vue'
@@ -47,9 +39,7 @@ describe('ApprovalModal', () => {
 
   describe('@events', () => {
     it('@accept - emitted when approval button is clicked', async () => {
-      const approvalButton = await wrapper
-        .findComponent(BaseButton)
-        .find('button')
+      const approvalButton = await wrapper.findComponent(BaseButton).find('button')
       await approvalButton.trigger('click')
 
       expect(wrapper.emitted('accept').length).toBe(1)
@@ -57,9 +47,7 @@ describe('ApprovalModal', () => {
       expect(wrapper.vm.modalDisplayed).toBe(false)
     })
     it('@approve - emitted when approval button is clicked', async () => {
-      const approvalButton = await wrapper
-        .findComponent(BaseButton)
-        .find('button')
+      const approvalButton = await wrapper.findComponent(BaseButton).find('button')
       await approvalButton.trigger('click')
 
       expect(wrapper.emitted('approve').length).toBe(1)
