@@ -30,7 +30,11 @@ withDefaults(
         :label="label"
         :iconStartCls="iconStartCls"
         :busy="busy"
-      />
+      >
+        <template #postfix>
+          <slot name="postfix" />
+        </template>
+      </BasePillContent>
     </template>
   </BaseTooltip>
   <BasePillContent
@@ -38,8 +42,11 @@ withDefaults(
     :label="label"
     :iconStartCls="iconStartCls"
     :busy="busy"
-  />
-
+  >
+    <template #postfix>
+      <slot name="postfix" />
+    </template>
+  </BasePillContent>
 </template>
 
 <style scoped lang="scss">
