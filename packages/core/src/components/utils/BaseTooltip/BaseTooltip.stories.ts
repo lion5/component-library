@@ -1,13 +1,13 @@
 import { Meta, StoryObj } from '@storybook/vue3'
-import TooltipIcon from './TooltipIcon.vue'
+import BaseTooltip from './BaseTooltip.vue'
 import IconTrash from '../../icons/IconTrash.vue'
 import IconInfoCircle from '../../icons/IconTrash.vue'
 
 export default {
-  component: TooltipIcon,
-  title: 'Display Components/TooltipIcon',
+  component: BaseTooltip,
+  title: 'Display Components/BaseTooltip',
   render: (args) => ({
-    components: { TooltipIcon, IconTrash, IconInfoCircle },
+    components: { TooltipIcon: BaseTooltip, IconTrash, IconInfoCircle },
     setup() {
       return { args }
     },
@@ -19,8 +19,8 @@ export default {
       </TooltipIcon>
     `
   })
-} as Meta<typeof TooltipIcon>
-type Story = StoryObj<typeof TooltipIcon>
+} as Meta<typeof BaseTooltip>
+type Story = StoryObj<typeof BaseTooltip>
 
 export const ShortTooltipText: Story = {
   args: {
@@ -37,7 +37,7 @@ export const LongTooltipText: Story = {
 
 export const LeftAligned: Story = {
   render: (args) => ({
-    components: { TooltipIcon, IconTrash, IconInfoCircle },
+    components: { TooltipIcon: BaseTooltip, IconTrash, IconInfoCircle },
     setup() {
       return { args }
     },

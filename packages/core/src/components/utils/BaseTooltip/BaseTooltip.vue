@@ -1,14 +1,14 @@
 <template>
   <div class="tooltip">
-    <IconButton
-      :class="{ 'on-hover': showOnHover }"
+    <button
+      :class="['tooltip-trigger', { 'on-hover': showOnHover, 'selectable-content': isSelectable }]"
       :aria-labelledby="id"
     >
-      <!-- @slot should contain the icon that is used as trigger for the tooltip -->
-      <span :class="{ 'selectable-content': isSelectable }">
-        <slot name="tooltipIcon" />
-      </span>
-    </IconButton>
+      <!-- @slot @deprecated should contain the icon that is used as trigger for the tooltip -->
+      <slot name="tooltipIcon" />
+      <!-- @slot should contain content that is always displayed. Is wrapped by the tooltip trigger -->
+      <slot name="tooltipTriggerContent" />
+    </button>
     <BaseCard :id="id" role="tooltip">
       <!-- @slot content displayed in the tooltip box -->
       <slot name="tooltipText">
@@ -19,20 +19,34 @@
 </template>
 <script lang="ts" setup>
 /**
- * Creates an icon with a tooltip on hover and active.
+ * Creates a tooltip around the given input on hover and active.
  * The position can be changed by the css-custom-props --tooltip-left and --tooltip-right.
  * Please set only one of them at the time. The distance away from the icon should be described by the ch unit.
  */
 
-import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 import BaseCard from '@core/components/cards/BaseCard/BaseCard.vue'
+import { useId } from 'vue'
+
+defineSlots<{
+  /**
+   * Slot that contains the icon that is used as trigger for the tooltip.
+   * @deprecated use tooltipTriggerContent instead
+   */
+  tooltipIcon: void,
+  /**
+   * Slot that contains content that is always displayed. Is wrapped by the tooltip trigger.
+   *
+   * @Since 0.24.0
+   */
+  tooltipTriggerContent: void,
+  /**
+   * Slot that contains the text that is displayed inside the tooltips box.
+   */
+  tooltipText: void
+}>()
 
 withDefaults(
   defineProps<{
-    /**
-     * Required to resolve the aria-label used by screen readers
-     */
-    id: string
     /**
      * Text that is displayed inside the tooltips box. The slot tooltipText will override this prop if set.
      */
@@ -52,11 +66,21 @@ withDefaults(
     showOnHover: true
   }
 )
+
+const id = useId()
 </script>
 
 <style lang="scss" scoped>
 .tooltip {
   position: relative;
+}
+
+.tooltip-trigger {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: help;
 }
 
 [role='tooltip'] {
@@ -70,6 +94,7 @@ withDefaults(
   width: max-content;
   max-width: var(--tooltip-max-width, 30ch);
   padding: var(--tooltip-padding, var(--space-sm));
+  z-index: 1;
 }
 
 
