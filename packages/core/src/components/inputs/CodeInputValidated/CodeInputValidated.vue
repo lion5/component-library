@@ -70,7 +70,15 @@ const props = withDefaults(
   }
 )
 
-const emit = defineEmits(['input-finished'])
+const emit = defineEmits<{
+  /**
+   * if address is completely inputted
+   * @param e
+   * @param value
+   */
+  (e: 'input-finished', value: string): void,
+}>()
+
 
 const updateInput = ref({})
 const parts = ref<string[]>([])
@@ -111,8 +119,8 @@ function handleInput(index: number, value: string) {
     })
   }
 
-  if (index === props.partNumber - 1 && value.length === props.partLength) {
-    emit('input-finished')
+  if (code.value.length === (props.partLength * props.partNumber)) {
+    emit('input-finished', code.value)
   }
 }
 
