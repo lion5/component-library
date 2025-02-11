@@ -9,29 +9,30 @@
       >
         <div v-if="index !== 1" class="delimiter">-</div>
         <CodePartTextInput
+          ref="inputRefs"
           :errors="errors"
           :index="index - 1"
-          :maxChars="partLength"
-          :value="parts[index - 1]"
-          :update-input="updateInput"
-          :meta="meta"
           :input-mode="inputMode"
-          ref="inputRefs"
+          :maxChars="partLength"
+          :meta="meta"
+          :update-input="updateInput"
+          :value="parts[index - 1]"
+          @blur="handleBlur"
           @update:inputCode="handleInput(index - 1, $event)"
           @handle-paste="handlePaste"
           @change-input="handleChangeInput"
-          @blur="handleBlur"
         />
       </div>
     </div>
-    <ErrorMessage class="error" :name="name" />
+    <ErrorMessage :name="name" class="error" />
   </div>
 </template>
 
-<script setup lang="ts">
-import { ref, watch, nextTick } from 'vue'
+<script lang="ts" setup>
+import { nextTick, ref, watch } from 'vue'
 import CodePartTextInput from './CodePartTextInput.vue'
 import { ErrorMessage, useField } from 'vee-validate'
+
 const props = withDefaults(
   defineProps<{
     /**
@@ -68,6 +69,16 @@ const props = withDefaults(
     inputMode: 'text'
   }
 )
+
+const emit = defineEmits<{
+  /**
+   * if code is completely inputted
+   * @param e
+   * @param value
+   */
+  (e: 'input-finished', value: string): void,
+}>()
+
 
 const updateInput = ref({})
 const parts = ref<string[]>([])
@@ -107,6 +118,10 @@ function handleInput(index: number, value: string) {
       nextInput?.focus()
     })
   }
+
+  if (code.value.length === (props.partLength * props.partNumber)) {
+    emit('input-finished', code.value)
+  }
 }
 
 function handlePaste(value: string) {
@@ -121,6 +136,7 @@ function handlePaste(value: string) {
     nextInput?.focus()
   })
 }
+
 function handleChangeInput(index: number) {
   if (index >= 0 && index < props.partNumber) {
     nextTick(() => {
@@ -141,6 +157,7 @@ function handleChangeInput(index: number) {
     color: var(--color-danger);
     font-size: var(--font-size-0);
   }
+
   .code-text-input {
     display: flex;
     justify-content: flex-start;
