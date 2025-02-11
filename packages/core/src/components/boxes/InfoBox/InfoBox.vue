@@ -1,5 +1,5 @@
 <template>
-  <BaseBox class="info-box" v-if="infoMessage">
+  <BaseBox v-if="infoMessage" class="info-box">
     <IconInfoCircle />
     <slot>{{ infoMessage }}</slot>
   </BaseBox>
