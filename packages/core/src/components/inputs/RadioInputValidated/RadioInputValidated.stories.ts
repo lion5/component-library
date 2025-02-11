@@ -60,7 +60,8 @@ export const Error: Story = {
   args: {
     name: 'input-with-error',
     label: 'This is a radio input',
-    labelDescription: 'This is a label description'
+    labelDescription: 'This is a label description',
+    validationRules: boolean().isTrue()
   }
 }
 
