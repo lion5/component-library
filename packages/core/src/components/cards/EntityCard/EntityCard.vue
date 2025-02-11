@@ -1,12 +1,12 @@
 <template>
-  <div class="entity-card">
+  <BaseCard class="entity-card">
     <!-- @slot the cards title section. Overwrites the title set via the title prop -->
     <slot name="title">
       <h2 v-if="title" data-cy="entity-card-title">
         {{ title }}
       </h2>
     </slot>
-    <PortalEntityWrapper
+    <EntityWrapper
       :busy="busy"
       :busy-msg="busyMsg"
       :error="error"
@@ -14,12 +14,13 @@
     >
       <!-- @slot the cards content -->
       <slot v-if="!busy && (showContentOnError || !error)" />
-    </PortalEntityWrapper>
-  </div>
+    </EntityWrapper>
+  </BaseCard>
 </template>
 
 <script lang="ts" setup>
-import PortalEntityWrapper from '@core/components/utils/EntityWrapper/EntityWrapper.vue'
+import EntityWrapper from '@core/components/utils/EntityWrapper/EntityWrapper.vue'
+import BaseCard from '@core/components/cards/BaseCard/BaseCard.vue'
 
 withDefaults(
   defineProps<{
@@ -57,18 +58,4 @@ withDefaults(
 </script>
 
 <style lang="scss">
-.entity-card {
-  border-radius: var(--border-radius-700);
-  box-shadow: var(--shadow-600);
-  margin-bottom: 2rem;
-  padding: 1rem 2rem;
-  background-color: white;
-  width: 100%;
-  max-width: var(--card-max-width, 1000px);
-  overflow: hidden;
-
-  h2 {
-    text-align: center;
-  }
-}
 </style>
