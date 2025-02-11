@@ -22,7 +22,6 @@
         <span v-if="labelDescription" class="description">{{ labelDescription }}</span>
       </label>
     </div>
-
     <ErrorBox :errors="errorObjects" class="error-box" />
   </div>
 </template>
@@ -80,14 +79,11 @@ const { handleChange, checked, meta, errors } = useField<boolean | object>(
 )
 
 const errorObjects = computed(() => {
-  if (meta.valid) {
+  if (!(meta.touched && !meta.valid)) {
     return []
   }
   return errors.value.map((error) => {
-    if (typeof error === 'string') {
-      return new Error(error)
-    }
-    return error
+    return new Error(error)
   })
 })
 </script>
@@ -116,14 +112,12 @@ const errorObjects = computed(() => {
   }
 
   input {
-    vertical-align: top;
     cursor: pointer;
   }
 
   label {
     display: flex;
     flex-direction: column;
-    line-height: 1;
     gap: 0.5rem;
     cursor: pointer;
 
