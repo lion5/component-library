@@ -11,7 +11,8 @@ describe('SlugInput.vue', () => {
     wrapper = mount(SlugInput, {
       props: {
         name: 'name',
-        label: 'label'
+        label: 'label',
+        prefix: 'prefix'
       }
     })
   })

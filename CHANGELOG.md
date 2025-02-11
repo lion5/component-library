@@ -1,3 +1,58 @@
+## 0.24.0 (2025-02-07)
+
+### 🚀 Features
+
+- **BasePill:** integrate Tooltip into pill ([7b63226](https://github.com/lion5/component-library/commit/7b63226))
+- **PillList:** introduce new component ([f54bba6](https://github.com/lion5/component-library/commit/f54bba6))
+- ⚠️  **TooltipIcon:** make button transparent ([bda3eff](https://github.com/lion5/component-library/commit/bda3eff))
+
+### 🩹 Fixes
+
+- bump package-lock ([ee8d29d](https://github.com/lion5/component-library/commit/ee8d29d))
+- add vitejs plugin to storybook-host ([2ee4683](https://github.com/lion5/component-library/commit/2ee4683))
+- add vitejs plugin to storybook-host ([9f401e2](https://github.com/lion5/component-library/commit/9f401e2))
+- remove vitejs plugin from root package.json ([4e4d5c0](https://github.com/lion5/component-library/commit/4e4d5c0))
+- add vite vue plugin to storybook-host package.json ([e4f00db](https://github.com/lion5/component-library/commit/e4f00db))
+- add vite vue plugin to storybook-host package.json ([301b3a9](https://github.com/lion5/component-library/commit/301b3a9))
+- add vite vue plugin to storybook-host package-lock.json ([66a7875](https://github.com/lion5/component-library/commit/66a7875))
+- set the same font-family for body input and button ([f485cda](https://github.com/lion5/component-library/commit/f485cda))
+- ⚠️  **BaseModal:** remove overflow hidden ([caf0ba8](https://github.com/lion5/component-library/commit/caf0ba8))
+- **BasePill:** expose slots again ([e1f1f6b](https://github.com/lion5/component-library/commit/e1f1f6b))
+- **InformationButton:** use typescript for story ([ff52700](https://github.com/lion5/component-library/commit/ff52700))
+- **InformationHeadline:** reposition modal ([b0e1b4c](https://github.com/lion5/component-library/commit/b0e1b4c))
+- **SelectInput:** adapt height of input ([1d3e3ae](https://github.com/lion5/component-library/commit/1d3e3ae))
+- **SlugInputValidated:** add prefix prop to tests ([d77cc5d](https://github.com/lion5/component-library/commit/d77cc5d))
+
+### ⚠️  Breaking Changes
+
+- ⚠️  **TooltipIcon:** make button transparent ([bda3eff](https://github.com/lion5/component-library/commit/bda3eff))
+- ⚠️  **BaseModal:** remove overflow hidden ([caf0ba8](https://github.com/lion5/component-library/commit/caf0ba8))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+- Roman Kudravcev
+
+## 0.23.4 (2025-02-05)
+
+### 🚀 Features
+
+- **IconButton:** add styling for keyboard focus ([ed0b174](https://github.com/lion5/component-library/commit/ed0b174))
+- **TooltipIcon:** make max-width and padding configurable ([a787317](https://github.com/lion5/component-library/commit/a787317))
+
+### 🩹 Fixes
+
+- **CardBadgeSuccess:** shrink tooltip size a bit to match image card ([4fd56f9](https://github.com/lion5/component-library/commit/4fd56f9))
+- **ContentGroup:** display content in one row on desktop screens ([48311c5](https://github.com/lion5/component-library/commit/48311c5))
+- **EntityCard:** apply card styles again ([0fce6ca](https://github.com/lion5/component-library/commit/0fce6ca))
+- **SearchInputValidate:** allow to configure debounce time and emit search on delete search ([668be03](https://github.com/lion5/component-library/commit/668be03))
+- **SelectInput:** add changeable width ([4e0dce6](https://github.com/lion5/component-library/commit/4e0dce6))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+- Roman Kudravcev
+
 ## 0.23.3 (2025-02-05)
 
 ### 🩹 Fixes

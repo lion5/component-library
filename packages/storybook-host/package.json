@@ -1,6 +1,6 @@
 {
   "name": "storybook-host",
-  "version": "0.23.3",
+  "version": "0.24.0",
   "private": "true",
   "scripts": {
     "docs": "storybook dev -p 6010",
@@ -17,6 +17,7 @@
     "@storybook/vue3-vite": "^8.5.3",
     "@vue/eslint-config-prettier": "^10.2.0",
     "@vue/eslint-config-typescript": "^14.3.0",
+    "@vitejs/plugin-vue": "^5.2.1",
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-storybook": "^0.11.2",

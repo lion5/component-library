@@ -43,11 +43,13 @@ describe('ImageThumbCarousel.vue', () => {
     ]
     thumbnails = images.map((image) => new MinimalImage(image.id, image.alt, image.sizes.small))
     baseImages = images.map((image) => new MinimalImage(image.id, image.alt, image.sizes.large))
-    fullSizeImages = images.map((image) => new MinimalImage(image.id, image.alt, image.sizes.original))
+    fullSizeImages = images.map(
+      (image) => new MinimalImage(image.id, image.alt, image.sizes.original)
+    )
 
     wrapper = mount(ImageThumbCarousel, {
       propsData: {
-        images,
+        images
       }
     })
   })
@@ -58,9 +60,13 @@ describe('ImageThumbCarousel.vue', () => {
       await flushPromises()
 
       expect(wrapper.findAllComponents(ImageCarousel).at(0).props('images')).toEqual(baseImages)
-      expect(wrapper.findAllComponents(ImageCarousel).at(0).props('selectedImage')).toEqual(baseImages[0])
+      expect(wrapper.findAllComponents(ImageCarousel).at(0).props('selectedImage')).toEqual(
+        baseImages[0]
+      )
       expect(wrapper.findAllComponents(ImageCarousel).at(1).props('images')).toEqual(fullSizeImages)
-      expect(wrapper.findAllComponents(ImageCarousel).at(1).props('selectedImage')).toEqual(fullSizeImages[0])
+      expect(wrapper.findAllComponents(ImageCarousel).at(1).props('selectedImage')).toEqual(
+        fullSizeImages[0]
+      )
       expect(wrapper.findComponent(ImageSlider).props('images')).toEqual(thumbnails)
       expect(wrapper.findComponent(ImageSlider).props('selectedImage')).toEqual(thumbnails[0])
     })
@@ -80,20 +86,31 @@ describe('ImageThumbCarousel.vue', () => {
       await wrapper.findComponent(ImageCarousel).vm.$emit('click')
       await flushPromises()
 
-      expect(wrapper.findAllComponents(ImageCarousel).at(0).props('selectedImage')).toEqual(baseImages[1])
-      expect(wrapper.findAllComponents(ImageCarousel).at(1).props('selectedImage')).toEqual(fullSizeImages[1])
+      expect(wrapper.findAllComponents(ImageCarousel).at(0).props('selectedImage')).toEqual(
+        baseImages[1]
+      )
+      expect(wrapper.findAllComponents(ImageCarousel).at(1).props('selectedImage')).toEqual(
+        fullSizeImages[1]
+      )
       expect(wrapper.findComponent(ImageSlider).props('selectedImage')).toEqual(thumbnails[1])
     })
     it('@update:selected-image - update selected image for all sizes if base image carousel emits', async () => {
-      await wrapper.findAllComponents(ImageCarousel).at(0).vm.$emit('update:selectedImage', baseImages[1])
+      await wrapper
+        .findAllComponents(ImageCarousel)
+        .at(0)
+        .vm.$emit('update:selectedImage', baseImages[1])
       await flushPromises()
 
       // Open full size carousel
       await wrapper.findComponent(ImageCarousel).vm.$emit('click')
       await flushPromises()
 
-      expect(wrapper.findAllComponents(ImageCarousel).at(0).props('selectedImage')).toEqual(baseImages[1])
-      expect(wrapper.findAllComponents(ImageCarousel).at(1).props('selectedImage')).toEqual(fullSizeImages[1])
+      expect(wrapper.findAllComponents(ImageCarousel).at(0).props('selectedImage')).toEqual(
+        baseImages[1]
+      )
+      expect(wrapper.findAllComponents(ImageCarousel).at(1).props('selectedImage')).toEqual(
+        fullSizeImages[1]
+      )
       expect(wrapper.findComponent(ImageSlider).props('selectedImage')).toEqual(thumbnails[1])
     })
     it('@update:selected-image - update selected image for all sizes if full size carousel emits', async () => {
@@ -101,11 +118,18 @@ describe('ImageThumbCarousel.vue', () => {
       await wrapper.findComponent(ImageCarousel).vm.$emit('click')
       await flushPromises()
 
-      await wrapper.findAllComponents(ImageCarousel).at(1).vm.$emit('update:selectedImage', thumbnails[1])
+      await wrapper
+        .findAllComponents(ImageCarousel)
+        .at(1)
+        .vm.$emit('update:selectedImage', thumbnails[1])
       await flushPromises()
 
-      expect(wrapper.findAllComponents(ImageCarousel).at(0).props('selectedImage')).toEqual(baseImages[1])
-      expect(wrapper.findAllComponents(ImageCarousel).at(1).props('selectedImage')).toEqual(fullSizeImages[1])
+      expect(wrapper.findAllComponents(ImageCarousel).at(0).props('selectedImage')).toEqual(
+        baseImages[1]
+      )
+      expect(wrapper.findAllComponents(ImageCarousel).at(1).props('selectedImage')).toEqual(
+        fullSizeImages[1]
+      )
       expect(wrapper.findComponent(ImageSlider).props('selectedImage')).toEqual(thumbnails[1])
     })
   })

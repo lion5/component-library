@@ -5,7 +5,7 @@ import { MultiScaleImage } from '../models/multiScaleImage'
 
 export default {
   component: ImageThumbCarousel,
-  title: 'Display Components/Image/ImageThumbCarousel',
+  title: 'Display Components/Image/ImageThumbCarousel'
 } as Meta<typeof ImageThumbCarousel>
 type Story = StoryObj<typeof ImageThumbCarousel>
 

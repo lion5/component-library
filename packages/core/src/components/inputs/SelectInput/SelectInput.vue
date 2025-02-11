@@ -203,6 +203,7 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
 <style lang="scss" scoped>
 .floating-input-group {
   --_input-size: var(--input-font-size, 1.2rem);
+  --_input-height: var(--input-height, 100%);
   --_label-size: var(--input-label-font-size, 0.75rem);
   --_input-surface-color: var(--input-surface-color, var(--color-neutral-200));
   --_input-border-radius: var(--input-border-radius, var(--border-radius-300));
@@ -215,11 +216,13 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
   display: grid;
   position: relative;
   gap: var(--space-sm);
-  width: calc(1.2 * var(--input-chars) + var(--space-xl));
+  width: var(--input-width, calc(1.2 * var(--input-chars) + var(--space-xl)));
+  height: var(--_input-height);
 
   .option__container {
     display: flex;
     align-items: center;
+    align-self: center;
   }
 
   .option__image {
@@ -306,15 +309,20 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
     }
 
     .multiselect__single {
+      display: flex;
+      align-items: center;
+      height: 100%;
+      margin: 0;
       padding-block-end: var(--space-sm);
       padding-block-start: calc(var(--_label-size) + var(--space-xs));
-      margin: 0;
     }
 
     .multiselect__tags {
       border: none;
       border-radius: var(--_input-border-radius);
       background-color: var(--_input-surface-color);
+      padding-top: 0;
+      height: 100%;
     }
 
     &:focus-within .multiselect__tags {
