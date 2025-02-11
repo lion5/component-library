@@ -2,6 +2,7 @@ import { Meta, Story } from "@storybook/blocks";
 
 import * as BaseBoxStories from "./BaseBox/BaseBox.stories";
 import * as InfoBoxStories from "./InfoBox/InfoBox.stories";
+import * as SuccessBoxStories from "./SuccessBox/SuccessBox.stories";
 import * as ErrorBoxStories from "./ErrorBox/ErrorBox.stories";
 
 <Meta title="Display Components/Boxes/Boxes" />
@@ -16,6 +17,10 @@ The `BaseBox` can be used to generate new variants of information boxes.
 ## Info Box
 The `InfoBox` should be used to display important information to the user
 <Story of={InfoBoxStories.Default} />
+
+## Success Box
+The `SuccessBox` should be used to display information after an action was successful
+<Story of={SuccessBoxStories.Default} />
 
 ## Error Box
 The `ErrorBox` should be used to display global error or errors to the user.
