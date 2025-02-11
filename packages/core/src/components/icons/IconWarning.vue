@@ -1,3 +1,3 @@
 <template>
-  <i class="bi bi-exclamation-circle"></i>
+  <i class="bi bi-exclamation-circle-fill"></i>
 </template>

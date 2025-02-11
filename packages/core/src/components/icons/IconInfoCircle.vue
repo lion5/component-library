@@ -1,3 +1,3 @@
 <template>
-  <i class="bi-info-circle" />
+  <i class="bi-info-circle-fill" />
 </template>
