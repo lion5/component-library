@@ -72,7 +72,7 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   /**
-   * if address is completely inputted
+   * if code is completely inputted
    * @param e
    * @param value
    */
