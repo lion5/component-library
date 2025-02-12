@@ -1,3 +1,25 @@
+## 0.25.0 (2025-02-11)
+
+### 🚀 Features
+
+- **CodeInputValidated:** add input finish event ([62874e9](https://github.com/lion5/component-library/commit/62874e9))
+- **SuccessBox:** add new component ([bcc24eb](https://github.com/lion5/component-library/commit/bcc24eb))
+
+### 🩹 Fixes
+
+- add vite vue plugin to storybook-host package.json ([354a97e](https://github.com/lion5/component-library/commit/354a97e))
+- **Box:** use fill components; improve info and error box color ([d66b859](https://github.com/lion5/component-library/commit/d66b859))
+- **CodeInputValidated:** emit code on input finish and refactor emits ([79c9c0c](https://github.com/lion5/component-library/commit/79c9c0c))
+- **EntityCard:** use BaseCard to unify card style ([2cefe34](https://github.com/lion5/component-library/commit/2cefe34))
+- **RadioInputValidated:** meta valid check ([df6a5c8](https://github.com/lion5/component-library/commit/df6a5c8))
+- **RadioInputValidated:** align input with label ([31071c3](https://github.com/lion5/component-library/commit/31071c3))
+- **RadioInputValidated:** error story shows error ([06e5ae4](https://github.com/lion5/component-library/commit/06e5ae4))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+- Roman Kudravcev
+
 ## 0.24.0 (2025-02-07)
 
 ### 🚀 Features
