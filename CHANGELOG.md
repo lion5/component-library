@@ -1,3 +1,13 @@
+## 0.25.1 (2025-02-12)
+
+### 🩹 Fixes
+
+- **SuccessBox:** add component to package build ([3b52702](https://github.com/lion5/component-library/commit/3b52702))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.25.0 (2025-02-11)
 
 ### 🚀 Features
