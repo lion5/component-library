@@ -1,3 +1,13 @@
+## 0.25.2 (2025-02-18)
+
+### 🩹 Fixes
+
+- **NumberInputValidated:** expose modelValue via props ([a7b6bf2](https://github.com/lion5/component-library/commit/a7b6bf2))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.25.1 (2025-02-12)
 
 ### 🩹 Fixes
