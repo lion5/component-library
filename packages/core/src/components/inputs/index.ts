@@ -27,6 +27,7 @@ import MultiselectInputValidated from '@core/components/inputs/MultiselectInputV
 import NumberInputValidated from '@core/components/inputs/NumberInputValidated/NumberInputValidated.vue'
 import PillInput from '@core/components/inputs/PillInput/PillInput.vue'
 import PreviewImageInputValidated from '@core/components/inputs/image/PreviewImageInputValidated/PreviewImageInputValidated.vue'
+import RadioInputValidated from '@core/components/inputs/RadioInputValidated/RadioInputValidated.vue'
 import SearchInputValidated from '@core/components/inputs/SearchInputValidated/SearchInputValidated.vue'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
 import SelectInputValidated from '@core/components/inputs/SelectInputValidated/SelectInputValidated.vue'
@@ -73,6 +74,7 @@ export {
   PillInput,
   PillInputItem,
   PreviewImageInputValidated,
+  RadioInputValidated,
   SearchInputValidated,
   SearchResult,
   SelectInput,
