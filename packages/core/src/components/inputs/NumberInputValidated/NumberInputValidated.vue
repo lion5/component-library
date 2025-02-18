@@ -25,7 +25,7 @@ const props = withDefaults(
     /**
      * The value of this field.
      */
-    modelValue: number
+    modelValue: number | undefined
     /**
      * Used to identify this field in a form (VeeValidate Form).
      */
@@ -37,20 +37,20 @@ const props = withDefaults(
     /**
      * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
      */
-    validationRules?: RuleExpression<number>
+    validationRules?: RuleExpression<number | undefined>
   }>(),
   {
     validationRules: undefined
   }
 )
 
-const handleInput = (inputValue: string) => {
-  setValue(Number(inputValue))
+const handleInput = (inputValue?: string) => {
+  setValue(inputValue != undefined ? Number(inputValue) : undefined)
 }
 
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
 
-const { value, setValue, meta, errors, handleBlur } = useField<number>(props.name, props.validationRules, {
+const { value, setValue, meta, errors, handleBlur } = useField<number | undefined>(props.name, props.validationRules, {
   syncVModel: true
 })
 </script>
