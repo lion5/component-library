@@ -23,6 +23,10 @@ import { Schema } from 'yup'
 const props = withDefaults(
   defineProps<{
     /**
+     * The value of this field.
+     */
+    modelValue: number
+    /**
      * Used to identify this field in a form (VeeValidate Form).
      */
     name: string

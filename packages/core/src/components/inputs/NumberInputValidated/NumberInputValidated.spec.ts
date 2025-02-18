@@ -29,7 +29,8 @@ describe('NumberInput.vue', () => {
     wrapper = mount(NumberInput, {
       props: {
         name: 'name',
-        label: 'label'
+        label: 'label',
+        modelValue: 0
       }
     })
   })
@@ -45,7 +46,8 @@ describe('NumberInput.vue', () => {
       wrapper = mount(NumberInput, {
         props: {
           name: expectedName,
-          label: 'label'
+          label: 'label',
+          modelValue: 0
         }
       })
       expect(useField).toHaveBeenCalledWith(expectedName, undefined, { syncVModel: true })
