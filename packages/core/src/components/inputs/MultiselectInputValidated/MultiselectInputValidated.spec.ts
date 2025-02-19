@@ -1,7 +1,8 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import { defineComponent, nextTick } from 'vue'
-import { MultiselectInput, MultiselectInputValidated } from '@core/components'
+import MultiselectInput from '@core/components/inputs/MultiselectInput/MultiselectInput.vue'
+import MultiselectInputValidated from '@core/components/inputs/MultiselectInputValidated/MultiselectInputValidated.vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
 
 describe('MultiselectInputValidated.vue', () => {

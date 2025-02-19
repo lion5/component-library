@@ -7,7 +7,7 @@
 
 <script lang="ts" setup>
 import BaseBox from '@core/components/boxes/BaseBox/BaseBox.vue'
-import { BaseIcon } from '@core/components'
+import BaseIcon from '@core/components/icons/BaseIcon.vue'
 
 defineProps<{
   /**

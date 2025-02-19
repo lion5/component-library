@@ -4,7 +4,7 @@ import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
 import { ImageSizes } from '@core/models/image/imageSizes'
 import type { defineComponent } from 'vue'
-import { ImageResponse } from '@core/models'
+import { ImageResponse } from '@core/models/image/imageResponse'
 
 describe('ImageModal', () => {
   let wrapper: ReturnType<typeof defineComponent>

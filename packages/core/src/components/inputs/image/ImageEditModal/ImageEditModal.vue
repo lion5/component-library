@@ -15,7 +15,7 @@ import { ImageForm } from '@core/models/image/imageForm'
 import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import { ImageConstraints } from '@core/models/image/imageConstraints'
 import { computed } from 'vue'
-import { ImageResponse } from '@core/models'
+import { ImageResponse } from '@core/models/image/imageResponse'
 
 defineProps<{
   /**

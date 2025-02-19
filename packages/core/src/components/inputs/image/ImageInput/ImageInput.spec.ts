@@ -4,7 +4,7 @@ import type { defineComponent } from 'vue'
 import ImageInput from '@core/components/inputs/image/ImageInput/ImageInput.vue'
 import FileInput from '@core/components/inputs/FileInput/FileInput.vue'
 import { ImageForm } from '@core/models/image/imageForm'
-import { ImageSizes } from '@core/models'
+import { ImageSizes } from '@core/models/image/imageSizes'
 import BaseImage from '@core/components/image/BaseImage/BaseImage.vue'
 import { MinimalImage } from '@core/components/image/models/minimalImage'
 

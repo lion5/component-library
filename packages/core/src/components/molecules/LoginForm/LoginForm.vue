@@ -39,7 +39,7 @@ import { useForm } from 'vee-validate'
 import BaseButton from '@core/components/buttons/BaseButton/BaseButton.vue'
 import { object, string } from 'yup'
 import MessageBox from '@core/components/boxes/MessageBox/MessageBox.vue'
-import { BaseInputV3Validated } from '@core/components'
+import BaseInputV3Validated from '@core/components/inputs/BaseInputV3Validated/BaseInputV3Validated.vue'
 
 interface LoginForm {
   email: string

@@ -9,7 +9,7 @@
 <script lang="ts" setup>
 import { computed } from 'vue'
 import { useDate } from '@core/composables/useDate'
-import { BaseInputV3Validated } from '@core/components'
+import BaseInputV3Validated from '@core/components/inputs/BaseInputV3Validated/BaseInputV3Validated.vue'
 import { RuleExpression } from 'vee-validate'
 
 const props = withDefaults(

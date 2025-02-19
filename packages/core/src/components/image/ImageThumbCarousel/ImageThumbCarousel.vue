@@ -30,7 +30,7 @@ import ImageSlider from '@core/components/image/ImageSlider/ImageSlider.vue'
 import { computed, ref } from 'vue'
 import { MultiScaleImage } from '@core/components/image/models/multiScaleImage'
 import ImageCarousel from '@core/components/image/ImageCarousel/ImageCarousel.vue'
-import { DismissibleModal } from '@core/components'
+import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
 
 const props = defineProps<{
   /**

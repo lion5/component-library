@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
 import type { defineComponent } from 'vue'
 import MultiselectInput from '@core/components/inputs/MultiselectInput/MultiselectInput.vue'
-import { ErrorBox } from '@core/components'
+import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 
 describe('MultiselectInput', () => {
   let wrapper: ReturnType<typeof defineComponent>

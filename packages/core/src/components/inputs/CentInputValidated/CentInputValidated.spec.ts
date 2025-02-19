@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import CentInput from './CentInputValidated.vue'
-import { BaseInputV3 } from '@core/components'
+import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 
 describe('CentInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

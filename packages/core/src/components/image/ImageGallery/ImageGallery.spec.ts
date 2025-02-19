@@ -5,7 +5,7 @@ import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
 import ImageGallery from '@core/components/image/ImageGallery/ImageGallery.vue'
 import type { defineComponent } from 'vue'
 import { Gallery } from '@core/models/image/gallery'
-import { ImageResponse } from '@core/models'
+import { ImageResponse } from '@core/models/image/imageResponse'
 
 describe('ImageGallery', () => {
   let wrapper: ReturnType<typeof defineComponent>

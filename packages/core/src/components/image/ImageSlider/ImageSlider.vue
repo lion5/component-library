@@ -33,7 +33,7 @@
 <script lang="ts" setup>
 import BaseImage from '@core/components/image/BaseImage/BaseImage.vue'
 import { MinimalImage } from '@core/components/image/models/minimalImage'
-import { IconChevronLeft } from '@core/components'
+import IconChevronLeft from '@core/components/icons/IconChevronLeft.vue'
 import IconChevronRight from '@core/components/icons/IconChevronRight.vue'
 import { ref, watch } from 'vue'
 import { useScroll } from '@vueuse/core'
