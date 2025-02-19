@@ -3,7 +3,7 @@
     class="file-drop-area"
     :disable="disabledFileDrop"
     :multiselect="true"
-    @input="addImage"
+    @new-image="addImage"
   >
     <div class="input-gallery">
       <ImageEditCard
@@ -15,7 +15,7 @@
       <ImageAddCard
         :accepted-mime-types="imageConstraints.mimeTypes"
         :multiselect="true"
-        @input="addImage"
+        @new-image="addImage"
       />
     </div>
   </ImageDropArea>
