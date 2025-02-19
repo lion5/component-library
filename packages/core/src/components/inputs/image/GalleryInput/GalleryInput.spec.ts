@@ -78,7 +78,7 @@ describe('GalleryInput.vue', () => {
       const imageForm = new ImageForm(1)
 
       const imageDropArea = wrapper.findComponent(ImageDropArea)
-      await imageDropArea.vm.$emit('input', imageForm)
+      await imageDropArea.vm.$emit('new-image', imageForm)
 
       expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([new GalleryForm([new ImageForm(0), imageForm])])
     })
@@ -88,7 +88,7 @@ describe('GalleryInput.vue', () => {
       const imageForm = new ImageForm(1)
 
       const imageAddCard = wrapper.findComponent(ImageAddCard)
-      await imageAddCard.vm.$emit('input', imageForm)
+      await imageAddCard.vm.$emit('new-image', imageForm)
 
       expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([new GalleryForm([new ImageForm(0), imageForm])])
     })
@@ -98,7 +98,7 @@ describe('GalleryInput.vue', () => {
       const imageForm = new ImageForm(1)
 
       const imageAddCard = wrapper.findComponent(ImageDropArea)
-      await imageAddCard.vm.$emit('input', imageForm)
+      await imageAddCard.vm.$emit('new-image', imageForm)
 
       expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([new GalleryForm([new ImageForm(0), imageForm])])
     })

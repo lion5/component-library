@@ -1,7 +1,7 @@
 import { beforeEach, describe, it, expect } from 'vitest'
 import type { defineComponent } from 'vue'
 import { mount } from '@vue/test-utils'
-import { BaseInputWrapper } from '@core/components'
+import BaseInputWrapper from '@core/components/inputs/BaseInputWrapper/BaseInputWrapper.vue'
 
 describe('CodeInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

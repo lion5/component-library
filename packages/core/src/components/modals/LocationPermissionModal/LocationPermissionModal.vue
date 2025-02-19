@@ -48,7 +48,7 @@
 import BaseButton from '@core/components/buttons/BaseButton/BaseButton.vue'
 import IconGeolocation from '@core/components/icons/IconGeolocation.vue'
 import IconWarning from '@core/components/icons/IconWarning.vue'
-import { DismissibleModal } from '@core/components'
+import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
 
 withDefaults(
   defineProps<{

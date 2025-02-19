@@ -3,8 +3,8 @@ import { flushPromises, shallowMount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { nextTick } from 'vue'
 import AddressInput from './AddressInputValidated.vue'
-import { Address } from '@core/models'
-import { BaseInputV3Validated } from '@core/components'
+import { Address } from '@core/models/address'
+import BaseInputV3Validated from '@core/components/inputs/BaseInputV3Validated/BaseInputV3Validated.vue'
 
 describe('AddressInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

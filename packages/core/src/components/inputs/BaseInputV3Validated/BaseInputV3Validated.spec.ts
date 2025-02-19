@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import { defineComponent, nextTick } from 'vue'
 import BaseInputV3Validated from './BaseInputV3Validated.vue'
-import { BaseInputV3 } from '@core/components'
+import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 
 describe('BaseInputV3Validated.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

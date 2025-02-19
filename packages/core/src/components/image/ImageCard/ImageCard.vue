@@ -34,7 +34,7 @@
 import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import ItemCard from '@core/components/cards/ItemCard/ItemCard.vue'
 import { ref } from 'vue'
-import { ImageResponse } from '@core/models'
+import { ImageResponse } from '@core/models/image/imageResponse'
 
 /**
  * This is the base image card component. It displays a modal on click with the image in full size.

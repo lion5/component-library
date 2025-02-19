@@ -3,7 +3,7 @@ import { mount } from '@vue/test-utils'
 import { defineComponent, nextTick } from 'vue'
 import PillListInput from '@core/components/inputs/ListInputValidated/PillListInput.vue'
 import { PillInputItem } from '@core/components/inputs/ListInputValidated/pillInputItem'
-import { PillInput } from '@core/components'
+import PillInput from '@core/components/inputs/PillInput/PillInput.vue'
 
 describe('PillListInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

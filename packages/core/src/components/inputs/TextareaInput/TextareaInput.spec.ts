@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import TextareaInput from './TextareaInput.vue'
-import { ErrorBox } from '@core/components'
+import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 
 describe('TextareaInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

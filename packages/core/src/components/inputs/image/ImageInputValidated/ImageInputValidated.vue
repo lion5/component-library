@@ -20,7 +20,7 @@ import { useField } from 'vee-validate'
 import { ImageConstraints } from '@core/models/image/imageConstraints'
 import { computed, watch } from 'vue'
 import { mixed, Schema, ValidationError } from 'yup'
-import { useFileUtils } from '@core/composables'
+import { useFileUtils } from '@core/composables/useFileUtils'
 
 const props = withDefaults(
   defineProps<{

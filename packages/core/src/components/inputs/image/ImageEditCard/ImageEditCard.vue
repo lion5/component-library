@@ -46,7 +46,7 @@ import OverlayBusy from '@core/components/overlays/OverlayBusy.vue'
 import CardDismissButton from '@core/components/buttons/CardDismissButton/CardDismissButton.vue'
 import CardBadgeSuccess from '@core/components/cards/CardBadgeSuccess/CardBadgeSuccess.vue'
 import ImageEditModal from '@core/components/inputs/image/ImageEditModal/ImageEditModal.vue'
-import { ImageResponse } from '@core/models'
+import { ImageResponse } from '@core/models/image/imageResponse'
 
 const props = defineProps<{
   imageConstraints: ImageConstraints

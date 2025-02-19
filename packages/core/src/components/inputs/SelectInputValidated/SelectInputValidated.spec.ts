@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import { defineComponent, nextTick } from 'vue'
-import { SelectInput } from '@core/components'
+import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
 import SelectInputValidated from '@core/components/inputs/SelectInputValidated/SelectInputValidated.vue'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
 

@@ -15,6 +15,7 @@
           :name="name"
           :type="type"
           placeholder="hidden"
+          :required="required"
           v-bind="$attrs"
         />
         <label :for="name">{{ label }}

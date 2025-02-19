@@ -1,8 +1,8 @@
 import { mount, type VueWrapper } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { defineComponent } from 'vue'
-import { BaseTooltip } from '@core/components'
 import CardBadgeSuccess from '@core/components/cards/CardBadgeSuccess/CardBadgeSuccess.vue'
+import BaseTooltip from '@core/components/utils/BaseTooltip/BaseTooltip.vue'
 
 describe('CardBadgeSuccess.spec.ts', () => {
   let wrapper: VueWrapper<ReturnType<typeof defineComponent>>

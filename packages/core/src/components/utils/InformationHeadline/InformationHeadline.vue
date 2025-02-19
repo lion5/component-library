@@ -27,7 +27,6 @@ defineProps<{
   display: flex;
   justify-content: space-between;
   width: 100%;
-  font-size: var(--font-size-h1);
 
   h1 {
     margin: 0;

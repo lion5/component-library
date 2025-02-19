@@ -16,7 +16,7 @@
 <script setup lang="ts">
 import type { RuleExpression } from 'vee-validate'
 import { useField } from 'vee-validate'
-import { BaseInputV3 } from '@core/components'
+import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import { computed } from 'vue'
 import { Schema } from 'yup'
 
@@ -45,7 +45,11 @@ const props = withDefaults(
 )
 
 const handleInput = (inputValue?: string) => {
-  setValue(inputValue != undefined ? Number(inputValue) : undefined)
+  if (inputValue === '' || inputValue == undefined) {
+    setValue(undefined)
+    return
+  }
+  setValue(Number(inputValue))
 }
 
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)

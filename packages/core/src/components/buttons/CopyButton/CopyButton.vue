@@ -13,8 +13,9 @@
   </IconButton>
 </template>
 <script setup lang="ts">
-import { IconButton, IconCheck } from '@core/components'
 import IconCopy from '@core/components/icons/IconCopy.vue'
+import IconCheck from '@core/components/icons/IconCheck.vue'
+import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 import { computed, ref } from 'vue'
 
 const props = withDefaults(

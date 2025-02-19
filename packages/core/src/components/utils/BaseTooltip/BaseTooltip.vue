@@ -50,7 +50,7 @@ withDefaults(
     /**
      * Text that is displayed inside the tooltips box. The slot tooltipText will override this prop if set.
      */
-    tooltipText: string,
+    tooltipText?: string,
     /**
      * Determines if the content is selectable.
      */

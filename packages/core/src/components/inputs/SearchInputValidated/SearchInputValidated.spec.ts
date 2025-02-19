@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import SearchInput from './SearchInputValidated.vue'
-import { BaseInputV3 } from '@core/components'
+import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import GrowLoadingAnimation from '@core/components/icons/GrowLoadingAnimation.vue'
 
 describe('SearchInput.vue', () => {

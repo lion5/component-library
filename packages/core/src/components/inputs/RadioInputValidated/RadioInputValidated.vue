@@ -1,5 +1,5 @@
 <template>
-  <div :class="{ required: required }" class="portal-radio-button-group">
+  <div :class="{ required: required }" class="radio-button-input-group">
     <div class="input-group">
       <input
         :id="name"
@@ -37,7 +37,7 @@ const props = withDefaults(
     /**
      * The value of the checkbox. Checked if true, unchecked if false.
      */
-    modelValue: boolean | object[]
+    modelValue: boolean | object
     /**
      * Used to identify this field in a form (VeeValidate Form).
      */
@@ -89,21 +89,15 @@ const errorObjects = computed(() => {
 </script>
 
 <style lang="scss" scoped>
-.portal-radio-button-group {
+.radio-button-input-group {
   display: grid;
-  width: max-content;
-  gap: var(--space-md);
+  gap: var(--space-sm);
 }
 
 .input-group {
   display: flex;
-  justify-content: flex-start;
   align-items: flex-start;
-  gap: 0.5rem;
-
-  &.required {
-    gap: 0.5rem;
-  }
+  gap: var(--space-300);
 
   .asterisk {
     display: flex;
@@ -118,7 +112,7 @@ const errorObjects = computed(() => {
   label {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    gap: var(--space-100);
     cursor: pointer;
 
     .title {

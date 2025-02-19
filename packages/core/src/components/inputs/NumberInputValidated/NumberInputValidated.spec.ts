@@ -1,26 +1,8 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { beforeEach, describe, expect, it } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
-import { useField } from 'vee-validate'
 import NumberInput from './NumberInputValidated.vue'
-
-vi.mock('vee-validate', async () => {
-  const actual = await vi.importActual('vee-validate')
-  return {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    ...actual,
-    useField: vi.fn().mockReturnValue({
-      setValue: vi.fn(),
-      value: vi.fn(),
-      meta: vi.fn().mockReturnValue({
-        touched: false,
-        dirty: false,
-        valid: true
-      })
-    })
-  }
-})
+import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 
 describe('NumberInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
@@ -41,17 +23,6 @@ describe('NumberInput.vue', () => {
       expect(wrapper.find('input').attributes('name')).toBe(expectedName)
       expect(wrapper.find('input').attributes('id')).toBe(expectedName)
     })
-    it(':name - is used to call useField', async () => {
-      const expectedName = 'expectedName'
-      wrapper = mount(NumberInput, {
-        props: {
-          name: expectedName,
-          label: 'label',
-          modelValue: 0
-        }
-      })
-      expect(useField).toHaveBeenCalledWith(expectedName, undefined, { syncVModel: true })
-    })
     it(':label - is rendered as label', async () => {
       const expectedLabel = 'Expected Label'
       await wrapper.setProps({ label: expectedLabel })
@@ -62,11 +33,17 @@ describe('NumberInput.vue', () => {
     })
   })
   describe('vee-validate', () => {
-    it('setValue is called on input', async () => {
-      const expectedValue = '534'
-      wrapper.find('input').setValue(expectedValue)
+    it('@update:modelValue - returns 123 if BaseInputV3 emit "123" string', async () => {
+      await wrapper.getComponent(BaseInputV3).vm.$emit('update:modelValue', '123')
 
-      expect(useField('').setValue).toHaveBeenCalledWith(Number(expectedValue))
+      expect(wrapper.emitted('update:modelValue')).toHaveLength(1)
+      expect(wrapper.emitted('update:modelValue').at(-1)).toEqual([123])
+    })
+    it('@update:modelValue - returns undefined if BaseInputV3 emit empty string', async () => {
+      await wrapper.getComponent(BaseInputV3).vm.$emit('update:modelValue', '')
+
+      expect(wrapper.emitted('update:modelValue')).toHaveLength(1)
+      expect(wrapper.emitted('update:modelValue').at(-1)).toEqual([undefined])
     })
   })
 })

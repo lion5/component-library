@@ -6,7 +6,7 @@ import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import { ImageForm } from '@core/models/image/imageForm'
 import { ImageConstraints } from '@core/models/image/imageConstraints'
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
-import { ImageResponse } from '@core/models'
+import { ImageResponse } from '@core/models/image/imageResponse'
 
 describe('ImageEditModal.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

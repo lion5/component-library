@@ -2,7 +2,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import SlugInput from './SlugInputValidated.vue'
-import { ErrorBox } from '@core/components'
+import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 
 describe('SlugInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

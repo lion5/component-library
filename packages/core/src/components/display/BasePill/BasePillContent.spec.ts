@@ -2,8 +2,8 @@ import BasePillContent from './BasePillContent.vue'
 import { beforeEach, describe, expect, it } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import ArrowRotateLoadingAnimation from '@core/components/icons/ArrowRotateLoadingAnimation.vue'
-import { BaseIcon } from '@core/components'
 import { defineComponent } from 'vue'
+import BaseIcon from '@core/components/icons/BaseIcon.vue'
 
 describe('BasePillContent.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
