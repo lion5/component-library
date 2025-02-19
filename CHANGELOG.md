@@ -1,3 +1,17 @@
+## 0.25.3 (2025-02-18)
+
+### 🚀 Features
+
+- **NumberInput:** handle undefined values ([67f1393](https://github.com/lion5/component-library/commit/67f1393))
+
+### 🩹 Fixes
+
+- **RadioInputValidated:** expose component ([6653726](https://github.com/lion5/component-library/commit/6653726))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.25.2 (2025-02-18)
 
 ### 🩹 Fixes
