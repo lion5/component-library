@@ -1,3 +1,24 @@
+## 0.25.4 (2025-02-19)
+
+### 🩹 Fixes
+
+- cyclic imports ([9ca10d4](https://github.com/lion5/component-library/commit/9ca10d4))
+- **BaseInputV3:** set required attribute on input if required prop is true ([801128d](https://github.com/lion5/component-library/commit/801128d))
+- **BaseTooltip:** make tooltipText optional (if slot is used) ([9ae26b9](https://github.com/lion5/component-library/commit/9ae26b9))
+- **GalleryInput:** use new event names of ImageAddCard and ImageDropDownArea ([7c50377](https://github.com/lion5/component-library/commit/7c50377))
+- **GalleryInput:** use new events in unit tests ([ddac342](https://github.com/lion5/component-library/commit/ddac342))
+- **InformationHeadline:** should not set font size h1 on body ([7056b69](https://github.com/lion5/component-library/commit/7056b69))
+- **NumberInputValidate:** handle empty string input of user ([b3232e8](https://github.com/lion5/component-library/commit/b3232e8))
+- ⚠️  **RadioInputValidated:** do not set width to max-content to reduce changes of overflow ([6715dc1](https://github.com/lion5/component-library/commit/6715dc1))
+
+### ⚠️  Breaking Changes
+
+- ⚠️  **RadioInputValidated:** do not set width to max-content to reduce changes of overflow ([6715dc1](https://github.com/lion5/component-library/commit/6715dc1))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.25.3 (2025-02-18)
 
 ### 🚀 Features
