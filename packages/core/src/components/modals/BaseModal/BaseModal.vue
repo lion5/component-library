@@ -5,6 +5,7 @@
     @cancel="closeModal"
   >
     <slot
+      v-if="modalDisplayed"
       :close-modal="closeModal"
       :open-modal="openModal"
     />

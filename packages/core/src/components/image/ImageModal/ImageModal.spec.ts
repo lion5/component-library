@@ -40,28 +40,28 @@ describe('ImageModal', () => {
         'testAltTag',
         new ImageSizes('original', '', '', '', 'large')
       )
-      await wrapper.setProps({ image })
+      await wrapper.setProps({ image, showModal: true })
 
       const imageItem = wrapper.find('img')
       expect(imageItem.attributes('src')).toBe(image.sizes.large)
     })
     it(':image - image original size is applied to img tag when large size is not available', async () => {
       const image = new ImageResponse(4711, 'testAltTag', new ImageSizes('original'))
-      await wrapper.setProps({ image })
+      await wrapper.setProps({ image, showModal: true })
 
       const imageItem = wrapper.find('img')
       expect(imageItem.attributes('src')).toBe(image.sizes.original)
     })
     it(':image - image alt is applied to img tag', async () => {
       const image = new ImageResponse(4711, 'testAltTag', new ImageSizes('original'))
-      await wrapper.setProps({ image })
+      await wrapper.setProps({ image, showModal: true })
 
       const imageItem = wrapper.find('img')
       expect(imageItem.attributes('alt')).toBe(image.alt)
     })
     it(':aspectRatio - is applied to custom prop', async () => {
       const aspectRatio = '42/7'
-      await wrapper.setProps({ aspectRatio })
+      await wrapper.setProps({ aspectRatio, showModal: true })
 
       const modalContent = wrapper.find('.modal-content')
       expect(modalContent.attributes('style')).toBe(
