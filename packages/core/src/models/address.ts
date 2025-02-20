@@ -33,6 +33,14 @@ export class Address {
     )
   }
 
+  toApi() {
+    return {
+      street: this.street,
+      postalCode: this.postalCode,
+      city: this.city
+    }
+  }
+
   clone() {
     return new Address(this.street, this.postalCode, this.city)
   }
