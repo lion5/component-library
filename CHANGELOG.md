@@ -1,3 +1,17 @@
+## 0.25.6 (2025-02-20)
+
+### 🚀 Features
+
+- **BaseModal:** do not render dialog content if modal is hidden ([943a8e8](https://github.com/lion5/component-library/commit/943a8e8))
+
+### 🩹 Fixes
+
+- modal tests; open modal before testing content ([369ad12](https://github.com/lion5/component-library/commit/369ad12))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.25.5 (2025-02-20)
 
 ### 🚀 Features
