@@ -1,3 +1,17 @@
+## 0.25.5 (2025-02-20)
+
+### 🚀 Features
+
+- **Address:** provide default address toApi conversion ([1e0b6c7](https://github.com/lion5/component-library/commit/1e0b6c7))
+
+### 🩹 Fixes
+
+- **ImageEditCard:** make delete button visible ([feb54c8](https://github.com/lion5/component-library/commit/feb54c8))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.25.4 (2025-02-19)
 
 ### 🩹 Fixes
