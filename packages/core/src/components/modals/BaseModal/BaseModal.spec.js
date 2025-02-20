@@ -54,6 +54,9 @@ describe('BaseModal', () => {
             openModal = params.openModal
             return ''
           }
+        },
+        props: {
+          modalDisplayed: true
         }
       })
       await openModal()
@@ -68,11 +71,27 @@ describe('BaseModal', () => {
             closeModal = params.closeModal
             return ''
           }
+        },
+        props: {
+          modalDisplayed: true
         }
       })
       await closeModal()
       expect(wrapper.emitted('update:modalDisplayed').length).toBe(1)
       expect(wrapper.emitted('update:modalDisplayed')[0]).toStrictEqual([false])
+    })
+    it('#default - not rendered if modalDisplayed false', async () => {
+      const wrapper = mount(BaseModal, {
+        slots: {
+          default: () => {
+            return 'Test Slot Content'
+          }
+        },
+        props: {
+          modalDisplayed: false
+        }
+      })
+      expect(wrapper.find('dialog').text()).not.toBe('Test Slot Content')
     })
   })
 })

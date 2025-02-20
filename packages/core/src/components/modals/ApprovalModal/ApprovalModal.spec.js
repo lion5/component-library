@@ -13,12 +13,20 @@ describe('ApprovalModal', () => {
   })
 
   beforeEach(() => {
+    let openModal
     wrapper = mount(ApprovalModal, {
       props: {
         title: 'Title',
         buttonLabel: 'ButtonLabel'
-      }
+      },
+      slots: {
+        trigger: (params) => {
+          openModal = params.openModal
+          return ''
+        }
+      },
     })
+    openModal()
   })
 
   afterEach(() => {

@@ -13,7 +13,12 @@ describe('DismissibleModal', () => {
   })
 
   beforeEach(() => {
-    wrapper = mount(DismissibleModal)
+    wrapper = mount(DismissibleModal,
+      {
+        props: {
+          modalDisplayed: true
+        }
+      })
   })
 
   afterEach(() => {
@@ -28,6 +33,7 @@ describe('DismissibleModal', () => {
       expect(baseModal.vm.modalDisplayed).toBe(true)
     })
     it(':modalDisplayed - v-model is passed down correctly if modalDisplayed set to false', async () => {
+      await wrapper.setProps({ modalDisplayed: false })
       const baseModal = wrapper.findComponent(BaseModal)
       expect(baseModal.vm.$props.modalDisplayed).toBe(false)
     })
@@ -59,6 +65,9 @@ describe('DismissibleModal', () => {
             openModal = params.openModal
             return ''
           }
+        },
+        props: {
+          modalDisplayed: true
         }
       })
       await openModal()
@@ -73,6 +82,9 @@ describe('DismissibleModal', () => {
             closeModal = params.closeModal
             return ''
           }
+        },
+        props: {
+          modalDisplayed: true
         }
       })
       await closeModal()
