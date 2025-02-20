@@ -112,4 +112,8 @@ const setImage = (newImage: ImageForm) => {
 .image-edit-input-card.published {
   border: 2px solid var(--color-success);
 }
+
+.delete-button {
+  z-index: 1;
+}
 </style>
