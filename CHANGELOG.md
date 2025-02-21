@@ -1,3 +1,13 @@
+## 0.25.7 (2025-02-21)
+
+### 🩹 Fixes
+
+- **deployement:** use latest deploy action to retrieve artifact ([90f8d33](https://github.com/lion5/component-library/commit/90f8d33))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.25.6 (2025-02-20)
 
 ### 🚀 Features
