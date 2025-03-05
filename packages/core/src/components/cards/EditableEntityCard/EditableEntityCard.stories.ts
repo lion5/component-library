@@ -27,3 +27,10 @@ export const Default: Story = {
     title: 'Topic'
   }
 }
+
+export const ReadOnly: Story = {
+  args: {
+    title: 'Topic',
+    readOnly: true
+  }
+}
