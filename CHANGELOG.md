@@ -1,3 +1,13 @@
+## 0.25.8 (2025-03-05)
+
+### 🚀 Features
+
+- **EditableEntityCard:** add optional readOnly prop ([0ff4437](https://github.com/lion5/component-library/commit/0ff4437))
+
+### ❤️ Thank You
+
+- Soumik Kumar Saha
+
 ## 0.25.7 (2025-02-21)
 
 ### 🩹 Fixes
