@@ -51,6 +51,17 @@ describe('EditableEntityCard.vue', () => {
       expect(wrapper.find('.form-content').exists()).toBe(true)
       expect(wrapper.find('.info-content').exists()).toBe(false)
     })
+    it(':readOnly - hides the edit button if true', async () => {
+      await wrapper.setProps({ readOnly: true, modelValue: false })
+
+      expect(wrapper.find('.edit-button').exists()).toBe(false)
+    })
+
+    it(':readOnly - shows the edit button if false', async () => {
+      await wrapper.setProps({ readOnly: false, modelValue: false })
+
+      expect(wrapper.find('.edit-button').exists()).toBe(true)
+    })
   })
   describe('@events', () => {
     it('@click - emits edit mode true', async () => {

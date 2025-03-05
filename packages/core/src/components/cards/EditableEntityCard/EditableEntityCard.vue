@@ -8,22 +8,30 @@ import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
  */
 const editMode = defineModel<boolean>({ required: true })
 
-defineProps<{
+const props = defineProps({
   /**
    * The title of the card (the entity name).
    */
-  title: string
-}>()
-
-
+  title: {
+    type: String,
+    required: true
+  },
+  /**
+   * If true, editing is disabled (the edit pencil icon won't show).
+   */
+  readOnly: {
+    type: Boolean,
+    default: false
+  }
+})
 </script>
 
 <template>
   <BaseCard class="editable-entity-card">
-    <h2>{{ title }}</h2>
+    <h2>{{ props.title }}</h2>
     <div class="top-end-icon">
       <IconButton
-        v-if="!editMode"
+        v-if="!editMode && !props.readOnly"
         class="edit-button"
         @click="editMode = true"
       >
