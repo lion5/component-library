@@ -71,6 +71,8 @@ const setAsEuroValue = (event: InputEvent) => {
   }
   const euroValue = parseInt(cleanedValue)
   syncValueWithElements(euroValue, event.target as HTMLInputElement)
+
+  meta.touched = true
 }
 
 const syncValueWithElements = (newValue: number, target: HTMLInputElement) => {
