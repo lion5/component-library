@@ -18,7 +18,7 @@ import { computed, ref, watch } from 'vue'
 import { useField } from 'vee-validate'
 import { useIbanUtils } from '@core/composables/useIbanUtils'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
-import { mixed, MixedSchema, Schema } from 'yup'
+import { mixed, Schema, StringSchema } from 'yup'
 
 const props = withDefaults(
   defineProps<{
@@ -28,7 +28,7 @@ const props = withDefaults(
     /**
      * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
      */
-    validationRules?: MixedSchema
+    validationRules?: StringSchema
   }>(),
   {
     label: 'IBAN',
