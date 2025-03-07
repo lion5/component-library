@@ -18,7 +18,7 @@ import { computed, ref, watch } from 'vue'
 import { useField } from 'vee-validate'
 import { useIbanUtils } from '@core/composables/useIbanUtils'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
-import { mixed, Schema } from 'yup'
+import { mixed, MixedSchema, Schema } from 'yup'
 
 const props = withDefaults(
   defineProps<{
@@ -28,7 +28,7 @@ const props = withDefaults(
     /**
      * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
      */
-    validationRules?: Schema<string>
+    validationRules?: MixedSchema
   }>(),
   {
     label: 'IBAN',
@@ -55,6 +55,7 @@ const internalValidationRules = computed(() => {
 
 const combinedValidation = computed(() => {
   if (props.validationRules && internalValidationRules.value) {
+    console.log(props.validationRules)
     return internalValidationRules.value.concat(props.validationRules)
   }
   if (props.validationRules) {
@@ -69,7 +70,7 @@ const combinedValidation = computed(() => {
 const { toFormattedIBAN, toRawIBAN, isValidIBAN } = useIbanUtils()
 const { value, handleBlur, meta, errors } = useField<string>(
   () => props.name,
-  combinedValidation.value,
+  computed(() => combinedValidation.value),
   {
     syncVModel: 'iban'
   }
@@ -90,3 +91,4 @@ watch(
   }
 )
 </script>
+
