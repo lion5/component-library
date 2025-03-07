@@ -42,13 +42,14 @@ const internalValidationRules = computed(() => {
   return mixed<string>()
     .test(
       'iban',
-      'hello world',
+      'Bitte geben Sie eine gültige IBAN ein.',
       (value) => {
         if(value) {
           return isValidIBAN(value)
         } else {
           return true
-        } }
+        }
+      }
     )
 })
 
