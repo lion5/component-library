@@ -62,5 +62,16 @@ describe('SlugInput.vue', () => {
       expect(wrapper.emitted('update:slug').at(0)).toStrictEqual(['this-is-not-a-good-slug-or-not'])
       expect(wrapper.find('input').element.value).toBe('this-is-not-a-good-slug-or-not')
     })
+
+    it('emits "userInteracted" when meta.touched becomes true', async () => {
+      await wrapper.vm.$nextTick()
+      wrapper.vm.meta.touched = true
+      await wrapper.vm.$nextTick()
+
+      expect(wrapper.emitted('userInteracted')).toBeTruthy()
+      expect(wrapper.emitted('userInteracted')?.[0]).toEqual([true])
+
+      wrapper.vm.meta.touched = false
+    })
   })
 })
