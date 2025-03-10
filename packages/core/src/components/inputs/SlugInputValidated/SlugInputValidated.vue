@@ -59,9 +59,6 @@ const required = computed(() => (props.validationRules as Schema)?.spec.optional
 const { value, setValue, handleBlur, meta, errors } = useField<string>(
   () => props.name,
   props.validationRules,
-  {
-    syncVModel: 'slug'
-  }
 )
 
 const valueToSlug = (value: string) => {
@@ -80,15 +77,29 @@ const valueToSlug = (value: string) => {
     .replace(/\s+/g, '-')
 }
 
+const emit = defineEmits<{
+  (e: 'update:slug', slug: string): void,
+  (e: 'userInteracted', isTouched : boolean): void
+}>()
+
 const onInput = (value: string) => {
   setValue(valueToSlug(value))
+  emit('update:slug', valueToSlug(value))
 }
 
 watch(
   () => props.slug,
   (newSlug) => {
     if (newSlug && !meta.touched) {
-      setValue(valueToSlug(newSlug))
+      onInput(newSlug)
+    }
+  }
+)
+
+watch(
+  () => meta.touched, (newValue) => {
+    if (newValue) {
+      emit('userInteracted', true)
     }
   }
 )
