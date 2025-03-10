@@ -55,7 +55,6 @@ const internalValidationRules = computed(() => {
 
 const combinedValidation = computed(() => {
   if (props.validationRules && internalValidationRules.value) {
-    console.log(props.validationRules)
     return internalValidationRules.value.concat(props.validationRules)
   }
   if (props.validationRules) {
