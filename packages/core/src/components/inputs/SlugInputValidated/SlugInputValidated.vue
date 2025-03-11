@@ -101,7 +101,8 @@ watch(
     if (newValue) {
       emit('userInteracted', true)
     }
-  }
+  },
+  { immediate: true }
 )
 </script>
 <style lang="scss" scoped>
