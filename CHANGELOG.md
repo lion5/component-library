@@ -1,3 +1,15 @@
+## 0.26.1 (2025-03-12)
+
+### 🩹 Fixes
+
+- **SlugInputValidated:** sync slug prop immediately ([c771178](https://github.com/lion5/component-library/commit/c771178))
+- **SlugInputValidated:** set the initial input value from the slug ([da5ea55](https://github.com/lion5/component-library/commit/da5ea55))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+- Niloofar
+
 ## 0.26.0 (2025-03-10)
 
 This was a version bump only, there were no code changes.
