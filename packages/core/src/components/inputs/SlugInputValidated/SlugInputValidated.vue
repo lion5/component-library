@@ -59,6 +59,9 @@ const required = computed(() => (props.validationRules as Schema)?.spec.optional
 const { value, setValue, handleBlur, meta, errors } = useField<string>(
   () => props.name,
   props.validationRules,
+  {
+    initialValue: props.slug
+  }
 )
 
 const valueToSlug = (value: string) => {
@@ -101,7 +104,8 @@ watch(
     if (newValue) {
       emit('userInteracted', true)
     }
-  }
+  },
+  { immediate: true }
 )
 </script>
 <style lang="scss" scoped>

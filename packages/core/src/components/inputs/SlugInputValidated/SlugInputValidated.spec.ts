@@ -50,6 +50,17 @@ describe('SlugInput.vue', () => {
       await flushPromises()
       expect(wrapper.find('input').element.value).toBe('this-is-not-a-good-slug-or-not')
     })
+    it(':slug - is applied to input on mounted', async () => {
+      wrapper = mount(SlugInput, {
+        props: {
+          name: 'name',
+          label: 'label',
+          prefix: 'prefix',
+          slug: 'this-is-my-initial-slug'
+        }
+      })
+      expect(wrapper.find('input').element.value).toBe('this-is-my-initial-slug')
+    })
   })
   describe('@events', () => {
     it('@update:slug - does emit cleaned input', async () => {
