@@ -15,10 +15,10 @@
 </template>
 <script lang="ts" setup>
 import { computed, ref, watch } from 'vue'
-import { useField } from 'vee-validate'
+import { RuleExpression, useField } from 'vee-validate'
 import { useIbanUtils } from '@core/composables/useIbanUtils'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
-import { mixed, Schema, StringSchema } from 'yup'
+import { Schema } from 'yup'
 
 const props = withDefaults(
   defineProps<{
@@ -28,7 +28,7 @@ const props = withDefaults(
     /**
      * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
      */
-    validationRules?: StringSchema
+    validationRules?: RuleExpression<string>
   }>(),
   {
     label: 'IBAN',
@@ -38,38 +38,14 @@ const props = withDefaults(
 
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
 
-const internalValidationRules = computed(() => {
-  return mixed<string>()
-    .test(
-      'iban',
-      'Bitte geben Sie eine gültige IBAN ein.',
-      (value) => {
-        if(value) {
-          return isValidIBAN(value)
-        } else {
-          return true
-        }
-      }
-    )
-})
-
-const combinedValidation = computed(() => {
-  if (props.validationRules && internalValidationRules.value) {
-    return internalValidationRules.value.concat(props.validationRules)
-  }
-  if (props.validationRules) {
-    return props.validationRules
-  }
-  if (internalValidationRules.value) {
-    return internalValidationRules.value
-  }
-  return undefined
-})
+const validIBANRule = (iban: string) => {
+  return (isValidIBAN(iban) || 'Bitte geben Sie eine gültige IBAN ein.')
+}
 
 const { toFormattedIBAN, toRawIBAN, isValidIBAN } = useIbanUtils()
 const { value, handleBlur, meta, errors } = useField<string>(
   () => props.name,
-  computed(() => combinedValidation.value),
+  props.validationRules || validIBANRule,
   {
     syncVModel: 'iban'
   }
