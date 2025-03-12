@@ -71,7 +71,7 @@ defineSlots<{
 
 const required = computed(() => (props.validationRules as Schema)?.spec?.optional === false)
 
-const { value, meta, handleBlur, errors } = useField<T>(() => props.name, computed(() => props.validationRules), {
+const { value, meta, handleBlur, errors } = useField<T>(() => props.name, () => props.validationRules, {
   syncVModel: true
 })
 
