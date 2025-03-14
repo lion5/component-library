@@ -69,7 +69,7 @@ const combinedValidation = computed(() => {
 const { toFormattedIBAN, toRawIBAN, isValidIBAN } = useIbanUtils()
 const { value, handleBlur, meta, errors } = useField<string>(
   () => props.name,
-  computed(() => combinedValidation.value),
+  combinedValidation.value,
   {
     syncVModel: 'iban'
   }
