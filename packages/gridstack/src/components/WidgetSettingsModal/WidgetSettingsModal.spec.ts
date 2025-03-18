@@ -1,12 +1,8 @@
 import { beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
-import { mount } from '@vue/test-utils'
+import { shallowMount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import { boolean, string } from 'yup'
-import {
-  BaseInputV2Validated,
-  CheckboxInputV1Validated,
-  DismissibleModal
-} from '@lion5/component-library'
+import { BaseInputV2Validated, BaseModal, CheckboxInputV1Validated, DismissibleModal } from '@lion5/component-library'
 import { FormField, FormSchema } from '@/models/formSchema'
 import WidgetSettingsModal from '@/components/WidgetSettingsModal/WidgetSettingsModal.vue'
 import WidgetSettingsForm from '@/components/WidgetSettingsForm/WidgetSettingsForm.vue'
@@ -26,18 +22,29 @@ describe('WidgetSettingsModal.vue', () => {
       new FormField(CheckboxInputV1Validated, 'Test 2 Label', 'test2', boolean())
     ])
 
-    wrapper = mount(WidgetSettingsModal, {
+    wrapper = shallowMount(WidgetSettingsModal, {
       props: {
-        modalDisplayed: false,
+        modalDisplayed: true,
         widgetName: '',
         settings,
         defaultSettings,
         formSchema
+      },
+      global: {
+        stubs: {
+          DismissibleModal: DismissibleModal,
+          BaseModal: BaseModal
+        }
       }
     })
   })
   describe(':props', () => {
     it(':modalDisplayed - is applied to DismissibleModal', async () => {
+      await wrapper.setProps({ modalDisplayed: false })
+      expect(
+        wrapper.findComponent(DismissibleModal).vm.modalDisplayed
+      ).toBeFalsy()
+
       await wrapper.setProps({ modalDisplayed: true })
       expect(
         wrapper.findComponent(DismissibleModal).vm.modalDisplayed
