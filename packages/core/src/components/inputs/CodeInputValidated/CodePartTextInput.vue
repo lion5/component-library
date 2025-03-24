@@ -1,5 +1,5 @@
 <template>
-  <BaseInputWrapper :show-placeholder="true" :show-error-icon="false">
+  <BaseInputWrapper :show-error-icon="false" :show-placeholder="true">
     <input
       :id="`code-input-${index}`"
       :class="{
@@ -7,15 +7,15 @@
         valid: meta?.touched && meta?.valid,
         invalid: meta?.touched && (!meta?.valid || errors)
       }"
-      :value="code"
       :inputmode="inputMode"
       :maxlength="maxChars"
       :placeholder="placeholder"
-      autocomplete="off"
-      @input.capture="addInput"
-      @keydown="handleKeydown"
-      @paste.prevent="handlePasteEvent"
       :style="`--input-size: ${maxChars}ch;`"
+      :value="code"
+      autocomplete="off"
+      @keydown="handleKeydown"
+      @input.capture="addInput"
+      @paste.prevent="handlePasteEvent"
     />
   </BaseInputWrapper>
 </template>
@@ -77,8 +77,9 @@ const addInput = (event: Event) => {
   }
 }
 const handleKeydown = (event: KeyboardEvent) => {
-  if (event.key === 'Backspace' && code.value.length === 0) {
+  if (event.key === 'Backspace' && (code.value.length === 1 || code.value.length === 0)) {
     event.preventDefault()
+    code.value = ''
     emit('change-input', props.index - 1)
   }
 
