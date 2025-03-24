@@ -113,5 +113,10 @@ describe('CodeInput.vue', () => {
       expect(wrapper.emitted('update:code').at(6)).toStrictEqual(['1234ABC'])
       expect(wrapper.emitted('update:code').at(7)).toStrictEqual(['1234ABCD'])
     })
+    it('@input-finished - emit 1234ABCD if user pastes 1234ABCDE', async () => {
+      wrapper.findComponent(CodePartTextInput).vm.$emit('handle-paste', '1234ABCDE')
+      await flushPromises()
+      expect(wrapper.emitted('input-finished')).toStrictEqual([['1234ABCD']])
+    })
   })
 })
