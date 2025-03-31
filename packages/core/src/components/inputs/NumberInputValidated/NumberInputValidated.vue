@@ -50,6 +50,8 @@ const handleInput = (inputValue?: string) => {
     return
   }
   setValue(Number(inputValue))
+
+  meta.touched = true
 }
 
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
