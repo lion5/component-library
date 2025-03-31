@@ -10,6 +10,7 @@
         <div v-if="index !== 1" class="delimiter">-</div>
         <CodePartTextInput
           ref="inputRefs"
+          :code="code"
           :errors="errors"
           :index="index - 1"
           :input-mode="inputMode"
@@ -20,6 +21,7 @@
           @update:inputCode="handleInput(index - 1, $event)"
           @handle-paste="handlePaste"
           @change-input="handleNavigation"
+          @wrong-field-input="handleWrongFieldInput"
         />
       </div>
     </div>
@@ -126,6 +128,13 @@ function checkAndEmitCompleteCode(value: string) {
   if (value.length === (props.partLength * props.partNumber)) {
     emit('input-finished', value)
   }
+}
+
+function handleWrongFieldInput({ index, key }: { index: number, key: string }) {
+  const normalizedKey = key.toUpperCase()
+  const position = code.value.length
+  code.value = code.value + normalizedKey
+  handleNavigation(index)
 }
 
 function handleNavigation(index: number) {

@@ -30,6 +30,7 @@ const props = withDefaults(
   defineProps<{
     errors?: string[]
     value: string
+    code: string
     maxChars?: number
     index: number
     placeholderChar?: string
@@ -47,6 +48,7 @@ const emit = defineEmits<{
   (e: 'update:inputCode', value: string): void
   (e: 'handle-paste', value: string): void
   (e: 'change-input', value: number): void
+  (e: 'wrong-field-input', value: { index: number, key: string }): void
 }>()
 
 const handlePasteEvent = (event: ClipboardEvent) => {
@@ -56,6 +58,22 @@ const handlePasteEvent = (event: ClipboardEvent) => {
 }
 
 const addInput = (event: Event) => {
+  // Find the first empty field index by checking the complete code
+  const key = (event as InputEvent).data || ''
+  const completeCode = props.code
+  const firstEmptyFieldIndex = Math.floor(completeCode.length / props.maxChars)
+
+  // Only redirect if we're adding a character, not deleting
+  if (key && props.index !== firstEmptyFieldIndex) {
+    // Clear the field immediately
+    const input = event.target as HTMLInputElement
+    input.value = ''
+    code.value = ''
+
+    emit('wrong-field-input', { index: firstEmptyFieldIndex, key })
+    return
+  }
+
   const codeInput = (event.target as { value: string } | null)?.value || ''
 
   const index =
