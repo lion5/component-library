@@ -1,3 +1,18 @@
+## 0.26.4 (2025-03-31)
+
+### 🩹 Fixes
+
+- **CodeInputValidated:** emit finish event on paste ([2516248](https://github.com/lion5/component-library/commit/2516248))
+- **CodeInputValidated:** more intuitive handling of the delete field switch ([bf83648](https://github.com/lion5/component-library/commit/bf83648))
+- **CodeInputValidated:** story filled ([ecc0921](https://github.com/lion5/component-library/commit/ecc0921))
+- **CodeInputValidated:** add unit test for input-finished event after pasting a value ([edd5a2c](https://github.com/lion5/component-library/commit/edd5a2c))
+- **WidgetSettingsModal:** bump package-lock ([6a5d343](https://github.com/lion5/component-library/commit/6a5d343))
+- **WidgetSettingsModal:** failing tests ([5375c56](https://github.com/lion5/component-library/commit/5375c56))
+
+### ❤️ Thank You
+
+- Roman Kudravcev
+
 ## 0.26.3 (2025-03-18)
 
 This was a version bump only, there were no code changes.
