@@ -135,8 +135,9 @@ describe('CodeInput.vue', () => {
       secondInput.vm.$emit('wrong-field-input', { index: 0, key: '5' })
       await flushPromises()
 
-      expect(wrapper.emitted('update:code')).toBeTruthy()
-      expect(wrapper.emitted('update:code').at(0)).toStrictEqual(['5'])
+      const emittedCode = wrapper.emitted('update:code')
+      expect(emittedCode).toBeTruthy()
+      expect(emittedCode?.[0]).toStrictEqual(['5'])
 
       const firstInput = wrapper.findAll('input').at(0)
       if (!firstInput) return
