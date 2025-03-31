@@ -77,6 +77,12 @@ const emit = defineEmits<{
    * @param value
    */
   (e: 'input-finished', value: string): void,
+  /**
+   * update code event
+   * @param e
+   * @param value
+   */
+  (e: 'update:code', value: string): void,
 }>()
 
 
@@ -108,6 +114,23 @@ function updateParts(value: string) {
   }
 }
 
+function updateAndEmit(value: string) {
+  updateParts(value)
+  const focusIndex = Math.min(
+    Math.floor(value.length / props.partLength),
+    props.partNumber - 1
+  )
+
+  nextTick(() => {
+    const nextInput = inputRefs.value[focusIndex]?.$el.querySelector('input')
+    nextInput?.focus()
+  })
+
+  if (value.length === (props.partLength * props.partNumber)) {
+    emit('input-finished', value)
+  }
+}
+
 function handleInput(index: number, value: string) {
   parts.value[index] = value
   code.value = parts.value.join('')
@@ -119,22 +142,13 @@ function handleInput(index: number, value: string) {
     })
   }
 
-  if (code.value.length === (props.partLength * props.partNumber)) {
-    emit('input-finished', code.value)
-  }
+  updateAndEmit(code.value)
 }
 
 function handlePaste(value: string) {
-  updateParts(value)
-  const focusIndex = Math.min(
-    Math.floor(value.length / props.partLength),
-    props.partNumber - 1
-  )
-
-  nextTick(() => {
-    const nextInput = inputRefs.value[focusIndex]?.$el.querySelector('input')
-    nextInput?.focus()
-  })
+  const maxLength = props.partLength * props.partNumber
+  const truncatedValue = value.slice(0, maxLength)
+  updateAndEmit(truncatedValue)
 }
 
 function handleChangeInput(index: number) {

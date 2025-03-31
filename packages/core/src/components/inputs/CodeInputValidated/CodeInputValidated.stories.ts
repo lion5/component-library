@@ -19,18 +19,19 @@ export const Empty: Story = {
 }
 
 export const Filled: Story = {
-  render: (args: unknown) => ({
+  render: (args) => ({
     components: { CodeInput, Form },
     setup() {
       return { args }
     },
     template: `
       <Form :initialValues='{ input1: "ABCD1234" }'>
-        <CodeInput v-bind='args' />
+        <CodeInput v-bind="args" />
       </Form>`
   }),
   args: {
-    name: 'input1'
+    name: 'input1',
+    code: 'ABCD1234'
   }
 }
 
@@ -47,6 +48,7 @@ export const FilledWithLabel: Story = {
   }),
   args: {
     name: 'input1',
+    code: 'ABCD1234',
     label: 'Code'
   }
 }
