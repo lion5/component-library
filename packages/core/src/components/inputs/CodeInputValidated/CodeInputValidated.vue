@@ -132,7 +132,6 @@ function checkAndEmitCompleteCode(value: string) {
 
 function handleWrongFieldInput({ index, key }: { index: number, key: string }) {
   const normalizedKey = key.toUpperCase()
-  const position = code.value.length
   code.value = code.value + normalizedKey
   handleNavigation(index)
 }

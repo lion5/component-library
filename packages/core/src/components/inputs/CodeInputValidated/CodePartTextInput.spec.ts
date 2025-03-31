@@ -10,6 +10,7 @@ describe('CodePartTextInput.vue', () => {
     wrapper = mount(CodePartTextInput, {
       props: {
         value: '123',
+        code: '123',
         index: 0,
         meta: {
           dirty: false,
