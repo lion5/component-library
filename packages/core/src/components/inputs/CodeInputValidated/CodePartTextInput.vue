@@ -143,10 +143,11 @@ const placeholder = computed(() => props.placeholderChar.repeat(props.maxChars))
 
 <style lang="scss" scoped>
 input {
-  // Calculate the width of the input based on the number of characters with the factor 1.2 for extra space
-  width: calc(1.2 * var(--input-size) + 2 * var(--space-sm));
+  // Calculate the width of the input based on the number of characters with the factor 1.5 for extra space
+  width: calc(1 * var(--input-size) + 2 * var(--space-md)) !important;
   padding-block: var(--space-sm) !important;
   padding-inline: var(--space-sm) !important;
   text-align: center;
+  font-family: monospace;
 }
 </style>
