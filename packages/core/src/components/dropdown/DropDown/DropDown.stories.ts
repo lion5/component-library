@@ -3,9 +3,14 @@ import DropDownItem from '../DropDownItem/DropDownItem.vue'
 import IconSettings from '../../icons/IconSettings.vue'
 import DropDown from './DropDown.vue'
 
+/**
+ * DropDown can be configured via following css custom props
+ * - `--dropdown-margin-right` to define the right margin of the DropDown-Content. Default is zero.
+ */
+
 export default {
   component: DropDown,
-  title: 'Navigation Components/DropDown/DropDown',
+  title: 'Navigation Components/DropDown/DropDown'
 } as Meta<typeof DropDown>
 type Story = StoryObj<typeof DropDown>
 
@@ -17,17 +22,17 @@ export const Text: Story = {
     },
     template: `
       <div style='display: grid; place-content: start end; height: 100px'>
-      <DropDown>
-        <template #dropDownContent>
-          <DropDownItem label='Item 1'>
-            <template #icon>
-              <IconSettings />
-            </template>
-          </DropDownItem>
-          <DropDownItem label='Item 2' />
-          <DropDownItem label='Item 3' :busy="true" />
-        </template>
-      </DropDown>
+        <DropDown>
+          <template #dropDownContent>
+            <DropDownItem label='Item 1'>
+              <template #icon>
+                <IconSettings />
+              </template>
+            </DropDownItem>
+            <DropDownItem label='Item 2' />
+            <DropDownItem label='Item 3' :busy="true" />
+          </template>
+        </DropDown>
       </div>
     `
   }),
