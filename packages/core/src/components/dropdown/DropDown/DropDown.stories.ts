@@ -3,11 +3,6 @@ import DropDownItem from '../DropDownItem/DropDownItem.vue'
 import IconSettings from '../../icons/IconSettings.vue'
 import DropDown from './DropDown.vue'
 
-/**
- * DropDown can be configured via following css custom props
- * - `--dropdown-margin-right` to define the right margin of the DropDown-Content. Default is zero.
- */
-
 export default {
   component: DropDown,
   title: 'Navigation Components/DropDown/DropDown'
