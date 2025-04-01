@@ -53,4 +53,14 @@ describe('ErrorBox', () => {
       expect(errorMessages.at(2).text()).toBe(errors[2].message)
     })
   })
+  describe(':slots', () => {
+    it('default - renders default slot content', () => {
+      wrapper = mount(ErrorBox, {
+        slots: {
+          default: 'Custom error message'
+        }
+      })
+      expect(wrapper.text()).toContain('Custom error message')
+    })
+  })
 })
