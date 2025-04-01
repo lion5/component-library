@@ -7,7 +7,7 @@
         :key="index"
         class="text-input-part-wrapper"
       >
-        <div v-if="index !== 1" class="delimiter">-</div>
+        <div v-if="index !== 1" class="delimiter">—</div>
         <CodePartTextInput
           ref="inputRefs"
           :code="code"
@@ -167,7 +167,9 @@ function handleNavigation(index: number) {
     }
 
     .delimiter {
-      padding: 0 1rem;
+      padding: 0 var(--space-sm);
+      font-size: var(--font-size-4);
+      font-weight: var(--font-weight-600);
     }
   }
 }
