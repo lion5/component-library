@@ -1,7 +1,6 @@
 import { mount } from '@vue/test-utils'
 import { beforeEach, describe, expect, it } from 'vitest'
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
-import { IconWarning } from '../../icons'
 
 describe('ErrorBox', () => {
   let wrapper
@@ -52,15 +51,6 @@ describe('ErrorBox', () => {
       expect(errorMessages.at(0).text()).toBe(errors[0].message)
       expect(errorMessages.at(1).text()).toBe(errors[1].message)
       expect(errorMessages.at(2).text()).toBe(errors[2].message)
-    })
-    it(':showIcon - display error icon', async () => {
-      await wrapper.setProps({ error: new Error('New test error') })
-      
-      const icon = wrapper.getComponent(IconWarning)
-      expect(icon.exists()).toBeTruthy()
-
-      await wrapper.setProps({ showIcon: false })
-      expect(icon.exists()).toBeFalsy()
     })
   })
   describe(':slots', () => {

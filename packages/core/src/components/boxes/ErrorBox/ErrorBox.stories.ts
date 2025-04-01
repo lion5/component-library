@@ -42,7 +42,7 @@ export const SlotError: Story = {
   render: () => ({
     components: { ErrorBox },
     template: `
-      <ErrorBox :show-icon="false">
+      <ErrorBox>
         <div style="display: flex; flex-direction: column; gap: var(--space-200);">
           <h2 style="margin: 0;">Error</h2>
           <p>This is some information about an error.</p>

@@ -4,7 +4,7 @@
     class="error-box"
     data-cy="portal-error-box"
   >
-    <IconWarning v-if="showIcon" />
+    <IconWarning />
     <div class="error-content">
       <slot>
         <ul v-if="localErrors.length > 1">
@@ -32,8 +32,7 @@ const props = withDefaults(
     showIcon?: boolean
   }>(),
   {
-    errors: () => [],
-    showIcon: true
+    errors: () => []
   }
 )
 
