@@ -108,6 +108,11 @@ watch(
   { immediate: true }
 )
 
+/*
+  * Handle input event from child component
+  * @param index - The index of the CodePartTextInput
+  * @param value - The value from the CodePartTextInput
+ */
 function handleInput(index: number, value: string) {
   code.value = code.value.slice(0, index * props.partLength) + value + code.value.slice((index + 1) * props.partLength)
   handleNavigation(index)
