@@ -5,7 +5,7 @@ import DropDown from './DropDown.vue'
 
 export default {
   component: DropDown,
-  title: 'Navigation Components/DropDown/DropDown',
+  title: 'Navigation Components/DropDown/DropDown'
 } as Meta<typeof DropDown>
 type Story = StoryObj<typeof DropDown>
 
@@ -17,17 +17,17 @@ export const Text: Story = {
     },
     template: `
       <div style='display: grid; place-content: start end; height: 100px'>
-      <DropDown>
-        <template #dropDownContent>
-          <DropDownItem label='Item 1'>
-            <template #icon>
-              <IconSettings />
-            </template>
-          </DropDownItem>
-          <DropDownItem label='Item 2' />
-          <DropDownItem label='Item 3' :busy="true" />
-        </template>
-      </DropDown>
+        <DropDown>
+          <template #dropDownContent>
+            <DropDownItem label='Item 1'>
+              <template #icon>
+                <IconSettings />
+              </template>
+            </DropDownItem>
+            <DropDownItem label='Item 2' />
+            <DropDownItem label='Item 3' :busy="true" />
+          </template>
+        </DropDown>
       </div>
     `
   }),

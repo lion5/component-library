@@ -1,6 +1,6 @@
 <template>
   <div class="drop-down">
-    <IconButton class="trigger" ref="triggerButton" @click="onClick">
+    <IconButton ref="triggerButton" class="trigger" @click="onClick">
       <slot name="dropDownIcon">
         <IconThreeDotsMenu />
       </slot>
@@ -43,7 +43,6 @@ const onClick = () => {
     top: var(--anchor-top, calc(100% + var(--space-300)));
     bottom: var(--anchor-bottom, unset);
     left: var(--anchor-left, unset);
-    margin-right: var(--font-size-5);
     width: max-content;
     display: none;
     flex-direction: column;
