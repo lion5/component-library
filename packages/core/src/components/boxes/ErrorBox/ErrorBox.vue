@@ -1,18 +1,22 @@
 <template>
   <BaseBox
-    v-if="localErrors.length > 0"
+    v-if="localErrors.length > 0 || $slots.default"
     class="error-box"
     data-cy="portal-error-box"
   >
-    <IconWarning />
-    <ul v-if="localErrors.length > 1">
-      <li v-for="localError in localErrors" :key="localError.message">
-        {{ localError.message }}
-      </li>
-    </ul>
-    <span v-else>
-      {{ localErrors[0].message }}
-    </span>
+    <IconWarning v-if="showIcon" />
+    <div class="error-content">
+      <slot>
+        <ul v-if="localErrors.length > 1">
+          <li v-for="localError in localErrors" :key="localError.message">
+            {{ localError.message }}
+          </li>
+        </ul>
+        <span v-else>
+        {{ localErrors[0].message }}
+      </span>
+      </slot>
+    </div>
   </BaseBox>
 </template>
 
@@ -25,9 +29,11 @@ const props = withDefaults(
   defineProps<{
     error?: Error
     errors?: Error[]
+    showIcon?: boolean
   }>(),
   {
-    errors: () => []
+    errors: () => [],
+    showIcon: true
   }
 )
 
