@@ -5,7 +5,9 @@ import { Meta, StoryObj } from '@storybook/vue3'
  * The error box should be used to display global errors that are not tied to a specific input field.
  * It can display a single error or multiple errors.
  *
- * **If both props (error and errors) are undefined or empty, the box will not be rendered!**
+ * The error box can take props (error and errors) or content via slot that can be used to display errors.
+ *
+ * **If both props (error and errors) are undefined or empty and the slot is not used, the box will not be rendered!**
  */
 export default {
   component: ErrorBox,
@@ -34,4 +36,17 @@ export const MultipleErrors: Story = {
       new Error('This is an error!')
     ]
   }
+}
+
+export const SlotError: Story = {
+  render: () => ({
+    components: { ErrorBox },
+    template: `
+      <ErrorBox :show-icon="false">
+        <div style="display: flex; flex-direction: column; gap: var(--space-200);">
+          <h2 style="margin: 0;">Error</h2>
+          <p>This is some information about an error.</p>
+        </div>
+      </ErrorBox>`
+  })
 }
