@@ -1,3 +1,30 @@
+## 0.27.0 (2025-04-01)
+
+### 🚀 Features
+
+- **CodeInputValidated:** handle wrong field input ([6788353](https://github.com/lion5/component-library/commit/6788353))
+- **CodeInputValidated:** add test for wrong field input ([60c8b5e](https://github.com/lion5/component-library/commit/60c8b5e))
+- **CodeInputValidated:** add emit actions to story ([1053c63](https://github.com/lion5/component-library/commit/1053c63))
+- **ErrorBox:** add slot and showIcon functionality ([58d1138](https://github.com/lion5/component-library/commit/58d1138))
+- **ErrorBox:** add tests for slot and showIcon functionality ([3f3bc95](https://github.com/lion5/component-library/commit/3f3bc95))
+- **ErrorBox:** add story for slots ([30358af](https://github.com/lion5/component-library/commit/30358af))
+
+### 🩹 Fixes
+
+- **CodeInputValidated:** event emitting order and refactoring ([a76f1b6](https://github.com/lion5/component-library/commit/a76f1b6))
+- **CodeInputValidated:** type errors ([64028bb](https://github.com/lion5/component-library/commit/64028bb))
+- **CodeInputValidated:** use em-dash as delimiter ([e180620](https://github.com/lion5/component-library/commit/e180620))
+- **CodeInputValidated:** comment handleInput method ([e4680e2](https://github.com/lion5/component-library/commit/e4680e2))
+- **CodeInputValidated:** test order of emitted events ([f875e43](https://github.com/lion5/component-library/commit/f875e43))
+- **CodePartTextInput:** width of the field and use monospace font ([cd27806](https://github.com/lion5/component-library/commit/cd27806))
+- **DropDown:** add margin right variable ([ea72933](https://github.com/lion5/component-library/commit/ea72933))
+- **DropDown:** remove margin right variable ([4cfb4cb](https://github.com/lion5/component-library/commit/4cfb4cb))
+- **ErrorBox:** remove showIcon prop ([60528d2](https://github.com/lion5/component-library/commit/60528d2))
+
+### ❤️ Thank You
+
+- Roman Kudravcev
+
 ## 0.26.4 (2025-03-31)
 
 ### 🩹 Fixes
