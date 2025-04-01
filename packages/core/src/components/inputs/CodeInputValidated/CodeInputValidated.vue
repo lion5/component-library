@@ -7,20 +7,21 @@
         :key="index"
         class="text-input-part-wrapper"
       >
-        <div v-if="index !== 1" class="delimiter">-</div>
+        <div v-if="index !== 1" class="delimiter">—</div>
         <CodePartTextInput
           ref="inputRefs"
+          :code="code"
           :errors="errors"
           :index="index - 1"
           :input-mode="inputMode"
           :maxChars="partLength"
           :meta="meta"
-          :update-input="updateInput"
           :value="parts[index - 1]"
           @blur="handleBlur"
           @update:inputCode="handleInput(index - 1, $event)"
           @handle-paste="handlePaste"
-          @change-input="handleChangeInput"
+          @change-input="handleNavigation"
+          @wrong-field-input="handleWrongFieldInput"
         />
       </div>
     </div>
@@ -29,7 +30,7 @@
 </template>
 
 <script lang="ts" setup>
-import { nextTick, ref, watch } from 'vue'
+import { computed, ref, watch } from 'vue'
 import CodePartTextInput from './CodePartTextInput.vue'
 import { ErrorMessage, useField } from 'vee-validate'
 
@@ -85,9 +86,11 @@ const emit = defineEmits<{
   (e: 'update:code', value: string): void,
 }>()
 
-
-const updateInput = ref({})
-const parts = ref<string[]>([])
+const parts = computed<string[]>(() =>
+  Array.from({ length: props.partNumber }, (_, i) =>
+    code.value.slice(i * props.partLength, (i + 1) * props.partLength)
+  )
+)
 const inputRefs = ref<InstanceType<typeof CodePartTextInput>[]>([])
 const {
   value: code,
@@ -100,64 +103,50 @@ const {
 watch(
   code,
   (newValue) => {
-    updateParts(newValue)
+    checkAndEmitCompleteCode(newValue)
   },
   { immediate: true }
 )
 
-function updateParts(value: string) {
-  parts.value = []
-  for (let i = 0; i < props.partNumber; i++) {
-    parts.value.push(
-      value.slice(i * props.partLength, (i + 1) * props.partLength)
-    )
-  }
+/*
+  * Handle input event from child component
+  * @param index - The index of the CodePartTextInput
+  * @param value - The value from the CodePartTextInput
+ */
+function handleInput(index: number, value: string) {
+  code.value = code.value.slice(0, index * props.partLength) + value + code.value.slice((index + 1) * props.partLength)
+  handleNavigation(index)
 }
 
-function updateAndEmit(value: string) {
-  updateParts(value)
+function handlePaste(value: string) {
+  const maxLength = props.partLength * props.partNumber
+  code.value = value.slice(0, maxLength)
+
   const focusIndex = Math.min(
     Math.floor(value.length / props.partLength),
     props.partNumber - 1
   )
+  handleNavigation(focusIndex)
+}
 
-  nextTick(() => {
-    const nextInput = inputRefs.value[focusIndex]?.$el.querySelector('input')
-    nextInput?.focus()
-  })
-
+function checkAndEmitCompleteCode(value: string) {
   if (value.length === (props.partLength * props.partNumber)) {
     emit('input-finished', value)
   }
 }
 
-function handleInput(index: number, value: string) {
-  parts.value[index] = value
-  code.value = parts.value.join('')
-
-  if (value.length >= props.partLength && index < props.partNumber - 1) {
-    nextTick(() => {
-      const nextInput = inputRefs.value[index + 1]?.$el.querySelector('input')
-      nextInput?.focus()
-    })
-  }
-
-  updateAndEmit(code.value)
+function handleWrongFieldInput({ index, key }: { index: number, key: string }) {
+  const normalizedKey = key.toUpperCase()
+  code.value = code.value + normalizedKey
+  handleNavigation(index)
 }
 
-function handlePaste(value: string) {
-  const maxLength = props.partLength * props.partNumber
-  const truncatedValue = value.slice(0, maxLength)
-  updateAndEmit(truncatedValue)
-}
-
-function handleChangeInput(index: number) {
-  if (index >= 0 && index < props.partNumber) {
-    nextTick(() => {
-      const targetInput = inputRefs.value[index]?.$el.querySelector('input')
-      targetInput?.focus()
-    })
+function handleNavigation(index: number) {
+  if (index < 0 || index >= props.partNumber) {
+    return
   }
+  const targetInput = inputRefs.value[index]?.$el.querySelector('input')
+  targetInput?.focus()
 }
 </script>
 
@@ -183,7 +172,9 @@ function handleChangeInput(index: number) {
     }
 
     .delimiter {
-      padding: 0 1rem;
+      padding: 0 var(--space-sm);
+      font-size: var(--font-size-4);
+      font-weight: var(--font-weight-600);
     }
   }
 }

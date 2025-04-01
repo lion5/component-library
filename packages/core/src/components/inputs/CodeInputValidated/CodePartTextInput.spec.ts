@@ -10,6 +10,7 @@ describe('CodePartTextInput.vue', () => {
     wrapper = mount(CodePartTextInput, {
       props: {
         value: '123',
+        code: '123',
         index: 0,
         meta: {
           dirty: false,
@@ -111,5 +112,42 @@ describe('CodePartTextInput.vue', () => {
     inputElement.trigger('paste', { clipboardData })
     expect(wrapper.emitted('handle-paste')).toBeTruthy()
     expect(wrapper.emitted('handle-paste').at(0)).toStrictEqual(['1235'])
+  })
+
+  it('redirects input to first empty field when typing in wrong field', async () => {
+    const wrapper = mount(CodePartTextInput, {
+      props: {
+        value: '',
+        code: '', // empty complete code
+        index: 1, // second field
+        maxChars: 4,
+        meta: {
+          dirty: false,
+          touched: false,
+          valid: true,
+          validated: false,
+          required: true,
+          pending: false
+        },
+        inputMode: 'text'
+      }
+    })
+
+    const inputElement = wrapper.find('input')
+    const inputEvent = new InputEvent('input', {
+      bubbles: true,
+      cancelable: true,
+      inputType: 'insertText',
+      data: '5'
+    })
+    inputElement.element.dispatchEvent(inputEvent)
+
+    const emittedWrongField = wrapper.emitted('wrong-field-input')
+    expect(emittedWrongField).toBeTruthy()
+    expect(emittedWrongField?.[0]).toStrictEqual([{
+      index: 0,
+      key: '5'
+    }])
+    expect(inputElement.element.value).toBe('')
   })
 })

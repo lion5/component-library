@@ -1,10 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3'
 import { Form } from 'vee-validate'
 import CodeInput from './CodeInputValidated.vue'
-
-/**
- * The CodeInput component is used to input a Code. The inserted value only allows numbers and chars.
- **/
+import { action } from '@storybook/addon-actions'
 
 export default {
   component: CodeInput,
@@ -13,6 +10,19 @@ export default {
 type Story = StoryObj<typeof CodeInput>
 
 export const Empty: Story = {
+  render: (args) => ({
+    components: { CodeInput, Form },
+    setup() {
+      const onCodeUpdate = action('onCodeUpdate')
+      const onInputFinished = action('onInputFinished')
+      return { args, onCodeUpdate, onInputFinished }
+    },
+    template: `
+      <Form>
+        <CodeInput v-bind="args" @update:code="onCodeUpdate"
+                   @input-finished="onInputFinished" />
+      </Form>`
+  }),
   args: {
     name: 'test-empty'
   }
@@ -22,11 +32,14 @@ export const Filled: Story = {
   render: (args) => ({
     components: { CodeInput, Form },
     setup() {
-      return { args }
+      const onCodeUpdate = action('onCodeUpdate')
+      const onInputFinished = action('onInputFinished')
+      return { args, onCodeUpdate, onInputFinished }
     },
     template: `
       <Form :initialValues='{ input1: "ABCD1234" }'>
-        <CodeInput v-bind="args" />
+        <CodeInput v-bind="args" @update:code="onCodeUpdate"
+                   @input-finished="onInputFinished" />
       </Form>`
   }),
   args: {
@@ -36,14 +49,17 @@ export const Filled: Story = {
 }
 
 export const FilledWithLabel: Story = {
-  render: (args: unknown) => ({
+  render: (args) => ({
     components: { CodeInput, Form },
     setup() {
-      return { args }
+      const onCodeUpdate = action('onCodeUpdate')
+      const onInputFinished = action('onInputFinished')
+      return { args, onCodeUpdate, onInputFinished }
     },
     template: `
       <Form :initialValues='{ input1: "ABCD1234" }'>
-        <CodeInput v-bind='args' />
+        <CodeInput v-bind="args" @update:code="onCodeUpdate"
+                   @input-finished="onInputFinished" />
       </Form>`
   }),
   args: {
@@ -54,17 +70,20 @@ export const FilledWithLabel: Story = {
 }
 
 export const WithError: Story = {
-  render: (args: unknown) => ({
+  render: (args) => ({
     components: { CodeInput, Form },
     setup() {
-      return { args }
+      const onCodeUpdate = action('onCodeUpdate')
+      const onInputFinished = action('onInputFinished')
+      return { args, onCodeUpdate, onInputFinished }
     },
     template: `
       <Form :initialValues='{"input-with-error": "§$%&"}'
             :initialTouched='{"input-with-error": true}'
             :initialErrors='{"input-with-error": "Dieser Code ist ungültig."}'
       >
-        <CodeInput v-bind='args' />
+        <CodeInput v-bind="args" @update:code="onCodeUpdate"
+                   @input-finished="onInputFinished" />
       </Form>`
   }),
   args: {

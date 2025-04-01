@@ -112,11 +112,46 @@ describe('CodeInput.vue', () => {
       expect(wrapper.emitted('update:code').at(5)).toStrictEqual(['1234AB'])
       expect(wrapper.emitted('update:code').at(6)).toStrictEqual(['1234ABC'])
       expect(wrapper.emitted('update:code').at(7)).toStrictEqual(['1234ABCD'])
+      expect(wrapper.emitted('input-finished')).toStrictEqual([['1234ABCD']])
+
+      const allEmittedEvents = Object.keys(wrapper.emitted())
+      const updateCodeLastIndex = allEmittedEvents.lastIndexOf('update:code')
+      const inputFinishedIndex = allEmittedEvents.indexOf('input-finished')
+      expect(inputFinishedIndex).toBeGreaterThan(updateCodeLastIndex)
     })
     it('@input-finished - emit 1234ABCD if user pastes 1234ABCDE', async () => {
       wrapper.findComponent(CodePartTextInput).vm.$emit('handle-paste', '1234ABCDE')
       await flushPromises()
+      expect(wrapper.emitted('update:code').at(0)).toStrictEqual(['1234ABCD'])
       expect(wrapper.emitted('input-finished')).toStrictEqual([['1234ABCD']])
+
+      const allEmittedEvents = Object.keys(wrapper.emitted())
+      const updateCodeLastIndex = allEmittedEvents.lastIndexOf('update:code')
+      const inputFinishedIndex = allEmittedEvents.indexOf('input-finished')
+      expect(inputFinishedIndex).toBeGreaterThan(updateCodeLastIndex)
+    })
+    it('handles wrong field input by appending value and focusing correct field', async () => {
+      const wrapper = mount(CodeInput, {
+        props: {
+          name: 'name',
+          code: '',
+          partLength: 4,
+          partNumber: 2
+        }
+      })
+
+      const secondInput = wrapper.findAllComponents(CodePartTextInput).at(1)
+      if (!secondInput) return
+      secondInput.vm.$emit('wrong-field-input', { index: 0, key: '5' })
+      await flushPromises()
+
+      const emittedCode = wrapper.emitted('update:code')
+      expect(emittedCode).toBeTruthy()
+      expect(emittedCode?.[0]).toStrictEqual(['5'])
+
+      const firstInput = wrapper.findAll('input').at(0)
+      if (!firstInput) return
+      expect(firstInput.element.value).toBe('5')
     })
   })
 })
