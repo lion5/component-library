@@ -7,6 +7,9 @@ import { userEvent } from '@storybook/test'
 import { formWrapper } from '../../../../.storybook/decorators'
 import { shallowRef } from 'vue'
 
+/**
+ The properties `streetFieldName`,`postalCodeFieldName`,`cityFieldName` are there to overwrite the default field names to be able to handle errors more easily.
+ **/
 export default {
   component: AddressInputValidated,
   title: 'Input Components/AddressInputValidated',

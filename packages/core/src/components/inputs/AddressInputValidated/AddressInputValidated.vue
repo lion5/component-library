@@ -1,4 +1,4 @@
-<script setup lang="ts">
+<script lang="ts" setup>
 import { Address } from '@core/models/address'
 import BaseInputV3Validated from '@core/components/inputs/BaseInputV3Validated/BaseInputV3Validated.vue'
 import { ErrorMessage, RuleExpression } from 'vee-validate'
@@ -14,6 +14,18 @@ withDefaults(
      * Global validations for all fields.
      */
     validationRules?: RuleExpression<string>
+    /**
+     * The field name of streets
+     */
+    streetFieldName?: string
+    /**
+     * The field name of postal codes
+     */
+    postalCodeFieldName?: string
+    /**
+     * The field name of cities
+     */
+    cityFieldName?: string
   }>(),
   {
     validationRules: undefined
@@ -69,37 +81,37 @@ const onCityInput = (city: string) => {
   <div class="address-input-container">
     <div class="address-input">
       <BaseInputV3Validated
-        class="street-input"
-        :name="`${name}.street`"
         :model-value="address.street"
+        :name="streetFieldName ?? `${name}.street`"
+        :validation-rules="validationRules && streetValidationRules"
+        class="street-input"
         label="Straße"
-        :validation-rules="validationRules || streetValidationRules"
+        @blur="partialInputFinished"
         @update:model-value="onStreetInput"
-        @blur="partialInputFinished"
       />
       <BaseInputV3Validated
-        class="postal-code-input"
-        :name="`${name}.postalCode`"
         :model-value="address.postalCode"
-        label="PLZ"
+        :name="postalCodeFieldName ?? `${name}.postalCode`"
         :validation-rules="validationRules"
-        @update:model-value="onPostalCodeInput"
+        class="postal-code-input"
+        label="PLZ"
         @blur="partialInputFinished"
+        @update:model-value="onPostalCodeInput"
       />
       <BaseInputV3Validated
-        :name="`${name}.city`"
         :model-value="address.city"
-        label="Stadt"
+        :name="cityFieldName ?? `${name}.city`"
         :validation-rules="validationRules"
-        @update:model-value="onCityInput"
+        label="Stadt"
         @blur="partialInputFinished"
+        @update:model-value="onCityInput"
       />
     </div>
-    <ErrorMessage class="error" :name="name" />
+    <ErrorMessage :name="name" class="error" />
   </div>
 </template>
 
-<style scoped lang="scss">
+<style lang="scss" scoped>
 .address-input-container {
   container-type: inline-size;
   container-name: address-input;
