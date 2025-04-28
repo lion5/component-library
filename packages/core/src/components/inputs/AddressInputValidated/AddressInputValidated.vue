@@ -1,10 +1,12 @@
 <script lang="ts" setup>
 import { Address } from '@core/models/address'
 import BaseInputV3Validated from '@core/components/inputs/BaseInputV3Validated/BaseInputV3Validated.vue'
-import { ErrorMessage, RuleExpression } from 'vee-validate'
+import { ErrorMessage } from 'vee-validate'
 import { useAddressUtils } from '@core/components/inputs/AddressInputValidated/useAddressUtils'
+import { Schema, string } from 'yup'
+import { computed } from 'vue'
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     /**
      * Used to identify this field in a form (VeeValidate Form).
@@ -13,7 +15,7 @@ withDefaults(
     /**
      * Global validations for all fields.
      */
-    validationRules?: RuleExpression<string>
+    validationRules?: Schema<string>
     /**
      * The field name of streets
      */
@@ -47,14 +49,45 @@ const address = defineModel<Address>({
   default: () => new Address()
 })
 
+const { isValidStreet, isValidPostalCode } = useAddressUtils()
 
-const { isValidStreet } = useAddressUtils()
-const streetValidationRules = (value: string) => {
-  return (
-    isValidStreet(value) ||
-    'Geben Sie bitte Straßenname mit Hausnummer ein. Bsp.: An der Weberei 5'
-  )
+const streetValidationRules = computed(() => {
+  return string()
+    .nullable()
+    .test(
+      props.streetFieldName ?? `${props.name}.street`,
+      'Geben Sie bitte Straßenname mit Hausnummer ein. Bsp.: An der Weberei 5',
+      (value) => value === undefined || value === null || isValidStreet(value)
+    )
+})
+
+const postalCodeValidationRules = computed(() => {
+  return string()
+    .nullable()
+    .test(
+      props.postalCodeFieldName ?? `${props.name}.postalCode`,
+      'Geben Sie bitte eine gültige Postleitzahl ein. Bsp.: 12345',
+      (value) => value === undefined || value === null || isValidPostalCode(value)
+    )
+})
+
+function combineValidationRules(
+  defaultRules: Schema<string | null | undefined>,
+  customRules: Schema<string> | undefined
+): Schema<string | null | undefined> | undefined {
+  if (defaultRules && customRules) {
+    return defaultRules.concat(customRules)
+  }
+  return customRules || defaultRules
 }
+
+const combinedStreetValidation = computed(() =>
+  combineValidationRules(streetValidationRules.value, props.validationRules)
+)
+
+const combinedPostalCodeValidation = computed(() =>
+  combineValidationRules(postalCodeValidationRules.value, props.validationRules)
+)
 
 const partialInputFinished = () => {
   if (address.value.isComplete()) {
@@ -83,7 +116,7 @@ const onCityInput = (city: string) => {
       <BaseInputV3Validated
         :model-value="address.street"
         :name="streetFieldName ?? `${name}.street`"
-        :validation-rules="validationRules && streetValidationRules"
+        :validation-rules="combinedStreetValidation"
         class="street-input"
         label="Straße"
         @blur="partialInputFinished"
@@ -92,7 +125,7 @@ const onCityInput = (city: string) => {
       <BaseInputV3Validated
         :model-value="address.postalCode"
         :name="postalCodeFieldName ?? `${name}.postalCode`"
-        :validation-rules="validationRules"
+        :validation-rules="combinedPostalCodeValidation"
         class="postal-code-input"
         label="PLZ"
         @blur="partialInputFinished"
