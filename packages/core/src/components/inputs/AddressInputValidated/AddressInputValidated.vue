@@ -39,10 +39,9 @@ const emit = defineEmits<{
    * if address is completely inputted
    * @param e
    */
-  (e: 'input-finished'): void,
+  (e: 'input-finished'): void
   (e: 'update:modelValue', value: Address): void
 }>()
-
 
 const address = defineModel<Address>({
   required: false,
@@ -140,7 +139,10 @@ const onCityInput = (city: string) => {
         @update:model-value="onCityInput"
       />
     </div>
-    <ErrorMessage :name="name" class="error" />
+    <ErrorMessage
+      :name="name"
+      class="error"
+    />
   </div>
 </template>
 
