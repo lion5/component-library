@@ -55,7 +55,7 @@ const streetValidationRules = computed(() => {
     .nullable()
     .test(
       props.streetFieldName ?? `${props.name}.street`,
-      'Geben Sie bitte Straßenname mit Hausnummer ein. Bsp.: An der Weberei 5',
+      'Geben Sie bitte einen Straßennamen mit Hausnummer ein. Bsp.: An der Weberei 5',
       (value) => value === undefined || value === null || isValidStreet(value)
     )
 })
