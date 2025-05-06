@@ -1,3 +1,13 @@
+## 0.27.1 (2025-05-06)
+
+### 🩹 Fixes
+
+- **AddressInputValidated:** formatting ([8b6f357](https://github.com/lion5/component-library/commit/8b6f357))
+
+### ❤️ Thank You
+
+- Roman Kudravcev
+
 ## 0.27.0 (2025-04-01)
 
 ### 🚀 Features
