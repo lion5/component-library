@@ -177,7 +177,7 @@ const errorObjects = computed(() => {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--color-neutral-600);
+      color: var(--color-neutral-700);
       transform-origin: left center;
       transition: 0.15s ease-out;
       transition-property: top, margin-top, transform, font-size;
