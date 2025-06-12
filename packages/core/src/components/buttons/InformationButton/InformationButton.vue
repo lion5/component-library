@@ -1,5 +1,5 @@
 <template>
-  <IconButton class="information-button" @click="showModal = true">
+  <IconButton class="information-button" @click="showModal = true" aria-label="Information Button">
     <IconInfoCircle />
   </IconButton>
   <DismissibleModal
