@@ -8,6 +8,7 @@
         type="file"
         :accept="accept"
         :multiple="multiselect"
+        aria-label="Add Image Card"
         @change="addImage"
       />
       <label :for="inputId">
