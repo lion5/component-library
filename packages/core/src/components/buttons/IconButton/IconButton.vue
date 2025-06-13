@@ -5,6 +5,7 @@
     type="button"
     v-bind="$attrs"
     :disabled="disabled"
+    aria-label="Button"
   >
     <ArrowRotateLoadingAnimation v-if="busy" />
     <!-- @slot the icon that shall be displayed -->

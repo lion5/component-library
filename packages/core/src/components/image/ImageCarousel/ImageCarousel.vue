@@ -1,10 +1,10 @@
 <template>
   <div class="image-carousel" ref="carouselWrapper">
-    <button class="left-arrow" @click="toPreviousImage">
+    <button class="left-arrow" @click="toPreviousImage" aria-label="Previous Image">
       <IconChevronLeft />
     </button>
     <BaseImage :image="selectedImage" @click="emit('click')" />
-    <button class="right-arrow" @click="toNextImage">
+    <button class="right-arrow" @click="toNextImage" aria-label="Next Image">
       <IconChevronRight />
     </button>
   </div>
