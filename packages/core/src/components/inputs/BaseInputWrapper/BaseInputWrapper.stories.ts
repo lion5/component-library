@@ -1,5 +1,5 @@
 import BaseInputWrapper from './BaseInputWrapper.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: BaseInputWrapper,

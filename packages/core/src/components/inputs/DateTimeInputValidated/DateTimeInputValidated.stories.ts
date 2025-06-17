@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Form } from 'vee-validate'
 import DateTimeInput from './DateTimeInputValidated.vue'
 import { useDate } from '@core/composables/useDate'

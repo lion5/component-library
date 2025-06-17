@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import ImageEditModal from './ImageEditModal.vue'
 import { ImageForm } from '../../../../models/image/imageForm'
 import { ImageConstraints } from '../../../../models/image/imageConstraints'

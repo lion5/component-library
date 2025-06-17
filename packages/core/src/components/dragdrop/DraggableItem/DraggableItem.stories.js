@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 import DraggableItem from '@core/components/dragdrop/DraggableItem/DraggableItem.vue'
 
 export default {

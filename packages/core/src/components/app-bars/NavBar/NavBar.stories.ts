@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import NavBar from './NavBar.vue'
 import { NavItem } from './navItem'
 import IconSettings from '@core/components/icons/IconSettings.vue'

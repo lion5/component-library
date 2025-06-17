@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import {
   WidgetConfiguration,
   WidgetSetting
@@ -7,7 +7,7 @@ import { TEMPLATE_WIDGET_WRAPPER } from '@/components/widgets/TemplateWidget/con
 import { GridWidget } from '@/models/gridWidget'
 import ConfigurableDashboard from '@/components/ConfigurableDashboard/ConfigurableDashboard.vue'
 import { ref } from 'vue'
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 import { IFRAME_WIDGET_WRAPPER } from '@/components/widgets/IFrameWidget/config'
 import { REFRESHABLE_IMAGE_WIDGET_WRAPPER } from '@/components/widgets/RefreshableImageWidget/config'
 

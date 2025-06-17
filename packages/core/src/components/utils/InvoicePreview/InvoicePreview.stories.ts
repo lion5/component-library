@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import InvoicePreview from './InvoicePreview.vue'
 import { Invoice } from './invoice'
 

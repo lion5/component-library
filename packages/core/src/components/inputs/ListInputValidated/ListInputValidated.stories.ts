@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import ListInputValidated from './ListInputValidated.vue'
 import { PillInputItem } from './pillInputItem'
 import { SearchResult } from '../SearchInputValidated/searchResult'

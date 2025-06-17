@@ -1,7 +1,7 @@
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 import BaseButton from '../../buttons/BaseButton/BaseButton.vue'
 import IconQRCode from '@core/components/icons/IconQRCode.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 const meta: Meta<typeof BaseButton> = {
   subcomponents: { IconQRCode },

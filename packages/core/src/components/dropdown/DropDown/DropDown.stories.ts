@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import DropDownItem from '../DropDownItem/DropDownItem.vue'
 import IconSettings from '../../icons/IconSettings.vue'
 import DropDown from './DropDown.vue'

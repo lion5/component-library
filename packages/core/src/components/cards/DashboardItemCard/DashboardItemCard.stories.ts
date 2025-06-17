@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import DashboardItem from './DashboardItemCard.vue'
 import { DashboardItem as DashboardItemClass } from './dashboardItem'
 

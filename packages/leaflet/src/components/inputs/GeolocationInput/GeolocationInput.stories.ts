@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Form } from 'vee-validate'
 import GeolocationInput from './GeolocationInput.vue'
 import { GpsLocation } from '@leaflet/models'

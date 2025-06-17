@@ -1,7 +1,7 @@
 import IconWallet from '@core/components/icons/IconWallet.vue'
 import ApprovalModal from '@core/components/modals/ApprovalModal/ApprovalModal.vue'
 import IconTrash from '@core/components/icons/IconTrash.vue'
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 
 /**
  * ApprovalModal can be configured via following css custom props

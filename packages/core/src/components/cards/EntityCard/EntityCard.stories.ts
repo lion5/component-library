@@ -1,5 +1,5 @@
 import EntityCard from '@core/components/cards/EntityCard/EntityCard.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: EntityCard,

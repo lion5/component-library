@@ -1,5 +1,5 @@
-import { Meta, StoryObj } from '@storybook/vue3'
-import { action } from '@storybook/addon-actions'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
+import { action } from 'storybook/actions'
 import ConfirmButton from './ConfirmButton.vue'
 
 export default {

@@ -1,7 +1,7 @@
 import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import { ImageSizes } from '@core/models/image/imageSizes'
 import { ref } from 'vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ImageResponse } from '@core/models/image/imageResponse'
 
 /**

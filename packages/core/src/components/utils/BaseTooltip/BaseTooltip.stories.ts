@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import BaseTooltip from './BaseTooltip.vue'
 import IconTrash from '../../icons/IconTrash.vue'
 import IconInfoCircle from '../../icons/IconTrash.vue'

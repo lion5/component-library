@@ -1,6 +1,6 @@
 import ImageDropArea from '@core/components/dragdrop/ImageDropArea/ImageDropArea.vue'
-import { action } from '@storybook/addon-actions'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { action } from 'storybook/actions'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: ImageDropArea,

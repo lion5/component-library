@@ -48,7 +48,7 @@ const localErrors = computed(() => {
   display: flex;
   gap: var(--space-sm);
   align-items: start;
-  color: var(--color-danger-600);
+  color: var(--color-danger-800);
 
   ul {
     margin: 0;

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import BaseInputV3 from './BaseInputV3.vue'
 import { BaseIcon } from '../../icons'
 

@@ -1,4 +1,4 @@
-import { Preview, setup } from '@storybook/vue3'
+import { Preview, setup } from '@storybook/vue3-vite'
 import './main.scss'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 

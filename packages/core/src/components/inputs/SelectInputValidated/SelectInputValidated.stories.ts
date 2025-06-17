@@ -1,5 +1,5 @@
 import SelectInputValidated from './SelectInputValidated.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { SelectOption } from '../BaseSelect/selectOption'
 import { Form } from 'vee-validate'
 import { number } from 'yup'

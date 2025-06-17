@@ -1,5 +1,5 @@
 import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ImageSizes } from '@core/models/image/imageSizes'
 import { ImageResponse } from '@core/models/image/imageResponse'
 

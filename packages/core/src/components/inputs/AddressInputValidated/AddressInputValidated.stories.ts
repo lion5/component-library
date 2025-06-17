@@ -1,9 +1,9 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import AddressInputValidated from './AddressInputValidated.vue'
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 import { Address } from '../../../models'
 import { string } from 'yup'
-import { userEvent } from '@storybook/test'
+import { userEvent } from 'storybook/test'
 import { formWrapper } from '../../../../.storybook/decorators'
 import { shallowRef } from 'vue'
 

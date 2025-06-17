@@ -1,5 +1,5 @@
 import ImageCarousel from './ImageCarousel.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { MinimalImage } from '../models/minimalImage'
 import { ref } from 'vue'
 
