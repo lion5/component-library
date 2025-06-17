@@ -3,6 +3,9 @@ name: Build
 on:
   pull_request:
 
+permissions:
+  contents: read
+
 env:
   NODE_VERSION: 22.x
 
