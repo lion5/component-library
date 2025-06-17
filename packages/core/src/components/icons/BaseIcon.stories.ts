@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import BaseIcon from './BaseIcon.vue'
 import IconClearDay from './weather/IconClearDay.vue'
 import IconClearNight from './weather/IconClearNight.vue'

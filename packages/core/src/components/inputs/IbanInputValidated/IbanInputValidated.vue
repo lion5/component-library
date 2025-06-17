@@ -76,8 +76,8 @@ const { value, handleBlur, meta, errors } = useField<string>(
 )
 const displayedValue = ref<string>('')
 
-const onInput = (inputValue: string) => {
-  value.value = toRawIBAN(inputValue)
+const onInput = (inputValue?: string) => {
+  value.value = toRawIBAN(inputValue ?? '')
 }
 
 watch(

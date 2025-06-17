@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ImageSizes } from '@core/models/image/imageSizes'
 import ImageThumbCarousel from './ImageThumbCarousel.vue'
 import { MultiScaleImage } from '../models/multiScaleImage'

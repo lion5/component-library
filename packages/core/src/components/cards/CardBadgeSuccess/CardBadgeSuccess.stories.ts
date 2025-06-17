@@ -1,6 +1,6 @@
 import CardBadgeSuccess from './CardBadgeSuccess.vue'
 import ItemCard from '../ItemCard/ItemCard.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: CardBadgeSuccess,

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import WakeLockToggle from './WakeLockToggle.vue'
 import { createPinia, setActivePinia } from 'pinia'
 

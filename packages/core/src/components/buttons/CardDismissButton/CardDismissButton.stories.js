@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 import CardDismissButton from '@core/components/buttons/CardDismissButton/CardDismissButton.vue'
 import ItemCard from '@core/components/cards/ItemCard/ItemCard.vue'
 

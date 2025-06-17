@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import LocationPermissionModal from './LocationPermissionModal.vue'
 import { ref } from 'vue'
 import { BaseButton } from '../../index'

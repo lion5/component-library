@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Form } from 'vee-validate'
 import IbanInput from './IbanInputValidated.vue'
 import { string } from 'yup'

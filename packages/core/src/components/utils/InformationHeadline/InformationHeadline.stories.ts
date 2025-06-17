@@ -1,6 +1,6 @@
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 import InformationHeadline from '@core/components/utils/InformationHeadline/InformationHeadline.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: InformationHeadline,

@@ -1,4 +1,4 @@
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 import ActionButton from '@core/components/buttons/ActionButton/ActionButton.vue'
 import IconArrowRepeat from '@core/components/icons/IconArrowRepeat.vue'
 

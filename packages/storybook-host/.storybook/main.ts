@@ -15,17 +15,18 @@ const config: StorybookConfig = {
     }
   ],
   addons: [
-    getAbsolutePath("@storybook/addon-links"),
-    getAbsolutePath("@storybook/addon-essentials"),
-    getAbsolutePath("@storybook/addon-interactions"),
-    getAbsolutePath("@storybook/addon-a11y")
+    getAbsolutePath('@storybook/addon-onboarding'),
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath("@storybook/addon-vitest"),
+    getAbsolutePath("@storybook/addon-docs"),
+    getAbsolutePath("@storybook/addon-designs")
   ],
   framework: {
     name: getAbsolutePath("@storybook/vue3-vite"),
     options: {}
   },
   docs: {
-    autodocs: true
+    defaultName: 'Documentation'
   },
   refs: {
     core: {

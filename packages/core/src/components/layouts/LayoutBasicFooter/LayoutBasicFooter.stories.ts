@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import LayoutBasicFooter from './LayoutBasicFooter.vue'
 import { CopyrightInfo } from './copyrightInfo'
 

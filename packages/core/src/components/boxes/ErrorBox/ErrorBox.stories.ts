@@ -1,5 +1,5 @@
 import ErrorBox from '../../boxes/ErrorBox/ErrorBox.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 /**
  * The error box should be used to display global errors that are not tied to a specific input field.

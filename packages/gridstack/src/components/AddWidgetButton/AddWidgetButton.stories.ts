@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import AddWidgetButton from './AddWidgetButton.vue'
 import { TEMPLATE_WIDGET_WRAPPER } from '@/components/widgets/TemplateWidget/config'
 

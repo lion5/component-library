@@ -1,5 +1,5 @@
 import IconArrowRepeat from '@core/components/icons/IconArrowRepeat.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import EndButtonWrapper from './EndButtonWrapper.vue'
 
 /**

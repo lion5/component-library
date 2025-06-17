@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import LeafletMap from './LeafletMap.vue'
 import { LatLng } from 'leaflet'
 

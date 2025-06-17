@@ -50,14 +50,5 @@ export default defineConfig({
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
-  },
-  test: {
-    coverage: {
-      reporter: ['lcovonly', 'cobertura'],
-      reportsDirectory: 'coverage'
-    },
-    globals: true,
-    environment: 'jsdom',
-    css: true
   }
 })

@@ -1,5 +1,4 @@
 import type { StorybookConfig } from '@storybook/vue3-vite'
-import { withoutVitePlugins } from '@storybook/builder-vite'
 
 import { dirname, join } from 'path'
 
@@ -15,9 +14,10 @@ const config: StorybookConfig = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
     getAbsolutePath('@storybook/addon-onboarding'),
-    getAbsolutePath('@storybook/addon-essentials'),
-    getAbsolutePath('@storybook/addon-interactions'),
-    getAbsolutePath('@storybook/addon-a11y')
+    getAbsolutePath('@storybook/addon-a11y'),
+    getAbsolutePath("@storybook/addon-vitest"),
+    getAbsolutePath("@storybook/addon-docs"),
+    getAbsolutePath("@storybook/addon-designs")
   ],
   framework: {
     name: getAbsolutePath('@storybook/vue3-vite'),
@@ -34,7 +34,10 @@ const config: StorybookConfig = {
   async viteFinal(config) {
     return {
       ...config,
-      plugins: await withoutVitePlugins(config.plugins, ['vite:dts'])
+      plugins: config.plugins?.filter(plugin => {
+        // Here, you can filter out plugins by name
+        return plugin?.name !== 'vite:dts'
+      })
     }
   }
 }

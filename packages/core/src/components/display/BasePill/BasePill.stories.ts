@@ -1,9 +1,15 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import BasePill from './BasePill.vue'
 
 export default {
   component: BasePill,
-  title: 'Display Components/BasePill'
+  title: 'Display Components/BasePill',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/YfCTIcFmFgKBCICwrlq2Cu/Lion5---Component-Library?node-id=141-313&t=G5uiRP9qCJCWrnJ1-1',
+    },
+  }
 } as Meta<typeof BasePill>
 type Story = StoryObj<typeof BasePill>
 

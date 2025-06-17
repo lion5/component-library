@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import LocationCoordinateSelect from './LocationCoordinateSelect.vue'
 
 export default {

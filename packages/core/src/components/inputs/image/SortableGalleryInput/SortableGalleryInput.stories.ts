@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import SortableGalleryInput from './SortableGalleryInput.vue'
 import { ImageForm } from '../../../../models/image/imageForm'
 import { ref } from 'vue'
