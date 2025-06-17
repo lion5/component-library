@@ -8,7 +8,6 @@ import { fileURLToPath } from 'node:url'
 import packageJson from './package.json'
 import { copyFileSync } from 'node:fs'
 import vueDevTools from 'vite-plugin-vue-devtools'
-import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -52,30 +51,4 @@ export default defineConfig({
       '@core': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  // test: {
-  //   // Moderne projects-basierte Konfiguration
-  //   projects: [
-  //     {
-  //       name: 'unit',
-  //       globals: true,
-  //       environment: 'jsdom',
-  //       css: true,
-  //       coverage: {
-  //         reporter: ['lcovonly', 'cobertura'],
-  //         reportsDirectory: 'coverage'
-  //       }
-  //     },
-  //     {
-  //       name: 'storybook',
-  //       plugins: [storybookTest({ configDir: resolve(__dirname, '.storybook') })],
-  //       browser: {
-  //         enabled: true,
-  //         headless: true,
-  //         provider: 'playwright',
-  //         instances: [{ browser: 'chromium' }]
-  //       },
-  //       setupFiles: ['.storybook/vitest.setup.ts']
-  //     }
-  //   ]
-  // }
 })

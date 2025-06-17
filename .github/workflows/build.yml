@@ -55,7 +55,7 @@ jobs:
       - name: Build Library
         run: npm run build
       - name: Run Unit Tests
-        run: npm run test
+        run: npm run test:unit
       - name: Run Package Tests
         run: |
           npm run package-check

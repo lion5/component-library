@@ -16,7 +16,7 @@
         />
         <BaseButton
           :disabled="disabled"
-          @click="() => $refs.fileInput.click()"
+          @click="() => ($refs.fileInput as HTMLInputElement)?.click()"
         >
           <template #icon-left>
             <BaseIcon icon="bi-upload" />

@@ -11,6 +11,17 @@ const preview: Preview = {
     },
     docs: {
       toc: true,
+      codePanel: true,
+      source: {
+        type: 'dynamic',
+      },
+    },
+    a11y: {
+      context: {
+        include: ['body'],
+        exclude: ['#__vue-devtools-container__'],
+      },
+      test: 'error'
     }
   },
   tags: ['autodocs']

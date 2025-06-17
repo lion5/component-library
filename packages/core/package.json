@@ -26,8 +26,8 @@
   "scripts": {
     "build": "vite build",
     "test:unit": "cross-env TZ=UTC vitest --config ./vitest.unit.config.ts run",
-    "test:storybook": "cross-env TZ=UTC vitest --config ./vitest.storybook.config.ts run",
-    "test:unit:ui": "cross-env TZ=UTC vitest --ui --project unit",
+    "test:unit:ui": "cross-env TZ=UTC vitest --ui --config ./vitest.unit.config.ts",
+    "test:storybook": "cross-env TZ=UTC vitest --config ./vitest.config.ts run",
     "type-check": "vue-tsc --noEmit --skipLibCheck",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
