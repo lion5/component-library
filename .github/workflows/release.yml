@@ -13,6 +13,9 @@ permissions:
   contents: write
   pull-requests: write
 
+env:
+  NODE_VERSION: 22.x
+
 jobs:
   github-release:
     runs-on: ubuntu-latest
@@ -88,9 +91,9 @@ jobs:
         with:
           ref: v${{ github.event.inputs.release_version }}
       # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: ${{ env.NODE_VERSION }}
           # Defaults to the user or organization that owns the workflow file
           scope: '@lion5'
           registry-url: 'https://npm.pkg.github.com'
@@ -102,9 +105,9 @@ jobs:
         run: npx nx release publish --registry https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: ${{ env.NODE_VERSION }}
           # Defaults to the user or organization that owns the workflow file
           scope: '@lion5'
           registry-url: 'https://registry.npmjs.org'
@@ -130,9 +133,9 @@ jobs:
         with:
           ref: v${{ github.event.inputs.release_version }}
       - name: Setup Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '18.x'
+          node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
           cache-dependency-path: '**/package-lock.json'
       - name: Install Packages
