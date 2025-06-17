@@ -81,6 +81,8 @@ jobs:
           cache: 'npm'
       - name: Install Packages
         run: npm ci
+      - name: Build Packages
+        run: npm run build
       - name: Run storybook tests
         run: npm run test:storybook
 
