@@ -45,6 +45,7 @@ const onDelete = () => {
         type="button"
         :disabled="busy"
         @click="onDelete"
+        aria-label="Schaltfläche Entlassen"
       >
         <ArrowRotateLoadingAnimation v-if="busy" />
         <BaseIcon

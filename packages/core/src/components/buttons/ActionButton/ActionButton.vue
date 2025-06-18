@@ -11,6 +11,7 @@ withDefaults(defineProps<{ busy?: boolean; disabled?: boolean }>(), {
     :class="{ 'action-button': true, busy: busy }"
     v-bind="$attrs"
     :disabled="disabled || busy"
+    aria-label="Aktion durchführen"
   >
     <!-- @slot the icon that shall be displayed -->
     <slot />

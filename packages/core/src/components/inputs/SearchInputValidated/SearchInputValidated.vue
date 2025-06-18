@@ -25,6 +25,7 @@
           class="postfix-icon clear-button"
           type="button"
           @click="clearInput"
+          aria-label="Suche"
         >
           <BaseIcon icon="bi-x-circle" />
         </IconButton>

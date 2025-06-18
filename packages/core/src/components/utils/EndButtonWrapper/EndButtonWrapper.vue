@@ -5,6 +5,7 @@
       class="add-button"
       filled
       @click="emit('btn-click')"
+      aria-label="Schaltfläche hinzufügen"
     >
       <i :class="iconClass" />
     </IconButton>

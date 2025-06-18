@@ -1,7 +1,7 @@
 <template>
   <TopBar :title="title">
     <template #start>
-      <IconButton @click="onBackClick">
+      <IconButton @click="onBackClick" aria-label="Zurück Link">
         <IconArrowBack />
       </IconButton>
     </template>

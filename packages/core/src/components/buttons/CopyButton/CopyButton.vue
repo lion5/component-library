@@ -4,6 +4,7 @@
     :class="{ success }"
     :disabled="success"
     @click="copyToClipboard"
+    aria-label="Schaltfläche Kopieren"
   >
     <IconCopy v-if="extensiveSuccess || !success" />
     <span v-if="success">

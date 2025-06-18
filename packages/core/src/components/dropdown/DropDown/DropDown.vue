@@ -1,6 +1,6 @@
 <template>
   <div class="drop-down">
-    <IconButton ref="triggerButton" class="trigger" @click="onClick">
+    <IconButton ref="triggerButton" class="trigger" @click="onClick" aria-label="Dropdown öffnen">
       <slot name="dropDownIcon">
         <IconThreeDotsMenu />
       </slot>
