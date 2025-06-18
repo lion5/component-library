@@ -6,7 +6,7 @@
   <button
     class="delete-badge"
     type="button"
-    aria-label="Delete Button"
+    aria-label="Schaltfläche Entlassen"
     @click.capture="$emit('dismiss')"
   >
     <slot name="icon">
