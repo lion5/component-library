@@ -8,7 +8,7 @@
         @keydown="onKeyDown"
         @input="onInput"
         :list="`${name}-list`"
-        aria-label="Location Input"
+        aria-label="Standort Eingabe"
       />
       <label :for="name">{{ label }}</label>
       <datalist :id="`${name}-list`">
