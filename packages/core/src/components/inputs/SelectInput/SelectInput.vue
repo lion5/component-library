@@ -26,6 +26,7 @@
       track-by="key"
       v-bind="$attrs"
       @select="updateModelValue"
+      :aria-labelledby="`${name}-label`"
     >
       <template v-for="(_, name) in $slots" #[name]>
         <slot :name="name" />
@@ -65,7 +66,7 @@
         </div>
       </template>
     </multiselect>
-    <label :for="name" class="floating-label-active">{{ label }}</label>
+    <label :id="`${name}-label`" :for="name" class="floating-label-active">{{ label }}</label>
     <ErrorBox :errors="errorObjects" class="error-box" />
   </div>
 </template>
