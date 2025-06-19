@@ -28,7 +28,7 @@ export const Default: Story = {
     value: true,
     image: new ImageResponse(
       undefined,
-      undefined,
+      'Default Image',
       new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')
     ),
     aspectRatio: '4/3'
