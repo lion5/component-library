@@ -1,6 +1,7 @@
 <template>
   <nav>
     <ul>
+      <li>
       <RouterLink
         v-for="navItem in navItems"
         :key="navItem.label"
@@ -9,6 +10,7 @@
         <component v-if="navItem.icon" :is="navItem.icon" />
         <span>{{ navItem.label }}</span>
       </RouterLink>
+      </li>
     </ul>
   </nav>
 </template>
@@ -26,7 +28,7 @@ nav {
   box-shadow: var(--shadow-600);
   overflow: hidden;
 
-  ul {
+  li {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
