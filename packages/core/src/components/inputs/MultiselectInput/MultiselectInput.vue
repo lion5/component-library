@@ -26,6 +26,7 @@
       v-bind="$attrs"
       @remove="removeOption"
       @select="selectOption"
+      :aria-labelledby="`${id}-label`"
     >
       <template
         v-for="(_, name) in $slots"
@@ -77,6 +78,7 @@
     </multiselect>
     <label
       :for="id"
+      :id="`${id}-label`"
       class="floating-label-active"
     >
       {{ label }}
