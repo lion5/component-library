@@ -7,7 +7,9 @@
           {{ _copyright.companyName }}
         </a>
       </li>
+      <li>
       <RouterLink :to="{ name: 'Imprint' }"> Impressum </RouterLink>
+      </li>
     </ul>
   </footer>
 </template>
