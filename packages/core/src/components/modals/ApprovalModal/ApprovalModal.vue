@@ -19,6 +19,7 @@
       <BaseButton
         class="approve-button"
         @click="approve"
+        aria-label="Schaltfläche Genehmigen"
       >
         {{ buttonLabel }}
       </BaseButton>
@@ -86,7 +87,6 @@ const approve = () => {
     align-self: start;
   }
 }
-
 
 h2 {
   margin: 0;

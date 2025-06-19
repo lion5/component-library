@@ -31,7 +31,7 @@ const Template = (args, { argTypes }) => ({
       @approve='onApprove'
     >
       <template #trigger='{openModal}'>
-        <button @click='openModal'>
+        <button aria-label="test" @click='openModal'>
           <IconTrash />
         </button>
       </template>
