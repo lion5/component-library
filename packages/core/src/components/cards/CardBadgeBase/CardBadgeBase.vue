@@ -14,10 +14,7 @@
   align-items: center;
   padding: 0.25rem 1rem;
   border-start-start-radius: var(--border-radius-md);
-  color: var(--image-card-badge-color, var(--color-success));
-  background-color: var(
-    --image-card-badge-background-color,
-    var(--color-surface-2)
-  );
+  color: var(--image-card-badge-color, var(--color-success-800));
+  background-color: var(--image-card-badge-background-color, var(--color-surface-2));
 }
 </style>

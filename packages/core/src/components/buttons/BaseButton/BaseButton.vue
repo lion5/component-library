@@ -99,13 +99,13 @@ const localVariant = computed(() => {
   --color-button-background-hover: var(--color-primary-hover);
 
   &.secondary {
-    --color-button-background: var(--color-neutral-600);
-    --color-button-background-hover: var(--color-neutral-700);
+    --color-button-background: var(--color-neutral-700);
+    --color-button-background-hover: var(--color-neutral-800);
   }
 
   &.success {
-    --color-button-background: var(--color-success);
-    --color-button-background-hover: var(--color-success-hover);
+    --color-button-background: var(--color-success-800);
+    --color-button-background-hover: var(--color-success-900);
   }
 
   &.warning {
