@@ -25,8 +25,8 @@
       label="label"
       track-by="key"
       v-bind="$attrs"
-      @select="updateModelValue"
       :aria-labelledby="`${name}-label`"
+      @select="updateModelValue"
     >
       <template v-for="(_, name) in $slots" #[name]>
         <slot :name="name" />

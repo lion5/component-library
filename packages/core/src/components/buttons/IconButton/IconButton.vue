@@ -5,6 +5,7 @@
     type="button"
     v-bind="$attrs"
     :disabled="disabled"
+    :aria-label="label"
   >
     <ArrowRotateLoadingAnimation v-if="busy" />
     <!-- @slot the icon that shall be displayed -->
@@ -27,7 +28,11 @@ const props = defineProps<{
   /**
    * Whether the button is filled.
    */
-  filled?: boolean
+  filled?: boolean,
+  /**
+   * The aria-label for the button, used for accessibility.
+   */
+  label: string
 }>()
 
 const disabled = computed(() => props.disabled || props.busy)

@@ -21,6 +21,7 @@
         v-if="!image.busy"
         :tabindex="0"
         class="delete-button"
+        label="Bild entfernen"
         @dismiss="setRemoved"
       />
     </template>

@@ -2,7 +2,7 @@
   <div class="image-slider">
     <button
       class="left-arrow"
-      aria-label="Linker Pfeil"
+      aria-label="Vorherige Bilder"
       :disabled="arrivedState.left"
       @click="x -= scrollWidth"
     >
@@ -24,7 +24,7 @@
     </div>
     <button
       class="right-arrow"
-      aria-label="Pfeil rechts"
+      aria-label="Weitere Bilder"
       :disabled="arrivedState.right"
       @click="x += scrollWidth"
     >

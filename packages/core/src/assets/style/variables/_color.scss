@@ -103,7 +103,7 @@
 
 // Special Colors
 :root {
-  --color-primary: hsl(var(--primary-hue, 220) var(--primary-saturation, 30%) var(--primary-lightness, 40%));
+  --color-primary: hsl(var(--primary-hue, 220) var(--primary-saturation, 30%) var(--primary-lightness, 30%));
   --color-primary-surface: var(--color-primary-100);
   --color-primary-hover: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-lightness) - 10%));
 

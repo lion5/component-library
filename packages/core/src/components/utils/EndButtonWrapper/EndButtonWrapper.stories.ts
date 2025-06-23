@@ -24,6 +24,7 @@ type Story = StoryObj<typeof EndButtonWrapper>
 
 export const Default: Story = {
   args: {
-    iconClass: 'bi-plus-lg'
+    iconClass: 'bi-plus-lg',
+    label: 'Add',
   }
 }

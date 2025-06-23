@@ -34,7 +34,7 @@ const props = defineProps({
         v-if="!editMode && !props.readOnly"
         class="edit-button"
         @click="editMode = true"
-        aria-label="Schaltfläche Bearbeiten"
+        label="Bearbeiten"
       >
         <BaseIcon icon="bi-pencil" />
       </IconButton>
@@ -42,7 +42,7 @@ const props = defineProps({
         v-if="editMode"
         class="cancel-button"
         @click="editMode = false"
-        aria-label="Schaltfläche Abbrechen"
+        label="Abbrechen"
       >
         <BaseIcon icon="bi-x-lg" />
       </IconButton>

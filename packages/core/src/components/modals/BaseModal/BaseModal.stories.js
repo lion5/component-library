@@ -24,7 +24,7 @@ const Template = (args, { argTypes }) => ({
     return { args }
   },
   template: `
-    <ActionButton @click='args.modalDisplayed=true'>
+    <ActionButton label="Open Modal" @click='args.modalDisplayed=true'>
       <IconWallet />
     </ActionButton>
     <BaseModal v-model:modal-displayed='args.modalDisplayed'>

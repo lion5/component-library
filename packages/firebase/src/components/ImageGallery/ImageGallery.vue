@@ -21,6 +21,7 @@
       v-if="modalDisplayed"
       v-model:modalDisplayed="modalDisplayed"
       class="gallery-modal"
+      dismissButtonLabel="Schließen"
     >
       <button v-if="!isOneImage" @click="previousImage">
         <i class="bi bi-chevron-left"></i>

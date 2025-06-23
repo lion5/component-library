@@ -8,6 +8,7 @@ describe('EndButtonWrapper.vue', () => {
   beforeEach(() => {
     wrapper = mount(EndButtonWrapper, {
       props: {
+        label: 'Test Button',
         iconClass: 'icon-class'
       }
     })

@@ -21,8 +21,7 @@ type Story = StoryObj<typeof IconButton>
 
 export const Default: Story = {
   args: {
-    label: 'Pill Input',
-    "aria-label": 'Test Icon Button',
+    label: 'Icon Button',
   }
 }
 

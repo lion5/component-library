@@ -1,5 +1,9 @@
 <template>
-  <DismissibleModal v-model:modal-displayed="showModal" class="image-modal">
+  <DismissibleModal
+    v-model:modal-displayed="showModal"
+    class="image-modal"
+    dismiss-button-label="Schließen"
+  >
     <template #default>
       <div
         :style="{ '--image-edit-input-aspect-ratio': aspectRatio }"

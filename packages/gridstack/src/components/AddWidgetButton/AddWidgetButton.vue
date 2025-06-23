@@ -7,6 +7,7 @@
     v-if="modalDisplayed"
     class="add-widget-modal"
     v-model:modal-displayed="modalDisplayed"
+    dismiss-button-label="Abbrechen"
   >
     <h1 class="headline">Widget-Auswahl</h1>
     <div class="available-widgets">

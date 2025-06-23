@@ -13,6 +13,7 @@
     />
     <EndButtonWrapper
       icon-class="bi-plus-lg"
+      :label="addButtonLabel"
       @btn-click="emit('openCreationModal')"
     >
       <SearchInputValidated
@@ -75,9 +76,14 @@ const props = withDefaults(
      * The validation rules for the input (used for VeeValidate).
      */
     validationRules?: RuleExpression<PillInputItem[]>
+    /**
+     * Label for the button to add a new item. Only for a11y.
+     */
+    addButtonLabel?: string
   }>(),
   {
-    validationRules: undefined
+    validationRules: undefined,
+    addButtonLabel: 'Neues Element hinzufügen',
   }
 )
 

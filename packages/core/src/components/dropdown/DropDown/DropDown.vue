@@ -1,6 +1,6 @@
 <template>
   <div class="drop-down">
-    <IconButton ref="triggerButton" class="trigger" @click="onClick" aria-label="Dropdown öffnen">
+    <IconButton ref="triggerButton" class="trigger" @click="onClick" :label="dropdownButtonLabel">
       <slot name="dropDownIcon">
         <IconThreeDotsMenu />
       </slot>
@@ -15,6 +15,19 @@
 import { ref } from 'vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 import IconThreeDotsMenu from '@core/components/icons/IconThreeDotsMenu.vue'
+
+
+withDefaults(
+  defineProps<{
+    /**
+     * The label for the dropdown button, used for accessibility.
+     */
+    dropdownButtonLabel?: string
+  }>(),
+  {
+    dropdownButtonLabel: 'Kontextmenü öffnen'
+  }
+)
 
 const triggerButton = ref()
 const onClick = () => {

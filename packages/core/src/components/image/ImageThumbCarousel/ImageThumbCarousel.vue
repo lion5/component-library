@@ -9,6 +9,7 @@
     <DismissibleModal
       v-if="modalMode"
       v-model:modalDisplayed="modalMode"
+      dismiss-button-label="Schließen"
     >
       <ImageCarousel
         :images="fullScreenImages"

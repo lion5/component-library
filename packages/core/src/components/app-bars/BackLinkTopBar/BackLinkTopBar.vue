@@ -1,7 +1,10 @@
 <template>
   <TopBar :title="title">
     <template #start>
-      <IconButton @click="onBackClick" aria-label="Zurück Link">
+      <IconButton
+        :label="backButtonLabel"
+        @click="onBackClick"
+      >
         <IconArrowBack />
       </IconButton>
     </template>
@@ -16,9 +19,12 @@ import IconArrowBack from '@core/components/icons/IconArrowBack.vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 import TopBar from '@core/components/app-bars/TopBar/TopBar.vue'
 
-defineProps<{
-  title: string
-}>()
+withDefaults(defineProps<{
+  title: string,
+  backButtonLabel?: string
+}>(), {
+  backButtonLabel: 'Zurück zur vorherigen Seite'
+})
 
 const router = useRouter()
 const onBackClick = () => {

@@ -4,8 +4,8 @@
     <IconButton
       class="add-button"
       filled
+      :label="label"
       @click="emit('btn-click')"
-      aria-label="Schaltfläche hinzufügen"
     >
       <i :class="iconClass" />
     </IconButton>
@@ -20,7 +20,11 @@ defineProps<{
   /**
    * Sets the icon class for the button.
    */
-  iconClass: string
+  iconClass: string,
+  /**
+   * The label for the button. Used for accessibility only.
+   */
+  label: string
 }>()
 
 const emit = defineEmits<{

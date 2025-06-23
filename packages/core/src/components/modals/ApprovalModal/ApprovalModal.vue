@@ -10,6 +10,7 @@
   <DismissibleModal
     v-model:modal-displayed="localModalDisplayed"
     class="approval-modal"
+    dismiss-button-label="Abbrechen"
     v-bind="$attrs"
   >
     <div class="content">
@@ -19,7 +20,6 @@
       <BaseButton
         class="approve-button"
         @click="approve"
-        aria-label="Schaltfläche Genehmigen"
       >
         {{ buttonLabel }}
       </BaseButton>
