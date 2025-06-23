@@ -1,6 +1,7 @@
 import type { StorybookConfig } from '@storybook/vue3-vite'
 
 import { dirname, join } from 'path'
+import { resolve } from 'node:path'
 
 /**
  * This function is used to resolve the absolute path of a package.
@@ -15,9 +16,9 @@ const config: StorybookConfig = {
   addons: [
     getAbsolutePath('@storybook/addon-onboarding'),
     getAbsolutePath('@storybook/addon-a11y'),
-    getAbsolutePath("@storybook/addon-vitest"),
-    getAbsolutePath("@storybook/addon-docs"),
-    getAbsolutePath("@storybook/addon-designs")
+    getAbsolutePath('@storybook/addon-vitest'),
+    getAbsolutePath('@storybook/addon-docs'),
+    getAbsolutePath('@storybook/addon-designs')
   ],
   framework: {
     name: getAbsolutePath('@storybook/vue3-vite'),
@@ -32,6 +33,15 @@ const config: StorybookConfig = {
     defaultName: 'Documentation'
   },
   async viteFinal(config) {
+    if (config.resolve === undefined) {
+      config.resolve = {
+        alias: {}
+      }
+    }
+    config.resolve.alias = {
+      ...config.resolve?.alias,
+      'firebase/storage': resolve(__dirname, './firebase.mock.ts')
+    }
     return {
       ...config,
       plugins: config.plugins?.filter(plugin => {
