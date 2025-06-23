@@ -1,3 +1,18 @@
+## 0.28.0 (2025-06-23)
+
+### 🚀 Features
+
+- Improve accessibility ([526fa9c](https://github.com/lion5/component-library/commit/526fa9c))
+
+### 🩹 Fixes
+
+- change default primary color to provide a higher contrast to bg color ([051ce02](https://github.com/lion5/component-library/commit/051ce02))
+- add firebase storage mocks for ImageGallery story ([1dcfd41](https://github.com/lion5/component-library/commit/1dcfd41))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.27.1 (2025-05-06)
 
 ### 🩹 Fixes
