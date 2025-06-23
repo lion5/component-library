@@ -21,7 +21,7 @@ const preview: Preview = {
         include: ['body'],
         exclude: ['#__vue-devtools-container__'],
       },
-      test: 'error'
+      test: 'error',
     }
   },
   tags: ['autodocs']

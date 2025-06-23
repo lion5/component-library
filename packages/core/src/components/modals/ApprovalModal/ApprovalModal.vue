@@ -10,6 +10,7 @@
   <DismissibleModal
     v-model:modal-displayed="localModalDisplayed"
     class="approval-modal"
+    dismiss-button-label="Abbrechen"
     v-bind="$attrs"
   >
     <div class="content">
@@ -86,7 +87,6 @@ const approve = () => {
     align-self: start;
   }
 }
-
 
 h2 {
   margin: 0;

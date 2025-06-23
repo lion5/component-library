@@ -2,6 +2,7 @@
   <DismissibleModal
     class="settings-modal"
     v-model:modal-displayed="localModalDisplayed"
+    dismiss-button-label="Abbrechen"
   >
     <h1 class="headline">{{ widgetName }} Einstellungen</h1>
     <WidgetSettingsForm

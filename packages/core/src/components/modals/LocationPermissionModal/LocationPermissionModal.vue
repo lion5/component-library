@@ -1,8 +1,9 @@
 <template>
   <DismissibleModal
+    class="location-permission-modal"
+    dismiss-button-label="Abbrechen"
     :modal-displayed="visible"
     @update:modal-displayed="(value) => emit('update:visible', value)"
-    class="location-permission-modal"
   >
     <div class="content">
       <h3>Positionsfreigabe</h3>

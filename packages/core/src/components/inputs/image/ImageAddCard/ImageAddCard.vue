@@ -8,6 +8,7 @@
         type="file"
         :accept="accept"
         :multiple="multiselect"
+        :aria-label="`${multiselect ? 'Bilder hinzufügen' : 'Bild hinzufügen'}`"
         @change="addImage"
       />
       <label :for="inputId">

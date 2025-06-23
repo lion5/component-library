@@ -21,7 +21,7 @@ type Story = StoryObj<typeof IconButton>
 
 export const Default: Story = {
   args: {
-    label: 'Pill Input'
+    label: 'Icon Button',
   }
 }
 

@@ -4,6 +4,7 @@
     <IconButton
       class="add-button"
       filled
+      :label="label"
       @click="emit('btn-click')"
     >
       <i :class="iconClass" />
@@ -19,7 +20,11 @@ defineProps<{
   /**
    * Sets the icon class for the button.
    */
-  iconClass: string
+  iconClass: string,
+  /**
+   * The label for the button. Used for accessibility only.
+   */
+  label: string
 }>()
 
 const emit = defineEmits<{

@@ -16,7 +16,7 @@
   // Primary Color = Brand Color = Accent Color
   --_primary-hue-default: 200;
   --_primary-saturation-default: 100%;
-  --_primary-lightness-default: 60%;
+  --_primary-lightness-default: 35%;
   --primary-hue: var(--light-primary-hue, var(--_primary-hue-default));
   --primary-saturation: var(--light-primary-saturation, var(--_primary-saturation-default));
   --primary-lightness: var(--light-primary-lightness, var(--_primary-lightness-default)); // To be able to define the primary color more precisely we need to set the lightness here
@@ -103,7 +103,7 @@
 
 // Special Colors
 :root {
-  --color-primary: hsl(var(--primary-hue, 220) var(--primary-saturation, 30%) var(--primary-lightness, 40%));
+  --color-primary: hsl(var(--primary-hue, 220) var(--primary-saturation, 30%) var(--primary-lightness, 30%));
   --color-primary-surface: var(--color-primary-100);
   --color-primary-hover: hsl(var(--primary-hue) var(--primary-saturation) calc(var(--primary-lightness) - 10%));
 

@@ -6,6 +6,7 @@
   <button
     class="delete-badge"
     type="button"
+    :aria-label="label"
     @click.capture="$emit('dismiss')"
   >
     <slot name="icon">
@@ -13,20 +14,22 @@
     </slot>
   </button>
 </template>
-<script lang="ts">
+<script lang="ts" setup>
 /**
  * This is a card dismiss button to close or delete a card. It places automatically to the upper right corner when it is placed inside a grid container.
  */
-import { defineComponent } from 'vue'
 import IconX from '@core/components/icons/IconX.vue'
 
-export default defineComponent({
-  name: 'CardDismissButton',
-  components: {
-    IconX
-  },
-  emits: ['dismiss']
-})
+defineProps<{
+  /**
+   * The label for the button, used for accessibility.
+   */
+  label: string
+}>()
+
+defineEmits<{
+  (e: 'dismiss'): void
+}>()
 </script>
 <style lang="scss" scoped>
 .delete-badge {

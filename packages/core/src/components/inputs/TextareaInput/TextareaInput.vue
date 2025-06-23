@@ -216,7 +216,7 @@ const errorObjects = computed(() => {
     position: relative;
     float: right;
     display: block;
-    color: var(--color-neutral-500);
+    color: var(--color-neutral-700);
     margin-block-start: var(--space-xs);
   }
 }

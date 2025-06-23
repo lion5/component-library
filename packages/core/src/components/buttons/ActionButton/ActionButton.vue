@@ -1,16 +1,26 @@
 <script setup lang="ts">
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 
-withDefaults(defineProps<{ busy?: boolean; disabled?: boolean }>(), {
-  busy: false,
-  disabled: false
-})
+withDefaults(
+  defineProps<{
+    busy?: boolean,
+    disabled?: boolean,
+    /**
+     * The label for the button, used for accessibility.
+     */
+    label: string
+  }>(),
+  {
+    busy: false,
+    disabled: false,
+  })
 </script>
 <template>
   <IconButton
     :class="{ 'action-button': true, busy: busy }"
     v-bind="$attrs"
     :disabled="disabled || busy"
+    :label="label"
   >
     <!-- @slot the icon that shall be displayed -->
     <slot />

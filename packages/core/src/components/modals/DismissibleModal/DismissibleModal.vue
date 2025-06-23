@@ -6,6 +6,7 @@
   >
     <CardDismissButton
       class="hide-button"
+      :label="dismissButtonLabel"
       @dismiss="closeModal"
     />
     <slot
@@ -27,6 +28,10 @@ const props = withDefaults(
      * @model
      */
     modalDisplayed?: boolean
+    /**
+     * The label for the dismiss button, used for accessibility.
+     */
+    dismissButtonLabel: string
   }>(),
   { modalDisplayed: false }
 )

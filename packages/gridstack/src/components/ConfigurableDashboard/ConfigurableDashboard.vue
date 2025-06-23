@@ -19,6 +19,7 @@
     <DismissibleModal
       v-model:modalDisplayed="showSaveModal"
       class="basic-modal"
+      dismiss-button-label="Abbrechen"
     >
       <SaveDashboardModal
         v-if="showSaveModal"
@@ -29,6 +30,7 @@
     <DismissibleModal
       v-model:modal-displayed="showDeleteModal"
       class="basic-modal"
+      dismiss-button-label="Abbrechen"
     >
       <DeleteDashboardModal
         v-if="showDeleteModal"
