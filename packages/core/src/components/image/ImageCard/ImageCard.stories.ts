@@ -1,5 +1,5 @@
 import ImageCard from '@core/components/image/ImageCard/ImageCard.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ImageSizes } from '@core/models/image/imageSizes'
 import { ImageResponse } from '@core/models/image/imageResponse'
 
@@ -25,9 +25,9 @@ export const Default: Story = {
   args: {
     image: new ImageResponse(
       undefined,
-      undefined,
+      "Default Image",
       new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')
     ),
-    aspectRatio: '4/3'
+    aspectRatio: '4/3',
   }
 }

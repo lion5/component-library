@@ -9,6 +9,7 @@
     <DismissibleModal
       v-if="modalMode"
       v-model:modalDisplayed="modalMode"
+      dismiss-button-label="Schließen"
     >
       <ImageCarousel
         :images="fullScreenImages"
@@ -46,7 +47,8 @@ const thumbnails = computed(() =>
   props.images.map((image) => new MinimalImage(image.id, image.alt, image.sizes.small))
 )
 const selectedThumbnail = computed<MinimalImage>(() => thumbnails.value[currentIndex.value])
-const onThumbnailImageChange = (selectedImage: MinimalImage) => {
+const onThumbnailImageChange = (selectedImage: MinimalImage | undefined) => {
+  if (!selectedImage) return
   currentIndex.value = thumbnails.value.findIndex((image) => image.id === selectedImage.id)
 }
 

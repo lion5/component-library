@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import BackLinkTopBar from '../BackLinkTopBar/BackLinkTopBar.vue'
 
 export default {

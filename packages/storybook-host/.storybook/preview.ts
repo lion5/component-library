@@ -1,4 +1,4 @@
-import { Preview, setup } from '@storybook/vue3'
+import { Preview, setup } from '@storybook/vue3-vite'
 import './main.scss'
 import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
 
@@ -23,6 +23,20 @@ export const parameters = {
     storySort: {
       order: ['Welcome', 'Guide', '*', 'Pages']
     }
+  },
+  docs: {
+    toc: true,
+    codePanel: true,
+    source: {
+      type: 'dynamic',
+    },
+  },
+  a11y: {
+    context: {
+      include: ['body'],
+      exclude: ['#__vue-devtools-container__'],
+    },
+    test: 'error'
   }
 }
 

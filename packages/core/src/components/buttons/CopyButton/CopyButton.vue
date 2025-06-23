@@ -4,6 +4,7 @@
     :class="{ success }"
     :disabled="success"
     @click="copyToClipboard"
+    :label="label"
   >
     <IconCopy v-if="extensiveSuccess || !success" />
     <span v-if="success">
@@ -27,10 +28,15 @@ const props = withDefaults(
     /**
      * Shows a more extensive success message.
      */
-    extensiveSuccess?: boolean
+    extensiveSuccess?: boolean,
+    /**
+     * The label for the button, used for accessibility.
+     */
+    label?: string
   }>(),
   {
-    extensiveSuccess: false
+    extensiveSuccess: false,
+    label: 'In Zwischenablage kopieren'
   }
 )
 

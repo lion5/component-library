@@ -1,6 +1,6 @@
 import { ImageSizes } from '@core/models/image/imageSizes'
 import ImageGallery from '@core/components/image/ImageGallery/ImageGallery.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Gallery } from '@core/models/image/gallery'
 import { ImageResponse } from '@core/models/image/imageResponse'
 

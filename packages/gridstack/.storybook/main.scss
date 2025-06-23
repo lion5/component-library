@@ -1,32 +1,3 @@
 @use '../../core/src/assets/style/variables/index.scss' as *;
 @use '../../core/src/assets/style/icons.scss' as *;
 @use '@lion5/component-library/dist/index.css' as *;
-
-:root {
-  /* Overwrite light and dark theme */
-  --primary-hue: 200;
-  --primary-saturation: 100%;
-  --primary-lightness: 50%;
-
-  --success-hue: 110;
-  --success-saturation: 100%;
-
-  --danger-hue: 5;
-  --danger-saturation: 100%;
-
-  /* Overwrite light theme */
-  --light-primary-hue: 230;
-  --light-primary-saturation: 50%;
-  --light-primary-lightness: 50%;
-
-  --light-success-hue: 120;
-  --light-success-saturation: 120%;
-
-  --light-danger-hue: 5;
-  --light-danger-saturation: 5%;
-
-  /* Overwrite dark theme */
-  --dark-primary-hue: 50;
-  --dark-primary-saturation: 50%;
-  --dark-primary-lightness: 50%;
-}

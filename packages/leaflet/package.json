@@ -25,8 +25,9 @@
   ],
   "scripts": {
     "build": "vite build",
-    "test:unit": "cross-env TZ=UTC vitest run",
-    "test:unit:ui": "cross-env TZ=UTC vitest --ui",
+    "test:unit": "cross-env TZ=UTC vitest --config ./vitest.unit.config.ts run",
+    "test:unit:ui": "cross-env TZ=UTC vitest --ui --config ./vitest.unit.config.ts",
+    "test:storybook": "cross-env TZ=UTC vitest --config ./vitest.config.ts run",
     "type-check": "vue-tsc --noEmit --skipLibCheck",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",
@@ -74,15 +75,13 @@
   },
   "devDependencies": {
     "@arethetypeswrong/cli": "^0.17.3",
-    "@chromatic-com/storybook": "^3.2.4",
-    "@storybook/addon-a11y": "^8.5.3",
-    "@storybook/addon-essentials": "^8.5.3",
-    "@storybook/addon-interactions": "^8.5.3",
-    "@storybook/addon-onboarding": "^8.5.3",
-    "@storybook/blocks": "^8.5.3",
-    "@storybook/test": "^8.5.3",
-    "@storybook/vue3": "^8.5.3",
-    "@storybook/vue3-vite": "^8.5.3",
+    "@chromatic-com/storybook": "^4.0.0",
+    "@storybook/addon-a11y": "^9.0.10",
+    "@storybook/addon-designs": "^10.0.1",
+    "@storybook/addon-docs": "^9.0.10",
+    "@storybook/addon-onboarding": "^9.0.10",
+    "@storybook/addon-vitest": "^9.0.10",
+    "@storybook/vue3-vite": "^9.0.10",
     "@tsconfig/node22": "^22.0.0",
     "@types/dom-screen-wake-lock": "^1.0.3",
     "@types/jsdom": "^21.1.7",
@@ -106,7 +105,7 @@
     "prettier": "^3.4.2",
     "publint": "^0.3.2",
     "sass-embedded": "^1.83.4",
-    "storybook": "^8.5.3",
+    "storybook": "^9.0.11",
     "typescript": "~5.7.3",
     "vite": "^6.1.6",
     "vite-plugin-dts": "^4.5.0",
@@ -114,5 +113,8 @@
     "vitest": "^3.0.5",
     "vue-tsc": "^2.2.0"
   },
-  "gitHead": "4b5b01f298040c7d4206a67ab76b1b02fe7fe91e"
+  "gitHead": "4b5b01f298040c7d4206a67ab76b1b02fe7fe91e",
+  "overrides": {
+    "storybook": "$storybook"
+  }
 }

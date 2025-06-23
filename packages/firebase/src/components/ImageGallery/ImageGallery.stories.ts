@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import ImageGallery from './ImageGallery.vue'
 
 export default {
-  component: ImageGallery
+  component: ImageGallery,
 } as Meta<typeof ImageGallery>
 type Story = StoryObj<typeof ImageGallery>
 

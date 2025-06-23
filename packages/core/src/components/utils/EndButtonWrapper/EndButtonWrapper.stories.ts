@@ -1,5 +1,5 @@
 import IconArrowRepeat from '@core/components/icons/IconArrowRepeat.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import EndButtonWrapper from './EndButtonWrapper.vue'
 
 /**
@@ -24,6 +24,7 @@ type Story = StoryObj<typeof EndButtonWrapper>
 
 export const Default: Story = {
   args: {
-    iconClass: 'bi-plus-lg'
+    iconClass: 'bi-plus-lg',
+    label: 'Add',
   }
 }

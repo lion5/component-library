@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import FileInputValidated from './FileInputValidated.vue'
 import { ref } from 'vue'
 import { formWrapper } from '../../../../.storybook/decorators'

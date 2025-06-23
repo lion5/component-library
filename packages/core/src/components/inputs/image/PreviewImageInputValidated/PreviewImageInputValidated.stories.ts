@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import PreviewImageInput from './PreviewImageInputValidated.vue'
 import { ref } from 'vue'
 import { Form } from 'vee-validate'

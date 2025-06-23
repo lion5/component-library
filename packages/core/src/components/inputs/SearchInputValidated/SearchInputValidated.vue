@@ -24,6 +24,7 @@
           v-else
           class="postfix-icon clear-button"
           type="button"
+          label="Suche löschen"
           @click="clearInput"
         >
           <BaseIcon icon="bi-x-circle" />

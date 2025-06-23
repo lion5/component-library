@@ -1,7 +1,7 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Form } from 'vee-validate'
 import CodeInput from './CodeInputValidated.vue'
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 
 export default {
   component: CodeInput,

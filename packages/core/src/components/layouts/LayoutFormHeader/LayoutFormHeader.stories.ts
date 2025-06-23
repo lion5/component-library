@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import LayoutFormHeader from './LayoutFormHeader.vue'
 
 export default {

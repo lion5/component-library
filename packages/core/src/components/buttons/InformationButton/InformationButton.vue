@@ -1,10 +1,15 @@
 <template>
-  <IconButton class="information-button" @click="showModal = true">
+  <IconButton
+    class="information-button"
+    :label="label"
+    @click="showModal = true"
+  >
     <IconInfoCircle />
   </IconButton>
   <DismissibleModal
     v-model:modal-displayed="showModal"
     class="information-modal"
+    dismiss-button-label="Schließen"
   >
     <h2>{{ title }}</h2>
     <!-- @slot the modals content -->
@@ -22,12 +27,22 @@ import DismissibleModal from '@core/components/modals/DismissibleModal/Dismissib
  Additional information that are relevant for the first use but bloat the UI for advance users can be hidden behind a information button.
  */
 
-defineProps<{
-  /**
-   * the modals title
-   */
-  title: string
-}>()
+withDefaults(
+  defineProps<{
+    /**
+     * the modals title
+     */
+    title: string,
+    /**
+     * The label for the button, used for accessibility.
+     */
+    label?: string
+  }>(),
+  {
+    label: 'Mehr Informationen'
+  }
+)
+
 
 const showModal = ref<boolean>(false)
 </script>

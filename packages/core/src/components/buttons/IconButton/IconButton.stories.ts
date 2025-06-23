@@ -1,6 +1,6 @@
 import IconArrowRepeat from '@core/components/icons/IconArrowRepeat.vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: IconButton,
@@ -21,7 +21,7 @@ type Story = StoryObj<typeof IconButton>
 
 export const Default: Story = {
   args: {
-    label: 'Pill Input'
+    label: 'Icon Button',
   }
 }
 

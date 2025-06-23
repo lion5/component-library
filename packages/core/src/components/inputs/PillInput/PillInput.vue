@@ -7,7 +7,7 @@ import BaseIcon from '@core/components/icons/BaseIcon.vue'
 /**
  * A pill that displays a label and an icon.
  */
-defineProps<{
+withDefaults(defineProps<{
   /**
    * The label of the pill.
    */
@@ -19,8 +19,14 @@ defineProps<{
   /**
    * The icon class of the pill
    */
-  iconCls?: string
-}>()
+  iconCls?: string,
+  /**
+   * Aria-label for the delete button, used for accessibility.
+   */
+  deleteButtonLabel?: string
+}>(), {
+  deleteButtonLabel: 'Löschen'
+})
 
 const emit = defineEmits<{
   /**
@@ -44,6 +50,7 @@ const onDelete = () => {
         class="delete-button"
         type="button"
         :disabled="busy"
+        :label="deleteButtonLabel"
         @click="onDelete"
       >
         <ArrowRotateLoadingAnimation v-if="busy" />

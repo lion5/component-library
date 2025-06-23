@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import ContentGroup from './ContentGroup.vue'
 import BaseCard from '../../cards/BaseCard/BaseCard.vue'
 

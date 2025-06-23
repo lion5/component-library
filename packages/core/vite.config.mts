@@ -26,7 +26,7 @@ export default defineConfig({
         // correct extension supplied in the package.json exports field.
         copyFileSync('dist/index.d.ts', 'dist/index.d.mts')
       }
-    })
+    }),
   ],
   build: {
     lib: {
@@ -51,13 +51,4 @@ export default defineConfig({
       '@core': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
-  test: {
-    coverage: {
-      reporter: ['lcovonly', 'cobertura'],
-      reportsDirectory: 'coverage'
-    },
-    globals: true,
-    environment: 'jsdom',
-    css: true
-  }
 })

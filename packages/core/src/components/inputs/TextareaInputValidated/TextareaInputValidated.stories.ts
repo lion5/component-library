@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import TextareaInputValidated from './TextareaInputValidated.vue'
 import { Form } from 'vee-validate'
 import { number, string } from 'yup'

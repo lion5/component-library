@@ -1,5 +1,5 @@
-import { action } from '@storybook/addon-actions'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { action } from 'storybook/actions'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import ImageEditCardDraggable from './ImageEditCardDraggable.vue'
 import { ImageForm } from '../../../../models/image/imageForm'
 import { ImageSizes } from '@core/models/image/imageSizes'

@@ -4,6 +4,8 @@
       <input
         ref="locationInput"
         type="text"
+        :id="name"
+        :name="name"
         v-model="locationName"
         @keydown="onKeyDown"
         @input="onInput"

@@ -85,9 +85,9 @@ const emit = defineEmits<{
   (e: 'userInteracted', isTouched : boolean): void
 }>()
 
-const onInput = (value: string) => {
-  setValue(valueToSlug(value))
-  emit('update:slug', valueToSlug(value))
+const onInput = (value?: string) => {
+  setValue(valueToSlug(value ?? ''))
+  emit('update:slug', valueToSlug(value ?? ''))
 }
 
 watch(

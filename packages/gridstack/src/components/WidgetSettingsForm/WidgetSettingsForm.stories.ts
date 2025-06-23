@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import WidgetSettingsForm from '@/components/WidgetSettingsForm/WidgetSettingsForm.vue'
 import { FormField, FormSchema } from '@/models/formSchema'
 import {
@@ -9,7 +9,7 @@ import {
 } from '@lion5/component-library'
 import { number, string } from 'yup'
 import { WidgetSetting } from '@/models/widgetConfiguration'
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 
 /**
  * This component is used to generate the widgets edit form dynamically based on a form schema.

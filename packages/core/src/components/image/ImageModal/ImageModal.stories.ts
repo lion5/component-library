@@ -1,7 +1,7 @@
 import ImageModal from '@core/components/image/ImageModal/ImageModal.vue'
 import { ImageSizes } from '@core/models/image/imageSizes'
 import { ref } from 'vue'
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { ImageResponse } from '@core/models/image/imageResponse'
 
 /**
@@ -28,7 +28,7 @@ export const Default: Story = {
     value: true,
     image: new ImageResponse(
       undefined,
-      undefined,
+      'Default Image',
       new ImageSizes('https://dummyimage.com/400x300/d4d4d4/fff.png')
     ),
     aspectRatio: '4/3'

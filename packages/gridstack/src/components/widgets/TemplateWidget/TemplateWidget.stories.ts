@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import TemplateWidget from './TemplateWidget.vue'
 import { TemplateWidgetSetting } from './settings'
 

@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import NumberInputValidated from './NumberInputValidated.vue'
 import { formWrapper } from '../../../../.storybook/decorators'
 import { shallowRef } from 'vue'
-import { userEvent } from '@storybook/test'
+import { userEvent } from 'storybook/test'
 import { number } from 'yup'
 
 export default {

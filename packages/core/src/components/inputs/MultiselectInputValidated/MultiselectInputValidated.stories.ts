@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { SelectOption } from '../BaseSelect/selectOption'
 import { Form } from 'vee-validate'
 import MultiSelectInputValidated from './MultiselectInputValidated.vue'

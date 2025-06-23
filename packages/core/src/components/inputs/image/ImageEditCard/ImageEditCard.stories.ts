@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/vue3'
+import { Meta, StoryObj } from '@storybook/vue3-vite'
 import ImageEditCard from './ImageEditCard.vue'
 import { ImageForm } from '../../../../models/image/imageForm'
 import { ImageSizes } from '../../../../models/image/imageSizes'
