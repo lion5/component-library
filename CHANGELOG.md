@@ -1,3 +1,18 @@
+## 0.28.1 (2025-07-10)
+
+### 🚀 Features
+
+- **BaseButton:** add outline buttons ([75fec3e](https://github.com/lion5/component-library/commit/75fec3e))
+
+### 🩹 Fixes
+
+- **CheckboxInputV2Validated:** do not trigger input event twice ([b3d9434](https://github.com/lion5/component-library/commit/b3d9434))
+- **colors:** increase contrast of base colors ([a726457](https://github.com/lion5/component-library/commit/a726457))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.28.0 (2025-06-23)
 
 ### 🚀 Features
