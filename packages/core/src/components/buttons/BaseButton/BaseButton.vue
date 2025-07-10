@@ -22,7 +22,7 @@ const props = withDefaults(
      *
      * If you do not want that the check icon is displayed on success use the 'success-without-checkmark' variant
      */
-    variant?: string
+    variant?:  'primary' | 'secondary' | 'info' | 'warning' | 'danger' | 'success' | 'success-without-checkmark' | 'outline-primary' | 'outline-neutral' | 'outline-success' | 'outline-danger' | 'neutral'
     type?: 'button' | 'submit' | 'reset'
   }>(),
   {
@@ -99,13 +99,13 @@ const localVariant = computed(() => {
   --color-button-background-hover: var(--color-primary-hover);
 
   &.secondary {
-    --color-button-background: var(--color-neutral-700);
-    --color-button-background-hover: var(--color-neutral-800);
+    --color-button-background: var(--color-neutral);
+    --color-button-background-hover: var(--color-neutral-hover);
   }
 
   &.success {
-    --color-button-background: var(--color-success-800);
-    --color-button-background-hover: var(--color-success-900);
+    --color-button-background: var(--color-success);
+    --color-button-background-hover: var(--color-success-hover);
   }
 
   &.warning {
@@ -119,9 +119,8 @@ const localVariant = computed(() => {
   }
 
   &.neutral {
-    --color-button: var(--color-font);
-    --color-button-background: var(--color-neutral-300);
-    --color-button-background-hover: var(--color-neutral-500);
+    --color-button-background: var(--color-neutral);
+    --color-button-background-hover: var(--color-neutral);
   }
 
   &.outline-primary {
@@ -132,13 +131,40 @@ const localVariant = computed(() => {
     --color-button-outline: var(--color-primary);
   }
 
+  &.outline-neutral {
+    --color-button: var(--color-neutral);
+    --color-button-background: var(--color-white);
+    --color-button-background-hover: var(--color-neutral);
+    --color-button-hover: var(--color-white);
+    --color-button-outline: var(--color-neutral);
+  }
+
+  &.outline-success {
+    --color-button: var(--color-success);
+    --color-button-background: var(--color-white);
+    --color-button-background-hover: var(--color-success);
+    --color-button-hover: var(--color-white);
+    --color-button-outline: var(--color-success);
+  }
+
+  &.outline-danger {
+    --color-button: var(--color-danger);
+    --color-button-background: var(--color-white);
+    --color-button-background-hover: var(--color-danger);
+    --color-button-hover: var(--color-white);
+    --color-button-outline: var(--color-danger);
+  }
+
   &.primary,
   &.secondary,
   &.success,
   &.warning,
   &.danger,
+  &.neutral,
   &.outline-primary,
-  &.neutral {
+  &.outline-neutral,
+  &.outline-success,
+  &.outline-danger {
     background-color: var(--color-button-background);
     border-color: var(--color-button-background);
     color: var(--color-button);
@@ -164,7 +190,10 @@ const localVariant = computed(() => {
     }
   }
 
-  &.outline-primary {
+  &.outline-primary,
+  &.outline-neutral,
+  &.outline-success,
+  &.outline-danger {
     outline: 1px solid var(--color-button-outline) !important;
     background-color: transparent;
 
