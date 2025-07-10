@@ -3,56 +3,106 @@ import BaseButton from '../../buttons/BaseButton/BaseButton.vue'
 import IconQRCode from '@core/components/icons/IconQRCode.vue'
 import { Meta, StoryObj } from '@storybook/vue3-vite'
 
-const meta: Meta<typeof BaseButton> = {
+export default {
   subcomponents: { IconQRCode },
   component: BaseButton,
-  title: 'Navigation Components/BaseButton'
-}
-export default meta
+  title: 'Navigation Components/BaseButton',
+  parameters: {
+    design: {
+      type: 'figma',
+      url: 'https://www.figma.com/design/YfCTIcFmFgKBCICwrlq2Cu/Lion5---Component-Library?node-id=113-591&t=KnOOskVlJMUpt92M-1',
+    },
+  },
+  render: (args) => ({
+    components: { BaseButton },
+    setup() {
+      const click = action('click')
+      return { args, click }
+    },
+    template: `
+      <BaseButton v-bind="args" @click="click">
+        Slot Content
+      </BaseButton>`
+  }),
+  args: {
+    label: 'Money Pill',
+  }
+} as Meta<typeof BaseButton>
 type Story = StoryObj<typeof BaseButton>
 
-const Template = (args): Story => ({
-  components: { BaseButton },
-  setup() {
-    const click = action('click')
-    return { args, click }
-  },
-  template: `
-    <BaseButton v-bind="args" @click="click">
-      Slot Content
-    </BaseButton>`
-})
 
-export const Default = Template.bind({})
+export const Default: Story = {}
 
-export const Secondary = Template.bind({})
-Secondary.args = {
-  variant: 'secondary'
+/**
+ * @deprecated use `Neutral` instead
+ */
+export const Secondary = {
+  args: {
+    variant: 'secondary'
+  }
 }
 
-export const Success = Template.bind({})
-Success.args = {
-  variant: 'success'
+export const Neutral = {
+  args: {
+    variant: 'neutral'
+  }
 }
 
-export const Danger = Template.bind({})
-Danger.args = {
-  variant: 'danger'
+export const Success = {
+  args: {
+    variant: 'success'
+  }
 }
 
-export const OutlinePrimary = Template.bind({})
-OutlinePrimary.args = {
-  variant: 'outline-primary'
+/**
+ * @deprecated use `Warning` instead
+ */
+export const Warning = {
+  args: {
+    variant: 'warning'
+  }
 }
 
-export const Disabled = Template.bind({})
-Disabled.args = {
-  disabled: true
+export const Danger = {
+  args: {
+    variant: 'danger'
+  }
 }
 
-export const Loading = Template.bind({})
-Loading.args = {
-  loading: true
+export const OutlinePrimary = {
+  args: {
+    variant: 'outline-primary'
+  }
+}
+
+export const OutlineNeutral = {
+  args: {
+    variant: 'outline-neutral'
+  }
+}
+
+export const OutlineSuccess = {
+  args: {
+    variant: 'outline-success'
+  }
+}
+
+export const OutlineDanger = {
+  args: {
+    variant: 'outline-danger'
+  }
+}
+
+export const Disabled = {
+  args: {
+    disabled: true
+  }
+}
+
+export const Loading = {
+  args: {
+    loading: true
+  }
 }
 
 export const Icon = {

@@ -1,5 +1,10 @@
 <template>
-  <div :class="{ required: required }" class="checkbox-input-wrapper">
+  <div
+    :class="[
+      'checkbox-input-wrapper',
+      { required },
+      $attrs.class
+    ]">
     <input
       :id="name"
       :checked="checked"
@@ -28,6 +33,10 @@
 import { ErrorMessage, RuleExpression, useField } from 'vee-validate'
 import { computed } from 'vue'
 import { Schema } from 'yup'
+
+defineOptions({
+  inheritAttrs: false
+})
 
 const props = withDefaults(
   defineProps<{

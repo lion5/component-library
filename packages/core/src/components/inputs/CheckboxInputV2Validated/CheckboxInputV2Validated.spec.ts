@@ -50,7 +50,9 @@ describe('CheckboxInput', () => {
       const inputEl = wrapper.find('input')
 
       await inputEl.setChecked(true)
+      await flushPromises()
 
+      expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
       expect(wrapper.emitted('update:modelValue')?.at(0)).toEqual([true])
     })
     it(':update:modelValue - is triggered if checkbox is unchecked', async () => {
@@ -58,9 +60,9 @@ describe('CheckboxInput', () => {
       const inputEl = wrapper.find('input')
 
       await inputEl.setChecked(false)
-
       await flushPromises()
 
+      expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
       expect(wrapper.emitted('update:modelValue')?.at(0)).toEqual([undefined])
     })
   })

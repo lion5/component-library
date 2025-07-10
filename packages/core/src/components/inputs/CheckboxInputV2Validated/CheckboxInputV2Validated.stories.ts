@@ -2,10 +2,24 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 import { Form } from 'vee-validate'
 import CheckboxInputV2 from './CheckboxInputV2Validated.vue'
 import { boolean } from 'yup'
+import { formWrapper } from '../../../../.storybook/decorators'
+import { action } from 'storybook/actions'
 
 export default {
   component: CheckboxInputV2,
-  title: 'Input Components/CheckboxInputValidated'
+  title: 'Input Components/CheckboxInputValidated',
+  decorators: [
+    formWrapper
+  ],
+  render: (args) => ({
+    components: { CheckboxInputV2, Form },
+    setup() {
+      const onChange = action('change')
+      return { args, onChange }
+    },
+    template: `
+      <CheckboxInputV2 v-bind="args" @change="onChange" />`
+  })
 } as Meta<typeof CheckboxInputV2>
 type Story = StoryObj<typeof CheckboxInputV2>
 
@@ -25,16 +39,6 @@ export const UncheckedWithLabelOnly: Story = {
 }
 
 export const Checked: Story = {
-  render: (args: unknown) => ({
-    components: { CheckboxInputV2, Form },
-    setup() {
-      return { args }
-    },
-    template: `
-      <Form :initialValues='{input1: true}'>
-        <CheckboxInputV2 v-bind='args' />
-      </Form>`
-  }),
   args: {
     name: 'input1',
     label: 'This is a checkbox',
@@ -44,23 +48,14 @@ export const Checked: Story = {
 }
 
 export const Error: Story = {
-  render: (args: unknown) => ({
-    components: { CheckboxInputV2, Form },
-    setup() {
-      return { args }
-    },
-    template: `
-      <Form :initialValues='{"input-with-error": "DEABCDEFG"}'
-            :initialTouched='{"input-with-error": true}'
-            :validateOnMount='false'
-            :initialErrors='{"input-with-error": "This is an error"}'>
-        <CheckboxInputV2 v-bind='args' />
-      </Form>`
-  }),
   args: {
     name: 'input-with-error',
     label: 'This is a checkbox',
-    labelSmall: 'This is a small label'
+    labelSmall: 'This is a small label',
+    initialValues: { 'input-with-error': 'DEABCDEFG' },
+    initialTouched: { 'input-with-error': true },
+    validateOnMount: false,
+    initialErrors: { 'input-with-error': 'This is an error' }
   }
 }
 
