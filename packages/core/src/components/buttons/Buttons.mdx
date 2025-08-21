@@ -1,11 +1,11 @@
-import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Meta, Story } from '@storybook/addon-docs/blocks'
 
-import * as ActionButton from "./ActionButton/ActionButton.stories";
-import * as BaseButton from "./BaseButton/BaseButton.stories";
-import * as CardDismissButton from "./CardDismissButton/CardDismissButton.stories";
-import * as IconButton from "./IconButton/IconButton.stories";
-import * as InformationButton from "./InformationButton/InformationButton.stories";
-import * as ConfirmButton from "./ConfirmButton/ConfirmButton.stories";
+import * as ActionButton from './ActionButton/ActionButton.stories'
+import * as BaseButton from './BaseButton/BaseButton.stories'
+import * as CardDismissButton from './CardDismissButton/CardDismissButton.stories'
+import * as IconButton from './IconButton/IconButton.stories'
+import * as InformationButton from './InformationButton/InformationButton.stories'
+import * as ConfirmButton from './ConfirmButton/ConfirmButton.stories'
 
 <Meta title="Navigation Components/Buttons" />
 
@@ -14,25 +14,124 @@ Use buttons to trigger actions inside your application.
 
 ## Base Button
 The standard button.
-<div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-  <Story of={BaseButton.Default} />
-  <Story of={BaseButton.Neutral} />
-  <Story of={BaseButton.Success} />
-  <Story of={BaseButton.Warning} />
-  <Story of={BaseButton.Danger} />
+<div
+  style={{ display: 'grid', 'grid-template-columns': '1fr 1fr 1fr 1fr 1fr 1fr', gap: '1rem' }}>
+  <strong>Type</strong>
+  <strong>Primary</strong>
+  <strong>Neutral</strong>
+  <strong>Success</strong>
+  <strong>Warning</strong>
+  <strong>Danger</strong>
+  <strong>Filled</strong>
+  <Story of={BaseButton.FilledPrimary} />
+  <Story of={BaseButton.FilledNeutral} />
+  <Story of={BaseButton.FilledSuccess} />
+  <Story of={BaseButton.FilledWarning} />
+  <Story of={BaseButton.FilledDanger} />
+  <strong>Filled Busy</strong>
+  <Story of={BaseButton.FilledPrimaryBusy} />
+  <Story of={BaseButton.FilledNeutralBusy} />
+  <Story of={BaseButton.FilledSuccessBusy} />
+  <Story of={BaseButton.FilledWarningBusy} />
+  <Story of={BaseButton.FilledDangerBusy} />
+  <strong>Filled With Icon</strong>
+  <Story of={BaseButton.FilledPrimaryIcon} />
+  <Story of={BaseButton.FilledNeutralIcon} />
+  <Story of={BaseButton.FilledSuccessIcon} />
+  <Story of={BaseButton.FilledWarningIcon} />
+  <Story of={BaseButton.FilledDangerIcon} />
+  <strong>Filled Disabled</strong>
+  <Story of={BaseButton.FilledPrimaryDisabled} />
+  <Story of={BaseButton.FilledNeutralDisabled} />
+  <Story of={BaseButton.FilledSuccessDisabled} />
+  <Story of={BaseButton.FilledWarningDisabled} />
+  <Story of={BaseButton.FilledDangerDisabled} />
+  <strong>Outlined</strong>
   <Story of={BaseButton.OutlinePrimary} />
   <Story of={BaseButton.OutlineNeutral} />
   <Story of={BaseButton.OutlineSuccess} />
+  <Story of={BaseButton.OutlineWarning} />
   <Story of={BaseButton.OutlineDanger} />
-  <Story of={BaseButton.Disabled} />
-  <Story of={BaseButton.Loading} />
-  <Story of={BaseButton.Icon} />
-  <Story of={ConfirmButton.Default} />
+  <strong>Outlined Busy</strong>
+  <Story of={BaseButton.OutlinePrimaryBusy} />
+  <Story of={BaseButton.OutlineNeutralBusy} />
+  <Story of={BaseButton.OutlineSuccessBusy} />
+  <Story of={BaseButton.OutlineWarningBusy} />
+  <Story of={BaseButton.OutlineDangerBusy} />
+  <strong>Outlined With Icon</strong>
+  <Story of={BaseButton.OutlinePrimaryIcon} />
+  <Story of={BaseButton.OutlineNeutralIcon} />
+  <Story of={BaseButton.OutlineSuccessIcon} />
+  <Story of={BaseButton.OutlineWarningIcon} />
+  <Story of={BaseButton.OutlineDangerIcon} />
+  <strong>Outlined Disabled</strong>
+  <Story of={BaseButton.OutlinePrimaryDisabled} />
+  <Story of={BaseButton.OutlineNeutralDisabled} />
+  <Story of={BaseButton.OutlineSuccessDisabled} />
+  <Story of={BaseButton.OutlineWarningDisabled} />
+  <Story of={BaseButton.OutlineDangerDisabled} />
 </div>
 
 ## Icon Button
 Button that can display only one icon
-<Story of={IconButton.Default} />
+
+<div
+  style={{ display: 'grid', 'grid-template-columns': '1fr 1fr 1fr 1fr 1fr 1fr', gap: '1rem', justifyItems: 'center' }}>
+  <strong style={{justifySelf: 'start'}}>Type</strong>
+  <strong>Primary</strong>
+  <strong>Neutral</strong>
+  <strong>Success</strong>
+  <strong>Warning</strong>
+  <strong>Danger</strong>
+  <strong style={{justifySelf: 'start'}}>Plain</strong>
+  <Story of={IconButton.Primary} />
+  <Story of={IconButton.Neutral} />
+  <Story of={IconButton.Success} />
+  <Story of={IconButton.Warning} />
+  <Story of={IconButton.Danger} />
+  <strong style={{justifySelf: 'start'}}>Plain with label</strong>
+  <Story of={IconButton.PrimaryWithLabel} />
+  <Story of={IconButton.NeutralWithLabel} />
+  <Story of={IconButton.SuccessWithLabel} />
+  <Story of={IconButton.WarningWithLabel} />
+  <Story of={IconButton.DangerWithLabel} />
+  <strong style={{justifySelf: 'start'}}>Plain Disabled</strong>
+  <Story of={IconButton.PrimaryDisabled} />
+  <Story of={IconButton.NeutralDisabled} />
+  <Story of={IconButton.SuccessDisabled} />
+  <Story of={IconButton.WarningDisabled} />
+  <Story of={IconButton.DangerDisabled} />
+  <strong style={{justifySelf: 'start'}}>Plain Busy</strong>
+  <Story of={IconButton.PrimaryBusy} />
+  <Story of={IconButton.NeutralBusy} />
+  <Story of={IconButton.SuccessBusy} />
+  <Story of={IconButton.WarningBusy} />
+  <Story of={IconButton.DangerBusy} />
+  <strong style={{justifySelf: 'start'}}>Filled</strong>
+  <Story of={IconButton.PrimaryFilled} />
+  <Story of={IconButton.NeutralFilled} />
+  <Story of={IconButton.SuccessFilled} />
+  <Story of={IconButton.WarningFilled} />
+  <Story of={IconButton.DangerFilled} />
+  <strong style={{justifySelf: 'start'}}>Filled with Label</strong>
+  <Story of={IconButton.PrimaryFilledWithLabel} />
+  <Story of={IconButton.NeutralFilledWithLabel} />
+  <Story of={IconButton.SuccessFilledWithLabel} />
+  <Story of={IconButton.WarningFilledWithLabel} />
+  <Story of={IconButton.DangerFilledWithLabel} />
+  <strong style={{justifySelf: 'start'}}>Filled Disabled</strong>
+  <Story of={IconButton.PrimaryFilledDisabled} />
+  <Story of={IconButton.NeutralFilledDisabled} />
+  <Story of={IconButton.SuccessFilledDisabled} />
+  <Story of={IconButton.WarningFilledDisabled} />
+  <Story of={IconButton.DangerFilledDisabled} />
+  <strong style={{justifySelf: 'start'}}>Filled Busy</strong>
+  <Story of={IconButton.PrimaryFilledBusy} />
+  <Story of={IconButton.NeutralFilledBusy} />
+  <Story of={IconButton.SuccessFilledBusy} />
+  <Story of={IconButton.WarningFilledBusy} />
+  <Story of={IconButton.DangerFilledBusy} />
+</div>
 
 ## Action Button
 Should be used for FAB button or other for other main actions.
@@ -49,5 +148,3 @@ Opens a modal to provide additional information to a specific topic.
 ## Confirm Button
 Opens a modal to allow user to confirm user a action.
 <Story of={ConfirmButton.Default} />
-
-
