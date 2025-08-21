@@ -58,6 +58,7 @@ const disabled = computed(() => props.disabled || props.busy)
     class="icon-button"
     :class="{ filled, [props.variant]: props.variant }"
     v-bind="$attrs"
+    :aria-label="label"
   >
     <slot />
     <small v-if="displayLabel" class="label">{{ label }}</small>
@@ -68,6 +69,7 @@ const disabled = computed(() => props.disabled || props.busy)
     class="icon-button"
     :class="{ filled, [props.variant]: props.variant }"
     v-bind="$attrs"
+    :aria-label="label"
   >
     <slot />
     <small v-if="displayLabel" class="label">{{ label }}</small>
@@ -129,7 +131,7 @@ const disabled = computed(() => props.disabled || props.busy)
 
   // Filled variant overrides
   &.filled {
-    --_icon-button-color: var(--color-primary-100);
+    --_icon-button-color: var(--color-white);
 
     &.primary {
       --_icon-button-bg-color: var(--color-primary);
