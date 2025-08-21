@@ -31,41 +31,149 @@ export default {
 type Story = StoryObj<typeof BaseButton>
 
 
-export const Default: Story = {}
+export const FilledPrimary: Story = {}
 
-/**
- * @deprecated use `Neutral` instead
- */
-export const Secondary = {
-  args: {
-    variant: 'secondary'
-  }
-}
 
-export const Neutral = {
+
+export const FilledNeutral = {
   args: {
     variant: 'neutral'
   }
 }
 
-export const Success = {
+export const FilledSuccess = {
   args: {
     variant: 'success'
   }
 }
 
-/**
- * @deprecated use `Warning` instead
- */
-export const Warning = {
+export const FilledWarning = {
   args: {
     variant: 'warning'
   }
 }
 
-export const Danger = {
+export const FilledDanger = {
   args: {
     variant: 'danger'
+  }
+}
+
+
+export const FilledPrimaryBusy: Story = {
+  args: {
+    ...FilledPrimary.args,
+    busy: true
+  }
+}
+
+export const FilledNeutralBusy = {
+  args: {
+    ...FilledNeutral.args,
+    busy: true
+  }
+}
+
+export const FilledSuccessBusy = {
+  args: {
+    ...FilledSuccess.args,
+    busy: true
+  }
+}
+
+export const FilledWarningBusy = {
+  args: {
+    ...FilledWarning.args,
+    busy: true
+  }
+}
+
+export const FilledDangerBusy = {
+  args: {
+    ...FilledDanger.args,
+    busy: true
+  }
+}
+
+
+// Filled Disabled Variants
+export const FilledPrimaryDisabled: Story = {
+  args: {
+    ...FilledPrimary.args,
+    disabled: true
+  }
+}
+export const FilledNeutralDisabled: Story = {
+  args: {
+    ...FilledNeutral.args,
+    disabled: true
+  }
+}
+export const FilledSuccessDisabled: Story = {
+  args: {
+    ...FilledSuccess.args,
+    disabled: true
+  }
+}
+export const FilledWarningDisabled: Story = {
+  args: {
+    ...FilledWarning.args,
+    disabled: true
+  }
+}
+export const FilledDangerDisabled: Story = {
+  args: {
+    ...FilledDanger.args,
+    disabled: true
+  }
+}
+
+
+// Filled Icon Variants
+export const FilledPrimaryIcon: Story = {
+  render: (args) => ({
+    components: { BaseButton, IconQRCode },
+    setup() {
+      const click = action('click')
+      return { args, click }
+    },
+    template: `
+      <BaseButton v-bind="args" @click="click">
+        <template #icon-left>
+          <IconQRCode />
+        </template>
+        Slot Content
+      </BaseButton>`,
+    methods: {
+      click: action('click')
+    }
+  }),
+  args: {
+    ...FilledPrimary.args
+  }
+}
+export const FilledNeutralIcon: Story = {
+  render: FilledPrimaryIcon.render,
+  args: {
+    ...FilledNeutral.args
+  }
+}
+export const FilledSuccessIcon: Story = {
+  render: FilledPrimaryIcon.render,
+  args: {
+    ...FilledSuccess.args
+  }
+}
+export const FilledWarningIcon: Story = {
+  render: FilledPrimaryIcon.render,
+  args: {
+    ...FilledWarning.args
+  }
+}
+export const FilledDangerIcon: Story = {
+  render: FilledPrimaryIcon.render,
+  args: {
+    ...FilledDanger.args
   }
 }
 
@@ -87,30 +195,92 @@ export const OutlineSuccess = {
   }
 }
 
+export const OutlineWarning = {
+  args: {
+    variant: 'outline-warning'
+  }
+}
+
 export const OutlineDanger = {
   args: {
     variant: 'outline-danger'
   }
 }
 
-export const Disabled = {
+// Outline Busy Variants
+export const OutlinePrimaryBusy: Story = {
   args: {
+    ...OutlinePrimary.args,
+    busy: true
+  }
+}
+export const OutlineNeutralBusy: Story = {
+  args: {
+    ...OutlineNeutral.args,
+    busy: true
+  }
+}
+export const OutlineSuccessBusy: Story = {
+  args: {
+    ...OutlineSuccess.args,
+    busy: true
+  }
+}
+export const OutlineWarningBusy: Story = {
+  args: {
+    ...OutlineWarning.args,
+    busy: true
+  }
+}
+export const OutlineDangerBusy: Story = {
+  args: {
+    ...OutlineDanger.args,
+    busy: true
+  }
+}
+
+// Outline Disabled Variants
+export const OutlinePrimaryDisabled: Story = {
+  args: {
+    ...OutlinePrimary.args,
+    disabled: true
+  }
+}
+export const OutlineNeutralDisabled: Story = {
+  args: {
+    ...OutlineNeutral.args,
+    disabled: true
+  }
+}
+export const OutlineSuccessDisabled: Story = {
+  args: {
+    ...OutlineSuccess.args,
+    disabled: true
+  }
+}
+export const OutlineWarningDisabled: Story = {
+  args: {
+    ...OutlineWarning.args,
+    disabled: true
+  }
+}
+export const OutlineDangerDisabled: Story = {
+  args: {
+    ...OutlineDanger.args,
     disabled: true
   }
 }
 
-export const Loading = {
-  args: {
-    loading: true
-  }
-}
-
-export const Icon = {
-  render: (args, { argTypes }) => ({
-    props: Object.keys(argTypes),
+// Outline Icon Variants
+export const OutlinePrimaryIcon: Story = {
+  render: (args) => ({
     components: { BaseButton, IconQRCode },
+    setup() {
+      const click = action('click')
+      return { args, click }
+    },
     template: `
-      <BaseButton v-bind="$props" @click="click">
+      <BaseButton v-bind="args" @click="click">
         <template #icon-left>
           <IconQRCode />
         </template>
@@ -119,5 +289,42 @@ export const Icon = {
     methods: {
       click: action('click')
     }
-  })
+  }),
+  args: {
+    ...OutlinePrimary.args
+  }
+}
+export const OutlineNeutralIcon: Story = {
+  render: OutlinePrimaryIcon.render,
+  args: {
+    ...OutlineNeutral.args
+  }
+}
+export const OutlineSuccessIcon: Story = {
+  render: OutlinePrimaryIcon.render,
+  args: {
+    ...OutlineSuccess.args
+  }
+}
+export const OutlineWarningIcon: Story = {
+  render: OutlinePrimaryIcon.render,
+  args: {
+    ...OutlineWarning.args
+  }
+}
+export const OutlineDangerIcon: Story = {
+  render: OutlinePrimaryIcon.render,
+  args: {
+    ...OutlineDanger.args
+  }
+}
+
+
+/**
+ * @deprecated use `Neutral` instead
+ */
+export const Secondary = {
+  args: {
+    variant: 'secondary'
+  }
 }

@@ -14,7 +14,16 @@ const props = withDefaults(
      */
     to?: RouteLocationRaw
     disabled?: boolean
-    loading?: boolean
+    /**
+     * Whether the button is busy, e.g. when a request is in progress.
+     *
+     * @deprecated Use `busy` instead.
+     */
+    loading?: boolean,
+    /**
+     * Whether the button is busy, e.g. when a request is in progress.
+     */
+    busy?: boolean
     /**
      * Defines button color variant
      *
@@ -22,12 +31,13 @@ const props = withDefaults(
      *
      * If you do not want that the check icon is displayed on success use the 'success-without-checkmark' variant
      */
-    variant?:  'primary' | 'secondary' | 'info' | 'warning' | 'danger' | 'success' | 'success-without-checkmark' | 'outline-primary' | 'outline-neutral' | 'outline-success' | 'outline-danger' | 'neutral'
+    variant?:  'primary' | 'secondary' | 'info' | 'warning' | 'danger' | 'success' | 'success-without-checkmark' | 'outline-primary' | 'outline-neutral' | 'outline-success' | 'outline-warning' | 'outline-danger' | 'neutral'
     type?: 'button' | 'submit' | 'reset'
   }>(),
   {
     disabled: false,
     loading: false,
+    busy: false,
     variant: 'primary',
     type: 'button'
   }
@@ -38,6 +48,10 @@ const localVariant = computed(() => {
     return 'success'
   }
   return props.variant
+})
+
+const mergedBusy = computed(() => {
+  return props.loading || props.busy
 })
 </script>
 
@@ -63,12 +77,12 @@ const localVariant = computed(() => {
     v-else
     :type="type"
     :class="['base-button', localVariant]"
-    :disabled="disabled"
+    :disabled="disabled || mergedBusy"
     v-bind="$attrs"
   >
     <IconLoading
-      v-if="loading"
-      :class="{ 'loading-icon': true, animate: loading }"
+      v-if="mergedBusy"
+      :class="{ 'loading-icon': true, animate: mergedBusy }"
       data-cy="button-loading"
     />
     <slot
@@ -147,6 +161,14 @@ const localVariant = computed(() => {
     --color-button-outline: var(--color-success);
   }
 
+  &.outline-warning {
+    --color-button: var(--color-warning);
+    --color-button-background: var(--color-white);
+    --color-button-background-hover: var(--color-warning);
+    --color-button-hover: var(--color-white);
+    --color-button-outline: var(--color-warning);
+  }
+
   &.outline-danger {
     --color-button: var(--color-danger);
     --color-button-background: var(--color-white);
@@ -164,6 +186,7 @@ const localVariant = computed(() => {
   &.outline-primary,
   &.outline-neutral,
   &.outline-success,
+  &.outline-warning,
   &.outline-danger {
     background-color: var(--color-button-background);
     border-color: var(--color-button-background);
@@ -193,6 +216,7 @@ const localVariant = computed(() => {
   &.outline-primary,
   &.outline-neutral,
   &.outline-success,
+  &.outline-warning,
   &.outline-danger {
     outline: 1px solid var(--color-button-outline) !important;
     background-color: transparent;
