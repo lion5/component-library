@@ -1,3 +1,13 @@
+## 0.29.1 (2025-08-21)
+
+### 🩹 Fixes
+
+- **EndButtonWrapper:** set icon button variant to the origin default again ([93b6bb1](https://github.com/lion5/component-library/commit/93b6bb1))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.29.0 (2025-08-21)
 
 ### 🚀 Features
