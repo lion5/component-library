@@ -5,6 +5,7 @@
       class="add-button"
       filled
       :label="label"
+      :variant="btnVariant"
       @click="emit('btn-click')"
     >
       <i :class="iconClass" />
@@ -16,16 +17,24 @@
 
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 
-defineProps<{
-  /**
-   * Sets the icon class for the button.
-   */
-  iconClass: string,
-  /**
-   * The label for the button. Used for accessibility only.
-   */
-  label: string
-}>()
+withDefaults(
+  defineProps<{
+    /**
+     * Sets the icon class for the button.
+     */
+    iconClass: string,
+    /**
+     * The label for the button. Used for accessibility only.
+     */
+    label: string,
+    /**
+     * The button variant.
+     */
+    btnVariant?: 'primary' | 'neutral' | 'info' | 'warning' | 'danger' | 'success'
+  }>(), {
+    btnVariant: 'primary'
+  })
+
 
 const emit = defineEmits<{
   (e: 'btn-click'): void
