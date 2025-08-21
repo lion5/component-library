@@ -1,3 +1,24 @@
+## 0.29.0 (2025-08-21)
+
+### 🚀 Features
+
+- ⚠️  **BaseButton:** Disable button on busy ([e742ca7](https://github.com/lion5/component-library/commit/e742ca7))
+- ⚠️  **IconButton:** Introduce color variants ([053e0d0](https://github.com/lion5/component-library/commit/053e0d0))
+- **IconButton:** introduce link and vue router link based icon buttons ([2d3fd6e](https://github.com/lion5/component-library/commit/2d3fd6e))
+
+### 🩹 Fixes
+
+- **IconButton:** various a11y issues ([3fe7b37](https://github.com/lion5/component-library/commit/3fe7b37))
+
+### ⚠️  Breaking Changes
+
+- ⚠️  **BaseButton:** Disable button on busy ([e742ca7](https://github.com/lion5/component-library/commit/e742ca7))
+- ⚠️  **IconButton:** Introduce color variants ([053e0d0](https://github.com/lion5/component-library/commit/053e0d0))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.28.1 (2025-07-10)
 
 ### 🚀 Features
