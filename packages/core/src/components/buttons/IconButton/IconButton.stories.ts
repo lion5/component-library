@@ -272,3 +272,10 @@ export const DangerFilledBusy: Story = {
     busy: true
   }
 }
+
+export const PrimaryLink: Story = {
+  args: {
+    ...Primary.args,
+    href: '#',
+  }
+}

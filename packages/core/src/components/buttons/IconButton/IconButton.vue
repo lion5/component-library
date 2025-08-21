@@ -1,9 +1,18 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 import ArrowRotateLoadingAnimation from '@core/components/icons/ArrowRotateLoadingAnimation.vue'
+import { RouteLocationRaw, RouterLink } from 'vue-router'
 
 const props = withDefaults(
   defineProps<{
+    /**
+     * If set the button will be rendered as a link
+     */
+    href?: string
+    /**
+     * If set the button will be rendered as a router-link
+     */
+    to?: RouteLocationRaw
     /**
      * Whether the button is disabled.
      */
@@ -43,7 +52,28 @@ const disabled = computed(() => props.disabled || props.busy)
 </script>
 
 <template>
+  <RouterLink
+    v-if="to"
+    :to="to"
+    class="icon-button"
+    :class="{ filled, [props.variant]: props.variant }"
+    v-bind="$attrs"
+  >
+    <slot />
+    <small v-if="displayLabel" class="label">{{ label }}</small>
+  </RouterLink>
+  <a
+    v-else-if="href"
+    :href="href"
+    class="icon-button"
+    :class="{ filled, [props.variant]: props.variant }"
+    v-bind="$attrs"
+  >
+    <slot />
+    <small v-if="displayLabel" class="label">{{ label }}</small>
+  </a>
   <button
+    v-else
     class="icon-button"
     :class="{ busy, filled, [props.variant]: props.variant }"
     type="button"
@@ -145,6 +175,8 @@ const disabled = computed(() => props.disabled || props.busy)
   cursor: pointer;
   color: var(--_icon-button-color);
   background-color: var(--_icon-button-bg-color);
+  text-decoration: none;
+  text-align: center;
 
   &:hover:not(:disabled) {
     background-color: var(--_icon-button-bg-hover-color);
