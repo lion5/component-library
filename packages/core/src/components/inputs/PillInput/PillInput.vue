@@ -7,26 +7,29 @@ import BaseIcon from '@core/components/icons/BaseIcon.vue'
 /**
  * A pill that displays a label and an icon.
  */
-withDefaults(defineProps<{
-  /**
-   * The label of the pill.
-   */
-  label: string
-  /**
-   * Whether the pill is currently busy.
-   */
-  busy: boolean
-  /**
-   * The icon class of the pill
-   */
-  iconCls?: string,
-  /**
-   * Aria-label for the delete button, used for accessibility.
-   */
-  deleteButtonLabel?: string
-}>(), {
-  deleteButtonLabel: 'Löschen'
-})
+withDefaults(
+  defineProps<{
+    /**
+     * The label of the pill.
+     */
+    label: string
+    /**
+     * Whether the pill is currently busy.
+     */
+    busy: boolean
+    /**
+     * The icon class of the pill
+     */
+    iconCls?: string
+    /**
+     * Aria-label for the delete button, used for accessibility.
+     */
+    deleteButtonLabel?: string
+  }>(),
+  {
+    deleteButtonLabel: 'Löschen'
+  }
+)
 
 const emit = defineEmits<{
   /**

@@ -1,17 +1,12 @@
 <template>
-  <div
-    :class="[
-      'checkbox-input-wrapper',
-      { required },
-      $attrs.class
-    ]">
+  <div :class="['checkbox-input-wrapper', { required }, $attrs.class]">
     <input
       :id="name"
       :checked="checked"
       :class="{
         dirty: meta.dirty,
         valid: meta.touched && meta.valid,
-        invalid: meta.touched && !meta.valid,
+        invalid: meta.touched && !meta.valid
       }"
       :name="name"
       :value="checkedValue"
@@ -19,13 +14,24 @@
       v-bind="$attrs"
       @change="handleChange"
     />
-    <span v-if="required" class="asterisk">*</span>
+    <span
+      v-if="required"
+      class="asterisk"
+      >*</span
+    >
 
     <label :for="name">
       <span class="main-label">{{ label }}</span>
-      <small v-if="labelSmall" class="small-label">{{ labelSmall }}</small>
+      <small
+        v-if="labelSmall"
+        class="small-label"
+        >{{ labelSmall }}</small
+      >
     </label>
-    <ErrorMessage :name="name" class="error" />
+    <ErrorMessage
+      :name="name"
+      class="error"
+    />
   </div>
 </template>
 
@@ -73,7 +79,6 @@ const props = withDefaults(
 )
 
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
-
 
 const { handleChange, checked, meta } = useField<boolean | object>(
   () => props.name,

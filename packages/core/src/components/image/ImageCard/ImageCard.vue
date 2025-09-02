@@ -3,7 +3,11 @@
     class="image-card"
     :style="{ '--image-edit-input-aspect-ratio': aspectRatio }"
   >
-    <a class="media" :tabindex="0" @click="showModal">
+    <a
+      class="media"
+      :tabindex="0"
+      @click="showModal"
+    >
       <img
         :src="image.sizes.mid || image.sizes.original"
         :alt="image.alt"

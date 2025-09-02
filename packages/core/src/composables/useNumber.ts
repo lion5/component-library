@@ -10,5 +10,13 @@ export function useNumber() {
     return new Intl.NumberFormat('de-DE').format(value)
   }
 
-  return { getFormattedNumber }
+  const increaseNumber = (value: number | undefined, step: number = 1) => {
+    return (value ?? 0) + step
+  }
+
+  const decreaseNumber = (value: number | undefined, step: number = 1) => {
+    return (value ?? 0) - step
+  }
+
+  return { getFormattedNumber, increaseNumber, decreaseNumber }
 }

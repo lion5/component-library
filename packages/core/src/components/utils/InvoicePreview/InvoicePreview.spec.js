@@ -31,24 +31,14 @@ describe('PortalInvoicePreview', () => {
     })
 
     it('renders billing company name if it exists on merchant', async () => {
-      const invoice = new Invoice(
-        'testBillingCompanyName',
-        undefined,
-        undefined,
-        undefined
-      )
+      const invoice = new Invoice('testBillingCompanyName', undefined, undefined, undefined)
       await wrapper.setProps({ invoice })
       const billingCompanyName = wrapper.find('.billing-company-name')
 
       expect(billingCompanyName.text()).toBe('testBillingCompanyName')
     })
     it('renders contact name if it exists on merchant', async () => {
-      const invoice = new Invoice(
-        undefined,
-        undefined,
-        'testContactName',
-        undefined
-      )
+      const invoice = new Invoice(undefined, undefined, 'testContactName', undefined)
       await wrapper.setProps({ invoice })
       const contactName = wrapper.find('.contact-name')
 

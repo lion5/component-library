@@ -20,7 +20,6 @@ export default {
 } as Meta<typeof InformationButton>
 type Story = StoryObj<typeof InformationButton>
 
-
 export const Default: Story = {
   args: {
     title: 'Information about Topic'

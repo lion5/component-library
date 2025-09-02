@@ -10,8 +10,7 @@ export function useFileUtils() {
   const displayFileSize = (byteValue: number) => {
     const signs = ['B', 'KiB', 'MiB']
 
-    const i =
-      byteValue === 0 ? 0 : Math.floor(Math.log(byteValue) / Math.log(1024))
+    const i = byteValue === 0 ? 0 : Math.floor(Math.log(byteValue) / Math.log(1024))
     const size = byteValue / Math.pow(1024, i)
 
     const formattedNumber = new Intl.NumberFormat('de-DE', {

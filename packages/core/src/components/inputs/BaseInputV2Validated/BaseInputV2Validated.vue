@@ -15,7 +15,11 @@
       @blur="handleBlur"
     />
     <label :for="name">{{ label }}</label>
-    <span v-if="errorMessage && meta.touched" class="error">{{ errorMessage }}</span>
+    <span
+      v-if="errorMessage && meta.touched"
+      class="error"
+      >{{ errorMessage }}</span
+    >
     <template #postfix-icon>
       <slot name="postfix-icon" />
     </template>

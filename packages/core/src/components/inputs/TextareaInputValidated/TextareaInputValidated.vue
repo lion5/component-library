@@ -56,7 +56,7 @@ const props = withDefaults(
 )
 
 defineSlots<{
-  [key: string]: unknown;
+  [key: string]: unknown
 }>()
 
 const emit = defineEmits<{

@@ -4,7 +4,7 @@ import { DashboardItem as DashboardItemClass } from './dashboardItem'
 
 export default {
   component: DashboardItem,
-  title: 'Display Components/Cards/DashboardItemCard',
+  title: 'Display Components/Cards/DashboardItemCard'
 } as Meta<typeof DashboardItem>
 type Story = StoryObj<typeof DashboardItem>
 
@@ -14,11 +14,7 @@ export const Example: Story = {
     setup() {
       const items = [
         new DashboardItemClass('bi-person', 'Profile', 'profile'),
-        new DashboardItemClass(
-          'bi-sliders',
-          'Account Settings',
-          'account-settings'
-        ),
+        new DashboardItemClass('bi-sliders', 'Account Settings', 'account-settings'),
         new DashboardItemClass('bi-bell', 'Notifications', 'notifications')
       ]
       return { args, items }

@@ -11,21 +11,9 @@ describe('ImageCarousel.vue', () => {
 
   beforeEach(() => {
     images = [
-      new MinimalImage(
-        1,
-        'alt',
-        'https://dummyimage.com/2000x1000/ff0000/fff.png'
-      ),
-      new MinimalImage(
-        2,
-        'alt',
-        'https://dummyimage.com/2000x2000/aa0000/fff.png'
-      ),
-      new MinimalImage(
-        3,
-        'alt',
-        'https://dummyimage.com/2000x1000/990000/fff.png'
-      )
+      new MinimalImage(1, 'alt', 'https://dummyimage.com/2000x1000/ff0000/fff.png'),
+      new MinimalImage(2, 'alt', 'https://dummyimage.com/2000x2000/aa0000/fff.png'),
+      new MinimalImage(3, 'alt', 'https://dummyimage.com/2000x1000/990000/fff.png')
     ]
     wrapper = mount(ImageCarousel, {
       props: {

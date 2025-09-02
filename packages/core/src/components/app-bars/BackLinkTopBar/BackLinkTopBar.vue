@@ -19,12 +19,15 @@ import IconArrowBack from '@core/components/icons/IconArrowBack.vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 import TopBar from '@core/components/app-bars/TopBar/TopBar.vue'
 
-withDefaults(defineProps<{
-  title: string,
-  backButtonLabel?: string
-}>(), {
-  backButtonLabel: 'Zurück zur vorherigen Seite'
-})
+withDefaults(
+  defineProps<{
+    title: string
+    backButtonLabel?: string
+  }>(),
+  {
+    backButtonLabel: 'Zurück zur vorherigen Seite'
+  }
+)
 
 const router = useRouter()
 const onBackClick = () => {

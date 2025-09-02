@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: CardBadgeSuccess,
-  title: 'Display Components/Cards/CardBadgeSuccess',
+  title: 'Display Components/Cards/CardBadgeSuccess'
 } as Meta<typeof CardBadgeSuccess>
 type Story = StoryObj<typeof CardBadgeSuccess>
 
@@ -21,6 +21,6 @@ export const Default: Story = {
       </ItemCard>`
   }),
   args: {
-    tooltipText: 'This is a tooltip text',
+    tooltipText: 'This is a tooltip text'
   }
 }

@@ -7,7 +7,12 @@
         :key="index"
         class="text-input-part-wrapper"
       >
-        <div v-if="index !== 1" class="delimiter">—</div>
+        <div
+          v-if="index !== 1"
+          class="delimiter"
+        >
+          —
+        </div>
         <CodePartTextInput
           ref="inputRefs"
           :code="code"
@@ -25,7 +30,10 @@
         />
       </div>
     </div>
-    <ErrorMessage :name="name" class="error" />
+    <ErrorMessage
+      :name="name"
+      class="error"
+    />
   </div>
 </template>
 
@@ -77,13 +85,13 @@ const emit = defineEmits<{
    * @param e
    * @param value
    */
-  (e: 'input-finished', value: string): void,
+  (e: 'input-finished', value: string): void
   /**
    * update code event
    * @param e
    * @param value
    */
-  (e: 'update:code', value: string): void,
+  (e: 'update:code', value: string): void
 }>()
 
 const parts = computed<string[]>(() =>
@@ -109,12 +117,15 @@ watch(
 )
 
 /*
-  * Handle input event from child component
-  * @param index - The index of the CodePartTextInput
-  * @param value - The value from the CodePartTextInput
+ * Handle input event from child component
+ * @param index - The index of the CodePartTextInput
+ * @param value - The value from the CodePartTextInput
  */
 function handleInput(index: number, value: string) {
-  code.value = code.value.slice(0, index * props.partLength) + value + code.value.slice((index + 1) * props.partLength)
+  code.value =
+    code.value.slice(0, index * props.partLength) +
+    value +
+    code.value.slice((index + 1) * props.partLength)
   handleNavigation(index)
 }
 
@@ -122,20 +133,17 @@ function handlePaste(value: string) {
   const maxLength = props.partLength * props.partNumber
   code.value = value.slice(0, maxLength)
 
-  const focusIndex = Math.min(
-    Math.floor(value.length / props.partLength),
-    props.partNumber - 1
-  )
+  const focusIndex = Math.min(Math.floor(value.length / props.partLength), props.partNumber - 1)
   handleNavigation(focusIndex)
 }
 
 function checkAndEmitCompleteCode(value: string) {
-  if (value.length === (props.partLength * props.partNumber)) {
+  if (value.length === props.partLength * props.partNumber) {
     emit('input-finished', value)
   }
 }
 
-function handleWrongFieldInput({ index, key }: { index: number, key: string }) {
+function handleWrongFieldInput({ index, key }: { index: number; key: string }) {
   const normalizedKey = key.toUpperCase()
   code.value = code.value + normalizedKey
   handleNavigation(index)

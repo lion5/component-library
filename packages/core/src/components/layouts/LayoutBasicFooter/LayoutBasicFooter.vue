@@ -3,7 +3,10 @@
     <ul>
       <li>
         &copy; {{ _copyright.currentYear }}
-        <a :href="_copyright.companyUrl" target="_blank">
+        <a
+          :href="_copyright.companyUrl"
+          target="_blank"
+        >
           {{ _copyright.companyName }}
         </a>
       </li>
@@ -35,7 +38,7 @@ const _copyright = computed(
   ul {
     display: flex;
     flex-direction: row;
-    color: var(--footer-font,  var(--color-neutral-700));
+    color: var(--footer-font, var(--color-neutral-700));
     list-style: none;
     padding: 0;
 
@@ -45,10 +48,10 @@ const _copyright = computed(
     }
 
     a {
-      color: var(--footer-link-color,  var(--color-neutral-700));
+      color: var(--footer-link-color, var(--color-neutral-700));
 
       &:hover {
-        color: var(--footer-link-color-hover,  var(--color-neutral-900));
+        color: var(--footer-link-color-hover, var(--color-neutral-900));
         text-decoration: none;
       }
     }

@@ -97,7 +97,9 @@ describe('FileInput.vue', () => {
       ]
       await wrapper.setProps({ modelValue: files })
 
-      expect(wrapper.findComponent(PillListInput).props().pillInputItems).toStrictEqual(expectedPills)
+      expect(wrapper.findComponent(PillListInput).props().pillInputItems).toStrictEqual(
+        expectedPills
+      )
     })
   })
 

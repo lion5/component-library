@@ -11,7 +11,7 @@ describe('CardBadgeSuccess.spec.ts', () => {
     wrapper = mount(CardBadgeSuccess, {
       props: {
         tooltipText: 'Test'
-      },
+      }
     })
   })
   describe(':props', () => {

@@ -57,9 +57,7 @@ describe('ImageInputValidated.vue', () => {
       await nextTick()
 
       expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
-      expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([
-        expectedValue
-      ])
+      expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([expectedValue])
     })
   })
 })

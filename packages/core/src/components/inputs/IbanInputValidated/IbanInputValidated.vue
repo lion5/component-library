@@ -39,18 +39,13 @@ const props = withDefaults(
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
 
 const internalValidationRules = computed(() => {
-  return mixed<string>()
-    .test(
-      'iban',
-      'Bitte geben Sie eine gültige IBAN ein.',
-      (value) => {
-        if(value) {
-          return isValidIBAN(value)
-        } else {
-          return true
-        }
-      }
-    )
+  return mixed<string>().test('iban', 'Bitte geben Sie eine gültige IBAN ein.', (value) => {
+    if (value) {
+      return isValidIBAN(value)
+    } else {
+      return true
+    }
+  })
 })
 
 const combinedValidation = computed(() => {

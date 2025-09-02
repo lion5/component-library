@@ -3,8 +3,8 @@ import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 
 withDefaults(
   defineProps<{
-    busy?: boolean,
-    disabled?: boolean,
+    busy?: boolean
+    disabled?: boolean
     /**
      * The label for the button, used for accessibility.
      */
@@ -12,8 +12,9 @@ withDefaults(
   }>(),
   {
     busy: false,
-    disabled: false,
-  })
+    disabled: false
+  }
+)
 </script>
 <template>
   <IconButton

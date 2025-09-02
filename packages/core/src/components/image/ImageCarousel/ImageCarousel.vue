@@ -1,10 +1,24 @@
 <template>
-  <div class="image-carousel" ref="carouselWrapper">
-    <button class="left-arrow" @click="toPreviousImage" aria-label="Vorheriges Bild">
+  <div
+    class="image-carousel"
+    ref="carouselWrapper"
+  >
+    <button
+      class="left-arrow"
+      @click="toPreviousImage"
+      aria-label="Vorheriges Bild"
+    >
       <IconChevronLeft />
     </button>
-    <BaseImage :image="selectedImage" @click="emit('click')" />
-    <button class="right-arrow" @click="toNextImage" aria-label="Nächstes Bild">
+    <BaseImage
+      :image="selectedImage"
+      @click="emit('click')"
+    />
+    <button
+      class="right-arrow"
+      @click="toNextImage"
+      aria-label="Nächstes Bild"
+    >
       <IconChevronRight />
     </button>
   </div>
@@ -46,18 +60,21 @@ const emit = defineEmits<{
   (event: 'click'): void
 }>()
 
-
 /**
  * The currently selected selectedImage in the slider
  */
 const selectedImage = defineModel<MinimalImage>('selectedImage', { required: true })
 
 const toNextImage = () => {
-  selectedImage.value = props.images[(props.images.indexOf(selectedImage.value) + 1) % props.images.length]
+  selectedImage.value =
+    props.images[(props.images.indexOf(selectedImage.value) + 1) % props.images.length]
   emit('next')
 }
 const toPreviousImage = () => {
-  selectedImage.value = props.images[(props.images.indexOf(selectedImage.value) - 1 + props.images.length) % props.images.length]
+  selectedImage.value =
+    props.images[
+      (props.images.indexOf(selectedImage.value) - 1 + props.images.length) % props.images.length
+    ]
   emit('previous')
 }
 const carouselWrapper = ref<HTMLElement>()

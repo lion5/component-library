@@ -5,9 +5,7 @@ type GeolocationPermissionState = 'granted' | 'prompt' | 'denied'
 
 describe('useBrowserPermissions', () => {
   describe('geolocation', () => {
-    const mockQueryGeolocationPermission = (
-      state: GeolocationPermissionState
-    ) => {
+    const mockQueryGeolocationPermission = (state: GeolocationPermissionState) => {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
       navigator.permissions = {
@@ -21,13 +19,8 @@ describe('useBrowserPermissions', () => {
 
     describe('queryLocationPermission', () => {
       it('should update locationPermissionState and return correct value', async () => {
-        const { queryLocationPermission, locationPermissionState } =
-          useBrowserPermissions()
-        const stateValues: GeolocationPermissionState[] = [
-          'granted',
-          'denied',
-          'prompt'
-        ]
+        const { queryLocationPermission, locationPermissionState } = useBrowserPermissions()
+        const stateValues: GeolocationPermissionState[] = ['granted', 'denied', 'prompt']
 
         for (const stateValue of stateValues) {
           mockQueryGeolocationPermission(stateValue)
@@ -45,13 +38,8 @@ describe('useBrowserPermissions', () => {
 
     describe('locationGranted', () => {
       it('should only be true if permission granted', async () => {
-        const { queryLocationPermission, locationGranted } =
-          useBrowserPermissions()
-        const stateValues: GeolocationPermissionState[] = [
-          'granted',
-          'denied',
-          'prompt'
-        ]
+        const { queryLocationPermission, locationGranted } = useBrowserPermissions()
+        const stateValues: GeolocationPermissionState[] = ['granted', 'denied', 'prompt']
 
         for (const stateValue of stateValues) {
           mockQueryGeolocationPermission(stateValue)
@@ -68,13 +56,8 @@ describe('useBrowserPermissions', () => {
 
     describe('locationDenied', () => {
       it('should only be true if permission denied', async () => {
-        const { queryLocationPermission, locationDenied } =
-          useBrowserPermissions()
-        const stateValues: GeolocationPermissionState[] = [
-          'granted',
-          'denied',
-          'prompt'
-        ]
+        const { queryLocationPermission, locationDenied } = useBrowserPermissions()
+        const stateValues: GeolocationPermissionState[] = ['granted', 'denied', 'prompt']
 
         for (const stateValue of stateValues) {
           mockQueryGeolocationPermission(stateValue)

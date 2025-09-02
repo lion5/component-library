@@ -40,8 +40,7 @@ export const UseSlot: Story = {
     setup() {
       return { args }
     },
-    template:
-      '<InfoBox v-bind="args"><h1>Html Content</h1><p>Informative Text</p></InfoBox>'
+    template: '<InfoBox v-bind="args"><h1>Html Content</h1><p>Informative Text</p></InfoBox>'
   }),
   args: {
     infoMessage: 'Not displayed'

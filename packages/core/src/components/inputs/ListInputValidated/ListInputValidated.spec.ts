@@ -39,9 +39,7 @@ describe('ListInputValidated.vue', () => {
       expect(wrapper.findComponent(SearchInputValidated).props().name).toBe(`search-${expectedId}`)
     })
     it(':pillInputItems - is applied to PillListInput', async () => {
-      const expectedPillInputItems = [
-        new PillInputItem('test', 'test', false, 'icon-class')
-      ]
+      const expectedPillInputItems = [new PillInputItem('test', 'test', false, 'icon-class')]
       await wrapper.setProps({ pillInputItems: expectedPillInputItems })
       expect(wrapper.findComponent(ListInputValidated).props().pillInputItems).toStrictEqual(
         expectedPillInputItems
@@ -58,9 +56,7 @@ describe('ListInputValidated.vue', () => {
       expect(wrapper.findComponent(SearchInputValidated).props().busy).toBe(expectedSearchBusy)
     })
     it(':searchResults - is applied to SearchInputValidated', async () => {
-      const expectedSearchResults = [
-        new SearchResult('key', 'label', { key: 'value' })
-      ]
+      const expectedSearchResults = [new SearchResult('key', 'label', { key: 'value' })]
       await wrapper.setProps({ searchResults: expectedSearchResults })
       expect(wrapper.findComponent(SearchInputValidated).props().searchResults).toStrictEqual(
         expectedSearchResults

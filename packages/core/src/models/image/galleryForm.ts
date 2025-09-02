@@ -18,10 +18,7 @@ export class GalleryForm {
   }
 
   arePublishedImagesRemoved() {
-    return (
-      this.images.filter((image) => image.removed && image.isPublished())
-        .length > 0
-    )
+    return this.images.filter((image) => image.removed && image.isPublished()).length > 0
   }
 
   isEmpty() {
@@ -42,9 +39,7 @@ export class GalleryForm {
   }
 
   static fromGallery(gallery: Gallery) {
-    return new GalleryForm(
-      gallery.images.map((image) => ImageForm.fromImage(image))
-    )
+    return new GalleryForm(gallery.images.map((image) => ImageForm.fromImage(image)))
   }
 
   clone() {

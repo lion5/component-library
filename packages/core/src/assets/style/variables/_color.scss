@@ -1,39 +1,39 @@
 /* Color Definitions */
 $palettes: (
-        // Primary Color = Brand Color = Accent Color
-        'primary': (
-                'hue': 230,
-                'saturation': 77%,
-                'lightness': 45%
-        ),
-        'success': (
-                'hue': 145,
-                'saturation': 55%,
-                'lightness': 33%
-        ),
-        /**
+  // Primary Color = Brand Color = Accent Color
+  'primary': (
+      'hue': 230,
+      'saturation': 77%,
+      'lightness': 45%
+    ),
+  'success': (
+    'hue': 145,
+    'saturation': 55%,
+    'lightness': 33%
+  ),
+  /**
           @deprecated use danger color instead
          */
-        'warning': (
-                'hue': 24,
-                'saturation': 83%,
-                'lightness': 40%
-        ),
-        'danger': (
-                'hue': 0,
-                'saturation': 75%,
-                'lightness': 41%
-        ),
-        'neutral': (
-                'hue': 220,
-                'saturation': 5%,
-                'lightness': 45%
-        ),
-        'secondary': (
-                'hue': 220,
-                'saturation': 5%,
-                'lightness': 45%
-        )
+    'warning': (
+      'hue': 24,
+      'saturation': 83%,
+      'lightness': 40%
+    ),
+  'danger': (
+    'hue': 0,
+    'saturation': 75%,
+    'lightness': 41%
+  ),
+  'neutral': (
+    'hue': 220,
+    'saturation': 5%,
+    'lightness': 45%
+  ),
+  'secondary': (
+    'hue': 220,
+    'saturation': 5%,
+    'lightness': 45%
+  )
 );
 
 @mixin generate-color-variables($name, $hue, $saturation, $lightness, $baseName: 'light') {
@@ -44,17 +44,26 @@ $palettes: (
 
   // Overwritable variables
   --_#{$name}-hue: var(--#{$baseName}-#{$name}-hue, var(--_#{$name}-hue-default));
-  --_#{$name}-saturation: var(--#{$baseName}-#{$name}-saturation, var(--_#{$name}-saturation-default));
+  --_#{$name}-saturation: var(
+    --#{$baseName}-#{$name}-saturation,
+    var(--_#{$name}-saturation-default)
+  );
   --_#{$name}-lightness: var(--#{$baseName}-#{$name}-lightness, var(--_#{$name}-lightness-default));
 
   // Generiert die Farbabstufungen (z.B. --color-primary-100)
   @for $i from 1 through 9 {
-    --color-#{$name}-#{$i * 100}: hsl(var(--_#{$name}-hue) var(--_#{$name}-saturation) var(--l-#{$i * 100}));
+    --color-#{$name}-#{$i * 100}: hsl(
+      var(--_#{$name}-hue) var(--_#{$name}-saturation) var(--l-#{$i * 100})
+    );
   }
 
   // Semantische Hauptvariablen
-  --color-#{$name}: hsl(var(--_#{$name}-hue) var(--_#{$name}-saturation) var(--_#{$name}-lightness));
-  --color-#{$name}-hover: hsl(var(--_#{$name}-hue) var(--_#{$name}-saturation) calc(var(--_#{$name}-lightness) - 10%));
+  --color-#{$name}: hsl(
+    var(--_#{$name}-hue) var(--_#{$name}-saturation) var(--_#{$name}-lightness)
+  );
+  --color-#{$name}-hover: hsl(
+    var(--_#{$name}-hue) var(--_#{$name}-saturation) calc(var(--_#{$name}-lightness) - 10%)
+  );
 }
 
 :root {
@@ -73,7 +82,12 @@ $palettes: (
 
   // Generiert alle Farbpaletten
   @each $name, $props in $palettes {
-    @include generate-color-variables($name, map-get($props, 'hue'), map-get($props, 'saturation'), map-get($props, 'lightness'));
+    @include generate-color-variables(
+      $name,
+      map-get($props, 'hue'),
+      map-get($props, 'saturation'),
+      map-get($props, 'lightness')
+    );
   }
 
   // Allgemeine UI-Farben

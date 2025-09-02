@@ -20,7 +20,10 @@ withDefaults(
   >
     <slot />
     <div class="postfix-icon"><slot name="postfix-icon" /></div>
-    <IconError v-if="showErrorIcon" class="error-icon" />
+    <IconError
+      v-if="showErrorIcon"
+      class="error-icon"
+    />
   </div>
 </template>
 <style scoped lang="scss">

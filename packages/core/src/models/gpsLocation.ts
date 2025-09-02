@@ -20,8 +20,7 @@ export class GpsLocation {
 
   public equals(other: GpsLocation): boolean {
     return (
-      this === other ||
-      (this.latitude === other.latitude && this.longitude === other.longitude)
+      this === other || (this.latitude === other.latitude && this.longitude === other.longitude)
     )
   }
 

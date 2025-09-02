@@ -24,6 +24,7 @@ import ListInputValidated from '@core/components/inputs/ListInputValidated/ListI
 import LocationCoordinateSelect from '@core/components/inputs/LocationCoordinateSelect/LocationCoordinateSelect.vue'
 import MultiselectInput from '@core/components/inputs/MultiselectInput/MultiselectInput.vue'
 import MultiselectInputValidated from '@core/components/inputs/MultiselectInputValidated/MultiselectInputValidated.vue'
+import NumberInput from '@core/components/inputs/NumberInput/NumberInput.vue'
 import NumberInputValidated from '@core/components/inputs/NumberInputValidated/NumberInputValidated.vue'
 import PillInput from '@core/components/inputs/PillInput/PillInput.vue'
 import PreviewImageInputValidated from '@core/components/inputs/image/PreviewImageInputValidated/PreviewImageInputValidated.vue'
@@ -70,6 +71,7 @@ export {
   LocationCoordinateSelect,
   MultiselectInput,
   MultiselectInputValidated,
+  NumberInput,
   NumberInputValidated,
   PillInput,
   PillInputItem,

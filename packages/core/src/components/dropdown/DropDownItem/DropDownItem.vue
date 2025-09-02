@@ -1,7 +1,17 @@
 <template>
-  <button v-bind="$attrs" class="drop-down-item" :disabled="busy">
-    <slot name="icon" v-if="!busy" />
-    <slot name="busy-icon" v-if="busy">
+  <button
+    v-bind="$attrs"
+    class="drop-down-item"
+    :disabled="busy"
+  >
+    <slot
+      name="icon"
+      v-if="!busy"
+    />
+    <slot
+      name="busy-icon"
+      v-if="busy"
+    >
       <ArrowRotateLoadingAnimation />
     </slot>
     {{ label }}

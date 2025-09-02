@@ -70,14 +70,15 @@ describe('LocationCoordinateSelect.vue', () => {
     await input.trigger('keydown', { key: 'any' })
     vi.runAllTimers()
 
-    expect(
-      useNominatimExports.useNominatim().getLocations
-    ).toHaveBeenCalledWith(expectedLocationName)
+    expect(useNominatimExports.useNominatim().getLocations).toHaveBeenCalledWith(
+      expectedLocationName
+    )
   })
   it('setValue is called on text input', async () => {
     const expectedLocation = new NamedLocation(new GpsLocation(44, 10), 'Test')
-    const mockGetLocations = useNominatimExports.useNominatim()
-      .getLocations as ReturnType<typeof vi.fn>
+    const mockGetLocations = useNominatimExports.useNominatim().getLocations as ReturnType<
+      typeof vi.fn
+    >
     mockGetLocations.mockResolvedValue([expectedLocation])
     const input = wrapper.find('input')
     input.setValue('Test2')

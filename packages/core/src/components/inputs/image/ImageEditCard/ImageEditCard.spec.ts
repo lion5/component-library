@@ -12,7 +12,6 @@ import CardBadgeSuccess from '@core/components/cards/CardBadgeSuccess/CardBadgeS
 import ImageEditModal from '@core/components/inputs/image/ImageEditModal/ImageEditModal.vue'
 import { ImageResponse } from '@core/models/image/imageResponse'
 
-
 describe('ImageEditCard.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
 

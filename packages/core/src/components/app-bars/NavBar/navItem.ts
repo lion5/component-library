@@ -6,11 +6,7 @@ export class NavItem {
   readonly to: RouteLocationRaw
   readonly icon?: ReturnType<typeof defineComponent>
 
-  constructor(
-    label: string,
-    to: RouteLocationRaw,
-    icon: ReturnType<typeof defineComponent>
-  ) {
+  constructor(label: string, to: RouteLocationRaw, icon: ReturnType<typeof defineComponent>) {
     this.label = label
     this.to = to
     this.icon = markRaw(icon)

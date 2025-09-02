@@ -9,13 +9,10 @@ describe('useCurrencyFormat', () => {
     { given: 123, expected: '01,23' },
     { given: 1234, expected: '12,34' },
     { given: 12345, expected: '123,45' }
-  ])(
-    'toEuroStringFromCentNumber - returns $expected if $given is given',
-    ({ given, expected }) => {
-      const { toEuroStringFromCentNumber } = useCurrencyFormat()
-      expect(toEuroStringFromCentNumber(given)).toBe(expected)
-    }
-  )
+  ])('toEuroStringFromCentNumber - returns $expected if $given is given', ({ given, expected }) => {
+    const { toEuroStringFromCentNumber } = useCurrencyFormat()
+    expect(toEuroStringFromCentNumber(given)).toBe(expected)
+  })
 
   it.each([
     { given: '', expected: '00,00' },
@@ -25,11 +22,8 @@ describe('useCurrencyFormat', () => {
     { given: '123', expected: '01,23' },
     { given: '1234', expected: '12,34' },
     { given: '12345', expected: '123,45' }
-  ])(
-    'toEuroStringFromCentString - returns $expected if $given is given',
-    ({ given, expected }) => {
-      const { toEuroStringFromCentString } = useCurrencyFormat()
-      expect(toEuroStringFromCentString(given)).toBe(expected)
-    }
-  )
+  ])('toEuroStringFromCentString - returns $expected if $given is given', ({ given, expected }) => {
+    const { toEuroStringFromCentString } = useCurrencyFormat()
+    expect(toEuroStringFromCentString(given)).toBe(expected)
+  })
 })

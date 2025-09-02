@@ -39,7 +39,7 @@ const props = withDefaults(
      * The value of the input field. Mainly used for backwards compatibility to our old forms.
      * Please use the vee validate form to fill this field instead.
      */
-    cents?: number,
+    cents?: number
     /**
      * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
      */
@@ -102,9 +102,7 @@ const onDelete = () => {
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
 
 const validateAbsoluteValue = (value: number) => {
-  return (
-    value >= 0 || 'Der Betrag muss größer oder gleich 0 sein.'
-  )
+  return value >= 0 || 'Der Betrag muss größer oder gleich 0 sein.'
 }
 
 const { value, handleBlur, meta, errors } = useField<number>(
@@ -123,9 +121,7 @@ watch(
     }
     internalValue.value = newValue.toString()
     const { toEuroStringFromCentString } = useCurrencyFormat()
-    displayedCurrencyValue.value = toEuroStringFromCentString(
-      internalValue.value
-    )
+    displayedCurrencyValue.value = toEuroStringFromCentString(internalValue.value)
   },
   { immediate: true }
 )

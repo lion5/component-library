@@ -72,13 +72,7 @@ export class ImageForm {
   }
 
   static fromImage(image: ImageResponse) {
-    return new ImageForm(
-      image.id,
-      image.alt,
-      undefined,
-      undefined,
-      image.sizes.clone()
-    )
+    return new ImageForm(image.id, image.alt, undefined, undefined, image.sizes.clone())
   }
 
   static async getImage(dataUrl: string): Promise<HTMLImageElement> {

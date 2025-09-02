@@ -21,7 +21,12 @@ describe('BaseInputV3Validated.vue', () => {
       const expectedLabel = 'Expected Label'
       const expectedType = 'email'
 
-      await wrapper.setProps({ name: expectedName, label: expectedLabel, type: expectedType, showErrorIcon: true })
+      await wrapper.setProps({
+        name: expectedName,
+        label: expectedLabel,
+        type: expectedType,
+        showErrorIcon: true
+      })
 
       expect(wrapper.findComponent(BaseInputV3).props().name).toBe(expectedName)
       expect(wrapper.findComponent(BaseInputV3).props().label).toBe(expectedLabel)
@@ -38,9 +43,7 @@ describe('BaseInputV3Validated.vue', () => {
       await nextTick()
 
       expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
-      expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([
-        expectedValue
-      ])
+      expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([expectedValue])
     })
   })
 })

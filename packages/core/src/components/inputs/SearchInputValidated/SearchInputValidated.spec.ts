@@ -12,7 +12,7 @@ describe('SearchInput.vue', () => {
     wrapper = mount(SearchInput, {
       props: {
         name: 'name',
-        label: 'label',
+        label: 'label'
       }
     })
   })

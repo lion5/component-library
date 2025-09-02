@@ -1,12 +1,17 @@
 <template>
   <div class="invoice-preview">
-    <span v-if="invoice?.billingCompanyName" class="billing-company-name">
+    <span
+      v-if="invoice?.billingCompanyName"
+      class="billing-company-name"
+    >
       {{ toDisplayString(invoice?.billingCompanyName) }}<br />
     </span>
-    <span class="company-name">
-      {{ toDisplayString(invoice?.companyName, 'Anzeigename') }} </span
+    <span class="company-name"> {{ toDisplayString(invoice?.companyName, 'Anzeigename') }} </span
     ><br />
-    <span v-if="invoice?.contactName" class="contact-name">
+    <span
+      v-if="invoice?.contactName"
+      class="contact-name"
+    >
       z.Hd. {{ toDisplayString(invoice?.contactName) }}<br />
     </span>
     <span class="address-street">

@@ -1,4 +1,5 @@
-<script setup lang="ts">/**
+<script setup lang="ts">
+/**
  * Input for a list of pills. Each pill can be deleted.
  */
 

@@ -19,9 +19,16 @@
           :value="option.locationName"
         ></option>
       </datalist>
-      <LoadingAnimation v-if="locationsBusy" class="busy-icon" type="grow" />
+      <LoadingAnimation
+        v-if="locationsBusy"
+        class="busy-icon"
+        type="grow"
+      />
     </BaseInputWrapper>
-    <ErrorMessage class="error" :name="name" />
+    <ErrorMessage
+      class="error"
+      :name="name"
+    />
   </div>
 </template>
 <script setup lang="ts">
@@ -63,8 +70,7 @@ const locations = ref<NamedLocation[]>([])
 const locationsBusy = ref<boolean>(false) // true if locations getting retrieved from the nominatim api
 
 const { setValue, value } = useField(props.name)
-locationName.value =
-  (value.value as NamedLocation | undefined)?.locationName || ''
+locationName.value = (value.value as NamedLocation | undefined)?.locationName || ''
 const { getLocations: getNominatimLocations } = useNominatim()
 
 const getLocation = async () => {
@@ -94,10 +100,7 @@ const onKeyDown = (event: KeyboardEvent) => {
 const getLocationDebounced = debounce(getLocation, 500)
 
 const locationsMap = computed<Map<string, NamedLocation>>(
-  () =>
-    new Map(
-      locations.value.map((location) => [location.locationName, location])
-    )
+  () => new Map(locations.value.map((location) => [location.locationName, location]))
 )
 const onInput = () => {
   const currentValue = locationsMap.value.get(locationName.value)

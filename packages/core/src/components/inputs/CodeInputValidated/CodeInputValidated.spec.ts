@@ -36,19 +36,13 @@ describe('CodeInput.vue', () => {
       wrapper.findComponent(CodePartTextInput).vm.$emit('update:inputCode', '1')
       await flushPromises()
 
-      wrapper
-        .findComponent(CodePartTextInput)
-        .vm.$emit('update:inputCode', '12')
+      wrapper.findComponent(CodePartTextInput).vm.$emit('update:inputCode', '12')
       await flushPromises()
 
-      wrapper
-        .findComponent(CodePartTextInput)
-        .vm.$emit('update:inputCode', '123')
+      wrapper.findComponent(CodePartTextInput).vm.$emit('update:inputCode', '123')
       await flushPromises()
 
-      wrapper
-        .findComponent(CodePartTextInput)
-        .vm.$emit('update:inputCode', '1234')
+      wrapper.findComponent(CodePartTextInput).vm.$emit('update:inputCode', '1234')
       await flushPromises()
 
       expect(wrapper.emitted()).toHaveProperty('update:code')
@@ -63,43 +57,25 @@ describe('CodeInput.vue', () => {
       wrapper.findComponent(CodePartTextInput).vm.$emit('update:inputCode', '1')
       await flushPromises()
 
-      wrapper
-        .findComponent(CodePartTextInput)
-        .vm.$emit('update:inputCode', '12')
+      wrapper.findComponent(CodePartTextInput).vm.$emit('update:inputCode', '12')
       await flushPromises()
 
-      wrapper
-        .findComponent(CodePartTextInput)
-        .vm.$emit('update:inputCode', '123')
+      wrapper.findComponent(CodePartTextInput).vm.$emit('update:inputCode', '123')
       await flushPromises()
 
-      wrapper
-        .findComponent(CodePartTextInput)
-        .vm.$emit('update:inputCode', '1234')
+      wrapper.findComponent(CodePartTextInput).vm.$emit('update:inputCode', '1234')
       await flushPromises()
 
-      wrapper
-        .findAllComponents(CodePartTextInput)
-        .at(1)
-        .vm.$emit('update:inputCode', 'A')
+      wrapper.findAllComponents(CodePartTextInput).at(1).vm.$emit('update:inputCode', 'A')
       await flushPromises()
 
-      wrapper
-        .findAllComponents(CodePartTextInput)
-        .at(1)
-        .vm.$emit('update:inputCode', 'AB')
+      wrapper.findAllComponents(CodePartTextInput).at(1).vm.$emit('update:inputCode', 'AB')
       await flushPromises()
 
-      wrapper
-        .findAllComponents(CodePartTextInput)
-        .at(1)
-        .vm.$emit('update:inputCode', 'ABC')
+      wrapper.findAllComponents(CodePartTextInput).at(1).vm.$emit('update:inputCode', 'ABC')
       await flushPromises()
 
-      wrapper
-        .findAllComponents(CodePartTextInput)
-        .at(1)
-        .vm.$emit('update:inputCode', 'ABCD')
+      wrapper.findAllComponents(CodePartTextInput).at(1).vm.$emit('update:inputCode', 'ABCD')
       await flushPromises()
 
       expect(wrapper.emitted()).toHaveProperty('update:code')

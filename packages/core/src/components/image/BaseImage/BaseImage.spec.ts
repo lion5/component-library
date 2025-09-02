@@ -9,11 +9,7 @@ describe('BaseImage.vue', () => {
   let image: MinimalImage
 
   beforeEach(() => {
-    image = new MinimalImage(
-      4711,
-      'testAltTag',
-      'url'
-    )
+    image = new MinimalImage(4711, 'testAltTag', 'url')
     wrapper = mount(BaseImage, {
       props: {
         image

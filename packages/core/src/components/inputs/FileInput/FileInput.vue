@@ -22,7 +22,12 @@
             <BaseIcon icon="bi-upload" />
           </template>
           <label>
-            {{ label }}<span v-if="required" class="required-identification">*</span>
+            {{ label
+            }}<span
+              v-if="required"
+              class="required-identification"
+              >*</span
+            >
             <input
               ref="fileInput"
               :name="name"
@@ -32,11 +37,14 @@
               :accept="accept"
               :disabled="disabled"
               @change="onFileInput"
-            >
+            />
           </label>
         </BaseButton>
       </div>
-      <ErrorBox :errors="errorObjects" class="error-box" />
+      <ErrorBox
+        :errors="errorObjects"
+        class="error-box"
+      />
     </div>
   </FileDropArea>
 </template>
@@ -83,13 +91,13 @@ const props = withDefaults(
     /**
      * The multiple attribute of the input element. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
      */
-    multiple?: boolean,
+    multiple?: boolean
     /**
      * Disables the reaction on drag over, drag leave and drop events. So it disables the component.
      * Disables the input field.
      * @default false
      */
-    disabled?: boolean,
+    disabled?: boolean
     /**
      * Changes the information text that is displayed when an item is dragged over the component.
      * @default `label`
@@ -121,7 +129,6 @@ const files = computed({
   }
 })
 
-
 const onFileDrop = (files: File[]) => {
   emit('update:modelValue', files)
   emit('blur', new FocusEvent('blur'))
@@ -137,7 +144,9 @@ const onFileInput = (event: Event) => {
   emit('blur', new FocusEvent('blur'))
 }
 
-const filePills = computed(() => files.value.map((file) => new PillInputItem(file.name, file.name, false)))
+const filePills = computed(() =>
+  files.value.map((file) => new PillInputItem(file.name, file.name, false))
+)
 
 const onDelete = (id: string | number) => {
   files.value = files.value.filter((file) => file.name !== id)
@@ -176,10 +185,10 @@ label {
 
 .required-identification {
   color: var(--color-danger);
-  line-height: .5;
+  line-height: 0.5;
 }
 
-input[type="file"] {
+input[type='file'] {
   display: none;
 }
 

@@ -18,11 +18,7 @@ describe('ImageCard', () => {
   })
 
   beforeEach(() => {
-    imageResponse = new ImageResponse(
-      4711,
-      'testAltTag',
-      new ImageSizes('original', '', '', 'mid')
-    )
+    imageResponse = new ImageResponse(4711, 'testAltTag', new ImageSizes('original', '', '', 'mid'))
     aspectRatio = '16/9'
     wrapper = mount(ImageCard, {
       propsData: {
@@ -42,11 +38,7 @@ describe('ImageCard', () => {
       expect(image.attributes('src')).toBe(imageResponse.sizes.mid)
     })
     it(':image - image original size is applied to img tag when medium size is not available', async () => {
-      const localPortalImage = new ImageResponse(
-        4711,
-        'testAltTag',
-        new ImageSizes('original')
-      )
+      const localPortalImage = new ImageResponse(4711, 'testAltTag', new ImageSizes('original'))
       await wrapper.setProps({ image: localPortalImage })
 
       const image = wrapper.find('.media > img')
@@ -65,9 +57,7 @@ describe('ImageCard', () => {
       await wrapper.setProps({ aspectRatio })
 
       const itemCard = wrapper.findComponent(ItemCard)
-      expect(itemCard.attributes('style')).toBe(
-        `--image-edit-input-aspect-ratio: ${aspectRatio};`
-      )
+      expect(itemCard.attributes('style')).toBe(`--image-edit-input-aspect-ratio: ${aspectRatio};`)
     })
   })
   describe('Component', () => {

@@ -4,7 +4,7 @@
       'single-select-input': true,
       'has-content': selectedOption,
       'has-error': (dirty && invalid) || errorObjects.length > 0,
-            'required': required
+      required: required
     }"
     :style="`--input-chars: ${maxChars}ch;`"
     class="floating-input-group"
@@ -28,7 +28,10 @@
       :aria-labelledby="`${name}-label`"
       @select="updateModelValue"
     >
-      <template v-for="(_, name) in $slots" #[name]>
+      <template
+        v-for="(_, name) in $slots"
+        #[name]
+      >
         <slot :name="name" />
       </template>
       <template #noOptions> Keine {{ entityName }} vorhanden</template>
@@ -66,8 +69,16 @@
         </div>
       </template>
     </multiselect>
-    <label :id="`${name}-label`" :for="name" class="floating-label-active">{{ label }}</label>
-    <ErrorBox :errors="errorObjects" class="error-box" />
+    <label
+      :id="`${name}-label`"
+      :for="name"
+      class="floating-label-active"
+      >{{ label }}</label
+    >
+    <ErrorBox
+      :errors="errorObjects"
+      class="error-box"
+    />
   </div>
 </template>
 
@@ -132,7 +143,7 @@ const props = withDefaults(
 )
 
 defineSlots<{
-  [key: string]: unknown;
+  [key: string]: unknown
 }>()
 
 const modelValue = defineModel<string | number | boolean | undefined | null>()
@@ -336,7 +347,6 @@ const updateModelValue = (option: SelectOption<LabelType>) => {
       background-color: var(--_input-surface-color);
       font-size: var(--_input-size);
     }
-
 
     .multiselect__option--highlight {
       background-color: var(--color-primary);

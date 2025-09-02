@@ -16,7 +16,7 @@ const props = withDefaults(
     /**
      * Whether the button is disabled.
      */
-    disabled?: boolean,
+    disabled?: boolean
     /**
      * Whether the button is busy.
      */
@@ -24,22 +24,23 @@ const props = withDefaults(
     /**
      * Whether the button is filled.
      */
-    filled?: boolean,
+    filled?: boolean
     /**
      * The aria-label for the button, used for accessibility.
      */
-    label: string,
+    label: string
     /**
      * Whether to display the label below the icon.
      */
-    displayLabel?: boolean,
+    displayLabel?: boolean
     /**
      * Defines button color variant
      *
      * @values primary, neutral, info, warning, danger, success
      */
     variant?: 'primary' | 'neutral' | 'info' | 'warning' | 'danger' | 'success'
-  }>(), {
+  }>(),
+  {
     disabled: false,
     busy: false,
     filled: false,
@@ -61,7 +62,11 @@ const disabled = computed(() => props.disabled || props.busy)
     :aria-label="label"
   >
     <slot />
-    <small v-if="displayLabel" class="label">{{ label }}</small>
+    <small
+      v-if="displayLabel"
+      class="label"
+      >{{ label }}</small
+    >
   </RouterLink>
   <a
     v-else-if="href"
@@ -72,7 +77,11 @@ const disabled = computed(() => props.disabled || props.busy)
     :aria-label="label"
   >
     <slot />
-    <small v-if="displayLabel" class="label">{{ label }}</small>
+    <small
+      v-if="displayLabel"
+      class="label"
+      >{{ label }}</small
+    >
   </a>
   <button
     v-else
@@ -86,7 +95,11 @@ const disabled = computed(() => props.disabled || props.busy)
     <ArrowRotateLoadingAnimation v-if="busy" />
     <!-- @slot the icon that shall be displayed -->
     <slot v-else />
-    <small v-if="displayLabel" class="label">{{ label }}</small>
+    <small
+      v-if="displayLabel"
+      class="label"
+      >{{ label }}</small
+    >
   </button>
 </template>
 <style lang="scss" scoped>
@@ -97,6 +110,7 @@ const disabled = computed(() => props.disabled || props.busy)
   --_icon-button-bg-hover-color: var(--icon-button-bg-hover-color, var(--color-neutral-300));
   --_icon-button-font-size: var(--icon-button-font-size, unset);
   --_icon-button-radius: var(--icon-button-radius, var(--border-radius-300));
+  --_icon-button-padding: var(--icon-button-padding, var(--space-sm));
 
   // Variant-specific unfilled states
   &.primary {
@@ -173,7 +187,7 @@ const disabled = computed(() => props.disabled || props.busy)
   font-size: var(--_icon-button-font-size);
   line-height: 0.5;
   transition: transform 0.04s ease-in-out;
-  padding: var(--space-sm);
+  padding: var(--_icon-button-padding);
   cursor: pointer;
   color: var(--_icon-button-color);
   background-color: var(--_icon-button-bg-color);
@@ -195,5 +209,4 @@ const disabled = computed(() => props.disabled || props.busy)
     color: var(--icon-button-color, var(--color-neutral-100));
   }
 }
-
 </style>

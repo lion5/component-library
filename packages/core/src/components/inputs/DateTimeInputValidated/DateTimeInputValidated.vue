@@ -1,8 +1,11 @@
 <template>
-  <BaseInputV3Validated :label="label" :max="maxValue" :name="name" :validationRules="validationRules"
-                        type="datetime-local">
-
-
+  <BaseInputV3Validated
+    :label="label"
+    :max="maxValue"
+    :name="name"
+    :validationRules="validationRules"
+    type="datetime-local"
+  >
   </BaseInputV3Validated>
 </template>
 
@@ -34,9 +37,7 @@ const props = withDefaults(
 )
 
 const { getDateTimeLocalInputValue } = useDate()
-const maxValue = computed(
-  () => props.max && getDateTimeLocalInputValue(props.max)
-)
+const maxValue = computed(() => props.max && getDateTimeLocalInputValue(props.max))
 </script>
 
 <style lang="scss" scoped>

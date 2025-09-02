@@ -18,12 +18,12 @@ export default {
         <IconArrowRepeat/>
       </ActionButton>
     `
-  }),
+  })
 } as Meta<typeof ActionButton>
 type Story = StoryObj<typeof ActionButton>
 
 export const Default: Story = {
   args: {
-    label: 'Reload',
+    label: 'Reload'
   }
 }

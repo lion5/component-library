@@ -13,14 +13,10 @@ describe('imageForm.ts', () => {
     const dataUrl = 'dataUrl'
     const image = new Image()
     const getDataUrlFromFileMock = vi.fn()
-    vi
-      .spyOn(useImageUtilsExports, 'useImageUtils')
-      .mockReturnValue({
-        getDataUrlFromFile: getDataUrlFromFileMock.mockResolvedValue(dataUrl)
-      })
-    const getImageMock = vi
-      .spyOn(ImageForm, 'getImage')
-      .mockResolvedValue(image)
+    vi.spyOn(useImageUtilsExports, 'useImageUtils').mockReturnValue({
+      getDataUrlFromFile: getDataUrlFromFileMock.mockResolvedValue(dataUrl)
+    })
+    const getImageMock = vi.spyOn(ImageForm, 'getImage').mockResolvedValue(image)
 
     const file = new File([''], 'test', {
       type: 'image/jpg',

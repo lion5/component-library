@@ -37,7 +37,7 @@ describe('ImageAddCard', () => {
       vi.spyOn(ImageForm, 'fromFile').mockResolvedValue(portalImage)
       const input = wrapper.find('input')
       Object.defineProperty(input.element, 'files', {
-        value: [file, file, file],
+        value: [file, file, file]
       })
 
       await input.trigger('change')

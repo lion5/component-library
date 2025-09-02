@@ -10,8 +10,14 @@
     :aspect-ratio="imageConstraints.aspectRatio || '16/9'"
   >
     <template #overlays>
-      <OverlayError v-if="image.hasErrors()" class="error-badge" />
-      <OverlayBusy v-if="image.busy" class="loading-badge" />
+      <OverlayError
+        v-if="image.hasErrors()"
+        class="error-badge"
+      />
+      <OverlayBusy
+        v-if="image.busy"
+        class="loading-badge"
+      />
       <CardBadgeSuccess
         v-if="image.isPublished()"
         class="published-badge"
@@ -62,11 +68,9 @@ const image = defineModel<ImageForm>('image', {
   required: true
 })
 
-const minimalImage = computed(() => new ImageResponse(
-  image.value.id || -1,
-  image.value.alt || '',
-  image.value.sizes
-))
+const minimalImage = computed(
+  () => new ImageResponse(image.value.id || -1, image.value.alt || '', image.value.sizes)
+)
 watch(
   image,
   (newImage) => {
@@ -74,10 +78,7 @@ watch(
       return
     }
     try {
-      newImage.errors = ImageValidator.validate(
-        newImage,
-        props.imageConstraints
-      )
+      newImage.errors = ImageValidator.validate(newImage, props.imageConstraints)
     } catch {
       // ignore validation error
     }

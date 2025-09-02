@@ -7,8 +7,8 @@ export default {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/YfCTIcFmFgKBCICwrlq2Cu/Lion5---Component-Library?node-id=141-313&t=G5uiRP9qCJCWrnJ1-1',
-    },
+      url: 'https://www.figma.com/design/YfCTIcFmFgKBCICwrlq2Cu/Lion5---Component-Library?node-id=141-313&t=G5uiRP9qCJCWrnJ1-1'
+    }
   }
 } as Meta<typeof BasePill>
 type Story = StoryObj<typeof BasePill>
@@ -50,7 +50,7 @@ export const WithPostfix: Story = {
       </BasePill>`
   }),
   args: {
-    label: 'Money Pill',
+    label: 'Money Pill'
   }
 }
 
@@ -71,7 +71,6 @@ export const WithIconAndPostfix: Story = {
   }
 }
 
-
 export const WithTooltip: Story = {
   render: (args) => ({
     components: { BasePill },
@@ -89,4 +88,3 @@ export const WithTooltip: Story = {
     tooltipText: 'This is a tooltip'
   }
 }
-

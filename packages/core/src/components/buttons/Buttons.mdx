@@ -10,12 +10,14 @@ import * as ConfirmButton from './ConfirmButton/ConfirmButton.stories'
 <Meta title="Navigation Components/Buttons" />
 
 # Buttons
+
 Use buttons to trigger actions inside your application.
 
 ## Base Button
+
 The standard button.
-<div
-  style={{ display: 'grid', 'grid-template-columns': '1fr 1fr 1fr 1fr 1fr 1fr', gap: '1rem' }}>
+
+<div style={{ display: 'grid', 'grid-template-columns': '1fr 1fr 1fr 1fr 1fr 1fr', gap: '1rem' }}>
   <strong>Type</strong>
   <strong>Primary</strong>
   <strong>Neutral</strong>
@@ -73,59 +75,66 @@ The standard button.
 </div>
 
 ## Icon Button
+
 Button that can display only one icon
 
 <div
-  style={{ display: 'grid', 'grid-template-columns': '1fr 1fr 1fr 1fr 1fr 1fr', gap: '1rem', justifyItems: 'center' }}>
-  <strong style={{justifySelf: 'start'}}>Type</strong>
+  style={{
+    display: 'grid',
+    'grid-template-columns': '1fr 1fr 1fr 1fr 1fr 1fr',
+    gap: '1rem',
+    justifyItems: 'center'
+  }}
+>
+  <strong style={{ justifySelf: 'start' }}>Type</strong>
   <strong>Primary</strong>
   <strong>Neutral</strong>
   <strong>Success</strong>
   <strong>Warning</strong>
   <strong>Danger</strong>
-  <strong style={{justifySelf: 'start'}}>Plain</strong>
+  <strong style={{ justifySelf: 'start' }}>Plain</strong>
   <Story of={IconButton.Primary} />
   <Story of={IconButton.Neutral} />
   <Story of={IconButton.Success} />
   <Story of={IconButton.Warning} />
   <Story of={IconButton.Danger} />
-  <strong style={{justifySelf: 'start'}}>Plain with label</strong>
+  <strong style={{ justifySelf: 'start' }}>Plain with label</strong>
   <Story of={IconButton.PrimaryWithLabel} />
   <Story of={IconButton.NeutralWithLabel} />
   <Story of={IconButton.SuccessWithLabel} />
   <Story of={IconButton.WarningWithLabel} />
   <Story of={IconButton.DangerWithLabel} />
-  <strong style={{justifySelf: 'start'}}>Plain Disabled</strong>
+  <strong style={{ justifySelf: 'start' }}>Plain Disabled</strong>
   <Story of={IconButton.PrimaryDisabled} />
   <Story of={IconButton.NeutralDisabled} />
   <Story of={IconButton.SuccessDisabled} />
   <Story of={IconButton.WarningDisabled} />
   <Story of={IconButton.DangerDisabled} />
-  <strong style={{justifySelf: 'start'}}>Plain Busy</strong>
+  <strong style={{ justifySelf: 'start' }}>Plain Busy</strong>
   <Story of={IconButton.PrimaryBusy} />
   <Story of={IconButton.NeutralBusy} />
   <Story of={IconButton.SuccessBusy} />
   <Story of={IconButton.WarningBusy} />
   <Story of={IconButton.DangerBusy} />
-  <strong style={{justifySelf: 'start'}}>Filled</strong>
+  <strong style={{ justifySelf: 'start' }}>Filled</strong>
   <Story of={IconButton.PrimaryFilled} />
   <Story of={IconButton.NeutralFilled} />
   <Story of={IconButton.SuccessFilled} />
   <Story of={IconButton.WarningFilled} />
   <Story of={IconButton.DangerFilled} />
-  <strong style={{justifySelf: 'start'}}>Filled with Label</strong>
+  <strong style={{ justifySelf: 'start' }}>Filled with Label</strong>
   <Story of={IconButton.PrimaryFilledWithLabel} />
   <Story of={IconButton.NeutralFilledWithLabel} />
   <Story of={IconButton.SuccessFilledWithLabel} />
   <Story of={IconButton.WarningFilledWithLabel} />
   <Story of={IconButton.DangerFilledWithLabel} />
-  <strong style={{justifySelf: 'start'}}>Filled Disabled</strong>
+  <strong style={{ justifySelf: 'start' }}>Filled Disabled</strong>
   <Story of={IconButton.PrimaryFilledDisabled} />
   <Story of={IconButton.NeutralFilledDisabled} />
   <Story of={IconButton.SuccessFilledDisabled} />
   <Story of={IconButton.WarningFilledDisabled} />
   <Story of={IconButton.DangerFilledDisabled} />
-  <strong style={{justifySelf: 'start'}}>Filled Busy</strong>
+  <strong style={{ justifySelf: 'start' }}>Filled Busy</strong>
   <Story of={IconButton.PrimaryFilledBusy} />
   <Story of={IconButton.NeutralFilledBusy} />
   <Story of={IconButton.SuccessFilledBusy} />
@@ -134,17 +143,25 @@ Button that can display only one icon
 </div>
 
 ## Action Button
+
 Should be used for FAB button or other for other main actions.
+
 <Story of={ActionButton.Default} />
 
 ## Card Dismiss Button
+
 Should be used to close a modal.
+
 <Story of={CardDismissButton.Default} />
 
 ## Information Button
+
 Opens a modal to provide additional information to a specific topic.
+
 <Story of={InformationButton.Default} />
 
 ## Confirm Button
+
 Opens a modal to allow user to confirm user a action.
+
 <Story of={ConfirmButton.Default} />

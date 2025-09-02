@@ -14,7 +14,6 @@
 </template>
 
 <script setup lang="ts">
-
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 
 withDefaults(
@@ -22,19 +21,20 @@ withDefaults(
     /**
      * Sets the icon class for the button.
      */
-    iconClass: string,
+    iconClass: string
     /**
      * The label for the button. Used for accessibility only.
      */
-    label: string,
+    label: string
     /**
      * The button variant.
      */
     btnVariant?: 'primary' | 'neutral' | 'info' | 'warning' | 'danger' | 'success'
-  }>(), {
+  }>(),
+  {
     btnVariant: 'primary'
-  })
-
+  }
+)
 
 const emit = defineEmits<{
   (e: 'btn-click'): void

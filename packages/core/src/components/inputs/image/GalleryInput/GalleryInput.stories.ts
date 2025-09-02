@@ -16,11 +16,7 @@ export default {
 } as Meta<typeof ImageGalleryInput>
 type Story = StoryObj<typeof ImageGalleryInput>
 
-function getDummyImage(
-  busy: boolean = false,
-  published: boolean = false,
-  errors: Error[] = []
-) {
+function getDummyImage(busy: boolean = false, published: boolean = false, errors: Error[] = []) {
   const metadata = {
     type: 'image/jpeg'
   }

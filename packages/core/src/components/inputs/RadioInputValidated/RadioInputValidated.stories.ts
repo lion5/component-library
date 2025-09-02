@@ -38,7 +38,8 @@ export const Checked: Story = {
   args: {
     name: 'input1',
     label: 'This is a radio input',
-    labelDescription: 'This is a label description with a very long text that should be wrapped. It should be seriously long to get wrapped. So let\'s add some more text to make it even longer. This is a label description with a very long text that should be wrapped. It should be seriously long to get wrapped. So let\'s add some more text to make it even longer.',
+    labelDescription:
+      "This is a label description with a very long text that should be wrapped. It should be seriously long to get wrapped. So let's add some more text to make it even longer. This is a label description with a very long text that should be wrapped. It should be seriously long to get wrapped. So let's add some more text to make it even longer.",
     modelValue: true
   }
 }

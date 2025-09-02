@@ -1,5 +1,8 @@
 <template>
-  <BaseInputWrapper :show-error-icon="false" :show-placeholder="true">
+  <BaseInputWrapper
+    :show-error-icon="false"
+    :show-placeholder="true"
+  >
     <input
       :id="`code-input-${index}`"
       :class="{
@@ -48,7 +51,7 @@ const emit = defineEmits<{
   (e: 'update:inputCode', value: string): void
   (e: 'handle-paste', value: string): void
   (e: 'change-input', value: number): void
-  (e: 'wrong-field-input', value: { index: number, key: string }): void
+  (e: 'wrong-field-input', value: { index: number; key: string }): void
 }>()
 
 const handlePasteEvent = (event: ClipboardEvent) => {
@@ -76,8 +79,7 @@ const addInput = (event: Event) => {
 
   const codeInput = (event.target as { value: string } | null)?.value || ''
 
-  const index =
-    (event.target as { selectionStart: number } | null)?.selectionStart || 0
+  const index = (event.target as { selectionStart: number } | null)?.selectionStart || 0
 
   const currentCodeLength = code.value.length
   const normalizedNewCode = normalizeInputCode(codeInput)
@@ -109,9 +111,7 @@ const handleKeydown = (event: KeyboardEvent) => {
   const regex = new RegExp(`[${allowedCodeCharacters}]`)
   if (
     !regex.test(key) &&
-    !['BACKSPACE', 'ARROWLEFT', 'ARROWRIGHT', 'DELETE'].includes(
-      event.key.toUpperCase()
-    )
+    !['BACKSPACE', 'ARROWLEFT', 'ARROWRIGHT', 'DELETE'].includes(event.key.toUpperCase())
   ) {
     event.preventDefault()
   }

@@ -12,7 +12,10 @@
         @change="addImage"
       />
       <label :for="inputId">
-        <BaseIcon class="add-icon" icon="bi-plus" />
+        <BaseIcon
+          class="add-icon"
+          icon="bi-plus"
+        />
       </label>
     </div>
   </ItemCard>

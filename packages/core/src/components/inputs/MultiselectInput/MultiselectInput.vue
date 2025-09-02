@@ -4,7 +4,7 @@
       'multi-select-input': true,
       'has-content': selectedOptions.length > 0,
       'has-error': (dirty && invalid) || errorObjects.length > 0,
-      'required': required
+      required: required
     }"
     class="floating-input-group"
   >
@@ -155,7 +155,7 @@ const props = withDefaults(
 )
 
 defineSlots<{
-  [key: string]: unknown;
+  [key: string]: unknown
 }>()
 
 /**

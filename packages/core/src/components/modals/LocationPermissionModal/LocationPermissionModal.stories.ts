@@ -5,7 +5,7 @@ import { BaseButton } from '../../index'
 
 export default {
   component: LocationPermissionModal,
-  title: 'Navigation Components/Modals/LocationPermissionModal',
+  title: 'Navigation Components/Modals/LocationPermissionModal'
 } as Meta<typeof LocationPermissionModal>
 type Story = StoryObj<typeof LocationPermissionModal>
 

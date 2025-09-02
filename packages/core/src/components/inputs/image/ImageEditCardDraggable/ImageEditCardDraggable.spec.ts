@@ -7,7 +7,6 @@ import { ImageConstraints } from '@core/models/image/imageConstraints'
 import ImageEditCard from '@core/components/inputs/image/ImageEditCard/ImageEditCard.vue'
 import DraggableItem from '@core/components/dragdrop/DraggableItem/DraggableItem.vue'
 
-
 describe('ImageEditCardDraggable.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
 

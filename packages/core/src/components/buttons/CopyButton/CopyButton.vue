@@ -28,7 +28,7 @@ const props = withDefaults(
     /**
      * Shows a more extensive success message.
      */
-    extensiveSuccess?: boolean,
+    extensiveSuccess?: boolean
     /**
      * The label for the button, used for accessibility.
      */
@@ -48,9 +48,7 @@ const notifySuccess = () => {
   }, 2000)
 }
 
-const isAvailable = computed(
-  () => navigator && navigator.clipboard && !!props.copyContent
-)
+const isAvailable = computed(() => navigator && navigator.clipboard && !!props.copyContent)
 const copyToClipboard = () => {
   if (!props.copyContent) return
   navigator.clipboard.writeText(props.copyContent)

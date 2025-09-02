@@ -26,7 +26,7 @@ describe('PillListInput.vue', () => {
   })
   describe(':props', () => {
     it(':pillInputItems - are rendered as PillInputs', async () => {
-      const expectedPillInputItems = [ pillInputItem ]
+      const expectedPillInputItems = [pillInputItem]
       await wrapper.setProps({ pillInputItems: expectedPillInputItems })
       await nextTick()
 
@@ -39,7 +39,7 @@ describe('PillListInput.vue', () => {
   })
   describe('@events', () => {
     it('@delete - emits @delete', async () => {
-      const expectedPillInputItems = [ pillInputItem ]
+      const expectedPillInputItems = [pillInputItem]
       await wrapper.setProps({ pillInputItems: expectedPillInputItems })
       wrapper.findComponent(PillInput).vm.$emit('delete')
       await nextTick()

@@ -29,13 +29,9 @@ export function useBrowserPermissions() {
     }
   }
 
-  const locationGranted = computed(
-    () => locationPermissionState.value === PermissionState.GRANTED
-  )
+  const locationGranted = computed(() => locationPermissionState.value === PermissionState.GRANTED)
 
-  const locationDenied = computed(
-    () => locationPermissionState.value === PermissionState.DENIED
-  )
+  const locationDenied = computed(() => locationPermissionState.value === PermissionState.DENIED)
 
   const locationModalVisible = computed(
     () =>

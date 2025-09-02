@@ -6,7 +6,7 @@ import IconDashboard from '@core/components/icons/IconDashboard.vue'
 
 export default {
   component: NavBar,
-  title: 'Navigation Components/App Bars/NavBar',
+  title: 'Navigation Components/App Bars/NavBar'
 } as Meta<typeof NavBar>
 type Story = StoryObj<typeof NavBar>
 

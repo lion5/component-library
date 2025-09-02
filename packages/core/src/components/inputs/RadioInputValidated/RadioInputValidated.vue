@@ -1,28 +1,46 @@
 <template>
-  <div :class="{ required: required }" class="radio-button-input-group">
+  <div
+    :class="{ required: required }"
+    class="radio-button-input-group"
+  >
     <div class="input-group">
       <input
         :id="name"
         :checked="checked"
         :class="{
-        dirty: meta.dirty,
-        valid: meta.touched && meta.valid,
-        invalid: meta.touched && !meta.valid,
-      }"
+          dirty: meta.dirty,
+          valid: meta.touched && meta.valid,
+          invalid: meta.touched && !meta.valid
+        }"
         :name="name"
         :value="checkedValue"
         type="radio"
         v-bind="$attrs"
         @change="handleChange"
       />
-      <span v-if="required" class="asterisk">*</span>
+      <span
+        v-if="required"
+        class="asterisk"
+        >*</span
+      >
 
       <label :for="name">
-        <span :class="{ title: labelDescription }" class="main-label">{{ label }}</span>
-        <span v-if="labelDescription" class="description">{{ labelDescription }}</span>
+        <span
+          :class="{ title: labelDescription }"
+          class="main-label"
+          >{{ label }}</span
+        >
+        <span
+          v-if="labelDescription"
+          class="description"
+          >{{ labelDescription }}</span
+        >
       </label>
     </div>
-    <ErrorBox :errors="errorObjects" class="error-box" />
+    <ErrorBox
+      :errors="errorObjects"
+      class="error-box"
+    />
   </div>
 </template>
 

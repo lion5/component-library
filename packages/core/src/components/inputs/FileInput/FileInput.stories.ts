@@ -22,7 +22,7 @@ type Story = StoryObj<typeof FileInput>
 export const Empty: Story = {
   args: {
     name: 'file-input-empty',
-    label: 'Empty File Input',
+    label: 'Empty File Input'
   }
 }
 

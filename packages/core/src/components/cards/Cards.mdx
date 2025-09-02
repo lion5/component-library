@@ -1,19 +1,23 @@
-import { Canvas, Meta, Story } from "@storybook/addon-docs/blocks";
+import { Canvas, Meta, Story } from '@storybook/addon-docs/blocks'
 
-import * as EntityCardStories from "./EntityCard/EntityCard.stories";
-import * as ItemCardStories from "./ItemCard/ItemCard.stories";
-import * as BaseCardStories from './BaseCard/BaseCard.stories';
+import * as EntityCardStories from './EntityCard/EntityCard.stories'
+import * as ItemCardStories from './ItemCard/ItemCard.stories'
+import * as BaseCardStories from './BaseCard/BaseCard.stories'
 
-<Meta title="Display Components/Cards"/>
+<Meta title="Display Components/Cards" />
 
 # Cards
+
 Cards can help to structure the content.
 
 ## Base Card
+
 The base card is the most simple card. It just provides a basic card styling.
+
 <Story of={BaseCardStories.Default} />
 
 ## Entity Card
+
 Use entity card if the content that shall be displayed is bound to a specific entity.
 The entity card provide special states to reflect the loading state of the entity.
 
@@ -23,7 +27,7 @@ The entity card provide special states to reflect the loading state of the entit
 <Story of={EntityCardStories.ErrorStateWithContent} />
 
 ## Item Card
+
 The item card just provide a base card styling
+
 <Story of={ItemCardStories.Default} />
-
-

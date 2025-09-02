@@ -4,7 +4,7 @@ import { createPinia, setActivePinia } from 'pinia'
 
 export default {
   component: WakeLockToggle,
-  title: 'Input Components/WakeLockToggle',
+  title: 'Input Components/WakeLockToggle'
 } as Meta<typeof WakeLockToggle>
 type Story = StoryObj<typeof WakeLockToggle>
 

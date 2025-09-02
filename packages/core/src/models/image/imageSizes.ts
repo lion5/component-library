@@ -14,12 +14,6 @@ export class ImageSizes {
   }
 
   clone() {
-    return new ImageSizes(
-      this.original,
-      this.tiny,
-      this.small,
-      this.mid,
-      this.large
-    )
+    return new ImageSizes(this.original, this.tiny, this.small, this.mid, this.large)
   }
 }

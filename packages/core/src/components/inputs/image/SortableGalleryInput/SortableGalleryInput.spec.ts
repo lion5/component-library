@@ -79,7 +79,9 @@ describe('SortableGalleryInput.vue', () => {
       const imageDropArea = wrapper.findComponent(ImageDropArea)
       await imageDropArea.vm.$emit('input', imageForm)
 
-      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([new GalleryForm([new ImageForm(0), imageForm])])
+      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([
+        new GalleryForm([new ImageForm(0), imageForm])
+      ])
     })
     it(':update:gallery - is triggered when ImageAddCard emits input', async () => {
       const gallery = new GalleryForm([new ImageForm(0)])
@@ -89,7 +91,9 @@ describe('SortableGalleryInput.vue', () => {
       const imageAddCard = wrapper.findComponent(ImageAddCard)
       await imageAddCard.vm.$emit('input', imageForm)
 
-      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([new GalleryForm([new ImageForm(0), imageForm])])
+      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([
+        new GalleryForm([new ImageForm(0), imageForm])
+      ])
     })
     it(':update:gallery - is triggered when ImageDropArea emits input', async () => {
       const gallery = new GalleryForm([new ImageForm(0)])
@@ -99,7 +103,9 @@ describe('SortableGalleryInput.vue', () => {
       const imageAddCard = wrapper.findComponent(ImageDropArea)
       await imageAddCard.vm.$emit('input', imageForm)
 
-      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([new GalleryForm([new ImageForm(0), imageForm])])
+      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([
+        new GalleryForm([new ImageForm(0), imageForm])
+      ])
     })
     it(':update:gallery - disable ImageDropArea if image dragged', async () => {
       const gallery = new GalleryForm([new ImageForm(0)])
@@ -108,7 +114,6 @@ describe('SortableGalleryInput.vue', () => {
       const imagCard = wrapper.findComponent(ImageEditCardDraggable)
       await imagCard.vm.$emit('drag')
       await wrapper.vm.$nextTick()
-
 
       expect(wrapper.findComponent(ImageDropArea).props().disabled).toBe(true)
     })

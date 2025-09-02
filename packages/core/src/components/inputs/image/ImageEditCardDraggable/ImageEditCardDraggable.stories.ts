@@ -26,11 +26,7 @@ const Template = (args: unknown) => ({
     '<div style="max-width: 250px;"><ImageEditCardDraggable v-bind="args" @drag="drag" @drop="drop" @input="input"/></div>'
 })
 
-function getDummyImage(
-  busy: boolean = false,
-  published: boolean = false,
-  errors = []
-) {
+function getDummyImage(busy: boolean = false, published: boolean = false, errors = []) {
   const metadata = {
     type: 'image/jpeg'
   }

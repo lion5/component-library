@@ -1,12 +1,20 @@
 <template>
   <ImageInputWrapper :name="name">
     <template #label>
-      <img v-if="selectedImage" :src="src" alt="Vorschau" />
+      <img
+        v-if="selectedImage"
+        :src="src"
+        alt="Vorschau"
+      />
       <div>
         <IconCamera />
         <span>{{ uploadImageLabel }}</span>
       </div>
-      <span class="error" v-if="errorMessage">{{ errorMessage }}</span>
+      <span
+        class="error"
+        v-if="errorMessage"
+        >{{ errorMessage }}</span
+      >
     </template>
   </ImageInputWrapper>
 </template>
@@ -29,13 +37,9 @@ const emit = defineEmits<{
 const localName = toRef(props, 'name')
 const { value: selectedImage, errorMessage } = useField<File>(localName)
 
-const src = computed(
-  () => props.modelValue && URL.createObjectURL(props.modelValue)
-)
+const src = computed(() => props.modelValue && URL.createObjectURL(props.modelValue))
 
-const uploadImageLabel = computed(() =>
-  props.modelValue ? 'Bild ändern' : 'Bild aufnehmen'
-)
+const uploadImageLabel = computed(() => (props.modelValue ? 'Bild ändern' : 'Bild aufnehmen'))
 
 watch(selectedImage, (newValue) => {
   emit('update:modelValue', newValue)

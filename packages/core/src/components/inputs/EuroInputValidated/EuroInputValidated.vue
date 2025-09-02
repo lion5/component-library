@@ -53,7 +53,6 @@ const displayedCurrencyValue = ref<string>('0')
 
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
 
-
 const { value, handleBlur, meta, setValue, errors } = useField<number>(
   () => props.name,
   props.validationRules ?? number().min(0, 'Der Betrag muss größer oder gleich 0 sein.'),

@@ -20,7 +20,6 @@ export default {
 } as Meta<typeof InformationHeadline>
 type Story = StoryObj<typeof InformationHeadline>
 
-
 export const Default: Story = {
   args: {
     title: 'Topic',

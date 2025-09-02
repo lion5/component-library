@@ -1,6 +1,12 @@
 <template>
-  <ErrorBox v-if="errorMessage" :error="error" />
-  <InfoBox v-if="infoMessage" :info-message="infoMessage" />
+  <ErrorBox
+    v-if="errorMessage"
+    :error="error"
+  />
+  <InfoBox
+    v-if="infoMessage"
+    :info-message="infoMessage"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -19,7 +25,5 @@ const props = defineProps<{
   infoMessage?: string
 }>()
 
-const error = computed(() =>
-  props.errorMessage ? new Error(props.errorMessage) : undefined
-)
+const error = computed(() => (props.errorMessage ? new Error(props.errorMessage) : undefined))
 </script>

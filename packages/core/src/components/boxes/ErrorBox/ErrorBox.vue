@@ -8,13 +8,16 @@
     <div class="error-content">
       <slot>
         <ul v-if="localErrors.length > 1">
-          <li v-for="localError in localErrors" :key="localError.message">
+          <li
+            v-for="localError in localErrors"
+            :key="localError.message"
+          >
             {{ localError.message }}
           </li>
         </ul>
         <span v-else>
-        {{ localErrors[0].message }}
-      </span>
+          {{ localErrors[0].message }}
+        </span>
       </slot>
     </div>
   </BaseBox>

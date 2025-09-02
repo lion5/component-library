@@ -32,14 +32,13 @@ export default {
         <p>Content here...</p>
       </DismissibleModal>
     `
-  }),
+  })
 } as Meta<typeof DismissibleModal>
 type Story = StoryObj<typeof DismissibleModal>
 
-
 export const Default: Story = {
   args: {
-    dismissButtonLabel: 'Close',
+    dismissButtonLabel: 'Close'
   }
 }
 

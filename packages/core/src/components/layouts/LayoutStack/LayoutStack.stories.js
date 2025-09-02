@@ -10,9 +10,7 @@ const Template = (args, { argTypes }) => ({
   components: { LayoutStack },
   template: `
     <LayoutStack>
-      <template v-if="${'default' in args}" v-slot:default>${
-        args.default
-      }</template>
+      <template v-if="${'default' in args}" v-slot:default>${args.default}</template>
     </LayoutStack>`
 })
 

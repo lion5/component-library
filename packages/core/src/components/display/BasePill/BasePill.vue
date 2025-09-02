@@ -5,9 +5,9 @@ import BaseTooltip from '@core/components/utils/BaseTooltip/BaseTooltip.vue'
 withDefaults(
   defineProps<{
     label: string
-    iconStartCls?: string,
-    busy?: boolean,
-    tooltipText?: string,
+    iconStartCls?: string
+    busy?: boolean
+    tooltipText?: string
     tooltipShowOnHover?: boolean
   }>(),
   {
@@ -49,5 +49,4 @@ withDefaults(
   </BasePillContent>
 </template>
 
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

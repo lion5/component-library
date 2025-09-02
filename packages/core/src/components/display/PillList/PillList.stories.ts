@@ -20,10 +20,15 @@ export const Default: Story = {
       new Pill(2, 'Person Pill', 'bi-person-fill'),
       new Pill('3', 'Cash Pill', 'bi-cash'),
       new Pill('3', 'Busy Pill', 'bi-cash', true),
-      new Pill('3', 'Tooltip On Hover Pill', 'bi-info-circle-fill', false, 'This is a tooltip', true),
-      new Pill('3', 'Tooltip Pill', 'bi-info-circle-fill', false, 'This is a tooltip', false),
+      new Pill(
+        '3',
+        'Tooltip On Hover Pill',
+        'bi-info-circle-fill',
+        false,
+        'This is a tooltip',
+        true
+      ),
+      new Pill('3', 'Tooltip Pill', 'bi-info-circle-fill', false, 'This is a tooltip', false)
     ]
   }
 }
-
-

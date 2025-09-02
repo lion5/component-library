@@ -1,7 +1,11 @@
 <template>
   <div class="section-header">
     <h3>
-      <BaseIcon v-if="prefixIconId" :icon="prefixIconId" class="icon" />
+      <BaseIcon
+        v-if="prefixIconId"
+        :icon="prefixIconId"
+        class="icon"
+      />
       {{ title }}
       <IconEyeSlash v-if="isPrivate" />
     </h3>

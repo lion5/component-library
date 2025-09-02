@@ -8,8 +8,14 @@
     >
       <IconChevronLeft />
     </button>
-    <div class="images" ref="scrollBox">
-      <div v-for="image in images" :key="image.id">
+    <div
+      class="images"
+      ref="scrollBox"
+    >
+      <div
+        v-for="image in images"
+        :key="image.id"
+      >
         <input
           v-model="selectedImage"
           type="radio"

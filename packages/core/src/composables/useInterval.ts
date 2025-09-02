@@ -13,10 +13,7 @@ export function useInterval() {
    * @param callback the function that shall be called after every timeout
    * @param timeoutInSeconds the interval size in seconds
    */
-  const createIntervalSeconds = (
-    callback: () => void,
-    timeoutInSeconds: number
-  ) => {
+  const createIntervalSeconds = (callback: () => void, timeoutInSeconds: number) => {
     removeInterval()
     interval.value = setInterval(
       () => {

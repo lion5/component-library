@@ -10,8 +10,8 @@ export default {
   parameters: {
     design: {
       type: 'figma',
-      url: 'https://www.figma.com/design/YfCTIcFmFgKBCICwrlq2Cu/Lion5---Component-Library?node-id=113-591&t=KnOOskVlJMUpt92M-1',
-    },
+      url: 'https://www.figma.com/design/YfCTIcFmFgKBCICwrlq2Cu/Lion5---Component-Library?node-id=113-591&t=KnOOskVlJMUpt92M-1'
+    }
   },
   render: (args) => ({
     components: { BaseButton },
@@ -25,15 +25,12 @@ export default {
       </BaseButton>`
   }),
   args: {
-    label: 'Money Pill',
+    label: 'Money Pill'
   }
 } as Meta<typeof BaseButton>
 type Story = StoryObj<typeof BaseButton>
 
-
 export const FilledPrimary: Story = {}
-
-
 
 export const FilledNeutral = {
   args: {
@@ -58,7 +55,6 @@ export const FilledDanger = {
     variant: 'danger'
   }
 }
-
 
 export const FilledPrimaryBusy: Story = {
   args: {
@@ -95,7 +91,6 @@ export const FilledDangerBusy = {
   }
 }
 
-
 // Filled Disabled Variants
 export const FilledPrimaryDisabled: Story = {
   args: {
@@ -127,7 +122,6 @@ export const FilledDangerDisabled: Story = {
     disabled: true
   }
 }
-
 
 // Filled Icon Variants
 export const FilledPrimaryIcon: Story = {
@@ -318,7 +312,6 @@ export const OutlineDangerIcon: Story = {
     ...OutlineDanger.args
   }
 }
-
 
 /**
  * @deprecated use `Neutral` instead

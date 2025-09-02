@@ -83,7 +83,7 @@ const props = withDefaults(
   }>(),
   {
     validationRules: undefined,
-    addButtonLabel: 'Neues Element hinzufügen',
+    addButtonLabel: 'Neues Element hinzufügen'
   }
 )
 

@@ -8,11 +8,18 @@
       <slot name="tooltipIcon" />
       <!-- @slot should contain content that is always displayed. Is wrapped by the tooltip trigger -->
       <slot name="tooltipTriggerContent" />
+      <slot name="trigger" />
     </button>
-    <BaseCard :id="id" role="tooltip">
+    <BaseCard
+      :id="id"
+      role="tooltip"
+    >
       <!-- @slot content displayed in the tooltip box -->
-      <slot name="tooltipText">
-        {{ tooltipText }}
+      <slot name="content">
+        <!-- @slot content displayed in the tooltip box -->
+        <slot name="tooltipText">
+          {{ tooltipText }}
+        </slot>
       </slot>
     </BaseCard>
   </div>
@@ -32,17 +39,32 @@ defineSlots<{
    * Slot that contains the icon that is used as trigger for the tooltip.
    * @deprecated use tooltipTriggerContent instead
    */
-  tooltipIcon: void,
+  tooltipIcon: void
   /**
    * Slot that contains content that is always displayed. Is wrapped by the tooltip trigger.
+   * @deprecated use trigger instead
    *
    * @Since 0.24.0
    */
-  tooltipTriggerContent: void,
+  tooltipTriggerContent: void
   /**
    * Slot that contains the text that is displayed inside the tooltips box.
+   *
+   * @deprecated use content instead
    */
   tooltipText: void
+  /**
+   * Slot that contains the trigger element for the tooltip.
+   *
+   * @Since 0.30.0
+   */
+  trigger: void
+  /**
+   * Slot that contains the text that is displayed inside the tooltips box.
+   *
+   * @Since 0.30.0
+   */
+  content: void
 }>()
 
 withDefaults(
@@ -50,7 +72,7 @@ withDefaults(
     /**
      * Text that is displayed inside the tooltips box. The slot tooltipText will override this prop if set.
      */
-    tooltipText?: string,
+    tooltipText?: string
     /**
      * Determines if the content is selectable.
      */
@@ -96,7 +118,6 @@ const id = useId()
   padding: var(--tooltip-padding, var(--space-sm));
   z-index: 1;
 }
-
 
 button.on-hover:hover + [role='tooltip'],
 button:focus + [role='tooltip'],

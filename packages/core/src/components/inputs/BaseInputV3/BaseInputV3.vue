@@ -2,37 +2,75 @@
   <div
     :class="[
       'base-input-wrapper',
-      { dirty, invalid, required },
+      { dirty, invalid, required, 'floating-label': labelType === 'floating' },
       $attrs.class
     ]"
   >
-    <div class="input-group">
-      <slot name="prefix" />
-      <div class="input-label">
-        <input
-          :id="name"
-          v-model.trim="value"
-          :name="name"
-          :type="type"
-          placeholder="hidden"
-          :required="required"
-          v-bind="$attrs"
-        />
-        <label :for="name">{{ label }}
-        </label>
+    <label
+      v-if="labelType === 'static'"
+      :for="name"
+      >{{ label }}
+    </label>
+    <div class="input-container">
+      <slot name="before-input" />
+      <div class="input-group">
+        <slot name="prefix" />
+        <div class="input-label">
+          <input
+            :id="name"
+            v-model.trim="value"
+            :name="name"
+            :type="type"
+            placeholder="hidden"
+            :required="required"
+            v-bind="$attrs"
+          />
+          <label
+            v-if="labelType === 'floating'"
+            :for="name"
+            >{{ label }}
+          </label>
+        </div>
+        <div class="postfix">
+          <BaseTooltip
+            v-if="showErrorIcon && invalid && errors.length"
+            :content="errors[0]"
+          >
+            <template #trigger>
+              <IconError class="error-icon" />
+            </template>
+            <template #content>
+              <ErrorBox
+                :errors="errorObjects"
+                class="error-box"
+              />
+            </template>
+          </BaseTooltip>
+          <IconError
+            v-else-if="showErrorIcon && invalid"
+            class="error-icon"
+          />
+          <slot
+            v-else
+            name="postfix"
+          />
+          <slot name="fixed-postfix" />
+        </div>
       </div>
-      <div class="postfix">
-        <IconError v-if="invalid" class="error-icon" />
-        <slot v-else name="postfix" />
-      </div>
+      <slot name="after-input" />
     </div>
-    <ErrorBox :errors="errorObjects" class="error-box" />
+    <ErrorBox
+      :errors="errorObjects"
+      class="error-box"
+    />
   </div>
 </template>
 <script generic="T" lang="ts" setup>
 import IconError from '@core/components/icons/IconError.vue'
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
+import BaseTooltip from '@core/components/utils/BaseTooltip/BaseTooltip.vue'
 import { computed } from 'vue'
+import { InputLabelType } from '@core/components/inputs/BaseInputV3/inputLabelType'
 
 defineOptions({
   inheritAttrs: false
@@ -67,6 +105,7 @@ const props = withDefaults(
      * The errors of the field. This is provided by `useField` from `vee-validate`.
      */
     errors?: Error[] | string[]
+    labelType?: InputLabelType
   }>(),
   {
     type: 'text',
@@ -74,6 +113,7 @@ const props = withDefaults(
     invalid: false,
     required: false,
     showErrorIcon: true,
+    labelType: 'floating',
     errors: () => []
   }
 )
@@ -102,18 +142,24 @@ const errorObjects = computed(() => {
   --_input-border-radius: var(--input-border-radius, var(--border-radius-300));
   --_input-error-color: var(--color-danger);
   --_input-error-color-hover: var(--color-danger-hover);
+  --tooltip-right: 0;
   display: flex;
   flex-direction: column;
   gap: var(--space-300);
   width: 100%;
   font-size: var(--_input-size);
 
-
+  .input-container,
   .input-group {
     display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    width: 100%;
+  }
+
+  .input-group {
     border-radius: var(--_input-border-radius);
     background-color: var(--_input-surface-color);
-    align-items: center;
     padding-inline: var(--space-sm);
     gap: var(--space-sm);
 
@@ -122,35 +168,36 @@ const errorObjects = computed(() => {
     }
   }
 
-
   &.required input ~ label:after {
     display: inline-block;
-    content: "*";
+    content: '*';
     font-size: 1.2rem;
-    padding-left: .3rem;
+    padding-left: 0.3rem;
     color: var(--color-danger);
-    line-height: .5;
-    transform: translateY(.25rem);
+    line-height: 0.5;
+    transform: translateY(0.25rem);
+  }
+
+  label {
+    font-size: var(--_label-size);
+    color: var(--color-neutral-700);
+    cursor: text;
+    user-select: none;
   }
 
   .input-label {
-    display: grid;
-    position: relative;
-    gap: var(--space-sm);
     flex-grow: 1;
 
     input,
     label {
-      grid-row: 1 / 2;
-      grid-column: 1 / 2;
       font-size: var(--_input-size);
       background-color: transparent;
     }
 
     input {
       border: none;
-      padding-block-end: var(--space-xs);
-      padding-block-start: calc(var(--_label-size) + var(--space-sm));
+      width: 100%;
+      padding-block: var(--space-sm);
 
       &:focus {
         outline: none;
@@ -173,16 +220,36 @@ const errorObjects = computed(() => {
       }
     }
 
+    input::placeholder,
+    input::-webkit-input-placeholder {
+      color: transparent !important;
+      opacity: 0;
+    }
+  }
+
+  &.floating-label .input-label {
+    display: grid;
+    position: relative;
+    gap: var(--space-sm);
+
+    input,
+    label {
+      grid-row: 1 / 2;
+      grid-column: 1 / 2;
+    }
+
+    input {
+      padding-block-end: var(--space-xs);
+      padding-block-start: calc(var(--_label-size) + var(--space-sm));
+    }
+
     label {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      color: var(--color-neutral-700);
       transform-origin: left center;
       transition: 0.15s ease-out;
       transition-property: top, margin-top, transform, font-size;
-      cursor: text;
-      user-select: none;
       line-height: 1;
     }
 
@@ -195,10 +262,9 @@ const errorObjects = computed(() => {
     }
   }
 
-  input::placeholder,
-  input::-webkit-input-placeholder {
-    color: transparent !important;
-    opacity: 0;
+  .postfix {
+    display: flex;
+    align-items: center;
   }
 
   .postfix-icon {

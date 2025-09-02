@@ -66,7 +66,10 @@ describe('galleryForm.ts', () => {
     const actualGallery = galleryForm.clone()
     actualGallery.images[0].removed = true
 
-    expect(actualGallery.getImages()).toStrictEqual([actualGallery.images[1], actualGallery.images[2]])
+    expect(actualGallery.getImages()).toStrictEqual([
+      actualGallery.images[1],
+      actualGallery.images[2]
+    ])
   })
 
   it('moveImage - moves image to the specified index', function () {

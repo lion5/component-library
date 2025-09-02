@@ -13,11 +13,7 @@ export default {
 } as Meta<typeof ImageEditCard>
 type Story = StoryObj<typeof ImageEditCard>
 
-function getDummyImage(
-  busy: boolean = false,
-  published: boolean = false,
-  errors = []
-) {
+function getDummyImage(busy: boolean = false, published: boolean = false, errors = []) {
   const metadata = {
     type: 'image/jpeg'
   }
@@ -38,8 +34,7 @@ const Template = (args: unknown) => ({
   setup() {
     return { args }
   },
-  template:
-    '<div style="max-width: 250px;"><ImageEditCard v-bind="args" /></div>'
+  template: '<div style="max-width: 250px;"><ImageEditCard v-bind="args" /></div>'
 })
 
 export const Local: Story = {

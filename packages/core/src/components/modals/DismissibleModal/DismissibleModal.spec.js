@@ -13,12 +13,11 @@ describe('DismissibleModal', () => {
   })
 
   beforeEach(() => {
-    wrapper = mount(DismissibleModal,
-      {
-        props: {
-          modalDisplayed: true
-        }
-      })
+    wrapper = mount(DismissibleModal, {
+      props: {
+        modalDisplayed: true
+      }
+    })
   })
 
   afterEach(() => {

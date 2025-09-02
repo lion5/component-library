@@ -19,11 +19,7 @@ describe('ErrorBox', () => {
     })
     it(':error :errors - are combined viewed when both set', async () => {
       const error = new Error('New test error')
-      const errors = [
-        new Error('First error'),
-        new Error('Second error'),
-        new Error('Third error')
-      ]
+      const errors = [new Error('First error'), new Error('Second error'), new Error('Third error')]
       await wrapper.setProps({
         error,
         errors
@@ -41,11 +37,7 @@ describe('ErrorBox', () => {
       expect(errorMessage.text()).toBe(error.message)
     })
     it(':errors - displays all error messages when set', async () => {
-      const errors = [
-        new Error('First error'),
-        new Error('Second error'),
-        new Error('Third error')
-      ]
+      const errors = [new Error('First error'), new Error('Second error'), new Error('Third error')]
       await wrapper.setProps({ errors })
       const errorMessages = wrapper.findAll('li')
       expect(errorMessages.at(0).text()).toBe(errors[0].message)

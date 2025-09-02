@@ -32,7 +32,7 @@ export const AcceptJPGOnly: Story = {
 }
 
 export const MultiFile: Story = {
-  render:Default.render,
+  render: Default.render,
   args: {
     multiselect: true
   }

@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: ImageSlider,
-  title: 'Display Components/Image/ImageSlider',
+  title: 'Display Components/Image/ImageSlider'
 } as Meta<typeof ImageSlider>
 type Story = StoryObj<typeof ImageSlider>
 
@@ -20,41 +20,13 @@ export const DefaultWithDifferentAspectRatios: Story = {
   }),
   args: {
     images: [
-      new MinimalImage(
-        1,
-        'alt',
-        'https://dummyimage.com/400x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        2,
-        'alt',
-        'https://dummyimage.com/100x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        3,
-        'alt',
-        'https://dummyimage.com/400x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        4,
-        'alt',
-        'https://dummyimage.com/800x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        5,
-        'alt',
-        'https://dummyimage.com/200x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        6,
-        'alt',
-        'https://dummyimage.com/400x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        7,
-        'alt',
-        'https://dummyimage.com/800x300/d4d4d4/fff.png'
-      )
+      new MinimalImage(1, 'alt', 'https://dummyimage.com/400x300/d4d4d4/fff.png'),
+      new MinimalImage(2, 'alt', 'https://dummyimage.com/100x300/d4d4d4/fff.png'),
+      new MinimalImage(3, 'alt', 'https://dummyimage.com/400x300/d4d4d4/fff.png'),
+      new MinimalImage(4, 'alt', 'https://dummyimage.com/800x300/d4d4d4/fff.png'),
+      new MinimalImage(5, 'alt', 'https://dummyimage.com/200x300/d4d4d4/fff.png'),
+      new MinimalImage(6, 'alt', 'https://dummyimage.com/400x300/d4d4d4/fff.png'),
+      new MinimalImage(7, 'alt', 'https://dummyimage.com/800x300/d4d4d4/fff.png')
     ]
   }
 }
@@ -71,41 +43,13 @@ export const WithAspectRatio = {
   }),
   args: {
     images: [
-      new MinimalImage(
-        1,
-        'alt',
-        'https://dummyimage.com/400x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        2,
-        'alt',
-        'https://dummyimage.com/100x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        3,
-        'alt',
-        'https://dummyimage.com/400x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        4,
-        'alt',
-        'https://dummyimage.com/800x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        5,
-        'alt',
-        'https://dummyimage.com/200x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        6,
-        'alt',
-        'https://dummyimage.com/400x300/d4d4d4/fff.png'
-      ),
-      new MinimalImage(
-        7,
-        'alt',
-        'https://dummyimage.com/800x300/d4d4d4/fff.png'
-      )
+      new MinimalImage(1, 'alt', 'https://dummyimage.com/400x300/d4d4d4/fff.png'),
+      new MinimalImage(2, 'alt', 'https://dummyimage.com/100x300/d4d4d4/fff.png'),
+      new MinimalImage(3, 'alt', 'https://dummyimage.com/400x300/d4d4d4/fff.png'),
+      new MinimalImage(4, 'alt', 'https://dummyimage.com/800x300/d4d4d4/fff.png'),
+      new MinimalImage(5, 'alt', 'https://dummyimage.com/200x300/d4d4d4/fff.png'),
+      new MinimalImage(6, 'alt', 'https://dummyimage.com/400x300/d4d4d4/fff.png'),
+      new MinimalImage(7, 'alt', 'https://dummyimage.com/800x300/d4d4d4/fff.png')
     ]
   }
 }
