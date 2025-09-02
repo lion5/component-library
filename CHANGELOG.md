@@ -1,3 +1,16 @@
+## 0.30.0 (2025-09-02)
+
+### 🚀 Features
+
+- **BaseInputV3:** implement label types ([84a2bb9](https://github.com/lion5/component-library/commit/84a2bb9))
+- **NumberInput:** handle float inputs localized ([4a154d4](https://github.com/lion5/component-library/commit/4a154d4))
+- **NumberInput:** add optional stepper buttons ([44b6f2f](https://github.com/lion5/component-library/commit/44b6f2f))
+- **useNumber:** add increase and decrease functions ([3375a37](https://github.com/lion5/component-library/commit/3375a37))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.29.1 (2025-08-21)
 
 ### 🩹 Fixes
