@@ -29,7 +29,7 @@
           data-testid="increment-button"
           @click="onIncrement"
         >
-          <slot name="increment-button-icon">
+          <slot name="incrementButtonIcon">
             <BaseIcon icon="bi-plus-lg" />
           </slot>
         </IconButton>
@@ -39,7 +39,7 @@
           data-testid="decrement-button"
           @click="onDecrement"
         >
-          <slot name="decrement-button-icon">
+          <slot name="decrementButtonIcon">
             <BaseIcon icon="bi-dash-lg" />
           </slot>
         </IconButton>
@@ -56,7 +56,7 @@
         filled
         @click="onDecrement"
       >
-        <slot name="decrement-button-icon">
+        <slot name="decrementButtonIcon">
           <BaseIcon icon="bi-dash-lg" />
         </slot>
       </IconButton>
@@ -72,7 +72,7 @@
         filled
         @click="onIncrement"
       >
-        <slot name="increment-button-icon">
+        <slot name="incrementButtonIcon">
           <BaseIcon icon="bi-plus-lg" />
         </slot>
       </IconButton>

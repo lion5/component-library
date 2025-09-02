@@ -224,8 +224,8 @@ describe.concurrent('NumberInput.vue', () => {
     maxFractionDigits = 4,
     stepButtonsVariant = 'none' as StepButtonsVariant,
     step = 1,
-    max = undefined,
-    min = undefined
+    max = undefined as number | undefined,
+    min = undefined as number | undefined
   } = {}) {
     return mount(NumberInput, {
       props: {
