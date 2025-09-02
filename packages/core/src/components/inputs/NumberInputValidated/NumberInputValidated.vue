@@ -1,24 +1,35 @@
 <template>
-  <BaseInputV3
-    :model-value="value?.toString()"
+  <NumberInput
+    v-model="value"
     :dirty="meta.dirty"
     :errors="errors"
     :invalid="meta.touched && !meta.valid"
     :label="label"
     :name="name"
     :required="required"
-    type="number"
     v-bind="$attrs"
-    @update:model-value="handleInput"
     @blur="handleBlur"
-  />
+  >
+    <template #prefix>
+      <slot name="prefix" />
+    </template>
+    <template #postfix>
+      <slot name="postfix" />
+    </template>
+    <template #incrementButtonIcon>
+      <slot name="incrementButtonIcon" />
+    </template>
+    <template #decrementButtonIcon>
+      <slot name="decrementButtonIcon" />
+    </template>
+  </NumberInput>
 </template>
 <script setup lang="ts">
 import type { RuleExpression } from 'vee-validate'
 import { useField } from 'vee-validate'
-import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import { computed } from 'vue'
 import { Schema } from 'yup'
+import NumberInput from '@core/components/inputs/NumberInput/NumberInput.vue'
 
 const props = withDefaults(
   defineProps<{
@@ -44,19 +55,14 @@ const props = withDefaults(
   }
 )
 
-const handleInput = (inputValue?: string) => {
-  if (inputValue === '' || inputValue == undefined) {
-    setValue(undefined)
-    return
-  }
-  setValue(Number(inputValue))
-}
-
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
 
-const { value, setValue, meta, errors, handleBlur } = useField<number | undefined>(props.name, props.validationRules, {
-  syncVModel: true
-})
+const { value, meta, errors, handleBlur } = useField<number | undefined>(
+  props.name,
+  props.validationRules,
+  {
+    syncVModel: true
+  }
+)
 </script>
-<style scoped lang="scss">
-</style>
+<style scoped lang="scss"></style>

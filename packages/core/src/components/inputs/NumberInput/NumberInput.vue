@@ -8,14 +8,24 @@
     :name="name"
     :required="required"
     :label-type="labelType"
-    type="string"
+    type="text"
     inputmode="numeric"
-    @input="handleInput"
+    @input="onInput"
   >
-    <template v-if="stepButtonsVariant === 'inside'" #fixed-postfix>
+    <template #prefix>
+      <slot name="prefix" />
+    </template>
+    <template #postfix>
+      <slot name="postfix" />
+    </template>
+    <template
+      v-if="stepButtonsVariant === 'inside'"
+      #fixed-postfix
+    >
       <div class="icon-buttons-inside-wrapper">
         <IconButton
-          label="Zahl vermindern"
+          label="Zahl erhöhen"
+          :disabled="maxReached"
           data-testid="increment-button"
           @click="onIncrement"
         >
@@ -24,7 +34,8 @@
           </slot>
         </IconButton>
         <IconButton
-          label="Zahl erhöhen"
+          label="Zahl vermindern"
+          :disabled="minReached"
           data-testid="decrement-button"
           @click="onDecrement"
         >
@@ -34,10 +45,15 @@
         </IconButton>
       </div>
     </template>
-    <template v-if="stepButtonsVariant === 'outside'" #before-input>
+    <template
+      v-if="stepButtonsVariant === 'outside'"
+      #before-input
+    >
       <IconButton
         label="Zahl vermindern"
+        :disabled="minReached"
         data-testid="decrement-button"
+        filled
         @click="onDecrement"
       >
         <slot name="decrement-button-icon">
@@ -45,10 +61,15 @@
         </slot>
       </IconButton>
     </template>
-    <template v-if="stepButtonsVariant === 'outside'" #after-input>
+    <template
+      v-if="stepButtonsVariant === 'outside'"
+      #after-input
+    >
       <IconButton
         label="Zahl erhöhen"
+        :disabled="maxReached"
         data-testid="increment-button"
+        filled
         @click="onIncrement"
       >
         <slot name="increment-button-icon">
@@ -59,12 +80,13 @@
   </BaseInputV3>
 </template>
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import BaseInputV3 from '@core/components/inputs/BaseInputV3/BaseInputV3.vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 import { BaseIcon } from '@core/components'
 import { InputLabelType } from '@core/components/inputs/BaseInputV3/inputLabelType'
 import { StepButtonsVariant } from '@core/components/inputs/NumberInput/stepButtonVariant'
+import { useNumber } from '@core/composables'
 
 /**
  * The value of this field.
@@ -72,33 +94,95 @@ import { StepButtonsVariant } from '@core/components/inputs/NumberInput/stepButt
 const modelValue = defineModel<number | undefined>()
 const displayValue = ref('')
 
+const props = withDefaults(
+  defineProps<{
+    /**
+     * Used to identify this field in a form (VeeValidate Form).
+     */
+    name: string
+    /**
+     * The text to be displayed within a floating label of this field.
+     */
+    label: string
+    /**
+     * Whether the user has interacted with this field.
+     */
+    dirty?: boolean
+    /**
+     * Whether the value of this field is invalid.
+     */
+    invalid?: boolean
+    /**
+     * Whether a value is required or not.
+     */
+    required?: boolean
+    /**
+     * The errors of the field. This is provided by `useField` from `vee-validate`.
+     */
+    errors?: Error[] | string[]
+    /**
+     * The minimum value that can be entered.
+     */
+    min?: number
+    /**
+     * The step size to use when incrementing or decrementing the value.
+     */
+    step?: number
+    /**
+     * The maximum value that can be entered.
+     */
+    max?: number
+    /**
+     * The minimum number of fraction digits to use.
+     */
+    minFractionDigits?: number
+    /**
+     * The maximum number of fraction digits to use.
+     */
+    maxFractionDigits?: number
+    /**
+     * The locale to use for formatting the number.
+     * Defaults to the browser's locale or 'de-DE' if not available.
+     */
+    locale?: string
+    /**
+     * Defines if and how step buttons should be displayed.
+     */
+    stepButtonsVariant?: StepButtonsVariant
+    /**
+     * Defines the style of the label.
+     *
+     * - floating: The label floats above the input when it has focus or a value.
+     * - fixed: The label is always displayed above the input.
+     * - hidden: The label is visually hidden but still available for screen readers.
+     */
+    labelType?: InputLabelType
+  }>(),
+  {
+    locale: typeof navigator !== 'undefined' ? navigator.language : 'de-DE',
+    stepButtonsVariant: 'none',
+    labelType: 'floating'
+  }
+)
 
-const props = withDefaults(defineProps<{
+defineSlots<{
   /**
-   * Used to identify this field in a form (VeeValidate Form).
+   * Slot for the icon of the increment button.
    */
-  name: string
+  incrementButtonIcon: void
   /**
-   * The text to be displayed within a floating label of this field.
+   * Slot for the icon of the decrement button.
    */
-  label: string
-  dirty?: boolean
-  invalid?: boolean
-  required?: boolean
-  errors?: Error[] | string[]
-  min?: number
-  step?: number
-  max?: number
-  minFractionDigits?: number
-  maxFractionDigits?: number
-  locale?: string
-  stepButtonsVariant?: StepButtonsVariant
-  labelType?: InputLabelType
-}>(), {
-  locale: typeof navigator !== 'undefined' ? navigator.language : 'de-DE',
-  stepButtonsVariant: 'none',
-  labelType: 'floating'
-})
+  decrementButtonIcon: void
+  /**
+   * Slot for content to be displayed before the user input, inside the input field.
+   */
+  prefix: void
+  /**
+   * Slot for content to be displayed after the user input, inside the input field.
+   */
+  postfix: void
+}>()
 
 const isDecimalRemoved = (newValue: string, oldValue: string): boolean => {
   const decimalSeparator = separators.value.decimal
@@ -121,8 +205,8 @@ const separators = computed(() => {
     minimumFractionDigits: 1,
     useGrouping: true
   }).formatToParts(12345.6)
-  const decimal = parts.find(p => p.type === 'decimal')?.value ?? '.'
-  const group = parts.find(p => p.type === 'group')?.value ?? ','
+  const decimal = parts.find((p) => p.type === 'decimal')?.value ?? '.'
+  const group = parts.find((p) => p.type === 'group')?.value ?? ','
   return { decimal, group }
 })
 
@@ -156,33 +240,15 @@ const cleanInput = (input: string): number | undefined => {
     .replace(new RegExp(`\\${separators.value.decimal}`), normalizedDecimalSeparator) // Normalize decimal separator to '.'
     .replace(/[^\d.,]/g, '')
 
-
   return cleaned ? parseFloat(cleaned) : undefined
 }
 
-const handleInput = (event: InputEvent) => {
-  const target = event.target as HTMLInputElement
-  const typedChar = event.data
-  let inputValue = target.value
-  const decimalRemoved = isDecimalRemoved(inputValue, displayValue.value)
-  if (decimalRemoved) {
-    inputValue = displayValue.value
-  }
-  const cleaned = cleanInput(inputValue)
-  const formatted = formatNumber(cleaned)
-
-  // Update the input value immediately with cleaned version
-  const cursorPos = calculateCursorPosition(inputValue, formatted, typedChar, target.selectionStart || 0)
-  displayValue.value = formatted
-  modelValue.value = cleaned
-
-  requestAnimationFrame(() => {
-    target.value = formatted
-    target.setSelectionRange(cursorPos, cursorPos)
-  })
-}
-
-const calculateCursorPosition = (oldValue: string, newValue: string, typedChar: string | null, pos: number): number => {
+const calculateCursorPosition = (
+  oldValue: string,
+  newValue: string,
+  typedChar: string | null,
+  pos: number
+): number => {
   // if (decimalRemoved) {
   //   // If the decimal separator was removed, place the cursor at the end of the integer part
   //   // Example: 1,234|.56 -> 1234|.56
@@ -228,25 +294,71 @@ const calculateCursorPosition = (oldValue: string, newValue: string, typedChar: 
   return pos
 }
 
+const onInput = (event: InputEvent) => {
+  const target = event.target as HTMLInputElement
+  const typedChar = event.data
+  let inputValue = target.value
+  const decimalRemoved = isDecimalRemoved(inputValue, displayValue.value)
+  if (decimalRemoved) {
+    inputValue = displayValue.value
+  }
+  const cleaned = cleanInput(inputValue)
+  const formatted = formatNumber(cleaned)
+
+  // Update the input value immediately with cleaned version
+  const cursorPos = calculateCursorPosition(
+    inputValue,
+    formatted,
+    typedChar,
+    target.selectionStart || 0
+  )
+  displayValue.value = formatted
+  modelValue.value = cleaned
+
+  requestAnimationFrame(() => {
+    target.value = formatted
+    target.setSelectionRange(cursorPos, cursorPos)
+  })
+}
+
+const { increaseNumber, decreaseNumber } = useNumber()
 const onIncrement = () => {
-  const step = props.step ?? 1
-  const newValue = (modelValue.value ?? 0) + step
+  const newValue = increaseNumber(modelValue.value, props.step)
+  const cleanedValue = cleanInput(formatNumber(newValue))
   if (props.max !== undefined && newValue > props.max) {
     return
   }
-  modelValue.value = newValue
-  displayValue.value = formatNumber(modelValue.value)
+  displayValue.value = formatNumber(cleanedValue)
+  modelValue.value = cleanedValue
 }
 
 const onDecrement = () => {
-  const step = props.step ?? 1
-  const newValue = (modelValue.value ?? 0) - step
+  const newValue = decreaseNumber(modelValue.value, props.step)
+  const cleanedValue = cleanInput(formatNumber(newValue))
   if (props.min !== undefined && newValue < props.min) {
     return
   }
-  modelValue.value = newValue
-  displayValue.value = formatNumber(modelValue.value)
+  displayValue.value = formatNumber(cleanedValue)
+  modelValue.value = cleanedValue
 }
+
+watch(
+  modelValue,
+  (newValue: number | undefined) => {
+    displayValue.value = formatNumber(newValue)
+  },
+  { immediate: true }
+)
+
+const minReached = computed(() => {
+  if (props.min === undefined) return false
+  return decreaseNumber(modelValue.value, props.step) < props.min
+})
+
+const maxReached = computed(() => {
+  if (props.max === undefined) return false
+  return increaseNumber(modelValue.value, props.step) > props.max
+})
 </script>
 <style scoped lang="scss">
 .icon-buttons-inside-wrapper {
