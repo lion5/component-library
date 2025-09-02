@@ -93,16 +93,18 @@ describe('ImageInput.vue', () => {
     })
     it(':errors - error overlay renderd if not empty', async () => {
       const expectedError = new Error('Expected Error')
-      await wrapper.setProps({ modelValue: new ImageForm(
-        undefined,
-        undefined,
-        new File(['Some content'], 'test.txt', { type: 'text/html' }),
-        undefined,
-        new ImageSizes('https://dummyimage.com/800x400/d4d4d4/fff.png'),
-        false,
-        false,
+      await wrapper.setProps({
+        modelValue: new ImageForm(
+          undefined,
+          undefined,
+          new File(['Some content'], 'test.txt', { type: 'text/html' }),
+          undefined,
+          new ImageSizes('https://dummyimage.com/800x400/d4d4d4/fff.png'),
+          false,
+          false,
           [expectedError]
-        ) })
+        )
+      })
 
       expect(wrapper.find('.error-overlay').exists()).toBeTruthy()
     })
@@ -111,7 +113,7 @@ describe('ImageInput.vue', () => {
   describe('@events', () => {
     it('@update:modelValue - emitted on @update:modelValue event from FileInput', async () => {
       const files = [
-        new File(['Test File 1'], 'file_1', { type: 'image/jpeg', lastModified: Date.now() }),
+        new File(['Test File 1'], 'file_1', { type: 'image/jpeg', lastModified: Date.now() })
       ]
       const expectedImageForm = new ImageForm()
       vi.spyOn(ImageForm, 'fromFile').mockResolvedValueOnce(expectedImageForm)

@@ -9,7 +9,6 @@ import ImageDropArea from '@core/components/dragdrop/ImageDropArea/ImageDropArea
 import GalleryInput from '@core/components/inputs/image/GalleryInput/GalleryInput.vue'
 import ImageEditCard from '@core/components/inputs/image/ImageEditCard/ImageEditCard.vue'
 
-
 describe('GalleryInput.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>
 
@@ -22,8 +21,8 @@ describe('GalleryInput.vue', () => {
       global: {
         stubs: {
           ImageDropArea: {
-            template: '<div><slot></slot></div>',
-          },
+            template: '<div><slot></slot></div>'
+          }
         }
       }
     })
@@ -80,7 +79,9 @@ describe('GalleryInput.vue', () => {
       const imageDropArea = wrapper.findComponent(ImageDropArea)
       await imageDropArea.vm.$emit('new-image', imageForm)
 
-      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([new GalleryForm([new ImageForm(0), imageForm])])
+      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([
+        new GalleryForm([new ImageForm(0), imageForm])
+      ])
     })
     it(':update:gallery - is triggered when ImageAddCard emits input', async () => {
       const gallery = new GalleryForm([new ImageForm(0)])
@@ -90,7 +91,9 @@ describe('GalleryInput.vue', () => {
       const imageAddCard = wrapper.findComponent(ImageAddCard)
       await imageAddCard.vm.$emit('new-image', imageForm)
 
-      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([new GalleryForm([new ImageForm(0), imageForm])])
+      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([
+        new GalleryForm([new ImageForm(0), imageForm])
+      ])
     })
     it(':update:gallery - is triggered when ImageDropArea emits input', async () => {
       const gallery = new GalleryForm([new ImageForm(0)])
@@ -100,7 +103,9 @@ describe('GalleryInput.vue', () => {
       const imageAddCard = wrapper.findComponent(ImageDropArea)
       await imageAddCard.vm.$emit('new-image', imageForm)
 
-      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([new GalleryForm([new ImageForm(0), imageForm])])
+      expect(wrapper.emitted('update:gallery')[0]).toStrictEqual([
+        new GalleryForm([new ImageForm(0), imageForm])
+      ])
     })
   })
 })

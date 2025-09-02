@@ -3,7 +3,7 @@ import BackLinkTopBar from '../BackLinkTopBar/BackLinkTopBar.vue'
 
 export default {
   component: BackLinkTopBar,
-  title: 'Navigation Components/App Bars/BackLinkTopBar',
+  title: 'Navigation Components/App Bars/BackLinkTopBar'
 } as Meta<typeof BackLinkTopBar>
 type Story = StoryObj<typeof BackLinkTopBar>
 

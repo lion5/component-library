@@ -20,12 +20,12 @@ export default {
         <CardDismissButton v-bind="args" @dismiss="dismiss"/>
       </ItemCard>
     `
-  }),
+  })
 } as Meta<typeof CardDismissButton>
 type Story = StoryObj<typeof CardDismissButton>
 
 export const Default: Story = {
   args: {
-    label: 'Dismiss',
+    label: 'Dismiss'
   }
 }

@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { useInterval } from './useInterval'
 
 vi.mock('vue', async () => ({
-  ...await vi.importActual('vue'),
+  ...(await vi.importActual('vue')),
   onUnmounted: vi.fn()
 }))
 

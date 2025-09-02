@@ -12,7 +12,7 @@ import { MinimalImage } from '../models/minimalImage'
  */
 export default {
   component: BaseImage,
-  title: 'Display Components/Image/BaseImage',
+  title: 'Display Components/Image/BaseImage'
 } as Meta<typeof BaseImage>
 type Story = StoryObj<typeof BaseImage>
 
@@ -21,11 +21,7 @@ type Story = StoryObj<typeof BaseImage>
  */
 export const Default: Story = {
   args: {
-    image:  new MinimalImage(
-      1,
-      'alt',
-      'https://dummyimage.com/400x300/d4d4d4/fff.png',
-    )
+    image: new MinimalImage(1, 'alt', 'https://dummyimage.com/400x300/d4d4d4/fff.png')
   }
 }
 
@@ -41,11 +37,7 @@ export const AspectRatio16To9: Story = {
     template: `<BaseImage v-bind="args" style="--image-aspect-ratio: 16 / 9" />`
   }),
   args: {
-    image:  new MinimalImage(
-      1,
-      'alt',
-      'https://dummyimage.com/400x300/d4d4d4/fff.png',
-    )
+    image: new MinimalImage(1, 'alt', 'https://dummyimage.com/400x300/d4d4d4/fff.png')
   }
 }
 
@@ -62,10 +54,6 @@ export const ObjectFitCover: Story = {
     template: `<BaseImage v-bind="args" style="--image-aspect-ratio: 16 / 9; --image-object-fit: cover" />`
   }),
   args: {
-    image:  new MinimalImage(
-      1,
-      'alt',
-      'https://dummyimage.com/400x300/d4d4d4/fff.png',
-    )
+    image: new MinimalImage(1, 'alt', 'https://dummyimage.com/400x300/d4d4d4/fff.png')
   }
 }

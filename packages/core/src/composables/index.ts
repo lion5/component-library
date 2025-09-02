@@ -1,7 +1,4 @@
-import {
-  PermissionState,
-  useBrowserPermissions
-} from '@core/composables/useBrowserPermissions'
+import { PermissionState, useBrowserPermissions } from '@core/composables/useBrowserPermissions'
 import { useDate } from '@core/composables/useDate'
 import { useFetchState } from '@core/composables/useFetchState'
 import { useInterval } from '@core/composables/useInterval'

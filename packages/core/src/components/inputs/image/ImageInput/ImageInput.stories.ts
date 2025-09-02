@@ -32,17 +32,16 @@ export const Filled: Story = {
   args: {
     name: 'image-input-filled',
     label: 'Filled File Input',
-    modelValue:
-      new ImageForm(
-        undefined,
-        undefined,
-        new File(['Some content'], 'test.txt'),
-        undefined,
-        new ImageSizes('https://dummyimage.com/800x400/d4d4d4/fff.png'),
-        false,
-        false,
-        []
-      )
+    modelValue: new ImageForm(
+      undefined,
+      undefined,
+      new File(['Some content'], 'test.txt'),
+      undefined,
+      new ImageSizes('https://dummyimage.com/800x400/d4d4d4/fff.png'),
+      false,
+      false,
+      []
+    )
   }
 }
 
@@ -50,17 +49,16 @@ export const WithError: Story = {
   args: {
     name: 'image-input-error',
     label: 'Error File Input',
-    modelValue:
-      new ImageForm(
-        undefined,
-        undefined,
-        new File(['Some content'], 'test.txt'),
-        undefined,
-        new ImageSizes('https://dummyimage.com/800x400/d4d4d4/fff.png'),
-        false,
-        false,
-        [new Error('This file is not valid')]
-      ),
+    modelValue: new ImageForm(
+      undefined,
+      undefined,
+      new File(['Some content'], 'test.txt'),
+      undefined,
+      new ImageSizes('https://dummyimage.com/800x400/d4d4d4/fff.png'),
+      false,
+      false,
+      [new Error('This file is not valid')]
+    ),
     invalid: true
   }
 }

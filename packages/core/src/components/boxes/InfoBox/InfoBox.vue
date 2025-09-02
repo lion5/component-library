@@ -1,5 +1,8 @@
 <template>
-  <BaseBox v-if="infoMessage" class="info-box">
+  <BaseBox
+    v-if="infoMessage || 'default' in $slots"
+    class="info-box"
+  >
     <IconInfoCircle />
     <slot>{{ infoMessage }}</slot>
   </BaseBox>

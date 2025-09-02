@@ -28,7 +28,7 @@
     top: 0;
     margin-bottom: 0; /* Override default `<label>` margin */
     color: var(--input-floating-label-color);
-    transition: all .1s ease-in-out;
+    transition: all 0.1s ease-in-out;
     cursor: text;
     user-select: none;
   }
@@ -37,8 +37,7 @@
   input::placeholder,
   input::-webkit-input-placeholder, /* Chrome/Opera/Safari */
   textarea::placeholder,
-  textarea::-webkit-input-placeholder, /* Chrome/Opera/Safari */
-  {
+  textarea::-webkit-input-placeholder, /* Chrome/Opera/Safari */ {
     color: transparent !important;
     opacity: 0;
   }
@@ -59,13 +58,15 @@
   textarea {
     display: block;
     width: 100%;
-    padding: .375rem .75rem;
+    padding: 0.375rem 0.75rem;
     font-size: 1rem;
     line-height: 1.5;
     background-color: var(--color-white);
     border: 1px solid var(--color-neutral-400);
     border-radius: 0;
-    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    transition:
+      border-color 0.15s ease-in-out,
+      box-shadow 0.15s ease-in-out;
   }
 }
 
@@ -79,6 +80,6 @@ input.required ~ label::after,
 textarea.required ~ label::after {
   content: '*';
   font-size: 1.2rem;
-  padding-left: .3rem;
+  padding-left: 0.3rem;
   color: var(--color-danger);
 }

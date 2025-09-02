@@ -9,7 +9,7 @@ type Story = StoryObj<typeof PillInput>
 
 export const Empty: Story = {
   args: {
-    label: 'Pill Input',
+    label: 'Pill Input'
   }
 }
 

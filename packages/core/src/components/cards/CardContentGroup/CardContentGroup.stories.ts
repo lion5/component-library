@@ -4,7 +4,7 @@ import BaseCard from '../BaseCard/BaseCard.vue'
 
 export default {
   component: CardContentGroup,
-  title: 'Display Components/Cards/CardContentGroup',
+  title: 'Display Components/Cards/CardContentGroup'
 } as Meta<typeof CardContentGroup>
 type Story = StoryObj<typeof CardContentGroup>
 

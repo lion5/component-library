@@ -35,10 +35,7 @@ export function useNominatim() {
           jsonElement.display_name
         )
     )
-    return uniqBy(
-      namedLocations,
-      (namedLocation: NamedLocation) => namedLocation.locationName
-    )
+    return uniqBy(namedLocations, (namedLocation: NamedLocation) => namedLocation.locationName)
   }
   return { getLocations }
 }

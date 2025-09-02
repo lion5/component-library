@@ -144,10 +144,12 @@ describe('CodePartTextInput.vue', () => {
 
     const emittedWrongField = wrapper.emitted('wrong-field-input')
     expect(emittedWrongField).toBeTruthy()
-    expect(emittedWrongField?.[0]).toStrictEqual([{
-      index: 0,
-      key: '5'
-    }])
+    expect(emittedWrongField?.[0]).toStrictEqual([
+      {
+        index: 0,
+        key: '5'
+      }
+    ])
     expect(inputElement.element.value).toBe('')
   })
 })

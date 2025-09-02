@@ -14,7 +14,9 @@ describe('useIbanUtils.ts', () => {
 
   it('toFormattedIBAN - return cut of strings that are larger than 34 character', () => {
     const { toFormattedIBAN } = useIbanUtils()
-    expect(toFormattedIBAN('DE1234567890111213141516171819202122')).toBe('DE12 3456 7890 1112 1314 1516 1718 1920 21')
+    expect(toFormattedIBAN('DE1234567890111213141516171819202122')).toBe(
+      'DE12 3456 7890 1112 1314 1516 1718 1920 21'
+    )
   })
 
   it('toRawIBAN - remove iban white spaces', () => {

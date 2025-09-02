@@ -1,5 +1,8 @@
 <template>
-  <label class="image-input-wrapper" :for="name">
+  <label
+    class="image-input-wrapper"
+    :for="name"
+  >
     <slot name="label" />
     <input
       type="file"

@@ -29,20 +29,14 @@ export class ImageValidator {
         )
       )
     }
-    if (
-      imageConstraints.width != null &&
-      portalImage.image.width !== imageConstraints.width
-    ) {
+    if (imageConstraints.width != null && portalImage.image.width !== imageConstraints.width) {
       errors.push(
         new Error(
           `Die Breite des eingegebenen Bildes misst ${portalImage.image.width} px. Die akzeptierte Breite ist ${imageConstraints.width} px.`
         )
       )
     }
-    if (
-      imageConstraints.height != null &&
-      portalImage.image.height !== imageConstraints.height
-    ) {
+    if (imageConstraints.height != null && portalImage.image.height !== imageConstraints.height) {
       errors.push(
         new Error(
           `Die Höhe des eingegebenen Bildes misst ${portalImage.image.height} px. Die akzeptierte Höhe ist ${imageConstraints.height} px.`

@@ -13,7 +13,7 @@ describe('AddressInput.vue', () => {
     wrapper = shallowMount(AddressInput, {
       props: {
         name: 'name',
-        modelValue: new Address('', '', ''),
+        modelValue: new Address('', '', '')
       }
     })
   })
@@ -49,9 +49,7 @@ describe('AddressInput.vue', () => {
       await flushPromises()
 
       expect(wrapper.emitted('update:modelValue')?.length).toBe(3)
-      expect(wrapper.emitted('update:modelValue')?.at(-1)).toStrictEqual([
-        expectedValue
-      ])
+      expect(wrapper.emitted('update:modelValue')?.at(-1)).toStrictEqual([expectedValue])
     })
     it('@input-finished - emits after input is completed', async () => {
       const inputs = wrapper.findAllComponents(BaseInputV3Validated)

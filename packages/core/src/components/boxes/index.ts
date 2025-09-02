@@ -4,10 +4,4 @@ import InfoBox from '@core/components/boxes/InfoBox/InfoBox.vue'
 import MessageBox from '@core/components/boxes/MessageBox/MessageBox.vue'
 import SuccessBox from '@core/components/boxes/SuccessBox/SuccessBox.vue'
 
-export {
-  BaseBox,
-  ErrorBox,
-  InfoBox,
-  MessageBox,
-  SuccessBox
-}
+export { BaseBox, ErrorBox, InfoBox, MessageBox, SuccessBox }

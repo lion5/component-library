@@ -9,7 +9,10 @@
       v-bind="$attrs"
     />
     <label :for="name">{{ label }}</label>
-    <ErrorMessage class="error" :name="name" />
+    <ErrorMessage
+      class="error"
+      :name="name"
+    />
   </div>
 </template>
 <script setup lang="ts">

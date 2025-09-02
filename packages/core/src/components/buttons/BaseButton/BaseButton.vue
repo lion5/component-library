@@ -19,7 +19,7 @@ const props = withDefaults(
      *
      * @deprecated Use `busy` instead.
      */
-    loading?: boolean,
+    loading?: boolean
     /**
      * Whether the button is busy, e.g. when a request is in progress.
      */
@@ -31,7 +31,20 @@ const props = withDefaults(
      *
      * If you do not want that the check icon is displayed on success use the 'success-without-checkmark' variant
      */
-    variant?:  'primary' | 'secondary' | 'info' | 'warning' | 'danger' | 'success' | 'success-without-checkmark' | 'outline-primary' | 'outline-neutral' | 'outline-success' | 'outline-warning' | 'outline-danger' | 'neutral'
+    variant?:
+      | 'primary'
+      | 'secondary'
+      | 'info'
+      | 'warning'
+      | 'danger'
+      | 'success'
+      | 'success-without-checkmark'
+      | 'outline-primary'
+      | 'outline-neutral'
+      | 'outline-success'
+      | 'outline-warning'
+      | 'outline-danger'
+      | 'neutral'
     type?: 'button' | 'submit' | 'reset'
   }>(),
   {

@@ -55,7 +55,6 @@ const props = withDefaults(
 
 const required = computed(() => (props.validationRules as Schema)?.spec.optional === false)
 
-
 const { value, setValue, handleBlur, meta, errors } = useField<string>(
   () => props.name,
   props.validationRules,
@@ -81,8 +80,8 @@ const valueToSlug = (value: string) => {
 }
 
 const emit = defineEmits<{
-  (e: 'update:slug', slug: string): void,
-  (e: 'userInteracted', isTouched : boolean): void
+  (e: 'update:slug', slug: string): void
+  (e: 'userInteracted', isTouched: boolean): void
 }>()
 
 const onInput = (value?: string) => {
@@ -100,7 +99,8 @@ watch(
 )
 
 watch(
-  () => meta.touched, (newValue) => {
+  () => meta.touched,
+  (newValue) => {
     if (newValue) {
       emit('userInteracted', true)
     }

@@ -1,9 +1,15 @@
 <template>
   <div :class="{ 'state-icon': true, active: active, inactive: !active }">
-    <slot v-if="active" name="icon-active">
+    <slot
+      v-if="active"
+      name="icon-active"
+    >
       <IconCheckCircleFill />
     </slot>
-    <slot v-else name="icon-inactive">
+    <slot
+      v-else
+      name="icon-inactive"
+    >
       <IconXCircleFill />
     </slot>
   </div>

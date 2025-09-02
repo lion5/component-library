@@ -12,7 +12,11 @@
       :class="classObject"
     />
     <label :for="name">{{ label }}</label>
-    <span v-if="errorMessage" class="error">{{ errorMessage }}</span>
+    <span
+      v-if="errorMessage"
+      class="error"
+      >{{ errorMessage }}</span
+    >
     <slot />
   </BaseInputWrapper>
 </template>
@@ -65,13 +69,9 @@ const props = withDefaults(
 
 // required for VeeValidate to notice name changes
 const localName = toRef(props, 'name')
-const { value: inputValue, errorMessage } = useField<InputValue>(
-  localName,
-  props.validationRules,
-  {
-    initialValue: props.modelValue
-  }
-)
+const { value: inputValue, errorMessage } = useField<InputValue>(localName, props.validationRules, {
+  initialValue: props.modelValue
+})
 
 const emit = defineEmits<{
   (event: 'update:modelValue', value: InputValue): void

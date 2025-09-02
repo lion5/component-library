@@ -39,15 +39,15 @@ describe('FileInputValidated.vue', () => {
 
   describe('@events', () => {
     it('@update:modelValue - emits updated input value', async () => {
-      const expectedValue = [new File([''], 'test', { type: 'image/jpg', lastModified: Date.now() })]
+      const expectedValue = [
+        new File([''], 'test', { type: 'image/jpg', lastModified: Date.now() })
+      ]
       const input = wrapper.findComponent(FileInput)
       input.vm.$emit('update:modelValue', expectedValue)
       await nextTick()
 
       expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
-      expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([
-        expectedValue
-      ])
+      expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([expectedValue])
     })
   })
 })

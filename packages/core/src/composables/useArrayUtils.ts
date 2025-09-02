@@ -5,11 +5,7 @@ export function useArrayUtils() {
   const addToArray = (array: unknown[], atIndex: number, element: unknown) => {
     array.splice(atIndex, 0, element)
   }
-  const moveInArray = (
-    array: unknown[],
-    oldIndex: number,
-    newIndex: number
-  ) => {
+  const moveInArray = (array: unknown[], oldIndex: number, newIndex: number) => {
     const target = array[oldIndex]
     removeFromArray(array, oldIndex)
     addToArray(array, newIndex, target)

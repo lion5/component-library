@@ -24,7 +24,7 @@ describe('ApprovalModal', () => {
           openModal = params.openModal
           return ''
         }
-      },
+      }
     })
     openModal()
   })

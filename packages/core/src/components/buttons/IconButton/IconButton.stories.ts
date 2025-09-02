@@ -15,13 +15,13 @@ export default {
         <IconInfoCircle />
       </IconButton>
     `
-  }),
+  })
 } as Meta<typeof IconButton>
 type Story = StoryObj<typeof IconButton>
 
 export const Default: Story = {
   args: {
-    label: 'A long label',
+    label: 'A long label'
   }
 }
 
@@ -52,38 +52,38 @@ export const Warning: Story = {
 export const Danger: Story = {
   args: {
     ...Default.args,
-    variant: 'danger',
+    variant: 'danger'
   }
 }
 
 export const PrimaryWithLabel: Story = {
   args: {
     ...Primary.args,
-    displayLabel: true,
+    displayLabel: true
   }
 }
 export const NeutralWithLabel: Story = {
   args: {
     ...Neutral.args,
-    displayLabel: true,
+    displayLabel: true
   }
 }
 export const SuccessWithLabel: Story = {
   args: {
     ...Success.args,
-    displayLabel: true,
+    displayLabel: true
   }
 }
 export const WarningWithLabel: Story = {
   args: {
     ...Warning.args,
-    displayLabel: true,
+    displayLabel: true
   }
 }
 export const DangerWithLabel: Story = {
   args: {
     ...Danger.args,
-    displayLabel: true,
+    displayLabel: true
   }
 }
 
@@ -276,6 +276,6 @@ export const DangerFilledBusy: Story = {
 export const PrimaryLink: Story = {
   args: {
     ...Primary.args,
-    href: '#',
+    href: '#'
   }
 }

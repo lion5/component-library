@@ -40,8 +40,7 @@ export const UseSlot: Story = {
     setup() {
       return { args }
     },
-    template:
-      '<SuccessBox v-bind="args"><h1>Html Content</h1><p>Success Text</p></SuccessBox>'
+    template: '<SuccessBox v-bind="args"><h1>Html Content</h1><p>Success Text</p></SuccessBox>'
   }),
   args: {
     successMessage: 'Not displayed'

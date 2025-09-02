@@ -1,7 +1,10 @@
 <template>
   <div class="info-headline">
     <h1>{{ title }}</h1>
-    <InformationButton v-if="infoModalTitle" :title="infoModalTitle">
+    <InformationButton
+      v-if="infoModalTitle"
+      :title="infoModalTitle"
+    >
       <slot name="information" />
     </InformationButton>
   </div>
@@ -22,7 +25,7 @@ defineProps<{
 }>()
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .info-headline {
   display: flex;
   justify-content: space-between;
@@ -32,5 +35,4 @@ defineProps<{
     margin: 0;
   }
 }
-
 </style>

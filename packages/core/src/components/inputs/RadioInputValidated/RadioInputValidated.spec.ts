@@ -61,5 +61,4 @@ describe('RadioInputValidated', () => {
       expect(wrapper.emitted('update:modelValue')?.at(0)).toEqual([true])
     })
   })
-
 })

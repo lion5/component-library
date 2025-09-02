@@ -40,12 +40,12 @@ const props = withDefaults(
      * Disables the reaction on drag over, drag leave and drop events. So it disables the component.
      * Disables the input field.
      */
-    disabled?: boolean,
+    disabled?: boolean
     /**
      * Changes the information text that is displayed when an item is dragged over the component.
      * @default `label`
      */
-    dropInfo?: string,
+    dropInfo?: string
     /**
      * The constraints an image must fulfill.
      * Set automatically the validation rules to fulfill these constraints.
@@ -64,7 +64,6 @@ const props = withDefaults(
   }
 )
 
-
 const emit = defineEmits<{
   (e: 'blur', event: FocusEvent): void
   (e: 'update:modelValue', value?: ImageForm): void
@@ -78,12 +77,9 @@ const internalValidationRules = computed(() => {
     return undefined
   }
 
-  return mixed<ImageForm>()
-    .test(
-      'imageFile',
-      '',
-      (value) => validateImageConstraints(constraints, value)
-    )
+  return mixed<ImageForm>().test('imageFile', '', (value) =>
+    validateImageConstraints(constraints, value)
+  )
 })
 
 const validateImageConstraints = (constraints: ImageConstraints, imageForm?: ImageForm) => {
@@ -92,31 +88,39 @@ const validateImageConstraints = (constraints: ImageConstraints, imageForm?: Ima
   if (file) {
     const expectedMimeTypes = constraints.mimeTypes
     if (expectedMimeTypes && !expectedMimeTypes.includes(file.type)) {
-      errors.push(new ValidationError(
-        `Die Datei beinhaltet einen falschen Dateityp (${file.type}). Zugelassen sind nur die folgenden Dateitypen ${expectedMimeTypes.join(', ')}.`
-      ))
+      errors.push(
+        new ValidationError(
+          `Die Datei beinhaltet einen falschen Dateityp (${file.type}). Zugelassen sind nur die folgenden Dateitypen ${expectedMimeTypes.join(', ')}.`
+        )
+      )
     }
     const expectedSizeInBytes = constraints.sizeInBytes
     if (expectedSizeInBytes && file.size > expectedSizeInBytes) {
       const { displayFileSize } = useFileUtils()
-      errors.push(new ValidationError(
-        `Die maximale Dateigröße beträgt ${displayFileSize(expectedSizeInBytes)}. Die Dateigröße des Bildes beträgt ${displayFileSize(file.size)}.`
-      ))
+      errors.push(
+        new ValidationError(
+          `Die maximale Dateigröße beträgt ${displayFileSize(expectedSizeInBytes)}. Die Dateigröße des Bildes beträgt ${displayFileSize(file.size)}.`
+        )
+      )
     }
   }
   const expectedWidth = constraints.width
   const image = imageForm?.image
   if (image) {
     if (expectedWidth && image.width !== expectedWidth) {
-      errors.push(new ValidationError(
-        `Die Breite des eingegebenen Bildes misst ${image.width} px. Die akzeptierte Breite sind ${expectedWidth} px.`
-      ))
+      errors.push(
+        new ValidationError(
+          `Die Breite des eingegebenen Bildes misst ${image.width} px. Die akzeptierte Breite sind ${expectedWidth} px.`
+        )
+      )
     }
     const expectedHeight = constraints.height
     if (expectedHeight && image.height !== expectedHeight) {
-      errors.push(new ValidationError(
-        `Die Höhe des eingegebenen Bildes misst ${image.height} px. Die akzeptierte Höhe sind ${expectedHeight} px.`
-      ))
+      errors.push(
+        new ValidationError(
+          `Die Höhe des eingegebenen Bildes misst ${image.height} px. Die akzeptierte Höhe sind ${expectedHeight} px.`
+        )
+      )
     }
   }
   if (errors.length === 0) {
@@ -146,7 +150,9 @@ const { value, meta, handleBlur, errors } = useField<ImageForm>(
   }
 )
 
-watch(errors, () => {
+watch(
+  errors,
+  () => {
     if (!value.value) {
       return
     }
@@ -162,5 +168,4 @@ const syncBlur = (event: FocusEvent) => {
   emit('blur', event)
 }
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

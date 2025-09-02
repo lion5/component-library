@@ -20,7 +20,11 @@ describe('TextareaInput.vue', () => {
       const expectedLabel = 'Expected Label'
       const expectedMaxlength = '1234'
 
-      await wrapper.setProps({ name: expectedName, label: expectedLabel, maxlength: expectedMaxlength })
+      await wrapper.setProps({
+        name: expectedName,
+        label: expectedLabel,
+        maxlength: expectedMaxlength
+      })
 
       expect(wrapper.findComponent(TextareaInput).props().name).toBe(expectedName)
       expect(wrapper.findComponent(TextareaInput).props().label).toBe(expectedLabel)
@@ -37,9 +41,7 @@ describe('TextareaInput.vue', () => {
         await nextTick()
 
         expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
-        expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([
-          expectedValue
-        ])
+        expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([expectedValue])
       })
     })
   })

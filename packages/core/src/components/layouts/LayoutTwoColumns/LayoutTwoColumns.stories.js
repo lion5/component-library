@@ -24,9 +24,7 @@ const Template = (args, { argTypes }) => ({
   components: { LayoutTwoColumns },
   template: `
     <LayoutTwoColumns>
-    <template v-if="${'default' in args}" v-slot:default>${
-      args.default
-    }</template>
+    <template v-if="${'default' in args}" v-slot:default>${args.default}</template>
     </LayoutTwoColumns>`
 })
 

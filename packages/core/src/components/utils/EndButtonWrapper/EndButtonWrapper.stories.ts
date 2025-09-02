@@ -18,13 +18,13 @@ export default {
         Some content
       </EndButtonWrapper>
     `
-  }),
+  })
 } as Meta<typeof EndButtonWrapper>
 type Story = StoryObj<typeof EndButtonWrapper>
 
 export const Default: Story = {
   args: {
     iconClass: 'bi-plus-lg',
-    label: 'Add',
+    label: 'Add'
   }
 }

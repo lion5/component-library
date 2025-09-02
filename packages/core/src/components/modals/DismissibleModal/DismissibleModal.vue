@@ -13,7 +13,6 @@
       :close-modal="closeModal"
       :open-modal="openModal"
     />
-
   </BaseModal>
 </template>
 <script lang="ts" setup>

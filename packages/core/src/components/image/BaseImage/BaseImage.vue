@@ -1,5 +1,10 @@
 <template>
-  <img class="image" :src="image.url" :alt="image.alt" :draggable="false" />
+  <img
+    class="image"
+    :src="image.url"
+    :alt="image.alt"
+    :draggable="false"
+  />
 </template>
 <script lang="ts" setup>
 import { MinimalImage } from '@core/components/image/models/minimalImage'

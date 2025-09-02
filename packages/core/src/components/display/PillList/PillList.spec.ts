@@ -26,9 +26,27 @@ describe('PillList.vue', () => {
 
       const pillComponents = wrapper.findAllComponents(BasePill)
       expect(pillComponents).toHaveLength(3)
-      expect(pillComponents[0].props()).toEqual({ label: pills[0].label, iconStartCls: undefined, busy: false, tooltipText: undefined, tooltipShowOnHover: true })
-      expect(pillComponents[1].props()).toEqual({ label: pills[1].label, iconStartCls: 'bi-person-fill', busy: false, tooltipText: undefined, tooltipShowOnHover: true })
-      expect(pillComponents[2].props()).toEqual({ label: pills[2].label, iconStartCls: 'bi-cash', busy: true, tooltipText: 'This is a tooltip', tooltipShowOnHover: true })
+      expect(pillComponents[0].props()).toEqual({
+        label: pills[0].label,
+        iconStartCls: undefined,
+        busy: false,
+        tooltipText: undefined,
+        tooltipShowOnHover: true
+      })
+      expect(pillComponents[1].props()).toEqual({
+        label: pills[1].label,
+        iconStartCls: 'bi-person-fill',
+        busy: false,
+        tooltipText: undefined,
+        tooltipShowOnHover: true
+      })
+      expect(pillComponents[2].props()).toEqual({
+        label: pills[2].label,
+        iconStartCls: 'bi-cash',
+        busy: true,
+        tooltipText: 'This is a tooltip',
+        tooltipShowOnHover: true
+      })
     })
   })
 })

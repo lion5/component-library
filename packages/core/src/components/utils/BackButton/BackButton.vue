@@ -1,5 +1,8 @@
 <template>
-  <button class="back-button" @click="gotoPreviousPage">
+  <button
+    class="back-button"
+    @click="gotoPreviousPage"
+  >
     <IconChevronLeft />
   </button>
 </template>

@@ -6,6 +6,5 @@ export class Pill {
     readonly busy?: boolean,
     readonly tooltipText?: string,
     readonly tooltipShowOnHover: boolean = true
-  ) {
-  }
+  ) {}
 }

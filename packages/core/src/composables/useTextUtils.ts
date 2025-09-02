@@ -7,11 +7,13 @@ export function useTextUtils() {
     }
     return value
   }
-  const toDisplayString = (
-    value?: string,
-    defaultValue: string = 'Keine Angabe'
-  ) => {
+  const toDisplayString = (value?: string, defaultValue: string = 'Keine Angabe') => {
     return value || defaultValue
   }
-  return { truncate, toDisplayString }
+
+  const pluralize = (count: number, singular: string, plural: string) => {
+    return count === 1 ? singular : plural
+  }
+
+  return { truncate, toDisplayString, pluralize }
 }

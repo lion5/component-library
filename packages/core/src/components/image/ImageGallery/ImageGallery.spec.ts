@@ -20,21 +20,9 @@ describe('ImageGallery', () => {
 
   beforeEach(() => {
     gallery = new Gallery([
-      new ImageResponse(
-        4711,
-        'testAltTag',
-        new ImageSizes('original', '', '', 'mid')
-      ),
-      new ImageResponse(
-        4712,
-        'testAltTag',
-        new ImageSizes('original', '', '', 'mid')
-      ),
-      new ImageResponse(
-        4713,
-        'testAltTag',
-        new ImageSizes('original', '', '', 'mid')
-      )
+      new ImageResponse(4711, 'testAltTag', new ImageSizes('original', '', '', 'mid')),
+      new ImageResponse(4712, 'testAltTag', new ImageSizes('original', '', '', 'mid')),
+      new ImageResponse(4713, 'testAltTag', new ImageSizes('original', '', '', 'mid'))
     ])
     aspectRatio = '16/9'
     wrapper = mount(ImageGallery, {

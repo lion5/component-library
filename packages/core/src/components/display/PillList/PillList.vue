@@ -1,9 +1,9 @@
 <script setup lang="ts">
- /**
+/**
  * A list of pills.
  */
 import { Pill } from '@core/components/display/PillList/pill'
- import BasePill from '@core/components/display/BasePill/BasePill.vue'
+import BasePill from '@core/components/display/BasePill/BasePill.vue'
 
 defineProps<{
   /**

@@ -32,7 +32,7 @@ withDefaults(
     /**
      * the modals title
      */
-    title: string,
+    title: string
     /**
      * The label for the button, used for accessibility.
      */
@@ -42,7 +42,6 @@ withDefaults(
     label: 'Mehr Informationen'
   }
 )
-
 
 const showModal = ref<boolean>(false)
 </script>

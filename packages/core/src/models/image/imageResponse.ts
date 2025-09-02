@@ -25,13 +25,7 @@ export class ImageResponse {
     if (!json) {
       return
     }
-    const imageSizes = new ImageSizes(
-      json.original,
-      json.tiny,
-      json.small,
-      json.mid,
-      json.large
-    )
+    const imageSizes = new ImageSizes(json.original, json.tiny, json.small, json.mid, json.large)
     return new ImageResponse(json.id, json.alt, imageSizes)
   }
 }

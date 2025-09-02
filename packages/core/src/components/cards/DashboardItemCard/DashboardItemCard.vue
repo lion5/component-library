@@ -1,9 +1,15 @@
 <template>
-  <RouterLink :to="{ name: item.routerLinkName }" class="dashboard-card shadow">
+  <RouterLink
+    :to="{ name: item.routerLinkName }"
+    class="dashboard-card shadow"
+  >
     <div class="px-5">
       <i :class="[item.icon, 'icon']"></i>
     </div>
-    <p class="mt-2 h4" data-cy="dashboard-menu-item-text">
+    <p
+      class="mt-2 h4"
+      data-cy="dashboard-menu-item-text"
+    >
       {{ item.name }}
     </p>
   </RouterLink>

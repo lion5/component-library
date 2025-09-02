@@ -80,9 +80,7 @@ describe('BaseInput', () => {
         input.setValue('new value')
 
         expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
-        expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual([
-          'new value'
-        ])
+        expect(wrapper.emitted('update:modelValue')?.at(0)).toStrictEqual(['new value'])
       })
     })
   })

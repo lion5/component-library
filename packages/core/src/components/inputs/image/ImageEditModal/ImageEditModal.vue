@@ -5,7 +5,10 @@
     :aspect-ratio="imageConstraints.aspectRatio || '16:9'"
   >
     <template #additionalContent>
-      <ErrorBox class="error-box" :errors="image.errors" />
+      <ErrorBox
+        class="error-box"
+        :errors="image.errors"
+      />
     </template>
   </ImageModal>
 </template>
@@ -31,11 +34,9 @@ defineEmits<{
   (event: 'updateImage', image: ImageForm): void
 }>()
 
-const minimalImage = computed(() => new ImageResponse(
-  image.value.id || -1,
-  image.value.alt || '',
-  image.value.sizes
-))
+const minimalImage = computed(
+  () => new ImageResponse(image.value.id || -1, image.value.alt || '', image.value.sizes)
+)
 
 /**
  * Modal state. Can be used to open and close the modal (true => opened; false => closed)

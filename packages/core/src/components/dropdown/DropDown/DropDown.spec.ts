@@ -9,7 +9,7 @@ describe('DropDown.vue', () => {
 
   beforeEach(() => {
     wrapper = mount(DropDown, {
-      attachTo: document.body,
+      attachTo: document.body
     })
 
     document.body.appendChild(input)

@@ -164,6 +164,5 @@ export const mockScrollEventDetails: ScrollEventDetails = {
     top: false,
     bottom: false
   },
-  measure: () => {
-  }
+  measure: () => {}
 }

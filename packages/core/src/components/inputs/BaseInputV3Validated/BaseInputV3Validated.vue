@@ -66,14 +66,18 @@ const emit = defineEmits<{
 }>()
 
 defineSlots<{
-  [key: string]: unknown;
+  [key: string]: unknown
 }>()
 
 const required = computed(() => (props.validationRules as Schema)?.spec?.optional === false)
 
-const { value, meta, handleBlur, errors } = useField<T>(() => props.name, computed(() => props.validationRules), {
-  syncVModel: true
-})
+const { value, meta, handleBlur, errors } = useField<T>(
+  () => props.name,
+  computed(() => props.validationRules),
+  {
+    syncVModel: true
+  }
+)
 
 const syncBlur = (event: FocusEvent) => {
   handleBlur(event)

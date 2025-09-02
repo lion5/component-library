@@ -1,6 +1,10 @@
 <template>
   <div class="portal-entity-wrapper">
-    <LoadingAnimation v-if="busy" :msg="busyMsg" data-cy="portal-entity-busy" />
+    <LoadingAnimation
+      v-if="busy"
+      :msg="busyMsg"
+      data-cy="portal-entity-busy"
+    />
     <ErrorBox
       v-else-if="error"
       class="error-box"

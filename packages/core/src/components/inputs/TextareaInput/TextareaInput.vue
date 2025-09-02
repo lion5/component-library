@@ -22,18 +22,23 @@
       </div>
     </div>
     <div class="info-section">
-      <small v-if="typeof value === 'string' && maxlength" class="max-length-indicator">
+      <small
+        v-if="typeof value === 'string' && maxlength"
+        class="max-length-indicator"
+      >
         {{ value.length }}&nbsp;/&nbsp;{{ maxlength }}
       </small>
       <slot name="infoText" />
     </div>
-    <ErrorBox :errors="errorObjects" class="error-box" />
+    <ErrorBox
+      :errors="errorObjects"
+      class="error-box"
+    />
   </div>
 </template>
 <script lang="ts" setup>
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 import { computed } from 'vue'
-
 
 const props = withDefaults(
   defineProps<{
@@ -48,7 +53,7 @@ const props = withDefaults(
     /**
      * The maximum length of the input field.
      */
-    maxlength?: string,
+    maxlength?: string
     /**
      * The meta information of the field. This is provided by `useField` from `vee-validate`.
      */
@@ -113,12 +118,12 @@ const errorObjects = computed(() => {
 
   &.required textarea ~ label:after {
     display: inline-block;
-    content: "*";
+    content: '*';
     font-size: 1.2rem;
-    padding-left: .3rem;
+    padding-left: 0.3rem;
     color: var(--color-danger);
-    line-height: .5;
-    transform: translateY(.25rem);
+    line-height: 0.5;
+    transform: translateY(0.25rem);
   }
 
   .input-label {
@@ -142,8 +147,9 @@ const errorObjects = computed(() => {
       padding-block-end: var(--space-xs);
       padding-block-start: calc(var(--_label-size) + var(--space-sm));
       min-height: var(--_input-size);
-      transition: border-color 0.15s ease-in-out,
-      min-height 0.4s ease-in-out;
+      transition:
+        border-color 0.15s ease-in-out,
+        min-height 0.4s ease-in-out;
 
       &:focus {
         outline: none;
@@ -153,11 +159,13 @@ const errorObjects = computed(() => {
       scrollbar-width: thin;
       scrollbar-gutter: stable;
 
-      &::-webkit-scrollbar-thumb { /* Foreground */
+      &::-webkit-scrollbar-thumb {
+        /* Foreground */
         background: var(--scrollbar-foreground);
       }
 
-      &::-webkit-scrollbar-track { /* Background */
+      &::-webkit-scrollbar-track {
+        /* Background */
         background: var(--scrollbar-background);
       }
     }

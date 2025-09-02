@@ -18,9 +18,7 @@ const Template = (args, { argTypes }) => ({
   components: { LayoutDynamicGrid },
   template: `
     <LayoutDynamicGrid>
-      <template v-if="${'default' in args}" v-slot:default>${
-        args.default
-      }</template>
+      <template v-if="${'default' in args}" v-slot:default>${args.default}</template>
     </LayoutDynamicGrid>`
 })
 

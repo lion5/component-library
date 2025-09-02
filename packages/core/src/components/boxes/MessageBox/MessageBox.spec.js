@@ -18,9 +18,7 @@ describe('MessageBox', () => {
         infoMessage: expectedInfoMessage
       })
       expect(wrapper.findComponent(InfoBox).exists()).toBeTruthy()
-      expect(wrapper.findComponent(InfoBox).vm.infoMessage).toBe(
-        expectedInfoMessage
-      )
+      expect(wrapper.findComponent(InfoBox).vm.infoMessage).toBe(expectedInfoMessage)
       expect(wrapper.findComponent(ErrorBox).exists()).toBeFalsy()
     })
     it(':errorMessage - is applied to InfoBox', async () => {

@@ -1,13 +1,15 @@
 <template>
   <nav>
     <ul>
-      <li v-for="navItem in navItems"
-          :key="navItem.label"
+      <li
+        v-for="navItem in navItems"
+        :key="navItem.label"
       >
-        <RouterLink
-          :to="navItem.to"
-        >
-          <component v-if="navItem.icon" :is="navItem.icon" />
+        <RouterLink :to="navItem.to">
+          <component
+            v-if="navItem.icon"
+            :is="navItem.icon"
+          />
           <span>{{ navItem.label }}</span>
         </RouterLink>
       </li>

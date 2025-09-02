@@ -1,5 +1,8 @@
 <template>
-  <BaseBox v-if="successMessage" class="success-box">
+  <BaseBox
+    v-if="successMessage"
+    class="success-box"
+  >
     <BaseIcon icon="bi-check-circle-fill" />
     <slot>{{ successMessage }}</slot>
   </BaseBox>

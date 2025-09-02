@@ -16,7 +16,7 @@ describe('ImageEditModal.vue', () => {
       props: {
         showModal: false,
         image: new ImageForm(),
-        imageConstraints: new ImageConstraints(undefined, '4/3'),
+        imageConstraints: new ImageConstraints(undefined, '4/3')
       },
       global: {
         stubs: {

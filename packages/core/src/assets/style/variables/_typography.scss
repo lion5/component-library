@@ -2,16 +2,20 @@
   /* Font */
   /* Font Family */
   // Source: https://open-props.style/#typography and https://tailwindcss.com/docs/font-family
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-  --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
-  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  --font-sans:
+    ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  --font-mono:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+    monospace;
   --display-font: var(--font-sans);
 
   // deprecated used for backwards compatibility
   --font-family: var(--font-sans);
 
   /* Font Sizes */
-  --font-size-0: .75rem;
+  --font-size-0: 0.75rem;
   --font-size-100: 1rem;
   --font-size-200: 1.1rem;
   --font-size-300: 1.25rem;

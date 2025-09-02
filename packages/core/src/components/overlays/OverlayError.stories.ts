@@ -3,7 +3,7 @@ import OverlayError from './OverlayError.vue'
 
 export default {
   component: OverlayError,
-  title: 'Display Components/Overlays/OverlayError',
+  title: 'Display Components/Overlays/OverlayError'
 } as Meta<typeof OverlayError>
 type Story = StoryObj<typeof OverlayError>
 

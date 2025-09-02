@@ -8,9 +8,7 @@ import { action } from 'storybook/actions'
 export default {
   component: CheckboxInputV2,
   title: 'Input Components/CheckboxInputValidated',
-  decorators: [
-    formWrapper
-  ],
+  decorators: [formWrapper],
   render: (args) => ({
     components: { CheckboxInputV2, Form },
     setup() {

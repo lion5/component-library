@@ -1,6 +1,9 @@
 <template>
   <div class="toggle-container">
-    <label class="toggle" :for="name">
+    <label
+      class="toggle"
+      :for="name"
+    >
       <input
         type="checkbox"
         :name="name"
@@ -14,7 +17,10 @@
       <span class="text-after">{{ label }}</span>
     </label>
     <slot name="after">
-      <InformationButton v-if="infoTitle && infoBody" :title="infoTitle">
+      <InformationButton
+        v-if="infoTitle && infoBody"
+        :title="infoTitle"
+      >
         {{ infoBody }}
       </InformationButton>
     </slot>
@@ -143,9 +149,7 @@ input:focus + .slider {
 }
 
 input:checked + .slider:before {
-  --translate-distance: calc(
-    var(--_toggle-size) - var(--slider-size) - var(--space-sm)
-  );
+  --translate-distance: calc(var(--_toggle-size) - var(--slider-size) - var(--space-sm));
 
   -webkit-transform: translateX(var(--translate-distance));
   -ms-transform: translateX(var(--translate-distance));

@@ -17,9 +17,19 @@
       @update:modelValue="onSearch"
     >
       <template #postfix>
-        <GrowLoadingAnimation v-if="busy" class="postfix-icon busy-icon" />
-        <IconError v-else-if="!!error" class="postfix-icon error-icon" />
-        <BaseIcon v-else-if="!searchToken" icon="bi-search" class="postfix-icon" />
+        <GrowLoadingAnimation
+          v-if="busy"
+          class="postfix-icon busy-icon"
+        />
+        <IconError
+          v-else-if="!!error"
+          class="postfix-icon error-icon"
+        />
+        <BaseIcon
+          v-else-if="!searchToken"
+          icon="bi-search"
+          class="postfix-icon"
+        />
         <IconButton
           v-else
           class="postfix-icon clear-button"
@@ -31,7 +41,10 @@
         </IconButton>
       </template>
     </BaseInputV3>
-    <ul v-if="searchResults.length > 0" class="result-list">
+    <ul
+      v-if="searchResults.length > 0"
+      class="result-list"
+    >
       <li
         v-for="searchResult in searchResults"
         :key="searchResult.key"

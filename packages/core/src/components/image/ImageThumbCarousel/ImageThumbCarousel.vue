@@ -82,7 +82,6 @@ const onImageChange = (selectedImage: MinimalImage) => {
     margin: 0.25rem;
   }
 
-
   display: grid;
   gap: var(--space-md);
 }

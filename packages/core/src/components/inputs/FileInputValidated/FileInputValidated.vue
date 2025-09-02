@@ -41,18 +41,18 @@ const props = withDefaults(
     /**
      * The multiple attribute of the input element. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file#multiple
      */
-    multiple?: boolean,
+    multiple?: boolean
     /**
      * Disables the reaction on drag over, drag leave and drop events. So it disables the component.
      * Disables the input field.
      * @default false
      */
-    disabled?: boolean,
+    disabled?: boolean
     /**
      * Changes the information text that is displayed when an item is dragged over the component.
      * @default `label`
      */
-    dropInfo?: string,
+    dropInfo?: string
     /**
      * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
      */
@@ -72,14 +72,17 @@ const emit = defineEmits<{
 
 const required = computed(() => (props.validationRules as Schema)?.spec?.optional === false)
 
-const { value, meta, handleBlur, errors } = useField<File[]>(() => props.name, props.validationRules, {
-  syncVModel: true
-})
+const { value, meta, handleBlur, errors } = useField<File[]>(
+  () => props.name,
+  props.validationRules,
+  {
+    syncVModel: true
+  }
+)
 
 const syncBlur = (event: FocusEvent) => {
   handleBlur(event)
   emit('blur', event)
 }
 </script>
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

@@ -3,7 +3,7 @@ import OverlayBase from './OverlayBase.vue'
 
 export default {
   component: OverlayBase,
-  title: 'Display Components/Overlays/OverlayBase',
+  title: 'Display Components/Overlays/OverlayBase'
 } as Meta<typeof OverlayBase>
 type Story = StoryObj<typeof OverlayBase>
 

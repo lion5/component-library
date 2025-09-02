@@ -1,6 +1,11 @@
 <template>
   <div class="drop-down">
-    <IconButton ref="triggerButton" class="trigger" @click="onClick" :label="dropdownButtonLabel">
+    <IconButton
+      ref="triggerButton"
+      class="trigger"
+      @click="onClick"
+      :label="dropdownButtonLabel"
+    >
       <slot name="dropDownIcon">
         <IconThreeDotsMenu />
       </slot>
@@ -15,7 +20,6 @@
 import { ref } from 'vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 import IconThreeDotsMenu from '@core/components/icons/IconThreeDotsMenu.vue'
-
 
 withDefaults(
   defineProps<{

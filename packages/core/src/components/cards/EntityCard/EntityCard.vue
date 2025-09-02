@@ -2,7 +2,10 @@
   <BaseCard class="entity-card">
     <!-- @slot the cards title section. Overwrites the title set via the title prop -->
     <slot name="title">
-      <h2 v-if="title" data-cy="entity-card-title">
+      <h2
+        v-if="title"
+        data-cy="entity-card-title"
+      >
         {{ title }}
       </h2>
     </slot>
@@ -57,5 +60,4 @@ withDefaults(
 )
 </script>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>

@@ -73,12 +73,12 @@ const props = withDefaults(
      * Disables the reaction on drag over, drag leave and drop events. So it disables the component.
      * Disables the input field.
      */
-    disabled?: boolean,
+    disabled?: boolean
     /**
      * Changes the information text that is displayed when an item is dragged over the component.
      * @default `label`
      */
-    dropInfo?: string,
+    dropInfo?: string
   }>(),
   {
     modelValue: undefined,
@@ -86,7 +86,7 @@ const props = withDefaults(
     invalid: false,
     required: false,
     disabled: false,
-    accept: 'image/*',
+    accept: 'image/*'
   }
 )
 
@@ -99,7 +99,7 @@ const emit = defineEmits<{
 }>()
 
 const files = computed({
-  get: () => props.modelValue?.file ? [props.modelValue.file] : [],
+  get: () => (props.modelValue?.file ? [props.modelValue.file] : []),
   set: async (files: File[]) => {
     const file = files[0]
     if (!file) {
@@ -115,7 +115,11 @@ const getPlaceholderImage = (width: number, height: number) => {
 }
 
 const imageToDisplay = computed(() => {
-  return new MinimalImage(-1, props.modelValue?.alt ?? 'Placeholder', props.modelValue?.sizes?.original ?? getPlaceholderImage(2, 1))
+  return new MinimalImage(
+    -1,
+    props.modelValue?.alt ?? 'Placeholder',
+    props.modelValue?.sizes?.original ?? getPlaceholderImage(2, 1)
+  )
 })
 </script>
 <style lang="scss" scoped>
@@ -125,7 +129,6 @@ const imageToDisplay = computed(() => {
   aspect-ratio: var(--image-input-aspect-ratio, 2/1);
   max-height: 350px;
   overflow: hidden;
-
 
   .preview-placeholder-overlay {
     position: absolute;
@@ -150,7 +153,7 @@ const imageToDisplay = computed(() => {
   .error-overlay {
     position: absolute;
     background-color: var(--color-danger-100);
-    opacity: .4;
+    opacity: 0.4;
     inset: 0;
   }
 }

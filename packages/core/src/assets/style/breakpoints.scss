@@ -1,16 +1,15 @@
-@use "sass:map";
+@use 'sass:map';
 // Source https://github.com/twbs/bootstrap/blob/d86c316a88e8123c4cc8aaa17a0902557ee0df7a/scss/_variables.scss
 // scss-docs-start grid-breakpoints
 $grid-breakpoints: (
-        xs: 0,
-        sm: 576px,
-        md: 768px,
-        lg: 992px,
-        xl: 1200px,
-        xxl: 1400px
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
 ) !default;
 // scss-docs-end grid-breakpoints
-
 
 // Source https://github.com/twbs/bootstrap/blob/1dc59b0d4e9ea5dd1a07aa91f964b491de1310ba/scss/mixins/_breakpoints.scss
 // Breakpoint viewport sizes and media queries.

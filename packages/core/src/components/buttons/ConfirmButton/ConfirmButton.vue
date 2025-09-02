@@ -5,7 +5,10 @@
     @accept="emit('confirm')"
   >
     <template #trigger="{ openModal }">
-      <BaseButton :variant="variant" @click="openModal">
+      <BaseButton
+        :variant="variant"
+        @click="openModal"
+      >
         <slot name="default">{{ triggerButtonLabel }}</slot>
       </BaseButton>
     </template>

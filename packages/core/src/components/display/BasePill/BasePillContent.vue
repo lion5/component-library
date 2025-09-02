@@ -4,7 +4,7 @@ import ArrowRotateLoadingAnimation from '@core/components/icons/ArrowRotateLoadi
 
 defineProps<{
   label: string
-  iconStartCls?: string,
+  iconStartCls?: string
   busy?: boolean
 }>()
 </script>
@@ -17,14 +17,14 @@ defineProps<{
     >
       <ArrowRotateLoadingAnimation />
     </span>
-  <span
-    v-else-if="iconStartCls"
-    class="start-icon"
-  >
+    <span
+      v-else-if="iconStartCls"
+      class="start-icon"
+    >
       <BaseIcon :icon="iconStartCls" />
     </span>
-  <span class="label">{{ label }}</span>
-  <slot name="postfix" />
+    <span class="label">{{ label }}</span>
+    <slot name="postfix" />
   </div>
 </template>
 

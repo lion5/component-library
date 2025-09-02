@@ -1,5 +1,8 @@
 <template>
-  <div v-if="Array.isArray(emailAddress)" class="portal-email-link-container">
+  <div
+    v-if="Array.isArray(emailAddress)"
+    class="portal-email-link-container"
+  >
     <a
       v-for="address in emailAddress"
       :key="address"

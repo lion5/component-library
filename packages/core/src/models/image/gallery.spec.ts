@@ -7,7 +7,6 @@ describe('gallery.ts', () => {
     expect(Gallery.fromApi(galleryAPIData)).toStrictEqual(gallery)
   })
 
-
   it('isEmpty - should return true when images are empty', function () {
     const gallery = new Gallery([])
 

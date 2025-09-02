@@ -8,16 +8,18 @@
     <div class="content">
       <h3>Positionsfreigabe</h3>
       <span>
-        Für die Nutzung der App wird die Freigabe Ihrer aktuellen Position
-        benötigt. Ihre Position wird nicht an Dritte weitergegeben.
+        Für die Nutzung der App wird die Freigabe Ihrer aktuellen Position benötigt. Ihre Position
+        wird nicht an Dritte weitergegeben.
       </span>
-      <span class="permission-denied-hint" v-if="locationDenied">
+      <span
+        class="permission-denied-hint"
+        v-if="locationDenied"
+      >
         <IconWarning />
-        Die Freigabe Ihrer Position ist aktuell deaktiviert. Bitte erlauben Sie
-        die Positionsfreigabe in den Einstellungen Ihres Browsers.<br /><br />
+        Die Freigabe Ihrer Position ist aktuell deaktiviert. Bitte erlauben Sie die
+        Positionsfreigabe in den Einstellungen Ihres Browsers.<br /><br />
         Anleitungen für unterstützte Browser:
-        <a
-          href="https://support.google.com/chrome/answer/142065?hl=de&co=GENIE.Platform%3DDesktop"
+        <a href="https://support.google.com/chrome/answer/142065?hl=de&co=GENIE.Platform%3DDesktop"
           >Chrome</a
         >,
         <a

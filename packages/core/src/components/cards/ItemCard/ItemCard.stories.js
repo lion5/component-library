@@ -2,7 +2,7 @@ import ItemCard from '@core/components/cards/ItemCard/ItemCard.vue'
 
 export default {
   component: ItemCard,
-  title: 'Display Components/Cards/ItemCard',
+  title: 'Display Components/Cards/ItemCard'
 }
 
 const Template = (args, { argTypes }) => ({
