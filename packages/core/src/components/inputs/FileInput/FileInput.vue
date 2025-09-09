@@ -131,6 +131,7 @@ const onFileInput = (event: Event) => {
   }
   files.value = newFiles
   emit('blur', new FocusEvent('blur'))
+  target.value = ''
 }
 
 const filePills = computed(() =>
