@@ -1,3 +1,19 @@
+## 0.30.1 (2025-09-09)
+
+### 🚀 Features
+
+- **BaseButton:** add label mode ([50a509d](https://github.com/lion5/component-library/commit/50a509d))
+
+### 🩹 Fixes
+
+- **FileInput:** use label button to prevent duplicate input trigger ([80c4ccb](https://github.com/lion5/component-library/commit/80c4ccb))
+- **FileInput:** clear target value to prevent missed updates on same file upload ([2608e8e](https://github.com/lion5/component-library/commit/2608e8e))
+- **NumberInput:** keep decimals if decimal point was inputed ([b7fbdc8](https://github.com/lion5/component-library/commit/b7fbdc8))
+
+### ❤️ Thank You
+
+- Michael Götz @michigg
+
 ## 0.30.0 (2025-09-02)
 
 ### 🚀 Features
