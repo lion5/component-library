@@ -217,7 +217,7 @@ const cleanDecimalSeparators = (value: string): string => {
   if (decimalParts[0] == '') {
     return ''
   }
-  return decimalParts[0] + separators.value.decimal + decimalParts[1]
+  return decimalParts[0] + separators.value.decimal + decimalParts.slice(1).join('')
 }
 
 const cutOffFractionDigits = (value: string): string => {
