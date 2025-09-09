@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from '@storybook/vue3-vite'
 import FileInput from './FileInput.vue'
 import { ref } from 'vue'
+import { action } from 'storybook/actions'
 
 export default {
   component: FileInput,
@@ -9,10 +10,11 @@ export default {
     components: { FileInput },
     setup() {
       const files = ref<File[]>(args.modelValue || [])
-      return { args, files }
+      const onInput = action('updated:modelValue')
+      return { args, files, onInput }
     },
     template: `
-      <FileInput v-bind="args" v-model="files" />
+      <FileInput v-bind="args" v-model="files" @update:model-value="onInput" />
       <p>Selected Files: {{ files }}</p>
     `
   })

@@ -113,16 +113,16 @@ describe('FileInput.vue', () => {
 
       expect(wrapper.emitted('update:modelValue')).toStrictEqual([[files]])
     })
-    // TODO: Found no solution with jsdom
-    it.skip('@update:modelValue - emitted on @change event from input', async () => {
+    it('@update:modelValue - emitted on @change event from input', async () => {
       const files = [
         new File(['Test File 1'], 'file_1', { type: 'text/plain', lastModified: Date.now() }),
         new File(['Test File 2'], 'file_2', { type: 'text/plain', lastModified: Date.now() })
       ]
       const input = wrapper.find('input')
-      const dataTransfer = new DataTransfer()
-      files.forEach((file) => dataTransfer.items.add(file))
-      input.element.files = dataTransfer.files
+      Object.defineProperty(input.element, 'files', {
+        value: files,
+        writable: false
+      })
       await input.trigger('change')
 
       expect(wrapper.emitted('update:modelValue')).toStrictEqual([[files]])
@@ -135,8 +135,64 @@ describe('FileInput.vue', () => {
       await wrapper.setProps({ modelValue: files })
 
       await wrapper.findComponent(PillListInput).vm.$emit('delete', files[0].name)
+      const expectedFiles = files.slice(1)
 
-      expect(wrapper.emitted('update:modelValue')).toStrictEqual([[files.slice(1)]])
+      expect(wrapper.emitted('update:modelValue')).toStrictEqual([[expectedFiles]])
+    })
+
+    it('@update:modelValue - emitted on @delete and @change event from PillListInput', async () => {
+      const files = [
+        new File(['Test File 1'], 'file_1', { type: 'text/plain', lastModified: Date.now() })
+      ]
+      await wrapper.setProps({ modelValue: files })
+
+      await wrapper.findComponent(PillListInput).vm.$emit('delete', files[0].name)
+      const expectedFiles = files.slice(1)
+
+      expect(wrapper.emitted('update:modelValue')).toBeDefined()
+      expect(wrapper.emitted('update:modelValue')?.length).toBe(1)
+      expect(wrapper.emitted('update:modelValue')).toStrictEqual([[expectedFiles]])
+
+      const insertedFiles = [
+        new File(['Test File 1'], 'file_1', { type: 'text/plain', lastModified: Date.now() })
+      ]
+      const input = wrapper.find('input')
+      Object.defineProperty(input.element, 'files', {
+        value: insertedFiles,
+        writable: false
+      })
+      await input.trigger('change')
+
+      expect(wrapper.emitted('update:modelValue')?.length).toBe(2)
+      expect(wrapper.emitted('update:modelValue').at(1)).toStrictEqual([insertedFiles])
+    })
+
+    /**
+     * The input need to be cleared after emitting the files, otherwise
+     * if the user selects the same file again, the change event won't be emitted
+     * and the modelValue won't be updated.
+     */
+    it('@change - clear input value after value was processed', async () => {
+      const files = [
+        new File(['Test File 1'], 'file_1', { type: 'text/plain', lastModified: Date.now() })
+      ]
+      const input = wrapper.find('input')
+      Object.defineProperty(input.element, 'files', {
+        value: files,
+        writable: false
+      })
+      let inputValue = 'some-file.txt'
+      Object.defineProperty(input.element, 'value', {
+        get: () => inputValue,
+        set: (v) => {
+          inputValue = v
+        },
+        configurable: true
+      })
+      await input.trigger('change')
+
+      expect(wrapper.emitted('update:modelValue')).toStrictEqual([[files]])
+      expect(input.element.value).toBe('')
     })
   })
 })

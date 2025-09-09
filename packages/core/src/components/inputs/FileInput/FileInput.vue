@@ -15,15 +15,15 @@
           @delete="onDelete"
         />
         <BaseButton
+          :as-label="true"
           :disabled="disabled"
-          @click="() => ($refs.fileInput as HTMLInputElement)?.click()"
         >
           <template #icon-left>
             <BaseIcon icon="bi-upload" />
           </template>
-          <label>
-            {{ label
-            }}<span
+          <div class="label">
+            {{ label }}
+            <span
               v-if="required"
               class="required-identification"
               >*</span
@@ -36,9 +36,9 @@
               :multiple="multiple"
               :accept="accept"
               :disabled="disabled"
-              @change="onFileInput"
+              @change.prevent="onFileInput"
             />
-          </label>
+          </div>
         </BaseButton>
       </div>
       <ErrorBox
@@ -59,10 +59,6 @@ import { PillInputItem } from '@core/components/inputs/ListInputValidated/pillIn
 
 const props = withDefaults(
   defineProps<{
-    /**
-     * The value of the input field. Will not set the file input value.
-     */
-    modelValue?: File[]
     /**
      * Used to identify this field in a form (VeeValidate Form).
      */
@@ -105,7 +101,6 @@ const props = withDefaults(
     dropInfo?: string
   }>(),
   {
-    modelValue: () => [],
     dirty: false,
     invalid: false,
     required: false,
@@ -115,32 +110,26 @@ const props = withDefaults(
 )
 
 const emit = defineEmits<{
-  /**
-   * Is emitted when files are dropped
-   */
-  (e: 'update:modelValue', files: File[]): void
   (e: 'blur', event: FocusEvent): void
 }>()
 
-const files = computed({
-  get: () => props.modelValue,
-  set: (value: File[]) => {
-    emit('update:modelValue', value)
-  }
-})
+/**
+ * The value of the input field. Will not set the file input value.
+ */
+const files = defineModel<File[]>({ default: () => [] })
 
-const onFileDrop = (files: File[]) => {
-  emit('update:modelValue', files)
+const onFileDrop = (newFiles: File[]) => {
+  files.value = newFiles
   emit('blur', new FocusEvent('blur'))
 }
 
 const onFileInput = (event: Event) => {
   const target = event.target as HTMLInputElement
-  const files = target.files ? Array.from(target.files) : []
-  if (files.length === 0) {
+  const newFiles = target.files ? Array.from(target.files) : []
+  if (newFiles.length === 0) {
     return
   }
-  emit('update:modelValue', files)
+  files.value = newFiles
   emit('blur', new FocusEvent('blur'))
 }
 
@@ -149,7 +138,7 @@ const filePills = computed(() =>
 )
 
 const onDelete = (id: string | number) => {
-  files.value = files.value.filter((file) => file.name !== id)
+  files.value = [...files.value.filter((file) => file.name !== id)]
 }
 
 const errorObjects = computed(() => {
@@ -176,13 +165,6 @@ const errorObjects = computed(() => {
   }
 }
 
-label {
-  display: flex;
-  gap: var(--space-300);
-  align-items: center;
-  cursor: pointer;
-}
-
 .required-identification {
   color: var(--color-danger);
   line-height: 0.5;
@@ -199,9 +181,6 @@ input[type='file'] {
     &:hover {
       outline: 2px solid var(--color-danger-hover);
     }
-  }
-  &.disabled label {
-    cursor: default;
   }
 }
 </style>
