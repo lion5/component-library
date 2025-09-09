@@ -3,6 +3,7 @@ import ImageInput from './ImageInput.vue'
 import { ref } from 'vue'
 import { ImageForm } from '../../../../models/image/imageForm'
 import { ImageSizes } from '../../../../models'
+import { action } from 'storybook/actions'
 
 export default {
   component: ImageInput,
@@ -11,10 +12,11 @@ export default {
     components: { ImageInput },
     setup() {
       const imageForm = ref<ImageForm>(args.modelValue)
-      return { args, imageForm }
+      const onInput = action('updated:modelValue')
+      return { args, imageForm, onInput }
     },
     template: `
-      <ImageInput v-bind="args" v-model="imageForm" />
+      <ImageInput v-bind="args" v-model="imageForm" @update:model-value="onInput" />
       <p>Selected Image: {{ imageForm }}</p>
     `
   })

@@ -46,13 +46,18 @@ const props = withDefaults(
       | 'outline-danger'
       | 'neutral'
     type?: 'button' | 'submit' | 'reset'
+    /**
+     * If true the button will be rendered as a label. This is useful for file inputs.
+     */
+    asLabel?: boolean
   }>(),
   {
     disabled: false,
     loading: false,
     busy: false,
     variant: 'primary',
-    type: 'button'
+    type: 'button',
+    asLabel: false
   }
 )
 
@@ -86,6 +91,14 @@ const mergedBusy = computed(() => {
   >
     <slot />
   </a>
+  <label
+    v-else-if="asLabel"
+    v-bind="$attrs"
+    :class="['base-button', localVariant, { disabled: disabled || mergedBusy }]"
+  >
+    <slot name="icon-left" />
+    <slot />
+  </label>
   <button
     v-else
     :type="type"
@@ -205,8 +218,8 @@ const mergedBusy = computed(() => {
     border-color: var(--color-button-background);
     color: var(--color-button);
 
-    &:not([disabled]):hover,
-    &:not([disabled]):active {
+    &:not([disabled], .disabled):hover,
+    &:not([disabled], .disabled):active {
       background-color: var(--color-button-background-hover) !important;
       border-color: var(--color-button-background-hover) !important;
       box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4) !important;
@@ -234,16 +247,17 @@ const mergedBusy = computed(() => {
     outline: 1px solid var(--color-button-outline) !important;
     background-color: transparent;
 
-    &:not([disabled]):hover,
-    &:not([disabled]):active {
+    &:not([disabled], .disabled):hover,
+    &:not([disabled], .disabled):active {
       border-color: var(--color-button-outline) !important;
       color: var(--color-button-hover);
     }
   }
 
-  &[disabled] {
+  &[disabled],
+  &.disabled {
     opacity: 0.6;
-    cursor: default;
+    cursor: not-allowed;
   }
 }
 

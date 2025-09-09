@@ -58,7 +58,7 @@ const props = withDefaults(
     /**
      * Validation constraints of this field, see https://vee-validate.logaretm.com/v4/api/use-field/#usage-with-typescript.
      */
-    validationRules?: RuleExpression<number | undefined>,
+    validationRules?: RuleExpression<number | undefined>
     /**
      * The minimum value that can be entered.
      */
