@@ -10,7 +10,7 @@ import { useImageUtils } from '@core/composables/useImageUtils'
 import { useTextUtils } from '@core/composables/useTextUtils'
 import { useRouteGoogleMapsLink } from '@core/composables/useRouteLinksUtils'
 import { useIbanUtils } from '@core/composables/useIbanUtils'
-import { useDateUtils } from '@core/composables/useDateUtils'
+import { useDateUtils, DateFormat } from '@core/composables/useDateUtils'
 
 export {
   PermissionState,
@@ -28,3 +28,5 @@ export {
   useIbanUtils,
   useDateUtils
 }
+
+export type { DateFormat }
