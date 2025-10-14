@@ -83,6 +83,13 @@ describe.concurrent('NumberInput.vue', () => {
         ${''}     | ${0.1}  | ${undefined} | ${'0,1'}    | ${3}              | ${0.1}             | ${1}           | ${'outside'}
         ${'0,2'}  | ${0.1}  | ${undefined} | ${'0,3'}    | ${3}              | ${0.3}             | ${1}           | ${'outside'}
         ${'0,09'} | ${0.01} | ${undefined} | ${'0,10'}   | ${4}              | ${0.1}             | ${2}           | ${'outside'}
+        ${'0'}    | ${1}    | ${0}         | ${'0'}      | ${1}              | ${0}               | ${0}           | ${'outside'}
+        ${'-1'}   | ${1}    | ${0}         | ${'0'}      | ${1}              | ${0}               | ${0}           | ${'outside'}
+        ${'0'}    | ${1}    | ${undefined} | ${'1'}      | ${1}              | ${1}               | ${0}           | ${'outside'}
+        ${'-2'}   | ${1}    | ${undefined} | ${'-1'}     | ${2}              | ${-1}              | ${0}           | ${'outside'}
+        ${'-0,1'} | ${0.1}  | ${undefined} | ${'0,0'}    | ${3}              | ${0}               | ${1}           | ${'outside'}
+        ${'-0,2'} | ${0.1}  | ${undefined} | ${'-0,1'}   | ${4}              | ${-0.1}            | ${1}           | ${'outside'}
+        ${'-0,01'}| ${0.01} | ${undefined} | ${'0,00'}   | ${4}              | ${0}               | ${2}           | ${'outside'}
         ${''}     | ${1}    | ${undefined} | ${'1'}      | ${1}              | ${1}               | ${0}           | ${'inside'}
         ${'1'}    | ${1}    | ${undefined} | ${'2'}      | ${1}              | ${2}               | ${0}           | ${'inside'}
         ${'9'}    | ${1}    | ${undefined} | ${'10'}     | ${2}              | ${10}              | ${0}           | ${'inside'}
@@ -90,6 +97,13 @@ describe.concurrent('NumberInput.vue', () => {
         ${''}     | ${0.1}  | ${undefined} | ${'0,1'}    | ${3}              | ${0.1}             | ${1}           | ${'inside'}
         ${'0,2'}  | ${0.1}  | ${undefined} | ${'0,3'}    | ${3}              | ${0.3}             | ${1}           | ${'inside'}
         ${'0,09'} | ${0.01} | ${undefined} | ${'0,10'}   | ${4}              | ${0.1}             | ${2}           | ${'inside'}
+        ${'0'}    | ${1}    | ${0}         | ${'0'}      | ${1}              | ${0}               | ${0}           | ${'inside'}
+        ${'-1'}   | ${1}    | ${0}         | ${'0'}      | ${1}              | ${0}               | ${0}           | ${'inside'}
+        ${'0'}    | ${1}    | ${undefined} | ${'1'}      | ${1}              | ${1}               | ${0}           | ${'inside'}
+        ${'-2'}   | ${1}    | ${undefined} | ${'-1'}     | ${2}              | ${-1}              | ${0}           | ${'inside'}
+        ${'-0,1'} | ${0.1}  | ${undefined} | ${'0,0'}    | ${3}              | ${0}               | ${1}           | ${'inside'}
+        ${'-0,2'} | ${0.1}  | ${undefined} | ${'-0,1'}   | ${4}              | ${-0.1}            | ${1}           | ${'inside'}
+        ${'-0,01'}| ${0.01} | ${undefined} | ${'0,00'}   | ${4}              | ${0}               | ${2}           | ${'inside'}
       `(
         ':modelValue - increment - $valBefore + $step = $expectedVal ($stepButtonsVariant)',
         async ({
@@ -141,11 +155,21 @@ describe.concurrent('NumberInput.vue', () => {
         ${'0'}    | ${1}    | ${0}         | ${'0'}      | ${1}              | ${0}               | ${0}           | ${'outside'}
         ${'0,3'}  | ${0.1}  | ${undefined} | ${'0,2'}    | ${3}              | ${0.2}             | ${1}           | ${'outside'}
         ${'0,1'}  | ${0.01} | ${undefined} | ${'0,09'}   | ${4}              | ${0.09}            | ${2}           | ${'outside'}
+        ${'0'}    | ${1}    | ${undefined} | ${'-1'}     | ${2}              | ${-1}              | ${0}           | ${'outside'}
+        ${'-1'}   | ${1}    | ${undefined} | ${'-2'}     | ${2}              | ${-2}              | ${0}           | ${'outside'}
+        ${'-9'}   | ${1}    | ${undefined} | ${'-10'}    | ${3}              | ${-10}             | ${0}           | ${'outside'}
+        ${'0'}    | ${0.1}  | ${undefined} | ${'-0,1'}   | ${4}              | ${-0.1}            | ${1}           | ${'outside'}
+        ${'0'}    | ${0.01} | ${undefined} | ${'-0,01'}  | ${5}              | ${-0.01}           | ${2}           | ${'outside'}
         ${'1'}    | ${1}    | ${undefined} | ${'0'}      | ${1}              | ${0}               | ${0}           | ${'inside'}
         ${'10'}   | ${1}    | ${undefined} | ${'9'}      | ${1}              | ${9}               | ${0}           | ${'inside'}
         ${'0'}    | ${1}    | ${0}         | ${'0'}      | ${1}              | ${0}               | ${0}           | ${'inside'}
         ${'0,3'}  | ${0.1}  | ${undefined} | ${'0,2'}    | ${3}              | ${0.2}             | ${1}           | ${'inside'}
         ${'0,1'}  | ${0.01} | ${undefined} | ${'0,09'}   | ${4}              | ${0.09}            | ${2}           | ${'inside'}
+        ${'0'}    | ${1}    | ${undefined} | ${'-1'}     | ${2}              | ${-1}              | ${0}           | ${'inside'}
+        ${'-1'}   | ${1}    | ${undefined} | ${'-2'}     | ${2}              | ${-2}              | ${0}           | ${'inside'}
+        ${'-9'}   | ${1}    | ${undefined} | ${'-10'}    | ${3}              | ${-10}             | ${0}           | ${'inside'}
+        ${'0'}    | ${0.1}  | ${undefined} | ${'-0,1'}   | ${4}              | ${-0.1}            | ${1}           | ${'inside'}
+        ${'0'}    | ${0.01} | ${undefined} | ${'-0,01'}  | ${5}              | ${-0.01}           | ${2}           | ${'inside'}
       `(
         ':modelValue - decrement - $valBefore - $step = $expectedVal ($stepButtonsVariant)',
         async ({
@@ -169,7 +193,7 @@ describe.concurrent('NumberInput.vue', () => {
           const el = input.element as HTMLInputElement
 
           // Initial state: empty input, cursor at position 0
-          await triggerInput(input, valBefore, 3)
+          await triggerInput(input, valBefore, valBefore.length + 1)
 
           await wrapper.getComponent('[data-testid="decrement-button"]').trigger('click')
           await new Promise(requestAnimationFrame)
@@ -178,9 +202,11 @@ describe.concurrent('NumberInput.vue', () => {
           expect(el.selectionStart, 'cursor position does not match').toBe(expectedCursorPos)
           expect(el.selectionEnd, 'cursor position does not match').toBe(expectedCursorPos)
           if (valBefore === expectedVal) {
+            console.log(valBefore, expectedVal, wrapper.emitted('update:modelValue'))
             return
           }
           expect(wrapper.emitted('update:modelValue')).toBeDefined()
+          console.log(wrapper.emitted('update:modelValue'))
           expect(
             wrapper.emitted('update:modelValue')?.at(-1),
             'emitted value does not match'
