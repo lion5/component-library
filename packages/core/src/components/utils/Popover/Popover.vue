@@ -121,7 +121,6 @@ const onToggle = (event: ToggleEvent) => {
 .popover-content {
   position: absolute;
   position-anchor: --popover;
-  /* Versuchen Sie diese alternative Fallback-Syntax */
   position-try-fallbacks: flip-inline,
   flip-block,
   flip-start;
