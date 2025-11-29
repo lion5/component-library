@@ -19,11 +19,11 @@
   },
   "devDependencies": {
     "@eslint/compat": "^1.2.6",
-    "@nx/js": "^20.4.0",
+    "@nx/js": "^20.8.2",
     "eslint": "^9.19.0",
     "eslint-config-prettier": "^10.0.1",
     "eslint-plugin-storybook": "^0.11.2",
     "eslint-plugin-vue": "^9.32.0",
-    "nx": "^20.4.0"
+    "nx": "^20.8.2"
   }
 }
