@@ -238,8 +238,7 @@ const cleanInput = (input: string): number | undefined => {
   cleaned = cleaned
     .replace(new RegExp(`\\${separators.value.group}`, 'g'), '') // Remove group separators
     .replace(new RegExp(`\\${separators.value.decimal}`), normalizedDecimalSeparator) // Normalize decimal separator to '.'
-    .replace(/[^\d.,]/g, '')
-
+    .replace(/[^\d.,-]/g, '')
   return cleaned ? parseFloat(cleaned) : undefined
 }
 
