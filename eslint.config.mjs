@@ -28,7 +28,10 @@ export default [
       '@typescript-eslint/no-unused-vars': [
         'error',
         { argsIgnorePattern: '^_', args: 'after-used' }
-      ]
+      ],
+      'vue/multi-word-component-names': ['error', {
+        ignores: ['Popover']
+      }]
     }
   },
   skipFormatting
