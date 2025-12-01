@@ -12,11 +12,15 @@ export default {
       return { args }
     },
     template: `
-      <Popover v-bind="args">
-        <template #trigger>
-          <IconInfoCircle />
-        </template>
-      </Popover>
+      <p>
+        This is a paragraph with a 
+        <Popover v-bind="args">
+          <template #trigger>
+            very important
+          </template>
+        </Popover>
+        information inside.
+      </p>
     `
   })
 } as Meta<typeof Popover>
