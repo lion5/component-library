@@ -1,19 +1,21 @@
 <template>
   <div
-    class="popover-wrapper"
+    :class="['popover-wrapper', { 'user-select-disabled': !isSelectable, 'show-on-hover': showOnHover }]"
+    @mouseenter="onMouseEnter"
+    @mouseleave="onMouseLeave"
   >
     <button
       :popovertarget="popoverId"
+      popovertargetaction="show"
       class="popover-trigger"
-      @mouseenter="onMouseEnter"
-      @mouseleave="onMouseLeave"
+      @click="onClicked"
     >
       <slot name="trigger" />
     </button>
     <BaseCard
       ref="popover"
       :id="popoverId"
-      popover
+      popover="auto"
       :class="['popover-content', placement]"
       @toggle="onToggle"
     >
@@ -53,10 +55,10 @@ defineSlots<{
   /**
    * Slot that contains the text that is displayed inside the tooltips box.
    */
-  content: void
+  content?: void
 }>()
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     /**
      * Text that is displayed inside the tooltips box. The slot tooltipText will override this prop if set.
@@ -70,6 +72,12 @@ withDefaults(
      * Determines if the tooltip is only shown on focus.
      */
     showOnHover?: boolean,
+    /**
+     * Specifies the preferred position for the popover component.
+     * This determines where the popover will be placed relative to its target element.
+     * Example values may include "top", "bottom", "left", "right", or combinations such as "top-start".
+     * The actual position may be adjusted if there is insufficient space.
+     */
     placement?: PopoverPosition
   }>(),
   {
@@ -84,31 +92,59 @@ const id = useId()
 const popoverId = `popover-${id}`
 const popover = ref<InstanceType<typeof BaseCard>>()
 const clicked = ref(false)
+const opened = ref(false)
 
 onMounted(() => {
   applyPolyfill()
 })
 
 const onMouseEnter = () => {
+  if (!props.showOnHover) return
   if (clicked.value) return
-  console.log('enter')
-  popover.value?.$el.showPopover()
+  showPopover()
 }
 
 const onMouseLeave = () => {
+  if (!props.showOnHover) return
   if (clicked.value) return
-  console.log('leave')
-  popover.value?.$el.hidePopover()
+  hidePopover()
 }
 const onToggle = (event: ToggleEvent) => {
-  console.log('toggle', event)
-  clicked.value = event.newState === 'open'
+  const newState = event.newState === 'open'
+  opened.value = newState
+  if (!newState) {
+    clicked.value = false
+  }
+}
+
+const onClicked = () => {
+  clicked.value = !clicked.value
+  if (!clicked.value) {
+    setTimeout(() => hidePopover(), 1)
+  }
+}
+let hidePopoverTimeout: NodeJS.Timeout | undefined = undefined
+const showPopover = () => {
+  if (hidePopoverTimeout) {
+    clearTimeout(hidePopoverTimeout)
+  }
+  popover.value?.$el.showPopover()
+}
+
+const hidePopover = () => {
+  hidePopoverTimeout = setTimeout(() => popover.value?.$el.hidePopover(), 100)
 }
 </script>
 
 <style lang="scss">
 .popover-wrapper {
   anchor-scope: --popover;
+  display: inline-block;
+
+  &.user-select-disabled .popover-content {
+    user-select: none;
+  }
+
 }
 
 .popover-trigger {
@@ -116,10 +152,12 @@ const onToggle = (event: ToggleEvent) => {
   border-radius: var(--border-radius-100);
   anchor-name: --popover;
   width: fit-content;
+  cursor: help;
+  background: transparent;
+  border: none;
 }
 
 .popover-content {
-  position: absolute;
   position-anchor: --popover;
   position-try-fallbacks: flip-inline,
   flip-block,
