@@ -2,7 +2,7 @@
 import TimelineItemComponent from '@core/components/display/Timeline/TimelineItem.vue'
 import { TimelineEvent } from '@core/components/display/Timeline/timelineEvent'
 import { DateFormat } from '@core/composables'
-import { computed, useSlots } from 'vue'
+import { computed } from 'vue'
 
 const props = withDefaults(
   defineProps<{

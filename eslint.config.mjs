@@ -30,7 +30,7 @@ export default [
         { argsIgnorePattern: '^_', args: 'after-used' }
       ],
       'vue/multi-word-component-names': ['error', {
-        ignores: ['Popover']
+        ignores: ['Popover', 'Timeline']
       }]
     }
   },

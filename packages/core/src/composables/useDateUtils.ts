@@ -1,6 +1,6 @@
 // global Voucher Display functions
 
-import { formatTimeAgo, UseTimeAgoUnit, UseTimeAgoUnitNamesDefault } from '@vueuse/core'
+import { formatTimeAgo } from '@vueuse/core'
 
 export type DateFormat = 'month YYYY' | 'dd.mm.YYYY' | 'dd.mm.YYYY HH:MM' | 'timeAgo'
 
