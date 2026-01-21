@@ -63,7 +63,7 @@
     "@lion5/component-library": "0.30.1",
     "@turf/boolean-point-in-polygon": ">=7.2.0",
     "gridstack": ">=11.3.0",
-    "lodash-es": ">=4.17.21",
+    "lodash-es": ">=4.17.23",
     "remove": "^0.1.5",
     "vee-validate": ">=4.15.0",
     "vue": ">=3.5.13"
@@ -71,7 +71,7 @@
   "peerDependencies": {
     "@lion5/component-library": ">= 0.12.1",
     "@turf/boolean-point-in-polygon": ">= 6.5.0 < 7",
-    "lodash-es": ">=4.17.21",
+    "lodash-es": ">=4.17.23",
     "gridstack": ">= 10.1.2 < 11",
     "vee-validate": ">=4.12.6",
     "vue": ">= 3.4.21"
