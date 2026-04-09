@@ -1,7 +1,5 @@
 <template>
-  <div
-    class="popover-wrapper"
-  >
+  <div class="popover-wrapper">
     <button
       :popovertarget="popoverId"
       class="popover-trigger"
@@ -69,7 +67,7 @@ withDefaults(
     /**
      * Determines if the tooltip is only shown on focus.
      */
-    showOnHover?: boolean,
+    showOnHover?: boolean
     placement?: PopoverPosition
   }>(),
   {
@@ -121,9 +119,7 @@ const onToggle = (event: ToggleEvent) => {
 .popover-content {
   position: absolute;
   position-anchor: --popover;
-  position-try-fallbacks: flip-inline,
-  flip-block,
-  flip-start;
+  position-try-fallbacks: flip-inline, flip-block, flip-start;
 
   background-color: var(--color-neutral-100);
   margin: 0;
@@ -204,8 +200,9 @@ const onToggle = (event: ToggleEvent) => {
   }
 
   transition-behaviour: allow-discrete;
-  transition: display .25s,
-  opacity .25s ease-in-out,
-  scale .25s;
+  transition:
+    display 0.25s,
+    opacity 0.25s ease-in-out,
+    scale 0.25s;
 }
 </style>
