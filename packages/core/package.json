@@ -1,7 +1,7 @@
 {
   "name": "@lion5/component-library",
   "version": "0.30.1",
-  "type": "commonjs",
+  "type": "module",
   "license": "MIT",
   "contributors": [
     "Michael Götz <michael.goetz@lion5.io> (https://github.com/michigg)",
@@ -62,16 +62,16 @@
   "dependencies": {
     "@oddbird/css-anchor-positioning": "^0.9.0",
     "@oddbird/popover-polyfill": "^0.6.1",
-    "@vueuse/core": ">=14.2.1",
-    "bootstrap-icons": ">=1.13.1",
-    "lodash-es": ">=4.18.1",
-    "pinia": ">=3.0.4",
+    "@vueuse/core": ">=11.1.0",
+    "bootstrap-icons": ">=1.11.3",
+    "lodash-es": ">=4.17.21",
+    "pinia": ">=2.1.7",
     "remove": "^0.1.5",
-    "vee-validate": ">=4.15.1",
-    "vue": ">=3.5.32",
+    "vee-validate": ">=4.14.7",
+    "vue": ">=3.4.21",
     "vue-multiselect": ">=3.5.0",
-    "vue-router": ">=5.0.4",
-    "yup": ">=1.7.1"
+    "vue-router": ">=4.3.0",
+    "yup": ">=1.4.0"
   },
   "peerDependencies": {
     "@vueuse/core": ">=11.1.0",
@@ -123,7 +123,8 @@
     "vite-plugin-dts": "^4.5.4",
     "vite-plugin-vue-devtools": "^8.1.1",
     "vitest": "^4.1.4",
-    "vue-tsc": "^3.2.6"
+    "vue-tsc": "^3.2.6",
+    "@vitest/browser-playwright": "^4.1.4"
   },
   "gitHead": "4b5b01f298040c7d4206a67ab76b1b02fe7fe91e",
   "overrides": {

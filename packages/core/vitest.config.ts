@@ -2,13 +2,15 @@ import { defineConfig } from 'vitest/config'
 import { resolve } from 'path'
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin'
 import vue from '@vitejs/plugin-vue'
+import { playwright } from '@vitest/browser-playwright'
 
 export default defineConfig({
   plugins: [
     vue(),
-    storybookTest({ configDir: resolve(__dirname, '.storybook'), includeUnitTests: true })
+    storybookTest({ configDir: resolve(__dirname, '.storybook') })
   ],
   test: {
+    name: 'storybook',
     globals: true,
     environment: 'jsdom',
     css: true,
@@ -22,7 +24,7 @@ export default defineConfig({
     browser: {
       enabled: true,
       headless: true,
-      provider: 'playwright',
+      provider: playwright({}),
       instances: [{ browser: 'chromium' }]
     }
   },

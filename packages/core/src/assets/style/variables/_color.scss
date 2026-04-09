@@ -1,3 +1,4 @@
+@use "sass:map";
 /* Color Definitions */
 $palettes: (
   // Primary Color = Brand Color = Accent Color
@@ -84,9 +85,9 @@ $palettes: (
   @each $name, $props in $palettes {
     @include generate-color-variables(
       $name,
-      map-get($props, 'hue'),
-      map-get($props, 'saturation'),
-      map-get($props, 'lightness')
+      map.get($props, 'hue'),
+      map.get($props, 'saturation'),
+      map.get($props, 'lightness')
     );
   }
 
