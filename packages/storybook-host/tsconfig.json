@@ -22,7 +22,6 @@
     "emitDeclarationOnly": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-    "baseUrl": "./",
     "paths": {
       "@core/*": [
         "../core/src/*"

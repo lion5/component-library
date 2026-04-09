@@ -9,10 +9,9 @@
     "outDir": "dist",
     "paths": {
       "@/*": [
-        "src/*"
+        "./src/*"
       ]
-    },
-    "baseUrl": "./"
+    }
   },
   "exclude": [
     "node_modules",
