@@ -55,7 +55,7 @@
   ],
   "dependencies": {
     "@lion5/component-library": "0.30.1",
-    "firebase": "^12.11.0",
+    "firebase": "^12.12.0",
     "vue": "^3.5.32"
   },
   "peerDependencies": {
@@ -63,7 +63,6 @@
     "firebase": ">= 9.23.0 < 10",
     "vue": ">= 3.4.21"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "gitHead": "4b5b01f298040c7d4206a67ab76b1b02fe7fe91e"
 }

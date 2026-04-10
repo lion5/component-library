@@ -70,7 +70,6 @@
     "vee-validate": ">=4.12.6",
     "vue": ">= 3.4.21"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "gitHead": "4b5b01f298040c7d4206a67ab76b1b02fe7fe91e"
 }

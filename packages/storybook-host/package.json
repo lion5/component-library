@@ -7,6 +7,5 @@
     "docs": "storybook dev -p 6010",
     "docs:build": "storybook build"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }
