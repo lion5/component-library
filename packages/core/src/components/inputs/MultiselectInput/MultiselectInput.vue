@@ -161,7 +161,7 @@ defineSlots<{
 /**
  * The currently selected value as a `string`, initially `undefined`.
  */
-const modelValue = defineModel<(string | number | boolean | null)[]>({
+const modelValue = defineModel<(string | number | boolean | null)[] | null | undefined>({
   default: []
 })
 const selectedOptions = ref<SelectOption<Ref<LabelType>>[]>([])
@@ -191,10 +191,12 @@ onMounted(() => {
       },
       {}
     )
-    selectedOptions.value = modelValue.value.map((key) => {
-      if (key == null) return
-      return optionsMap[String(key)]
-    }) as SelectOption<LabelType>[]
+    selectedOptions.value = modelValue.value
+      .map((key) => {
+        if (key == null) return
+        return optionsMap[String(key)]
+      })
+      .filter(Boolean) as SelectOption<LabelType>[]
   } else {
     selectedOptions.value = defaultOption || []
   }

@@ -125,7 +125,7 @@ describe('SelectInput', () => {
       )
 
       await wrapper.setProps({ modelValue: null })
-      expect(wrapper.findComponent(Multiselect).vm.modelValue).toEqual([])
+      expect(wrapper.find('.single-select-input').classes()).not.toContain('has-content')
     })
 
     it(':defaultOption - is emitted when default option value of "2" is set', () => {
