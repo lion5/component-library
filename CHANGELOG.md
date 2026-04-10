@@ -1,3 +1,17 @@
+## 0.30.2 (2026-04-10)
+
+### 🚀 Features
+
+- **Popover:** implement popover ([55e9e56](https://github.com/lion5/component-library/commit/55e9e56))
+
+### 🩹 Fixes
+
+- **NumberInput:** allow negative numbers ([ca34577](https://github.com/lion5/component-library/commit/ca34577))
+
+### ❤️ Thank You
+
+- Michael Götz @mgoetz-lion5
+
 ## 0.30.1 (2025-09-09)
 
 ### 🚀 Features
