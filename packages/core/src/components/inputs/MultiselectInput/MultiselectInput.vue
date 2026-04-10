@@ -180,7 +180,7 @@ const errorObjects = computed(() => {
 
 onMounted(() => {
   const { options, defaultOption } = props
-  if (modelValue.value && modelValue.value.length) {
+  if (Array.isArray(modelValue.value) && modelValue.value.length) {
     const optionsMap = options.reduce(
       (
         accumulator: { [key: string]: SelectOption<LabelType> },
