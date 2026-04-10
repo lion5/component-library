@@ -13,7 +13,7 @@
       :label="label"
       :list="`${name}-list`"
       :invalid="!!error"
-      :errors="[error]"
+      :errors="error ? [error] : []"
       @update:modelValue="onSearch"
     >
       <template #postfix>

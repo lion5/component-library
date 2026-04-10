@@ -10,7 +10,14 @@ import { number } from 'yup'
  */
 export default {
   component: SelectInputValidated,
-  title: 'Input Components/SelectInputValidated'
+  title: 'Input Components/SelectInputValidated',
+  parameters: {
+    a11y: {
+      context: {
+        exclude: ['.multiselect'],
+      },
+    },
+  }
 } as Meta<typeof SelectInputValidated>
 type Story = StoryObj<typeof SelectInputValidated>
 
@@ -51,7 +58,6 @@ export const Selected: Story = {
   args: {
     ...Empty.args,
     name: 'test2',
-    id: 'test2'
   }
 }
 

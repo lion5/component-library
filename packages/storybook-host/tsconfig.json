@@ -22,7 +22,6 @@
     "emitDeclarationOnly": true,
     "isolatedModules": true,
     "skipLibCheck": true,
-    "baseUrl": "./",
     "paths": {
       "@core/*": [
         "../core/src/*"
@@ -49,6 +48,6 @@
   "include": [
     "../../**/*.stories.js",
     "../../**/*.stories.ts",
-    "vite.config.mts"
+    "vite.config.ts"
   ]
 }

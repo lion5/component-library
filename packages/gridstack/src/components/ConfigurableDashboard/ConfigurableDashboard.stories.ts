@@ -21,6 +21,17 @@ export default {
 type Story = StoryObj<typeof ConfigurableDashboard>
 
 export const Default: Story = {
+  parameters: {
+    a11y: {
+      options: {
+        rules: {
+          // vue-multiselect renders aria-controls referencing a listbox
+          // that only exists when the dropdown is open (upstream issue)
+          'aria-valid-attr-value': { enabled: false },
+        },
+      },
+    },
+  },
   render: (args: unknown) => ({
     components: { ConfigurableDashboard },
     setup() {

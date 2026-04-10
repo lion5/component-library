@@ -8,7 +8,14 @@ import { SelectOption } from '../BaseSelect/selectOption'
  */
 export default {
   component: SelectInput,
-  title: 'Input Components/SelectInput'
+  title: 'Input Components/SelectInput',
+  parameters: {
+    a11y: {
+      context: {
+        exclude: ['.multiselect'],
+      },
+    },
+  }
 } as Meta<typeof SelectInput>
 type Story = StoryObj<typeof SelectInput>
 
@@ -24,7 +31,7 @@ export const Default: Story = {
       </div>`
   }),
   args: {
-    id: 'select-input',
+    name: 'select-input',
     label: 'Option',
     entityName: 'Optionen',
     placeholder: 'Choose option',
@@ -48,7 +55,7 @@ export const Images: Story = {
       </div>`
   }),
   args: {
-    id: 'select-input',
+    name: 'select-input',
     label: 'Option',
     entityName: 'Optionen',
     options: [
@@ -77,7 +84,7 @@ export const Icons: Story = {
       </div>`
   }),
   args: {
-    id: 'select-input',
+    name: 'select-input',
     label: 'Option',
     entityName: 'Optionen',
     options: [
@@ -103,7 +110,6 @@ export const WithError: Story = {
   }),
   args: {
     name: 'select-input',
-    id: 'select-input',
     label: 'Option',
     entityName: 'Optionen',
     dirty: true,
@@ -131,7 +137,7 @@ export const Booleans: Story = {
       </div>`
   }),
   args: {
-    id: 'select-input',
+    name: 'select-input',
     label: 'Option',
     entityName: 'Optionen',
     options: [new SelectOption(true, 'Wahr', '', ''), new SelectOption(false, 'Falsch', '', '')]
@@ -150,7 +156,7 @@ export const NotSearchable: Story = {
       </div>`
   }),
   args: {
-    id: 'select-input',
+    name: 'select-input',
     label: 'Option',
     entityName: 'Optionen',
     searchable: false,
@@ -174,7 +180,7 @@ export const Required: Story = {
       </div>`
   }),
   args: {
-    id: 'select-input',
+    name: 'select-input',
     label: 'Option',
     entityName: 'Optionen',
     placeholder: 'Choose option',
