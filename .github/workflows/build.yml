@@ -22,6 +22,7 @@ jobs:
       - run: npm run lint
 
   type-check:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
@@ -30,6 +31,10 @@ jobs:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
       - run: npm ci
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: packages/
       - run: npm run type-check
 
   unit-tests:
