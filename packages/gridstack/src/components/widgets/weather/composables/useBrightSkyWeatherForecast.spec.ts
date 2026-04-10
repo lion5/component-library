@@ -6,7 +6,7 @@ import { GpsLocation } from '@lion5/component-library'
 
 describe('useBrightSkyWeatherForecast.ts', () => {
   beforeEach(() => {
-    global.fetch = vi.fn()
+    globalThis.fetch = vi.fn() as typeof fetch
     vi.useFakeTimers()
     const date = new Date('2023-04-20T13:00:00.000Z')
     vi.setSystemTime(date)
@@ -21,13 +21,11 @@ describe('useBrightSkyWeatherForecast.ts', () => {
     const { fetchForecasts } = useBrightSkyWeatherForecast()
     await fetchForecasts(location)
 
-    expect(global.fetch).toHaveBeenCalledWith(expectedUrl)
+    expect(globalThis.fetch).toHaveBeenCalledWith(expectedUrl)
   })
   it('fetchForecasts - set error if fetch fails', async () => {
     const location = new GpsLocation(47.32, 12.34)
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    global.fetch.mockRejectedValue(new Error())
+    vi.mocked(globalThis.fetch).mockRejectedValue(new Error())
     const { fetchForecasts, error } = useBrightSkyWeatherForecast()
     await fetchForecasts(location)
 

@@ -133,7 +133,7 @@ describe('SelectInput', () => {
         }
       })
 
-      await (wrapper.findComponent(Multiselect).vm as any).activate()
+      await (wrapper.getComponent(Multiselect).vm as InstanceType<typeof Multiselect>).activate()
 
       const noOptionsSlot = document.body.querySelector(
         'li:not([style*="display: none"]) .multiselect__option'
@@ -160,7 +160,7 @@ describe('SelectInput', () => {
         }
       })
 
-      await (wrapper.findComponent(Multiselect).vm as any).activate()
+      await (wrapper.findComponent(Multiselect).vm as InstanceType<typeof Multiselect>).activate()
       const input = wrapper.find('input')
       await input.setValue('nonexistent')
 
@@ -188,7 +188,7 @@ describe('SelectInput', () => {
         }
       })
 
-      await (wrapper.findComponent(Multiselect).vm as any).activate()
+      await (wrapper.findComponent(Multiselect).vm as InstanceType<typeof Multiselect>).activate()
 
       const option = document.body.querySelector('.option__container img')
       expect(option).not.toBeNull()
@@ -212,7 +212,7 @@ describe('SelectInput', () => {
         }
       })
 
-      await (wrapper.findComponent(Multiselect).vm as any).activate()
+      await (wrapper.findComponent(Multiselect).vm as InstanceType<typeof Multiselect>).activate()
 
       const option = document.body.querySelector('.option__container i')
       expect(option).not.toBeNull()
