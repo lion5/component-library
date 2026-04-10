@@ -1,4 +1,4 @@
-import { mount, shallowMount } from '@vue/test-utils'
+import { mount, shallowMount, flushPromises } from '@vue/test-utils'
 import Multiselect from 'vue-multiselect'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
@@ -98,6 +98,44 @@ describe('MultiselectInput', () => {
         }
       })
       expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([expectedValue])
+    })
+
+    it(':modelValue - selected options react to external changes', async () => {
+      wrapper = mount(MultiselectInput, {
+        global: {
+          stubs: ['MultiselectInput']
+        },
+        props: {
+          name: 'name',
+          id: 'test-select-input',
+          label: 'Merchants',
+          options: [
+            new SelectOption('1', 'One'),
+            new SelectOption('2', 'Two'),
+            new SelectOption('3', 'Three')
+          ],
+          modelValue: ['1']
+        }
+      })
+      await flushPromises()
+      expect(wrapper.findComponent(Multiselect).vm.modelValue).toStrictEqual([
+        new SelectOption('1', 'One')
+      ])
+
+      await wrapper.setProps({ modelValue: ['2', '3'] })
+      await flushPromises()
+      expect(wrapper.findComponent(Multiselect).vm.modelValue).toStrictEqual([
+         new SelectOption('2', 'Two'),
+         new SelectOption('3', 'Three')
+      ])
+
+      await wrapper.setProps({ modelValue: [] })
+      await flushPromises()
+      expect(wrapper.findComponent(Multiselect).vm.modelValue).toEqual([])
+      
+      await wrapper.setProps({ modelValue: null })
+      await flushPromises()
+      expect(wrapper.findComponent(Multiselect).vm.modelValue).toEqual([])
     })
   })
 

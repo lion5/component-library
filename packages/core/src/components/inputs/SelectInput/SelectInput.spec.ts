@@ -97,6 +97,37 @@ describe('SelectInput', () => {
         new SelectOption('3', 'Three')
       )
     })
+
+    it(':modelValue - selected option reacts to external changes', async () => {
+      wrapper = mount(SelectInput, {
+        global: {
+          stubs: ['MultiselectInput']
+        },
+        props: {
+          name: 'test-select-input',
+          label: 'Merchants',
+          options: [
+            new SelectOption('1', 'One'),
+            new SelectOption('2', 'Two'),
+            new SelectOption('3', 'Three')
+          ],
+          modelValue: '1'
+        }
+      })
+      await flushPromises()
+      expect(wrapper.findComponent(Multiselect).vm.modelValue).toStrictEqual(
+        new SelectOption('1', 'One')
+      )
+
+      await wrapper.setProps({ modelValue: '2' })
+      expect(wrapper.findComponent(Multiselect).vm.modelValue).toStrictEqual(
+        new SelectOption('2', 'Two')
+      )
+
+      await wrapper.setProps({ modelValue: null })
+      expect(wrapper.findComponent(Multiselect).vm.modelValue).toEqual([])
+    })
+
     it(':defaultOption - is emitted when default option value of "2" is set', () => {
       const expectedValue = '2'
       wrapper = mount(SelectInput, {
@@ -244,4 +275,3 @@ describe('SelectInput', () => {
     })
   })
 })
-
