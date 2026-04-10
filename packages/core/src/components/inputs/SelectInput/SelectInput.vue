@@ -199,6 +199,8 @@ watch(
       typeof newValue === 'boolean'
     ) {
       selectedOption.value = optionsMap.value[String(newValue)]
+    } else if (newValue === null || newValue === undefined) {
+      selectedOption.value = undefined
     }
   }
 )
