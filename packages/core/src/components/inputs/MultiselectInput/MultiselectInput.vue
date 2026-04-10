@@ -191,12 +191,9 @@ onMounted(() => {
       },
       {}
     )
-    selectedOptions.value = modelValue.value
-      .map((key) => {
-        if (key == null) return
-        return optionsMap[String(key)]
-      })
-      .filter(Boolean) as SelectOption<LabelType>[]
+    selectedOptions.value = modelValue.value.flatMap((key) =>
+      key == null ? [] : [optionsMap[String(key)]].filter(Boolean)
+    ) as SelectOption<LabelType>[]
   } else {
     selectedOptions.value = defaultOption || []
   }
@@ -221,12 +218,9 @@ watch(
         },
         {}
       )
-      selectedOptions.value = newValue
-        .map((key) => {
-          if (key == null) return
-          return optionsMap[String(key)]
-        })
-        .filter(Boolean) as SelectOption<LabelType>[]
+      selectedOptions.value = newValue.flatMap((key) =>
+        key == null ? [] : [optionsMap[String(key)]].filter(Boolean)
+      ) as SelectOption<LabelType>[]
     } else {
       selectedOptions.value = []
     }
