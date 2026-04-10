@@ -3,7 +3,6 @@ name: Release
 
 on:
   workflow_dispatch:
-    # Inputs the workflow accepts. See https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions#onworkflow_dispatchinputs
     inputs:
       release_version:
         description: 'Version to release (follow SemVer e.g. 1.0.0)'
@@ -20,8 +19,7 @@ jobs:
   github-release:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           fetch-depth: 0
       - name: Git configuration
@@ -29,7 +27,6 @@ jobs:
           git config --global user.email "github-actions@github.com"
           git config --global user.name "Github Actions on behalf of @${{ github.triggering_actor }}"
       - name: Bump Release Version
-        id: releaseVersionUpdate
         run: |
           npm ci
           npx nx release --skip-publish ${{ github.event.inputs.release_version }}
@@ -40,7 +37,7 @@ jobs:
           git checkout -b release/${{ github.event.inputs.release_version }}
           git push --tags origin release/${{ github.event.inputs.release_version }}
       - name: Merge Release Data via Pull Request
-        uses: actions/github-script@v7
+        uses: actions/github-script@v9
         with:
           script: |
             const { repo, owner } = context.repo;
@@ -62,53 +59,58 @@ jobs:
               issue_number: result.data.number,
               labels: ['release', 'automated pr']
             });
-      #            await github.rest.pulls.createReview({
-      #              owner,
-      #              repo,
-      #              pull_number: result.data.number,
-      #              event: 'APPROVE'
-      #            });
-      #            await github.rest.pulls.merge({
-      #              owner,
-      #              repo,
-      #              pull_number: result.data.number,
-      #              merge_method: 'merge'
-      #            });
       - name: Release
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ github.event.inputs.release_version }}
           generate_release_notes: true
 
+  build:
+    needs: [github-release]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+        with:
+          ref: v${{ github.event.inputs.release_version }}
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v7
+        with:
+          name: release-dist
+          path: packages/*/dist/
+          retention-days: 1
+
   publish-package:
-    needs: [ github-release ]
+    needs: [build]
     runs-on: ubuntu-latest
     permissions:
       contents: read
       packages: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: v${{ github.event.inputs.release_version }}
-      # Setup .npmrc file to publish to GitHub Packages
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
-          # Defaults to the user or organization that owns the workflow file
           scope: '@lion5'
           registry-url: 'https://npm.pkg.github.com'
-      - name: Build
-        run: |
-          npm ci
-          npm run build
+      - run: npm ci
+      - uses: actions/download-artifact@v8
+        with:
+          name: release-dist
+          path: packages/
       - name: Publish To Github Packages
         run: npx nx release publish --registry https://npm.pkg.github.com
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
-          # Defaults to the user or organization that owns the workflow file
           scope: '@lion5'
           registry-url: 'https://registry.npmjs.org'
       - name: Publish To NPM Packages
@@ -116,9 +118,8 @@ jobs:
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
-
   publish-documentation:
-    needs: [ github-release ]
+    needs: [build]
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -128,29 +129,23 @@ jobs:
       pages: write
       id-token: write
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           ref: v${{ github.event.inputs.release_version }}
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-          cache-dependency-path: '**/package-lock.json'
-      - name: Install Packages
-        run: npm ci
-      - name: Build Packages
-        run: npm run build
-      - name: Build Library Documentation
-        run: npm run docs:build
-      - name: Setup Pages
-        uses: actions/configure-pages@v3
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - run: npm ci
+      - uses: actions/download-artifact@v8
         with:
-          # Upload entire repository
+          name: release-dist
+          path: packages/
+      - run: npm run docs:build
+      - uses: actions/configure-pages@v6
+      - uses: actions/upload-pages-artifact@v4
+        with:
           path: './packages/storybook-host/storybook-static/'
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5

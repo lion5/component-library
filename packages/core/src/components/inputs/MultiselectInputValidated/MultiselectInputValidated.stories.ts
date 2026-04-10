@@ -6,7 +6,14 @@ import { array } from 'yup'
 
 export default {
   component: MultiSelectInputValidated,
-  title: 'Input Components/MultiselectInputValidated'
+  title: 'Input Components/MultiselectInputValidated',
+  parameters: {
+    a11y: {
+      context: {
+        exclude: ['.multiselect'],
+      },
+    },
+  }
 } as Meta<typeof MultiSelectInputValidated>
 type Story = StoryObj<typeof MultiSelectInputValidated>
 

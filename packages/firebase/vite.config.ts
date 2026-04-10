@@ -6,5 +6,9 @@ import packageJson from './package.json'
 export default defineConfig(createLibraryConfig({
   dirname: fileURLToPath(new URL('.', import.meta.url)),
   alias: { '@': fileURLToPath(new URL('./src', import.meta.url)) },
-  externals: Object.keys(packageJson.dependencies),
+  externals: [
+    ...Object.keys(packageJson.dependencies),
+    'firebase/storage',
+    'firebase/app',
+  ],
 }))

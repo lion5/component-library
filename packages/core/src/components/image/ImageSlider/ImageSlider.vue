@@ -11,6 +11,7 @@
     <div
       class="images"
       ref="scrollBox"
+      tabindex="0"
     >
       <div
         v-for="image in images"

@@ -3,7 +3,7 @@ import { useBrightSkyWeather } from './useBrightSkyWeather'
 
 describe('useBrightSkyWeather.ts', () => {
   beforeEach(() => {
-    global.fetch = vi.fn()
+    globalThis.fetch = vi.fn() as typeof fetch
   })
   it('fetchCurrentWeather - calls api with correct url', async () => {
     const location = { latitude: 47.32, longitude: 12.34 }
@@ -12,13 +12,11 @@ describe('useBrightSkyWeather.ts', () => {
     const { fetchCurrentWeather } = useBrightSkyWeather()
     await fetchCurrentWeather(location)
 
-    expect(global.fetch).toHaveBeenCalledWith(expectedUrl)
+    expect(globalThis.fetch).toHaveBeenCalledWith(expectedUrl)
   })
   it('fetchCurrentWeather - set error if fetch fails', async () => {
     const location = { latitude: 47.32, longitude: 12.34 }
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    global.fetch.mockRejectedValue(new Error())
+    vi.mocked(globalThis.fetch).mockRejectedValue(new Error())
     const { fetchCurrentWeather, error } = useBrightSkyWeather()
     await fetchCurrentWeather(location)
 

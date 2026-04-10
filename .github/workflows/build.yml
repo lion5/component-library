@@ -13,96 +13,107 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      - name: Install Packages
-        run: npm ci
-      - name: Run Linter
-        run: npm run lint
+      - run: npm ci
+      - run: npm run lint
 
   type-check:
+    needs: [build]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      - name: Install Packages
-        run: npm ci
-      - name: Build
-        run: npm run build
-      - name: Type Checker
-        run: npm run type-check
+      - run: npm ci
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: packages/
+      - run: npm run type-check
 
   unit-tests:
-    needs: [ lint, type-check ]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      - name: Install Packages
-        run: npm ci
-      - name: Build Library
-        run: npm run build
-      - name: Run Unit Tests
-        run: npm run test:unit
-      - name: Run Package Tests
-        run: |
-          npm run package-check
-          npm run package-type-check
+      - run: npm ci
+      - run: npm run test:unit
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: packages/*/dist/
+          retention-days: 1
+
+  package-checks:
+    needs: [build]
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: ${{ env.NODE_VERSION }}
+          cache: 'npm'
+      - run: npm ci
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: packages/
+      - run: npm run package-check
+      - run: npm run package-type-check
 
   component-tests:
-    needs: [ lint, type-check ]
+    needs: [build]
     runs-on: ubuntu-latest
     container:
-      # Make sure to grab the latest version of the Playwright image
-      # https://playwright.dev/docs/docker#pull-the-image
-      image: mcr.microsoft.com/playwright:v1.53.0-noble
+      image: mcr.microsoft.com/playwright:v1.59.0-noble
     env:
       LANG: en_US.UTF-8
       LC_ALL: en_US.UTF-8
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      - name: Install Packages
-        run: npm ci
-      - name: Build Packages
-        run: npm run build
-      - name: Run storybook tests
-        run: npm run test:storybook
+      - run: npm ci
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: packages/
+      - run: npm run test:storybook
 
   build-storybook:
-    needs: [ unit-tests, component-tests ]
+    needs: [lint, type-check, unit-tests, package-checks, component-tests]
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
         with:
           node-version: ${{ env.NODE_VERSION }}
           cache: 'npm'
-      - name: Install Packages
-        run: npm ci
-      - name: Build Packages
-        run: npm run build
-      - name: Build Library Documentation
-        run: npm run docs:build
+      - run: npm ci
+      - uses: actions/download-artifact@v8
+        with:
+          name: dist
+          path: packages/
+      - run: npm run docs:build
