@@ -25,9 +25,10 @@
   ],
   "scripts": {
     "build": "vite build",
-    "test:unit": "cross-env TZ=UTC vitest --config ./vitest.unit.config.ts run",
-    "test:unit:ui": "cross-env TZ=UTC vitest --ui --config ./vitest.unit.config.ts",
-    "test:storybook": "cross-env TZ=UTC vitest --config ./vitest.config.ts run",
+    "test:unit": "cross-env TZ=UTC vitest --project unit run",
+    "test:unit:ui": "cross-env TZ=UTC vitest --ui --project unit",
+    "test:storybook": "cross-env TZ=UTC vitest --project storybook run",
+    "test:all": "cross-env TZ=UTC vitest run",
     "type-check": "vue-tsc --noEmit --skipLibCheck",
     "lint": "eslint . --fix",
     "format": "prettier --write src/",

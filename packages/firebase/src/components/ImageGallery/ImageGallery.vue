@@ -14,7 +14,10 @@
           @click="openModal"
           @change.stop=""
         />
-        <img :src="imageUrl" :alt="imageUrl" />
+        <img
+          :src="imageUrl"
+          :alt="imageUrl"
+        />
       </label>
     </div>
     <DismissibleModal
@@ -23,14 +26,20 @@
       class="gallery-modal"
       dismissButtonLabel="Schließen"
     >
-      <button v-if="!isOneImage" @click="previousImage">
+      <button
+        v-if="!isOneImage"
+        @click="previousImage"
+      >
         <i class="bi bi-chevron-left"></i>
       </button>
       <img
         :src="imageUrls[selectedImageIndex]"
         :alt="imageUrls[selectedImageIndex]"
       />
-      <button v-if="!isOneImage" @click="nextImage">
+      <button
+        v-if="!isOneImage"
+        @click="nextImage"
+      >
         <i class="bi bi-chevron-right"></i>
       </button>
     </DismissibleModal>
@@ -56,13 +65,11 @@ const openModal = () => (modalDisplayed.value = true)
 const previousImage = () => {
   if (selectedImageIndex.value == null) return
   selectedImageIndex.value =
-    (selectedImageIndex.value - 1 + imageUrls.value.length) %
-    imageUrls.value.length
+    (selectedImageIndex.value - 1 + imageUrls.value.length) % imageUrls.value.length
 }
 const nextImage = () => {
   if (selectedImageIndex.value == null) return
-  selectedImageIndex.value =
-    (selectedImageIndex.value + 1) % imageUrls.value.length
+  selectedImageIndex.value = (selectedImageIndex.value + 1) % imageUrls.value.length
 }
 
 onMounted(async () => {

@@ -1,10 +1,6 @@
 import { describe, expect, it, vi } from 'vitest'
 import { useFirebaseStorage } from '@/composables/useFirebaseStorage'
-import type {
-  FirebaseStorage,
-  StorageReference,
-  UploadResult
-} from 'firebase/storage'
+import type { FirebaseStorage, StorageReference, UploadResult } from 'firebase/storage'
 import { getStorage, ref, uploadBytes } from 'firebase/storage'
 
 vi.mock('firebase/storage')

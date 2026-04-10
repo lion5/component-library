@@ -7,13 +7,17 @@ import dts from 'vite-plugin-dts'
 import { fileURLToPath } from 'node:url'
 import packageJson from './package.json'
 import { copyFileSync } from 'node:fs'
+import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [
     vue(),
+    vueDevTools(),
     dts({
+      logLevel: 'info',
       rollupTypes: true,
+      tsconfigPath: resolve(__dirname, "tsconfig.json"),
       afterBuild: () => {
         // See https://github.com/qmhc/vite-plugin-dts/issues/267#issuecomment-1786996676
         // To pass publint (`npm x publint@latest`) and ensure the
@@ -22,7 +26,7 @@ export default defineConfig({
         // correct extension supplied in the package.json exports field.
         copyFileSync('dist/index.d.ts', 'dist/index.d.mts')
       }
-    })
+    }),
   ],
   build: {
     lib: {
@@ -30,12 +34,8 @@ export default defineConfig({
       formats: ['es', 'cjs'],
       fileName: 'index'
     },
-    rollupOptions: {
-      external: [
-        ...Object.keys(packageJson.dependencies),
-        'firebase/storage',
-        'firebase/app'
-      ],
+    rolldownOptions: {
+      external: Object.keys(packageJson.peerDependencies),
       output: {
         exports: 'named',
         globals: {
@@ -48,7 +48,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url))
+      '@core': fileURLToPath(new URL('./src', import.meta.url))
     }
-  }
+  },
 })

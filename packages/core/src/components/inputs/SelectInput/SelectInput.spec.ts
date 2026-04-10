@@ -1,4 +1,4 @@
-import { flushPromises, mount, shallowMount } from '@vue/test-utils'
+import { flushPromises, mount, shallowMount, type VueWrapper } from '@vue/test-utils'
 import Multiselect from 'vue-multiselect'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import SelectInput from '@core/components/inputs/SelectInput/SelectInput.vue'
@@ -6,7 +6,7 @@ import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
 import { ErrorBox } from '../../index'
 
 describe('SelectInput', () => {
-  let wrapper
+  let wrapper: VueWrapper
 
   beforeEach(() => {
     wrapper = shallowMount(SelectInput, {
@@ -27,6 +27,7 @@ describe('SelectInput', () => {
 
   afterEach(() => {
     vi.clearAllMocks()
+    wrapper.unmount()
   })
 
   describe(':props', () => {
@@ -71,7 +72,7 @@ describe('SelectInput', () => {
       await wrapper.setProps({ name: 'test', errors: [expectedError], invalid: true })
       expect(wrapper.findComponent(ErrorBox).vm.errors).toStrictEqual([expectedError])
     })
-    it(':modelValue - nothing is emitted when value and default value not set', async () => {
+    it(':modelValue - nothing is emitted when value and default value not set', () => {
       expect(wrapper.emitted('update:modelValue')).toBe(undefined)
     })
     it(':modelValue - option 3 is selected', async () => {
@@ -96,7 +97,7 @@ describe('SelectInput', () => {
         new SelectOption('3', 'Three')
       )
     })
-    it(':defaultOption - is emitted when default option value of "2" is set', async () => {
+    it(':defaultOption - is emitted when default option value of "2" is set', () => {
       const expectedValue = '2'
       wrapper = mount(SelectInput, {
         props: {
@@ -113,13 +114,14 @@ describe('SelectInput', () => {
           stubs: ['MultiselectInput']
         }
       })
-      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([expectedValue])
+      expect(wrapper.emitted('update:modelValue')![0]).toStrictEqual([expectedValue])
     })
   })
 
   describe('slots', () => {
-    it('renders noOptions slot content when options array is empty', () => {
+    it('renders noOptions slot content when options array is empty', async () => {
       wrapper = mount(SelectInput, {
+        attachTo: document.body,
         props: {
           name: 'test-select-input',
           label: 'Merchants',
@@ -131,13 +133,18 @@ describe('SelectInput', () => {
         }
       })
 
-      const noOptionsSlot = wrapper.find('li:not([style*="display: none"]) .multiselect__option')
-      expect(noOptionsSlot.exists()).toBe(true)
-      expect(noOptionsSlot.text()).toBe('Keine Merchants vorhanden')
+      await (wrapper.findComponent(Multiselect).vm as any).activate()
+
+      const noOptionsSlot = document.body.querySelector(
+        'li:not([style*="display: none"]) .multiselect__option'
+      )
+      expect(noOptionsSlot).not.toBeNull()
+      expect(noOptionsSlot!.textContent?.trim()).toBe('Keine Merchants vorhanden')
     })
 
     it('renders noResult slot content when options array contains random text', async () => {
       wrapper = mount(SelectInput, {
+        attachTo: document.body,
         props: {
           name: 'test-select-input',
           label: 'Merchants',
@@ -152,14 +159,21 @@ describe('SelectInput', () => {
           stubs: ['MultiselectInput']
         }
       })
+
+      await (wrapper.findComponent(Multiselect).vm as any).activate()
       const input = wrapper.find('input')
       await input.setValue('nonexistent')
-      const noResultSlot = wrapper.find('li:not([style*="display: none"]) .multiselect__option')
-      expect(noResultSlot.exists()).toBe(true)
-      expect(noResultSlot.text()).toBe('Keine Merchants gefunden')
+
+      const noResultSlot = document.body.querySelector(
+        'li:not([style*="display: none"]) .multiselect__option'
+      )
+      expect(noResultSlot).not.toBeNull()
+      expect(noResultSlot!.textContent?.trim()).toBe('Keine Merchants gefunden')
     })
+
     it('renders image in option when img property is provided', async () => {
       wrapper = mount(SelectInput, {
+        attachTo: document.body,
         props: {
           name: 'test-select-input',
           label: 'Merchants',
@@ -173,14 +187,17 @@ describe('SelectInput', () => {
           stubs: ['MultiselectInput']
         }
       })
-      const multiselect = wrapper.findComponent(Multiselect)
-      const option = multiselect.find('.option__container img')
-      expect(option.exists()).toBe(true)
-      expect(option.attributes('src')).toBe('https://via.placeholder.com/150')
+
+      await (wrapper.findComponent(Multiselect).vm as any).activate()
+
+      const option = document.body.querySelector('.option__container img')
+      expect(option).not.toBeNull()
+      expect(option!.getAttribute('src')).toBe('https://via.placeholder.com/150')
     })
 
     it('renders icon in option when icon property is provided', async () => {
       wrapper = mount(SelectInput, {
+        attachTo: document.body,
         props: {
           name: 'test-select-input',
           label: 'Merchants',
@@ -195,10 +212,11 @@ describe('SelectInput', () => {
         }
       })
 
-      const multiselect = wrapper.findComponent(Multiselect)
-      const option = multiselect.find('.option__container i')
-      expect(option.exists()).toBe(true)
-      expect(option.classes()).toContain('icon-class-1')
+      await (wrapper.findComponent(Multiselect).vm as any).activate()
+
+      const option = document.body.querySelector('.option__container i')
+      expect(option).not.toBeNull()
+      expect(option!.classList).toContain('icon-class-1')
     })
 
     it('selects a boolean option and checks modelValue', async () => {
@@ -220,10 +238,10 @@ describe('SelectInput', () => {
       })
 
       const multiselect = wrapper.findComponent(Multiselect)
-
       await multiselect.vm.$emit('select', new SelectOption(true, 'True Option'))
 
-      expect(wrapper.emitted('update:modelValue')[0]).toStrictEqual([true])
+      expect(wrapper.emitted('update:modelValue')![0]).toStrictEqual([true])
     })
   })
 })
+

@@ -30,6 +30,7 @@ describe('MultiselectInput', () => {
 
   afterEach(() => {
     vi.clearAllMocks()
+    wrapper.unmount()
   })
 
   describe(':props', () => {
@@ -101,8 +102,9 @@ describe('MultiselectInput', () => {
   })
 
   describe('slots', () => {
-    it('renders noOptions slot content when options array is empty', () => {
+    it('renders noOptions slot content when options array is empty', async () => {
       wrapper = mount(MultiselectInput, {
+        attachTo: document.body,
         props: {
           name: 'name',
           id: 'test-select-input',
@@ -115,13 +117,16 @@ describe('MultiselectInput', () => {
         }
       })
 
-      const noOptionsSlot = wrapper.find('li:not([style*="display: none"]) .multiselect__option')
-      expect(noOptionsSlot.exists()).toBe(true)
-      expect(noOptionsSlot.text()).toBe('Keine Merchants vorhanden')
+      await wrapper.findComponent(Multiselect).vm.activate()
+
+      const noOptionsSlot = document.body.querySelector('li:not([style*="display: none"]) .multiselect__option')
+      expect(noOptionsSlot).not.toBeNull()
+      expect(noOptionsSlot!.textContent?.trim()).toBe('Keine Merchants vorhanden')
     })
 
     it('renders noResult slot content when options array contains random text', async () => {
       wrapper = mount(MultiselectInput, {
+        attachTo: document.body,
         props: {
           name: 'name',
           id: 'test-select-input',
@@ -137,14 +142,16 @@ describe('MultiselectInput', () => {
           stubs: ['MultiselectInput']
         }
       })
+      await wrapper.findComponent(Multiselect).vm.activate()
       const input = wrapper.find('input')
       await input.setValue('nonexistent')
-      const noResultSlot = wrapper.find('li:not([style*="display: none"]) .multiselect__option')
-      expect(noResultSlot.exists()).toBe(true)
-      expect(noResultSlot.text()).toBe('Keine Merchants gefunden')
+      const noResultSlot = document.body.querySelector('li:not([style*="display: none"]) .multiselect__option')
+      expect(noResultSlot).not.toBeNull()
+      expect(noResultSlot!.textContent?.trim()).toBe('Keine Merchants gefunden')
     })
     it('renders image in option when img property is provided', async () => {
       wrapper = mount(MultiselectInput, {
+        attachTo: document.body,
         props: {
           name: 'name',
           id: 'test-select-input',
@@ -159,14 +166,15 @@ describe('MultiselectInput', () => {
           stubs: ['MultiselectInput']
         }
       })
-      const multiselect = wrapper.findComponent(Multiselect)
-      const option = multiselect.find('.option__container img')
-      expect(option.exists()).toBe(true)
-      expect(option.attributes('src')).toBe('https://via.placeholder.com/150')
+      await wrapper.findComponent(Multiselect).vm.activate()
+      const option = document.body.querySelector('.option__container img')
+      expect(option).not.toBeNull()
+      expect(option!.getAttribute('src')).toBe('https://via.placeholder.com/150')
     })
 
     it('renders icon in option when icon property is provided', async () => {
       wrapper = mount(MultiselectInput, {
+        attachTo: document.body,
         props: {
           name: 'name',
           id: 'test-select-input',
@@ -182,10 +190,10 @@ describe('MultiselectInput', () => {
         }
       })
 
-      const multiselect = wrapper.findComponent(Multiselect)
-      const option = multiselect.find('.option__container i')
-      expect(option.exists()).toBe(true)
-      expect(option.classes()).toContain('icon-class-1')
+      await wrapper.findComponent(Multiselect).vm.activate()
+      const option = document.body.querySelector('.option__container i')
+      expect(option).not.toBeNull()
+      expect(option!.classList).toContain('icon-class-1')
     })
   })
   describe('selection and removal', () => {

@@ -24,6 +24,8 @@
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-storybook": "^10.3.5",
     "eslint-plugin-vue": "^10.8.0",
-    "nx": "22.6.4"
+    "nx": "22.6.4",
+    "vite": "^8.0.8",
+    "vitest": "^4.1.4"
   }
 }

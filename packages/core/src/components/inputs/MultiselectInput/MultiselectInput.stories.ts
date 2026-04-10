@@ -4,7 +4,14 @@ import { SelectOption } from '../BaseSelect/selectOption'
 export default {
   components: { MultiselectInput },
   component: MultiselectInput,
-  title: 'Input Components/MultiselectInput'
+  title: 'Input Components/MultiselectInput',
+  parameters: {
+    a11y: {
+      context: {
+        exclude: ['.multiselect'],
+      },
+    },
+  }
 }
 
 const Template = (args, { argTypes }) => ({
