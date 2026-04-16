@@ -90,6 +90,7 @@ jobs:
     permissions:
       contents: read
       packages: write
+      id-token: write
     steps:
       - uses: actions/checkout@v6
         with:
@@ -115,8 +116,6 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - name: Publish To NPM Packages
         run: npx nx release publish --registry https://registry.npmjs.org
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
   publish-documentation:
     needs: [build]
