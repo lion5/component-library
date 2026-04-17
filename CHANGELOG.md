@@ -12,6 +12,20 @@
 - mgoetz-lion5 @mgoetz-lion5
 - Michael Götz @mgoetz-lion5
 
+## 0.30.3 (2026-04-16)
+
+### 🩹 Fixes
+
+- npm package publishing ([eb4eafc](https://github.com/lion5/component-library/commit/eb4eafc))
+- **MultiselectInput:** use Array.isArray guard in onMounted for null/undefined safety ([51e18c8](https://github.com/lion5/component-library/commit/51e18c8))
+- **MultiselectInput+SelectInput:** handle undefined and null values ([5fe4d82](https://github.com/lion5/component-library/commit/5fe4d82))
+- **MultiselectInput+SelectInput:** address review feedback on null/undefined handling ([ac70398](https://github.com/lion5/component-library/commit/ac70398))
+
+### ❤️ Thank You
+
+- mgoetz-lion5 @mgoetz-lion5
+- Michael Götz @mgoetz-lion5
+
 ## 0.30.2 (2026-04-10)
 
 ### 🚀 Features
