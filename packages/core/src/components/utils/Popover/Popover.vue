@@ -112,6 +112,8 @@ const onToggle = (event: ToggleEvent) => {
 
 .popover-trigger {
   padding: 0;
+  border: none;
+  background-color: transparent;
   border-radius: var(--border-radius-100);
   anchor-name: --popover;
   width: fit-content;
