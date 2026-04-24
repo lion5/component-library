@@ -2,6 +2,7 @@
   <div class="popover-wrapper">
     <button
       :popovertarget="popoverId"
+      type="button"
       aria-label="Tooltip Trigger"
       class="popover-trigger"
       @mouseenter="onMouseEnter"
