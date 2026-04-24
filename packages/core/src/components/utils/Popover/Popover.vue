@@ -7,6 +7,7 @@
       class="popover-trigger"
       @mouseenter="onMouseEnter"
       @mouseleave="onMouseLeave"
+      @click="onClick"
     >
       <slot name="trigger" />
     </button>
@@ -91,18 +92,26 @@ onMounted(() => {
 
 const onMouseEnter = () => {
   if (clicked.value) return
-  console.log('enter')
   popover.value?.$el.showPopover()
 }
 
 const onMouseLeave = () => {
   if (clicked.value) return
-  console.log('leave')
   popover.value?.$el.hidePopover()
 }
+
+const onClick = () => {
+  // close the popover that hover opened, trigger opens it again
+  if (!clicked.value) {
+    popover.value?.$el.hidePopover()
+  }
+  clicked.value = !clicked.value
+}
+
 const onToggle = (event: ToggleEvent) => {
-  console.log('toggle', event)
-  clicked.value = event.newState === 'open'
+  if (event.newState === 'closed') {
+    clicked.value = false
+  }
 }
 </script>
 
