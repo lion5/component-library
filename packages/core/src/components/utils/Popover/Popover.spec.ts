@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import Popover from './Popover.vue'
@@ -33,8 +33,16 @@ describe('Popover.vue', () => {
       }
     })
 
+    afterEach(() => {
+      wrapper.unmount()
+      vi.clearAllMocks()
+    })
+
     // Mock popover API on the rendered popover element
-    const popoverEl = wrapper.find('[popover]').element as HTMLElement
+    const popoverEl = wrapper.find('[popover]').element as HTMLElement & {
+      showPopover: () => void
+      hidePopover: () => void
+    }
     popoverEl.showPopover = mockShowPopover
     popoverEl.hidePopover = mockHidePopover
   })
