@@ -1,3 +1,18 @@
+## 0.30.5 (2026-04-30)
+
+### 🩹 Fixes
+
+- **popover:** set border and background ([49258ad](https://github.com/lion5/component-library/commit/49258ad))
+- **popover:** set button type to prevent submit default action ([9df77bc](https://github.com/lion5/component-library/commit/9df77bc))
+- **popover:** add onClick event to toggle popover visibility ([fc8b198](https://github.com/lion5/component-library/commit/fc8b198))
+- **popover:** add tests for popover ([7411f7e](https://github.com/lion5/component-library/commit/7411f7e))
+- **popover:** add afterEach ([089e556](https://github.com/lion5/component-library/commit/089e556))
+- **popover:** remove inputId and reorder attributes and props ([1c6b59f](https://github.com/lion5/component-library/commit/1c6b59f))
+
+### ❤️ Thank You
+
+- Niloofar
+
 ## 0.30.4 (2026-04-16)
 
 ### 🩹 Fixes
