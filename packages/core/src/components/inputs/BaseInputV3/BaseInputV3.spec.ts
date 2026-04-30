@@ -35,6 +35,13 @@ describe('BaseInput.vue', () => {
       await wrapper.setProps({ type: expectedType })
       expect(wrapper.find('input').attributes('type')).toBe(expectedType)
     })
+    it(':name - id from name prop overrides id passed via attrs', () => {
+      const wrapper = mount(BaseInputV3, {
+        props: { name: 'my-field', label: 'label' },
+        attrs: { id: 'overridden-id' }
+      })
+      expect(wrapper.find('input').attributes('id')).toBe('my-field')
+    })
     it(':error - is applied to ErrorMessage', async () => {
       const expectedError = new Error('Expected Error')
       await wrapper.setProps({ name: 'test', errors: [expectedError], invalid: true })

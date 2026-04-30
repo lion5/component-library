@@ -17,13 +17,13 @@
         <slot name="prefix" />
         <div class="input-label">
           <input
+            v-bind="$attrs"
             :id="name"
             v-model.trim="value"
             :name="name"
             :type="type"
             placeholder="hidden"
             :required="required"
-            v-bind="$attrs"
           />
           <label
             v-if="labelType === 'floating'"
