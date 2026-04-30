@@ -1,6 +1,6 @@
 {
   "name": "@lion5/component-library-gridstack",
-  "version": "0.30.1",
+  "version": "0.30.4",
   "type": "module",
   "license": "MIT",
   "contributors": [
@@ -9,7 +9,7 @@
   ],
   "publishConfig": {
     "access": "public",
-    "registry": "https://registry.npmjs.org"
+    "provenance": true
   },
   "repository": {
     "type": "git",
@@ -54,7 +54,7 @@
     "./dist/index.css"
   ],
   "dependencies": {
-    "@lion5/component-library": "0.30.1",
+    "@lion5/component-library": "0.30.4",
     "@turf/boolean-point-in-polygon": ">=7.3.4",
     "gridstack": ">=12.6.0",
     "lodash-es": ">=4.18.1",

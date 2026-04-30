@@ -161,7 +161,7 @@ defineSlots<{
 /**
  * The currently selected value as a `string`, initially `undefined`.
  */
-const modelValue = defineModel<(string | number | boolean | null)[]>({
+const modelValue = defineModel<(string | number | boolean | null)[] | null | undefined>({
   default: []
 })
 const selectedOptions = ref<SelectOption<Ref<LabelType>>[]>([])
@@ -180,7 +180,7 @@ const errorObjects = computed(() => {
 
 onMounted(() => {
   const { options, defaultOption } = props
-  if (modelValue.value && modelValue.value.length) {
+  if (Array.isArray(modelValue.value) && modelValue.value.length) {
     const optionsMap = options.reduce(
       (
         accumulator: { [key: string]: SelectOption<LabelType> },
@@ -191,22 +191,23 @@ onMounted(() => {
       },
       {}
     )
-    selectedOptions.value = modelValue.value.map((key) => {
-      if (key == null) return
-      return optionsMap[String(key)]
-    }) as SelectOption<LabelType>[]
+    selectedOptions.value = modelValue.value.flatMap((key) =>
+      key == null ? [] : [optionsMap[String(key)]].filter(Boolean)
+    ) as SelectOption<LabelType>[]
   } else {
     selectedOptions.value = defaultOption || []
   }
-  if (selectedOptions.value !== undefined && selectedOptions.value.length > 0) {
-    modelValue.value = selectedOptions.value.map((option) => option.key)
+
+  // Ensure default value is emitted or set if exists
+  if (selectedOptions.value.length > 0) {
+    modelValue.value = selectedOptions.value.map((o) => o.key) as (string | number | boolean | null)[]
   }
 })
 
 watch(
   () => modelValue.value,
   (newValue) => {
-    if (newValue != null && props.options.length > 0) {
+    if (Array.isArray(newValue) && newValue.length > 0) {
       const optionsMap = props.options.reduce(
         (
           accumulator: { [key: string]: SelectOption<LabelType> },
@@ -217,12 +218,11 @@ watch(
         },
         {}
       )
-      selectedOptions.value = newValue
-        .map((key) => {
-          if (key === null) return ''
-          return optionsMap[String(key)]
-        })
-        .filter((option): option is SelectOption<LabelType> => option !== undefined)
+      selectedOptions.value = newValue.flatMap((key) =>
+        key == null ? [] : [optionsMap[String(key)]].filter(Boolean)
+      ) as SelectOption<LabelType>[]
+    } else {
+      selectedOptions.value = []
     }
   }
 )
