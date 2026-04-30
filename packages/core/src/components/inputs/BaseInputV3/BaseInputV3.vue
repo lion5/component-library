@@ -8,7 +8,7 @@
   >
     <label
       v-if="labelType === 'static'"
-      :for="inputId"
+      :for="name"
       >{{ label }}
     </label>
     <div class="input-container">
@@ -18,7 +18,7 @@
         <div class="input-label">
           <input
             v-bind="$attrs"
-            :id="inputId"
+            :id="name"
             v-model.trim="value"
             :name="name"
             :type="type"
@@ -27,7 +27,7 @@
           />
           <label
             v-if="labelType === 'floating'"
-            :for="inputId"
+            :for="name"
             >{{ label }}
           </label>
         </div>
@@ -69,7 +69,7 @@
 import IconError from '@core/components/icons/IconError.vue'
 import ErrorBox from '@core/components/boxes/ErrorBox/ErrorBox.vue'
 import BaseTooltip from '@core/components/utils/BaseTooltip/BaseTooltip.vue'
-import { computed, useAttrs } from 'vue'
+import { computed } from 'vue'
 import { InputLabelType } from '@core/components/inputs/BaseInputV3/inputLabelType'
 
 defineOptions({
@@ -121,9 +121,6 @@ const props = withDefaults(
  * The value to display
  */
 const value = defineModel<T>()
-
-const attrs = useAttrs()
-const inputId = computed(() => (attrs.id as string | undefined) ?? props.name)
 
 const errorObjects = computed(() => {
   if (!props.invalid) {
