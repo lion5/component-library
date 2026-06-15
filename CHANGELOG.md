@@ -1,3 +1,13 @@
+## 0.30.6 (2026-06-15)
+
+### 🩹 Fixes
+
+- **CentInputValidated:** fix incorrect deletion behaviour in Firefox ([080de51](https://github.com/lion5/component-library/commit/080de51))
+
+### ❤️ Thank You
+
+- YannickLang
+
 ## 0.30.5 (2026-04-30)
 
 ### 🩹 Fixes
