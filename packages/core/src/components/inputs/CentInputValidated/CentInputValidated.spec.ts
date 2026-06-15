@@ -1,4 +1,4 @@
-import { beforeEach, describe, expect, it } from 'vitest'
+import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { flushPromises, mount } from '@vue/test-utils'
 import type { defineComponent } from 'vue'
 import CentInput from './CentInputValidated.vue'
@@ -44,6 +44,54 @@ describe('CentInput.vue', () => {
   })
 
   describe('@events', () => {
+    it('@beforeinput - calls preventDefault for non-digit characters', async () => {
+      const input = wrapper.find('input')
+      const event = new InputEvent('beforeinput', {
+        data: 'a',
+        bubbles: true,
+        cancelable: true
+      })
+      const preventDefaultSpy = vi.spyOn(event, 'preventDefault')
+
+      input.element.dispatchEvent(event)
+      await flushPromises()
+
+      expect(preventDefaultSpy).toHaveBeenCalledOnce()
+    })
+    it('@beforeinput - calls preventDefault for leading zero when value is empty', async () => {
+      const localWrapper = mount(CentInput, {
+        props: {
+          name: 'name',
+          cents: null as unknown as number
+        }
+      })
+      const input = localWrapper.find('input')
+      const event = new InputEvent('beforeinput', {
+        data: '0',
+        bubbles: true,
+        cancelable: true
+      })
+      const preventDefaultSpy = vi.spyOn(event, 'preventDefault')
+
+      input.element.dispatchEvent(event)
+      await flushPromises()
+
+      expect(preventDefaultSpy).toHaveBeenCalledOnce()
+    })
+    it('@beforeinput - does not call preventDefault for delete inputType', async () => {
+      const input = wrapper.find('input')
+      const event = new InputEvent('beforeinput', {
+        inputType: 'deleteContentBackward',
+        bubbles: true,
+        cancelable: true
+      })
+      const preventDefaultSpy = vi.spyOn(event, 'preventDefault')
+
+      input.element.dispatchEvent(event)
+      await flushPromises()
+
+      expect(preventDefaultSpy).not.toHaveBeenCalled()
+    })
     it('@update:cents - does not emit if user input 0 at first position', async () => {
       const input = wrapper.find('input')
       await input.trigger('input', { data: '0' })
@@ -79,6 +127,16 @@ describe('CentInput.vue', () => {
       expect(wrapper.emitted('update:cents').at(2)).toStrictEqual([123])
       expect(wrapper.find('input').element.value).toBe('01,23')
     })
+    it('@update:cents - sanitizes mixed pasted text and emits only digits', async () => {
+      const input = wrapper.find('input')
+      await input.trigger('input', { data: 'a1b2' })
+      await flushPromises()
+
+      expect(wrapper.emitted()).toHaveProperty('update:cents')
+      expect(wrapper.emitted('update:cents')).toHaveLength(1)
+      expect(wrapper.emitted('update:cents').at(0)).toStrictEqual([12])
+      expect(wrapper.find('input').element.value).toBe('00,12')
+    })
     it('@update:cents - emit 120 if user input 0 at last position of 00,12 €', async () => {
       const input = wrapper.find('input')
       await input.trigger('input', { data: '1' })
@@ -103,6 +161,23 @@ describe('CentInput.vue', () => {
       expect(wrapper.emitted('update:cents')).toHaveLength(1)
       expect(wrapper.emitted('update:cents').at(0)).toStrictEqual([12])
       expect(wrapper.find('input').element.value).toBe('00,12')
+    })
+    it('@update:cents - calls preventDefault when user deletes the last position', async () => {
+      await wrapper.setProps({ cents: 123 })
+      await flushPromises()
+
+      const input = wrapper.find('input')
+      const event = new KeyboardEvent('keydown', {
+        key: 'Backspace',
+        bubbles: true,
+        cancelable: true
+      })
+      const preventDefaultSpy = vi.spyOn(event, 'preventDefault')
+
+      input.element.dispatchEvent(event)
+      await flushPromises()
+
+      expect(preventDefaultSpy).toHaveBeenCalledOnce()
     })
     it('@update:cents - emit 0 if last position deleted', async () => {
       await wrapper.setProps({ cents: 1 })

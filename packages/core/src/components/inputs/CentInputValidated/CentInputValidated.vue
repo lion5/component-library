@@ -9,6 +9,7 @@
     :required="required"
     type="tel"
     @blur="handleBlur"
+    @beforeinput="onBeforeInput"
     @input="onRawInput"
     @keydown.delete="onDelete"
   >
@@ -61,16 +62,59 @@ const displayedCurrencyValue = ref<string>('00,00')
 const onRawInput = (event: Event) => {
   onInput(event as InputEvent)
 }
+
+/**
+ * Guards the input before the browser writes the character into the field.
+ * Prevents invalid input early via `event.preventDefault()` so that the DOM value
+ * never needs to be manually reverted afterwards (which is unreliable in Firefox).
+ *
+ * Allows: digit characters (0–9), delete-type operations, and IME composition events.
+ * Blocks: any non-digit character and a standalone zero when the field is still empty
+ *         (which would otherwise produce a leading zero in the cent string).
+ *
+ * @param event The `beforeinput` event fired before the browser updates the input value.
+ */
+const onBeforeInput = (event: InputEvent) => {
+  if (event.isComposing || (event.inputType && event.inputType.startsWith('delete'))) {
+    return
+  }
+
+  const rawInput = event.data ?? ''
+  const isDigitInput = /^\d+$/.test(rawInput)
+  if (!isDigitInput) {
+    event.preventDefault()
+    return
+  }
+
+  const isAttemptingLeadingZero = internalValue.value.length === 0 && /^0+$/.test(rawInput)
+  if (isAttemptingLeadingZero) {
+    event.preventDefault()
+  }
+}
+
+/**
+ * Processes the accepted input after the browser has written it to the field.
+ * Acts as a secondary sanitization layer for cases such as pasted text that may
+ * slip past `onBeforeInput`.
+ * Strips all non-digit characters and removes leading zeros when the internal
+ * value is still empty, then delegates to `onAdd`.
+ *
+ * @param event The `input` event fired after the browser updates the input value.
+ */
 const onInput = (event: InputEvent) => {
-  if (event.data == null || event.data.match(/[0-9]/) == null) {
-    ;(event.target as HTMLInputElement).value = displayedCurrencyValue.value
+  const rawInput = event.data ?? ''
+  const digitsOnly = rawInput.replace(/\D/g, '')
+  if (digitsOnly.length === 0) {
     return
   }
-  if (internalValue.value.length === 0 && event.data === '0') {
-    ;(event.target as HTMLInputElement).value = displayedCurrencyValue.value
+
+  const sanitizedInput =
+    internalValue.value.length === 0 ? digitsOnly.replace(/^0+/, '') : digitsOnly
+  if (sanitizedInput.length === 0) {
     return
   }
-  onAdd(event.data)
+
+  onAdd(sanitizedInput)
 }
 
 /**
@@ -91,10 +135,11 @@ const onAdd = (inputValue: string) => {
  * Sets the displayed currency value to the formatted internal value.
  * Sets the value of the field as a number.
  */
-const onDelete = () => {
+const onDelete = (event: KeyboardEvent) => {
   if (internalValue.value.length === 0) {
     return
   }
+  event.preventDefault()
   internalValue.value = internalValue.value.slice(0, -1)
   value.value = parseInt(internalValue.value || '0')
 }
