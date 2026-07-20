@@ -158,11 +158,13 @@ defineSlots<{
   [key: string]: unknown
 }>()
 
+type ModelValue = (string | number | boolean | null)[] | null | undefined
+
 /**
- * The currently selected value as a `string`, initially `undefined`.
+ * The currently selected value, initially an empty array.
  */
-const modelValue = defineModel<(string | number | boolean | null)[] | null | undefined>({
-  default: []
+const modelValue = defineModel<ModelValue>({
+  default: () => []
 })
 const selectedOptions = ref<SelectOption<Ref<LabelType>>[]>([])
 

@@ -67,7 +67,7 @@ export function useGridStack(
         disableDrag: true
       },
       props.customGridStackClass
-    )
+    ) ?? undefined
   }
 
   const load = async (widgets: WidgetConfiguration[]) => {
