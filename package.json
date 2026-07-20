@@ -21,6 +21,7 @@
     "@arethetypeswrong/cli": "^0.18.5",
     "@chromatic-com/storybook": "^5.2.1",
     "@eslint/compat": "^2.1.0",
+    "@microsoft/api-extractor": "^7.58.11",
     "@nx/js": "22.6.4",
     "@storybook/addon-a11y": "^10.5.3",
     "@storybook/addon-designs": "^11.1.4",
