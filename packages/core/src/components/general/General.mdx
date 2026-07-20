@@ -1,0 +1,17 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="General" />
+
+# General
+
+An intentional escape hatch for cross-cutting components that don't fit the other functional categories
+(`Layout`, `Navigation`, `Buttons`, `Input`, `Display`, `Feedback`, `Overlays`) — usually generic wrappers
+or small utilities used across many different contexts.
+
+- `EntityWrapper`, `EndButtonWrapper` — generic layout/behavior wrappers.
+- `EmailLink` — a small helper for rendering a `mailto:` link.
+- `WakeLockToggle` — a utility toggle unrelated to any specific UI domain.
+
+Before adding a component here, check whether it actually fits one of the more specific categories first —
+`General` should stay small.
+

@@ -6,7 +6,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 export default {
   components: { ActionButton },
   component: ActionButton,
-  title: 'Navigation Components/ActionButton',
+  title: 'Buttons/ActionButton',
   render: (args: unknown) => ({
     components: { ActionButton, IconArrowRepeat },
     setup() {

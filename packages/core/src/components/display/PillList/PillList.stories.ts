@@ -4,7 +4,7 @@ import { Pill } from './pill'
 
 export default {
   component: PillList,
-  title: 'Display Components/PillList'
+  title: 'Display/PillList'
 } as Meta<typeof PillList>
 type Story = StoryObj<typeof PillList>
 

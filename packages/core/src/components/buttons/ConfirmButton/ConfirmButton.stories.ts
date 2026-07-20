@@ -4,7 +4,7 @@ import ConfirmButton from './ConfirmButton.vue'
 
 export default {
   component: ConfirmButton,
-  title: 'Navigation Components/ConfirmButton'
+  title: 'Buttons/ConfirmButton'
 } as Meta<typeof ConfirmButton>
 type Story = StoryObj<typeof ConfirmButton>
 

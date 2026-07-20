@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/vue3-vite'
 import ContentGroup from './ContentGroup.vue'
-import BaseCard from '../../cards/BaseCard/BaseCard.vue'
+import BaseCard from '../../display/cards/BaseCard/BaseCard.vue'
 
 /**
  * ContentGroup can be configured via different css custom props
@@ -10,7 +10,7 @@ import BaseCard from '../../cards/BaseCard/BaseCard.vue'
  */
 export default {
   component: ContentGroup,
-  title: 'Display Components/ContentGroup'
+  title: 'Display/ContentGroup'
 } as Meta<typeof ContentGroup>
 type Story = StoryObj<typeof ContentGroup>
 

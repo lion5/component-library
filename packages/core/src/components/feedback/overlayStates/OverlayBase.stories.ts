@@ -1,0 +1,16 @@
+import { Meta, StoryObj } from '@storybook/vue3-vite'
+import OverlayBase from './OverlayBase.vue'
+
+export default {
+  component: OverlayBase,
+  title: 'Feedback/Overlay States/OverlayBase'
+} as Meta<typeof OverlayBase>
+type Story = StoryObj<typeof OverlayBase>
+
+export const Default: Story = {
+  render: () => ({
+    components: { OverlayBase },
+    template: `
+      <OverlayBase>This content is overlayed</OverlayBase>`
+  })
+}

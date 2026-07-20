@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import BasePillContent from '@core/components/display/BasePill/BasePillContent.vue'
-import BaseTooltip from '@core/components/utils/BaseTooltip/BaseTooltip.vue'
+import BaseTooltip from '@core/components/overlays/BaseTooltip/BaseTooltip.vue'
 
 withDefaults(
   defineProps<{

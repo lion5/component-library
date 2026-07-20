@@ -4,7 +4,7 @@ import CopyButton from './CopyButton.vue'
 
 const meta: Meta<typeof CopyButton> = {
   component: CopyButton,
-  title: 'Navigation Components/CopyButton',
+  title: 'Buttons/CopyButton',
   render: (args) => ({
     components: { CopyButton },
     setup() {

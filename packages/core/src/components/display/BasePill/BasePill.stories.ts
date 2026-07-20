@@ -3,7 +3,7 @@ import BasePill from './BasePill.vue'
 
 export default {
   component: BasePill,
-  title: 'Display Components/BasePill',
+  title: 'Display/BasePill',
   parameters: {
     design: {
       type: 'figma',

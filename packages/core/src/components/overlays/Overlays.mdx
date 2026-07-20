@@ -1,0 +1,16 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Overlays" />
+
+# Overlays
+
+Overlay components float above the page content and are positioned relative to a trigger element. Their
+defining trait is *positioning/layering*, not the content they show — they're neither purely "data"
+(`Display`) nor "the result of an action" (`Feedback`).
+
+- `Popover` — a floating panel anchored to a trigger element.
+- `BaseTooltip` — a small floating hint shown on hover/focus.
+
+If a component's main job is to communicate a result or status, prefer `Feedback`. If it's mainly about
+showing persistent data, prefer `Display`.
+

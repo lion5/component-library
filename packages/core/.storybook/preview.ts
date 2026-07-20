@@ -3,6 +3,22 @@ import './main.scss'
 
 const preview: Preview = {
   parameters: {
+    options: {
+      storySort: {
+        order: [
+          'Layout',
+          'Navigation',
+          'Buttons',
+          'Input',
+          'Display',
+          'Feedback',
+          'Overlays',
+          'Icons',
+          'General',
+          'Transitions'
+        ]
+      }
+    },
     controls: {
       matchers: {
         color: /(background|color)$/i,
