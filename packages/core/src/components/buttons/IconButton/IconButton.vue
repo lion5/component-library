@@ -36,9 +36,11 @@ const props = withDefaults(
     /**
      * Defines button color variant
      *
-     * @values primary, neutral, info, warning, danger, success
+     * @values primary, neutral, info, warning, danger, success, blank
+     *
+     * blank: no special coloring, just the default colors
      */
-    variant?: 'primary' | 'neutral' | 'info' | 'warning' | 'danger' | 'success'
+    variant?: 'primary' | 'neutral' | 'info' | 'warning' | 'danger' | 'success' | 'blank'
   }>(),
   {
     disabled: false,
@@ -143,6 +145,11 @@ const disabled = computed(() => props.disabled || props.busy)
     --_icon-button-bg-hover-color: var(--color-success-200);
   }
 
+  &.blank {
+    --_icon-button-color: var(--icon-button-color, var(--color-font-1));
+    --_icon-button-bg-color: var(--icon-button-bg-color, transparent);
+  }
+
   // Filled variant overrides
   &.filled {
     --_icon-button-color: var(--color-white);
@@ -186,13 +193,13 @@ const disabled = computed(() => props.disabled || props.busy)
   border-radius: var(--_icon-button-radius);
   font-size: var(--_icon-button-font-size);
   line-height: 0.5;
-  transition: transform 0.04s ease-in-out;
   padding: var(--_icon-button-padding);
   cursor: pointer;
   color: var(--_icon-button-color);
   background-color: var(--_icon-button-bg-color);
   text-decoration: none;
   text-align: center;
+  transition: transform 0.04s ease-in-out, color 0.2s, background-color 0.2s;
 
   &:hover:not(:disabled) {
     background-color: var(--_icon-button-bg-hover-color);

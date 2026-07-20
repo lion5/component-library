@@ -279,3 +279,80 @@ export const PrimaryLink: Story = {
     href: '#'
   }
 }
+
+/**
+ * An example of a custom styled IconButton using CSS variables.
+ * These styles will override the default styles of the IconButton component.
+ * The variant is set to 'blank' to remove default styling.
+ *
+ * Note: In a real application, it's better to use a CSS class or a style scoped block
+ * instead of inline styles for better maintainability.
+ *
+ * - `--icon-button-color`: The color of the icon.
+ * - `--icon-button-bg-color`: The background color of the button.
+ * - `--icon-button-bg-hover-color`: The background color of the button on hover.
+ * - `--icon-button-font-size`: The size of the icon.
+ * - `--icon-button-radius`: The border radius of the button.
+ * - `--icon-button-padding`: The padding inside the button.
+ */
+export const CustomColors: Story = {
+  render: (args: unknown) => ({
+    components: { IconButton, IconInfoCircle },
+    setup() {
+      return { args }
+    },
+    template: `
+      <IconButton
+        v-bind="args"
+        style="
+          --icon-button-color: #6b21a8;
+          --icon-button-bg-color: transparent;
+          --icon-button-bg-hover-color: #cc2626;
+          --icon-button-font-size: 5rem;
+          --icon-button-radius: 100px;
+          --icon-button-padding: 3rem;
+        "
+      >
+        <IconInfoCircle />
+      </IconButton>
+    `
+  }),
+  args: {
+    ...Primary.args,
+    variant: 'blank',
+  }
+}
+
+/**
+ * Custom colors with filled style
+ *
+ *
+ */
+export const CustomColorsFilled: Story = {
+  render: (args: unknown) => ({
+    components: { IconButton, IconInfoCircle },
+    setup() {
+      return { args }
+    },
+    template: `
+      <IconButton
+        v-bind="args"
+        style="
+          --icon-button-color: #6b21a8;
+          --icon-button-bg-color: #7e22ce;
+          --icon-button-bg-hover-color: #cc2626;
+          --icon-button-font-size: 5rem;
+          --icon-button-radius: 1px;
+          --icon-button-padding: 0.5rem;
+        "
+      >
+        <IconInfoCircle />
+        <span>Text</span>
+      </IconButton>
+    `
+  }),
+  args: {
+    ...PrimaryFilled.args,
+    variant: 'blank',
+  }
+}
