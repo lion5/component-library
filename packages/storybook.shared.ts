@@ -11,9 +11,9 @@ export function getAbsolutePath(value: string): string {
   return dirname(fileURLToPath(resolvedUrl))
 }
 
-/** Filters out the vite-plugin-dts plugin which conflicts with storybook builds */
+/** Filters out the unplugin-dts plugin which conflicts with storybook builds */
 export function filterDtsPlugin(plugins: unknown[] | undefined): unknown[] {
-  return (plugins ?? []).filter((plugin) => (plugin as { name?: string })?.name !== 'vite:dts')
+  return (plugins ?? []).filter((plugin) => (plugin as { name?: string })?.name !== 'unplugin-dts')
 }
 
 export const sharedAddons: string[] = [
