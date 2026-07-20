@@ -1,6 +1,6 @@
 import { resolve } from 'node:path'
 import vue from '@vitejs/plugin-vue'
-import dts from 'vite-plugin-dts'
+import dts from 'unplugin-dts/vite'
 import type { PluginOption, UserConfig } from 'vite'
 
 export interface LibraryConfigOptions {
@@ -21,7 +21,7 @@ export function createLibraryConfig({
       vue(),
       ...plugins,
       dts({
-        rollupTypes: true,
+        bundleTypes: true,
         tsconfigPath: resolve(dirname, 'tsconfig.json'),
       }),
     ],
