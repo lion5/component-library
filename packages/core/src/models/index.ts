@@ -7,7 +7,7 @@ import { ImageForm } from '@core/models/image/imageForm'
 import { ImageResponse } from '@core/models/image/imageResponse'
 import { ImageSizes } from '@core/models/image/imageSizes'
 import { NamedLocation } from '@core/models/namedLocation'
-import { SelectOption } from '@core/components/inputs/BaseSelect/selectOption'
+import { SelectOption } from '@core/components/input/BaseSelect/selectOption'
 import { type ColorVariant } from '@core/models/colorVariants'
 import { type NominatimResult } from '@core/models/nominatimResult'
 

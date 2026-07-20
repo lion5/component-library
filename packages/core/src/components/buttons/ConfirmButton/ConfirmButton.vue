@@ -21,7 +21,7 @@
 <script lang="ts" setup>
 import { ColorVariant } from '@core/models/colorVariants'
 import BaseButton from '@core/components/buttons/BaseButton/BaseButton.vue'
-import ApprovalModal from '@core/components/modals/ApprovalModal/ApprovalModal.vue'
+import ApprovalModal from '@core/components/feedback/modals/ApprovalModal/ApprovalModal.vue'
 
 withDefaults(
   defineProps<{

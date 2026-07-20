@@ -3,7 +3,7 @@ import { beforeEach, describe, expect, it } from 'vitest'
 import { shallowMount } from '@vue/test-utils'
 import { defineComponent } from 'vue'
 import BasePillContent from '@core/components/display/BasePill/BasePillContent.vue'
-import BaseTooltip from '@core/components/utils/BaseTooltip/BaseTooltip.vue'
+import BaseTooltip from '@core/components/overlays/BaseTooltip/BaseTooltip.vue'
 
 describe('BasePill.vue', () => {
   let wrapper: ReturnType<typeof defineComponent>

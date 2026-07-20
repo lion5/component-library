@@ -21,7 +21,7 @@
 import { ref } from 'vue'
 import IconButton from '@core/components/buttons/IconButton/IconButton.vue'
 import IconInfoCircle from '@core/components/icons/IconInfoCircle.vue'
-import DismissibleModal from '@core/components/modals/DismissibleModal/DismissibleModal.vue'
+import DismissibleModal from '@core/components/feedback/modals/DismissibleModal/DismissibleModal.vue'
 
 /**
  Additional information that are relevant for the first use but bloat the UI for advance users can be hidden behind a information button.
