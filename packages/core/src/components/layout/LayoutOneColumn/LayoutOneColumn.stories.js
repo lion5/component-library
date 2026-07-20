@@ -2,7 +2,7 @@ import LayoutOneColumn from '@core/components/layout/LayoutOneColumn/LayoutOneCo
 
 export default {
   component: LayoutOneColumn,
-  title: 'Layout Components/LayoutOneColumn',
+  title: 'Layout/LayoutOneColumn',
   parameters: {
     cssprops: {
       space: {

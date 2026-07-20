@@ -6,7 +6,7 @@ import { action } from 'storybook/actions'
 
 export default {
   component: NumberInput,
-  title: 'Input Components/NumberInput',
+  title: 'Input/NumberInput',
   render: (args: unknown) => ({
     components: { NumberInput },
     setup() {

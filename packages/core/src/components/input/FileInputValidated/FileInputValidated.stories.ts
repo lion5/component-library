@@ -6,7 +6,7 @@ import { array } from 'yup'
 
 export default {
   component: FileInputValidated,
-  title: 'Input Components/FileInputValidated',
+  title: 'Input/FileInputValidated',
   decorators: [formWrapper],
   render: (args) => ({
     components: { FileInputValidated },

@@ -5,7 +5,7 @@ import IconButton from '../../buttons/IconButton/IconButton.vue'
 
 export default {
   component: BaseInputV3,
-  title: 'Input Components/BaseInput'
+  title: 'Input/BaseInput'
 } as Meta<typeof BaseInputV3>
 type Story = StoryObj<typeof BaseInputV3>
 

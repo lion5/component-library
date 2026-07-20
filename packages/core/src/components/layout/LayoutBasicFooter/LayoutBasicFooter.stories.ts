@@ -4,7 +4,7 @@ import { CopyrightInfo } from './copyrightInfo'
 
 export default {
   component: LayoutBasicFooter,
-  title: 'Layout Components/LayoutBasicFooter',
+  title: 'Layout/LayoutBasicFooter',
   render: (args) => ({
     components: { LayoutBasicFooter },
     setup() {

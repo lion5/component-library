@@ -3,7 +3,7 @@ import OverlayBusy from './OverlayBusy.vue'
 
 export default {
   component: OverlayBusy,
-  title: 'Display Components/Overlays/OverlayBusy'
+  title: 'Feedback/Overlay States/OverlayBusy'
 } as Meta<typeof OverlayBusy>
 type Story = StoryObj<typeof OverlayBusy>
 

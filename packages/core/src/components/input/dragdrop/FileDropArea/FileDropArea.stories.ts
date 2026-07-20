@@ -5,7 +5,7 @@ import ImageDropArea from '../ImageDropArea/ImageDropArea.vue'
 
 export default {
   component: FileDropArea,
-  title: 'Input Components/FileDropArea',
+  title: 'Input/Drag & Drop/FileDropArea',
   render: (args) => ({
     components: { FileDropArea },
     setup() {

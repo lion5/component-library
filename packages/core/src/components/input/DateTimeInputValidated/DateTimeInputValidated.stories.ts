@@ -6,7 +6,7 @@ import { date } from 'yup'
 
 export default {
   component: DateTimeInput,
-  title: 'Input Components/DateTimeInputValidated'
+  title: 'Input/DateTimeInputValidated'
 } as Meta<typeof DateTimeInput>
 type Story = StoryObj<typeof DateTimeInput>
 

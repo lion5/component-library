@@ -1,0 +1,21 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Feedback" />
+
+# Feedback
+
+Feedback components communicate the result or status of an action or system event — success, error,
+loading, warning, or a confirmation the user must acknowledge. They are typically transient and are
+triggered by something happening, rather than being part of the page's static content.
+
+- **Boxes** — inline message boxes (`ErrorBox`, `InfoBox`, `SuccessBox`, `MessageBox`) used to communicate
+  status directly within the page flow.
+- **Modals** — dialogs that interrupt the user to show important information or request confirmation
+  (`ApprovalModal`, `DismissibleModal`, `LocationPermissionModal`).
+- **Overlay States** — internal building blocks used by other components to show a busy/error state on top
+  of existing content.
+- `LoadingAnimation` and `StateIconSwitch` for representing in-progress/async states.
+
+Ask yourself: *"Did this appear because of something that just happened?"* If yes, it belongs in
+`Feedback`. If it's just showing data regardless of user action, it belongs in `Display`.
+

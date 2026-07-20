@@ -2,7 +2,7 @@ import LoadingAnimation from '@core/components/feedback/LoadingAnimation/Loading
 
 export default {
   component: LoadingAnimation,
-  title: 'Display Components/LoadingAnimation',
+  title: 'Feedback/LoadingAnimation',
   argTypes: {
     type: {
       options: ['grow', 'hueRotate']

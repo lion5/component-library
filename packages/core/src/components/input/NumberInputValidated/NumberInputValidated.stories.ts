@@ -7,7 +7,7 @@ import { number } from 'yup'
 
 export default {
   component: NumberInputValidated,
-  title: 'Input Components/NumberInputValidated',
+  title: 'Input/NumberInputValidated',
   decorators: [formWrapper],
   render: (args: unknown) => ({
     components: { NumberInputValidated },

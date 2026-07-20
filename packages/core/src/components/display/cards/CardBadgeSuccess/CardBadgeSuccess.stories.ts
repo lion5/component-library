@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: CardBadgeSuccess,
-  title: 'Display Components/Cards/CardBadgeSuccess'
+  title: 'Display/Cards/CardBadgeSuccess'
 } as Meta<typeof CardBadgeSuccess>
 type Story = StoryObj<typeof CardBadgeSuccess>
 

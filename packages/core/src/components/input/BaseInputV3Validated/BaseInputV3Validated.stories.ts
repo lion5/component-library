@@ -6,7 +6,7 @@ import { number, string } from 'yup'
 
 export default {
   component: BaseInputV3Validated,
-  title: 'Input Components/BaseInputValidated'
+  title: 'Input/BaseInputValidated'
 } as Meta<typeof BaseInputV3Validated>
 type Story = StoryObj<typeof BaseInputV3Validated>
 

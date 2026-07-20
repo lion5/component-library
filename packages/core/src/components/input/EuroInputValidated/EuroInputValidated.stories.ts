@@ -11,7 +11,7 @@ import { number } from 'yup'
 
 export default {
   component: EuroInput,
-  title: 'Input Components/EuroInputValidated'
+  title: 'Input/EuroInputValidated'
 } as Meta<typeof EuroInput>
 type Story = StoryObj<typeof EuroInput>
 

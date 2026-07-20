@@ -4,7 +4,7 @@ import UploadImageFAB from './UploadImageFABValidated.vue'
 
 export default {
   component: UploadImageFAB,
-  title: 'Input Components/UploadImageFAB'
+  title: 'Input/Image/UploadImageFAB'
 } as Meta<typeof UploadImageFAB>
 type Story = StoryObj<typeof UploadImageFAB>
 

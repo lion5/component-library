@@ -12,7 +12,7 @@ import { MinimalImage } from '../models/minimalImage'
  */
 export default {
   component: BaseImage,
-  title: 'Display Components/Image/BaseImage'
+  title: 'Display/Image/BaseImage'
 } as Meta<typeof BaseImage>
 type Story = StoryObj<typeof BaseImage>
 

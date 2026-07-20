@@ -3,7 +3,7 @@ import TextareaInput from './TextareaInput.vue'
 
 export default {
   component: TextareaInput,
-  title: 'Input Components/TextareaInput'
+  title: 'Input/TextareaInput'
 } as Meta<typeof TextareaInput>
 type Story = StoryObj<typeof TextareaInput>
 

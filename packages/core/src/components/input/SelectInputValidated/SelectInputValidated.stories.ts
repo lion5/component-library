@@ -10,7 +10,7 @@ import { number } from 'yup'
  */
 export default {
   component: SelectInputValidated,
-  title: 'Input Components/SelectInputValidated',
+  title: 'Input/SelectInputValidated',
   parameters: {
     a11y: {
       context: {

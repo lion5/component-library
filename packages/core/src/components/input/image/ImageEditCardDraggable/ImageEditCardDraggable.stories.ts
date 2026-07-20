@@ -10,7 +10,7 @@ import { ImageConstraints } from '@core/models/image/imageConstraints'
  */
 export default {
   component: ImageEditCardDraggable,
-  title: 'Input Components/ImageEditCardDraggable'
+  title: 'Input/Image/ImageEditCardDraggable'
 } as Meta<typeof ImageEditCardDraggable>
 type Story = StoryObj<typeof ImageEditCardDraggable>
 

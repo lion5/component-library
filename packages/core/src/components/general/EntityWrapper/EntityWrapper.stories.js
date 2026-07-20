@@ -2,7 +2,7 @@ import EntityWrapper from '@core/components/general/EntityWrapper/EntityWrapper.
 
 export default {
   component: EntityWrapper,
-  title: 'Utility Components/EntityWrapper'
+  title: 'General/EntityWrapper'
 }
 
 const Template = (args) => ({

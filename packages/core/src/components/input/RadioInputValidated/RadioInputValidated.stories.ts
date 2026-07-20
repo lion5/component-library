@@ -5,7 +5,7 @@ import RadioInputValidated from './RadioInputValidated.vue'
 
 export default {
   component: RadioInputValidated,
-  title: 'Input Components/RadioInputValidated'
+  title: 'Input/RadioInputValidated'
 } as Meta<typeof RadioInputValidated>
 type Story = StoryObj<typeof RadioInputValidated>
 

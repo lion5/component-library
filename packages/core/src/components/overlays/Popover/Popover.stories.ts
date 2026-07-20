@@ -5,7 +5,7 @@ import Popover from './Popover.vue'
 
 export default {
   component: Popover,
-  title: 'Display Components/Popover',
+  title: 'Overlays/Popover',
   render: (args) => ({
     components: { Popover, IconTrash, IconInfoCircle },
     setup() {

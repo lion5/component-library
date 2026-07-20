@@ -5,7 +5,7 @@ import { action } from 'storybook/actions'
 
 export default {
   component: CodeInput,
-  title: 'Input Components/CodeInputValidated'
+  title: 'Input/CodeInputValidated'
 } as Meta<typeof CodeInput>
 type Story = StoryObj<typeof CodeInput>
 

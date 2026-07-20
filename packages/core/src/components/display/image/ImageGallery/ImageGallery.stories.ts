@@ -9,7 +9,7 @@ import { ImageResponse } from '@core/models/image/imageResponse'
  */
 export default {
   component: ImageGallery,
-  title: 'Display Components/Image/ImageGallery'
+  title: 'Display/Image/ImageGallery'
 } as Meta<typeof ImageGallery>
 type Story = StoryObj<typeof ImageGallery>
 

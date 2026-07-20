@@ -5,7 +5,7 @@ import { string } from 'yup'
 
 export default {
   component: IbanInput,
-  title: 'Input Components/IbanInputValidated'
+  title: 'Input/IbanInputValidated'
 } as Meta<typeof IbanInput>
 type Story = StoryObj<typeof IbanInput>
 

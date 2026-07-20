@@ -6,7 +6,7 @@ import { ImageSizes } from '@core/models/image/imageSizes'
 
 export default {
   component: ImageEditModal,
-  title: 'Input Components/ImageEditModal'
+  title: 'Input/Image/ImageEditModal'
 } as Meta<typeof ImageEditModal>
 type Story = StoryObj<typeof ImageEditModal>
 

@@ -12,7 +12,7 @@ import { ref } from 'vue'
 
 export default {
   component: CentInput,
-  title: 'Input Components/CentInputValidated'
+  title: 'Input/CentInputValidated'
 } as Meta<typeof CentInput>
 type Story = StoryObj<typeof CentInput>
 

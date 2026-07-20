@@ -1,0 +1,19 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Display" />
+
+# Display
+
+Display components render structural, persistent data as part of the normal content of a page. They are
+not tied to a specific user action and would still make sense on a static, non-interactive mockup.
+
+- **Cards** — containers that group related content about a single entity (`EntityCard`, `ItemCard`,
+  `DashboardItemCard`, ...).
+- **Image** — components for showing images, galleries, and carousels.
+- Other display primitives such as `BasePill`, `BaseBadge`, `ContentGroup`, `InformationHeadline` and
+  `InvoicePreview`.
+
+Ask yourself: *"Would this still be shown if nothing had just happened?"* If yes, it belongs in `Display`.
+If a component only appears in response to an action or system event (success/error/loading), it belongs
+in `Feedback` instead.
+

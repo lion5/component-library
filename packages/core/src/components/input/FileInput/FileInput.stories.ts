@@ -5,7 +5,7 @@ import { action } from 'storybook/actions'
 
 export default {
   component: FileInput,
-  title: 'Input Components/FileInput',
+  title: 'Input/FileInput',
   render: (args) => ({
     components: { FileInput },
     setup() {

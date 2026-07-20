@@ -9,7 +9,7 @@ import { object } from 'yup'
 
 export default {
   component: ImageInputValidated,
-  title: 'Input Components/ImageInputValidated',
+  title: 'Input/Image/ImageInputValidated',
   decorators: [formWrapper],
   render: (args) => ({
     components: { ImageInputValidated },

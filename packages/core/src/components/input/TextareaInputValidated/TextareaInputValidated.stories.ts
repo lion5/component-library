@@ -5,7 +5,7 @@ import { number, string } from 'yup'
 
 export default {
   component: TextareaInputValidated,
-  title: 'Input Components/TextareaInputValidated'
+  title: 'Input/TextareaInputValidated'
 } as Meta<typeof TextareaInputValidated>
 type Story = StoryObj<typeof TextareaInputValidated>
 

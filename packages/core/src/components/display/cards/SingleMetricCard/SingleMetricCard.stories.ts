@@ -3,7 +3,7 @@ import SingleMetricCard from './SingleMetricCard.vue'
 
 export default {
   component: SingleMetricCard,
-  title: 'Display Components/Cards/SingleMetricCard'
+  title: 'Display/Cards/SingleMetricCard'
 } as Meta<typeof SingleMetricCard>
 type Story = StoryObj<typeof SingleMetricCard>
 

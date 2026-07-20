@@ -2,7 +2,7 @@ import PageLayoutOneColumn from '@core/components/layout/PageLayoutOneColumn/Pag
 
 export default {
   component: PageLayoutOneColumn,
-  title: 'Layout Components/PageLayoutOneColumn'
+  title: 'Layout/PageLayoutOneColumn'
 }
 
 const Template = (args) => ({

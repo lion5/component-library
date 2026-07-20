@@ -2,7 +2,8 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 import LoginForm from './LoginForm.vue'
 
 export default {
-  component: LoginForm
+  component: LoginForm,
+  title: 'Input/LoginForm'
 } as Meta<typeof LoginForm>
 type Story = StoryObj<typeof LoginForm>
 

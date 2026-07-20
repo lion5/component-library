@@ -8,7 +8,7 @@ import { ImageResponse } from '@core/models/image/imageResponse'
  */
 export default {
   component: ImageCard,
-  title: 'Display Components/Image/ImageCard'
+  title: 'Display/Image/ImageCard'
 } as Meta<typeof ImageCard>
 type Story = StoryObj<typeof ImageCard>
 

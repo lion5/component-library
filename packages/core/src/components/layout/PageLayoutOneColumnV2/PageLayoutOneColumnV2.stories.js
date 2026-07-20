@@ -2,7 +2,7 @@ import BasePageLayout from '@core/components/layout/PageLayoutOneColumnV2/PageLa
 
 export default {
   component: BasePageLayout,
-  title: 'Layout Components/PageLayoutOneColumnV2'
+  title: 'Layout/PageLayoutOneColumnV2'
 }
 
 const Template = (args) => ({

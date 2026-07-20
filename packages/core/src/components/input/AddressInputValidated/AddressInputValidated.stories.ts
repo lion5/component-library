@@ -12,7 +12,7 @@ import { shallowRef } from 'vue'
  **/
 export default {
   component: AddressInputValidated,
-  title: 'Input Components/AddressInputValidated',
+  title: 'Input/AddressInputValidated',
   decorators: [formWrapper],
   render: (args: unknown) => ({
     components: { AddressInputValidated },

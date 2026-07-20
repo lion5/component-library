@@ -6,7 +6,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 export default {
   components: { ItemCard },
   component: CardDismissButton,
-  title: 'Navigation Components/CardDismissButton',
+  title: 'Buttons/CardDismissButton',
   render: (args: unknown) => ({
     components: { CardDismissButton, ItemCard },
     setup() {

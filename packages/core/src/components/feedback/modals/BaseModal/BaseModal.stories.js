@@ -10,7 +10,7 @@ import ActionButton from '@core/components/buttons/ActionButton/ActionButton.vue
 export default {
   components: { IconWallet },
   component: BaseModal,
-  title: 'Navigation Components/Modals/BaseModal'
+  title: 'Feedback/Modals/BaseModal'
 }
 
 const Template = (args, { argTypes }) => ({

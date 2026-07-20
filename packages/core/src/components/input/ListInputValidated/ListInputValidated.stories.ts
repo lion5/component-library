@@ -5,7 +5,7 @@ import { SearchResult } from '../SearchInputValidated/searchResult'
 
 export default {
   component: ListInputValidated,
-  title: 'Input Components/ListInputValidated'
+  title: 'Input/ListInputValidated'
 } as Meta<typeof ListInputValidated>
 type Story = StoryObj<typeof ListInputValidated>
 

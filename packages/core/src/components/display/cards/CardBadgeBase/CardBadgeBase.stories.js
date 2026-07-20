@@ -4,7 +4,7 @@ import ItemCard from '@core/components/display/cards/ItemCard/ItemCard.vue'
 export default {
   components: { ItemCard },
   component: CardBadgeBase,
-  title: 'Display Components/Cards/CardBadgeBase'
+  title: 'Display/Cards/CardBadgeBase'
 }
 
 const Template = (args, { argTypes }) => ({

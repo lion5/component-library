@@ -3,7 +3,7 @@ import Multiselect from 'vue-multiselect'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import SelectInput from '@core/components/input/SelectInput/SelectInput.vue'
 import { SelectOption } from '@core/components/input/BaseSelect/selectOption'
-import { ErrorBox } from '../../index'
+import { ErrorBox } from '@core/components/feedback/boxes'
 
 describe('SelectInput', () => {
   let wrapper: VueWrapper

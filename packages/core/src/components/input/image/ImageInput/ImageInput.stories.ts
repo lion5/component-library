@@ -7,7 +7,7 @@ import { action } from 'storybook/actions'
 
 export default {
   component: ImageInput,
-  title: 'Input Components/ImageInput',
+  title: 'Input/Image/ImageInput',
   render: (args) => ({
     components: { ImageInput },
     setup() {

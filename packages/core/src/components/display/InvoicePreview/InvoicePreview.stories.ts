@@ -4,7 +4,7 @@ import { Invoice } from './invoice'
 
 export default {
   component: InvoicePreview,
-  title: 'Display Components/InvoicePreview',
+  title: 'Display/InvoicePreview',
   render: (args) => ({
     components: { InvoicePreview },
     setup() {

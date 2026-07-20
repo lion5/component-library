@@ -1,11 +1,11 @@
 import { Meta, StoryObj } from '@storybook/vue3-vite'
 import LocationPermissionModal from './LocationPermissionModal.vue'
 import { ref } from 'vue'
-import { BaseButton } from '../../index'
+import { BaseButton } from '@core/components/buttons'
 
 export default {
   component: LocationPermissionModal,
-  title: 'Navigation Components/Modals/LocationPermissionModal'
+  title: 'Feedback/Modals/LocationPermissionModal'
 } as Meta<typeof LocationPermissionModal>
 type Story = StoryObj<typeof LocationPermissionModal>
 

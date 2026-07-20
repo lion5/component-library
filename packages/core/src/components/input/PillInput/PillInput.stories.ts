@@ -3,7 +3,7 @@ import PillInput from './PillInput.vue'
 
 export default {
   component: PillInput,
-  title: 'Input Components/PillInput'
+  title: 'Input/PillInput'
 } as Meta<typeof PillInput>
 type Story = StoryObj<typeof PillInput>
 

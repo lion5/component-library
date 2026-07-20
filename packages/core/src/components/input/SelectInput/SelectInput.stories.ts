@@ -8,7 +8,7 @@ import { SelectOption } from '../BaseSelect/selectOption'
  */
 export default {
   component: SelectInput,
-  title: 'Input Components/SelectInput',
+  title: 'Input/SelectInput',
   parameters: {
     a11y: {
       context: {

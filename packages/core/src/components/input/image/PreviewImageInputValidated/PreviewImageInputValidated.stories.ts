@@ -5,7 +5,7 @@ import { Form } from 'vee-validate'
 
 export default {
   component: PreviewImageInput,
-  title: 'Input Components/PreviewImageInputValidated'
+  title: 'Input/Image/PreviewImageInputValidated'
 } as Meta<typeof PreviewImageInput>
 type Story = StoryObj<typeof PreviewImageInput>
 

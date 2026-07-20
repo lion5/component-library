@@ -3,7 +3,7 @@ import DraggableItem from '@core/components/input/dragdrop/DraggableItem/Draggab
 
 export default {
   component: DraggableItem,
-  title: 'Input Components/DraggableItem'
+  title: 'Input/Drag & Drop/DraggableItem'
 }
 
 const Template = (args, { argTypes }) => ({

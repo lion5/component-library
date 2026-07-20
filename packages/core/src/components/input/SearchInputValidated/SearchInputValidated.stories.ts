@@ -11,7 +11,7 @@ import { ref } from 'vue'
 
 export default {
   component: SearchResult,
-  title: 'Input Components/SearchInputValidated',
+  title: 'Input/SearchInputValidated',
   render: (args) => ({
     components: { SearchResult },
     setup() {

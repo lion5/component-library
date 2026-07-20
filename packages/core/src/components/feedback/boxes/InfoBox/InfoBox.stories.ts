@@ -8,7 +8,7 @@ import InfoBox from './InfoBox.vue'
  */
 const meta: Meta<typeof InfoBox> = {
   component: InfoBox,
-  title: 'Display Components/Boxes/InfoBox'
+  title: 'Feedback/Boxes/InfoBox'
 }
 export default meta
 type Story = StoryObj<typeof InfoBox>

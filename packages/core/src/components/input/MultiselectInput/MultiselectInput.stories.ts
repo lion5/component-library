@@ -4,7 +4,7 @@ import { SelectOption } from '../BaseSelect/selectOption'
 export default {
   components: { MultiselectInput },
   component: MultiselectInput,
-  title: 'Input Components/MultiselectInput',
+  title: 'Input/MultiselectInput',
   parameters: {
     a11y: {
       context: {

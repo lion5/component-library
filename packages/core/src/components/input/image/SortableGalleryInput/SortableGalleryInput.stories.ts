@@ -12,7 +12,7 @@ import { GalleryForm } from '../../../../models/image/galleryForm'
  */
 export default {
   component: SortableGalleryInput,
-  title: 'Input Components/SortableGalleryInput'
+  title: 'Input/Image/SortableGalleryInput'
 } as Meta<typeof SortableGalleryInput>
 type Story = StoryObj<typeof SortableGalleryInput>
 

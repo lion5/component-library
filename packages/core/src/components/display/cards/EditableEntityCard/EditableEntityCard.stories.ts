@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: EditableEntityCard,
-  title: 'Display Components/Cards/EditableEntityCard',
+  title: 'Display/Cards/EditableEntityCard',
   render: (args: unknown) => ({
     components: { EditableEntityCard },
     setup() {

@@ -5,7 +5,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: ImageSlider,
-  title: 'Display Components/Image/ImageSlider'
+  title: 'Display/Image/ImageSlider'
 } as Meta<typeof ImageSlider>
 type Story = StoryObj<typeof ImageSlider>
 

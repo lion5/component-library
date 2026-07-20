@@ -11,7 +11,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
  */
 export default {
   component: ErrorBox,
-  title: 'Display Components/Boxes/ErrorBox'
+  title: 'Feedback/Boxes/ErrorBox'
 } as Meta<typeof ErrorBox>
 type Story = StoryObj<typeof ErrorBox>
 

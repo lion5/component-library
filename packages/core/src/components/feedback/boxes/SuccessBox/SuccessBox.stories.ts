@@ -8,7 +8,7 @@ import SuccessBox from './SuccessBox.vue'
  */
 const meta: Meta<typeof SuccessBox> = {
   component: SuccessBox,
-  title: 'Display Components/Boxes/SuccessBox'
+  title: 'Feedback/Boxes/SuccessBox'
 }
 export default meta
 type Story = StoryObj<typeof SuccessBox>

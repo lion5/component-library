@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: EntityCard,
-  title: 'Display Components/Cards/EntityCard',
+  title: 'Display/Cards/EntityCard',
   render: (args) => ({
     components: { EntityCard },
     setup() {

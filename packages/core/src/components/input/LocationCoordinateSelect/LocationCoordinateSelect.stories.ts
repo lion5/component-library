@@ -3,7 +3,7 @@ import LocationCoordinateSelect from './LocationCoordinateSelect.vue'
 
 export default {
   component: LocationCoordinateSelect,
-  title: 'Input Components/LocationCoordinateSelect'
+  title: 'Input/LocationCoordinateSelect'
 } as Meta<typeof LocationCoordinateSelect>
 type Story = StoryObj<typeof LocationCoordinateSelect>
 

@@ -11,7 +11,7 @@ import { action } from 'storybook/actions'
 export default {
   components: { IconTrash, ApprovalModal, IconWallet },
   component: ApprovalModal,
-  title: 'Navigation Components/Modals/ApprovalModal'
+  title: 'Feedback/Modals/ApprovalModal'
 }
 
 const Template = (args, { argTypes }) => ({

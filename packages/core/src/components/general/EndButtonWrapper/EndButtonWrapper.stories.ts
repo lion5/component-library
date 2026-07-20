@@ -7,7 +7,7 @@ import EndButtonWrapper from './EndButtonWrapper.vue'
  */
 export default {
   component: EndButtonWrapper,
-  title: 'Navigation Components/EndButtonWrapper',
+  title: 'General/EndButtonWrapper',
   render: (args: unknown) => ({
     components: { EndButtonWrapper, IconArrowRepeat },
     setup() {

@@ -9,7 +9,7 @@ import { ImageConstraints } from '../../../../models/image/imageConstraints'
  */
 export default {
   component: ImageEditCard,
-  title: 'Input Components/ImageEditCard'
+  title: 'Input/Image/ImageEditCard'
 } as Meta<typeof ImageEditCard>
 type Story = StoryObj<typeof ImageEditCard>
 

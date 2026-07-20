@@ -12,7 +12,7 @@ import { ImageConstraints } from '../../../../models/image/imageConstraints'
  */
 export default {
   component: ImageGalleryInput,
-  title: 'Input Components/GalleryInput'
+  title: 'Input/Image/GalleryInput'
 } as Meta<typeof ImageGalleryInput>
 type Story = StoryObj<typeof ImageGalleryInput>
 

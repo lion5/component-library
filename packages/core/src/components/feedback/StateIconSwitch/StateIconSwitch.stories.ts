@@ -3,7 +3,7 @@ import StateIconSwitch from './StateIconSwitch.vue'
 
 export default {
   component: StateIconSwitch,
-  title: 'Display Components/StateIconSwitch',
+  title: 'Feedback/StateIconSwitch',
   render: (args) => ({
     components: { StateIconSwitch },
     setup() {

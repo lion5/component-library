@@ -5,7 +5,8 @@ import { Form } from 'vee-validate'
 import { number } from 'yup'
 
 export default {
-  component: BaseSelect
+  component: BaseSelect,
+  title: 'Input/BaseSelect',
 } as Meta<typeof BaseSelect>
 type Story = StoryObj<typeof BaseSelect>
 

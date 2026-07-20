@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: BaseInputWrapper,
-  title: 'Input Components/BaseInputWrapper'
+  title: 'Input/BaseInputWrapper'
 } as Meta<typeof BaseInputWrapper>
 type Story = StoryObj<typeof BaseInputWrapper>
 

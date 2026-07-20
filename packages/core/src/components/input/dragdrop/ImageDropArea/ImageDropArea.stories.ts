@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: ImageDropArea,
-  title: 'Input Components/ImageDropArea',
+  title: 'Input/Drag & Drop/ImageDropArea',
   render: (args: unknown) => ({
     components: { ImageDropArea },
     setup() {

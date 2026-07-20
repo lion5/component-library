@@ -11,7 +11,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 export default {
   components: { IconWallet },
   component: DismissibleModal,
-  title: 'Navigation Components/Modals/DismissibleModal',
+  title: 'Feedback/Modals/DismissibleModal',
   render: (args: unknown) => ({
     components: { DismissibleModal, ActionButton, IconWallet },
     setup() {

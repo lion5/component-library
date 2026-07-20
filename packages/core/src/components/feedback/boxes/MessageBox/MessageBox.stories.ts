@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: MessageBox,
-  title: 'Display Components/Boxes/MessageBox'
+  title: 'Feedback/Boxes/MessageBox'
 } as Meta<typeof MessageBox>
 type Story = StoryObj<typeof MessageBox>
 

@@ -4,7 +4,7 @@ import { ref } from 'vue'
 
 export default {
   component: ScaleTransition,
-  title: 'Transition Components/ScaleTransition'
+  title: 'Transitions/ScaleTransition'
 } as Meta<typeof ScaleTransition>
 type Story = StoryObj<typeof ScaleTransition>
 

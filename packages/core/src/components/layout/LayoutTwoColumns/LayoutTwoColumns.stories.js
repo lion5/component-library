@@ -2,7 +2,7 @@ import LayoutTwoColumns from '@core/components/layout/LayoutTwoColumns/LayoutTwo
 
 export default {
   component: LayoutTwoColumns,
-  title: 'Layout Components/LayoutTwoColumns',
+  title: 'Layout/LayoutTwoColumns',
   parameters: {
     cssprops: {
       space: {

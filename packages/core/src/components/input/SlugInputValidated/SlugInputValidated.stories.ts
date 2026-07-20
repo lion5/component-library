@@ -9,7 +9,7 @@ import { string } from 'yup'
 
 export default {
   component: SlugInput,
-  title: 'Input Components/SlugInputValidated'
+  title: 'Input/SlugInputValidated'
 } as Meta<typeof SlugInput>
 type Story = StoryObj<typeof SlugInput>
 

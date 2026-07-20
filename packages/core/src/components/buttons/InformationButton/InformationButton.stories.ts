@@ -4,7 +4,7 @@ import InformationButton from './InformationButton.vue'
 
 export default {
   component: InformationButton,
-  title: 'Navigation Components/InformationButton',
+  title: 'Buttons/InformationButton',
   render: (args: unknown) => ({
     components: { InformationButton },
     setup() {

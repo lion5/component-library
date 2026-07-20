@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: IconButton,
-  title: 'Navigation Components/IconButton',
+  title: 'Buttons/IconButton',
   render: (args: unknown) => ({
     components: { IconButton, IconInfoCircle },
     setup() {

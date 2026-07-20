@@ -6,7 +6,7 @@ import ImageAddCard from './ImageAddCard.vue'
  */
 export default {
   component: ImageAddCard,
-  title: 'Input Components/ImageAddCard'
+  title: 'Input/Image/ImageAddCard'
 } as Meta<typeof ImageAddCard>
 type Story = StoryObj<typeof ImageAddCard>
 

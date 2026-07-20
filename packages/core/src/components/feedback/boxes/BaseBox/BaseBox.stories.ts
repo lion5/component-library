@@ -3,7 +3,7 @@ import BaseBox from './BaseBox.vue'
 
 const meta = {
   component: BaseBox,
-  title: 'Display Components/Boxes/BaseBox'
+  title: 'Feedback/Boxes/BaseBox'
 } satisfies Meta<typeof BaseBox>
 export default meta
 type Story = StoryObj<typeof meta>

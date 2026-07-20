@@ -4,7 +4,7 @@ import { DashboardItem as DashboardItemClass } from './dashboardItem'
 
 export default {
   component: DashboardItem,
-  title: 'Display Components/Cards/DashboardItemCard'
+  title: 'Display/Cards/DashboardItemCard'
 } as Meta<typeof DashboardItem>
 type Story = StoryObj<typeof DashboardItem>
 

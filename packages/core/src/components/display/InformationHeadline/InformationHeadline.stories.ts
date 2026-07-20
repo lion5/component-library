@@ -4,7 +4,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 
 export default {
   component: InformationHeadline,
-  title: 'Display Components/InformationHeadline',
+  title: 'Display/InformationHeadline',
   render: (args: unknown) => ({
     components: { InformationHeadline },
     setup() {

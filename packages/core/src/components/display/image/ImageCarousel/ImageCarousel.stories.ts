@@ -10,7 +10,7 @@ import { ref } from 'vue'
  */
 export default {
   component: ImageCarousel,
-  title: 'Display Components/Image/ImageCarousel'
+  title: 'Display/Image/ImageCarousel'
 } as Meta<typeof ImageCarousel>
 type Story = StoryObj<typeof ImageCarousel>
 

@@ -6,7 +6,7 @@ import { Meta, StoryObj } from '@storybook/vue3-vite'
 export default {
   subcomponents: { IconQRCode },
   component: BaseButton,
-  title: 'Navigation Components/BaseButton',
+  title: 'Buttons/BaseButton',
   parameters: {
     design: {
       type: 'figma',

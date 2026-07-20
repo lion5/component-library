@@ -6,7 +6,7 @@ import { array } from 'yup'
 
 export default {
   component: MultiSelectInputValidated,
-  title: 'Input Components/MultiselectInputValidated',
+  title: 'Input/MultiselectInputValidated',
   parameters: {
     a11y: {
       context: {

@@ -3,7 +3,7 @@ import BaseCard from './BaseCard.vue'
 
 export default {
   component: BaseCard,
-  title: 'Display Components/Cards/BaseCard'
+  title: 'Display/Cards/BaseCard'
 } as Meta<typeof BaseCard>
 type Story = StoryObj<typeof BaseCard>
 
