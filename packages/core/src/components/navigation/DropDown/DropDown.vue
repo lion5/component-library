@@ -1,16 +1,24 @@
 <template>
-  <div class="drop-down">
+  <div
+    class="drop-down"
+    :class="{ 'is-open': isOpen }"
+    @focusout="onFocusOut"
+  >
     <IconButton
       ref="triggerButton"
       class="trigger"
-      @click="onClick"
+      @click="onTriggerClick"
+      @focus="open"
       :label="dropdownButtonLabel"
     >
       <slot name="dropDownIcon">
         <IconThreeDotsMenu />
       </slot>
     </IconButton>
-    <div class="dropdown-content">
+    <div
+      class="dropdown-content"
+      @click.capture="close"
+    >
       <slot name="dropDownContent" />
     </div>
   </div>
@@ -34,9 +42,29 @@ withDefaults(
 )
 
 const triggerButton = ref()
-const onClick = () => {
+const isOpen = ref(false)
+
+const open = () => {
+  isOpen.value = true
+}
+
+const close = () => {
+  isOpen.value = false
+}
+
+const onTriggerClick = () => {
   // Fix to be able to set focus even if the icon is clicked. Otherwise, the dropdown does not appear
   triggerButton.value.$el.focus()
+}
+
+// Closes the dropdown once focus leaves it entirely, e.g. via click outside.
+const onFocusOut = (event: FocusEvent) => {
+  const root = event.currentTarget as HTMLElement
+  const relatedTarget = event.relatedTarget as Node | null
+
+  if (!relatedTarget || !root.contains(relatedTarget)) {
+    close()
+  }
 }
 </script>
 
@@ -74,10 +102,7 @@ const onClick = () => {
     }
   }
 
-  .trigger:focus ~ .dropdown-content,
-  &:focus-within .dropdown-content,
-  .dropdown-content:focus-within,
-  .dropdown-content:active {
+  &.is-open .dropdown-content {
     display: flex;
   }
 }
