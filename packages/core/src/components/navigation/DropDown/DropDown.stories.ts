@@ -33,3 +33,25 @@ export const Text: Story = {
   }),
   args: {}
 }
+
+export const ClosesRegardlessOfItemAction: Story = {
+  render: (args: unknown) => ({
+    components: { DropDown, DropDownItem },
+    setup() {
+      return { args }
+    },
+    template: `
+      <div style='display: grid; place-content: start end; height: 100px'>
+        <DropDown>
+          <template #dropDownContent>
+            <!-- Clicking this item performs a "no-op" action (e.g. a filter
+                 already set to this value) - the menu must still close. -->
+            <DropDownItem label='No-op item' @click="() => {}" />
+            <DropDownItem label='Another item' @click="() => {}" />
+          </template>
+        </DropDown>
+      </div>
+    `
+  }),
+  args: {}
+}
